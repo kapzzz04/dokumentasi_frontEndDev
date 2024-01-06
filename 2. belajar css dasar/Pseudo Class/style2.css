@@ -1,0 +1,38 @@
+body	{
+	background-color: lightblue; 
+}
+
+h1	{
+	font-family: arial;
+	font-weight: bold;
+
+}
+
+thead tr:last-child td,th {
+	font-family: arial;
+}
+
+ table tbody tr:nth-child(2n) td {
+ 	color: blue;
+ 	text-decoration: line-through;
+
+
+ }
+table	{
+	background-color: green;
+
+}
+
+.jul {
+	text-align: center;
+	font-size: 40px;
+
+}
+
+form {
+	text-align: center;
+}
+
+form button a {
+	text-decoration: none;
+}

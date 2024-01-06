@@ -1,0 +1,24 @@
+DIMENSI dan OVERFLOW
+
+WIDHT & HEIGHT
+   px
+  %
+  in, cm, mm, pt, pc
+
+-----------------------------------------------------------
+
+OVERFLOW
+
+   visible
+   auto
+   hidden
+   scroll
+
+visible sama saja
+auto akan mengikuti yang ada
+hidden di sembunyikan konten nya
+scroll akan mengadakan scroll 
+
+
+propertinya yaitu
+[ overflow: auto;

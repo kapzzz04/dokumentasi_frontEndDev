@@ -1,0 +1,786 @@
+Javascript dan DOM #8 - Bermain dengan WARNA (Latihan DOM 1)
+
+nah pertama kita akan bermain dengan warna, jadi disini udah ada file index.html yg udah 
+terhubung ke file script.js.
+
+ya jadi nanti kita bisa liat bagaimana DOM ini memanipulasi node" atau element" pada halaman
+yg ada kaitan nya dengan warna, nah yg pertama akan kita lakukan itu kita akan membuat sebuah
+tombol nnti tombol nya di bawah ( h1 ) itu, kita mau membuat tombol, yg cerita nya kalo tombolnya
+di klik maka warna background body nya berubah, menjadi warna favorit kita masing".
+
+------------------------------------------------------------------------------------------------------------------------------
+
+pertama pak dhika akan membuat tombol atau button lah ya, di bawah h1 itu lalu di dalam tag
+( button ) di kasih attribute ( type="button" dan id="tUbahWarna" ), nah kita ke Js nya, pertama
+kita lakukan tangkap dulu tombolnya, yg ke-2 tangkap element yg kita tuju dalam hal ini adalah
+body si document nya ya.
+
+supaya nanti ketika tombol nya di klik body nya berubah warna, jadi ada events yg akan kita 
+dengarkan yaitu pada saat tombolnya di klik, jadi kita tangkap dulu seperti ini :
+
+const tUbahWarna = document.getElementById('tUbahWarna');
+const body = document.getElementsByTagName('body')[0];
+----------------------------------------------------------------------------------
+
+sebetulnya untuk body kita tidak perlu menangkap nya karena body punya khusus tersendiri
+seperti ini ( document.body ) lalu lanjut aja abis itu titik apa mau style atau innerHTML bebas.
+
+selanjut nya kita dengarkan sebuah Events, events nya apa? ketika tombol UbahWarna di klik
+jadi saya bisa tulis begini saya memakai Event Handler cukup tulis begini :
+
+tUbahWarna.onclick = function () {
+    alert('ok');
+}
+------------------------------------------------
+
+jadi baca nya gini, ketika si tombolUbahWarna itu di klik kita akan lakukan sesuatu, nah sesuatu
+itu bisa apa saja, tapi disini kita lakukan jalankan Function yg berisi alert agar mengetes berjalan
+atau tidak, kalo udah bener ketika tombol nya saya klik muncul alert nya.
+
+tapi kita tidak melakukan Alert, yg kita lakukan adalah mengubah background untuk body nya 
+jadi warna kesukaan kita kalian, sekali lagi khusus untuk body ga perlu di tangkap menggunakan 
+DOM selection, tinggal kita kasih method aja style, cukup tulis seperti ini :
+
+tUbahWarna.onclick = function () {
+    document.body.style.backgroundColor = 'aqua';
+}
+------------------------------------------------------------------
+
+jadi kita udah berhasil menggunakan Events, mendengarkan Events dan menyeleksi sebuah
+element.
+
+CODINGAN HTML ( latihan #1 ) :
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>8. Latihan DOM</title>
+    <style>
+        body {
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <h1>Bermain dengan Warna</h1>
+    <button type="button" id="tUbahWarna">Ubah Warna</button>
+
+    <script src="script.js"></script>
+</body>
+</html>
+------------------------------------------------------------------
+
+CODINGAN Script.js ( latihan #1 ) :
+
+const tUbahWarna = document.getElementById('tUbahWarna');
+tUbahWarna.onclick = function () {
+    document.body.style.backgroundColor = 'aqua';
+}
+
+///////// LATIHAN PART #1 AKHIR
+
+------------------------------------------------------------------------------------------------------------------------------
+
+///////// LATIHAN PART #2
+
+nah sekarang gimana kalau saya ingin ( masih berhubungan dengan yg di atas ), kan warna
+awal body itu putih ya, nah kalo saya klik sekali warna nya berubah jadi yg kita ingin kan ya.
+
+tapi saya pengen ketika awal nya warna putih si body itu nah pas kita klik sekali tombol nya 
+berubah warna ( aqua ) misalnya, lalu saya klik yg ke 2 kali nya berubah jadi putih lagi, nah
+gimana tuh caranya ? nah ini bisa kita lakukan dengan memanipulasi ( class ).
+
+nah gimana kalo sekarang kita kasih CSS di style file HTML nya, kita kasih gini :
+
+  .biru-muda {
+            background-color: lightblue;
+        }
+----------------------------------------------
+
+nah itu kita kasih si biru-muda nya taro si style CSS nya ya, nah ini ga akan berpengaruh apa"
+ke dalam body nya, sama sekali belum berpengaruh apa" karena di dalam HTML nya itu
+kita gaada yg nama ( class ) nya biru-muda, jadi kita baru buat class itu di dalam style CSS aja
+bukan di tag HTML nya begitu.
+
+nah sekarang saya akan melakukan gini, ketika tombol di klik saya akan kasih class biru-muda
+ke dalam si body, cara nya kalian bisa tulis gini ( document.body.setAttribute() ) kan class itu
+attribute ya untuk sebuah element HTML, nah di dalam kurung kita kasih nama attribute nya apa,
+misalnya class, nah lalu di lanjut dengan nama class yg ada, seperti ini :
+
+document.body.setAttribute('class', 'biru-muda');
+----------------------------------------------------------------
+
+jadi pada saat di klik body nya  akan di kasih class biru muda, dimana class biru-muda itu,
+memberi warna biru muda, pada background seperti ini :
+
+const tUbahWarna = document.getElementById('tUbahWarna');
+tUbahWarna.onclick = function () {
+    document.body.setAttribute('class', 'biru-muda');
+}
+--------------------------------------------------------------------
+
+jadi gini ya knp di saat di klik berubah warna jadi biru muda karena kita menambahkan class
+biru-muda ke dalam body, sedangkan class ( biru-muda ) ini berisi perintah mengubah warna
+background menjadi warna biru muda, makannya saat di klik bisa terjadi perubahan warna
+seperti khasus di atas, tapi ini berbeda kode nya.
+
+nah kan kalo di klik tombol nya berubah warna ya, tapi ketika di klik untuk yg ke 2 kali nya dia
+ga berubah juga, padahal kan awalnya saya pengen ketika sekali di klik berubah warna biru muda,
+nah untuk klik yg ke 2 kali nya berubah warna putih gitu.
+
+jadi saya pengen nya gini, kalo tadi gaada class nya terus saya klik jadi ada class nya, tapi begitu
+ada class nya saya klik lagi class nya hilang, jadi otomatis jika class nyahilang warna pun hilang.
+
+nah cara nya gini kita gunakan classList untuk memanipulasi Class, apa yg mau kita manipulasi?
+nah kita gunakan sebuah Method namanya toggle, jadi toggle ini istilahnya kalo ada class di 
+hilangkan kalo gaada class nya tambahkan, seperti ini :
+
+const tUbahWarna = document.getElementById('tUbahWarna');
+tUbahWarna.onclick = function () {
+    document.body.classList.toggle('biru-muda');
+}
+----------------------------------------------------------------------------
+
+jadi itu dia untuk penggunaan setAttribute dan classList 
+
+Codingan di HTML ( Latihan part #2 ) :
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>8. Latihan DOM</title>
+    <style>
+        body {
+            text-align: center;
+        }
+
+        .biru-muda {
+            background-color: lightblue;
+        }
+    </style>
+</head>
+<body>
+    <h1>Bermain dengan Warna</h1>
+    <button type="button" id="tUbahWarna">Ubah Warna</button>
+
+    <script src="script.js"></script>
+</body>
+</html>
+----------------------------------------------------------------------------
+
+Codingan di script.js ( Latihan part #2 ) :
+
+const tUbahWarna = document.getElementById('tUbahWarna');
+tUbahWarna.onclick = function () {
+    // document.body.setAttribute('class', 'biru-muda');
+    document.body.classList.toggle('biru-muda');
+}
+
+///////// LATIHAN PART #2 AKHIR
+
+------------------------------------------------------------------------------------------------------------------------------
+
+///////// LATIHAN PART #3
+
+khasus yg ke 3 saya akan membuat tombol baru, tapi sekarang ketika tombol baru nya saya
+klik itu warna background nya tidak berubah menjadi warna favorit saya, tapi begitu saya klik
+warna background nya berubah secara Random, mungkin ketika di klik pertama dia menjadi
+hijau klik kedua jadi merah dan seterusnya dan sekarang kita membuat tombol nya 
+menggunakan Javascript.
+
+yang pertama kita akan mebuat Tombol nya terlebih dahulu, lalu bikin tulisan untuk tombol nya
+lalu kita rangkai, kalo tombol nya sudah ada baru kita simpan setelah tombol yg ada, langusng
+aja kita buat. seperti ini :
+
+const tAcakWarna = document.createElement('button');
+const teksTombol = document.createTextNode('Acak Warna');
+tAcakWarna.appendChild(teksTombol);
+----------------------------------------------------------------------------
+
+nah kita sudah menggabungkan antara tombol dan teks nya , berarti kita sudah membuat
+element button, selanjutnya kita bisa simpan ke tempat yg kita ingin kan, tapi sebelum nya
+saya mau lengkapi dulu tombol nya, saya gamau polos begitu aja, saya mau tombolnya punya
+type yg value nya button, cara nya kita bisa rangakai dulu.
+
+seperti ini :
+
+tAcakWarna.setAttribute('type', 'button');
+-----------------------------------------------------
+
+sudah ni, tinggal kita simpan ke tempat yg kita ingin kan, saya mau nyimpen nya setelah tombol
+yg lama, cara nya kita bisa pake appendChild, insertBefore atau kita mau pake yg baru, kalo
+kalian inget kita punya after kita punya before ya, kita bisa gunakan yg after ya.
+
+cara nya kita tangkap dulu button yg sebelumnya yg di HTML nya itu seperti ini :
+
+const tUbahWarna = document.getElementById('tUbahWarna');
+tUbahWarna.after(tAcakWarna);
+-------------------------------------------------------------------------------
+
+jadi kan itu pertama kita tangkap dulu button yg sebelum nya lalu di bawah nya kita tambahkan
+element button yg baru, yg sudah kita buat itu, jadi baca nya gini, tUbahWarna setelah nya itu
+simpan tAcakWarna, nyambungkan.
+
+------------------------------------------------------------------------------------------------------------------------------
+
+nah sekarang kita tinggal kasih Event buat tombol baru kita ini, cukup buat seperti ini :
+
+tAcakWarna.addEventListener('click', function(){
+
+});
+---------------------------------------------------------------
+
+jadi ketika tombol acak warna di klik kita ubah warna background nya, tapi disini saya mau setiap
+di klik tombolnya warna background nya berubah secara acak, nah ini cara nyaa gini,warna kan
+itu bisa kita isi dengan 3 nilai ya, bisa warna nama,hexa desimal, dan bisa menggunakan kadar
+RGB ( red,green,blue ) jadi kalo saya tulis seperti ini :
+
+ tAcakWarna.addEventListener('click', function () {
+    document.body.style.backgroundColor = 'rgb(0,0,0)';
+});
+---------------------------------------------------------------
+
+nah di dalam kuurng rgb itu kita bisa simpan tiga nilai, nilai yg pertama untuk kadar merah, nilai
+yg ke-2 untuk kadar hijau, nilai yg ke-3 untuk kadar blue, dan nilai nya bisa dari 0-255, 0 itu 
+artinya tidak ada warna nya sama sekali, kalo 255 itu warna nya maksimak banget, jadi ini kaya
+mencampur warna gitu ya.
+
+kalo semua nya 0 seperti itu berarti warna nya hitam, kalo semua warna, warna nya maksimal
+( 255 ) semua nya, maka warna nya putih, tapi ketika saya gabungkan warna sembarang aja,
+lalu ketika di klik tombol nya muncul warna campurannya seperti ini :
+
+tAcakWarna.addEventListener('click', function () {
+    document.body.style.backgroundColor = 'rgb(23,24,45)';
+});
+---------------------------------------------------------------
+
+nah sekarang kita akan cari cara supaya warna tersebut random, jadi kita harus bikin variabel
+baru di dalam function itu, kita buat const namanya r, nah ini untuk mengambil warna merah,
+nah kalo saya tulis ( Math.random ) fungsi ini akan menghasilkan nilai random dari 0-1, jadi 0
+koma berapa gitu ya.
+
+nah nanti kita akan menggunanakn ( Math.random ) ini, tapi saya mau nilai random nya itu
+1-255, cara nya ini memakai rumus gini ( Math.random() * 255 + 1 ), jadi itu nilai random nya
+di kali kan 255 lalu di tambah 1, maka ini akan menghasilkan nilai 1-255.
+
+nah ini udah beres ya, tinggal kita hilangkan koma nya saja, karena kadar rgb itu bilangan bulat
+bukan bilangan desimal, jadi cara nya hasil ini ( Math.random() * 255 + 1 ), kita bungkus lagi
+menggunakan sebuah fungsi pembulatan, ada 3 fungsi pembulatan :
+
+ada Math.round, Math.floor ( ini pembulatan ke bawah lantai ya ), Math.ceil ( langit" ini pasti 
+pembulatan nya ke atas, nah kita pake yg round aja ya. nah seperti ini jadi nya :
+
+tAcakWarna.addEventListener('click', function () {
+    const r = Math.round(Math.random() * 255 + 1);
+    document.body.style.backgroundColor = 'rgb(23,24,45)';
+});
+---------------------------------------------------------------
+
+nah sekarang kalo udah begini kan gampang aja tinggal kita masukan nilai ( r ) ini sebagai 
+pengganti angka" yg di rgb itu, misal nya saya mau ganti yg ( 23 ) itu jadi r, nah saya gabisa
+langsung masukan r begitu saja, pasti eror karena di rgb itu stiring.
+
+saya harus pisah kan dulu string nya lalu saya gabung dengan operator ( + ) seperti ini :
+
+tAcakWarna.addEventListener('click', function () {
+    const r = Math.round(Math.random() * 255 + 1);
+    document.body.style.backgroundColor = 'rgb(' + r + ',24,45)';
+});
+---------------------------------------------------------------------
+
+nah sekarang kalo sudah seperti itu maka setiap saya klik tombol nya, kadar nilai merah nya akan
+random jadi kalo kamu coba klik tombol nya jadi warna yg berbeda", nah ini baru bermain dengan
+nilai merah nya saja, nah kalo sudah begitu kita tinggal copy saja lalu ganti nama variabel nya
+dengan ( g ) untuk kadar hijau, ( b ) untuk kadar blue, lalu masukan nama variabel nya ke dalam
+rgb itu. Seperti ini jadi nya :
+
+tAcakWarna.addEventListener('click', function () {
+    const r = Math.round(Math.random() * 255 + 1);
+    const g = Math.round(Math.random() * 255 + 1);
+    const b = Math.round(Math.random() * 255 + 1);
+    document.body.style.backgroundColor = 'rgb(' + r + ',' + g + ',' + b + ')';
+});
+
+------------------------------------------------------------------------------------------------------------------------------
+
+oke khasus ke-3 kita selesai
+
+Codingan di HTML ( Latihan Part #3 ) :
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>8. Latihan DOM</title>
+    <style>
+        body {
+            text-align: center;
+        }
+
+        .biru-muda {
+            background-color: lightblue;
+        }
+    </style>
+</head>
+<body>
+    <h1>Bermain dengan Warna</h1>
+    <button type="button" id="tUbahWarna">Ubah Warna</button>
+
+    <script src="script.js"></script>
+</body>
+</html>
+------------------------------------------------------------------------------------
+
+Codingan di Script.Js ( Latihan Part #3 ) :
+
+const tAcakWarna = document.createElement('button');
+const teksTombol = document.createTextNode('Acak Warna');
+tAcakWarna.appendChild(teksTombol);
+tAcakWarna.setAttribute('type', 'button');
+
+const tUbahWarna = document.getElementById('tUbahWarna');
+tUbahWarna.after(tAcakWarna);
+
+tAcakWarna.addEventListener('click', function () {
+    const r = Math.round(Math.random() * 255 + 1);
+    const g = Math.round(Math.random() * 255 + 1);
+    const b = Math.round(Math.random() * 255 + 1);
+    document.body.style.backgroundColor = 'rgb(' + r + ',' + g + ',' + b + ')';
+});
+
+///////// LATIHAN PART #3 AKHIR
+------------------------------------------------------------------------------------------------------------------------------
+
+///////// LATIHAN PART #4 
+
+nah disini kita akan gunakan Element dari HTML5, jadi cerita nya di bawah tombol tadi saya mau
+bikin sebuah (slider), slider itu element form yg bisa kita gerakan ke kiri ke kanan, nah itu kita bisa
+gunakan tag ( input ) yg type nya ( range ). seperti ini :
+
+<input type="range" name="">
+------------------------------------------
+
+seperti itu untuk name nya biarkan saja dulu, nah ide nya gini saya mau bikin 3 buah slider, slider
+yg pertama untuk merepresentasikan warna merah, yg ke-2 untuk hijau, yg ke-3 untuk biru, nah
+nanti kita akan gerakan slider nya, sebagai pengganti dari komposisi kadar warna tersebut.
+
+jadi misal nya slider nya saya geser ke kanan itu artinya merah nya 255 kalo ke kiri merah nya 0
+atau ini tuh kaya semakin kekanan angka semakin besar, semakin kekiri angka semakin kecil, 
+nanti saya bikin lagi 2 buah slider.
+
+oh iya range ini adalah element dari HTML5, mungkin aja ada browser yg ga suport, nah pertama 
+kita kasih ( name ) dulu supaya nandain yg mana merah yg mana untuk biru seperti ini :
+
+<input type="range" name="sMerah">
+-------------------------------------------------
+
+lalu sebelum slider nya saya mau kasih dia div, supaya ada penanda nya ini buat merah gitu, 
+saya kasih 2 class di div nya kotak dan merah, merah untuk menandai warna nya ya seperti ini :
+
+<div class="kotak merah"></div>
+<input type="range" name="sMerah">
+-------------------------------------------------
+
+nah sekarang kita ke style CSS nya untuk bikin kotak langsung aja ya seperti ini :
+
+.kotak {
+            width: 50px;
+            height: 50px;
+            margin: 10px auto;
+        }
+
+        .merah {
+            background-color: red;
+        }
+-------------------------------------------------
+
+nah jadi yg kotak itu untuk atur besar tinggi kotak nya dan si merah itu untuk atur warna
+nya biar ada tanda warna merah, jadi nanti di browser nya jadi div itu berbentuk KOTAK dengan
+background warna MERAH gitu, jadi saya mau begitu slider nya di geser warna halaman nya
+berubah, warna hijau dan biru belakangan aja ya, kita ke script.js dulu.
+
+nah sekarang kita butuh untuk menangkap si ( slider ) nya, jadi kita bikin variabel const namanya
+sMerah dan kita bisa tangkap seperti ini :
+
+const sMerah = document.querySelector('input[name=sMerah');
+----------------------------------------------------------------------------------
+
+jadi yg di dalam kurung itu gini baca nya, javascript tolong carikan saya input, nah kalian bisa
+gunakan kurung siku ya, yg name nya adalah sMerah, nah sekarang Event apa yg mau kita
+dengarkan supaya kita bisa tau supaya si slider nya di geser".
+
+nah kita bisa gunakan ada yg di sebut dengan ( change ), ya jadi kalian bisa tulis gini :
+
+sMerah.addEventListener('change', function () {
+    alert('ok');
+});
+------------------------------------------------------------
+
+gitu misalnya, ya jadi ketika di geser", nah di situ kita kasih alert untuk menyontohkan saja, nah
+harus nya ketika kita geser keluar ( alert ) nya, nah sekarang kita akan menangkap nilai dari
+slider nya, jadi kalo slider nya di paling kanan itu 255 kali di kiri itu 0.
+
+nah cara nya itu kita bisa ambil ( value ) nya, tapi sebelumnya kita harus kembali lagi ke HTML nya
+buat ngasih tau bahwa slider ini nilai minimal nya 0, lalu nilai maximal nya 255. seperti ini :
+
+<div class="kotak merah"></div>
+<input type="range" name="sMerah" min="0" max="255">
+-------------------------------------------------------------------------
+
+nah sekarang cara ngambil nilai nya kalian bisa pake ( sMerah.value; ) nah ini buat mengambil
+nilai yg ada di dalam element input, apapun element input nya. nah gini :
+
+sMerah.addEventListener('change', function () {
+    console.log(sMerah.value);
+});
+-------------------------------------------------------------------------
+
+jadi kalo kita console.log(sMerah.value); gini nanti kamu liat aja di console.log nya ketika ( slider ) 
+nya di geser nah itu angka nya akan muncul begitu, nah itu akan kita gunakan untuk mengubah
+warna red nya.
+
+------------------------------------------------------------------------------------------------------------------------------
+
+nah cara itu begini, hampir kaya tadi seperti ini :
+
+sMerah.addEventListener('change', function () {
+    document.body.style.backgroundColor = 'rgb(100,100,100)';
+});
+----------------------------------------------------------------------------
+
+nah angka 100 itu kita ganti lagi dengan variabel baru misal kan merah berarti kita namain aja
+variabel nya r, nah ( r ) nya itu sekarang di isi dengan sMerah.value; seperti ini :
+
+sMerah.addEventListener('change', function () {
+    const r = sMerah.value;
+    document.body.style.backgroundColor = 'rgb(' + r + ',100,100)';
+});
+----------------------------------------------------------------------------
+
+nah jadi ini semakin kekanan merah nya semakin tinggi, tapi hijau dan biru nya ttp seratus", karena
+kita belum bikin hijau dan biru nya.
+
+nah langsung aja kita copy paste dari yg sebelum nya untuk warna hijau dan biru, jadi kita
+tinggal menambah kan variabel baru ( g dan b ) yg di isi dengan value juga, jad tinggal di copy
+terus diganti yg perlu di ganti udahh.
+
+nah tapi disini ada kekurangan nya sedikit, ini tuh baru berubah ketika kita lepas klik nya di bagian
+( slider nya ) bukan pas di geser ikut berubah gitu, kan lebih keren ketika kita geser itu sambil
+berubah juga ya warna nya, nah itu bukan memakai event ( change ), nah kita ganti event nya jadi
+( input ), jadi ini real time, begitu di geser langsung berubah. seperti ini :
+
+const sMerah = document.querySelector('input[name=sMerah');
+const sHijau = document.querySelector('input[name=sHijau');
+const sBiru = document.querySelector('input[name=sBiru');
+
+sMerah.addEventListener('input', function () {
+    const r = sMerah.value;
+    const g = sHijau.value;
+    const b = sBiru.value;
+    document.body.style.backgroundColor = 'rgb(' + r + ',' + g + ',' + b + ')';
+});
+
+sHijau.addEventListener('input', function () {
+    const r = sMerah.value;
+    const g = sHijau.value;
+    const b = sBiru.value;
+    document.body.style.backgroundColor = 'rgb(' + r + ',' + g + ',' + b + ')';
+});
+
+sBiru.addEventListener('input', function () {
+    const r = sMerah.value;
+    const g = sHijau.value;
+    const b = sBiru.value;
+    document.body.style.backgroundColor = 'rgb(' + r + ',' + g + ',' + b + ')';
+});
+--------------------------------------------------------------------------------------------------------------
+
+ini mungkin yg dilakukan kurang efektif ya bisa di coba kalo adad kode yg lebih efektif ya
+
+Codingan di HTML nya :
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>8. Latihan DOM</title>
+    <style>
+        body {
+            text-align: center;
+        }
+
+        .biru-muda {
+            background-color: lightblue;
+        }
+
+        .kotak {
+            width: 50px;
+            height: 50px;
+            margin: 10px auto;
+        }
+
+        .merah {
+            background-color: red;
+        }
+
+        .hijau {
+            background-color: green;
+        }
+
+        .biru {
+            background-color: blue;
+        }
+    </style>
+</head>
+<body>
+    <h1>Bermain dengan Warna</h1>
+    <button type="button" id="tUbahWarna">Ubah Warna</button>
+
+    <br><br>
+
+    <div class="kotak merah"></div>
+    <input type="range" name="sMerah" min="0" max="255">
+
+    <div class="kotak hijau"></div>
+    <input type="range" name="sHijau" min="0" max="255">
+
+    <div class="kotak biru"></div>
+    <input type="range" name="sBiru" min="0" max="255">
+
+    <script src="script.js"></script>
+</body>
+</html>
+--------------------------------------------------------------------------------------------------------------
+
+Codingan di Script.js nya :
+
+const sMerah = document.querySelector('input[name=sMerah');
+const sHijau = document.querySelector('input[name=sHijau');
+const sBiru = document.querySelector('input[name=sBiru');
+
+sMerah.addEventListener('input', function () {
+    const r = sMerah.value;
+    const g = sHijau.value;
+    const b = sBiru.value;
+    document.body.style.backgroundColor = 'rgb(' + r + ',' + g + ',' + b + ')';
+});
+
+sHijau.addEventListener('input', function () {
+    const r = sMerah.value;
+    const g = sHijau.value;
+    const b = sBiru.value;
+    document.body.style.backgroundColor = 'rgb(' + r + ',' + g + ',' + b + ')';
+});
+
+sBiru.addEventListener('input', function () {
+    const r = sMerah.value;
+    const g = sHijau.value;
+    const b = sBiru.value;
+    document.body.style.backgroundColor = 'rgb(' + r + ',' + g + ',' + b + ')';
+});
+
+///////// LATIHAN PART #4 AKHIR 
+
+------------------------------------------------------------------------------------------------------------------------------
+
+///////// LATIHAN PART #5
+
+sekarang kita selain akan bermain dengan warna, sekarang kita juga akan bermain dengan kursor
+kursor dari mouse nya, jadi cerita nya sekarang saya ingin ketika saya gerakan mouse nya
+kemana pun saya gerakan, maka warna background nya akan berubah secara ototmatis, jadi
+brubah terus setiap mouse nya di gerakan di dalam background nya itu.
+
+nah untuk melakukan ini ide nya begini, kita akan bekerja dengan posisi dari mouse, jadi saya
+nanti akan mencari tahu kordinat posisi dari mouse nya ada dimana terhadap halaman itu, dan
+nanti kordinat tersebut akan relatif terhadap lebar dan tinggi dari browser nya.
+
+jadi misalkan kalo nanti saya simpan mouse nya  di pojok kiri atas, itu artinya posisi kordinat nya,
+kordinat nya itu maksudnya sumbu x dan sumbu y, sumbu x nya misalnya 1 sumbu y nya juga
+misalnya 1 juga, kalo saya letakan kursor di pojok kanan bawah, maka nanti sumbu x nya
+maksimal, sumbu y nya maksimal, tergantung lebar dan tinggi browser nya, ya jadi ada 2 hal.
+
+jadi pertama yg kita tangkap adalah body nya, karena nanti di dalam body nanti kita bisa mengatur 
+pergerakan mouse di dalam nya, kita tulis gini :
+
+document.body.addEventListener('mousemove');
+-------------------------------------------------
+
+jadi ketika si body ini di dalam nya kita gerakan mouse nya, ketika mouse bergerak di dalam body 
+maka jalankan function berikut gitu baca nya, jadi kita setelah mousemove tulis function nya
+misal kita tes dulu ya :
+
+document.body.addEventListener('mousemove', function () {
+    alert('ok');
+});
+-------------------------------------------------------------------------------
+
+nah bener gitu, lalu setelahnya kita akan cari tau 2 hal, pertama kita cari tahu dlu posisi mouse nya,
+ada 2 sumbu ( x dan y ), nah cara cari tahu nya kita bisa gunakan sebuah method yg namanya
+( clientX ) untuk mengetahui kordinat sumbu X nya, nah tapi ( clientX ) ini harus nempel di sebuah
+object, dan object yg harus di kirim ke dalam sebuah Function.
+
+pokoknya ada parameter yg dimasukan ke dalam function nya itu, biasanya orang" nulisnya event 
+atau ( e ), tapi kita anggap aja itu adalah object yg terkait dengan event nya, jadi kalo saya tulis :
+
+document.body.addEventListener('mousemove', function (event) {
+    // posisi mouse
+    event.clientX
+});
+-------------------------------------------------------------------------------
+ 
+event.clientX ini artinya saya bisa tau posisi X ketika mouse nya digerakan, kalo mau liat hasilnya
+coba di console.log aja kek gini ( console.log(event.clientX); ), nah sumbu X itu kan ke kanan ya
+jadi kalo saya gerakan mouse ke kanan maka angka nya nambah terus ya, tapi kalo saya gerkan
+ke bawah itu ga nambah karena kalo kebawah sumbu Y, jadi kita udah tau tuh cara cari kordinat 
+kursor nya ya, disini kita punya ( clientX dn clientY ).
+
+terus ada lagi ukuran browser itu kita gunakan nya, karena browser itu ada di dalam object window
+bukan object document, karena kalo document itu yg putih nya yg ada di dalam websaite nya ya,
+kalo window itu semua nya ya, dari mulai tombol X yg di pojok kanan atas itu dll, jadi ada yg di
+sebut dengan ( innerWidht), kita tulis gini : 
+
+document.body.addEventListener('mousemove', function (event) {
+    console.log(window.innerWidth);
+});
+-------------------------------------------------------------------------------
+
+nah innerWidht untuk mengetahui lebar dari kotak yg putih nya atau document, tapi karena dia
+di kelola oleh window maka tulisanya bukan document tapi window ya, nah lihat di console nya itu
+muncul angka yg ga berubah" itu lah lebar dari document atau kotak putih yg kita atur, tapi ketika
+kita perbesar kotak putih nya berubah juga lebar nya ya, jadi kita punya lebar kita punya posisi X .
+
+------------------------------------------------------------------------------------------------------------------------------
+
+jadi nanti saya akan mendapat kan angka dari 0-255 setiap saya menggerakan mouse, jadi
+misal saya punya variabel namanya xPos, atau posisi sumbu X gitu ya, jadi saya nanti cari tau
+posisi kursor terhadap sumbu x, jika di bagi dengan lebar dari browsernya.
+
+jadi misalnya saya simpan kursornya di pojok kiri atas berarti sumbu x itu 1, sedangkan lebar
+document nya misal 289, jadi nanti saya gini, 1 di bagi 289 di kali 255 nah gitu ya, seperti ini :
+
+document.body.addEventListener('mousemove', function (event) {
+    const xPos = (event.clientX / window.innerWidth) * 255;
+    console.log(xPos);
+});
+---------------------------------------------------------------------------------------
+
+nah lihat lah semakin ke kiri semakin kecil semakin kekanan semakin besar, nah jadi ini akan
+berjeneret kadar RGB nya, nah karena angka yg di hasilkan desimal, maka kita bulatkan dulu
+menggunakan ( Math.round ) ya, seperti ini :
+
+document.body.addEventListener('mousemove', function (event) {
+
+    const xPos = Math.round((event.clientX / window.innerWidth) * 255);
+    console.log(xPos);
+});
+---------------------------------------------------------------------------------------
+
+nah sumbu X akan mengganti red sumbu y akan mengganti hijau, nah karena kita hanya punya 2
+sumbu maka nanti nilai blue nya akan saya tetap kan saja, sudah nih ya kita sudah punya posisi
+X sekarang tinggal posisi Y ya, 
+
+document.body.addEventListener('mousemove', function (event) {
+
+    const xPos = Math.round((event.clientX / window.innerWidth) * 255);
+    const yPos = Math.round((event.clientY / window.innerHeight) * 255);
+
+});
+---------------------------------------------------------------------------------------
+
+nah udah seperti itu tinggal kita tulis kaya yg lain nya ya, :
+
+document.body.addEventListener('mousemove', function (event) {
+
+    const xPos = Math.round((event.clientX / window.innerWidth) * 255);
+    const yPos = Math.round((event.clientY / window.innerHeight) * 255);
+    document.body.style.backgroundColor = 'rgb(' + xPos + ',' + yPos + ',100)';
+});
+---------------------------------------------------------------------------------------
+
+nah ini sudah, jadi kapan pun kursor nya kita gerakan dia berubah warna, nah ini sebetulnya udah
+selesai tapi ada sedikit BUG ya, kalo saya refresh kan balik putih lagi, lalu kita taro kursor atau 
+gerakan kursor di atas tulisan bermain dengan warna, nah itu ga berubah atau ga ngaruh kalo
+kita gerakan kursor nya, tapi ketika saya geser kursor nya ketengah baru dia berubah warna nya.
+
+nah ini terjadi karena, kita simpan listener nya kan di body ya, jadi scope nya adalah body, 
+harusnya body nya itu satu kotak putih itu ya, tapi konten kita atau halaman HTML kita ga menuhin
+kotak putih itu, hanya sampe slider yg ke-3, di bawah slide gaada lagi kan, jadi sebetulnya yg di 
+bawah slider itu atau yg di atas bermain dengan warna itu gaa dianggap sebagai body.
+
+nah sekarang kita harus bikin si body nya penuh, nah cara ngakalin nya kita pake CSS aja,
+kalian tambahin gini ke CSS nya, html, html itu yg di luar body nya ya, jadi html dan body nya
+height 100% jadi sekarang penuh body nya, seperti ini :
+
+ html,
+  body {
+            height: 100%;
+        }
+----------------------------
+
+kalo body nya udah penuh mau di geser kemana pun berubah tuh, jadi begitu lah kita bermain 
+dengan warna, dan ini hanya experimen aja belum membuat yg bener nya, 
+
+Codingan tambahan di HTML/CSS nya : hanya ini :
+
+ html,
+  body {
+            height: 100%;
+        }
+----------------------------
+
+Codingan di script.js nya :
+
+document.body.addEventListener('mousemove', function (event) {
+
+    // posisi mouse
+    // console.log(event.clientX);
+    // ukuran browser
+    // console.log(window.innerWidth);
+
+    const xPos = Math.round((event.clientX / window.innerWidth) * 255);
+    const yPos = Math.round((event.clientY / window.innerHeight) * 255);
+    document.body.style.backgroundColor = 'rgb(' + xPos + ',' + yPos + ',100)';
+});
+
+------------------------------------------------------------------------------------------------------------------------------
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

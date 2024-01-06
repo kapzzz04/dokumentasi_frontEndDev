@@ -1,0 +1,230 @@
+OBJECT pada JAVASCRIPT - Membuat Object
+
+dan kali ini kita akan bahas giaman caranya untuk membuat object, karena ada banyak cara
+untuk membuat object pada javascript, ya kita udah coba salah satu caranya di video sebelumnya.
+
+nah sekarang kita liat cara lain untuk membuat object pada javascript
+
+-------------------------------------------------------------------------------------------------------------------------------
+
+Membuat Object pada Javascript
+- Object Literal
+- Function Declaration
+- Constructor Function (keyword new)
+- object.create()
+
+yg pertama kita bisa membuat obejct secara Literal, nah ini pembuatan object yg sudah kita
+coba di video sebelumnya ini cara yg paling simpel, lalu setelah itu kita juga bisa membuat object
+menggunakan function, ya khusus nya Functin declaration, lalu ada cara ke-3 yaitu menggunakan
+Constructor Function (keyword new), nah cara ini lah yg nanti nya banyak kita gunakan.
+
+menggunakan Constructor Function ini nantinya akan menggunakan kyword new, dan yg terakhir
+adalah dengan menggunakan sebuah Method yg dinamakan dengan object.create(), jadi ada
+4 cara, yg kita coba di video kali ini adalah 3 pertama itu ya, untuk obejct.create() nanti ini akan
+kita coba setelah kita belajar mengenai prototype.
+
+-------------------------------------------------------------------------------------------------------------------------------
+
+APA Perbedaanya ?? dan giaman cara bikinnya
+
+1.) Object Literal
+
+oke pertama" kita coba membuat Object literal dulu karena paling simpel ya, misalnya kita
+akan membuat object mahasiswa, cara nya kita cukup membuat var lalu nama variabelnya 
+apa lalu kita isi dengan object, lalu kurung kurawal buka dan tutup, mah didalam nya kita akan
+simpan pasangan antara kywerd dan value, kyword nya itu merupakan property dari object ini.
+
+ya misalkan untuk mengindentifikasi seorang mahasiswa, misalnya mahasiswa itu punya 
+( nama : "Keyla Azahra" ) ya jadi sebelah kiri itu kyword nya dipisahkan dengan titik 2 ( : )
+lalu sebelah kanan itu nilai nya, nilai nya diseusai kan kalo string menggunakan kutip, kalo
+integer tidak usah menggunakan kutip.
+
+lalu jika lebih dari satu atribut kalian pisahkan dengan koma ( , ), misal nya selanjutnya
+mahasiwa itu punya nomor registrasi atau nrp misalnya seperti ini 
+( nama : "Keyla Azahra", nrp : "043040023", ) lalu mahasiswa tersebut punya email, dan
+terakhir mahasiswa itu punya jurusan, ( nama : "Keyla Azahra", nrp : "043040023", email :
+'keyno596@gmail.com', jurusan : "Teknik Informatika" ).
+
+CODINGAN NYA :
+
+var mhs = {
+    nama: "Keyla Azahra",
+    nrp: "043040023",
+    email: 'keyno596@gmail.com',
+    jurusan: "Teknik Informatika"
+}
+
+nah seperti ini dengan menggunakan cara ini sekarang kita sudah punya sebuah object
+namanya mahasiswa yg didalamnya berisi 4 buah property, untuk memanggil data mahasiswa
+itu kita cukup buka console.log nya, kita tinggal panggil nama object nya seperti ini ( mhs ).
+
+-------------------------------------------------------------------------------------------------------------------------------
+
+kalo kita mau membuat object berikut nya, misalnya mahasiswa nya ada 2 ya, nah kalian cukup
+bikin variabel lagi yg lain, misalnya var mhs2 nah property nya sama kaya yg tadi cuma beda
+nilai/value nya aja ya tinggal diganti seusai data seseorang nya.
+
+misalnya gini :
+
+var mhs2 = {
+    nama: "Doddy",
+    nrp: "033040007",
+    email: 'doddy@gmail.com',
+    jurusan: "Teknik Industri"
+}
+
+nah ini misalkan sekarang saya punya 2 mahasiswa, kalo kita pangiil di consol.log,
+mhs1 ada keyla, mhs 2 ada Doddy, nah ini cara membuat object literal cara nya sangat
+simpel.
+
+tapi kalo kallian ingin membuat object berikutnya, walaupun propertynya sama ya, yg beda
+hanya nilai nya, kalian harus tulis semuanya.
+
+-------------------------------------------------------------------------------------------------------------------------------
+
+2.) Function Declaration
+
+cara membuat nya kalian cukup membuat Function nya, misalkan saya mau membuat
+data mahasiswa seperti tadi ya tapi menggunakan Function ya, misalkan saya namain
+Functionnya ( buatObjectMahasiswa ) nah nanti didalam parameternya atau argumentnya
+kita kirimkan property" nya, misalkan tadi nama,nrp,email dan jurusan.
+
+nah lalu didalam nya kita baru deklarasi kan sebuah variabel namanya misalnya mahasiswa ya,
+kita bikin dia sebagai object ( var mhs = {}; ), lalu object kosong ini kita isi property" nya
+menggunakan argument yg sudah kita tulis didalam Functionnya, misalkan saya mau masukan
+nama sebagai property ya, saya tulis ( mhs.nama = ) nah yg di isi dengan argument nya 
+jadinya ( mhs.nama = nama; ) jadi di sebelah kiri itu kan mhs.nama nah itu tuh property
+Objectnya, nah kalo yg di seblah kanan yg ( nama ) itu tuh argument yg dikirim kan dari si
+Function nya gitu.
+
+nah kalo udah gitu tinggal bikin aja yg selanjutnya seperti kaya gitu, nanti codingan nya gini :
+
+function buatObjectMahasiswa(nama, nrp, email, jurusan) {
+
+    var mhs = {};
+    mhs.nama = nama;
+    mhs.nrp = nrp;
+    mhs.email = email;
+    mhs.jurusan = jurusan;
+    return mhs;
+
+}
+
+nah jadi ni kita pertama bikin object kosong lalu objectnya kita isi, dan yg terakhir jangan lupa 
+kita kembalikan objectnya di return, nah itu caranya untuk membuat object nya.
+
+nah sekarang cara memanggil object nya, nah kita isi objectnya, lalu kalian cukup bikin variabel
+baru yg namanya seterah tapi kita contoh ( var mhs3 = ) lalu disi dengan panggil Function nya
+dulu, lalu parameternya kirimkan data mahasiswa nya, misalkan saya isi namanya "Jono" nah
+disitu urutannya sesuaikan ya sesuai dengan argument nya jadi gini
+( var mhs3 = buatObjectMahasiswa('Jono', '023040123', 'jono@gmail.com', 'Teknik Pangan');  ).
+
+seperti itu jadi sekarang saya sudah punya object mahasiswa yg di isi dengan Function Declaration
+yg didalam Functionya itu membuat sebuah Object, itu cara membuat object dengan Function
+Declaration ya.
+
+nah kalo kalian mau bikin mahasiswa selanjutnya tinggal bikin variabel baru terus panggil
+Function nya dan isi data mahasiswa nya seperti ini :
+
+var mhs4 = buatObjectMahasiswa('Azahra', '002056123', 'Lala@gmail.com', 'Teknik Spil');
+
+begitu ya simpel aja.
+
+-------------------------------------------------------------------------------------------------------------------------------
+
+3.) Constructor Function (keyword new)
+
+selanjutnya kita buat dengan menggunakan cara Constructor Function (keyword new),
+nah tapi sebetulnya Constructor Function ini mirip banget dengan menggunakan Function
+Declaration, nah maka Constructor ini adalah Function yang khusus untuk membuat Object,
+jadi nanti kalian akan melihat kemiripin, nah nanti kedepannya yg kita akan gunakan Constructor
+ini.
+
+nah cara nya itu sama aja saat kalian mengdeklarasikan Functionya, sama seperti Function 
+declaration di atas itu, jadi kita bikin Function dulu lalu sebetulnya nama functionnya itu bebas ya
+tapi kebiasaannya saat kita membuat Function Constructor itu biasanya, nama functionnya 
+di awali dengan huruf besar, lalu kita tulis aja nama Object nya langsung yg sekaligus nama
+Function itu.
+
+seperti ini Function Mahasiswa(), lalu argumentnya di isi dengan apa, nah sama aja dengan
+Function Declaration, kaya tadi nama,nrp,email dan jurusan, sampe sini masih lumayan miripkan
+yg beda hanya dibagian namanya aja ya, yg diharuskan hruf besar agar bisa membedakan mana
+function khusu Object dan Function biasa, tapi sebetulnya huruf besar atau kecil itu ga
+mempengaruhi eror jadi sebetulnya gpp gitu ga bakal eror ya.
+
+lalu sekarang isi functionnya yg agak beda, kalo tadi menggunakan Function declaration
+ada 2 hal yg berbeda, yg pertama ada ( var mhs = {} ) ini deklaration Objectnya dan yg terakhir
+( return mhs; ) nya, nah kalo menggunakan Constructor 2 hal itu gausah ditulis.
+
+yg perlu kita tulis itu, nah ada kyword yg namanya ( this ) gausah bingung dlu ya, jadi syaa tulis
+gini ( this.nama = nama; ) setelah itu lanjutkan saja sampai ( this.jurusan = jurusan; ), 
+menggunakan Constructor cukup itu saja yg kalian tulis, tanpa ada variabel tanpa ada return,
+ya sampai situ dulu.
+
+CODINGAN :
+
+function Mahasiswa(nama, nrp, email, jurusan) {
+    this.nama = nama;
+    this.nrp = nrp;
+    this.email = email;
+    this.jurusan = jurusan;
+}
+
+nah cara manggilnya gini, kalian bikin variabel misalnya ( var mhs4 ) disi dengan ( new ), nah
+ini beda nya, cara manggilnya beda denga Function declaration, kalo Function declaration
+panggil nama functionnya, kalo Function Constructor harus ada ( new ) nya, jadi gini
+( var mhs4 = new Mahasiswa() ), nah isi nya sama, data mahasiswanya seperti ini jelasnya :
+
+var mhs4 = new Mahasiswa("Erik", '012030882', 'erik@gmail.com', 'Teknik Mesin');
+
+jadi cara buat nya bikin variabel lalu di isi denga new Mahasiswa, nah itu lah cara membuat
+Function Constructor.
+
+-------------------------------------------------------------------------------------------------------------------------------
+
+nah kalo kalian masih bingung bedanya antara Constructor dengan Declaration
+sebetulnya bedanya hanya di var dan returnya ya, nah kalian anggap aja bahwa 
+ketika kita menggunakan Constructor itu anggap aja kita punya ( var this = {}; )
+dan terakhir ada ( return this; ), jadi sebetulnya sama ya.
+
+bedanya hanya kalo kalo dengan function Declaration kita bikin sendiri var dan returnnya
+kalo menggunakan Constructor udha dibikinin sama javascript, jadi gaperlu kalian tulis.
+
+nah yg penting kalian tulis kyword new di situ nya, hati" kalo kalian ga pake kyword ( new )
+maka akana eror  Function Constructor nya.
+
+-------------------------------------------------------------------------------------------------------------------------------
+
+
+
+
+
+
+
+
+
+
+
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

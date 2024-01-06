@@ -1,0 +1,490 @@
+ARRAY pada JAVASCRIPT - Manipulasi ARRAY
+
+-------------------------------------------------------------------------------------------------------------------------------
+
+seperti biasa saya sudah punya file index.html nya yg sudah disambungkan dengan file
+script.js
+
+topik nya adalah Manipulasi Array
+ - Menambah elemen pada array
+ - Menghapus elemen pada array
+ - Menampilkan seluruh isi arrray
+
+yg pertama adalah Menambah isi array ya, jadi kalo di video sebelumnya kita udah tau
+kita bikin array dengan membuat sebuah variabel yg berisi array, variabel nama variabelnya
+apa, sama dengan lalu kurung siku, nah kita bisa langsung mengisikana nilai nya pada array
+nya seperti ini ( var arr = ["a", 1, true]; ) jadi array nya sudah terisi seperti ini.
+
+untuk menampilkan isi array nya sebetulnya gampang aja ya kita tinggal console.log(arr);
+nah nanti di console akan menampilkan seluruh isi array nya, nah kita liat hasil nya seperti
+apa.
+
+-------------------------------------------
+codingan dan hasil browser nya :
+
+var arr = ["a", 1, true];
+console.log(arr);
+
+(3) ['a', 1, true]
+  0: "a"
+  1: 1
+  2: true
+  length: 3
+  [[Prototype]]: Array(0)
+---------------------------------
+
+tapi tampil nya dia object di javascript, nah hasil ini tidak akan kita tampilkan ke user nanti
+ada cara yang lebih baik nya ya.
+
+nah ini untuk menampilkan semua ini cara nya kalian bisa liat bahwa ada a,1,true
+0,1,2 ini adalah index nya ya, index array selalu dimulai dari 0, nah sekaranh saya
+ingin menampilkan angka 1 saja, gimana cara nya?
+
+kita tinggal didalam array nya kita tinggal tmbahkan index nya ( console.log(arr[1]); )
+maka yg tampil hasilnya adalah angka 1, itu cara membuat array yg ada isi nya dan
+menampilkan array nya.
+
+-------------------------------------------------------------------------------------------------------------------------------
+
+// 1. Menambah isi array
+
+---------------------
+contoh coding 1 :
+
+var arr = [];
+arr[0] = "Keyla";
+arr[1] = "Azahra";
+arr[2] = "Nofa";
+
+console.log(arr);
+-----------------------
+
+sekarang gimna kalo array nya kosong, sebelum di tampilkan kita akan isi dulu
+nah cara ngisinya itu kalian bisa tulis aja array lalu  kita kasih index nya ( arr[0] = "Keyla"; )
+lalu untuk element yang berikut nya misalkn index nya 1 kita isi dengan stirng ( arr[1] = "Azahra"; )
+dan seterusnya, nah ini artinya kita akan mengisi element" array setelah kita buat, kalo kita
+tampil kan lagi menggunakan console.log(arr), maka tampil seperti tadi ya, jadi kita bisa isi kan
+element" nya setelah nya.
+
+-----------------------
+contoh coding 2 :
+
+var arr = [];
+arr[0] = "Keyla";
+arr[1] = "Azahra";
+arr[2] = "Nofa";
+arr[4] = "Doddy";
+
+console.log(arr);
+
+hasil nya di browser akan :
+
+(5) ['Keyla', 'Azahra', 'Nofa', undefined, 'Doddy']
+-----------------------
+contoh coding 3 :
+
+var arr = [];
+arr[0] = "Keyla";
+arr[1] = "Azahra";
+arr[2] = "Nofa";
+arr[3] = "Doddy";
+
+console.log(arr);
+
+hasil nya di browser akan :
+
+(4) ['Keyla', 'Azahra', 'Nofa', 'Doddy']
+-----------------------
+contoh coding 4 :
+
+var arr = [];
+arr[0] = "Keyla";
+arr[1] = "Azahra";
+arr[2] = "Nofa";
+arr[6] = "Doddy";
+
+console.log(arr);
+
+hasil nya di browser akan :
+
+(7) ['Keyla', 'Azahra', 'Nofa', undefined × 3, 'Doddy']
+-----------------------------------------------------------------
+
+
+tetapi hati" kalo kalian menggunakan cara ini berarti kalian harus hafal index nya ya, index 
+mana yang masih kosong, dan kalian juga  harus tau ada berapa element didalam array nya
+sehingga kalian ngga nimpa data nya, nah karena hati" ketika kalian mengisi satu data
+setelah index [2] langsung index ( arr[4] = "Doddy"; ) berarti ada 1 index yg kelewat, index
+3 nya gaad jadi kalo saya jalankan, maka array nya akan ada 5, kenapa ada 5?
+
+karena array yg index ke 3 itu akan diisi dengan undefined gitu, jadi hati" ya
+padahal kalo index [4] diganti dengan [3] maka array nya hanya berjumlah 4,
+tapi begitukita lewati misalnya kita ganti jadi [6] misalnya ya, nah akan ada
+3 index yg bolong, nah gimana cara mengatasi nya nah itu nanti kita liat ya.
+
+itu cara menambah isi array
+
+-------------------------------------------------------------------------------------------------------------------------------
+
+// 2. Menghapus isi array
+
+contoh codingan 1 :
+
+var arr = ["Keyla", "Azahra", "Nofa"];
+arr[1] = undefined;
+console.log(arr);
+
+hasil nya di browser akan :
+
+(3) ['Keyla', undefined, 'Nofa']
+ 
+
+nah kalo sekarang array nya ada isi nya dulu ( var arr = ["Keyla", "Azahra", "Nofa"]; )
+nah awalnya array nya ada isi nya lalu untuk menghapus nya bagaimana, nah menghapusnya
+sama seperti tadi, misalnya saya mau menghapus "Azahra", maka kita akan buat element ini
+menjadi undifined, jadi kalian harus cek dulu, ini berapa indx nya untuk "Azahra".
+
+nah gampang aja kalian panggil array nya isi index nya, nah kan "Azahra" itu index nya 1 ya
+lalu kita isi dengan undifined ( arr[1] = undifined; ) ini cara menghapus nya jadi kalo kita 
+console.log(arr); maka "Azahra" nya sudah ilang menjadi Undifined, jadi element nya sebetulnya
+tidak hilang tapi nilai nya berubah jadi undifined. 
+
+nah ini Menambah dan Menghapus nya saya sebut dengan cara manual
+nanti ada cara yg lebih baiik nya menggunakan Metodhe array
+
+-------------------------------------------------------------------------------------------------------------------------------
+
+// 3. Menampilkan isi array
+
+--------------------------
+contoh codingan 1:
+
+var arr = ["Keyla", "Azahra", "Nofa"];
+
+for (var i = 0; i < 3; i++) {
+    console.log('Mahasiswa ke-' + (1 + i) + ' : ' + arr[i]);
+}
+
+hasil nya di browser akan :
+
+Mahasiswa ke-1 : Keyla
+Mahasiswa ke-2 : Azahra
+Mahasiswa ke-3 : Nofa
+----------------------------------
+
+nah ini kita butuh sebuah looping, jadi kita menampilkan isi array nya satu persatu, nah kita
+copy array yg sebelum nya ( var arr = ["Keyla", "Azahra", "Nofa"]; ), nah kita akan bikin
+sebuah looping disini untuk menelusuri isi element array nya satu persatu, jadi cara nya
+kalian bisa bikin variabel ( i ) yg di isi 0, lalu kita cek ada berapa isi dari element array ini
+ada 3 ya.
+
+berarti kalian bisa tulis ( i < 3 ) supaya looping nya sesuai dengan jumlah element nya, lalu
+( i++ ), sekarang tinggal kita tuliskan console.log() mau ngambil element yg pertama kalian
+tinggal tulis arr index ke [ i ] karena [ i ] nya mulai dari 0 nanti nambah lagi jadi satu nambah 
+lagi jadi 2 lalu selesai, ( console.log(arr[ i ]); ).
+
+nah ini cara nampilinnya bukan lagi menggunakan object yg tadi, sehingga sekarang kita bisa
+manipulasinya gini, misalkan kita anggap sebagai data mahasiswa kalian bisa menambahkan
+nya seperti ini ( console.log('Mahasiswa ke-' + i + ' : ' + arr[i]); ), nah maka muncul mahasiswa
+ke-0, sampai ke terakhir mahasiswa ke-2, nah jika ingin dimulai nya dari satu kalian tinggal
+tambahkan saja (   console.log('Mahasiswa ke-' + (1 + i) + ' : ' + arr[i]);  ) maka akan mulainya
+dari 1.
+
+nah ini cara menampilkan isi array meggunakan looping
+
+-------------------------------------------------------------------------------------------------------------------------------
+
+contoh codingan 2:
+
+var arr = ["Keyla", "Azahra", "Nofa", "Doddy"];
+
+for (var i = 0; i < 3; i++) {
+    console.log('Mahasiswa ke-' + (1 + i) + ' : ' + arr[i]);
+}
+
+hasil nya di browser akan :
+
+Mahasiswa ke-1 : Keyla
+Mahasiswa ke-2 : Azahra
+Mahasiswa ke-3 : Nofa
+----------------------------------
+contoh codingan 3:
+
+var arr = ["Keyla", "Azahra", "Nofa", "Doddy"];
+
+for (var i = 0; i < 3; i++) {
+    console.log('Mahasiswa ke-' + (1 + i) + ' : ' + arr[i]);
+}
+
+hasil nya di browser akan :
+
+Mahasiswa ke-1 : Keyla
+Mahasiswa ke-2 : Azahra
+Mahasiswa ke-3 : Nofa
+Mahasiswa ke-4 : Doddy
+----------------------------------
+contoh codingan 4:
+
+var arr = ["Keyla", "Azahra", "Nofa", "Doddy"];
+
+for (var i = 0; i < 3; i++) {
+    console.log('Mahasiswa ke-' + (1 + i) + ' : ' + arr[i]);
+}
+
+hasil nya di browser akan :
+
+Mahasiswa ke-1 : Keyla
+Mahasiswa ke-2 : Azahra
+Mahasiswa ke-3 : Nofa
+Mahasiswa ke-4 : Doddy
+----------------------------------
+contoh codingan 5:
+
+var arr = ["Keyla", "Azahra", "Nofa", "Doddy"];
+
+for (var i = 0; i < arr.lenght ; i++) {
+    console.log('Mahasiswa ke-' + (1 + i) + ' : ' + arr[i]);
+}
+
+hasil nya di browser akan :
+
+Mahasiswa ke-1 : Keyla
+Mahasiswa ke-2 : Azahra
+Mahasiswa ke-3 : Nofa
+Mahasiswa ke-4 : Doddy
+----------------------------------
+
+
+nah tapi hati-hati, ketika saya nambah satu mahasiswa, harus nya tampil ya mahasiswa ke-4
+nah ini ga tampil, karena grgr limit nya atau array nya berhenti di index ke-3, harus nya kan ke-4.
+
+yaudah tinggal ganti aja angka 3 nya jadi angka 4 oke bisa ya, nah tapi kita gamau lakukan ini
+biar javascript nya aja yang ngecek ada berapa sih elemet array didalam nya, nah ini cara nya
+kalian panggil array nya lalu gunakan sebuah METHOD titik length, nanti si javascript nya ngitung
+sendiri didalam array nya ada berapa element nya, nah baru bener.
+
+kalo "doddy'' nya saya hapus lagi, nah otomatis dody nya ilang tapi ttp bisa dijalankan
+nah jadi ini cara MEnampilkan isi array.
+
+------------------------------------------------------------------------------------------------------------------------------- 
+
+nah itu tadi kita udah coba memanipulasi array nya walaupun cara nya masih manual dan belum
+sepenuhnya bener, nah untuk mempermudah hal tadi sebetulnya ktia bisa gunakan Method
+yang sudah disediakan oleh javascript nya, ada banyak sekali method yang bisa kita gunakan
+pada javascript ya khusus untuk array ini, nah yang kita coba hanya beberapa aja ya.
+
+------------------------------------------------------------------------------------------------------------------------------- 
+
+ARRAY Method
+
+- length
+- join
+- push, pop, shift, unshift
+
+nah pertama tadi kita udah coba nama nya length, nah ini gunanya untuk mengetahui berapa sih
+jumlah element yang ada pada array, nah method ke 2 namanya join, jadi method ini adalah
+method yang menggabungkan seluruh isi array dan mengubah nya jadi sebuah String.
+
+nah sekarang ada push, pop, shift, unshift nah ke-4 Method ini digunakan untuk menambah
+atau menghapus element array, nah saran saya sambil kalian menghapal method" ini dan 
+kegunaannya kalian pahami juga artinya dalam bahasa inggris karena nanti memudahkan
+untuk membayangkan method ini berfungsi untuk apa, nah kita coba push & pop dulu ya.
+
+------------------------------------------------------------------------------------------------------------------------------- 
+
+// Method pada array
+// 1. join
+
+contoh codingan 1 :
+
+var arr = ["Keyla", "Azahra", "Nofa"];
+console.log(arr.join());
+
+hasil nya di browser akan :
+
+Keyla,Azahra,Nofa
+----------------------------------
+contoh codingan 2 :
+
+var arr = ["Keyla", "Azahra", "Nofa"];
+console.log(arr.join(' - '));
+
+hasil nya di browser akan :
+
+Keyla - Azahra - Nofa
+----------------------------------
+
+nah join ini method yang menggabungkan seluruh isi array dan mengubah nya jadi sebuah String
+maksudnya gimana ktia liat saya punya array lagi ya (  var arr = ["Keyla", "Azahra", "Nofa"];  )
+nah sekarang kalo kita (  console.log(arr)  )  nah kalo tadi tampilnya seperti tadi ya, tampilnya 
+bentuk nya object, sekali lagi user gamau melihat tampilan seperti itu.
+
+nah sekarang kalo kita gunakan join disini ya (  console.log(arr.join());  )  titik join ini artinya kita
+akan memanggil method join pada array, ya jadi karena dia method kita harus gunakan kurung
+buka dan kurung tutup, Method itu adalah Function yang ada di dalam sebuah object, nah nanti
+hasilnya begini (   Keyla,Azahra,Nofa   ) nah liat sekarang jadi lebih rapih, nah ini bentuknya 
+sudah string dia.
+
+nah jadi join ini merubah isi array dan menampilkan nya secara defaul itu rapih ada koma nya
+nah kalo kalian gamau pake koma kalian bisa tambahkan di separatornya atau pemisah antara
+elemen array nya, misal mau ganti pemisah nya jadi mines, nah kalian tinggal tambahkan string
+mines di kurung buka tutup nya.
+
+------------------------------------------------------------------------------------------------------------------------------- 
+
+// 2. push & pop
+
+contoh codingan 1 :
+
+var arr = ["Keyla", "Azahra", "Nofa"];
+
+arr.push('Doddy');
+console.log(arr.join(' - '));
+
+hasil nya di browser akan :
+
+Keyla - Azahra - Nofa - Doddy
+----------------------------------
+contoh codingan 2 :
+
+var arr = ["Keyla", "Azahra", "Nofa"];
+
+arr.pop();
+console.log(arr.join(' - '));
+
+hasil nya di browser akan :
+
+Keyla - Azahra  
+----------------------------------
+contoh codingan 3 :
+
+var arr = ["Keyla", "Azahra", "Nofa"];
+
+arr.pop();
+arr.pop();
+console.log(arr.join(' - '));
+
+hasil nya di browser akan :
+
+Keyla  
+----------------------------------
+beda :
+
+ (  arr.push('Doddy' , "Fitri" );  )
+----------------------------------
+
+
+push kita gunakan untuk menambah element array di akhir array nya, ya jadi Push itu mendorong
+atau memasukan element baru diakhir array nya, cara pakai nya simpel aja cukup kalian tulis
+array, array nya yang mana titik push lalu didalam nya tuliskan element apa yang mau dimasukan
+misal kan doddy, nah maka dody ini akan dimasukan langsung di akhir array nya misal yg tadi nya
+(  var arr = ["Keyla", "Azahra", "Nofa"];  ) nah maka di akhir nya otomatis di tambah Doddy dengan
+seperti ini (  arr.push('Doddy');  ) bisa kamu cek di console.log ya.
+
+nah sekarang POP, nah kalo pop itu kebalikan nya dari Push, pop menghilangkan element 
+terakhir dari sebuah array, pop itu ilustrasi nya diambil dari ketika klian memecahkan sebuah
+balon menggunakan jarum nah pop itu sound efek nya, jadi maksud pop disini adalah elemet
+terakhir itu seakan" pecah lah ya.
+
+kita panggil array yg mau dihapus nya (  arr.pop();  ) maka array yg ini element "nofa"
+harusnya akan hilang, nah kalo saya pop sekali lagi maka element yg satu lagi akan hilang, yg
+tersisa hanya "keyla".
+
+nah itu kalo kita gunakan PUSH atau POP, menambah atau menghapus element terakhir sebuah
+array, ohh iya untuk Push itu sebetul nya kita bisa tambahkan langsung beberapa element
+ (  arr.push('Doddy' , "Fitri" );  ), tapi kalo pop dia harus satu persatu.
+
+------------------------------------------------------------------------------------------------------------------------------- 
+
+//  3. unShfit & shift
+
+contoh codingan 1 :
+
+var arr = ["Keyla", "Azahra", "Nofa"];
+
+arr.unshift('Doddy');
+console.log(arr.join(' - '));
+
+hasil nya di browser akan :
+
+Doddy - Keyla - Azahra - Nofa 
+----------------------------------
+contoh codingan 2 :
+
+var arr = ["Keyla", "Azahra", "Nofa"];
+
+arr.shift();
+console.log(arr.join(' - '));
+
+hasil nya di browser akan :
+
+Azahra - Nofa 
+----------------------------------
+
+nah ini sama persis dengan PUSh & Pop tapi unShfit & shift ini dia bekerja pada element 
+pertama pada array, kalo push & pop element terakhir kalo unShfit & shift element pertama.
+
+kalo saya tulis unShfit itu artinya saya menambahkan element baru diawal array nya
+jadi kita udah punya variabel array yg tadi ya tinggal kita tambah kan dibawah nya 
+(  arr.unshift("Doddy");  ) maka nanti doddy akan masuk diawal sebelum "keyla".
+
+sedangkan shift itu menghilangkan element pertama, jadi kalo awal nya variabel yg array
+tadi itu terus kita tulis (  arr.shift();  ) maka sama seperti Pop tadi dia akan menghilangkan
+sebuah elemet, nah Shift dan Pop ini benar" menghilangan element nya, bukan mengubahnya
+menjadi undefined seperti yg tadi kita lakukan.
+
+------------------------------------------------------------------------------------------------------------------------------- 
+
+Sekarang pertanyaan nya gimana saya ingin menambahkan element nya di tengah"
+saya gamau di awal atau di akhir.
+
+ternyata jawabnnya ada divideo berikutnya
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

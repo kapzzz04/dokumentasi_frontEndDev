@@ -1,0 +1,297 @@
+CSS3 -- Linear Gradient
+
+Gradient adalah teknik untuk memberikan warna gradasi pada element yg kita punya.
+
+ada 2 tipe Gradient yg kita bisa gunakan
+
+Linear-Gradient dan radial-Gradient
+
+linear-Gradient memberikan gradasi warna secara garis lurus, dan radial-Gradient memberikan 
+warna secara melingkar.
+
+Sebelum ke css3 nya kita liat contoh penggunaan nya linear-Gradient di poto shop ya, jadi di poto
+shop kita bisa memberikan warna dengan beberapa cara, salah satu nya dengan menggunakan
+Blending option ( liat di folder gambar nya ) nanti disitu pilih ada bagian Gradient Overlay ( liat di folder)
+Jadi disini kita akan liat perilaku dari Gradient ini seperti apa.
+
+Nah kalo kalian liat di panel sebelah kanan ( liat di folder ) itu ada beberapa hal seperti yg kita bahas
+di box shadow dan text shadow waktu itu, jadi disitu yg perlu kalian perhatikan hanya beberapa hal,
+yg pertama adalah gradient dimana disitu kita menentukan gradasi warna seperti apa yg akan kita
+berikan pada object, lalu ada (angle) ya, ini merupakan sudut dari gradasi warna. Jadi intinya 
+gradasi warna itu harus memiliki minimal 2 warna, warna awal dan warna akhir
+
+Kalo kita liat di menu gradiet itu, kalo kita klik dia akan memunculkan pilihan warna ( liat folder ),
+disitu saya pilih gradasi hijau muda ke hijau tua, tapi kok hijau tua nya di atas hijau mudanya 
+dibawah ( liat di folder ), Nah ini karena angle nya atau sudut nya seperti ( liat folder ), kalo saya
+ubah tadinya 90 lalu kita ubah jadi ( -90 ) Nah maka baru hijau muda nya di atas dan hijau tau nya
+dibawah.
+
+Nah nanti banyak hal yg bisa kita tambahkan di gradient ini, misalnya saya mau memilih lebih dari
+2 warna, bahkan kita bisa membuat lebih dari 3 warna seperti bikin pelangi, nah hal ini bisa kita 
+terapkan pada CSS3.
+
+--------------------------------------------------------------------------------------------------------------------------------
+
+Nah selanjut nya yg perlu kalian pahami tentang linear-gradient pada css3 adalah 
+"Linear-gradient bukan property css3, melainkan value untuk property background-image"
+
+Jadikan biasa nya kita kalo mau ngasih gambar menggunakan background-image lalu value nya url
+yg di arahkan kepada file gambar kita, Nah sekarang bisa saja value nya bukan url Tapi 
+liear-gradient, jadi ini bukan property css3 tapi value baru yg ada di background-image.
+
+Loh kenapa background-image bukan background-color, nah itu dikarena kan supaya kita bisa 
+menggunakan background-color dan background-image secara bersamaan ya linear-gradinet kan
+untuk memberi warna tapi dia secara gradasi gitu, bisa aja nanti di padukan dengan gambar.
+
+--------------------------------------------------------------------------------------------------------------------------------
+
+CONtoh sederhana
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Gradients</title>
+    <style>
+        div {
+            width: 600px;
+            height: 300px;
+            margin: 50px auto;
+        }
+    </style>
+</head>
+<body>
+    <div></div>
+</body>
+</html>
+-------------------------------
+
+kita akan coba beri warna gradasi pada kotak itu, caranya tinggal kita tambahkan peroperty 
+background-image dan value nya jadi linear-gradient lalu gunakan kurung buka dan kurung tutup,
+lalu di dalam nya kita bisa kasih beberapa value, value yg paling sederhana adalah kita kasih warna
+awal nya mau apa koma dan warna akhirnya mau apa koma, misalnya warna awal nya saya kasih
+merah lalu warna akhirnya saya kasih hijau. SEPERTI INI :
+
+    <style>
+        div {
+            width: 600px;
+            height: 300px;
+            margin: 50px auto;
+            background-image: linear-gradient(red, green);
+        }
+    </style>
+-------------------------------
+
+hasilnya akan setengah nya berwarna merah setengah nya berwarna hijau simpel aja ya.
+
+--------------------------------------------------------------------------------------------------------------------------------
+SINTAKS Sederhana
+ background-image: linear-gradient(warna awal, warna akhir);
+--------------------------------------------------------------------------------------------------------------------------------
+
+mewarnai nya bisa pake warna bisa pake rgb bisa pake hexa,hsl dan lain" , lalu kalian sebenernya
+bisa simpan di background aja gaperlu ake image nya, jadi sederhana aja yg tadi kita udah coba
+kalo tanpa image nya seperti ini :  background: linear-gradient(red, green);
+
+LEBIH DARI 2 WARNA 
+Nah sekarang gimana kalo saya mau lebih dari 2 warna, nah gampang aja tinggal kalian tambahin
+koma di setelah warna awal atau setelah warna akhir, jadi kaya berurutan gitu. Misalnya saya mau
+tambahin satu warna di setelah warna merah, saya mau kasih warna kuning ya. Seperti ini :
+
+ <style>
+        div {
+            width: 600px;
+            height: 300px;
+            margin: 50px auto;
+            background: linear-gradient(red, #f0d606, green);
+        }
+    </style>
+-------------------------------
+
+ATau mau kita tambah kan satu lagi menggunakan rgba, jadi ada 4 layer warna, Seperti ini :
+
+    <style>
+        div {
+            width: 600px;
+            height: 300px;
+            margin: 50px auto;
+            background: linear-gradient(red, #f0d606, rgba(255, 255, 0, 1), green);
+        }
+    </style>
+-------------------------------
+
+Jadi kalian bisa tambahkan warna disitu sesuai yg kalian ingin kan tinggal tambahkan koma aja.
+
+--------------------------------------------------------------------------------------------------------------------------------
+Nah jadi itu multiple color tinggal kasih warna-1,warna-2,warna-3 dan seterah warna nya mau 
+sampe berapa mau 4 atau 5 atau 6 seterah.
+background:
+                linear-gradient(<warna-1>, <warna-2>, ......, <warna-n>);
+--------------------------------------------------------------------------------------------------------------------------------
+
+Nah selanjutnya kita akan coba untuk mengatur arah dari gradient nya, kan tadi default nya dari atas
+ke bawah ya, nah gimana kalo saya pengenn dari kiri ke kanan.
+
+SINTAKS LENGKAP
+background:
+                linear-gradient(<sudut> | <arah>, <warna awal>, <warna akhir>);
+--------------------------------------------------------------------------------------------------------------------------------
+
+Jadi kalian bisa kasih value baru di depan nya, kalian pilih mau sudut atau mau pake kywerd 
+arahnya, arah nya itu mau kekiri, ke kanan, ke atas, kebawah misalnya. lalu setelah itu warna yg 
+tadi yg bisa lebih dari 2 warna.
+
+Kita coba dulu yg bagian sudut ya, misalnya sudut nya saya kasih ( 90deg ) deg atau degri ini untuk
+derajat ya, jadi sekarang bayangan nya 90 derajat mulai dari warna merah diakhiri warna hijau.
+SEPERTI INI :
+
+    <style>
+        div {
+            width: 600px;
+            height: 300px;
+            margin: 50px auto;
+            background-image: linear-gradient(90deg, red, green);
+        }
+    </style>
+-------------------------------
+
+hasilnya dari kiri kekanan, atau mau dari kanan ke kiri bisa ubah aja jadi mines ( -90deg ) jadi merah
+nya mulai nya dari kanan ke kiri, lalu kalo mau diagonal gampang aja kita ganti jadi ( 45deg ) maka 
+hasil nya dia diagonal. Seperti ini :
+
+   <style>
+        div {
+            width: 600px;
+            height: 300px;
+            margin: 50px auto;
+            background-image: linear-gradient(45deg, red, green);
+        }
+    </style>
+-------------------------------
+
+Jadi itu cara menggunakan sudut, jadi kalian tinggal ganti aja mau sudut nya berapa bisa pake 
+mines kalo mau kebalikan nya ya.
+
+--------------------------------------------------------------------------------------------------------------------------------
+
+ARAH 
+
+kita bisa kasih to bottom, to top, to left, dan to right, kalo to bottom berarti dari atas kebawah, kalo
+to top dari bawah ke atas, to left dari kanan ke kiri, dan to right dari kiri ke kanan. ATAU kita mau
+ngasih diagonal.
+
+kita bisa kasih to left top, to left bottom, to right top, dan to right bottom, ini to itu tujuan nya ya, jadi
+to left top itu atas kiri, nah atas kiri itu tujuan nya berarti kalo to left top itu dia mulai nya dari bawah
+kanan ke atas kiri atau to left top.
+
+Misal nya saya muau ganti jadi to left berarti bayangan nya dari kanan ke kiri. Seperti ini : 
+
+   <style>
+        div {
+            width: 600px;
+            height: 300px;
+            margin: 50px auto;
+            background-image: linear-gradient(to left, red, green);
+        }
+    </style>
+-----------------------------------
+
+Berarti red mulai dari kanan lalu menuju green di sebelah kiri, lalu kalo kita mau kekanan bawah
+berarti itu to bottom right, jadi nanti merah nya di atas hijau nya dibawah.
+
+    <style>
+        div {
+            width: 600px;
+            height: 300px;
+            margin: 50px auto;
+            background-image: linear-gradient(to bottom right, red, green);
+        }
+    </style>
+-----------------------------------
+
+Gampang kan tinggal menggunakan sudut atau kyeword dari arah gradient.
+
+--------------------------------------------------------------------------------------------------------------------------------
+
+COLOR STOP
+
+selanjutnya yg akan kita bahas mengenai color stop, jadi tadi kita udah coba memberikan gradasi
+warna misalnya kita kasih 2 warna, gradasi 2 warna nya itu seimbangkan setengah" layar. Nah
+dengan menggunakan COLOR STOP ini kita bisa memberikan bobot warna yg berbeda.
+
+Misalkan saya pengen memberikan warna merah lebih banyak daripada warna hijau nya itu nanti
+kita gunakan color stop, atau kita liat di poto shop color stop itu seperti apa, jadi di poto shop saya
+sudah punya gradasi warna lalu kalo kalian liat di bawah ( liat di folder ss ke 152 ), itu kalian liat
+ada panah atau alat untuk menggeser warna nya, lalu geserkan slider nya kalo semakin kita geser
+itu warna nya semakin banyak seperti ini ( liat di ss ke 153 ).
+
+Nah penggunaan nya di css3 itu kita bisa kasih color stop setelah warna nya, misalnya saya 
+pengen red nya 63% dan green nya 80%, nah kita letakan color stop itu setelah nama warna nya
+tanpa menggunakan koma setelah nama warna nya. Seperti ini :
+
+   <style>
+        div {
+            width: 600px;
+            height: 300px;
+            margin: 50px auto;
+            background-image: linear-gradient(to right, red 63%, green 80%);
+        }
+    </style>
+-----------------------------------
+
+Nah bisa diliat kan merah nya jadi lebih banyak ketimbang hijau nya, walaupun persen di hijau lebih
+besar dari merah tapi malah warna merah yg lebih banyak dihasil nya, nah untuk itu kalian bisa atur
+sendiri persen nya mau berapa sesuai kan aja.
+
+Atau kalo mau atur merah nya lebih sedikit dan hijau nya lebih banyak bisa seperti ini :
+
+ <style>
+        div {
+            width: 600px;
+            height: 300px;
+            margin: 50px auto;
+            background-image: linear-gradient(to right, red 4%, green 20%);
+        }
+    </style>
+-----------------------------------
+
+Jadi itu penggunaan color stop, sebenar nya kalo dari sintaks css3 itu penggunaan nya gampang
+aja tinggal dari kita nya menggunakan nya sekreatif apa sih.
+
+--------------------------------------------------------------------------------------------------------------------------------
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,160 @@
+PENGULANGAN TABEL PENELUSURAN
+
+jadi tabel penelusuran ini adalah sebuah tools yang cukup penting agar
+kita lebih dapat memahami lagi cara kerja program kita seperti apa
+khususnya untuk yang baru belajar mengenai pemograman.
+
+---------------------------------------------------------------------------------------------------------------
+
+CONTOHNYA :
+
+var NilaiAwal = 1;
+
+while (NilaiAwal <= 10) {
+    console.log('Angkot No. ' + NilaiAwal + ' beroperasi dengan baik.');
+    NilaiAwal = Nilaiawal + 1;
+}
+
+---------------------------------------------------------------------------------------------------------------
+
+mari kita telusuri dengan tabel penelusuran 
+
+- jadi sebelum mulai loop/pengulangan tentukan dulu nilai awal nya ( var NilaiAwal =
+   1; )
+
+- lalu masuk ke kondisi nya apakah nilai awal lebih kecil 10 nah
+   nanti kita cek bernilai true atau false ( nilaiAwal <= 10 apakah iya?)
+
+- kalo misalkan bernilai true maka lakukan aksi nya, aksinya mencetak
+  ( console.log yg ada ) itu yg akan di lakukan jika kondisi bernilai true
+
+- selanjutnya kita lakukan increment atau penambahan nilai di akhir dari 
+   tiap - tiap loop/pengulagan nya ( NilaiAwal = Nilaiawal + 1; )
+
+---------------------------------------------------------------------------------------------------------------
+
+lalu kalo semua itu selesai maka kembali mengulang dan kita cek lagi
+dengan cara yg sama lalu apakah nilai yg sudah di tambahkan tadi
+lebih kecil dari sepuluh.
+
+jika nanti suatu saat nilai nya lebih dari sepuluh, baru keluar dari loopnya
+atau pengulangannya 
+
+jadi cara di atas itu akan di ulangi terus sampai kondisinya bernilai false
+
+---------------------------------------------------------------------------------------------------------------
+
+Perbaiki PROGRAM
+
+perbaikinya gini daripada kita menggunakan vaiabel nilaiawal
+lebih baik menggunakan nama variabel yg sesuai dengan kasus kita
+
+jadi nilaiawal diganti jadi noAngkot dan bertambah variabel lagi
+yg namanya jmlAngkot yang isi nya 10
+
+barang kali jumblah angkot nya akan nambah
+tinggal ganti di variabel yg bernama jmlAngkot
+bisa jumblah angkotnya mau 10 atau 20 bebas
+
+kan ada noangkot <= 10 di whilenya
+bisa diganti dengan jmlangkot 
+
+maka sama aja karena jmlangkot ada nilai 10 didalam nya
+
+
+CONTOHNYA :
+
+var jmlAngkot = 10;
+var noAngkot = 1;
+
+while (noAngkot <= jmlAngkot) {
+    console.log('Angkot No. ' + noAngkot + ' beroperasi dengan baik.');
+    noAngkot = noAngkot + 1;
+}
+
+jadi itu udah diperbaiki programnya agar lebih masuk akal
+jika di cek maka hasilnya sama aja.
+
+---------------------------------------------------------------------------------------------------------------
+
+sekarang baru menggunakan
+Tabel Penelusuran
+trace table / dry-run test
+
+dimana nanti kita bisa mengetahui perubahan variabel yg ada
+didalam pengulangan
+
+---------------------------------------------------------------------------------------------------------------
+
+cara menelusuri menggunakan tabel
+
+untuk membuat tabel penelusuran kalian cukup menuliskan nama -
+nama variabel yang nilai nya ada kemungkinan berubah pada
+saat pengulangannya
+
+---------------------------------------------------------------------------------------------------------------
+
+noangkot tuh angka nya pasti setiap noangkot nya terjadi pengulangan
+maka namah angka 1 jadi yg awal nya angka 1 teru terjadi true
+maka pengulangan lagi jadi angka 2 karena ada increment
+penambahan pada nilai jika terjadi true
+
+angkot <= jmlangkot true kan karena 1 lebih kecil dari 10
+itu dilakukan terus menerus sampai hasilnya false
+
+knp noangkot nantinya bisa lebih besar dari 10 dan 
+terjadi false karena ada increment yg setiap terjadi
+false noangkot itu ditambah 1 ya kalo noangkot nya
+1 ditambah 1 jdi 2
+
+terus 2 lebih kecil 10 true lakukan increment lagi
+2 ditambah 1 jadi 3 dan seterusnya sampe nomor 11
+knp ga sampe 10 karena 10 lebih kecil 10 bener
+maka dia masih terjadi pengulangan
+
+sampai noangkot nya 11 nah baru 
+11 lebih kecil dari 10 maka hasilnya false
+
+dibawah ini gambaran dari tabel penelusuran
+
+
+noAngkot               noAngkot <= jmlAngko ?              Output
+
+  1                                      true                           Angkot No. 1 beroperasi dengan baik.
+
+ 2                                      true                           Angkot No. 2 beroperasi dengan baik.
+
+ 3                                      true                           Angkot No. 3 beroperasi dengan baik.
+
+ 4                                      true                           Angkot No. 4 beroperasi dengan baik.
+
+ .....                                      .......                                                   ............
+
+ 10                                      true                           Angkot No. 10 beroperasi dengan baik.
+
+ 11                                      FALSE                         KELUAR DARI LOOP / PENGULANGAN
+
+jadi pengulangan nya terjadi 11 kali dan yg ke 11 itu menghentikan loop / pengulangannya
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

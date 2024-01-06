@@ -1,0 +1,106 @@
+TIPE DATA PADA JAVASCRIPT BOOLEAN
+
+boolean adalah sebuah tipe data yg di gunakan untuk merepresentasikan logika true atau false.
+
+boolean ini sudah hampir digunakan di seluruh bahasa javascript
+boolean pertama kali di temukan oleh george boole pada 1954
+
+di dunia pemograman biasanya boolean ini digunakan pada statement 
+pengkondisian, untuk menentukan aksi yg berbeda dan mengatur kendali program.
+
+seperti yg di jelaskan tadi boolean memiliki dua nilai
+         TRUE ATAU FALSE
+
+nah nnti true di hasilkan ketika kondisi nya bernilai benar
+dan false di hasilkan ketika kondisinya bernilai salah
+
+misalkan
+     var x = 10;
+     x < 20 
+maka ekspresi ini akan menghasilkan boolean TRUE
+jadi ini sama aja dengan apakah 10 lebih kecil 20 gitu 
+
+tidak hanya angka yg kita cek dari boolean, boolean juga bisa di cek dari 
+perbandingan string.
+
+"keyla" == "Keyla"
+apakah string keyla dengan huruf kecil sama dengan string Keyla dengan huruf besar
+maka nanti hasilnya FALSE karena tidka sama
+itu contoh yg kita coba menggunakan console.
+
+nanti pada praktek nya untuk menghasilkan nilai boolean tersebut di sourcode kita
+selain menggunakan pekondisian kita juga bisa menggunakan fungsi dari javascript
+yg namanya { Boolean(nilai) } cara penulisannya gitu, dengan hurf b nya besar
+
+contohnya: Boolean(10 < 20) maka hasilnya true
+
+tapi ini kita tulis di dalam sourcode kita bukan di console
+--------------------------------------------------------------------------------------------------------------------------------------
+
+tapi selain kita bisa memasukan ekspesi kita juga bisa nilai saja satu buah nilai
+
+misal : Boolean(10) nah maka hasilnya akan true
+            Boolean("keyla") maka hasilnya juga true
+            Boolean(0) hasilnya akan false
+            Boolean(-1) hasilnya true 
+knp kok gitu mari lihat penjelasannya
+
+ini karena nilai-nilai yg ada pada javascript yg sebenarnya menyimpan TRUTHY atau FALSY
+
+         TRUTHY                                                                  FALSY
+            true                                                                         false
+   non-zero number                                                              0
+  atau yg selain angka 0                                                       
+          "string"                                                                      " " (yg kosong string nya)
+         obeject                                                                    undifined
+          arrays                                                                        null
+       functions                                                                      NaN
+
+ada nilai-nilai yg disebut truthy dan ada nilai-nilai yg disebut falsy 
+ini istilah aja. dimana nilai-nilai itu menyimpan true atau false.
+
+nah nanti klo mau masukin (angka non zero) mau negatif positif
+atau semua bilangan negatif itu nilainya true.
+
+cukup kalian pahami aja bahwa semua nilai yg ada di dalam javascript itu menyimpan nilai boolean
+di dalam nya.
+
+jadi tentu saja nilai truthy menghasilkan nilai true dan nilai falsy menghasilkan nilai false.
+
+--------------------------------------------------------------------------------------------------------------------------------------
+tadi di dalam table itu kita melihat ada 2 nilai ya
+
+ada yg di sebut dengan undefined dan null
+
+undefined adalah sebuah tipe yg dihasilkan ketika kita mendeklarasikan sebuah varialbel tapi kita
+belum mengisikan nilai nya. misal kan ( var x ) kita belum mengisikan nilai x maka hasilnya undefined.
+
+null adalah nilai kosong yg bisa kita berikan pada sebuah variabel. jadi kita bisa tulis ( var x = null ).
+
+ini juga sangat akan terpakai pengkondisian saat menggunakan functions.
+
+-------------------------------------------------------------------------------------------------------------------------------------
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

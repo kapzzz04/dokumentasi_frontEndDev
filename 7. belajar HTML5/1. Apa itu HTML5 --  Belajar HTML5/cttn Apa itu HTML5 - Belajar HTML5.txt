@@ -1,0 +1,103 @@
+Apa itu HTML5? | Belajar HTML5
+
+"istilah HTML5 digunakan sebagai jargon yang mengacu pada teknologi web yang modern, yang
+dikembangkan oleh WHATWG."
+- https://html.spec.whatwg.org
+
+di atas itu adalah WEB yg sangat penting banget yang nanti nya akan kita jadikan acuan kalo kita
+mau tau perkembangan dari HTML.
+
+jadi teknologi" HTML yg saat ini kita pakai itu sebenernya istilah nya itu HTML5 dan sebetulnya 5
+ini bukan versi lagi.
+
+apasih WHATWG itu? bukan nya yg membuat html itu adalah organisasi W3C.
+
+--------------------------------------------------------------------------------------------------------------------------------
+
+WHATWG
+
+- The Web Hypertext Application Technology Working Group
+
+jadi dia adalah sebuah grup perkumpulan dari orang" pinter yg bertugas untuk mengembangkan
+teknologi atau aplikasi WEB hypertex. nah ini isi nya
+
+- Komunitas berisi orang" yang tertarik pada perkembangan teknologi web
+- Siapapun bisa bergabung 
+
+jadi kalo kalian mau atau tertarik untuk mengembangkan teknologi web bisa kunjungi websaitenya.
+
+- Membuat standar dan pengujian
+
+nah tugas nya membuat standar dan pengujian untuk teknologi" web khususnya html.
+
+- Dibentuk oleh orang" Apple, Mozilla Foundation, dan Opera di tahun 2004
+
+nah kenapa si whatwg bisa di bentuk nah ini awal nya  pada saat tahun 2004 si W3C itu mualai 
+tidak tertarik untuk mengembangkan HTML, nah mereka tertarik nya untuk mengembangkan
+sebuah teknologi yang lain untuk menggantikan HTML.
+
+--------------------------------------------------------------------------------------------------------------------------------
+
+Sejarah HTML(1)
+
+- Pertama kali dibuat oleh Tim Berners-Lee di CERN, pada tahun 1990
+    - hanya ada 18 tag / Elemen
+   - Terinspirasi dari SGML ( Standard Generalized Markup Language )
+      jadi sebetul nya sebelum HTML itu sudah ada SGML
+   - SGML itu standas penulisan dokumen CERN
+   - Tahun 1993 diusulkan ke IETF ( Internet Engineering Task Force )
+
+- HTML 2.0 dibuat pada tahun 1994
+   - Dibuat oleh HTML Working group, sebagai bagian dair IETF
+   - Menambahkan table,image map, upload file
+
+- HTML 3.0 dibuat pada januari 1997
+  - Dikembangkan dan distandarisasi oleh W3C
+  - Organisasi yang dipimpin oleh TIM berners-Lee
+  - Menghilangkan tag untuk formula matematik, blink dan marquee
+
+- HTML 4.0 dibuat pada Desember 1997
+
+--------------------------------------------------------------------------------------------------------------------------------
+
+https://html.spec.whatwg.org/
+https://whatwg.org/validator/ ( kalo mau tau udah valid apa belum pas pake html5 nya )
+https://caniuse.com/
+https://developer.mozilla.org/
+https://html5doctor.com/
+https://diveintohtml5.info/
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

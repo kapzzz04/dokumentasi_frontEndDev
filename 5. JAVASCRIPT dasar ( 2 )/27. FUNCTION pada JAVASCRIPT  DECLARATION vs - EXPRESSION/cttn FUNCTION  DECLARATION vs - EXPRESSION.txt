@@ -1,0 +1,237 @@
+FUNCTION JAVASCRIPT - DECLARATION vs. EXPRESSION
+
+-------------------------------------------------------------------------------------------------------------------------------
+
+kita akan membahas mengenai perbandingan Function Declaration dengan
+Function Expression.
+
+jadi kalo teman" inget di video awal penjelasan mengenai function ini kita tahu bahwa
+cara penulisan function itu ada 2 ya, dengan menggunakan Declarasi atau menggunakan
+Expression.
+
+nah di video ini kita akan bahas perilaku dari masing" cara penulisn tersebut serta 
+kapan sih kita akan menggunakan Function Declaration dan Function Expression.
+
+nah di beberapa video sebelumnya itu contoh function yang kita buat adalah function
+yang menggunakan tipe penulisan Declaration.
+
+-------------------------------------------------------------------------------------------------------------------------------
+FUNCTION DECLARATION
+
+kita liat dlu ya bagaimana cara penulisan formal dari function Declaration ini
+
+jadi untuk function declaration itu rumusnya itu seperti ini :
+
+function identifier (ParameterList opt) { FunctionBody }
+
+jadi kita punya kywerd function dulu lalu selanjutnya ada identifier nya atau
+nama function nya jadi itu harus ada, lalu dalam kurung didalam nya boleh
+ada Parameter nah ini opsional ya boleh ada atau tidak tapi ttp harus ada
+kurung buka dan kurung tutup lalu selanjutnya ada kurung kurawal untuk 
+membungkus function body nya.
+
+jadi ini rumus nya untuk membuat function declaration ini.
+
+-------------------------------------------------------------------------------------------------------------------------------
+FUNCTION EXPRESSION
+
+sedangkan untuk function Expression  seperti ini :
+
+function identifier opt (ParameterList opt) { FunctionBody }
+
+jadi di depan nya ttp ada kywerd function wajib ada lalu identifier nya itu 
+opsional, nah jadi function expression ini boleh aja gapunya nama, 
+lalu sama aja ada tanda kurung untuk menyimpan Parameter dan ini
+opsional ya boleh ada boleh gaada, dan diakhir ada kurung kurawal
+untuk functionBody nya.
+
+jadi perbedaanya hanya di identifier aja, function expression boleh aja gapunya nama
+dan selain dari itu ada juga perbedaannya nanti kita liat.
+
+-------------------------------------------------------------------------------------------------------------------------------
+
+kita liat dulu function yang pertama function declaration ini yg sudah kita sering
+pakai di materi" sebelumnya.
+
+nih saya punya satu buah function yg sangat sederhana :
+
+function tampilPesan (nama) {
+  alert('halo' + nama);
+}
+
+kalo function declaration nulisnya seperti itu
+kyewerd function, nama function, lalu ada parameter, lalu dalam nya ada
+Function body, jadi ini function untuk menampilkan sebuah pesan menggunakan
+popup alert yang tulisannya halo terus nanti namanya siapa ya, tergantung dari
+argument yang dikirimkan, ya ini function declaration harus nya gaada masalah.
+
+nah kita coba function yang sama kita ubah jadi function Expression
+
+var tampilPesan =  function (nama) {
+                                    alert('halo' + nama);
+                                 }
+
+nah ini akan menjadi function expression ketika kita simpan kedalam Expresi
+seperti di atas, ketika dismpan atau asainnt nya kedalam sebuah variabel.
+
+nah baru ini bisa disebut Function Expression
+
+saya punya variabel namanya tampilPesan, tampilPesan ini bukan lagi saya
+simpan sebagai naman function melainkan menjadi nama Variabel yang 
+menyimpan sebuah function.
+
+nah jadi bedanya gitu ya biasanya function Expressin itu disimpan kedalam variabel.
+
+-------------------------------------------------------------------------------------------------------------------------------
+
+PERBEDAAN lebih lanjut nya...
+
+FUNCTION DECLARATION
+
+- Lebih fleksibel ( dapat ditulisa dimanapun)
+   - karena konsep hoisting
+- Mudah dipahami pemula
+
+ya untuk function declaration itu kita bisa bilang dia lebih fleksibel karena kita
+bisa tulis dimanapun, nah maksudnya gini jadi kita bisa tulis declaration function
+nya sebelum atau sesudah pemanggilan function, jadi kita bisa panggil dulu
+baru dideclaration kan atau sebaliknya.
+
+walaupun di video sebelumnya kita itu pasti di declaration dlu baru dipanggil nah
+ini terjadi karena didalm javascript itu ada yg namanya konsep hoisting dimana
+declaration sebuah  function itu pasti disimpan terlebih dahulu didalam memori.
+
+nah selanjutnya function declaration itu juga lebih mudah dipahaminya untuk pemula
+
+karena begini kalo misalkan kita punya sebuah function seperti ini :
+
+function tampilPesan(nama) {
+    alert('halo ' + nama);
+}
+
+tampilPesan('keyla');
+
+lalu dibawah ada function yg kita panggil lalu gaada masalh ya ini,
+tapi kalo sekarang kita balik, kita panggil dulu baru declaration function
+
+CONTOH :
+
+tampilPesan('keyla');
+
+function tampilPesan(nama) {
+    alert('halo ' + nama);
+}
+
+nah ini juga akan tampil normal nah ini gara" konsep hoisting tadi.
+
+-------------------------------------------------------------------------------------------------------------------------------
+FUNCTION EXPRESSION
+
+- Harus didefinisakan terlebih dahulu sebelum dipanggil
+- Lebih powerfull :
+   - Sebagai closuer
+   - Sebagai argumen untuk function lain
+   - IIFE (immediately invoked Function Expression)
+
+nah kalo function expresion gabisa kaya gitu dia haru didefinisikan dlu baru kalian
+panggil setelahnya, yamemang tdak sefleksibel function declaratio, tapi function
+expression ini lebih powerfull, ya dimana didalam nya kita bisa membuat si 
+function expression ini sebagai yg disebut dengan closure, atau sebgaia argument
+untuk function lain, dan yg terakhir dia bisa dibuat IIFE (immediately invoked Function Expression)
+jadi tiga hal ini untuk penggunaan javascript yang udah kompleks.
+
+kalo misalkan saya punya seperti ini menggunakan function expression :
+
+var tampilPesan =  function (nama) {
+                                    alert('halo' + nama);
+                                 }
+tampilPesan('keyla);
+
+nah kalo ini tidak ada masalah tapi kalo kita balik seperti ini :
+
+tampilPesan('keyla);
+
+var tampilPesan =  function (nama) {
+                                    alert('halo' + nama);
+                                 }
+
+panggil dulu baru definiskan nah ini eror tidak akan berjalan programnya,
+nah jadi kalo pake function expression tulis dulu definisinya baru jalankan ya.
+
+-------------------------------------------------------------------------------------------------------------------------------
+Pilih yang Mana?
+
+secara umum saya bilang sama aja ya apalagi buat kalian yg baru belajar
+nah untuk seri kita ini kita tidak dlu menggunakan kemampuan dari funtion 
+Expression ini.
+
+jadi silahkan kalian mau menggunakan yg Declaration, kalo emang itu 
+yang kalian pahami, tapi kalian mesti inget bahwa function expression
+ini digunakan dipemograman javascript yang lebih lanjut dan lebih modern.
+
+apalagi sekarang ada yang disebut dengan functional prgraming, nah itu
+cara penulisan functionya itu sudah menggunakan function expression.
+
+lalu juga nanti kalian menggunakan sebuah famwork misalnya ya,
+jakewery misalnya nah itu didalamnya digunakan konsep function expression.
+
+jadi kalo kalian sudah paham mengenai function declaration lalu mulai
+menulis menggunaan function Expression.
+
+-------------------------------------------------------------------------------------------------------------------------------
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

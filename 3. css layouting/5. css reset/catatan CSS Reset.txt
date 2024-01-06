@@ -1,0 +1,144 @@
+CSS reset
+
+jadi css RESET ini adalah tekni yang bisa mengatur ulang nilai nilai defalut dari element element 
+yang ada pada html NAH KHUSUS NYA Margin dan Padding 
+
+jika kalian coba sebuah tag html di pakai kan css misal kan <div>
+di pakai kan  div {
+    width: 200px;
+    height: 200px;
+    background-color: black;
+
+}
+
+css seperti itu hasil nya ya akan seperti itu tetapi ada yang mengganjal di atas div itu ada margin nya
+padahal kita belum menambahkan atribut margin , maksudnya ada jarak antara kotak item yang di maksud
+<div> itu , dan juga setiap tag html seperti <h1>, <p> dll jika di buat kan paragraf atau di tambahkan 
+hruf atau konten di dalam tag nya , itu karna terjadi karna banyak element html yang secara default 
+sudah memiliki margin  dan padding sendiri 
+
+contohnya disini yaitu BODDY
+
+jika kita tambahkan di css  
+boddy {
+    margin: 0px;
+    padding: 0px;
+}
+
+otomatis semua tag html yang ada di dalam boddy akan 0px margin dan padding nya
+dengan melakukan hal tersebut itu berarti kita melakukan RESET terhadap PROPERTY margin dan padding
+dari element hmlt yang ada, dan nilai margin tersebut bukan hanya pada boddy saja contoh nya h1 dan p tersebut
+
+bisa di lihat contoh nya di folder css reset
+
+ini tujuan nya kita dapat kendali penuh terhadap  css yang kita buat 
+
+ada cara yang paling gampang yaitu menggunakan css selector universal yaitu (*)  menggunakan tanda bintang 
+
+contoh nya
+
+* {
+    margin: 0px;
+    padding: 0px;
+}
+
+ini artinya semua element yang berada di dalam HTML itu artinya semua margin dan padding nya 0px
+
+tapi katanya ada yang bilang menggunakan selector universal itu tidak baik karna selector ini membuat
+semua yang berada di html mengikuti perintah yang sudah di beritahu oleh selector universal
+walaupun kita tidak memakai nya itu akan mengikuti juga jadi itu tidak baik
+
+ada cara efektif menggunakan teknik reset ini oleh seeorang namanya erik meyer 
+jadi kalian bisa cari di google CSS RESET nanti kunjungi alamat web MAYORWEB 
+di situ kalian bisa liat ada syntak css untuk mereset tinggal kalian copy paste aja ke CSS yang mau di beri
+RESET lalu simpan di awal css kalian setelah itu kalian tidak perlu ubah ubah lagi di bawah nya bisa kalian
+isi css yang mau di buat 
+--------------------------------------------------------------------------------------------
+
+/* http://meyerweb.com/eric/tools/css/reset/ 
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure, 
+footer, header, hgroup, menu, nav, section {
+	display: block;
+}
+body {
+	line-height: 1;
+}
+ol, ul {
+	list-style: none;
+}
+blockquote, q {
+	quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+	content: '';
+	content: none;
+}
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

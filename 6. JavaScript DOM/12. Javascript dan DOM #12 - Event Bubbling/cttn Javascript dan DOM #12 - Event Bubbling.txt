@@ -1,0 +1,250 @@
+Javascript dan DOM #12 - Event Bubbling
+
+kita masuk ke topik ke 2, nah bubbling itu gelembung, seperti gelembung air gitu. nah maksudnya itu
+kita liat.
+
+kalo misalkan kita liat codingan kita yg dari topik pertama, di HTML nya kita punya tombol close
+dan kita sudah menempelkan sebuah event ke situ, secara default yg terjadi adalah ketika kita 
+memberikan event pada sebuah element maka event tersebut akan berlaku untuk element" 
+pembungkus nya juga.
+
+jadi kalo misalkan kasih ke tag ( a ) itu sebenernya event itu akan berlaku juga pada element
+pembungkusnya, dan akan berlaku juga pada element pembungkus si pembungkus nya lagi gitu,
+jadi seperti gelembung air ya semakin ke atas semakin ke atas.
+
+kan tadi kita ngasih event nya ke tag ( a ) sekarnag gimana kalo kita kasih event nya ke ( div
+class card ), si pembungkus tag a itu.
+
+------------------------------------------------------------------------------------------------------------------------------
+
+nah sekarang kita buat variabel namnya cards untuk mengambil semua card yg saya miliki, nah
+saya punya kartu ya, nah untuk ngambil ke 3 nya kita pake querySelectorAll. maka nanti cards
+itu bentuknya nodelist atau array.
+
+lalu kita melooping menggunakan forEach lalu jalankan function, yg tiap" element nya saya kasih
+nama card, lalu setiap si card ini saya klik, jalankan function berikut. Kalo card nya di klik saya mau
+tampilkan alert ('ok').
+
+const cards = document.querySelectorAll('.card');
+cards.forEach(function (card) {
+    card.addEventListener('click', function (e) {
+        alert('ok');
+    });
+});
+-----------------------------------------------------------------
+
+ketika saya klik kartu nya dibagian mana pun maka muncul lah alert 'ok'. Event nya ke panggil 
+begitu pula saya klik di kartu yg lain nah ini gaada masalah ya.
+
+( materi nya masih lanjutan video sebelumnya ya jadi codingan nya masih sama )
+nah kalo ketika di clik tombol close nya kira" apa yg terjadi, inget tombol close itu kita kasih event
+untuk dia sendiri itu dia juga merupakan bagian dari card.
+
+jadi yg terjadi ketika saya klik event pada card nya kepanggil dulu, baru setelah saya klik ok di alert
+nya baru hilang. Jadi maksudnya event bubbling itu ketika kita punya sebuah Event di tombol close
+itu dan kita juga punya event lain di card itu.
+
+maka ketika kita jalankan event di tombol close yg card nya juga nanti akan di jalankan, begitu pula
+kalo kita kasih event di container nanti dia akan terus ngecek ke atas" sampai habis akhirnya 
+sampai geleumbung nya pecah udah gaada element pembungkus nya lagi.
+
+------------------------------------------------------------------------------------------------------------------------------
+
+nah sekarang kita pengen nya pada saat klik tombol close. Pembungkus nya atau si ( cards ) itu
+ga jalan, jadi kita harus hentikan gelembung itu jadi kita harus stop si bubbling itu.
+
+caranya kita akan menambahkan satu method lagi yg namanya ( stopPropagation() ), jadi 
+seharusnya si event nya itu berhenti di tombol close ya, nah alert ok nya gajalan berhasil kita
+menghentikan nya dengan method itu ya.
+
+tapi kalo kita refresh lagi terus saya klik kartu nya tapi tidak di bagian tombol close nah maka
+event yg cards akan jalan juga begitu.
+
+CODINGAN HTML :
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>DOM Event Bubbling</title>
+    <link rel="stylesheet" type="text/css" href="style.css">
+</head>
+<body>
+
+    <div class="container">
+
+        <div class="card">
+            <img src="img/pyp.jpg">
+            <span class="nama">Susanti Gans</span>
+            <span class="telp">08963728291</span>
+            <a href="" class="close">x</a>
+        </div>
+
+        <div class="card">
+            <img src="img/batu0.png">
+            <span class="nama">Sbtus lebw</span>
+            <span class="telp">0895342892</span>
+            <a href="" class="close">x</a>
+        </div>
+
+        <div class="card">
+            <img src="img/logodki.png">
+            <span class="nama">jakarta jeberr</span>
+            <span class="telp">081256780</span>
+            <a href="" class="close">x</a>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
+--------------------------
+
+CODINGAN JS :
+
+const close = document.querySelectorAll('.close');=
+close.forEach(function (el) {
+    el.addEventListener('click', function (e) {
+        e.target.parentElement.style.display = 'none';
+        e.preventDefault();
+        e.stopPropagation();
+    })
+});
+
+const cards = document.querySelectorAll('.card');
+cards.forEach(function (card) {
+    card.addEventListener('click', function (e) {
+        alert('ok');
+    });
+});
+
+------------------------------------------------------------------------------------------------------------------------------
+
+nah untuk event bubbling ini, itu kita bisa manfaat kn prilaku nya untuk memperbaiki program yang
+sudah kita buat ini, karena sebetulnya program kita sudah berjalan normal tapi kurang efektif, ada
+beberapa hal yg membuat dia kurang efektif.
+
+nah sekaran kita kembalikan dulu close nya, tadikan kita ubah dari tag span ke tag a, sekarang kita
+kembalikan lagi ke tag ( span ).
+
+nah sekarang gimana kita memanfaatkan event bubbling tadi, nah yg kita lakukan itu sebetulnya 
+masih memiliki kekurangan, yg pertama itu kita menyeleksi seluruh element yg punya class close
+berarti disitu kita punya 4 buah element karena kita punya 4 card ya.
+
+lalu setiap element nya kita tambahkan sebuah event yg namanya click, jadi tiap tombol tadi udah
+di tempelin event click, nah kalo balik ke browser kita liat kan gaada masalah ya. Tapi kalo saya
+buka element nya ( klik kanan inspect ). 
+
+lalu saya coba tambahkan card baru tapi secara real time, jadi saya edit langsung di element nya
+saya ga simpan di HTML nya. Lalu saya tambahkan card baru tapi menambahkan nya langsung
+di browser nya.
+
+kalo saya liat di browsernya sekarang saya punya 4 kartu karena sebelumnya hanya punya 2 kartu.
+nah ini coba teman" perhatikan ya, begitu kita buka browsernya pas awal itu sebelum kita 
+tambahkan atau edit html nya di browser.
+
+nah disitu artinya ada 3 buah kartu kan belum di edit ya, lalu ketemu script tuh, nah di script itu
+akan menjalankan event yg sudah di buat di script nya, nah di script nya ketemu ada 3 buah tombol
+close lalu setiap tombol close nya di kasih event click jadi ada 3.
+
+nah ketika saya menambahkan kartu baru, berarti si tombol close yg baru itu harusnya gaada 
+event klik nya karena kita baru tambahin, ya coba kali saya klik yg susanti nah ilang tuh, terus
+saya coba klik yg kartu baru nah ga ilang dia.
+
+karena belum ada event klik yg nempel ke situ jadi ga ngaruh dia, jadi yg kita lakukan itu kurang
+efektif karena mungkin aja kedepannya kalian menambahkan element baru itu di browser nya
+bukan di file langsung.
+
+------------------------------------------------------------------------------------------------------------------------------
+
+TERUS CARA YG BENER GIMANA ??
+
+balik lagi ke HTML nya, tadi yg kita lakukan adalah kita menempelkan event pada tombol close, yg
+kalian tau ketika tombol close nya di klik event nya akan bubbling ke atas ke pembungks nya itu
+( card ) lalu ke pembungkusnya lagi itu ( container ) lalu ke body lalu ke html dan selesai.
+
+gimana kalo sekarang kita balik, kita simpen event nya di ( container ) atau di pembungkus terluar-
+nya, sehingga nanti event nya bisa tau kita ngeklik apa di dalam container itu.
+
+caranya kalian seleksi ( containernya ) dulu seperti ini langsung aja :
+
+const container = document.querySelector('.container');
+
+container.addEventListener('click', function(e){
+    
+});
+-----------------------------------------------------------
+
+ini berarti saya ngeklik apapun asalkan dia ada di dalam container, coba kita console.log(e.targer)
+maka nanti javascript nya tau saya lagi ngeklik apa, jadi kalo saya klik tulisan "susanti" maka nanti
+tag element yg di dalam nya text susanti.
+
+nah itu akan kita manfaat kan dengan mencari tau apa yg kita klik. Caranya kita cek gini, gimana
+tau nya kita lagi ngeklik tombol close yg mana gitu ya.
+
+kita cek aja pake ( if ) jadi kalo misalkan yg klik itu punya nama class 'close', nah berarti kan kita
+lagi ngeklik tombol close yg manapun, lalu kita ambil e.target, lalu kita ambil parent nya juga nah
+kita style display none. Begini jadinya :
+
+const container = document.querySelector('.container');
+
+container.addEventListener('click', function (e) {
+    if (e.target.className == 'close') {
+        e.target.parentElement.style.display = 'none';
+    }
+});
+---------------------------------------------------------------
+
+nah dengan ini kalian bisa liat, ini jauh lebih efektif kita hanya dengan menempelkan satu event 
+buah saja ke dalam container, nah yang ke 2 dengan melakukan ini javascript nya gapeduli kalo 
+misalnya ada perubahan di dalam element HTML nya meskipun perubahannya di lakukan secara
+instan atau merubah nya di browser langsung.
+
+kalo kita coba lagi perilaku yg tadi, kita tambahkan card baru di html nya tapi kita edit nya di
+browser tidak di file html nya, nah nanti dengan menggunakan cara ini element yg kita tambahkan
+di browser html nya akan bisa berfungsi seperti menekan tombol close nanti dia akan hilang.
+
+nah ini karena yg di cek di javascript nya itu container nya bukan element baru nya, nah bisa kalian
+tambahkan method prevent default di ( if ) nya untuk jaga" kalo misal yg di klik link ya.
+
+------------------------------------------------------------------------------------------------------------------------------
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

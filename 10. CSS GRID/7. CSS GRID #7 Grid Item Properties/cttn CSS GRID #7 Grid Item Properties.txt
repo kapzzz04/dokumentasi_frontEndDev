@@ -1,0 +1,369 @@
+CSS GRID #7 Grid Item Properties
+
+Property yg ada pada item
+- grid-column-start
+- grid-column-end
+- grid-row-start
+- grid-row-end
+- grid-column
+- grid-row
+- grid-area
+- justify-self
+- align-self
+- place-self
+
+Nah itu property yg bisa digunakan pada tiap" item didalam grid kita jumlah nya ada 10 property
+---------------------------------------------------------------------------------------------------------------------------------
+
+Kita mulai dulu dari 4 property pertama
+- grid-column-start
+- grid-column-end
+- grid-row-start
+- grid-row-end
+
+jadi itu adalah property untuk menentukan tempat dari grid item dengan mengacu pada nomor atau nama dari grid line yang spesifik. Kita tau secara default tiap" grid line yg ada pada grid kita itu punya nomor ya.
+
+Nah nanti dengan menggunakan property itu kita bisa acu bahwa item kita akan berda pada nomor colom berapa atau nomor baris berapa, tapi selain itu kita juga bisa gunakan nama grid ketika kita menggunakan property grid-template-colums atau grid-template-rows pada container.
+
+Cara nulis nya begini :
+
+   .item {
+            grid-column-start: <nomor> | <nama> | span <nomor> | span <nama> | auto;
+            grid-column-end: <nomor> | <nama> | span <nomor> | span <nama> | auto;
+            grid-row-start: <nomor> | <nama> | span <nomor> | span <nama> | auto;
+            grid-row-end: <nomor> | <nama> | span <nomor> | span <nama> | auto;
+        }
+---------------------------------------------------------------------------
+
+Ya gampang aja nulis nya kita bisa pilih beberapa nilai, yg pertama untuk tiap" property nya bisa kita kasih nomor atau nama atau kita bisa (span) lalu nomor berapa, atau span nama nya apa dan auto.
+Dan untuk penjelasan dari tiap" nilai nya ini :
+
+- <nomor> | <nama> : Mengacu pada nomor atau nama yang kita beri pada grid line
+- span <nomor> : item akan memanjang / melebar sampai sejumlah nomor
+- span <nama> : item akan memanjang / melabar sampai ke nama grid line tertentu
+
+Tapi biasanya kalo untuk kita menggunakan span itu biasanya dipake untuk span <nomor> aja yg <nama> itu jarang sekali digunakan.
+
+Jadi kalo misalnya gini saya punya contoh kasus grid sederhana ada 9 kotak atau 3 x 3, kalian tau kan bahwa tiap" gird line nya itu secara default itu udah punya nomor, untuk kasus kita dia punya nomor kolom 1-4, untuk nomor baris nya 1-4 juga. Nah selain ada nomor yg positif ada juga nomor negatif nya, contoh nya untuk kolom itu kolom terakhir nomor nya mines satu ( -1 ) sampai mines empat ( -4 ), dan untuk baris juga sama -1 untuk kolom terakhir dan -4 untuk kolom pertama. (liat di folder ss an .1)
+
+Jadi itulah adalah nomor baris yg bisa kita hubungkan nanti dengan property kita, contoh nya misal kalo saya punya sebuah item, item ini berarti 1 aja ya inget item, kalo saya punya item yg nama class nya my-item terus kita tulis gini :
+
+  .my-item {
+            grid-column-start: 1;
+            grid-column-end: 3;
+            grid-row-start: 2;
+            grid-row-end: 4;
+        }
+--------------------------------------
+
+Jadi ini kan saya tulis kek gitu, berarti item kita akan mulai di kolom pertama yg nomornya 1 sampai ke kolom yg nomor nya 3, lalu untuk row nya mulai dari baris nomor 2 dan berakhir end nya dibaris ke nomor 4, berarti harus nya item kita berada di 4 kotak di kiri bawah itu. (liat di ss an .2)
+
+---------------------------------------------------------------------------------------------------------------------------------
+
+Atau mungkin kita liat contoh berikut nya kalo misalkan saya punya gini :
+
+  .my-item {
+            grid-column-start: -1;
+            grid-column-end: -2;
+            grid-row-start: -4;
+            grid-row-end: -1;
+        }
+--------------------------------------
+
+Berarti untuk kolom nya mulai dari -1 berakhir di -2 lalu row nya mulai dari -4 berakhir di -1, nah maka item kita akan di 3 kolom paling kanan. (liat di ss an 3)
+
+Supaya lebih jelas kita coba langsung di kasus coding kita di (latihan1 ya), jadi ada 9 kotak yg sebetulnya hanya ada 6 kotak yg 3 saya matikan, jadi saya akan pake yg items 1 aja untuk mencoba nya ya. Misalnya kita kasih gini :
+
+  .my-item {
+            grid-column-start: 2;
+            grid-column-end: 4;
+            grid-row-start: 2;
+            grid-row-end: 4;
+        }
+--------------------------------------
+
+Maka kolom mulai dari nomor 2 berakhir di nomor 4 dan untuk row mulai di nomor 2 berakhir di nomor 4 maka posisi kotak nya berada di 4 kotak pojok kanan bawah. Nah itu cara kalo misalkan kita pake start end pada kolom dan strat end pada row.
+
+Sekarang kita liat contoh berikutnya ini agak berbeda seperti ini :
+
+  .my-item {
+            grid-column-start: 1;
+            grid-column-end: span 3;
+            grid-row-start: 1;
+            grid-row-end: span 2;
+        }
+--------------------------------------
+
+itu mulai kolom start nya di nomor ke 1 tapi end nya ada kyewrd (span) didepannya, nah kalo ini artinya gini kalo kita tambahin span itu artinya ditambah jadi hasilnya bakalan misal kolom start nya 1 end nya (span) 2, jadi 1 ditambah 2 hasilnya 3, lalu 3 itu lah yg diambil untuk kolom berakhir end yg sebenar nya bukan angka 2 nya. Jadi kolom itu mulai di grid line nomor 1 dan berakhir di grid line nomor 3, begitu pula berlaku untuk yang row.
+
+Jadi kalo misalkan yg kolom end ganti jadi (span) 3 maka berakhir nya akan di grid line nomor 4 begitu. itu beda nya kalo menggunakan span dan yg nonspan.
+
+---------------------------------------------------------------------------------------------------------------------------------
+
+Sekarang untuk contoh yg ke-3 seperti sebelum nya selain angka kita juga bisa memberikan nama pada line nya, jadi misalkan gini :
+
+  .my-item {
+            grid-column-start: satu;
+            grid-column-end: empat;
+            grid-row-start: baris1;
+            grid-row-end: b4;
+        }
+--------------------------------------
+
+Tapi ini syarat nya kalo menggunakan nama gitu biar code nya jalan kita harus beri nama gird line nya dulu nah tadi di awal kita pake yg ini :
+
+  .container {
+            grid-template-columns: minmax(200px, 300px) 1fr 1fr;
+            grid-template-rows: repeat(3, 100px);
+      }
+--------------------------------------
+
+Itu hanya memberikan nilai lebar kolom dan row nya saja tanpa memberi nilai nama. kalo mau kasih nama kita bisa pake ini :
+
+   .container {
+            grid-template-columns: [satu] minmax(200px, 300px) [dua] 1fr [tiga] 1fr [empat];
+            grid-template-rows: [baris1] 100px [baris2] 100px [b-3] 100px [b4];
+     }
+-------------------------------------------------
+
+jadi cara memberi nama nya harus ya udah tau ya, kita kasih menggunakan kurung siku lalu didalam nya kasih nama, nama nya bebas dan diposisikan awal sebelum ukuran nya. dan ingat total grid line itu bakal lebih 1 dari kolom atau baris nya, misal kita kasih kan disitu 3 kolom ya ada 3 ukuran nya juga tapi grid line nya itu lebih 1 jadi ada 4 makannya kita namain nya juga ada 4 nama sesuai dengan total grid line nya.
+
+nah kita udah seting tuh nama nya, kita liat disitu kolom nya mulai dari satu dan berakhir di empat dan row mulai dari baris1 sampai berakhir di b4 maka hasil nya akan memenuhi semua kolom nya jadi element sisanya kepental keluar container hahahaah. 
+
+Dan terakhir kita bisa kasih pake nilai negatif nya, begini :
+
+  .my-item {
+            grid-column-start: -1;
+            grid-column-end: -2;
+            grid-row-start: -4;
+            grid-row-end: -1;
+        }
+--------------------------------------
+
+untuk yg mines sebenernya sama aja kya yg positif cuma bedanya mines dan posisi gird line nya juga berbeda, untuk itu bisa coab sendiri dan liat hasilnya.
+
+---------------------------------------------------------------------------------------------------------------------------------
+
+GRID-COLUMN & GRID-ROW
+
+property ini adalah merupakan shorthand untuk menuliskan start dan end pada column dan row, jadi kita ga perlu nulis 4 property seperti sebelumnya, kita cukup tulis 2 property saja, cara nulis nya gini ya jangan sampai ketuker posisi start dan end nya :
+
+  .item {
+            grid-column: <start-line> / <end-line> | <start-line> / span <value>;
+            grid-row: <start-line> / <end-line> | <start-line> / span <value>;
+        }
+---------------------------------------------------------
+
+Jadi kita bisa tulis start nya dulu lalu tanda ( / ) baru end atau berakhirnya, atau tulis start nya dulu dan end nya menggunakan si (span), begitu pula untuk row sama juga ya.
+
+Kita liat di codingan nya di file (latihan2), jadi kita punay 4 property untuk menentukan grid item nya seperti ini :
+
+  .my-item {
+            grid-column-start: 2;
+            grid-column-end: 4;
+            grid-row-start: 2;
+            grid-row-end: 4;
+        }
+--------------------------------------
+
+nah itu ketika menggunakan 4 property ya, lalu kalo kita mau singkat 4 property nya kita bisa seperti ini :
+
+  .my-item {
+            grid-column: 2 / 4;
+            grid-row: 2 / 4;
+      }
+--------------------------------------
+
+Jadi kolom nya mulai dari 2 berakhir di grid line 4 dan untuk row nya juga sama. Lalu contoh berikutnya juga sama tpi ini untuk yg span gini :
+
+  .my-item {
+            grid-column: 1 / span 2;
+            grid-row: 1 / span 2;
+      }
+--------------------------------------
+
+jadi kolom nya mulai dari 1 sampai berakhir di span 2 jadi nya mulai dari 1 berakhir di 3 begitu juga untuk row.
+
+---------------------------------------------------------------------------------------------------------------------------------
+
+GRID-AREA
+
+Jadi untuk grid-area ini ada 2 fungsi kegunaanya :
+
+Pertama kita bisa menentukan nama area pada item sesuai dengan template yang sudah dibuat sebelumnya pada properti grid-template-areas, kalo di container nya kita udah set area nya maka kita bisa asend area tadi pada tiap" item nya, ini udah pernah ktia coba divideo sebelumnya.
+
+Ke-2 grid-area bisa kita gunakan sebagai shorthand yg lebih singkat lagi untuk menuliskan grid-column-start, grid-column-end, grid-row-start, dan grid-row-end, dalam satu deklarasi. Jadi cara nulis nya gini :
+
+  .item {
+            grid-area: <name> | <row-start> / <column-start> / <row-end> / <column-end>;
+        }
+------------------------------------------------------------------------
+
+untuk nama itu kita atur nama template nya yg udah kita atur di si container nya misal di template containernya kita atur nama header lalu di item situ nya tulis aja grid-area header udah cukup nama nya aja gausah yg row-start dst.
+
+Atau kalo kalian mau menjadikan grid-area itu shorthand kalian bisa tulis 4 nilai, tapi inget urutan penulisan nya gaboleh salah.
+
+Sekarang kita coba dulu untuk yg grid-area pada template ada di (latihan3), jadi ceritanya saya udah punya grid-template-areas seperti ini :
+
+ .container {
+       grid-template-areas:
+                'header header header'
+                'sidebar content content'
+                'footer footer footer';
+       }
+---------------------------
+
+Nah item nya saya udah punya ada 4 kotak item yg tiap" item udah saya kasih class tambahan, nah tiap" class itu nantinya harus kalian asend grid-area nya, contoh nya gini :
+
+ .header {
+            grid-area: header;
+            background-color: lightblue;
+        }
+
+        .sidebar {
+            grid-area: content;
+            background-color: salmon;
+        }
+
+        .content {
+            grid-area: sidebar;
+            background-color: lightgreen;
+        }
+
+        .footer {
+            grid-area: footer;
+            background-color: silver;
+        }
+------------------------------------------------------
+
+misal untuk yg header lalu grid-area nya kita kasih nama header itu artinya dia akan mengambil posisi template yg nama nya header dan di ambil sebagai satu area. dan sisanya juga gitu semoga mengerti. Dan ini gampang nya ketika kamu mau tuker posisi misal yg tadinya yg class footer grid-area nya footer itu bisa aja kita ganti sama header jadi tukeran gini :
+
+
+  .header {
+            grid-area: footer;
+            background-color: lightblue;
+        }
+   .footer {
+            grid-area: header;
+            background-color: silver;
+        }
+------------------------------------------------------
+
+Nah berikutnya grid-area yg sebagai shorthand bisa dibuka file (latihan4) nya, jadi ini ceritanya ini balik ke kasus pertama cuma beda cara penulisannya aja, saya punya sebuah item yg penempatan grid nya seperti ini :
+
+   .my-item {
+            grid-row-start: 2;
+            grid-column-start: 1;
+            grid-row-end: 4;
+            grid-column-end: 3;
+      }
+-------------------------------------
+
+Mulai nya dari baris 2 sampai baris 4 dan kolom mulai dari 1 sampai kolom 3, nah kalo kalian gamau nulis 4 baris gitu kalian bisa tulis 1 baris 1 property begini :
+
+   .my-item {
+            grid-area: 2 / 1 / 4 / 3;
+      }
+-------------------------------------
+
+nah inget nih urutan nya itu saya udah sesuain urutan nya di yg 4 baris itu, urutan nya dari row start colom start, dan row kolom end udah.
+
+---------------------------------------------------------------------------------------------------------------------------------
+
+Nah property" berikutnya akan kita gunakan untuk mengatur sebuah items :
+- justify-self
+- align-self
+- place-self
+
+JUSTIFY-SELF
+
+Inget yg namanya justify itu pasti cara kita untuk mengatur secara sumbu horizontal, jadi justify-self adalah mengatur posisi item pada sebuah cell terhadap sumbu horizontal. Jadi sama aja dengan yg ada di container cara ngasih nya juga sama cuma bedanya ini untuk item, seperti ini :
+
+  .item {
+            justify-self: start | end | center | stretch;
+        }
+-------------------------------------
+
+Penjelasan tiap" nilai nya misal kalo saya punya sebuah item yg sya kasih justify-self start maka jika kita punya grid seperti ini (liat ssan 4) dan kita memberi class itu pada item pertama maka item pertama akan berada pada diawal dari kolom nya atau sebelah kiri lah. Sedangkan kalo kita kasih justify-self nya end maka dia akan ada di sebelah kanan, (liat di ss 5).
+
+Untuk center ada di tengah" dan stretch dia akan memenuhi cell nya dan inget stretch adalah nilai default, (liat di ssan 6).
+
+Jadi untuk mencoba nya bisa liat file (latihan5) disitu kalo saya kasih stretch itu tidak ada perubahan karena kan dia defaultnya dan kalo saya ganti jadi start maka harusnya sekarnag item nya berada di sebelah kiri dengan lebar sesuai dengan isi content nya kalo kita ga kasih width nya, dan center dia akan berada di tengah end dia akan beradadi sebelah kana udah gitu.
+
+---------------------------------------------------------------------------------------------------------------------------------
+
+ALIGN-SELF
+
+kalo align untuk sumbu vertikal nya jadi bisa dibilang sama tapi bedanya di sumbu. align-selft adalah untuk mengatur posisi item pada sebuah cell terhadap sumbu vertikal. nilai nya juga sama :
+
+  .item {
+            align-self: start | end | center | stretch;
+        }
+-------------------------------------
+
+jadi contoh nya kalo ktia punya align-start pada kasus yg sama kaya yg justify bedanya kita seting nya align-self ya, maka item kita akan berda nempel di atas dan end akan ada dibawah, (liat ss an .7). lalu center ada ditengah dan stretch memenuhi cell nya, (di ss an .8).
+
+---------------------------------------------------------------------------------------------------------------------------------
+
+PLACE-SELF
+
+place-self adalah shorthand untuk menuliskan posisi item pada sebuha cell terhadap sumbu vertikal dan sumbu horizontal nya dalam satu deklarasi, cara nulis nya gini :
+
+  .item {
+            place-self: <align-self> <justify-self>;
+        }
+-------------------------------------
+
+Jadi vertikal nya dulu baru horizontal nya, misalnya kita bisa kasih place-self nya saya mau simpan posisi item nya di atas kanan berarti kita tulisnya start end :
+
+  .my-item {
+            background-color: lightblue;
+            place-self: start end;
+        }
+-------------------------------------
+
+vetikal itu ada di atas berarti dia start lalu horizontalnya dikanan berarti dia ada di kanan jadi nya gitu. Kalo di kiri bawah tinggal balik aja jadi end start :
+
+  .my-item {
+            background-color: lightblue;
+            place-self: end start;
+        }
+-------------------------------------
+
+lalu kalo mau ditengah juga gampang kasih aja center satu value aja cukup :
+
+  .my-item {
+            background-color: lightblue;
+            place-self: center;
+        }
+-------------------------------------
+
+cukup tulis satu value aja karena nilai vertikal dan horzontal nya sama aja begitu.
+
+---------------------------------------------------------------------------------------------------------------------------------
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

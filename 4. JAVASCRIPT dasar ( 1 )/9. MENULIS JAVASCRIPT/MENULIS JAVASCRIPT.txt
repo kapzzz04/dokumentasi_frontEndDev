@@ -1,0 +1,179 @@
+cara MENULIS JAVASCRIPT
+
+-----------------------------------------------------------------------------------------------------------------------------------------
+
+untuk menulisakan syntak javascript pada dokumen html kita
+sebetulnya simpel aja untuk menulis syntak javascript untuk
+dokumen html kita dengan menggunakan tag yg bernama
+( <script></script> )
+
+nah sekarang dimana kita menuliskan tag script itu
+
+misal kita punya file html nah kita mau menambahkan tag script itu
+terus dimana kah kita taro tag itu.
+
+jadi ada 2 cara menuliskan javascript di halaman web kita, pertama seperti css
+kita bisa menulisakan secara internal atau external
+
+nah yg internal itu artinya kita menulisakan javascript langsung di dalam tag
+script di halaman html/ dokumen websaite kita
+
+dan yg external itu kita menuliskan nya di file terpisah dari halaman html yg mau kita buat.
+
+-----------------------------------------------------------------------------------------------------------------------------------------
+untuk menuliskan javascript internal itu kalian bisa menuliskan nya di 2 tempat 
+pertama kalian bisa  menuliskan script nya di tag head, atau kalian juga bisa simpan di dalam
+body.
+
+setelah di tulis script di head maka muncul lah tag nya dan tulis javascript di dalam tag itu
+jika di tag script ada atribut ( type="text/javascript" ) itu opsional aja kalian bisa tuliskan
+atau tidak juga gpp.
+
+contohnya:
+
+<body>
+    <h1>hello world!</h1>
+
+
+
+    <script>
+        var x = 10;
+    </script>
+</body>
+
+</html>
+
+
+tapi nanti di seri ini kita akan simpan di dalam body simpan di akhir body sebelum tuutp
+body nya, kenapa untuk di seri ini mau di simpen di head atau body itu ga akan berpengaruh 
+karena kita belum bekerja dengan elemen web html kita, jadi nanti elemen yg ada di body itu tidak akan 
+terpengaruh di javascript kita.
+
+jadi kenapa saya simpan di akhir supaya seluruh elemennya itu di load dulu kedalam memori
+baru kita jalan kan javascriptnya, mungkin nanti ini akan lebih jelas ketika kita sudh masuk
+ke topik dokumen obejct model dimana kita bisa bekerja dengan elemen html di dalam body.
+
+jadi untuk sekarang biasakan simpan di dalam body sebelum tutup body.
+
+-----------------------------------------------------------------------------------------------------------------------------------------
+
+<body>
+    <h1>hello world!</h1>
+
+
+
+    <script>
+        var x = 10;
+    </script>
+</body>
+
+</html>
+
+nah kalo itu html kita jalankan open in browser nah itu tdak akan terjadi apa-apa
+, kita baru membuat variable yg namanya x kita isi angka 10, itu angka 10 nya 
+ga akan muncul tapi kalian cukup paham bahwa angka 10 itu sudah tersimpan 
+di dalam memori.
+
+kalo kita liat di console jg ga muncul apa-apa, nanti kita ingin javascript menuliskn
+sesuatu didalam console, itu nanti menggunakan sebuah fungsi yg namanya
+( console.log(); ) ini gunanya untuk menuliskan sesuatu kedalam console di 
+browser html kita, kalo sebelumnya kita menuliskan di dalam console, kalo
+sekarang sebalik nya kita menulis dulu sesuatu di file javascript lalu kita
+tampilkan ke dalam console, kita coba.
+
+-----------------------------------------------------------------------------------------------------------------------------------------
+<body>
+    <h1>hello world!</h1>
+
+
+
+    <script>
+        var x = 10;
+        console.log('hello world!')
+    </script>
+</body>
+
+nah kita menuliskan  console.log('hello world!') di tag script kita terus cek
+di browser nanti tidak muncul apa-apa di browsernya tapi kita bisa liat
+di dalam console browser kita ada tulisan hello world! nya.
+
+<body>
+    <h1>hello world!</h1>
+
+
+
+    <script>
+        var x = 10;
+        console.log('hello world!')
+        console.log('isi dari variable x adalah' + x)
+    </script>
+</body>
+
+selanjutnya kita tulis lagi console contohnya seperti di atas ya
+boleh-boleh aja.
+
+itu kalo kita menggunakan javascript yg internal, nah nanti kita jarang
+menggunakan yg internal yg akan kita sering pake nanti itu javascript 
+external.
+
+nanti nya kita akan punya sebuah file javascript terpisah untuk menuliskan
+syntak javascriptnya.
+
+-----------------------------------------------------------------------------------------------------------------------------------------
+
+terus kita buat file js nya di dalam folder yg sama dengan html
+
+agar file js nya bisa jalan kita hubungkan dulu ke file html nya 
+caranya begini......
+
+caranya sama aja menggunakan tag script tapi sekarang kita tidak akan
+menulis sesuatu di tag scriptnya melainkan menambahkan sebuah atribut
+baru di dalm tag script yaitu src=" ", hati-hati src bukan scr, cara penulisan
+nya yaitu ( <script src=" "></script> ).
+
+src itu artinya sourc, di situ tinggal kita tulis aja nama file javascript
+yg ingin kita smbungin ke html nya, seperti menyambungkan file
+css.
+
+-----------------------------------------------------------------------------------------------------------------------------------------
+
+nah nanti console juga penting, semisal kamu lupa mengisi kan titik di consolenya
+maka akan ada eror di console browser kita contoh:
+
+var x = 10;
+consolelog('hello world!');
+console.log('isi dari\null variable x adalah' + ' ' + x);
+
+kan seharusnya console.log tapi kamu lupa menuliskan titik jadi nya malah consolelog nah
+itu kan eror nanti kamu bisa cek di console browser kamu.
+
+jadiini adalah fungsi di javascript untuk menuliskan atau membuat log kedalam console 
+di browser kamu.
+
+untuk fungsinya sendiri atau function ini di jelaskn lebih detail di video yg akan datang
+
+SEKIAN
+-----------------------------------------------------------------------------------------------------------------------------------------
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

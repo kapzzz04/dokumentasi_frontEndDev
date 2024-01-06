@@ -1,0 +1,725 @@
+SVG -- Belajar HTML5
+
+svg itu singkatan dari Scalable Vector Graphics atau artinya ini Graphics berbentuk vektor yang 
+scalable atau bisa di skla kan.
+
+Nah sebelum kita liat element HTML nya kita akan bahas dulu mengenai graphic vektor itu seperti
+apa ya, jadi yg dinamakan dengan vektor itu adalah sebuah graphics yg memiliki besaran dan arah
+itulah kenapa ketika nanti vektor ini kita perbesar ukuran nya gambarnya itu gaakan pecah.
+
+Beda dengan type graphic yg lain yg disebut dengan bitmep atau raster, ilustrasinya mungkin
+seperti ini ( di folder ), kalo vektor itu saya bilang itu graphic atau besaran dan arah sedangkan 
+raster itu ukuran nya udah fix dalam bentuk pixel misalnya.
+
+jadi satu gambar itu ukurannya berapa kali berapa pixel, sehingga nanti kalo gambarnya kita 
+perbesar sampe ukuran tertentu, ya kalo dia sudah melebihi batas ukuran nya maka kita akan liat 
+gambarnya akan pecah. Seperti ini ( di folder ya ) yg sebelah kiri itu gambar yg raster yg sebelah 
+kanan itu vector.
+
+--------------------------------------------------------------------------------------------------------------------------------
+
+kita kembali ke element html nya, ya kalo kita liat definisinya dulu dari developer mozila
+
+"SVG (Scalable Vector Graphics) adalah elemen berbasis XML yang digunakan untuk
+mendeskripsikan grafis vektor 2 dimensi"
+
+Ya jadi SVG ini nanti dibentuk dengan menggunakan XML yg hanya bisa bikin gambarnya 2 dimensi
+beda dengan canvas itu kita bisa bikin didalamnya bentuknya 3 dimensi. dan cara bikin nya itu kita
+tinggal menggunakan Tag nya SVG, ya bisa kita atur lebar dan tinggi nya dari area kerja nya.
+
+Lalu didalam nya kita bisa bikin <rect> atau bentuk-bentuk 2 dimensi nya, kita bisa bikin kotak,
+lingkaran,garis,poligon sampe dengan path. Mulai dari object sederhana seperti kalian lihat 
+seperti ini :
+
+
+    <svg width="150" height="150">
+        <rect width="100" height="100" fill="lightblue">
+    </svg>
+--------------------------------------------
+
+disitu kita bikin kotak yang ukuran nya 100 x 100 yg warna nya birumuda, sampe dengan nanti kita
+bisa bikin didalam satu tag svg itu terdapat banyak banget object sehingga menghasilkan gambar 
+yg kompleks.
+
+--------------------------------------------------------------------------------------------------------------------------------
+
+KHARAKTERISTIK <SVG>
+
+- Digunakan untuk membuat gambar yang tidak akan hilang kualitasnya meskipun diperbesar
+- Bisa dengan cara membuat sendiri garis dan bentuknya
+- Atau dengan menggunakan grafis svg terpisah (.svg)
+- Setiap element di dalam SVG dapat dimanipulasi menggunakan bantuan CSS
+- Didukung oleh kebanyakan browser modern.
+
+SVG INI digunakan untuk membuat gambar yang  tidak akan hilang kualitasnya atau pecah
+mesikipun diperbesar, terus juga cara bikin nya itu kita bisa bikin sendiri garis dan shape nya atau
+bentuk nya, atau kita juga bisa menggunakan grafis svg terpisah dengan file (.svg ) yg nantinya kita
+panggil pake Tag <img> misalnya.
+
+Terus juga setiap element didalam svg itu dapat dimanipulasi dengan menggunakan bantuan CSS
+ya karena dia merupakan XML yg bisa kita kasih class,id, sehingga itu akan dengan mudah ketika
+kita mau manipulasi pake CSS, ubah posisinya ubah ukuran nya ubah warna nya dll.
+
+bahkan kita bisa kasih animasi dengan mudah, karena disitu kita cukup pake css, ga seperti canvas
+yg kita memanipulasinya membutuhkan javascript, dan kelebihan lainnya sekarang udah di dukung
+oleh kebanyakan browser modern yg kita pake.
+
+--------------------------------------------------------------------------------------------------------------------------------
+
+KEUNTUNGAN <SVG>
+
+- Scalability
+- Interactivity
+- Easily editable
+- Compact file-size
+- SEO friendly
+
+pertama Scalability jelas ya ketika kita perbesar ukurannya gambar nya ga pecah ya jadi kita 
+gapelu punya banyak gambar, misalnya ada gambar yg kecil untuk di mobile gambar yg sedang
+untuk di tablet dan gambar yg besar untuk di laptop gaperlu ya cukup pake satu SVG aja selesai.
+
+Terus ada interactivity karena tadi kita bisa memberikan interaksi dengan mudah menggunnakan
+CSS, ya bisa kita kasih hover, ya hover itu ga semudah itu kalo kita mau menggunakan canvas
+misalnya, terus kita bisa kasih transisi dan juga animasi.
+
+Berikutnya juga gampang diedit karena kita bisa mengubah nilai dari atrribute" didalam XML nya
+walaupun ketika nanti object gambar didalam SVG nya semakin kompleks isi XML nya akan 
+semakin banyak.
+
+Compact file-size, ukurannya yang sangat kecil dibandingkan dengan gambar bitmap gitu, dengan
+gambar yg keliatan nya sama kalo satu di bikin SVG dan satu dibikin pake bitmap misalnya jpg dan
+png, itu svg ukuran nya lebih kecil.
+
+SEO friendly karena dia dibikin nya menggunakan XML maka dia seo friendly.
+
+--------------------------------------------------------------------------------------------------------------------------------
+
+SVG Basic Shapes
+
+Sebelum kita coba bikin nya gimana kita liat dulu bentuk" apa saja yg bisa dibikin oleh SVG ini atau
+kita sebutnya SVG Basic Shapes.
+
+Yang pertama kita bisa bikin Rectangle sebelumnya kita udah liat ya kita udh bikin kotak sederhana
+ya, lalu kita juga bisa bikin lingkaran, kita bisa bikin Ellipse, kita bisa bikin Line/garis, kita juga bisa
+bikin Polyline/ garis yg banyak.
+
+dan kita bisa bikin Polygon nah ini garis - garis yg menutup sehingga dia membentuk sebuah 
+bidang dan yg terakhir yg paling kompleks itu adalah dengan menggunakan Path dimana ini nanti 
+garis nya ga hanya garis lurus kita juga bisa bikin garis melengkung atau yg disbut dengan arc, dan 
+qubyc besier nah ini nanti kita jadinya bisa bikin grfis yang kompleks.Contoh nya mislanya kita mau 
+bikin garis dipersamaan mtk.
+
+Nah kita bikin dulu SVG kita yg pertama ya, untuk bikin nya ktia bungkus dulu kedalam sebuah tag
+<svg> nanti didalam nya kalian bisa bikin element-element nya, mau satu boleh mau banyak juga
+boleh, intinya ketika kita bikin svg itu kita bikin tag pembungkusnya atau seperti canvas lah ya area
+kerja kitanya.
+
+Kalo svg ini bisa kita atur dengan CSS, misal svg nya kita kasih class nameny satu, terus kita kasih
+style lalu kita kasih svg nya background, Nah disitu default nya sudah ada dan bentuk svg nya 
+otomatis dengan kita hanya mengasih background color saja sudha keliatan. Seperti ini :
+
+<style>
+        .satu {
+            background-color: #999;
+        }
+    </style>
+
+<svg class="satu"></svg>
+--------------------------------------
+
+Nah ukuran default svg nya kalo gasalah 300 x 150, walaupun itu bisa kita atur ya, nah sekarang
+ceritanya kita mau kasih didalam nya sebuah kotak, kita akan biarkan saja kotak default svg nya,
+misalkan kita mau bikin kotak kita butuh tag <rect> nya oh iya tag rect itu pake tutup nya gini 
+( <rect /> ).
+
+misal kita mau atur lebar nya 100 dan ini satuan nya pixel lalu height kita kasih 100, seperti ini :
+
+  <svg class="satu">
+        <rect width="100" height="100" />
+    </svg>
+--------------------------------------
+
+Nah sekarang muncul tuh kotak ukuran nya 100 x 100 dengan warnanya hitam itu default nya hitam,
+kita kalo mau kasih warna beda kita bisa kasih dengan attribute 'fill'. Seperti ini :
+
+    <svg class="satu">
+        <rect width="100" height="100" fill="salmon" />
+    </svg>
+--------------------------------------
+
+Kalian bisa tulis nya disitu sebagai attribute atau bisa juga sebagai CSS misalnya saya mau kasih
+class kotak1, nah attribute itu kita pindahkan kedalam style nya. Seperti ini :
+
+    .kotak1 {
+            width: 100px;
+            height: 100px;
+            fill: salmon;
+        }
+--------------------------------------
+
+itu cara kita kalo mau bikin kotak sederhana nya, kalo misalnya kita mau geser posisinya, nah itu 
+kita bisa kasih attribute nya x dan y, misalkan x nya 100px nah maka dia akan geser, didalam sumbu
+x, inget ya sama kaya canvas kordinat carvetsiam.
+
+Kalo X itu horizontal nilai positif ke kanan nilai negatif ke kiri dan y itu nilai untuk sumbu veritkal, kalo
+saya kasih y nya 100px dia akan turun ke bawah dan dia akan melewati area kerja nya jadi kepotong
+nah supaya keliatan dan ga kepotong kita harus perbesar area <svg> nya, kita tinggal kasih width
+nya 300px height nya 300px. Seperti ini :
+
+   <style>
+        .satu {
+            background-color: #ddd;
+            width: 300px;
+            height: 300px;
+        }
+
+        .kotak1 {
+            width: 100px;
+            height: 100px;
+            fill: salmon;
+            x: 100px;
+            y: 100px;
+        }
+    </style>
+--------------------------------------
+
+Nah jadi tadi kita udah coba bikin rectangle yg sangat sederhana nanti kita akan coba yg lain tapi 
+kalo kalian mau tau cara coba bikin nya terus ada attribute apa aja yg bisa dipake, kalian langsung
+kunjungi aja di dokumentasi mozila nya ya.
+( - https://developer.mozilla.org/en-US/docs/Web/SVG/Tutorial/Basic_Shapes )
+
+--------------------------------------------------------------------------------------------------------------------------------
+
+VIEWBOX
+
+nah tapi sebelum kita coba yg lain saya mau kasih penjelasan dulu mengenai sebuah attribute 
+yg namanya ( viewBox ) yg ada didalam svg, nanti kalo misalnya menggunakan svg dari tempat lain
+pasti menemukan ada yg namanya viewbox.
+
+nah viewbox itu apa, kalo kita balik lagi ke codingan nya, misalnya seperti ini ya, kalian inget bahwa
+kita punya area kerja yg ukuran nya 300 x 300, yg warna abu" itu anggap aja itu sebagai jendela kita
+untuk melihat dunia svg didalam nya.
+
+Jadi itu jendelanya (300 x 300) pixel ada svg didalam nya, terus kalo jendelanya kita kecilin ukuran
+nya, misal jendela kita itu kecil otomatis ketutup semua svg didalam nya, tapi sebenernya dunia svg
+nya itu ada dibelakang nya. 
+
+makannya kotak <rect> itu ga keliatan karena kotak nya ada diluar dari jendela kita, pahamin ini dulu.
+Jadi yg kita liat ini adalah viewfort, bukan viewbox.
+
+oke kita akan liat mengenai viewbox, misalnya svg kita mau kita kasih viewbox, cara nulis nya kalian
+tulis aja attribute viewBox di tag svg lalu parameternya ada 4, ada sumbu X minimal ada sumbu Y
+minimal nah yg ke3 mau seberapa lebar viewbox nya dan terakhir mau seberapa tinggi viewbox nya.
+
+Kalo misalkan kita kasih ukuran viewbox lebar dan tingginya sama dengan ukuran Tag svg maka
+tidak akan ada yg berubah. Seperti ini :
+
+  svg.satu {
+            background-color: #ddd;
+            width: 300px;
+            height: 300px;
+        }
+
+    <svg class="satu" viewBox="0 0 300 300">
+        <rect class="kotak1" />
+    </svg>
+--------------------------------------
+
+Jadi ini jendela kita ukurannya sama dengan dunia svg nya, nah tapi sekarang kalian liat ketika kita
+perbesar nilai width dan height dari viewbox nya misalnya kita kasih 400 x 400. seperti ini :
+
+ <svg class="satu" viewBox="0 0 400 400">
+        <rect class="kotak1" />
+    </svg>
+
+( hasil nya adad di folder ya )
+--------------------------------------
+
+Nah kalian liat kan kotak warna salmon nya jadi kecil, itu artinya dunia svg nya semakin menjauh 
+dari kita jadi semakin kecil, kalo kita bikin supaya ukuran nya lebih kecil dari jendela kita dari viewport
+nya, misalkan ukuran svg nya itu 300px kita buat viewbox nya jadi 100 x 100.
+
+<svg class="satu" viewBox="0 0 100 100">
+        <rect class="kotak1" />
+    </svg>
+--------------------------------------
+
+NAh malah kotak warna salmon itu ga keliatan ya, padahal ada nih, coba kita hilangkan x dan y di
+tag <rect> nya. Seperti ini :
+
+    <style>
+        .satu {
+            background-color: #ddd;
+            width: 300px;
+            height: 300px;
+        }
+
+        .kotak1 {
+            width: 100px;
+            height: 100px;
+            fill: salmon;
+        }
+    </style>
+
+html :
+   <svg class="satu" viewBox="0 0 100 100">
+        <rect class="kotak1" />
+    </svg>
+--------------------------------------
+
+liat tuh ada kotak nya mulai dari titik 0 0 di pojok kiri atas sampai ukruan nya gede, karena jendela
+kita mendekati dunia svg nya, kalo viewbox nya 200 dia mundur tapi kalo 300 dia persis dengan 
+ukuran di Tag svg nya. nah jadi itu ada viewbox dan ada viewport ( viewport itu yg class satu di CSS
+nya ya.
+
+Kalo misalkan kita gak kasih viewbox itu default nya ukuran nya sama dengan width dan heigh dari
+svg nya, tapi memang agak sedikti membingungkan tapi itu yg disebut dengan viewbox.
+
+Nah untuk nilai minimal x dan minimal y nya nah ini kebalikan nya ya, kalo misalkan saya kasih
+angka 50, kan kalo kasih x di <rect> tadi misal x nya 50 kotak nya geser kekanan kan, nah kalo 
+viewbox dikasih minimal x nya 50 itu kebalikan nya nanti kotak warna salmon nya geser kekiri.
+
+nah itu maksudny jendelanya saya geser kekanan 50 maka semua didalam nya itu akan seolah-
+oalh geser kekiri, begitu pula kalo saya kasih 50 untuk minimal y nya, ini jendelanya saya turunin
+mkannya kotka salmon nya geser keatas 50. Seperti ini :
+
+ <svg class="satu" viewBox="50 50 300  300">
+        <rect class="kotak1" />
+    </svg>
+--------------------------------------
+
+ya jadi kita bisa mainin viewbox dan juga x,Y di kotak1, kalo x nya saya kaish 50 dan y nya juga, 
+maka keliatan nya kembali seperti semula. seperti ini :
+
+  .kotak1 {
+            width: 100px;
+            height: 100px;
+            fill: salmon;
+            x: 50;
+            y: 50;
+        }
+HTML :
+
+ <svg class="satu" viewBox="50 50 300  300">
+        <rect class="kotak1" />
+    </svg>
+--------------------------------------
+
+jadi itu kembali semula karena kotak nya kan kegeser ya dikasih x dan y 50 di kotak1 nya sedangkan
+harusnya kalo gitu ada anggapan margin left lah ya 50px di kotak1 itu, nah karena kita kasih
+viewbox nya x dan y nya 50 jadinya ga keliatan margin nya gitu loh kalo di apus x dna y di viewbox
+nya nanti juga keliatan.
+
+--------------------------------------------------------------------------------------------------------------------------------
+
+Sekarang kita coba gimana cara nya kalo mau bikin satu svg tapi didalam nya ada banyak element
+kita bikin svg baru ya atur ukuran nya lebar 150 dan height nya 150, inget ini ukuran jendela nya,
+terus didalm nya kita mau bikin kotak lagi kita kasih tag <rect> lalu kita kasih lebar nya 100 dan 
+height nya 100. Seperti ini :
+
+ <svg width="150" height="150">
+        <rect width="100" height="100" fill="lightblue" />
+    </svg>
+--------------------------------------
+
+Nah inget bahwa dia dibungkus oleh svg yg ga keliatan ya karena blm ada background colornya di
+tag <svg>, nah default nya svg itu display nya inline, kalo misalkan kita mau bikin dia dibawah kita
+bikin aja svg displaynya block biar dia turun, terus kita kasih margin 20px. Seperti ini :
+
+ <style>
+        svg {
+            display: block;
+            margin: 20px;
+        }
+
+        .satu {
+            background-color: #ddd;
+            width: 300px;
+            height: 300px;
+        }
+
+        .kotak1 {
+            width: 100px;
+            height: 100px;
+            fill: salmon;
+            x: 50;
+            y: 50;
+        }
+    </style>
+
+HTML :
+ <svg class="satu" viewBox="50 50 300  300">
+        <rect class="kotak1" />
+    </svg>
+
+    <svg width="150" height="150">
+        <rect width="100" height="100" fill="lightblue" />
+    </svg>
+--------------------------------------
+
+Nah jadi keliatan ya atas svg pertama yg bawah svg yg kedua, biar keliatan kita kasih background
+deh, kita biaran aja posisinya ada disitu.
+
+sekarang kita mau bikin lingkaran, nah cara bikin lingkaran kita pake tag <circle> sama juga itu 
+tutup nya kaya yg <rect> self closing tag, berikutnya kita kasih ukuran nya dalam bentuk radius, jadi
+kalian kasih (r) itu untuk jari- jari nya, misalkan kita bikin ukuran nya sama kaya kotak nya, jadi nanti
+lingkaran nya ada di tengah kotak.
+
+Karena kotak lebar dan tingginya 100 kita bikin jari-jari nya supaya setengahnya ya, nah keliatan tuh
+ada lingkaran tapi yg keliatan cuma setengah gitu kek kepotong, nah karena secara default sumbu 
+tengah nya ada di tiitk tengah lingkaran itu.
+
+Kalo kita mau geser kita harus ubah titik tengah nya, caranya kita pake cx dan cy, saya mau geser
+cx dan cy nya 50, misalnya ktia ubah jadi warna salmon juga, tuh jadi sekarang saya punya 2 buah 
+element  svg ada kotak dan lingkaran. Seperti ini :
+
+ <style>
+        svg {
+            display: block;
+            margin: 20px;
+            background-color: #eee;
+        }
+
+        .satu {
+            background-color: #ddd;
+            width: 300px;
+            height: 300px;
+        }
+
+        .kotak1 {
+            width: 100px;
+            height: 100px;
+            fill: salmon;
+            x: 50;
+            y: 50;
+        }
+    </style>
+
+HTML :
+
+ <svg class="satu" viewBox="50 50 300  300">
+        <rect class="kotak1" />
+    </svg>
+
+    <svg width="150" height="150">
+        <rect width="100" height="100" fill="lightblue" />
+        <circle r="50" cx="50" cy="50" fill="salmon" />
+    </svg>
+--------------------------------------------------------------------
+
+kalo kita mau bikin kotak satu lagi di tengah" lingkaran nya misal. Seperti ini :
+
+  <svg width="150" height="150">
+        <rect width="100" height="100" fill="lightblue" />
+        <circle r="50" cx="50" cy="50" fill="salmon" />
+        <rect width="70" height="70" fill="aqua" x="15" y="15" />
+    </svg>
+--------------------------------------------------------------------
+
+dan inget kalian bisa kasih itu masing-masing class sehinggaa kita bisa atur lewat CSS dan kalo
+mau coba shapes yg lain silahkan diliat dokumentasinya gimana caranya.
+
+--------------------------------------------------------------------------------------------------------------------------------
+
+<PATH>
+
+kita liat element yg paling kompleks yaitu element path ya karena nanti kebanyakan kalo nanti kita
+ngambil svg itu bentuk nya udah dalam <path>, nah untuk bikin path itu ada macem-macem 
+attribute yg bisa kita pake atau perintah nya lah ya.
+
+Path COMMANDS
+
+- MoveTo: M, m
+- LineTo: L, l, H, h, V, v
+- Cubic Bezier Curve: C, c, S, s
+- Quadratic Bezier Curve: Q, q, T, t
+- Elliptical Arc Curve: A, a
+(  https://developer.mozilla.org/en-US/docs/Web/SVG/Attribute/d )
+
+Moveto Nah ini untuk membuat lengkungan" lah ya sedangkan Lineto itu untuk membuat garis, dan
+maising" dari ini punya attribute nya sendiri" dan MoveTo itu nanti kita gunakan untuk menempatkan 
+titik awal nya mau dimana, jadi kita geserin dulu titiknya mau dimana abis itu kita tentukan mau bikin
+garis kah, mau bikin lengkungan kah, atau kita coba liat documentasinya dah.
+
+Jadi yang pertama-tama pada saat kalian bikin <path> kalian harus memberi attribute (d) dulu.
+Seperti ini :
+
+ <path fill="none" stroke="red" 
+    d="M 10,30 
+       A 20,20 0,0,1 50,30
+       A 20,20 0,0,1 90,30
+       Q 90,60 50,90
+       Q 10,60 10,30 z" />
+
+( ini contoh ambil yg d nya aja ya ga terlalu lengkap codingan nya )
+--------------------------------------------------------------------
+
+Nah begitu contoh nya (d) baru kita kasih tau (M) pindahkan titiknya ke kordinat mana (x,y), trus yg A
+itu untuk membuat lengkungan pindahkan titiknya ke (20,20) lalu seterusnya. Nah apa maksudnya
+M,A dan seterusnya ada di Path commands (liat di link aja kalo mau lebih ngerti ).
+
+Yang pertama MoveTo, bisa pake M besar atau m kecil, bedanya huruf M besar itu digunakan ketika
+kita mau menentukan koordinat yg absoult, absoult itu artinya dari titik (0,0) kordinat kartesian nya,
+sedangkan m kecil itu untuk menentukan kordinat relative terhadap posisi terakhirnya.
+
+Jadi kalo misalkan saya tulis (10,10) untuk M besar artinya geser 10 ke kanan dan 10 kebawah dari
+koodinat (0,0) berarti dari kiri atas, anggap lah di kiri atas geser kanan, geser bawah, Nah posisi itu
+adalah posisi terakhir jika berikutnya saya tulis m kecil (10,10) maka saya akan geser 10 kekanan 
+dan 10 kebawah dari titik  terakhir, itu artinya akan geser dari posisi yg M besar tadi 10,10 nah kan
+ditambah m kecil mulai gesernya itu dari posisi si M besar semoga ngerti.
+
+itu untuk M,m dan itu untuk mindahin titik aja.
+
+(L,l) 
+
+kalo untuk L itu untuk bikin garis, garis nya terserah kita dari titik mana ke titik mana, jadi kordinat
+nya ada 2 x dan y, bisa horizontal bisa vertikal, bisa diagonal. Tapi kalo kalian mau bikinnya 
+horizontal itu ada (H), nah kalo ha gaperlu 2 nilai nya cukup satu dan ada H besar dan h kecil. Sama
+semua ya perbedaan huruf kecil dan besar nya itu dijelasin di huruf (M) ada yg absoult dan relative.
+
+Berikutnya ada (v) untuk garis vertikal.
+
+--------------------------------------------------------------------------------------------------------------------------------
+
+MENCOBA
+
+kita coba ya, kita bikin style dulu biar body nya bisa di scroll kebawah, kita kasih body min-height
+1000px. Sekarang kita coba bikin segitiga ya.
+
+Saya mau bikin gaada isi nya jadi (fill) nya jadi none gaada warna background nya, tapi saya mau
+bikin ada garis nya saya pake stroke atau bisa dibilang border kasih warna nya hitam aja. Nah kita
+mulai, attribute nya adalah (d) ini artinya draw, terus kita mau bikin yg pertama geser dulu tiitk nya
+kan tadinya (0,0) ya, saya mau bikin dia geser kekanan deh, karena nanti segitiganya bikin di situ
+lahya.
+
+Jadi saya mau bikin kekanan 60px kebawah 10px, kita kasih M besar, sebenarnya M besar dan m
+kecil ga ngaruh karena sama-sama posisinya dari kordinat (0,0), nah setelah digeser nanti gaakan
+keliatan apa" karena kita baru mindahin titiknya aja.
+
+Baru berikutnya spasi atau enter untuk membuat attribute baru, kita mau bikin Line, saya mau bikin
+pake yg absoulte semua dulu deh ( huruf besar ), jadi semua ngitungnya dari (0,0), makaknnya
+saya tulis L besar, geser kekanan 110px terus kebawah 90px ( kalo g ngerti pahamin kaya canvas
+dulu aja ).
+
+terus saya mau tarik garis ke kiri setelah buat Line nya, caranya kalian bisa pake L lagi terus 
+tentukan kita-kira biar segitiga titiknya kordinatnya itu berapa, Nah tapi kalian juga bisa kasih garis
+horizontal aja biar gampang. kasih H besar yg tiitk akhirnya itu di 10px jadi kita gaperlu kasih sumbu
+Y nya, jadi nantinya langsung garis lurus ditarik sampe 10.
+
+terakhir kita balikin lagi garis nya ke atas, karena diagonal kita gabisa pake vertikal jadi butuh L lagi,
+berarti kita balikin ke 60,10 kan awalnya segitu, ini hampir sama konsepnya kaya di canvas ya.
+
+SEPERTI INI :
+
+    <svg>
+        <path fill="none" stroke="black" 
+    d="M 60,10
+       L 110,90
+       H 10
+       L 60,10" />
+    </svg>
+---------------------------------------------
+
+Nah itu cara kita untuk bikin 3 buah garis.
+
+Nah gimana kalo kita bikin segitiga yg sama di sebelah kanannya tapi pake titik" yg relative, kita bikin
+<path> lagi dibawahnya, lalu attribute d nya jangan lupa, kita pake m kecil aja seperti tadi yg saya
+bilang kan sama aja kalo tiitk awal ya, saya mau geser kekanan terus turun 10px misalnya saya
+mau geser (170,10), harusnya ada di situlah.
+
+Nah baru kita tarik garis diagonal kekanan, tinggal pake l kecil nah ngitung nya cukup dari titik awal
+kita itu, misal kan m kecil titik awal nya di (170,10) berarti kita ngitung nya dari titik kita mungkin gitu.
+Nah saya tinggal kasih (l) kecil nya (50,80), Nah titik nya itu lagi ada di l nya itu, kalo mau kekiri nya
+tinggal pake h kecil -100, mines itu kan kekiri ya karena dia ngitung nya dari titik terakhir di (l) nya itu,
+kalo kita ga pake mines nanti garisnya bukan keiri malah kekanan.
+
+Lalu kita bikin garis biar keatas biar lengkap jadi segitiganya pake ( l ) kecil lagi, dari tiitk itu berarti
+mines ke atas nya tapi kekanan horizontalnya jadi (50, -80). Seperti ini :
+
+ <svg>
+        <path fill="none" stroke="black" d="M 60,10
+           L 110,90
+           H 10
+           L 60,10" />
+
+        <!-- segitiga -->
+        <path fill="none" stroke="black" 
+         d="m 170,10
+               l 50,80 
+               h -100 
+               l 50,-80" />
+
+    </svg>
+---------------------------------------------
+
+jadi kalo masih belum ngerti juga di telusuri dan coba" aja angka berapanya itu nanti pasti ketemu.
+
+--------------------------------------------------------------------------------------------------------------------------------
+
+Nah kalo berikutnya kita mau bikin misalnya lengkungan, bisa juga ya kita pake svg, misalnya saya
+mau bikin seperti kurva persamaan mtk gitu, terus berikutnya kita kasih <path/>, nah tinggal kita
+kasih ( d) draw, nah ini saya mau coba tuliskan persamaan linear ya.
+
+Pertama saya tulis M besar (10,90) berikutnya saya mau bikin curve ( C besar ) atau lengkungan
+(30,90 25,10 50,10) lihat lah sekarang kita punya lengkungan seperti itu. Nah misalnya saya mau
+balikin saya bisa pake S besar (70,90 90,90). Seperti ini ;
+
+   <svg>
+        <path fill="none" stroke="red" d="M 10,90
+    C 30,90 25,10 50,10 
+    S 70,90 90,90" />
+    </svg>
+---------------------------------------------
+
+dan bisa juga kita bikin bentuk love, ini ambil dari link yg penjelasan path commands ya :
+
+    <svg>
+        <path d="M 10,30
+        A 20,20 0,0,1 50,30
+        A 20,20 0,0,1 90,30
+        Q 90,60 50,90
+        Q 10,60 10,30 z" />
+    </svg>
+
+--------------------------------------------------------------------------------------------------------------------------------
+
+Menggunakan SOFTWARE pengolah Grafis Vector
+
+Jadi setelah tadi kita udah buat svg nya secara manual, berikutnya kita juga bisa membuat element
+svg nya itu menggunakan bantuan software pengolah grafis vector. contoh nya kalian bisa pake
+adobe ilustrastor atau figma, sehingga nanti kita bikin dulu object nya di software tersebut lalu kita
+konversi menjadi Tag svg.
+
+Nah misalnya sekarang saya sudah menggunakan figma ya, lalu kalian bisa bikin aja object apapun
+menggunakan bantuan figma nanti kita export menjadi sebuah <svg>, nah contoh sederhana 
+misalnya saya mau membuat sebuah shapes yg simpel ya.
+
+Misalnya saya mau bikin bintang, lalu misalnya kita kasih warna biru, silahkan misal kalian mau
+kasih element lain atau apa bisa, atau mau dikasih border atau 3d bisa atau dikasih efek bayangan
+atau dikasih efek yang lain silahkan.
+
+Nah misalkan kalo udah jadi Shapes nya, kalo di figma kalian pilih element nya atau klik bintang nya
+lalu klik kanan terus copypaste as, lalu pilih yg copy as SVG, nah begitu kita klik berarti udah dicopy,
+kita tinggal kalian ctrl + v di vs code entar langsung ada kode dri tag <svg> sampe tag yg lainnya.
+
+Dan setelah kita tempel codingan svg nya di vscode kita bisa kasih class namanya apa aja
+misalnya bintang nah terus ke style tinggal kita edit" aja di CSS nya mau dibikin animasi misalnya
+bikin animasi bintang nya bisa jadi muter-muter.
+
+Coba aja ya bikin sesuatu di figma terus copypaste as terus copy svg entar tinggal tempel di vs
+code aja gitu.
+
+Seperti ini :
+
+HTML SVG :
+
+ <!-- Bintang -->
+    <svg class="bintang" width="96" height="91" viewBox="0 0 96 91" fill="none" 
+             xmlns="http://www.w3.org/2000/svg">
+        <path
+            d="M48 3.23607L58.2746 34.8582L58.4992 35.
+            5491H59.2257H92.4751L65.5758 55.0927L64.988 55.
+            5197L65.2125 56.2107L75.4872 87.8328L48.5878 68.
+            2893L48 67.8622L47.4122 68.2893L20.5128 87.
+            8328L30.7875 56.2107L31.012 55.5197L30.4242 55.
+            0927L3.52486 35.5491H36.7743H37.5008L37.7254 34.8582L48 3.23607Z"
+            fill="#FFF524" stroke="black" stroke-width="2" />
+    </svg>
+
+CSS :
+
+     .bintang {
+            background-color: transparent;
+            animation: putar 5s linear infinite;
+        }
+
+        @keyframes putar {
+            0% {
+                transform: rotate(0deg);
+            }
+
+            100% {
+                transform: rotate(360deg);
+            }
+        }
+
+( INI MENGGUNAKAN CSS3 JADI BELUM PAHAM )
+
+--------------------------------------------------------------------------------------------------------------------------------
+
+Nah cara berikutnya untuk menggunakan Svg adalah dengan menggunakan file nya, (namafile.svg)
+Jadi kalo kalian punya file gambar selain png atau jpeg, kalian bisa pake svg.
+
+Sekarang kita cari gambar yg formatnya svg, dan buat folder img buat naro svg nya disitu, terus
+kita akan tampilkan di web kita menggunakan Tag <img>, kita ambil gambarnya, terus kita atur
+width nya seperti biasa aja. Seperti ini :
+
+  <img src="img/S.jpg" alt="Image SVG" width="200px">
+
+(saya gunain format jpg karena yg svg susah nyarinya)
+-----------------------------------------------
+
+( CONTOH YG SAYA BERIKAN SALAH BACA SAMPE SELANJUTNYA )
+
+Nah cuman dengan menggunakan image ada kelemahan nya, kelemahan nya kita tidak bisa 
+manpulasi element-element didalam nya, ya misalkan saya mau ganti warna di bagian huruf T 
+gambar itu gabisa karena dia sudah dalam bentuk <img>.
+
+Kalo misalkan tetep akan kita ubah caranya adalah kita tinggal buka svg nya.
+
+OHH JADI DI folder img itu berformat svg aja bukan berarti isinya gambar tapi isinya ttp codingan
+tapi berupak XML yang didalam nya ada path terus element-element lain nya, seperti ini:
+(di gambar folder ).
+
+Nah sekarang kalo misalkan mau ngerubah sesuatu di file svg tinggal copy kode svg nya yg di file
+svg nya ke index.html lalu kalian cari kode mana yg mengubah warna huruf atau bentuk yg kita tuju,
+misal mau ngubah baju nya jadi warna biru nah cari yg mana sih yg ngubah baju itu pasti ada tuh,
+tapi ya emang pusing kodenya banyak.
+
+Kekurangan nya struktur html kita jadi banyak <path> nya jadi kalo lebih mudah ya dipisah antara
+file svg dan index.html ( seperti di folder img liat aja ya di folder ini ny loh).
+
+--------------------------------------------------------------------------------------------------------------------------------
+
+Nah kalo misalkan kalian mau mendapatkan sumber-sumber untuk SVG ini, dari pada kita bikin
+sendiri, kalian bisa cari di link berikut ini :
+
+SVG Resources
+
+- blobmaker.app, bisa untuk mencari shapes sederhana dalam bentuk block.
+- shapedivider.app
+- svgrepo.com ini web yg nyimpen banyak svg.
+- simpleicons.org nah biasanya pak dhika pake kalo dia butuh icon sosial media untuk web dia.
+
+dan masih banyak lagi web yg lain. ya contoh nya kalo misalkan kita masuk ke beberapa dari itu
+kita masuk ke blobmaker.app nah disitu kita bisa atur bentuk atau obejct nya rendem bahkan ini
+keren ini bisa untuk background web yang bagus gitu loh.
+
+silahkan digunakan sesuai dengan kebutuhan masing-masing, jadi kalo kalian butuh element di
+halaman yang scelabel tapi ukuran nya kecil langsung aja gunakan svg sebagai pendukung web
+kite.
+--------------------------------------------------------------------------------------------------------------------------------
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

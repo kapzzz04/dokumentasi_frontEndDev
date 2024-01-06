@@ -1,0 +1,349 @@
+Javascript dan DOM #13 - Membuat IMAGE GALLERY
+
+di video kali ini kita akan membuat sebuah program sederhana dengan mengimplementasikan
+pengetahuan yg sudah kita dapatkan dari video sebelumnya. di video kali ini kita akan membuat
+image gallery sederhana yg tampilannya seperti itu ( liat di folder ada ).
+
+nah ide nya itu gini, kita punya beberapa image yg kecil" itu yg nanti nya kita sebut dengan tumnel
+lalu kita punya sebuah gambar besar di atas nya, nah ketika kita klik gambar yg ada di tumnel itu
+dia akan mengubah gambar di atas nya, gitu aja yg mau kita buat sebenernya sederhana tapi 
+nanti kita liat ada beberapa fitur yg ada di dalam nya yg akan kita buat.
+
+-------------------------------------------------------------------------------------------------------------------------------
+
+jadi kita disini ada 6 buah gambar terus kita buat folder yg namanya img nah biar gampang 6 
+gambar itu kita simpen di folder img biar ga kececer, lalu 6 gambar itu kita atur dengan widht 600px
+dan height 400px. Kalo mau nyari gambar" bagus kunjungi web Unsplash.com.
+
+nah pertama" kita buat HTML nya dulu untuk membuat projek ini. Pertama untuk membungkus
+semua gallery nya kita bikin aja div yg nama class nya ( container ). Coba kita kasih style css dulu
+kita kasih ( reset ) di css nya ya. Anggap udah di setting css nya ( liat di codingan aja ).
+
+Lalu di dalam container nya saya mau ada sebuah gambar yg besar, kita isi dengan tag img dulu
+ya. kita pake gambar yg pertama aja terus kita kasih class supaya membedakan dengan gambar
+yg lain nya ya, kita kasih class dengan nama jumbo.
+
+lalu kita bikin div di dalam container untuk menyimpan gambar" kecil nya itu. kita kasih nama class
+nya ( tumnel ). Lalu di dalam div itu kita kasih gambar" nya dan tag img nya dari 1-6 kasih class
+(tum).
+
+karena ukuran gambar nya masih kegedean kita saya ingin supaya ukuran nya kecil sehingga dia
+cukup 3 gambar ber jejer, karena div nya itu widht nya 600px nah tinggal kita bagi 3 aja jadi setiap
+gambar ukuran nya 200px, kita kasih 200px itu di ( img.tum ) ya di css nya. 
+
+supaya dia berjejernya beneran 3 kita kasih float ( left ) ya. Tapi sekarang masalah nya si container
+nya colabs itu karena kita kasih float, ini tinggal kita hilangkan aja float nya tapi bukan di apus di
+codingan nya loh, ini tuh biar ga colabs pada saat make float gitu. Bisa kita kasih clear tpi kita kasih
+aja ( overflow ) di containe nya. ( liat aja di codingan ya ).
+
+
+-------------------------------------------------------------------------------------------------------------------------------
+
+tinggal kita kasih border buat si ( tum ) nya. Nah pas di kasih border jadi ga cukup tuh kelebihan
+jadi ga ber jejer 3 lagi deh. untuk mengatasi masalah nya kita kasih ( box-sizing ) aja ya.
+
+jadi ini sudah jadi tinggal nanti kita kasih interaksi nya bagaimana. Pertama saya pengen ketika
+gambar nya di sorot ada aksi nya gitu ya. saya pengen gambar nya itu berubah di opacyti nya.
+
+jadi saya mau ketika ( tum ) di hover dia ada opacity nya setengah ceritnya ya. Tinggal kita kasih
+kursor nya jagan panah supaya ngasih tau kalo itu bisa di klik. Kita ganti jadicursor nya jadi 
+( pointer).
+
+jadi sudah ya kita buat HTML dan CSS nya tinggal kita buat mereka bisa berfungsi okey.
+
+-------------------------------------------------------------------------------------------------------------------------------
+
+Menjalankan javascript nya 
+
+untuk mencapai satu hasil tertentu itu cara nya ga harus sama mungkin aja kita beda tapi hasilnya
+sama. Jadi ada beberapa cara ya, kita bisa ambil tiap" element (tum) nya lalu kita tempelkan 
+sebauh event, nanti kita kasih event kalo di klik ubah gambar di atas nya. Berarti kita harus tangkap
+juga gambar yg di atas nya.
+
+jadi kita punya 6 buah event nnti kita looping satu" bisa seperti itu, atau mau pake cara yang lebih
+efek tif yg sudah kita pelajari di event bubbling ya. Kita bisa tangkap aja element container nya lalu
+kita beri event pada element container itu.
+
+sehingga nanti event nya ngecek apa yg sedang kita klik kalo misalkan kita klik salah satu gambar 
+itu, ambil ( src ) dari gambarnya, ubah gambar yg besar sesuai ( src ) yg kita klik tadi, dan teknik 
+ini di sebut juga event gelidesioun.
+  
+oke kita coba ya.
+
+-------------------------------------------------------------------------------------------------------------------------------
+
+pertama kita ambil container nya terus kita kasih event dan jangan lupa tambahkan ( e) buat
+parameter nya aau menandakan event nya. Seperti ini :
+
+const container = document.querySelector('.container');
+
+container.addEventListener('click', function (e) {
+
+
+});
+-------------------------------------------------
+
+nah sekarang kita akan cek apa yg kita klik sekarang, Jadi saya ngecek nya jika e.target nama
+class nya sama dengan 'tum', kalo iya berarti kan kita lagi ngeklik salah satu gambar itu. nah kalo
+udah di klik maka kita akan ambil ( src ) gambar nya yg manapun yg sedang kita klik. 
+
+Seperti ini :
+
+const container = document.querySelector('.container');
+
+container.addEventListener('click', function (e) {
+
+    // cek apakah yang diklik adalah tum
+    if (e.target.className == 'tum') {
+
+    }
+
+});
+-------------------------------------------------
+
+lalu kita akan ganti ( src ) dari gambar yg besar itu, Berarti kita harus tangkap dulu gambar yg
+besar nya, kita bikin variabel namnya jumbo kita tangkap class yg namanya jumbo. nanti ( src )
+jumbo kita ganti sesuai ( src ) yg kita klik.
+
+Seperti ini :
+
+const container = document.querySelector('.container');
+const jumbo = document.querySelector('.jumbo');
+
+container.addEventListener('click', function (e) {
+
+    // cek apakah yang diklik adalah tum
+    if (e.target.className == 'tum') {
+
+    }
+
+});
+-------------------------------------------------
+
+cara nya kita tinggal tulis jumbo.src di isi dengan atau di ganti dengan e.targer.src. Seperti ini :
+
+const container = document.querySelector('.container');
+const jumbo = document.querySelector('.jumbo');
+
+container.addEventListener('click', function (e) {
+
+    // cek apakah yang diklik adalah tum
+    if (e.target.className == 'tum') {
+        jumbo.src = e.target.src;
+    }
+
+});
+
+jadi sebenarnya dengan seperti ini pun udah selesai dan berfungsi, jadi ketika kita klik gambar
+nya nah src jumbo itu berubah jadi src yg kita klik gambar nya gitu.
+
+-------------------------------------------------------------------------------------------------------------------------------
+
+tapi saya ingin menambahkan beberapa fitur lagi biar lebih keren, saya pengen begitu saya klik
+ada animasi nya gitu kaya flesh gitu.
+
+cara nya kita tambah kan ( @keyframes ) di css nya lalu spasi nama animasi nya mau apa,
+misal kita namain fade, terus tulis ( to ) di dalam nya, nah itu artinya sebuah keadaan akan berubah
+menjadi ini gitu ya, misalnya saya tulis opacity nya menjadi ( 1 ).
+
+maka nanti akan ada element yg opacity nya menjadi 0, jadi ketika element itu di kasih animasi
+fade maka berubah opacity nya menjadi 1.
+
+jadi nanti setelah ini akan ada class di css nya kita kasih nama fade, ini ga harus sama dengan
+nama animasi nya, jadi class itu akan memberikan element opacity nya ( 0 ), lalu akan memeberi
+kan animasi.
+
+nah animasi nya di isi nama animasi tadi ( fade ), atau ga kita ganti nama animasinya jadi fadein
+biar bisa bedain ya, lalu animasi ini akan berjaln setengah detik misalnya. Seperti ini seluruhnya :
+
+@keyframes fadeIn {
+    to {
+        opacity: 1;
+    }
+}
+
+.fade {
+    opacity: 0;
+    animation: fadeIn 0.5;
+}
+---------------------------------------
+
+nah nanti begitu img yg kecil saya klik saya ingin img yg besar nya itu dikasih class baru namanya
+( fade ), Jadi jumbo.classList.add('fade');  ( classList ini bagian DOM Manipulation ya ) jadi kita
+add class baru yg namnya ( fade ) ketika img kecil itu di klik.
+
+seperti ini :
+
+const container = document.querySelector('.container');
+const jumbo = document.querySelector('.jumbo');
+
+container.addEventListener('click', function (e) {
+    // cek apakah yang diklik adalah tum
+    if (e.target.className == 'tum') {
+        jumbo.src = e.target.src;
+        jumbo.classList.add('fade');
+    }
+});
+------------------------------------------------------------------------
+
+pas saya klik img kecil nya kedip sih tapi setelah itu hilang gambar nya, karena animasi nya akan
+kembali ke awal secara otomatis. Kalo kita ingin animasi nya berhenti di akhir kita tambahkan
+( forwards ) ya maka animasi nya akan berhenti di keadaan terakhir.
+
+.fade {
+    opacity: 0;
+    animation: fadeIn 0.5 forwards;
+}
+----------------------------------------------
+
+nah keliatan nya udah berhasil ya, Tapi problem nya adalah ketika saya klik gambar yg lain animasi
+nya gajalan, hanya ketika saya pernama kali klik saja kalo gambar yg kedua kali kita klik ngga.
+
+ini karena kan ketika kita klik img yg kecil berarti kita add class ( fade ) ke img yg besar agar 
+animasi nya itu jalan jadi add class namanya ( fade ). Jadi ketika pertama kali klik img kecil si
+class ( fade ) itu udah ke add di img besar. Jadi ketika yg kedua kali klik nya animasi itu ga ngaruh
+karena si class ( fade ) itu udah ada di img besar. ( fade ) itu akan jalan ketika pertama kali
+klik karena itu pertama kali di add ke img besar.
+
+jadi kita harus hilangkan lagi class fade nya. jadi pada saat di klik kasih efek fade lalu hilang kan 
+lagi. Jadi kita kasih timeout untuk class ( fade ), jadi kita ngasih selama setengah detik lalu hilang
+kan lagi tuh si class nya setelah 0.5 detik.
+
+-------------------------------------------------------------------------------------------------------------------------------
+
+jadi kita kasih ( seTimeout ) untuk menjalankan sebuah function selama setngah detik  ( 500
+mili second ), lalu kita lakukan jumbo.classList.remove('fade'); seperti ini :
+
+const container = document.querySelector('.container');
+const jumbo = document.querySelector('.jumbo');
+
+container.addEventListener('click', function (e) {
+    // cek apakah yang diklik adalah tum
+    if (e.target.className == 'tum') {
+        jumbo.src = e.target.src;
+        jumbo.classList.add('fade');
+        setTimeout(function () {
+            jumbo.classList.remove('fade');
+        }, 500);
+    }
+});
+-------------------------------------------------------
+
+sekarang saya pengen gambar yg sudah saya klik dia ttp transpran untuk menandai bahwa itu
+adalah gambar yg aktif gitu misal. Kita buat class baru dulu ya misal namanya ( aktif ), terus
+class ( aktif ) itu ngasih opacity setengah, jadi ide nya itu begitu saya klik saya mau ngasih
+class ( aktif ) itu ke dia.
+
+gampang nya kita tinggal kasih e.target.classList.add('aktif') gitukan, nah tapi sekarang ada 
+problem baru, kalo kita klik img yg lain dia ikut aktif juga padahl dia udah ga ganti posisi istilahnya
+lah, yg sebelum nya itu ga ilang class aktif nya. seperti in kode nya :
+
+( CSS )
+.aktif {
+    opacity: 0.5;
+}
+
+( javascript )
+container.addEventListener('click', function (e) {
+    // cek apakah yang diklik adalah tum
+    if (e.target.className == 'tum') {
+        jumbo.src = e.target.src;
+        jumbo.classList.add('fade');
+        setTimeout(function () {
+            jumbo.classList.remove('fade');
+        }, 500);
+        e.target.classList.add('aktif');
+    }
+});
+-----------------------------------------------------------------
+
+berarti kita harus melakukan looping untuk semua (tum), untuk menghilangkan class aktif nya
+kalo ada. jadi kita ambil dulu semua tum nya. lalu kita looping.
+
+jadi setiap saya klik salah satu tum nya kita looping ke semua tum nya, jadi caranya pake looping
+ya kita pake forEach lalu jalankan function nya di dalam function nya kita isi parameter ya, 
+parameter nya kita pake nama ( tums ) sebenernya bebas aja nama parameter mah.
+
+(tums ) untuk mengambil satu element nya aja, jadi ( tum.forEach(function(tums) { } ); ) nah ( tum)
+itu ya si ( tum ) dia berbentuk node list atau seperti array karena pake querySelectorAll ya.
+
+sedangkan nanti setiap element nya di representasikan jadi variabel baru namanya (tums )
+
+  tum.forEach(function (tums) {
+
+        });
+--------------------------------------
+
+setelah kita looping satu persatu si tums nya, nanti kita cek ada ga tums yg punya class aktif
+kalo ada hilangin semua. Jadi cara nya if tums.classList.contains('aktif') jika si tums ada class
+namanya aktif, nah tums nya remove si 'aktif' nya. Seperti ini :
+
+ tum.forEach(function (tums) {
+            if (tums.classList.contains('aktif')) {
+                tums.classList.remove('aktif');
+            }
+        });
+----------------------------------------------------------
+
+atau sebenernya bisa lebih gampang sih itu bagian yg kalo di cek , kita komentari dulu. kita bisa
+menggunakan cara ini, kita langsung paksa semuanya untuk berubah class nya menjadi ( 'tum' )
+jadi ketika di klik semua class nya berubahjadi ('tum'), mau di situ ada class aktif atau nama
+class yg lain pokoknya semua di ganti nama class nya jadi ('tum') doang. Seperti ini :
+
+
+tum.forEach(function (tums) {
+            // if (tums.classList.contains('aktif')) {
+            //     tums.classList.remove('aktif');
+            // }
+            tums.className = 'tum';
+        });
+e.target.classList.add('aktif');
+----------------------------------------------------------
+
+jadi gini, jadi semuanya mau class nya apapun ubah nama class nya jadi ( tum ). baru setelah
+hilang semua dan berubah semua nya jadi nama class nya cuma ('tum') aja yg tersisa gitu. Baru
+tambah kan class ('aktif') hanya untuk yg kita klik aja.
+
+-------------------------------------------------------------------------------------------------------------------------------
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

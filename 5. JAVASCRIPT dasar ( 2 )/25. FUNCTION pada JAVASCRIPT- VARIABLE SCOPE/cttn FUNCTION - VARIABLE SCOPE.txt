@@ -1,0 +1,519 @@
+FUNCTION pada JAVASCRIPT- VARIABLE SCOPE
+
+variabel lokal = variabel yg ada didalam function itu atau function scope.
+
+-----------------------------------------------------------------------------------------------------------------------------
+
+Scope atau lingkkup variabel
+definisinya bagaimana sebuah variabel itu dapet diakses dalam program nya.
+
+nah didalm bahasa pemograman ada 2 jenis SCOPE
+
+ada yg disebut dengan block scope dan ada juga function scope
+
+nah jadi ada bahasa pemograman yg memiliki konsep block scope dan
+ada bahasa pemograman memiliki konsep function scope
+
+nah nanti kita liat javascript masuk nya kebagian mana nya.
+
+-----------------------------------------------------------------------------------------------------------------------------
+
+kita liat dulu mengenai Block scope
+nah block scope ini digunakan oleh bahasa pemograman seperti #C dan JAVA ya
+
+kita liat misalnya saya punya kode sedehana dengan program dalam bahasa C
+
+CONTOh :
+
+int i = 2;
+
+if( i % 2 == 0) {
+    bool genap = true;
+}
+
+if ( genap ) { 
+    printf('genap!');
+}
+
+jadi yg pertama ( int ) ini kita mendeklarasikan sebuah variabel namanya  ( i ) yg tipe datanya
+integer lalu kita isi dengan ( 2 ).
+
+nah lalu disini kita cek menggunakan pengkondisian ( if ) jika ( i ) modulus 2 hasilnya sama
+dengan 0, ya jadi ( % ) sisa baginya sama dengan 0 maka jika benar, kita definisikan sebuah
+variabel baru namanya GENAP tipe datanya boolean diisi dengan true.
+
+lalu setelah itu ( if ) jika genap itu artinya jika genap bernilai true, maka tampilkan 
+atau cetak tulisan genap kelayar.
+
+nah coba menurut kalian kira" tampil ga kelayar, harus nya tampil ya, tapi ini
+kalo dijalankan itu hasilnya eror, katanya 'genap' itu undeclared.
+
+atau dibaris ( if ke 2 ) genap itu ga dikenali, nah knp ya padahal jelas" di if pertama
+itu nilainya true maka genap itu dibuat, tapi knp genap itu undeclared.
+
+nah ini gara" variabel yg dibuat didalam BLOCK Scope, block scope itu yg semuanya
+didalam kurung kurawal buka ( {} ) itu block scope ya.
+
+nah variabel yg ada didalamnya itu hanya berlaku didalam block itu saja tidak bisa
+digunakan diluar block nya, nah jadi itu yg disebut dengan block scope.
+
+-----------------------------------------------------------------------------------------------------------------------------
+
+jadi block scope itu variabel GENAP yg didalam if pertama nah itukan variabelnya
+dibuat di dalam if pertama bukan diluar if jadinya dia variabel hanya berlaku didalam
+if pertama itu aja gabisa dipake dliuar itu nah itu yg dinamakan BLOCK SCOPE.
+
+-----------------------------------------------------------------------------------------------------------------------------
+
+nah itu untuk bahasa pemograman C, nah jika program itu kita buat sama persis
+dengan menggunakan javascript
+
+CONTOH:
+
+var i = 2;
+
+if (i % 2 == 0) {
+    var genap = true;
+}
+
+if (genap) {
+    console.log('genap!');
+}
+
+seperti tadi maksudnya masih sama seperti tadi cuma beda kodenya aja gasuah
+dijelasin ya udah ngerti kali pengkondisian ini.
+
+ini kira" gimana hasilnya, jika menggunakan javascript ini akan tampil ya
+di consolenya, karena javascript tidak menganut block scope gitu.
+
+javascript itu menggunakan menggunakan konsep function Scope jadi beda ya.
+
+nah sekarang kita liat contoh nya seperti apa.
+
+-----------------------------------------------------------------------------------------------------------------------------
+CONTOH :
+
+// global scope / window scope
+var a = 1;
+
+// function scope
+function tes() {
+
+  var b = 2;
+
+}
+
+tes();
+
+console.log(b)
+
+
+
+
+misalnya gini saya punya variabel ( a ) yg disi 1, nah ini di sebut sebagai global scope atau ada
+yg bilang window scope var a = 1;.
+
+artinya apa nah artinya variabel a ini adalah variabel global yg bisa digunakan dimana pun 
+didalam program kita atau bisa dipake dimanapun kalia mau.
+
+knp dia disebut window scope? 
+karena dia disebut objek window yg artinya objek paling luar didalm browser kita, jadi
+misal saya tulis didalm consolenya ( window.a ) maka keluar lah angka 1.
+
+nah ini harusnya gaada masalah
+
+-----------------------------------------------------------------------------------------------------------------------------
+
+tapi misalnya gini kalo kita buat sebuah Function kita kasih nama tes(), lalu kita jalankan
+tes nya, tes();.
+
+nah itu artinya kita sudah membuka sebuah function scope artinya apa, artinya variabel apapun
+yg akan kita buat didalam function tes() ini itu hanya berlaku untuk function ini aja.
+
+kita coba gini misalnya kita tulis variabel ( b ) disi dengan 2, nah jadi saya mempunyai
+sebuah variabel ( b ) didalam function, lalu setelah function nya kita jalankan kita console.
+
+gini console.log(b); , nah kita panggil b nya ini diluar function nya, nah terjadi eror kalo kita liat
+b is not defined gitu bacaan nya.
+
+nah jadi diluar sini kita gabisa mengenali B, didalam variabel b itu hanya bisa digunakan
+didalam Function itu sendiri, itu yg disebut dengan Function Scope.
+
+-----------------------------------------------------------------------------------------------------------------------------
+
+nah tapi jika console,log nya kita pindah kan jadi gini
+
+// function scope
+function tes() {
+
+  var b = 2;
+  console.log(b)
+
+}
+
+tes();
+
+tentu saja sekrang b nya akan tampil ya
+nah seharusnya ini gaada msalah ya karena kita bisa akses variabel yg ada didalam
+function.
+
+nah kalo saya tulis console,log nya itu jadi a, gini ni
+
+console.log(a) jadi b nya diganti a, nah yg akan tampil itu angka 1
+walupun kita menjalankan console.log nya di dalam function atau function scope itu
+tapi ttp ( a ) yg akan tampil, karena tadi ( a ) itu variabel global didalam function kita
+bisa mengakses varibel global.
+
+kalo di luar kita gabisa akses variabel si function itu tapi kalo di dalam function kita
+bisa akses variabel global.
+
+jadi bayangkan aja gini ibarat nya kalian sedang ada didalam sebuah mobil yg mobilnya
+itu punya kaca filem yg sangat gelap itu, nah kalo kalian ada didalm mobil kalian bisa
+melihat keluar ya, nah tapi orang yg diluar mobil tidak bisa meliha kedalam mobil ya,
+karena kan pake kaca filem jadi nya gelap.
+
+nah bisa dikonsep kan seperti ini.
+nah jadi function scope itu kek gitu.
+
+-----------------------------------------------------------------------------------------------------------------------------
+
+nah coba kita liat perilaku yg lain, misalnya
+
+didalam function nya saya bikin variabel a lagi yg diisi 2,
+nah kalo saya isi console.log(a) didalam function nya itu tampilnya angka 2.
+
+contoh nya gini ni
+
+CONTOH:
+
+// global scope / window scope
+var a = 1;
+
+// function scope
+function tes() {
+
+  var a = 2;
+  console.log(a);
+
+}
+
+tes();
+
+nah karena ( a ) ini adalah variabel lokal, jadi si console.log itu nyari didalm function nya
+dulu ada ga variabel lokal yg namnya a nah ada jadinya yg ditampilkan yg didalam itu.
+
+-----------------------------------------------------------------------------------------------------------------------------
+
+nah tapi gimana kalo saya simpan console.log(a) nya diluar 
+
+CONTOH :
+// global scope / window scope
+var a = 1;
+
+// function scope
+function tes() {
+
+// name conflict
+  var a = 2;
+ 
+
+}
+
+tes();
+ console.log(a);
+
+nah kalo gini 2 atau 1 yg tampil?
+nah kalo gini yg akan tampil angka 1, nh kenapa?
+
+nah ini disebutnya ( name conflict ).
+dimana kita punya 2 buah variabel yg namanya sama tapi SCOPE nya berbeda
+jadi ini tidak menimpa nilai nya seperti yg biasa kita coba, misalnya seperti ini :
+
+yg biasa kita coba biasanya :
+
+// global scope / window scope
+var a = 1;
+var a = 2;
+
+nah kalo begini itu artinya menimpa, 2 menimpa a jadi nilainya tergantikan jadi angka 2.
+
+-----------------------------------------------------------------------------------------------------------------------------
+
+tapi beda kalo yg ini
+
+CONTOH :
+// global scope / window scope
+var a = 1;
+
+// function scope
+function tes() {
+
+// name conflict
+  var a = 2;
+ 
+
+}
+
+tes();
+ console.log(a);
+
+nah  ( a ) yg ada didalm function itu berbeda dengan a yg ada di luar function jadi
+dua variabel yg berbeda.
+
+-----------------------------------------------------------------------------------------------------------------------------
+
+jadi sekarang kalo saya pindahkan console.log(a) nya kedalam function 
+
+CONTOH NYA :
+
+// global scope / window scope
+var a = 1;
+
+// function scope
+function tes() {
+
+// name conflict
+  var a = 2;
+   console.log(a);
+
+}
+
+tes();
+
+nah a yg didalm function itu sudah pasti mengacu kepada variabel a yg berisi 2 yg didalm
+function tersebut atau variabel lokal, kalo kita cek di browser munculnya pasti angka 2.
+
+kita gabisa lagi mengakses variabel global, tapi kecuali dengan kita menambahkan
+window.a didalam console nya gini ni ( console.log(window.a); ) nah kalo begini
+itu artinya yg kita tuju adalah variabel global maka jika di cek muncul angka 1.
+
+-----------------------------------------------------------------------------------------------------------------------------
+
+nah kita coba prilaku lain
+
+CONTOH :
+// global scope / window scope
+var a = 1;
+
+    // function scope
+function tes() {
+
+     // name conflict
+     a = 2;
+  
+
+}
+
+tes();
+ console.log(a);
+
+
+sekarang didalam Function nya saya ilangkan ( var ) nya tetapi masih ada ( a = 2; )
+atau bisa disebut ilangkan kywerd var nya.
+
+lalu saya taro console.log(a) diluar function.
+
+nah sekarang kira" tampilnya apa?
+angka 1 atau angka 2?
+
+nah oke kita cek ya ternyata yg muncul angka 2.
+beda ya kalo kita pake ( var ) yg tampil ( a ) nya itu angka 1 
+karena pasti mengacu yg global.
+
+sedangkan kalo ga pake( var ) ini yg terjadi, pertama javascript akan ngecek ohh ini gaada
+( var ) nya nah dia mengecek didalam function nya ada ga deklarasi variabel ( a ) misal nya
+gini ( var a; ) nah gaada klo kita liat di kodingan.
+
+nah kalo ada dia akan dibuat variabel lokla, nh kalo gaada di function nya, 
+nanti function itu akan melihat keluar, ke variabel global nya, ada ga ( a )
+ohh ada ternyata dan udh ada isi nya angka 1, nah maka ( a = 2; ) ini akan
+menimpa si angka 1 tersebut, sehingga hasilnya betul 2.
+
+penjelasan dari pak dhika.
+
+-----------------------------------------------------------------------------------------------------------------------------
+
+versi diri ku
+
+jadi knp hasil nya angka 2 dari codingan itu karena didalam function nya gaada variabel
+yg namanya a atau deklarasi variabel yg namanya a, maka function itu mengambil atau
+menimpa variabel yg ada diluar yg nama variabel nya a, jadi si a yg tadinya angka 1 di
+timpa menjadi angka 2.
+
+nah pemikirannya ya kaya a itu udah input jadi angka 2 baru deh console itu nampilin a
+jadinya angka 2 walaupun yg diambil itu a di console.log itu adalah a variabel global
+bukan variabel lokal atau bisa disebut variabel dari function itu.
+
+-----------------------------------------------------------------------------------------------------------------------------
+
+nah sekarang gimana kalo gini
+
+CONTOH :
+
+function tes() {
+
+     a = 2;  
+
+}
+
+tes();
+ console.log(a);
+
+variabel a yg di globa scope nya saya apus.
+
+sekarang kira" nilai nya apa?
+nilai nya tetap 2.
+
+ya tapi sekarang yg terjadi gini pada saat didalam function yg kita tulis ( a = 2; ), 
+nah javascript ini ngeliat ohh ini gaada kywerd var di depan nya, maka dia ngecek 
+ada ga deklarasi variabel didalam function tes() ini.
+
+ohh gaada berarti a ini bukan variabel lokal, terus dia ngintip keluar, ada ga deklarasi variabel a,
+ternyata gada juga, nah maka yg terjadi adalah javascript nya akan secara otomatis akan 
+membuat variabel a diluar function gini nih ( var a; ).
+
+sehingga didalam function tes() itu adalah variabel global, nah ini hati" ya.
+jika kalian memang maksudnya adalah untuk membuat variabel lokal, maka
+pasti kan kalian selalu menulis var didalam function nya.
+
+jadi kalian pastikan menulis kywerd var didalam functionnya agar tidak terjadi 
+pengkotoran variabel global.
+
+atau kalian bisa menggunakan kywerd ( "use strict";  ) nah ini artinya ketika kalian
+menulis seperti ( a = 2; ) maka javascript nya akan paham jika ohh ini maksudnya
+akan membuat variabel lokal.
+
+sehingga tidak dibuat var nya di luar function tapi dibuat nya didalam function itu 
+secara otomatis.
+
+-----------------------------------------------------------------------------------------------------------------------------
+
+nah kalo kita jalankan :
+
+" use strict";
+
+function tes() {
+
+     a = 2;  
+
+}
+
+tes();
+ console.log(a);
+
+maka kalo kita cek dibrowser hasilnya akan eror karena kita taro
+console.log di luar function nya ya.
+
+-----------------------------------------------------------------------------------------------------------------------------
+
+sekarang kita coba lagi contoh yg lain
+
+CONTOH :
+
+var a = 1;
+
+function tes(a) {
+
+     console.log(a);
+
+}
+
+tes(2);
+
+
+
+misalnya di variabel global nya saya punya variabel a yg diisi angka 1.
+tapi sekarang function tes() nya kita kasih argument (a), dan didalamnya
+saya langsung tulis console.log(a).
+
+dan sekarang tes nya mau saya kasih parameter angka 2 
+tes(2);
+
+nah kira" yg muncul angka berapa angka 1 atau angka 2?
+ternyata hasil nya adalah angka 2, kenapa kok bisa?
+
+coba kita liat ya
+
+yg pertama kita buat variabel global a
+lalu kita buat function yg argument nya a
+didalamnya kita menampilkan console.log(a)
+pada saat kita memanggil function nya kita kirim kan parameter angka 2, jadi
+2 ini akan masuk kedalam argument ( a ) dan 2 ini akan dipake di console.log
+sehingga tampil nya 2 ya.
+
+jadi variabel global a itu sama sekali tidak dipake, tapi yg harus kalian inget ketika kita
+membuat sebuah argument, argument ini akan selalu menjadi lokal variabel, meskipun
+kita ga tulis var di situnya.
+
+makannya ketika saya tulis console.log(a) di luar function maka yg muncul angka 1.
+karena console.log nya kita taro diluar jdi dia ngambil a yg variabel global.
+
+-----------------------------------------------------------------------------------------------------------------------------
+
+terakhir gini ni
+
+CONTOH:
+
+var a = 1;
+
+function tes(a) {
+
+     console.log(a);
+
+}
+
+tes(a);
+console.log(a);
+
+
+gimana kalo misalnya tes() nya saya ga tuliskan angka 2 disitu, tapi saya tulis seperti ini
+tes(a);
+
+maka hasilnya yg muncul adalah angka1.
+
+jadi maksudnya gini a yg ada didalam parameter atau tes() itu sama dengan a yg
+ada didalam console.log terakhir itu, dua" nya mengacu kepada variabel global.
+
+sedangkan a yg ada didalam argumentatau function tes(a)
+dan console.log pertama itu adalah variabel lokal.
+
+jadi meski pun namanya sama semua ini ada 2 jenis variabel
+ada yg global dan ada variabel lokal.
+
+nah jadi ini biasanya yg membuat bingung programer pemula
+
+
+-----------------------------------------------------------------------------------------------------------------------------
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

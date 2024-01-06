@@ -1,0 +1,524 @@
+Images Elements -- Belajar HTML5
+
+Media Elements
+- <img>
+- <figure>
+- <picture>
+- <audio>
+- <video>
+
+nah nanti kita bahas beserta tag" yg ada di dalam nya ya, tapi media elements ini sepertinya akan
+kita bagi 2 video supaya ga terlalu panjang ya. Jadi di vid kalli ini kita akan membahas 3 Tag pertama
+yg ada hubungan nya dengan <img> ya.
+
+Nah ada Tag img, figure, dan picture mari kita bahas satu" ya.
+
+-------------------------------------------------------------------------------------------------------------------------------
+
+Pertama ada IMG, pasti kalian udah tau dengan tag ini tapi nanti kita liat apa aja yg baru di Tag IMG
+ini. Nah seperti yg kalian tau tag img ini berguna untuk menampilkan gambar pada halaman web
+kita ya.
+
+Nah gambarnya itu yg merupakan konten dari halaman kita bukan merupakan ornamen atau 
+penghias halamannya, Jadi kalo kalian liat kita punya contoh web dia ada gambar di hero element
+nya, kita punya gambar orang" terus kita punya logo itu dipake menggunakan Tag img 
+( liat gambar di file ya ).
+
+Tapi misalnya gambar nya merupakan yg ada di dalam background lalu ornamen seperti garis
+tidak lurus atau dekoratif nya itu jangan gunakan tag img, kalian bisa gunakan background-img
+ataupun Svg nantinya.
+
+Selama gambarnya merupakan dari konten itu kita gunakan nya tag img. cari bikin nya juga 
+gampang banget. Seperti ini :
+
+ <img src="img/6.jpg" alt="ini adalah gambar pc" width="500px">
+----------------------------------------------------------
+
+berikutnya kita akan bahas attribute" apa saja selain yg 3 di atas yg bisa kita terapkan di dalam Tag
+Img juga, dan mungkin ada berapa attribute di situ yg kalian blm pernah pake ya.
+
+<img> attributes
+- src
+- alt
+- width & height
+- title
+- srcset ( source set )
+- sizes
+- loading
+
+Nah nanti ini akan kita bahas satu persatu ya.
+
+-------------------------------------------------------------------------------------------------------------------------------
+
+Untuk yg pertama ada SRC
+
+- Attribute wajib
+- Berisi path / lokasi tempat penyimpanan gambar
+- Tipe gambar yang biasa dipakai:
+   - png, jpg, jpeg, gif, svg, webp, dan avif
+- Perhatikan mengenai copyright
+- Jangan lakukan 'hotlinkig'
+
+dia adalah attribute wajib, terus juga isinya adalah path atau lokasih tempat penyimpanan gambar
+jadi kita harus punya dulu nih gambar nya, gambarnya bisa ada di dalam folder tmpat penyimpanan
+kita atau sebetulnya kita bisa simpan url tapi itu tidak di sarankan karena itu namnya hitlinking.
+
+tipe gambar yg disaran kan berformat png, jpg, jpeg, gif, dan svg. bahkan sekarang ada yg 
+teroptinasi pada web ada yg namnya webp da avif. Untuk terkait mengenai gambar ini kalian harus
+perhatikan mengenai copyright, gunakan gambar buatan kita sendiri.
+
+walaupun misal kita gunakan gambar buatan orang lain cek dulu apakah gambarnya bebas pakai 
+atau tidak kalo misalnya bebas pakai cek lagi copyright nya atau kontribusi nya kita perlu 
+mencantumkan sumbernya atau tidak. 
+
+dan yg terakhir jangan lakukan 'hotlinking' jadi hotlinking itu kita masukin src nya dari url websaite
+orang lain ya itu akan menyebabkan kita mengambil benwift dari tempat ornag lain dan itu juga 
+membuat kita tidak punya kendali atas gambar yg kita milki. Kalo gambar yg di tempat asalnya
+berubah maka gambar yg ada di web kita akan berubah juga.
+
+-------------------------------------------------------------------------------------------------------------------------------
+
+Untuk yg kedua ada ALT
+
+- Alternative text
+- Deskripsi tekstual dari gambar
+- Digunakan ketika gambar tidak bisa ditampilkan
+     - salah penulisan path 
+     - koneksi terlalu lambat
+- Digunakan juga agar dibaca oleh screen reader
+- Bisa digunakan juga untuk SEO
+- Jika disimpan didalam link, tulisan url link nya
+
+alt itu merupakan singkatan dari alternative text jadi dia adalah sebuah tulisan atau deskripsi
+tekstual dari sebuah gambar. Ini akan berguna ketika gambar itu tidak bisa ditampilkan. kalo
+gambar gabisa di tampilin itu bisa jadi karena kita salah nulis path nya atau karena koneksi yg 
+terlalu lambat sehingga gambar tidak di tampilkan.
+
+maka kita ttp bisa dapetin informasi mengenai seharusnya disitu terdapat gambar apa, karena
+kita punya deskripsi tekstual nya. Digunakan juga agar dibaca ileh screen reader ya ini berguna
+untuk accesibillity sehingga begitu ada yg membaca web kita menggunakan screen reader nanti
+gambar nya akan ttp bisa memberikan informasi.
+
+Dan yg terakhur berguna juga untuk SEO sehingga web kita lebih bisa dikenali oleh mesin pencari
+meski pun alt bukan attribute wajib ttp gunakan alt ya. 
+
+yg terakhir misalkan kalian menyimpan link di dalam gambar nya kalian juga bisa tulis link nya
+di dalam alt ini. misalkan untuk mengarah kan agar pengunjung mau ngefollow medsos kita
+kalian ganti isi dari tag a nya bukan lagi tulisan tapi menggunakan gambar. Nah jika menggunakn
+gambar kalian bisa kasih alt nya itu url yg sama yg kalian tulis di href nya.
+
+-------------------------------------------------------------------------------------------------------------------------------
+
+Width & Height
+
+- Menentukan ukuran gambar
+- Akan mempertahankan aspect ratio jika hanya 1 saja yang ditentukan
+
+kita bisa menentukan ukuran gambar sesuai dengn keinginan kita, walaupun tidak di sarankan
+walaupun width dan height itu biasanya kita atur lewat css ya. Tapi walaupun kita gunakan yg
+harus kalian perhatikan adalah kalo hanya mengisi salah satu nilai nya saja baik itu width atau 
+height maka gambarnya akan mempertahankan aspect ration yg benar.
+
+jika kita mengatur width nya sja maka height nya akan menyesuaikan agar gambarnya ttp dalam
+proporsi yg benar. Tapi kalo kita ngisi 22 nya hati" gambar nya mungkin aja ketarik.
+
+-------------------------------------------------------------------------------------------------------------------------------
+
+attribute berikutnya adalah TITLE
+
+title ini kita gunakan untuk menuliskan informasi tambahan mengenai gambarnya dan informasi
+tambahan ini akan muncul sebagai tooltip ketika kita arahkan kursor berada di atas gambar. Nah
+title itu digunakan sebagai tambahan dari alt.
+
+jadi kalian jangan pakai title kalo gaada alt nya karena title tidak dibaca oleh screen reader contoh
+nya seperti ini :
+
+<img src="img/6.jpg" alt="ini adalah gambar pc" title="Poto Codingan" width="500px">
+-------------------------------------------------
+
+nah ketika title nya ditulis seperti itu maka nanti ketika kursornya berada di atas gambar akan 
+muncul tulisan yg di title itu.
+
+-------------------------------------------------------------------------------------------------------------------------------
+
+nah untuk attribute yg baru ada yg namanya SRCSET
+
+- Untuk membuat halaman web responsive
+- Memilih gambar yang berbeda berdasarkan syarat tertentu
+- Bisa berdasarkan lebar layar atau kerapatan pixel nya
+
+jadi srcset ini biasanya kita gunakan ketika kita mau bikin halaman web yg responsive karena nanti
+gambarnya kita bisa bikin berbeda berdasarkan syarat tertentu. Syratnya bisa berdasarkan layar
+yg berbeda misalnya dibuka di dekstop atau laptop dan sebagainya. Atau berbedanya itu di 
+kerapatan pixelnya atau istilahnya pixeldencity.
+
+kita langsung cobain aja ya :
+
+jadi disini kita udah punya folder namanya img nanti di dalam nya kita simpan 3 buah gambar, jadi
+gambar nya itu gambar yg sama tapi ukuran nya beda. yg pertama ada gambar yg ukuran nya 
+kecil, yg kedua ada gambar yg ukuran nya kita sebut aja medium ya.
+
+nah gambar yg pertama itu ukuran nya 300px x 400px, yg kedua ukurannya 600px x 800px dan yg
+terakhir yg large ukurannya 1920px x 1440px. Jadi disini saya akan menggunakan satu tag img 
+yg bisa mengendalikan 3 file tersebut ketika keadaan tertentu.
+
+nah sekarang kita panggil dulu img yg defaultnya ya, misalnya kita panggil img default nya yg small
+kita buat awalnya Seperti ini :
+
+<body>
+    <h1>Image Elements</h1>
+
+    <img src="img/small.jpg" alt="Contoh codingan">
+</body>
+-------------------------------------------------
+
+Nah sekarang gimana caranya agar kita bisa pilih gambar yg berbeda, saya bisa panggil di akhir
+nya ( srcset ) lalu kita tulis gambar" apa aja yg mau kita tampilkan nantinya dalam keadaan yg
+berbeda. Jika browsernya ga suport attribute ( srcset ) maka yg dipakai akan selalu yg src nya.
+
+contoh nih ya saya mau ketika lebar gambarnya 500px pake yg small lalu ketika lebih besar pake
+yg medium, ketika yg lebih besar lagi pake yg large jadi kita bisa panggil ( img/small.jpg 500w )
+misal disitu lebar gambar nya 500w. Nah ketika di perbesar browser nya gambar nya akan terus
+membesar.
+
+Nah saya pengen ketika gambarnya ukurannya 750 kita pindahin ke medium supaya ngga pecah
+gitu, caranya kalian tinggal tambahin koma seperti ini :
+
+    <img src="img/small.jpg" alt="SETUP komputer" srcset="img/small.jpg 500w, 
+                                                           img/medium.jpg 750w, img/large.jpg 1000w">
+
+-------------------------------------------------
+
+jadi ini maksdnya ketika web browsernya lebarnya 500w ganti poto yg small dan ketika browsernya
+berubah jadi 750w atau 1000w nanti dia menyesuaikan sesuai gambar yg tertara. jadi semisal 
+dibuka di headphone gambar yg tampil menyesuaikan gitu istilahnyamah.
+
+tapi kalo udah menyesuaikan gitu dan dia berada di posisi gambar large nanti pas kita kecilin lagi
+gambarnya itu akan ttp large ga berubah-ubah lagi gambarny gitu. itu karena gambarnya udah 
+disimpan didalam case. jadi gaperlu dibalikin lagi ke versi kecil.
+
+Tapi kalo mau liat versi yg gadisimpen di case kalian bisa buka nya di firefox, Nah kalo buka nya di
+firefox buka inspesct lalu responsive ( yg deket titik 3 ), begitu dikecilin sampai 750w dia akan 
+otomatis berubah ke medium dan seterusnya. kalo di firefox gambarnya ga di simpan di case.
+
+Nah itu untuk lebar gambar ya, kita juga bisa ganti jadi ke padatan pixel contohnya kita bisa tulis
+Seperti ini :
+
+ <img src="img/small.jpg" alt="SETUP komputer" srcset="img/small.jpg 1x, 
+    img/medium.jpg 2x, img/large.jpg 3x">
+-------------------------------------------------
+
+Nah kadang" kita punya gambar yg memiliki kepadatan pixel yg tinggi misalnya untuk ditampilkan
+display yg ( retina ) contohnya bisa seperti di atas, Tapi untuk menjalankannya di browser kita
+bukan menggunkana lebar layar seperti sebelumnya.
+
+karena kalo kita ganti" lebar layar nya juga dia ga berubah", Tapi kalo mau merubah kalo di firefox
+kalian bisa ke inspesct element nya di resposive nya, trs di atas ada tulisan ( DPR ) nah artinya itu
+divice pixel ratio, kita mau mensimulasikan kepadatan pixel dari sebuah divice, kalo kita ganti 1
+dia pake yg small klo kita pake 2 dia pake yg medium dan seterusnya.
+
+kalo kita pake nya chrome dia ga selalu muncul di atasnya ya, kalo di atas gada tulisan dpr nya
+kalian bisa klik setting nya titik 3 di kanan itu atau more opsion, nanti disitu ada show divice pixel 
+ratio. Nah kalo kita mau ubah" di bagian DPR nya itu setelah kita pilih opsi di DPR nya kita harus
+refresh dulu baru bisa melihat hasilnya.
+
+Tapi kalo kita udah ubah DPR nya jadi 3 berarti kan 3 itu udah paling gede ya, nah ketika udah
+di ubah jadi 3 terus kita ubah lagi jadi 1 di opsi DPR nya itu ga berubah ya ttp di opsi 3x nya itu.
+karena tadi sudah tersimpan di dalam case nya.
+
+-------------------------------------------------------------------------------------------------------------------------------
+
+attribute berikutnya adalah SIZES
+
+- Untuk mengatur ukuran gambar yang berbeda berdasarkan 'media condition'
+
+ini digunakan untuk mengatur ukuran gambar berdasarkan ( media condition ) atau istilahnya
+media query lah ya, biasanya kita atur ini didalam CSS tapi sekarang ternyata html juga 
+memungkinkan itu menggunakan attribute sizes. kita coba langsung aja.
+
+jadi kita bisa tambahkan attribute sizes, kita pake codingan yg sebelumnya menggunakan ( 500w )
+gitulah pokonya. Nah sekarang saya pengen ubah agar suatu saat nanti lebar 1200 dia balik lagi
+ke medium jadi jangan nampilin yg terlalu besar mungkin nanti kedepannya lewatnya mau saya
+rubah gituya. misal jadi ada tulisan dan ada gambar kiri kanan. jadi saya mau tampil gambarnya
+medium aja dan ukuran nya setengah dari layar.
+
+nah sekarang kita bisa gunakan bantuan sizes cara nya kalian tinggal tambahkan saja attribute
+sizes terus kasih media condition boleh tulisa dalam kurung, misal ketika lebar layar nya minimal
+(min-width: 1200px) lalu kita kasih spasi ubah ukuran gambarnya jadi setengah layar jadinya 
+(50vw) vioart wive.
+
+Nah ketika gambarnya kita ubah jadi setngah layar kan ukuran gambarnya jadi 600px ya, begitu
+600px maka yg dipilih bukan gambar yg large lagi tapi udah yg medium, karena yg medium itu dari
+lebar browser nya 500-750w gitu. jadi kita bisa atur menggunakan sizes juga.
+
+kita bisa melihat perubahannya itu hanya di firefox kloa di browser itu ga ngaruh. jadi klao di firefox
+dari awalnya kecil sampe 500w sampe 750 jadi medium sampai 1000 jadi large, terus sampai
+1200 baru dia kembali ke medium baru dia lebarnya setengah. COntohnya : 
+
+<img src="img/small.jpg" alt="SETUP komputer" srcset="img/small.jpg 500w, 
+    img/medium.jpg 750w, img/large.jpg 1000w" sizes="(min-width: 1200px) 50vw">
+--------------------------------------------------
+
+kalo kalian mau di tambahin media query lain nya tiggal tambahin koma di sizess nya ya. ( tapi
+asli bagian ini kaya agak ga ngaruh di browser gua karena saya sendiri gapunya firefox juga ).
+
+-------------------------------------------------------------------------------------------------------------------------------
+
+attribute LOADING
+
+- Menentukan bagaimana gambar di-load oleh browser
+- Bisa diisi 'eager' ( default atau 'lazy'
+
+nah ini untuk menentukan bagaimana gambar di-load oleh browser ada 2 yg bisa kita isi, kita bisa
+isi dengan nilai 'eager' atau 'lazy', nah kalo kita ga kasih loading itu aritnya nilai dari defaultnya itu
+adalah 'eager' jadi gambar di-load di awal sedangkan kalo 'lazy' itu gambar kalo di-load ketika
+kita scroll sampai ke tempat gambarnya.
+
+Jadi kalo gambar awalnya ga keliatan gamabrnya tuh ga di-load dulu nah ini istilahnya 'lazy' loading
+nah ini keren gayss. kita coba sekarang.
+
+sekarang kita coba agar si gambarnya berada di bawah dulu ya jadi ngga masuk kedalam view port
+nya, biar gampang kita kasih syle di h1 nya kita kasih margin bottom nya biar cukup besar 
+sehingga gambarnya ga keliatan misalnya 1500px ya.
+
+jadi sekarang gambarnya ngumpet dibawah jadi awalnya ga keliatan, kalo misalnya ktia tambahin
+1 attribute baru di Tag img yg namnya loading trs kita tulis dengan ( lazy ) itu artinya gambar akan
+di load ketika dibutuhkan. Seperti ini :
+
+  <h1 style="margin-bottom: 1500px;">Image Elements</h1>
+
+    <img src="img/small.jpg" alt="SETUP komputer" srcset="img/small.jpg 500w, 
+    img/2.jpg 750w" sizes="(min-width: 1200px) 50vw" loading="lazy">
+--------------------------------------------------
+
+Nah kalo kita scroll sekarang kebawah mungkin ga akan ketawan  ya kalo misalnya gambarnya
+di-load begitu pula kalo kita buka di inspesct. nah supaya keliatan kita bisa muncukkan tab network
+nya kalo kalian pake mozila atau chrome juga ada. karena untuk hal ini mozila juga menyimpan di
+dalam case nya.
+
+Jadi untuk ngilanginnya gimana kalo kita bersihin dulu ya. Kita masuk setting browsernya terus kita
+cari aja case terus kita clear data, terus kita refresh klo sudah, ketika kita refresh gamabrnya ilang
+ga keliatan atau tidak di load karena di dalam halaman itu blm tampil, tapi kalo kita scroll ke tempat
+nya baru ada tuh. 
+
+Itu disebut dengan lazy loading dan kalo udh ke load gitu. ketika kita refresh lagi dia sudah ada 
+gambarnya karena gambarnya sudah di load, kalo mau ilang harus di claer data dulu karena dia 
+tersimpan di dalam case. jadi gitu keren kalian juga bisa memunculkan gambar sesuai dengan
+kebutuhan nya, jadi kalo misal awalnya gambar ga tampil mending di kasih lazy aja.
+
+-------------------------------------------------------------------------------------------------------------------------------
+
+Element Tag <figure> 
+
+sebetulnya kalo img sudah paham semuanya tadi masuk ke <figure> dan picture itu gaada masalh
+harusnya ya. Firgure itu kita gunakan untuk tipe gambar yg sedikit berbeda dengan <img> karena
+<figure> itu merupakan gambar yg bisa berdiri sendiri di halaman kita.
+
+- Merepresentasikan konten yg berdiri sendiri tanpa mempengaruhi flow halaman.
+- Bisa gambar, ilustrasi, diagram, code snippet.
+
+biasanya gambarnya itu ada caption nya, jadi kalo kalian bikn blok terus ada gambar yg punya 
+caption, caption nya itu bisa bercerita tentang gambar nya bisa menuliskan copywrite dari gambar
+nya itu bisa kita gunakan figure.
+
+kalo kita liat dari penjelasannya <figure> ini merepresentasikan konten yg berdiri sendiri tanpa 
+mempengaruhi flow halaman. Jadi kalo konten itu di ilangin halamannya masih ttp bisa  di akses.
+dan biasanya bisa gambar, ilustrasi, diagram, atau pun code snippet. Kalo kalian bikin tutorial
+yg ada code snippet nya itu juga bisa masuk sebagai <figure>.
+
+dan biasanya gambar yg memiliki caption karena nanti kita membutuhkan bantuan sebuah Tag
+didalam figure yaitu <figcaption> dan cara menulisnya kurang lebih seperti ini :
+
+  <figure>
+        <img src="img/small.jpg" alt="SET_UP">
+        <figcaption>SET-UP inspirasi kamar kamu jadi lebih nyaman</figcaption>
+    </figure>
+------------------------------------------------
+
+kurang lebih seperti itu jadi di dalam tag figure ada img nya mau apa lalu ada figcaption nya 
+sehingga nanti caption nya ada di bawah gambar nya. Kalo butuh gambar yg ada artikel btuh 
+gambar yg ada penjelasannya pake figure ya jangan hanya img aja.
+
+-------------------------------------------------------------------------------------------------------------------------------
+
+PICTURE
+
+- Bertujuan unutk optimasi halaman agar menghemat bandwidth dan mempercepat load time
+- Bisa digunakan juga sebagai art direction, untuk menampilkan gambarr yg berbeda pada display /
+  device yang berbeda
+
+picture ini juga merupakan cara kita untuk menampilkan gambar khusus untuk gmbar yg di tampil-
+kan secara yg berbeda di lebar layar yg berbeda ini mirip dengan penggunaan srcset dengan sizes
+kita pada <img>. tapi kalo ini lebih flexibel dan lebih jelas penulisannya .
+
+jadi untuk tag picture ini bertujuan untuk mengoptimasi halaman  agar menghemat bandwidth dan 
+mempercepat load time karena memanggil file gambar yg berbeda. mirip sama srcset dan sizes.
+
+Bisa digunakan juga sebagai art direction, untuk menampilkan gambarr yg berbeda pada display /
+device yang berbeda jadi karena misalnya layout kalian berubah di lebar layar yg berbeda kalian
+pengen gambarnya juga beda ukuran mungkin.
+
+cara nulisnya begini :
+
+ <picture>
+        <source media="(min-width: 960px" srcset="img/large.jpg" sizes="50vw">
+        <source media="(min-width: 600px" srcset="img/2.jpg">
+        <img class="example" src="img/small.jpg" alt="SET_UP">
+    </picture>
+--------------------------------------------------
+
+ya cara nulis nya seperti itu ada tag <picture> yg membungkus element" nya ada tag img wajib itu
+supaya kalo misalnya browsernya ga mendukung picture yg dipake ttp img nya baru di dalam nya
+kita punya <source> nya.
+
+Nah untuk <source> ada attribute media untuk ngatur kapan ini dipanggil lalu ada attribute srcset
+untuk menentukan gambar mana yg mau tampil ketika lebar browser 960px, jadi sedikit lebih 
+mudah dibaca dibanding kita naro srcset dan sizes nya di dalam tag <img>.
+
+-------------------------------------------------------------------------------------------------------------------------------
+
+sekarang kita kembali ke studi khasus kita tapi sekarang saya pengen gambarnya agak beda ya
+nah sekarang di dalam folder kita kan tadi nya kita punya img yg gambar nya sama ya tpi file nya
+beda. Sekarang saya buat folder baru img 2 yg isi nya sama saya punya 3 buah file dengan 
+gambar yg berbeda.
+
+yg pertama ada gambar yg penuh, untuk yg gambar medium gambar nya di crope dan untuk yg
+smal di ubah lagi jadi bujur sangkar gitu deh. jadi sekarang gambarnya bener" beda ya. nanti kita
+akan memanggil gambar yg berbeda di keaadan yg berbeda.
+
+jadi sekarang di dalam body kita bikin div class nya hero di dalam nya akan ada div nama class nya
+hero-text, lalu di dalam nya ada heading hello world dan paragraf. Nah baru di bawah div hero-text
+nya akan ada gambar.
+
+jadi kita punya picture lalu kita ambil yg default nya lalu arahkan ke img2 ya kita pake yg small dulu
+ya. Sperti ini :
+
+
+    <div class="hero">
+        <div class="hero-text">
+            <h1>Hello GGP</h1>
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Exercitationem, laboriosam 
+                  esse! Quisquam mollitia rem neque quos cum saepe dolor esse harum cumque? 
+                 Itaque quos atque consequatur possimus esse officiis dolorum?</p>
+        </div>
+
+        <picture>
+            <img src="img2/small.jpg" alt="LAPTOP RGB">
+        </picture>
+    </div>
+-------------------------------------------------
+
+oke sekarang kita kasih style dasar nya dulu aja karena style dasar nya ada menggunakan CSS3
+jadi ga ngerti karena blm belajar juga.
+
+ <style>
+        body {
+            font-family: sans-serif;
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 1.125em;
+            line-height: 1.6;
+            color: #333;
+            padding: 2em;
+        }
+
+        .hero {
+            display: grid;
+            grid-gap: 2em;
+            align-items: center;
+        }
+
+        img {
+            max-width: 100%;
+            height: auto;
+        }
+
+        @media (min-width: 960px) {
+            .hero {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+    </style>
+
+HTML :
+
+   <picture>
+            <source media="(min-width: 960px)" srcset="img2/normal.jpg" sizes="50vw">
+            <source media="(min-width: 600px" srcset="img2/large.jpg">
+            <img src="img2/small.jpg" alt="LAPTOP RGB">
+        </picture>
+----------------------------------------------------------------------------------------------
+
+yg pertama saya punya body supaya tulisannya sedikit lebih rapih setelah body kita style si hero. di
+hero saya mau bikin display nya jadi grid. lalu saya mau ubah img nya max-width nya jadi 100%.
+dan yg terakhir kita kasih media query.
+
+jadi ketika lembar layar nya minimal 960px saya mau bikin si hero nya ada 2 kolom jadi itu pake
+CSS3 blm paham saya. jadi itu reapet 2 1freacsion, kalo layar nya di perbesar sampe 960px
+nanti gambarnya pidanh ke kanan jadi ada 2 kolom pokonamah.
+
+selanjutnya kita bikin gamabrnya berbeda tergantung lebar layar nya, ita kasih source di tag picture
+<source> juga sama kaya img gapunya tag penutup ya. jadi ketika kita kasih media query. ketika
+lebar nya 960px saya mau ganti srcset nya jadi ke gambar yg normal, tapi lebar nya saya pengen
+setengah.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,167 @@
+Latihan Pengkondisian pada JAVASCRIPT
+
+dimana kalian inget di vidio sebelumnya
+LATIHAN lanjutin angkot3.js
+
+jadi gini bikin file angkot4.js nah kalian harus bikin angkot 1-6 beroperasi dengan
+baik, angkot 7,9,10 sedang tidak beroperasi, dan angkot 8 sedang lembur.
+
+JAWABAN:
+
+var jmlAngkot = 10;
+var angkotBeroperasi = 6;
+var noAngkot = 1;
+
+for (noAngkot = 1; noAngkot <= jmlAngkot; noAngkot++) {
+
+    if (noAngkot <= angkotBeroperasi) {
+        console.log('Angkot No. ' + noAngkot + ' beroperasi dengan baik.');
+    } else if (noAngkot == 8) {
+        console.log('Angkot No. ' + noAngkot + ' sedang lembur.');
+    } else {
+        console.log('Angkot No. ' + noAngkot + ' sedang tidak beroperasi.');
+    }
+}
+
+-------------------------------------------------------------------------------------------------------------
+
+PENJELASAN
+
+kita cek di atas, ketika var noAngkot di isi 1 nah kita cek apakah 1 lebih kecil
+10 ( jmlAngkot ) hasilnya true maka dia masuk ke pengulangan, sekarang
+ kita cek noAngkot sekarang kondisinya sedang angka 1 jadi 1 lebih kecil
+dari 6 ya berarti if itu yg di kerjakan, 
+
+begitu IF dikerjakan maka ELSE IF dan ELSE  nya di atas tidak perlu dikerjakan, 
+maka dia keluar dari pengkondisian dan melakukan INCREMENT ( noAngkot++ )  
+lalu pengulangan nya lanjut lagi berulang terus sampai noAngkot nya 7.
+
+nah sekrang 7 kita bahas dibagian FOR dulu, apakah 7 lebih kecil 10 true ya
+kalo terus masuk ke pengulangan nya lalu cek di pengkondisia bagian IF
+apakah 7 lebih kecil sama dengan  6 FALSE, berarti dia keluar terus masuk
+ke ELSE IF ke kondisi yg ke 2, nah apakah 7 sama dengan 8 FALSE ya
+nah maka otomatis dia masuk ke ELSE.
+
+sekarang keluar dari pengkondisia dan ( noAngkot++ ) dan masuk ke 
+noAngkot 8 nah apakah 8 lebih kecil sama dengan 10 TRUE ya 
+masuk ke pengulangan nah ( IF ) apakah 8 lebih kecl dari 6 FALSE
+terus ke ELSE IF apakah 8 sama dengan 8 TRUE  baru lah jalankan
+aksi yg ada di ELSE IF.
+
+lalu dia keluar pengkondisian dan ( noAngkot++ ) nah 9 lebih kecil
+10 berarti true nah terus melakukan pengulangan sampai mentok gitu
+
+-------------------------------------------------------------------------------------------------------------
+sekarang latihan nama file angkot5.js
+
+tampilkan 1-6 beroperasi dengan baik 7,9 rusak dan 8,10 sedang lembur
+
+JAWABAN ;
+
+var jmlAngkot = 10;
+var angkotBeroperasi = 6;
+var noAngkot = 1;
+
+for (noAngkot = 1; noAngkot <= jmlAngkot; noAngkot++) {
+
+    if (noAngkot <= angkotBeroperasi) {
+        console.log('Angkot No. ' + noAngkot + ' beroperasi dengan baik.');
+    } else if (noAngkot == 8 || noAngkot == 10) {
+        console.log('Angkot No. ' + noAngkot + ' sedang lembur.');
+    } else {
+        console.log('Angkot No. ' + noAngkot + ' sedang tidak beroperasi.');
+    }
+}
+
+-------------------------------------------------------------------------------------------------------------
+
+PENJELASAN
+
+langsung aja ke point else if nya kalo jelasin semua di atas nya
+udah ada penjelasan lengkap dan ini hanya di ganti aja
+
+jadi bagian ELSE IF itu dibaca nya gini ELSE IF jika noAngkot sama dengan
+8 atau noAngkot sama dengan 10 maka jalankan aksi di dalam ELSE IF
+maksudnya gimana misal noAngkot itu angka 8 maka jlanin aksinya
+nah knp pake ATAU itu bisa secara logika 8 atau 10 maksudnya 
+kan atau bukan 2 2 nya yg dibahas ya misal noAngkot nya 10 jalankan 
+aksi nah kalo bukan 22 nya bararti false dia, nah pasti masuk ke si
+ELSE kan selain itu ya berarti else 
+
+kalo if kan udah lewat gitu semoga mengerti
+
+-------------------------------------------------------------------------------------------------------------
+
+LATIHAN nama file angkot6.js
+
+jadi angkot 1-4 dan 6 BEROPERASI dengan baik , 5,8,10 sedang lembur
+7,9 sedang tidak dapat beroperasi
+
+JAWBANN :
+
+var jmlAngkot = 10;
+var angkotBeroperasi = 6;
+var noAngkot = 1;
+
+for (noAngkot = 1; noAngkot <= jmlAngkot; noAngkot++) {
+
+    if (noAngkot <= angkotBeroperasi && noAngkot !== 5) {
+        console.log('Angkot No. ' + noAngkot + ' beroperasi dengan baik.');
+    } else if (noAngkot == 8 || noAngkot == 10) {
+        console.log('Angkot No. ' + noAngkot + ' sedang lembur');
+    } else {
+        console.log('Angkot No. ' + noAngkot + ' sedang tidak dapat beroperasi.');
+    }
+}
+
+-------------------------------------------------------------------------------------------------------------
+PENJELASAN
+
+else if (noAngkot == 8 || noAngkot == 5 || noAngkot == 10) {
+        console.log('Angkot No. ' + noAngkot + ' sedang lembur')
+}
+
+knp ga gini?
+
+di atas contoh yg benar nah knp seperti itu knp ga 5 nya itu di masukin ELSE IF
+kan tinggal or aja gitu tapi itu gabisa dilakukan karena pengkondisian itu menjalankan 
+berurutan secara dari atas nah kan di IF itu masih true jika 5 lebih kecil dari 6 maka
+ttp di jalankan yg if dia belum mengecek yg ELSE IF karena memang blm FALSE
+pengkondisian itu akan menuju baris yg kedua dari baris yg pertama jika bari
+yg pertama itu bernilai FALSE.
+
+-------------------------------------------------------------------------------------------------------------
+jadi kalo memakai OR ( | | ) itu jika salah satunya true maka dia akan
+mengeluar kan true dan jika dan dan ( && ) iut kalo salah satunya
+FALSE maka dia akan mengeluarkan FALSE artinya tidak dijalankan 
+aksi tersebut
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

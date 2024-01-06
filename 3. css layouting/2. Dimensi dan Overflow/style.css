@@ -1,0 +1,20 @@
+.jika {
+    background-color: aqua;
+    width: 200px;
+    overflow: scroll;
+    height: 200px;
+}
+
+.simpel {
+    width: 50%;
+    height: 50%;
+    background-color: chocolate;
+}
+
+.dua {
+    background-color: yellow;
+    width: 500px;
+    height: 200px;
+    overflow: auto;
+
+}

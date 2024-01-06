@@ -1,0 +1,40 @@
+body{
+	background-color: lightblue; 
+}
+
+h1 {
+	color: red;
+}
+
+h2	{
+	color: green;
+}
+
+ul li a {
+	font-size: 20px; 
+	color: black;
+	text-decoration: line-through;
+}
+
+ol li a {
+	text-transform: capitalize;
+	color: green;
+
+}
+
+.iya {
+	letter-spacing: 20px;
+	text-transform: capitalize;
+	
+}
+
+#p1 {
+	font-size: 15px;
+	
+}
+
+a.miring {
+	font-size: 60px;
+	text-align: right;
+}
+

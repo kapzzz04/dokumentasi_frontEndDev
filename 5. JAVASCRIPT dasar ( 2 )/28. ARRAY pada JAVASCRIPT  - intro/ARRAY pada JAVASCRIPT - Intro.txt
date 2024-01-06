@@ -1,0 +1,375 @@
+ARRAY pada JAVASCRIPT - Intro
+
+-------------------------------------------------------------------------------------------------------------------------------
+
+ARRAY ini sebetulnya ada di banyak bahasa pemograman lain ya walaupun konsepnya
+berbeda beda di setiap bahasa pemograman ya, ada yg menjadikan array itu tipe data
+dan ada juga yg menjadikan array tu struktur data.
+
+jadi array itu definisi secara umum nya secara terminalogi b.ing nya yaitu
+"susunan sistematis dari obejek-obejek yang serupa" nah objek nya bisa
+apapun ya.
+
+nah didalam bahasa pemograman atau didunia programing ilmu komputer,
+array itu tipe data yang digunakan untuk mendeskripsikan kumpulan elemen
+( nilai atau variabel), yang tiap-tiap elemennya memiliki index.
+
+elemennya apa nah bisa nilai atau variabel, dan tiap-tiap eleme nya itu punya
+sesuatu atau INDEX, ya mesti kalian pahami array itu mesti punya yg namanya
+index.
+
+kalo kalian masih bingung dengan definisi ini bisa mendengarakan definisi
+dari pak dhika, "array adalah variabel yang lebih sakti".
+
+-------------------------------------------------------------------------------------------------------------------------------
+
+menurut dia ARRAY itu adalah sebuah variabel tapi variabel nya lebih sakti.
+knapa lebih sakti, itu karena array itu bisa menampung lebih dari satu nilai.
+ya seperti kalian tau variabel itu sesuaitu yg bisa kita pake untuk menampung 
+sebuah nilai, tapi nilai nya cuma satu ya.
+
+nah kalian bisa simpan angka,string dan boolean, nah array ini itu bisa kalian
+gunakan untuk nyimpan nilai lebih dari satu, nah makannya saya bilang variabel
+lebih sakti.
+
+contoh nya gini deh:
+
+var hari = 'Senin';
+var hari = 'Selasa';
+
+misalnya saya ingin menampung sebuah string namanya senin kedalam sebuah
+variabel hari, ini ga masalah ya.
+nah gimana kalo saya ingin menampung hari yang lain selasa misalnya ( var hari = 'selasa'; )
+kira-kira bisa ga saya melakukan ini, bisa aja ya, tapi hari 'senin' nya kemana hari 'senin' nya
+ilang, karena ditimpa oleh selasa.
+ 
+kenapa ditimpa? karena kita memberikan nama variabel yg sama, jadi kalo nama variabelnya
+sama ya isi nya di timpa, jadi melakukan seperti contoh itu gabisa dong.
+
+jadi gimana saya mau menampung nama" hari, nah gampang aja.
+
+-------------------------------------------------------------------------------------------------------------------------------
+Contoh nya nih:
+
+var hari1 = 'Senin';
+var hari2 = 'Selasa';
+.
+.
+.
+var hari7 = 'Minggu'
+
+nah kita bedakan aja nama variabel nya bener ga, ( var hari1 = 'Senin'; ) misalnya
+terus hari kedua ( var hari2 = 'Selasa'; ) dan seterusnya sampai hari ke 7, nah ini
+aman bisa dilakukan ya, tapi kalo saya punya kasus yang lain misalnya.
+
+contoh nya nih:
+
+var mhs1 = 'Sandhika';
+var mhs2 = 'Keyla';
+.
+.
+.
+var mhs1020 = 'yanto';
+
+saya mau menampung data mahasiswa berarti saya harus punya banyak
+variabel mahasiswa ya, misalkan mahasiswa pertama ( var mhs1 = 'Sandhika'; )
+mahasiswa kedua ( var mhs2 = 'Keyla'; ).
+
+nah coba bayangkan di kampus itu ada berapa mahasiswa, naha mungkin
+aja nanti nama variabel nya bnyak banget, yah karena jumlah mahasiswanya
+juga banyak, nah ini tentu saja kalian gamau lakukan ini, selain nanti kalian akan
+banyak banget bikin variabel, ini akan susah banget ngelolanya, mencarinya akan
+susah, mengubahnya akan susuah, dan mengurutkannya juga akan susah.
+
+-------------------------------------------------------------------------------------------------------------------------------
+
+nah disitu lah kita butuh sebuah array, nah gimana solusinya
+
+dengan menggunakan javascript kalian tinggal tuliskan array seperti ini :
+
+CONTOH;
+
+var hari = ['senin','selasa','rabu'];
+var mhs = ['Sandhika','Keyla','Yanto'];
+
+kita bikin sebuah variabel misalkan untuk hari tadi ya, variabel namanya hari
+yg isi nya ['senin','selasa','rabu']; nah itu liat cara menulisnya menggunakan kurung 
+siku ya, lalu didalam nya kita tulis nilai, nilai nya boleh lebih dari satu, kalian pisahkan
+tiap nilainya menggunakan koma, jadi saya punya senin,selasa,rabu yg tipe datanya
+yaitu string.
+
+paham ya jadi saya punya variabel hari yang berupa array, nah untuk yg mahasisiwa
+tadi juga sama aja, tinggal bikin sebuah variabel namanya mahasiswa diisi dengan
+kurung siku lalu mahasiswanya ada berapa, nanti kalian tulis saja mahasiswanya
+mau berapapun dan pisahkan dengan tanda koma ( , );
+
+-------------------------------------------------------------------------------------------------------------------------------
+
+sekarang pertanyaanya Kenapa ARRAY knp kita butuh array?
+
+salah satu nya tadi ya alasanya kita gamungkin bikin banyak variabel yah.
+
+coba kita liat ilustrasinya begini :
+
+kalian tau kan kerayon atau pensil warna, nah cerita nya saya punya kerayon
+yg bermacam" warna yg banyak gitu, nah tpi kan kalo kita beli kerayon itu kan
+dikasih tempatnya untuk naro kerayon itu ya agar kita gampang memilih 
+kerayon yg mau dipake jadi kita ga harus pusing" milih gitu.
+
+
+pertanyaan selanjut nya boleh ga kerayon itu ga kita simpen di tempat nya
+tapi langsung kita msukan ke dalam tas tanpa tempat si kerayon itu, boleh
+ya masa ga boleh, tapi nanti kalian akan kerepotan ketika ingin mencari.
+
+misalnya kalian masukan semua kerayon dengan berbeda warna terus
+kalian masukan kedalam tas tanpa tempat nya maka akan berantakan
+didalam tas nya, terus gimana jika kalian ingin mencari kerayon warna
+MERah, nah yang paling gampang adalah kalian tinggal keluarin aja
+semua kerayon nya yang ada didalam tas nah otomatis semua warna
+akan terlihat dan kita mudah mencari warna yang kita ingin kan.
+
+setelah warna MERAH ketemu maka masukan lagi kerayon nya kedalam tas
+dan ternyata kalian membuthkan warna hijau mau gamau kalian harus mengeluarkan
+semua kerayon itu ke meja lagi setelah itu masukan lagi ya.
+
+nah nanti ribet dan akan berantakan tapi kalo gamau ribet bisa aja kalian masukan
+tangan kalian ke tas dan mengudek" tas nya untuk mencari kerayon yg di ingin kan
+nah disitu juga lama ya buang" waktu jadinya.
+
+nah maka itu hal seperti itu tidak bisa dilakukan, nah itu lah kenapa kita butuh tadi ya
+tempat pensil atau tempat kerayon tadi karena dengan itu kalian akan lebih mudah
+mencari yg kalian ingin kan karena sudah tertatarapih di tempat itu dan tidak buth 
+waktu lama ya.
+
+jadi anggap aja tempat pensil tadi adalah array yang menyimpan nilai-nilai tadi yaitu
+kerayon tadi.
+
+-------------------------------------------------------------------------------------------------------------------------------
+Kenapa array ?
+
+- Mempermudah pengelolaan nilai / value/ data
+    -Penelusuran dan Penarian
+
+- Manajemen memori
+
+ya jadi alesan nya kenapa kita pake array yaitu untuk mempermudah pengelolaan nilai,value
+atau data, mempermudah pengelolaannya dalam hal apa? penelusuran dan pencarian.
+lalu kenapa array efektifitas manajemen memori karena kita gaperlu lagi bikin variabel
+yang banyak tadi.
+
+-------------------------------------------------------------------------------------------------------------------------------
+kharakterristik ARRAY
+
+- Variabel jamak, yang mempunyai banyak elemen dan diacu dengan nama yang sama
+- Kumpulan pasangan key dan nilai / key and value pair
+- Key adalah index pada array dengan tipe integer yang dimulai dari 0
+- Array pada javascript bertipe Object
+- Array pada javascript memiliki fungsi / method length untuk menghitung jumlah elemen
+  didalamnya
+- Elemen pada array boleh memiliki tipe data yang berbeda
+
+sekarang kita liat lebih lanjut lagi kharakteristik dari array itu seperti apa nah kita liat
+yang pertama saya ulang ya definisi nya jadi array itu bisa disebut variabel jamak,
+yang mempunyai banyak elemen dan diacu dengan nama yang sama, lalu yang kedua
+array juga bisa disebut dengan kumpulan pasangan key dan nilai / key nad value pair.
+
+key nya apa? key nya adalah index pada array tadi, yang tipe nya itu integer dan dimulai
+dari 0, di javascript itu index array dimulai dari 0. nah lalu selanjutnya array pada javascript
+itu tipe nya adalah objecT, walaupun dibahasa pemograman lain array itu tipe data sendiri
+tapi kalo dijavascript sebenernya dia adalah object.
+
+selanjutnya array pada javascript itu memiliki fungsi atau method length, ya jadi fungsi
+bawaannya yang digunakan untuk menghitung jumlah elemen di dalamnya, walaupun
+sebetulnya method pada array di javascript itu ada banyak. dan yang terakhir itu elemen
+pada array itu boleh memiliki tipe data yang berbeda.
+
+jadi javascript ini seperti PHP ya kalo bikin array elemen nya boleh tipe data nya beda ya,
+ga seperti c atau java misalnya kalo kita bikin array itu tipe data nya harus sama, kalo integer
+integer semua, kalo string stirng semua jadi kalo di javascript itu boleh semua digabungin.
+
+-------------------------------------------------------------------------------------------------------------------------------
+
+KEY and VALUE PAIR - membuat array
+
+supaya kalian paham yang mana yg KEY yg mana yg VALUE ini kita akan lakukan 
+pada saat kita membuat array.
+
+pada saat kalian membuat array bayangkan saja kalian membuat sebuah kotak
+yg tiap-tiap kotak nya itu memiliki angka dan angka nya pasti dimulai dari 0.
+
+COTNOH :
+
+ kotak 0, kotak 1,kotak 2, kotak 3, kotak 4, kotak 5
+
+jadi kalo kalian nanti membuat array yg didalam nya ada lima element, ya kita sebut
+VALUE nya itu element ya, maka pada tiap-tiap element nya dia akan menyimpan
+index, jadi tempat nya atau ruangan nya ada nomornya, baru nanti didalam ruangannya
+kita bisa simpan elemenya atau nilai nya.
+
+jadi bisa dibayangkan saja kotak itu tempat menyimpan elemen nya dan setiap kotak
+beda nomor.
+
+-------------------------------------------------------------------------------------------------------------------------------
+
+nah contoh nya gini kita mau bikin sebuah array yg menampung nama-nama
+binatang, misalnya ada kucing, kelinci, monyet, panda, koala, dan sapi.
+
+nah kita bikin nya gini :
+
+var binatang = ['Kucing', 'Kelinci', 'Monyet', 'Panda', 'Koala', 'Sapi'];
+
+nah nanti tiap-tiap nama binatang ini akan berkolerasi dengan index nya, jadi
+panda itu index nya 3, jadi kalian bisa nuliskan gitu atau :
+
+kalian bisa deklarasikan dulu variabel nya :
+
+var binatang = [ ];
+
+kita kasih tau ke javascript bahwa saya mau bikin variabel binatang yang bertipe array, jadi
+kalian kasih aja kurug siku buka dan kurung siku tutup baru nanti kalian isi seperti ini :
+
+binatang = ['Kucing', 'Kelinci', 'Monyet', 'Panda', 'Koala', 'Sapi'];
+
+ya ini ada dua cara silahkan mau pakai yang mana, ini saat kalian membuat array.
+
+-------------------------------------------------------------------------------------------------------------------------------
+
+KEY and VALUE PAIR - mengakses eleme pada array
+
+nah sekarang pada saat mengakses elemennya nah contoh nya kita udha bikin tadi ya
+variabel nya, nah kalo saya tulis begini ( console.log(binatang[4]); ).
+
+ini artinya saya ingin menampilkan isi dari array binatang yang memiliki index 4, maka
+yang tampil apa tuh?
+
+maka yang tampil KOALA silahkan cek saja ya.
+
+nah paham ya jadi itu maksud dari key and value pair, pasangan antara key, key nya
+itu index dan value nya itu elemen nya
+
+-------------------------------------------------------------------------------------------------------------------------------
+
+ARRAY BERTIPE OBJECT
+
+tadi kita udah tau bahwa array itu bertipe object
+
+nah untuk membuktikan nya kalian bisa tuliskan saja gini (  console.log(typeof(binatang));  )
+nah nanti tidak ada tipe array yg ada tipe nya itu object.
+
+nah ini hanya untuk memasktikan aja gaada tipe array di javascript yang ada tipe object.
+
+-------------------------------------------------------------------------------------------------------------------------------
+
+ARRAY BERTIPE OBJECT - memiliki metod Length
+
+karena dia object maka yang nama nya object itu pasti punya fungsi didalamnya
+fungsi didalam object itu kita sebut method.
+
+CONTOH :
+
+console.log(binatang.length);
+
+kalo kita tulis method nya length, dengan cara kalian tulis dengan nama array nya lalu
+titik length, sama seperti kalian bisa simpan ini kedalam stirng ya, kalo string itu
+nanti dia ngitung berapa jumlah kharakternya, kalo kalian simpan didalam array.
+
+titik length ini akan menghasilkan angka ada berapa elemen didalam array binatang itu,
+berarti ada 6, ya hati-hati jumlah elemen itu ga sama denga index, ya jumlah elemenya
+6,  index terakhir nya 5 karena index mulai dari 0.
+
+-------------------------------------------------------------------------------------------------------------------------------
+
+Elemen pada array boleh beda Tipe
+
+nah yang terakhir elemen array itu boleh beda tipe nah di javascript itu seperti ini ya.
+
+nah contoh nya aseperti ini :
+
+var hari = ['Senin', 'Selasa', 'Rabu'];
+var mhs = ['Sandhika','Keyla','Yanto'];
+var angka = [10, 123, 2004];
+var myArr = ['teks', 2, false];
+var myFunc = function() {
+         alert('hello world!);
+}
+
+ya jadi isi nya boleh apapun, boleh string, boleh integer, boleh boolean bahkan
+kalo kalian punya function, misalnya kalian bikin function expression namanya
+myFunc, nah function ini kalian bisa masukan sebagai salah satu elemen
+didalam array.
+
+jadinya seperti ini :
+
+var myArr2 = ['teks', 2, false, myFunc];
+
+dan yg lebih keren nya lagi kita bisa nyimpan array didalam array :
+
+var myArr3 = ['teks', 2, false, myFunc, [4, 5, 6]];
+
+nah ini namanya array multidimensi dimana kita array didalam array.
+
+-------------------------------------------------------------------------------------------------------------------------------
+
+ARRAY didalam ARRAY - array multidimensi / array bersarang
+
+nah sekarang saya punya array yg tadi ya
+
+var myArr3 = ['teks', 2, false, myFunc, [4, 5, 6]];
+
+nah sekarang pertanyaannya gimana kalo saya pengen menampilkan angka 5 ke console?
+
+untuk bikin array multidimensi atau array bersarang itu tadi mengakses nya gini ya
+kita punya dulu array nya, array yg terluar nya ada string,integer,boolean,function dan
+ada array lagi, jadi kita bisa gambarkan begini.
+
+kotak 0 = teks
+kotak 1 = 2
+kotak 2 = false
+kotak 3 = myFunc
+
+sepeti ini dan di index ke 4 itu isi nya array lagi, nah index nya kita mulai lagi dari 0.
+
+kotak 4 = kotak 0  = 4
+                kotak 1  = 5
+                kotak 2  = 6
+
+nah kalo kita mau mengakses angka 5 berarti kita liat dulu index terluarnya 4 dan index
+didalamnya 1.
+
+jadi kalian cukup tulis begini :
+
+console.log(myArr3 [4] [1]);
+
+maka hasilnya 5
+
+kalian boleh bikin array multidimensi ini sampai berapa dimensi pun ya.
+
+-------------------------------------------------------------------------------------------------------------------------------
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

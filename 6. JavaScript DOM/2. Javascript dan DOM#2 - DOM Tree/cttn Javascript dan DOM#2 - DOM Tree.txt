@@ -1,0 +1,193 @@
+Javascript & DOM - DOM Tree
+
+APA itu DOM Tree ?
+
+jadi seperti temen" ketahui sebelumnya DOM itu representasi element" HTML di dalam
+browser kita, dan representasi nya dalam bentuk Tree atau Pohon, jadi misalnya saya 
+punya contoh khasus sederhana seperti ini :
+
+( liat di folder aja ada contoh nya cari aja ya bisa, ada bacaan screanshoot ( 80 )
+
+
+ya kalian liat saya punya HTML sederhana seperti itu, dimana di dalam nya hanya ada struktur
+HTML sederhana, ada head dan body, di dalam head nya hanya ada title ada tulisan nya
+( Web Programming UNPAS ), lalu di dalam body nya ada beberapa element, ada <h1> yg isinya
+teks Hello World lalu tag <p> dan seterusnya.
+
+nah struktur HTML sederhana ini kalo di repsentasikan dalam bentuk DOM Tree itu mungkin
+hasilnya seperti ini :
+
+( liat di folder aja ada contoh nya cari aja ya bisa, ada bacaan screanshoot ( 81 )
+
+ya jadi temen" bisa liat itu adalah DOM Tree dari HTML sederhana tadi, dimana seluruh element
+nya nanti itu kita anggap sebagai sebuah node atau simpul, nah simpul paling atas itu kita 
+sebut dengan simpul Rute atau Document, kalo di video sebelumnya sebetulnya di atas document
+masih ada yang lain, tapi itu ga akan kita bahas, kita fokus di dalam document web nya saja.
+
+------------------------------------------------------------------------------------------------------------------------------
+
+lalu ada element teruluar nya yaitu HTML lalu ada dua element heda dan body dan seterusnya
+nah jadi pohon itu adalah representasi DOM Tree nya, sampe sini itu udah kita bahas di video
+sebelumnya, nah yg belum kita ketahui adalah tiap" simpul itu atau tiap" node, itu dia memiliki
+tipe.
+
+ya jadi node pada DOM Tree itu banyk tipe nya, ya kalo misalkan kita liat itu tipe" nya seperti
+ini :
+
+( liat di folder aja ada contoh nya cari aja ya bisa, ada bacaan screanshoot ( 82 )
+
+yg tulisan nya bold itu adalah tipe nya atau yg di atas tag nya itu tipe nya, jadi kalo kalian liat
+semua element HTML, itu tipe nya element, kalo tulisan yg ada didalam element HTML contoh
+nya Hello World  itu kita sebut nya text, jadi ada element node atau simpul element, dan ada 
+Text Node atau simpul yg berisi text.
+
+lalu ada lagi simpul attribute, nah jadi tipe node untuk href iini itu aalah attribute, jadi ada banyak
+tipe untuk tiap" element ini dan sebetulnya tipe" itu lebih banyak lagi, Berikut tipe" node :
+
+TIPE - TIPE node
+- Elemen
+- Attribute
+- Text
+- CData Section
+- Entity Reference
+- Entity
+- Processing Instruction
+- Comment
+- Document
+- Document Type
+- Document Fragment
+- Notation
+
+jadi ada banyak sekali tipe nya ya, tapi di seri ini kita akan fokus ke 3 aja ya, yaitu Element,Text,
+dan Document, karena sebetulnya untuk attribute ini saat ini sudah di tinggal kan ya atau sudah
+akan di hilangkan DOM nya karena attibute nanti akan masuk ke dalam Elemen, dia akan jadi
+bagian yg tidak akan terpisah kan dari elemen jadi itu tipe" node perlu kalian pahami, meski yg 
+kita fokus hanya 3 itu saja.
+
+------------------------------------------------------------------------------------------------------------------------------
+
+selanjut nya ada 2 istilah yg harus kalian pahami yaitu mengenai NodeList dan HTMLCollectin
+
+apa yg di maksud dengan 2 hal itu, nanti kita liat ya, coba kita kembali ke khasus DOM Tree
+sederhana kita, kalian tau kan kalo misalkan salah satu simpul ini yg mana pun ya, kita pilih
+aja salah satu, misal nya tag <p>, itu kita sebut sebagai Node, yg mana pun selama kita pilih
+satu itu kita sebut sebagai node, nanti tergantung jenis node apa yg akan kita pilih.
+
+kalo <p> berarti dia element tipe nya, nah jika kita memilih lebih dari satu node itu kita sebut
+dengan nodeList, tidak peduli tipe node nya apa, sedangkan HTMLCollection itu adalah kumpulan
+node tapi khusus yang tipe nya Elemen HTML saja, nah nanti perbedaan ini akan menentukan
+cara mengelola nya, ya karena cara mengelola nya sedikit berbeda.
+
+jadi sampe sini udah beberapa istilah yg kita pelajari
+
+ada tipe dari node dan ada tipe dari kumpulan node, ada nodeList dan HTMLCollection
+
+------------------------------------------------------------------------------------------------------------------------------
+
+NodeList vs. HTMLCollection
+
+- Keduanya merupakan kumpulan node
+- Struktur datanya mirip array
+- nodeList dapat berisi node apapun, sedangkan HTMLCollection harus berisi elemen HTML
+- HTMLCollection bersifat live sedangkan nodeLIst tidak
+
+NodeList dan HTMLCollection itu sebetulnya keduanya merupakan kumpulan dari node tadi ya
+nah kumpulan node ini representasi nya mirip dengan array, jadi kalo kalian tau array itu sebuah
+variabel yg bisa mempunya banyak data, nah ini anggap aja nodeList dan HTMLcollection ini 
+adalah array yg isinya object" gitu ya, walaupun mereka sebenernya bukan array karena ada
+beberapa perilaku array yg tidak bisa di terapkan di 2 itu tapi initi nya dia mirip array.
+
+nah tadi ya nodeList dapat berisi node apapun, sedangkan HTMLCollection harus berisi elemen
+HTML, jadi begitu isi nya HTML semua dia tipe nya jadi HTMLCollection, tapi begitu saja ada 1
+yg bukan elemen HTML dai tipe nya nodeList.
+
+nanti bedanya disini, HTMLCollection bersifat live sedangkan nodeList tidak nah ini penting ketika
+nanti kita sudah belajar mengenai manipulasi DOM, untuk sekarang kalian terima aja dulu
+HTMLCollection bersifat live sedangkan nodeList tidak.
+
+------------------------------------------------------------------------------------------------------------------------------
+
+Struktur Hierarki DOM Tree
+
+- Root Node
+  - node yang menjadi sumber dari semua node lain di dalam DOM 
+  - document
+- Parent Node
+  - node yang berada 1 tingkat diatas node yang lain
+  - body adalah parent dari h1,p,p,div dan a
+- Child Node
+  - node yang berada 1 tingkat dibawah node yang lain
+  - h1 adalah child dari body
+
+kali ini kita akan bahas Struktur Hierarki DOM Tree nah ini jua cukup penting, karena sekali lagi
+semua node yg ada didalam DOM Tree itu saling terhubung dan kita harus paham betul mengenai
+hubungan atau relasi antar DOM tersebut, supaya ketika nanti kita masuk ke topik penelusuran 
+DOM itu kalian ga kebingugan lagi bagaimana cara menelusuri nya.
+
+Struktur Hierarki DOM Tree ini mirip banget dengan silsilah keluarga, ya konsep" silsilah keluarga
+seperti parent dan child gitu, coba kita liat, kalo kita balik lagi ke khasus HTML sederhana tadi
+ya kalian liat kan di poto nya semua elemen nya saling terhubung, nah struktur Struktur Hierarki
+DOM nya seperti ini :
+
+ada yg di sebut dengan Root Node atau Node akar atau Node sumber atau Node utama lah ya
+Node yg menjadi sumber dari semua node lain di dalam DOM, yg secara Default node tersebut
+adalah document, lalu ada yg di sebut dengan Parent node, atau node orang tua gitu kali ya.
+
+nah begitu kita masuk ke konsep parent dan child itu nanti tergantung dari sprektif kita melihat
+Node mana yg akan kita pilih, tapi intinya node yang berada 1 tingkat diatas node yang lain
+itu kita sebut dengan Parent Node, jadi kalo di khasus sebelumnya itu body adalah parent dari
+h1,p,p,div dan a, jadi kita liat nya dari sebuah element nya, jadi sebuah elemen itu bisa jadi parent
+bisa jadi child.
+
+------------------------------------------------------------------------------------------------------------------------------
+
+nanti misalkan berada 2 tingkat itu namanya ada yg di sebut dengan grand parent, atau kake
+atau nenek kali ya, jadi dia berada di 2 tingkat, kalo lebih dari 2 tingkat itu kita sebutnya ansestor
+atau nenek moyang kali ya, tapi biasa nya yg kita pedulikan hanya yg parent nya saja, karena
+begitu kita mau menelusuri jauh ke atas, nah kita tinggal cari aja parent dari parent dari parent
+gitu aja.
+
+lalu ada lagi Child Node, kalo ada parent pasti ada child, kalo ini kebalikan nya dari parent, dia
+adalah node yg berada 1 tingkat dibawah node yang lain, contoh nya pada khasus kita kebalikan
+nya, h1 adalah child dari body, dan child node ini tidak peduli tipe node nya apa mau text,elemet
+,attribute atau apa lah dia tetep masuk ke child node, dan kalian akan kenal mengenai konsep
+children.
+
+kalo children itu lebih spesifik, dia adalah child node yg bertipe elemen HTML nanti kita lihat lah ya,
+terus ada lagi yg di sebut dengan siblings, siblings itu kan sodara kandung gitu kan, nah itu 
+adalah Child node yang memiliki parent yg sama, lalu ada lagi misal nya kalo child node kan
+1 tingkat gitu, nah sekarang gimana kalo anak nya anak atau cucu ya.
+
+nah itu ada lagi yg disebut dengan desenden, desenden itu artinya keturunan, jadi itu termasuk
+anak cucu dan terus kebawah nya itu masuk ke dalam desenden, tapi intinya yg kita pedulikan
+yg 3 itu saja ada Root, Parent dan Child Node.
+
+------------------------------------------------------------------------------------------------------------------------------
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

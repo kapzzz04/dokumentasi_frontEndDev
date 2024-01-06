@@ -1,0 +1,704 @@
+CSS GRID #6 Grid Alignment
+
+- justify-items
+- align-items
+- place-items
+- justify-content
+- align-content
+- place-content 
+
+itu adalah bagaimana kita memposisikan element" grid kita didalam container, isitilah" nya tag di atas itu mirip banget dengan perilaku pada flexbox.
+
+---------------------------------------------------------------------------------------------------------------------------------
+
+JUSTIFY-ITEMS
+
+justify-items adalah mensejajarkan grid-items pada sumbu horizontal, cara memberi nya gampang aja, seperti ini :
+
+.container {
+    justify-items: start | end | center | stretch;
+}
+--------------------------------
+
+jika kita tidak memberikan property justify-items maka defaultnya adalah stretch.
+
+ya kita liat contoh penggunaanya, jadi kalo kita punya justify-items (start) :
+
+ .container {
+            width: 80%;
+            margin: auto;
+            display: grid;
+            grid-template-rows: 130px 130px 130px;
+            grid-template-columns: 1fr 1fr 1fr;
+            gap: 5px;
+            justify-items: start;
+        }
+--------------------------------
+
+Maka element" items nya akan rapat kekiri, secara horizontal dia akan rapat kekiri semuanya, karena perilaku ini berlaku untuk semua item di container. Lalu yg ke2 ada justify-items (end) :
+
+.container {
+            width: 80%;
+            margin: auto;
+            display: grid;
+            grid-template-rows: 130px 130px 130px;
+            grid-template-columns: 1fr 1fr 1fr;
+            gap: 5px;
+            justify-items: end;
+        }
+--------------------------------
+
+nah itu semua items nya akan mempet kekanan atau diakhir dari grid nya start di awal end diakhir dari grid nya. (liat di folder ss )
+lalu selanjutnya ada lagi justify-items (center), nah kal itu akan ada ditengah" secara horizontal :
+
+.container {
+            width: 80%;
+            margin: auto;
+            display: grid;
+            grid-template-rows: 130px 130px 130px;
+            grid-template-columns: 1fr 1fr 1fr;
+            gap: 5px;
+            justify-items: center;
+        }
+--------------------------------
+
+Dan yang terakhir adalah justify-items (stretch) :
+
+.container {
+            width: 80%;
+            margin: auto;
+            display: grid;
+            grid-template-rows: 130px 130px 130px;
+            grid-template-columns: 1fr 1fr 1fr;
+            gap: 5px;
+            justify-items: stretch;
+        }
+--------------------------------
+
+Tapi stretch itu hanya akan berlaku ketika kita tidak memberikan lebar pada tiap" items nya, klo kita kasih lebar items nya stretch ga akan berpengaruh gitu. Jadi kalo kalian ingin melihat hasil si stretch hapus dulu width pada items nya ya, bisa dicoba di file justify-items ya. (liat di ss an)
+
+Jadi justify-items start dia akan menempatkan posisi element pada paling kiri, lalu untu (end) posisinya akan berada di sebelah paling kanan, (center) dia akan berada di tengah" secara horizontal, dan streach dia akan memenuhi lebar dari tiap kolom pada grid nya kan, secara kan dia default, jika tidak diberikan width nya dia akan muncul default nya dan jika items nya ada width nya streach nya ga keliatan dan yg terjadi adalah dia di posisikan disebelah kiri gtiu.
+
+Ini kita lagi bahas code di file justify-items y, nah kan kita udah hilangkan width dari items nya ya, lalu kita juga kasih stretch justify-items nya, nah jika kita ganti jadi (start) maka yg akan terjadi lebar dari kolom nya itu akan sesuai content atau isi si items nya, jadi klo kita liat lebar nya hanya segitu, karena content nya hanya 1 angka saja gitu se lebar angka yg ada di items nya. Jadi default nya sebenernya kalo ga pake apa" sebenernya adalah (stretch).
+
+Jadi sekali lagi default nya adalah stretch tapi kalo kita udah kasih width di item nya keliatan nya kaya yang udah menggunakan start, jadi kalo dijalanin dia ga (stretch) karena ada width nya.
+
+---------------------------------------------------------------------------------------------------------------------------------
+
+ALIGN-ITEMS 
+
+Mendefinisikan mensejajarkan grid-items pada sumbu vertikal.
+
+align-items ini lawanya dari justify-items, kalo jutify sumbu horizontal kalo align sumbu veritkal, untuk nilai nya sama :
+
+.container {
+    align-items: start | end | center | stretch;
+}
+---------------------------------
+
+Inget defaultnya juga sama yaitu (stretch).
+
+Jadi kalo contoh nya seperti ini (liat ssan folder), saya punya align-items (start) dia akan berada nempel di atas bukan kiri ya atas inget, lalu kalo saya punya align-items nya (end), maka dia berada nempel di bawah, (liat di ss an ).
+
+Seperti ini :
+
+ .container {
+            align-items: start;
+        }
+---------------------------------
+
+ .container {
+            align-items: end;
+        }
+---------------------------------
+
+Lalu kalo saya punya (center)  maka dia akan berada di tengah sejajar secara vertikal ya inget vertikal, dan terakhir kalo (stretch) dia akan penuh. 
+
+Seperti ini :
+
+ .container {
+            align-items: center;
+        }
+---------------------------------
+
+ .container {
+            align-items: stretch;
+        }
+---------------------------------
+
+Oke kita coba implementasi coding nya, liat di file nya align-items ya. Nah disitu kalian bisa coba implementasi nya aja kalian bisa liat file nya sebleum diberi property align-items dan lalu kalian bisa coba sendiri, dan jika kalian awalnya kan default nya stretch tapi itu ga full nah itu karena items nya di atur height nya sama seperti justify-items tapi justify itu dia width kalo align dia height.
+
+Kalo saya coba matikan height nya nah baru (stretch) nya berpengaruh. Dan untuk perilaku start, end, dan center ya seperti biasa aja ya gaada yg aneh kan. Nah jadi ini memudahkan kita untuk memposisikan element nya di tengah" misal kalian ada items logo, logo kan besar tingginya berbeda nah biar mereka sejajar kalian bisa menggunakan align-items & justify-items begitu.
+
+AKHIR ALIGN-ITEMS
+---------------------------------------------------------------------------------------------------------------------------------
+
+PLACE-ITEMS
+
+nah nanti kalian juag bisa menggunakan ke2 nya dalama satu property saja, nah untuk itu kita butuh place-items.
+
+place-items adalah sebuah shorthand untuk justify-items dan align-items dalam satu deklarasi. Jadi misalnya saya pengen membuat elementnya berada perisis di tengah", dari pada saya tulis 2 property align-items & justify-items, saya cukup nulis gini :
+
+.container {
+    place-items: <align-items> <justify-items>;
+}
+----------------------------------------
+
+Inget urutan nya align-items dulu lalu justify-items, jadi kalo pengen 22 nya sekaligus langsung pake itu aja satu baris jadi. 
+
+nah kita coba, pake file yg namanya place-items ya ada di vscode nya. Nah sekarang saya pengen semua items nya berda persis di tengah" dari grid nya, kan caranya sebelum nya kita pake justify-items dan align-items ya :
+
+        .container {
+            width: 80%;
+            margin: 30px auto;
+            display: grid;
+            grid-template-rows: 130px 130px 130px;
+            grid-template-columns: 1fr 1fr 1fr;
+            gap: 5px;
+            justify-items: center;
+            align-items: center;
+        }
+----------------------------------------
+
+Nah begitu kan awalnya kita pake, dengan seperti itu items nya akan di tengah secara horizontal dan secara vertikal, nah kalo gamau 2 baris gitu cukup aja pake place-items :
+
+        .container {
+            width: 80%;
+            margin: 30px auto;
+            display: grid;
+            grid-template-rows: 130px 130px 130px;
+            grid-template-columns: 1fr 1fr 1fr;
+            gap: 5px;
+            place-items: center center; 
+        }
+----------------------------------------
+
+Nah sama hasilnya, bahkan kalo justify-items dan align-items nya sama kalian cukup tulis satu value aja gini :
+
+            place-items: center; 
+----------------------------------------
+
+jadi kalo kalian nulis satu kek gitu aja itu artinya 22 nya center di tengah", tapi kalo misalkan salah satu nya mau beda begini misal :
+
+            place-items: center end; 
+----------------------------------------
+
+nah gitu maka dia posisinya akan ada di tengah kanan. Nah gitu paham kan itu cara shorthand nya untuk mempersingkat kode ya.
+
+AKHIR PLACE-ITEMS
+---------------------------------------------------------------------------------------------------------------------------------
+
+JUSTIFY-CONTENT
+
+justify-content adalah untuk mengatur posisi seluruh grid containernya pada sumbu horizontal, inget justify horizontal aligns itu vertikal. Nah tapi ada syaratnya, itu bisa dilakukan ketika ukuran total grid lebih kecil dari ukuran cotaniernya, Nah ini terjadi kalo grid items nya menggunakan ukuran yang fixed pake (px) atau sebagainya.
+
+maksud ukuran yg fixed itu ketika kita tidak memakai ukuran fixed misal kita pake ukuran persen atau (fr) nah artinya itu seluruh items nya akan diberikan ukuran yg sama dan memenuhi seluruh isi containernya, dan jika penuh seluruh isi containernya dengan si item maka tidak berfungsi justify-content nya karena dia tidak tau mau berpindah ke posisi mana kan seluruhnay udah terpenuhi oleh si item nya sendiri. bisa dibedakan dengan hasil aligns-items dengan hasil justify-content ini disitu berbeda ya.
+
+Nah cara kegunaanya kalian cukup kasih salah satu value nya gini :
+
+  .container {
+            justify-content: start | end | center | stretch | space-around | 
+              space-between | space-evenly;
+        }
+----------------------------------------
+
+nah kita liat contohnya yg pertama nih, kalo kita punya justify-content start maka seluruh grid nya akan ada kiri dari container nya bukan column nya ya containernya, dan inget itu akan berpengaruh ketika kita punya sisa ruang di containernya. lalu kalo kita pake justify-content end dai di sebelah kanan. (liat di ss an)
+
+Dan kalo kita punya (center) dia berda di tengah, ini mirip perilakunya dengan flexbox ya kalian pasti udah tau harusnya. untuk (stretch) dia juag sama dia akan penuh secara horizontal jika si items nya tidak mempunya width atau lebar.(liat di ss an)
+
+Nah lalu ada juga yg namanya space-around :
+
+ .container {
+            justify-content: space-around;
+        }
+----------------------------------------
+
+Nah space-around itu akan memberi jarak pada tiap" kolom nya, nah jarak nya yg paling kiri dan yg paling kanan itu setengah dari tengah" nya, jadi misalkan kalo setelah dibagi itu yg tengah" nya  dapte 100px maka jarak semuanya yg tenga" itu 100px dan untuk yg paling kiri dan paling kanan itu 50px jarak nya.
+
+Terus ada lagi space-between :
+
+ .container {
+            justify-content: space-between;
+        }
+----------------------------------------
+
+Kalo space-between kiri kanan nya gaada jarak lalu sisa jarak nya akan didistrubusikan rata di tengah" nya. (liat di ss an).
+
+dan lalu untuk space-evenly :
+
+ .container {
+            justify-content: space-evenly;
+        }
+----------------------------------------
+
+kalo ini jarak antara kolom nya rata gaada yg lebih besar atau apa sama rata jaraknya gitu.
+
+Oke kita liat codingan nya ya di file jsutify-content, nah saya punya grid nya 3 x 3, tapi lebar container nya 80%, lebar containernya 80% dari layar, tapi karena tiap" items nya itu saya kasih lebar / width dan template-columns dan template-rows nya saya kasih lebar yg fixed, nah jadi ga 80% lagi si kolom itu memenuhi nya. coba kalo kita kasih background-color si container nya kalian disitu bisa liat kan si kolom itu ga memenuhi containernya tpi dia ikutin ukuran fixed ukuran yg diatur bukan ukuran yg otomatis menyesuaikan containernya.
+
+Nah sekarang kita bisa distribusikan lebarnya misal saya kasih justify-content start seperti nya gaada perubahan kalo saya kasih end dia akan kekanan lalu kalo center dia akan berada di tengah secara vertikal. kalo stretch itu gaada perubahan sama seperti start nanti posisi si item nya itu karena tiap item nya punya lebar atau width, dan space-around, space-betwenn, dan space-evenly kalian bisa coba sendiri aja dan liat hasilnya.
+
+AKHIR JUSTIFY-CONTENT
+---------------------------------------------------------------------------------------------------------------------------------
+
+ALIGN-CONTENT
+
+Inget jsutify sumbu horizontal dan align sumbu vertikal nya, mungkin ini sama saja dengan justify tapi yg membedakan nya di sumbunya kalo align-content untuk sumbu vertikal nya.
+
+Cara ngasih nya juga sama :
+
+  .container {
+            align-content: start | end | center | stretch | space-around | 
+              space-between | space-evenly;
+        }
+----------------------------------------
+
+Contoh nya begini kalo saya kasih start dia akan nempel ke atas kalo saya kasih end dia nempel kebawah semua grid nya, lalu saya kasih center dia nempel ke tengah dan stretch dia akan memenuhi secara vertikal, dan dan space-around, space-betwenn, dan space-evenly . (liat di ss an)
+
+Nah coba kalian liat file yg bagian align-content ya, disitu sekarnag containernya ada height nya dan tiap" items nya aja height dan width nya yg udah di atur dengan pixel ukuran fidex. Sehingga kalo saya kasih align-content start seperti biasa gaada perubahan, align-content end dia akan kebawah, center akan ketengah dan sisanya yg space" itu kalian liat sendiri ya. 
+
+AKHIR ALIGN-CONTENT
+---------------------------------------------------------------------------------------------------------------------------------
+
+PLACE-CONTENT
+
+place-content sama seperti place-items sebelumnya itu juga adalah sebuah shorthand untuk menulis justify-content & align-content dalam satu deklarasi, jadi kalo kalian ingin nulis 22 nya sekaligus langsung aja tulis gini :
+
+.container {
+    place-items: <justify-content> <align-content>;
+}
+----------------------------------------
+
+Inget ya cara penulisan urutan nya mungkin itu berpengahruh ya. Misalkan saya mau naro ditengah" biasanya kan gini :
+
+   .container {
+            width: 80%;
+            height: 500px;
+            margin: 25px auto;
+            display: grid;
+            grid-template-columns: 120px 180px 120px;
+            grid-template-rows: 80px 80px;
+            gap: 5px;
+            justify-content: center;
+            align-content: center;
+        }
+----------------------------------------
+
+Gitu entar dia ketengah secara vertikal dan horizontal, tapi kalo mau langsung kalian bisa pake place-content lalu center aja gini :
+
+   .container {
+            width: 80%;
+            height: 500px;
+            margin: 25px auto;
+            display: grid;
+            grid-template-columns: 120px 180px 120px;
+            grid-template-rows: 80px 80px;
+            gap: 5px;
+            place-content: center;
+        }
+----------------------------------------
+
+Atau kalo mau secara horizontal nya space-around dan secara vertikal nya space-between bisa juga ya :
+
+   .container {
+            width: 80%;
+            height: 500px;
+            margin: 25px auto;
+            display: grid;
+            grid-template-columns: 120px 180px 120px;
+            grid-template-rows: 80px 80px;
+            gap: 5px;
+            place-content: space-around space-between;
+        }
+----------------------------------------
+
+Jadi nya keren lah gitu kita jadi lebih gampang ngatur posisi sebuah item ya.
+
+AKHIR PLACE-CONTENT
+---------------------------------------------------------------------------------------------------------------------------------
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

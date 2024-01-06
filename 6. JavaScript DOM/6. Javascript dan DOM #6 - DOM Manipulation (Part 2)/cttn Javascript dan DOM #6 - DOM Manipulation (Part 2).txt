@@ -1,0 +1,411 @@
+Javascript dan DOM #6 - DOM Manipulation (Part 2)
+
+di video sebelumnya kita sudah mempelajari 
+DOM Manipulation Method
+- Manipulasi element
+- Manipulasi Node 
+
+seperti yg kita tau topik mengenai manipulasi DOM itu terbagi menjadi 2
+yg pertama adalah manipulasi Element pada DOM yg sudah kita lakukan di vidio sebelumnya
+dan kita sudah mencoba untuk memanipulasi element itu seperti contohnya mengganti warnanya,
+mengubah tulisannya, menambahkan attribute, mengelola class dll.
+
+dan di vidio kali ini kita akan masuk ke topik berikut nya yaitu manipulasi Node, ya dimana 
+manipulasi Node ini memungkin kan kita untuk bisa menambahkan node baru, ya misalkan
+eleemnt baru pada DOM, atau kita juga bisa menghapus element yg ada pada DOM dan bahkan
+mengganti semua element menggunakan element yg baru. 
+
+------------------------------------------------------------------------------------------------------------------------------
+
+nah untuk memanipulasi Node pada DOM ini javascript memiliki beberapa Method 
+
+Manipulasi Node
+
+- document.createElement()
+- document.createTextNode()
+- node.appendChild()
+- node.insertBefore()
+- parentNode.removeChild()
+- parentNode.replaceChild()
+- ......
+
+sebetulnya setelah ini masih banyak yg lain tapi yg kita bahas hanya method" itu saja, karena
+itu yg sering di gunakan, ya teman" perhatikan  sebelum memanggil method nya kita tulis dulu
+node nya, dan ini berbeda beda node nya, ada yg document, node, dan parentNode.
+
+yg nanti nya node-node itu akan kita ganti dengan element yg akan kita target atau kita seleksi
+begitu, langsung aja ke cara penggunaaya ya. 
+
+------------------------------------------------------------------------------------------------------------------------------
+
+jadi pertama" kita sudah punya file HTML yg sama seperti di vidio sebelumnya ya. jadi inti dari
+manipulasi pada DOM ini adalah kita bisa membuat mengubah dan menghapus element" yg ada
+pada DOM kita ya, misalnya contoh sederhananya kita mau menambahkan element baru di 
+satu tempat di HTML kita misal.
+
+contoh nya disini misalnya saya mau menambahkan paragraft baru di HTML nya setelah paragraf
+3, jadi setelah paragraf 3 saya mau menambahkan paragraf baru nya, kan cara nya kalo misal
+nya gapake javascript kita tinggal tambahin di HTML nya aja langsung.
+
+yg terjadi ketika kita menuliskan element baru pada DOM itu adalah begini, ada 2 hal, yg pertama
+kita buat dulu element nya, jadi kita bikin dulu element nya, misal elemet p ya tag p ya, jadi kita
+minta tolong ke javascript tolong buat kan tag p, lalu annti kita nyuruh ke javascript untuk bikinin
+tulisan di dalam tag p nya.
+
+jadi gini pertama kita minta tolong javascript bikin tag p gambaran nya gini :
+
+<p></p>
+
+nah gitu
+
+lalu kita minta tolong lagi ke javascript untuk menuliskan tulisan "Paragraf baru" di dalam tag p nya
+begini :
+
+"Paragraf baru"
+
+nah nnti kita bikin itu nya terpisah, oke nanti setelah kita punya 2 Node seperti itu di javascript nya,
+misalnya ya, nah nanti kita minta supaya tulisan itu pindah ke dalam tag p nya, jadi anggapanya
+kita punya 2 node, tag p itu Node 1, tulisan itu Node 2 biar ga bingung anggap nya begitu.
+
+lalu kita  pindahkan tulisan itu ke dalam tag P nya, ya jadi ada beberapa hal, jadi kita bikin dulu tag
+nya lalu kita bikin isi nya, setelah itu masukan isi nya ke dalam tag nya, nah kalo udah tulisan nya
+di pindahkan ke dalam tag nya, baru kita suruh javascript nya simpan hasilnya itu atau node baru
+kita ke dalam HTML nya agar nampak hasil di browser nya, sungguh agak ribet ya banyak tahapan
+nya.
+
+------------------------------------------------------------------------------------------------------------------------------
+
+sekarang kita lakukan menggunakan Javascript langsung, kita liat dulu Method yg akan kita buat
+nanti, pertama ada document.createElement(), jadi kita bikin dulu element nya, lalu yg ke-2 
+document.createTextNode() nah ini kita akan tuliskan apa yg di dalam element yg sudah kita buat 
+tadi, dan yg terakhir kita mau simpan dimana, kita bisa pake method ( appenChild) atau 
+( insertBerfore() ).
+
+pertama kita buat dulu element nya ya
+// buat element baru
+
+misalnya kita mau buat paragraf baru sesudah paragraf 3 ya, pertama kita buat variabel const
+nama nya pBaru saam dengan document.createElement(), jadi dibaca nya javascript tolong
+buatkan element baru di dalam HTML nah element nya kita tulis disini 
+document.createElement('p');.
+
+Codingan nya :
+
+const pBaru = document.createElement('p');
+-------------------------------------------------------------
+
+setelah kalian tulis seperti itu, paragraf baru akan dibuat, tapi belum di simpan dimana" masih 
+didalam memori, itu baru satu ya.
+
+------------------------------------------------------------------------------------------------------------------------------
+
+sekarang kita bikin tulisan yg nantinya akan ada di dalam p itu, kita buat variabel baru const nama
+nya teksPBaru sama dengan document.createTextNode('Paragraf baru'); nah di dalam kurung itu
+kita tulisakan teks yg mau kita isi di dalam tag p nya ya.
+
+Codingan nya :
+const pBaru = document.createElement('p');
+const teksPBaru = document.createTextNode('Paragraf baru');
+-------------------------------------------------------------
+
+nah udah ada 2 node ya disitu, tapi 2 Node itu gada hubungan nya antar sesama dia, masih 
+terpisah, ada sebuah element p kosong dan ada sebuah teks, teks tersebut belum punya siapa",
+dua" nya masih ada di memori gaada hubungan nya.
+
+sekarang kita akan simpan tulisan ke dalam paragaraf, jadi di rangkai gitu lah, kaya merangkai
+bunga jadi ambil dulu bunga" nya baru simpan ke dalam pot bunga nya, lalu nanti pot bunga nya
+kita simpan ke tempat nya jadi banyak hal yg di lakukan.
+
+nah cara nya kita bisa tulisgini, javascript ambilkan element pBaru tadi lalu tambahkan appenChild
+di dalam nya, append itu kan menambahkan, nah apa yg mau di tambahin, tulis nama variabel
+di dalam kurung nya kan kita mau tambahkan teksBaru, yaudah tulis teksPBaru, seperti ini :
+
+Codingan nya :
+pBaru.appendChild(teksPBaru);
+-----------------------------------------
+
+anggap aja pBaru itu vas bunga nya, lalu teksPBaru itu bunga nya, jadi kita baru punya vas bunga
+yg berisi bunga, kita baru punya paragraf yg berisi teks, dan dia belum ada atau di tempat kan
+di sesudah paragrag 3 itu.
+
+nah cara meyimpan pBaru di sesudah paragraf 3 atau di akhir Section A, karena paragraf itu ada
+di dalam Section A ya, nah cara nya kita ambil dulu Section A nya kita seleksi dia menggunakan
+Method menyesuaikan aja ya, seperti ini :
+
+const sectionA = document.getElementById('a');
+--------------------------------------------------------------
+
+nah sudah nih, lalu kita simpan vas bunga tadi ke dalam ruang tamu misalnya, jadi anggap 
+sectionA itu ruang tamu, jadi kalian tulis gini :
+
+const sectionA = document.getElementById('a');
+sectionA.appendChild(pBaru);
+--------------------------------------------------------------
+
+codingan seluruh nya :
+
+const pBaru = document.createElement('p');
+const teksPBaru = document.createTextNode('Paragraf baru');
+pBaru.appendChild(teksPBaru);
+const sectionA = document.getElementById('a');
+sectionA.appendChild(pBaru);
+--------------------------------------------------------------
+
+jadi itu sudah benar, lumayan ya untuk menambahkan satu element saja ke dalam HTML
+butuh bnyak tahapan, pertama kita dibikin dulu lalu di rangkai dan terakhir di simpan ke tempat
+yg kita ingin kan.
+
+itu menggunakan appendChild.
+
+------------------------------------------------------------------------------------------------------------------------------
+
+// node.insertBefore()
+
+kita gunakan node.insertBefore(), kalo appendChild kan tadi simpan ke akhir dari sebuah element
+parent begitu istilahnya, nah element parent nya mana, nah yg sectionA tadi, appendChild itu
+simpan ke akhir dari element tersebut.
+
+nah sekarang gimana saya mau nyimpannya ga di akhir gitu, misalnya di tengah" nya, contoh nya
+kita ambil dari khasus lain ya.
+
+jadi saya mau bikin list item baru tapi di simpan nya setelah item 1 dan sebelum item 2, ini
+maksud list item itu liat aja ada kan ul di file HTML nya nah itu.
+
+kita coba ya, nah pertama liat dulu apa yg harus di ambil terlebih dahulu kan kita mau simpan li
+baru di tengah" situ, berarti pertama kita harus bikin( li ) nya dulu, cara nya bikin variabel baru
+const namanya liBaru lalu document.createElement(), di dalam kurung nya kita isi element ( li ).
+
+nah itu cerita nya baru bikin vas bunga nya ya, lalu setelah itu kita bikin bunga nya ceritanya ya,
+kita buat lagi variabel baru const namanya teksLiBaru lalu document.createTextNode(), dalam
+kurung nya kita tulis item baru aja ya.
+
+lalu kita tinggal masukin teks nya ke dalam li nya, selalu panggil dulu wadah nya ya baru di isi
+oleh isi nya jadi liBaru.appendChild(teksLiBaru);. seperti ini jadi ya :
+
+const liBaru = document.createElement('li');
+const teksLiBaru = document.createTextNode('Item Baru');
+liBaru.appendChild(teksLiBaru);
+----------------------------------------------------------------------------
+
+nah ini belum berhasil ya kita baru membuat element baru nya belum di implementasikan
+ke browser nya.
+
+------------------------------------------------------------------------------------------------------------------------------
+
+setelah kita membuat element baru yg kita ingin kan dan element ini nanti nya ktia sisipkan di
+tengah" nya itu lah ya setelah item 1, nah kita akan melakukan 2 hal, yg pertama kita harus
+tau dulu parent dari tempat yg akan kita sisip kan ini.
+
+kita cari tau dulu parent nya ( li ) berarti si ( ul ) ya, lalu yg ke 2 kita harus tangkap element
+setelah nya karena nnti kita akan menggunakan node.insertBefore(), supaya element nya
+ada di tengah" itu, nah jadi ada 2 hal yaitu ( ul ) dan ( li bagain item 2 nya ).
+
+pertama ita butuh ul dulu, kita buat dulu variabel const namanya ul lalu 
+document.querySelector('#b ul'); nah di dalam nya itu kita menuju ke si ul yg menggunakan query
+Selector, nah itu sudah mengambil parent nya si ( ul ).
+
+codingan nya :
+
+const ul = document.querySelector('#b ul');
+----------------------------------------------------------
+
+lalu kita ambil li yg ke 2, kita buat dulu variabel namanya li2 lalu :
+
+const li2 = document.querySelector('section#b ul li:nth-child(2)');
+------------------------------------------------------------------------------------
+
+lumayan panjang ya untuk menyeleksi si li2 nya itu, nah agar mempersempit kita ganti gini aja :
+
+sebelum di ubah :
+
+const ul = document.querySelector('#b ul');
+const li2 = document.querySelector('section#b ul li:nth-child(2)')
+------------------------------------------------------------------------------------
+
+yg tadi nya seperti itu kita ubah gini :
+
+const ul = document.querySelector('#b ul');
+const li2 = ul.querySelector('li:nth-child(2)')
+------------------------------------------------------------------------------------
+
+nah maka hasil nya sama aja, dibaca nya gini cari kan li dimana dia anak ke 2 dari ul bukan dari
+document, nah ul tuh apa ul nya itu ya yg itu tuh semoga ngerti lah.
+
+------------------------------------------------------------------------------------------------------------------------------
+
+nah sudah nih ya kita sudah punya ke 3 komponen yg di butuh kan ya nah tinggal kita simpan aja
+seperti ini :
+
+misal kita panggil element parent nya si ( ul ) lalu kita insertBefore, jadi maksudnya simpan 
+sebelum element apa gitu ya, di dalam si ( ul ), begini ul.insertBefore() lalu dalam kurung nya
+kita butuh 2 parameter di situ nya, yg pertama adalah node baru yg akan kalian simpan, lalu
+parameter ke 2 itu maksudnya akan disimpan sebelum element apa, jadinya gini :
+
+codingan nya :
+
+const liBaru = document.createElement('li');
+const teksLiBaru = document.createTextNode('Item Baru');
+liBaru.appendChild(teksLiBaru);
+
+const ul = document.querySelector('#b ul');
+const li2 = ul.querySelector('li:nth-child(2)')
+
+ul.insertBefore(liBaru, li2);
+------------------------------------------------------------------------------------
+
+jadi maksud di akhir ul.insertBefore(liBaru, li2);, si liBaru itu adalah element yg mau kita tambahkan
+atau tag HTML apa yg mau kita tambahkan itu nah tulis nya di situ, lalu si li2 itu adalah element
+atau tag HTML yg setelah kita menuliskan atau menambahkan element baru nya setelah element
+baru nya tuh ada element apa maka ku tulis li2, ya karena udah di input kan semua nya element
+atau tag" HTML nya jadi kita tinggal masukan parameter nya dengan variabel aja gausah elemnt
+atau tag HTML yg murni nya gitu loh.
+
+------------------------------------------------------------------------------------------------------------------------------
+
+// parentNode.removeChild()
+// parentNode.replaceChild()
+
+parentNode.removeChild() itu untuk menghapus dan parentNode.replaceChild() untuk mengganti.
+
+misalnya kita akan remove si link ( liat di file HTML nya ya ), cara nya itu ada 2 hal, yg pertama
+kita harus tau parent nya dia siapa, parent dia berarti sectionA ya, lalu element yg akan ktia remove
+nya apa, jadi ada 2 hal juga yg akan ktia tanggkap.
+
+pertama kita tangkap parent nya dulu, kita buat variabel const namanya sectionA  lalu
+document.getElementById('a');, ini sudah kita tangkap si sectionA nya ya si parent dari link itu,
+lalu kita tangkap juga link nya, jadi ada 2 hal yg kita tangkap itu si parent dari element yg mau di
+remove sama element yg mau di remove nya ya.
+
+lalu kita tangkap link nya, kita buat dlu variabel const namnya link lalu liat aja nih codingannya :
+
+const sectionA = document.getElementById('a');
+const link = sectionA.querySelector('a');
+---------------------------------------------------------------
+
+nah kita sudah ambil element yg mau di hapus, sekarang kita hapus deh
+
+sectionA.removeChild(link):
+--------------------------------------
+
+dibaca nya javascript carikan saya sectionA lalu remove salah satu child di dalam nya yaitu si link.
+nah gitu ya.
+
+codingannya parentNode.removeChild() :
+
+const sectionA = document.getElementById('a');
+const link = sectionA.querySelector('a');
+sectionA.removeChild(link);
+------------------------------------------------------------------------------------------------------------------------------
+
+// parentNode.replaceChild()
+
+sekarang kita akan coba replace mengganti, jadi tadinya node nya apa jadi kita ganti Node nya
+dengan yang baru, misalnya coba kita ganti si paragraft 4 itu ya ( cek di file HTML nya ).
+
+jadi kita ganti si pragraf 4 menjadi h2 tulisan nya judul baru.
+
+jadi yg kita lakukan untuk mereplace itu ada beberapa hal, pertama seperti biasa kita harus 
+tangkap dulu parent nya, si paragraf 4 itu parent nya sectionB ya, mari kita tangkap si sectionB 
+nya, seperti ini ( const sectionB = document.getElementById('b'); ).
+
+lalu kita tangkap element yg mau di replace nya si paragraf 4 nya seperti ini jrengg :
+
+const sectionB = document.getElementById('b');
+const p4 = sectionB.querySelector('p');
+---------------------------------------------------------------
+
+gituin aja ya biar lebih simpel, sudah kita sudah tangkap element" yg kita butuhin, sekarang kita
+bikin element baru, kita buat variabel const namnya h2Baru dan kita buat juga teksH2baru nya ya :
+
+const h2Baru = document.createElement('h2');
+const h2Teks = document.createTextNode('Judul Baru');
+---------------------------------------------------------------------------
+
+lalu kita masukan dulu teks nya kedalam h2 seperti ini :
+
+h2Baru.appendChild(h2Teks);
+-----------------------------------------
+
+nah sekarang kita lakukan REPLACE NYA :
+
+sectionB lalu kita replace child, nah replace child itu menerima 2 parameter yg pertama node baru
+nya, yg ke 2 tag atau element yg akan di replace atau digantikan oleh node baru nya, nah karena
+kita mau mengganti paragraf 4 menjadi h2 judul baru maka seperti ini kita tuliskan :
+
+const sectionA = document.getElementById('a');
+const link = sectionA.querySelector('a');
+
+sectionA.removeChild(link);
+
+const sectionB = document.getElementById('b');
+const p4 = sectionB.querySelector('p');
+
+const h2Baru = document.createElement('h2');
+const h2Teks = document.createTextNode('Judul Baru');
+
+h2Baru.appendChild(h2Teks);
+
+sectionB.replaceChild(h2Baru, p4);
+--------------------------------------------------------------------------- 
+
+GAMPANG BUKAN!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+
+------------------------------------------------------------------------------------------------------------------------------
+
+nah agar kita tau mana aja kita baru dan apa aja yg di ubah kita kasih style aja agar bisa
+membedakan gini :
+
+pBaru.style.backgroundColor = 'aqua';
+h2Baru.style.backgroundColor = 'salmon';
+liBaru.style.backgroundColor = 'lightBlue';
+
+nahh mantep hasilnya
+
+karena kita baru mencoba method" nya baru beberapa, nanti kalo kalian mau mencoba-coba
+bisa liat link di deskripsi nya pak dhika ya, tapi yg kita coba itu method lama jadi udah suport
+semua browser.
+
+nah ini ada beberapa method baru yg mungkin fungsinya hampir sama tapi mungkin lebih mudah
+penggunaanya di banding yg lama tetapi karena dia method baru jadi ada beberapa yg belum di
+suport oleh beberapa browser.
+
+Manipulasi Node ( method baru )
+- parentNode.append() ( untuk menambahkan element di akhir sebuah parent )
+- parentNode.predend() ( kalo ini di awal nya )
+- childNode.before()
+- childNode.after()
+- childNode.remove()
+- childNode.replaceWith()
+
+kalo appendChild kalian bisa gunakan yg append versi baru kalo insertBefore kalian bisa gunakan
+Before versi baru.
+
+------------------------------------------------------------------------------------------------------------------------------
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

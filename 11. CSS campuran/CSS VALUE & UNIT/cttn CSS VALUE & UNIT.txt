@@ -1,0 +1,395 @@
+CSS VALUE & UNIT
+
+Kita akan membahas tentang value & unit atau nilai dan satuan apa saja yg bisa kita berikan pada CSS kita, Jadi pembahasan kita kalo misal diterjemahin jadi Nilai & Satuan pada CSS, divideo ini kita akan bahas lengkap seluruh nya.
+
+Biar ga terlalu bingung kita liat contoh sederhana ini ya :
+
+ .selector {
+            width: 80%;
+            height: 500px;
+        }
+---------------------------------
+angka 80 dan 500 itu kita bisa sebut dengan value atau nilai, sedangkan % dan px nya itu kita sebut Unit atau Satuan nya. (liat di ss an .1), karena kita tau banyak banget unit ini :
+
+  .selector {
+            width: 80%;
+            height: 500px;
+            font-size: 2em;
+            opacity: 0.5;
+            transform: rotate(30deg);
+            box-shadow: 0 0 10px rgba(0, 0, 0, .7);
+            position: absolute;
+            z-index: -9999;
+        }
+--------------------------------------------------
+
+CSS Value
+
+Sekarang kita bahas dulu mengenai nilai, nilai yg bisa kita kasih atau css value yg bisa kita kasih, jadi nilai yg bisa kita kasih itu ada beberapa :
+
+- integer
+- number
+- percentage
+- dimension
+
+pertama ada integer atau angka saja, ada number ini juga angka saja tapi bilangan nya bisa pecahan atau koma ( , ), terus ada percentage atau persen, dan yg terakhir dimension, ini adalah nilai yg digabungkan dengan satuan, jadi ada nilai aja ada nilai sama satuan, nilai dan satuan seperti tadi ( 80%) gitu.
+
+---------------------------------------------------------------------------------------------------------------------------------
+
+INTEGER
+bilangan bulat (positif / negatif)
+
+integer bilangan bulat bisa positif atau negatif dan inget ini cuma hanya angka nya saja mungkin contoh nya begini :
+
+          z-index: 1;
+           z-index: -9999;
+           order: 3;
+           grid-column-start: 2;
+           grid-row-end: -4;
+           ............
+--------------------------------
+
+Jadi gitu integer hanya angka nya saja tidak menggunakan koma benar" murni angka gitu.
+
+---------------------------------------------------------------------------------------------------------------------------------
+
+NUMBER
+bilangan pecahan
+
+number hanya angka tapi boleh pecahan sama dengan integer bedanya ini boleh koma kan kalo pake koma atau bilangan pecahan di property css ( order ) tadi gabisa ya. Contoh nya gini :
+
+opacity: 0.8;
+transform: scale(2.5);
+----------------------
+
+opacity kan kalo 1 itu tidak ada tranparant tapi kalo angka 0 hilang item nya ga keliatan dan kalo pake koma di tengah" nya misal 0.5 itu jadi transparant, dan inget kalo di css itu 0 koma, 0 nya bisa diilangin jadi 0.8 jadi ( .8 ) gitu aja sama fungsinya.
+
+---------------------------------------------------------------------------------------------------------------------------------
+
+PERCENTAGE
+(%)
+
+"Merepresentasikan sebagian dari nilai tertentu. % selalu relative terhadap nilai yang lain." 
+maksud selalu relative terhadap nilai yg lain itu contoh nya gini, kalo misalkan saya punya sebuah element kita kasih div class nya box-besar terus kita kasih width 80%. gini :
+
+  .box-besar {
+            width: 80%;
+            height: 200px;
+            background-color: salmon;
+        } 
+-------------------------
+
+nah 80% disitu maksudnya adalah 80% dari element pembungkus nya, nah nanti kalian liat dulu apakah div nya berada didalam div yg lain atau divnya berada didalam body. Nah kalo gitu 80% itu berarti 80% dari lebar body atau istilahnya dari window gitu.
+
+makannya kalian bisa liat disitu ga penuh ya (liat di ss an .2), lebar nya 80% dari si body sehingga kalo kita perbesar si body nya misalkan kita tarik si window nya maka dia akan selalu berusaha 80% dariwindow dari lebar body nya, jadi persen pasti relative terhadap nilai yg lain dalam hal ini pembungkus nya.
+
+Jadi kalo misalkan kita punya element yg lian contoh nya begini :
+
+  .box-besar {
+            width: 80%;
+            height: 200px;
+            background-color: salmon;
+        }
+
+        .box-besar .box-kecil {
+            width: 50%;
+            height: 100px;
+            background-color: red;
+        }
+-------------------------
+
+didalam div.box-besar kita bikin lagi box kecil nya dengan width nya 50%, nah itu akan hasilnya seperti ini (liat di ss an .3), 50% itu akan relative terhadap pembungkusnya sama ya sama yg tadi, tapi bedanya pembungkus box-kecil ini bukan body melainkan box-besar, jadi makannya dia akan selalu 50% besarnya dari box-besar.
+
+Dan juga kalo kita kecilin window nya dia akan selalu 50% atau setengah nay dari box-besar.
+
+---------------------------------------------------------------------------------------------------------------------------------
+
+DIMENSION
+
+didalam dimension ada turunannya lagi, dimension adalah Number yang memiliki satuan di belakangnya, jadi ada angka boleh bilangan bulat atau pecahan yg punya satuan dibelakang nya itu namanya dimension.
+
+Nah didalam dimension kebagi menjadi beberapa kategori :
+
+- length
+- angle
+- time
+- resolution
+
+ANGLE
+
+kalo angle kalian udah tau terjemahan nya sudut ya, salah satu satuan untuk sudut adalah deg singkatan dari degri / derajat, tapi ternyata ada yg lain rad untuk radian, grad untuk gradian dan ada turn ini untuk menentukan berapa putaran yg kita ingin kan.
+
+- deg
+- rad
+- grad
+- turn
+
+ini bisa digunakan persamaan matematik mungkin aja pesamaan nya ada rumusnya ga selalu pake derajat, dan ini masing" kalo di konversi jadi kaya gini (liat di ss .4) ini ada rumus nya ya. Kalo misalkan kalian kasih sebuah rotate itu 15derajat misalnya, tapi kalo misalkan kalian mau dijadiin radians berarti rumus nya v per 12 gitu lah, jadi v itu 14 ya jadi 14 dibagi 12 gitu nanti hasil nya gitu, nanti hasilnya sekian koma yg diakhirnya pake rad.
+
+atau kalian mau pake turn kalian tinggal itung 1 dibagi 24 nanti hasilnya koma itu yg ditulisin gitu.
+Contohnya gini kalo kita liat di css nya :
+
+  .box {
+            width: 100px;
+            height: 100px;
+            margin: 50px;
+            background-color: salmon;
+            /* transform: rotate(30deg); */
+
+            /* 1 / 12 */
+            transform: rotate(0.0833333333turn);
+            /* v / 6 */
+            transform: rotate(0.53333333rad);
+            /* 33 setengah */
+            transform: rotate(33.3grad);
+        }
+------------------------------------------------------
+
+jadi kalo kalian rotate nya 30deg atau derajat itu sama saja dengan turn, rad, dan grad yg tertulis yg 0.08333turn, 0.53333rad, dan 33.3grad maka hasilnya sama, jadi kalo suatu saat bikin web buat terjemahin mtk sudah ada satuan nya. itu untuk angle
+
+---------------------------------------------------------------------------------------------------------------------------------
+
+TIME
+
+- s
+- ms
+
+time biasanya yg dipake untuk transisi atau animasi, ada s second / detik dan ms milisecond / milidetik, jadi kalo kalian tulis 1s itu sama aja dengan 1000ms, atau 300ms sama dengan 0.3s gitu.
+
+---------------------------------------------------------------------------------------------------------------------------------
+
+RESOLUTION
+
+ini untuk menentukan resolusi dari tampilan websaite kalian dan ini biasanya digunakan kalo mau mencetak sesuatu, ada yg namanya dpi atau dot per inch jadi berapa titik untuk setiap inch dan :
+
+- dpi
+  dot per inch
+- dpcm
+  dot per centimeter
+- dppx
+  dot per pixel
+
+kenapa dot? karena ini tujuan nya untuk desain printing, misalnya kalian bikin desai aplikasi web untuk mencetak sertifikat misalkan ke pdf, nanti pdf nya dicetak nanti kalian bisa tentukan resulosinya seperti apa, karena kan kalo printer itu sistem nya dot ya titik, jadi berapa titik per satuan nya apa gitu. Contoh :
+
+   @media print and (min-resolution: 300dpi) {
+            ....
+        }
+----------------------------------
+
+jadi contoh penggunaanya kalo kalian menggunakan media query misalnya, kalo kalian bikin halaman buat dicetak misalnya halaman buat pdf kalian bikin CSS nya, kalo media nya print dan resolusi nya 300dpi nah baru jalankan CSS nya. Misalkan width nya jadi berapa terus warna nya seperti apa gitu.
+
+---------------------------------------------------------------------------------------------------------------------------------
+
+LENGTH
+
+- Absolute
+- Relative 
+
+Length itu ada 2 kategori ada Absolute lentgh, ukuran yg absolute atau ada yg bilang fix jadi ukuran nya udah pasti. ada juga yg disebut dengan Relative ini juga relative terhadap apa gitu.
+
+Length - ABSOLUTE
+
+ada satuan absolute, ada yg disebut pixel (px), point (pt), paica (pc), centimeter (cm), milimeter (mm), dan inches (in), dan itu ada table konversinya klian bisa liat ya ( di ss an no5 ), 1px itu berapa inch, itu satuan nya dalam bentuk inch ya karena ngambil dari web ini : ( https://alligator.io/css/css-units-explained/ ) mungkin karena di amerika satuan yg populer inchi yg digunakan nya.
+
+Tapi biasanya kalo kalian bikin web yg diliat nya di digital dimedia screen ya dilayar komputer tablet hp, kita fokus nya di pixel, resolusi layar itu di pixelkan, sisanya itu dia kalo mau bikin print supaya konversi nya sesuai, misal mau print di kertas A4 pake font size nya satuan nya point (pt) karena itu udah dasarnya kan klo pake px takut ga sesuai.
+
+Length - RELATIVE
+
+Unit Relative ini lebih seru kalo kita mau bikin web terlihat resposive terlihat bagus di semua device, bisa liat disini ( di ss an no6). pertama ada persen yg udah kita bahas tadi, ke-2 ada (em) ini dibuat agar ukuran nya relative terhadap ukuran font yang sedang digunakan oleh element itu, jadi kalo misalkan kita bikin sebuah element didalam nya ad font-size, nah font-size itu yg akan dipake untuk ukuran relative nya.
+
+terus ada ( rem ) ini mirip dengan em cuma bedanya ukuran ini relative terhadap ukuran font dari "root" / <html> nya jadi dia akan ngeliat font-size yg dipake oleh element 'root' biasanya di tag <html> selector nya gitu, jadi kalo kalian bikin di CSS nya selector html kurung kurawal terus kasih style font-size nya gitu. 
+
+   html {
+            font-size: 10px;
+        }
+---------------------------
+
+nah itu yg dipake dasar ukuran nya berapa.
+
+terus ada satuan (ch) ini relative terhadap lebar karakter '0' dari font yang sedang digunakan, kan tiap" font itu ukuran nya berbeda ya kecuali kalian pake font dari default nya atau monospacie seperti pake font curier new atau font" yg kalian gunakan di code editor kalian, itu biasanya lebarnya mau huruf apapun itu sama tapi beda ketika kalian gunakan font yang sansserif misal nya arial, helvetica, itu huruf (i) nya pasti lebih ramping dri pada huruf (m) misalkan.
+
+Nah itu dia akan relative terhadap karakter 0 nya kan tiap font punya karakter 0nya nanti dia akan ukur lebar karakter itu berapa terus kita tinggal tentukan mau berapa ch. Terus ada yg namanya vh, vw, vmin, dan vmax ini kita ngomongin tentang viewport, viewport adalah lebar atau ukuran dari layar yg kita lihat saat itu, kalo kalian lagi liat layar hp berarti tingginya itu selayar hp kita height ya kali ya.
+
+dan mereka berempat itu satuan nya adalah persen (%), jadi 1vh itu 1% dari tinggi viewport, 100vh itu 100% dri tinggi viewport.
+
+---------------------------------------------------------------------------------------------------------------------------------
+
+EM - reltif terhadap ukuran font yang sedang digunakan 
+
+Nah ini saya kasih contoh nya gini :
+
+   <div class="box1">
+        <h1>Hello World</h1>
+        <p>Web Rental</p>
+    </div>
+---------------------------
+ lalu saya kasih css seperti ini :
+
+     .box1 {
+            font-size: 30px;
+        }
+
+        .box1 h1 {
+            font-size: 1em;
+        }
+
+        .box1 p {
+            font-size: 2em;
+        }
+---------------------------
+
+Maka hasilnya akan seperti itu (liat di ssan no.7), yg h1 ukuran font nya akan 30px karena dia 1em, 1em itu sama dengan ukuran dari font yg sedang digunakan oleh element itu karena h1 gaada font-size berapa pixel maka dia akan liat pembungkus nya yaitu si box1 maka dia akan pake ukuran itu sebagai dasar.
+
+Sedangkan <p> nya ukuran font nya 60px karena disitu tertulis 2em maka 2 dikali ukuran font yg di box1 itu jadi lah 60px.
+
+---------------------------------------------------------------------------------------------------------------------------------
+
+REM - relatif terhadap ukuran font 'root' / <html>
+
+Misalkan sama saya punya element gini :
+
+   <div class="box1">
+        <h1>Hello World</h1>
+        <p>Web Rental</p>
+    </div>
+---------------------------
+css nya gini :
+
+   html {
+            font-size: 50px;
+        }
+
+        .box1 {
+            font-size: 30px;
+        }
+
+        .box1 h1 {
+            font-size: 1rem;
+        }
+
+        .box1 p {
+            font-size: 2rem;
+        }
+---------------------------
+
+html nya dikasih font-size nya 50px berarti untuk seluruh tag html ukuran font nya 50px, dan si box1 pembungkus nya h1 dan p dia kasih juga font-size 30px, lalu h1 dan p nya saya kasih nya REM, kalo rem dia ga akan liat font size yg sedang dipake jadi gaakan liat yg si box1 30px, dia akan langsung liat ( :root ) / <html> nya 50px, berarti harusnya h1 ukuran font nya 50px dan <p> ukurannya 100px karena saya tulis nya rem bukan em ya.
+
+ini penggunaan sederhananya aja karena kedepannya rem dan em ini bisa klian pake ga cuma buat ngatur  ukuran font tapi kalian bisa juga ngatur ukuran element menggunakan kedua itu misal width,margin, padding gitu.
+
+---------------------------------------------------------------------------------------------------------------------------------
+
+CH - relatif terhadap lebar karakter '0' dari font yang sedang digunakan
+
+<div class="box2">
+        <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Animi aliquid veniam repudiandae deserunt harum accusantium officia architecto dolorem ratione, cum, sint voluptatibus quibusdam consequatur odit porro quis suscipit voluptatum culpa tempora. Possimus non ratione voluptatem dolorum facilis assumenda laudantium asperiores beatae? Voluptatum rerum veniam corporis voluptatem excepturi ex rem officia 
+      ..........
+        .</p>
+    </div>
+------------------------------------
+
+kalo kalian liat di web itu hasil nya kalo saya ga kasih style apapun tulisan nya memenuhi layar atau windownya, walaupun saya geser window nya perbesar atau perkecil ttp akan memenuhi gitu, font family nya gerogia. nah sekarang saya kasi css nya begini :
+
+  .box2 {
+            width: 60ch;
+        }
+------------------
+
+box itu pembungkus dari paragraf nya saya kasih width nya 60ch, jadi lebarnya 60 karakter tapi karena yg saya pake adalah font yg serif georgia itu serif, dimana tiap huruf itu memiliki lebar yg berbeda makannya yg diambil karakter 0 nya, jadi dia akan liat karakter 0 nya lebarnya berapa terus dikali 60, mungkin kalo kalian hitung dari huruf awal sampai akhir di baris mungkin ga 60 karakter karena dia bukan font yg mono-space, kalo mono-space gapeduli font nya apapun tapi lebar nya sama.
+
+Tapi bisa dipastikan itu ukuran nya semua 60 karakter 0 untuk font 'georgia', nah ini biasanya dipake sebuah place holder untuk tempat yg kalian gatau isinya misalkan isinya ngambil dari database atau inputan dari user tapi kalian pengen pastikan bahwa eement ini galebih dari 100 karakter misalnya kalian bisa gunakan ch, ( liat di ss no8)
+
+---------------------------------------------------------------------------------------------------------------------------------
+
+sekarang sisa yg 4 relative unit itu, unit" itu disebut juga viewport unit karena semuanya berhubungan dengan viewport atau ukuran layar yg sedang kita lihat.
+
+VH & VW
+kita akan bahas tapi untuk contoh yg saya kasih hanya vh aja ya, vh (viewport height) dan vw (viewport width), contoh :
+
+   .box {
+            background-color: salmon;
+            height: 100vh;
+        }
+------------------------------
+
+saya punya element box saya kasih tinggi nya 100vh, ini artinya 100% dari tinggi viewport, maksudnya tinggi nya memenuhi seluruh viewport nanti warnanya salmon tapi ketika di scroll kebawah nanti background-color salmon nya ga ngikut kebawah ini beda dengan satuan (%) ya.
+
+Jadi bener" cuma yg keliatan diawal doang gitu tapi ketika di scroll nanti dia beda lagi background nya walaupun udah 100% dari viewport tpi beda artinya gitu loh. atau penjelasan nya bisa gini jadi kalo kalian buka didivice apapun mau hp tablet laptop element ini tinggi nya akan memenuhi layar yg sedang kita lihat, jadi hasil nya gini (liat ss di no9).
+
+misal saya buka di browser laptop yg layar nya saya kecilin maka box itu tinggi nya akan memenuhi
+layar terus kalo saya scroll itu kebawah dikit aja baru muncul element dibawahnya karena udah ga 100% dari viewport di awal nya tadi. (liat di ss no10), nah kalo browser itu saya kecilin lagi terus saya refresh halaman nya maka tinggi nya akan penuh lagi jadi kalo saya scroll baru keluar lagi tuh element nya.
+
+Jadi ini akan sangat baik sekali ketika kalian ingin membuat websaite yg reesposive atau tampil baik di semua device, akan sangat merepotkan kalo kita menggunakan persen karena sudah banyak jenis headphone macem" ukuran nya ya.
+
+ketika kita pake viewport unit kita gaperlu pusing karena udah diatur sama browsernya begitu pula sama dengan viewport width nya.
+
+---------------------------------------------------------------------------------------------------------------------------------
+
+VMIN
+
+  .box {
+            background-color: lightblue;
+            height: 100vmin;
+            width: 100vmin;
+        }
+-------------------------------
+
+height nya 100vmin jadi artinya 100% dari ukuran viewport yg minimal, width nya juga sama 100% dari ukuran viewport yg minimal, kita tau kalo kita punya layar mau layar apapun itu pasti ada panjang dan lebar ya, jarang banget kan layar yg persegi.
+
+Nah vmin itu akan ngambil ukuran viewport yg lebih kecilnya, misalnya kalo kita buka nya pake headphone maka tampilnya seperti itu (liat di ss no11) karena vmin itu adalah ukuran layar yg paling kecil dalam hal ini adalah yg horizontal kalo di buka di headphone, kalo panjang nya headphone itu yg vmax nya.
+
+VMAX
+
+Tapi karena kita tulis tinggi nya 100vmin maka tinggi itu sama dengan 100% viewport yg minimal nya, jadi karena itu bisa kotak hasilnya, kalo misal saya tulis height nya 100vmax berarti penuh, tpi gimana kalo saya tulis 22 nya vmax :
+
+   .box {
+            background-color: lightblue;
+            height: 100vmax;
+            width: 100vmax;
+        }
+-------------------------------
+
+kalo kita ngasih nya vmax 22 nya akan ngambil ukuran layar secara vertikal kalo tadikan buat vmin itu yg diambil ukuran layar misal layar hp secara umum ada horizontal nya yg ukuran kesamping nya gitu loh nah ada juga panjangnya vertikal nya gitu.
+
+22 nya akan ngambil 100vmax itu sama dengan 100% dari ukuran terpanjang nya dari viewport, maka hasilnya akan panjang dan lebanya akan sama menyesuaikan dengan viewport maximal nya, kita tau vmax nya yg ukuran layar terpanjang lebar nya juga ngikut gitu karena kan vmax. (liat di ss no12).
+
+Makannya nanti web nya bisa discroll digeser kekanan gitu karena lebarnya menyesuaikan dengan ukuran tinggi maximal. Jadi ukuran 100vmin itu kan 100% dari ukuran terkecil layar hp yaitu lebar atau ke horizontal nya atau atas hp, kalo vmax lebar terbesarnya dari layar yg kita pak mau hp atau laptop atau tablet gitu pokok nya yg diambil layar terbesar nya jadi 100vmax 100% dari ukuran terbesarnya.
+
+Misal bentuk laptop nya persegi panjang yg bagian yg ada kamera di laptop itu panjang nya 30cm misa, dan lebar nya 20cm yg di samping nya gitu kaya persegi panjang kan, nah maka ukuran 100% vmax setara ukuran terbesarnya yaitu panjang nya dan vmin setara ukuran terkecil nya yaitu lebar nya gitu bisa liat laptop kau sendiri ini.
+
+---------------------------------------------------------------------------------------------------------------------------------
+
+Resources CSS Value & Unit :
+- https://developer.mozilla.org/en-US/docs/Learn/CSS/Building_blocks/Values_and_units
+- https://www.w3.org/Style/Examples/007/units.en.html
+- https://alligator.io/css/css-units-explained/
+- https://css-tricks.com/fun-viewport-units/
+
+
+
+
+
+
+
+
+
+
+
+
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

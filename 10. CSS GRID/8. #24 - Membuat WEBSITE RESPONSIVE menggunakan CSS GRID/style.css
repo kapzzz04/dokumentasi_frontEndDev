@@ -1,0 +1,356 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background-color: #ddd;
+    font-size: 18px;
+    font-family: 'Oswald', Arial, Helvetica, sans-serif;
+    margin: 50px;
+}
+
+img {
+    width: 100%;
+}
+
+/* container */
+.container {
+    display: grid;
+    gap: 10px;
+}
+
+/* Header */
+.header {
+    display: grid;
+    grid-template-areas:
+        'hero hero fitur-1'
+        'hero hero fitur-2';
+}
+
+.hero {
+    grid-area: hero;
+    min-height: 300px;
+    background-image: url(img/hero.jpg);
+    background-size: cover;
+    background-position: center;
+    padding: 50px;
+}
+
+.hero>* {
+    display: none;
+}
+
+.feature {
+    background-color: #000;
+    color: rgba(255, 255, 255, 0.7);
+    display: grid;
+    place-content: end center;
+    text-align: center;
+    cursor: pointer;
+    background-size: cover;
+    background-position: center;
+}
+
+.fitur-1 {
+    grid-area: fitur-1;
+    background-image: url(img/senia.jpg);
+}
+
+.fitur-2 {
+    grid-area: fitur-2;
+    background-image: url(img/avanza.jpg);
+}
+
+.feature .price {
+    font-size: 2em;
+    text-shadow: 3px 3px 7px rgba(0, 0, 0, 0.7);
+
+}
+
+.fitur-2 .price {
+    margin-top: -50px;
+}
+
+.feature .item {
+    font-size: 1.5em;
+    margin-top: -13px;
+}
+
+
+/* Navigasi */
+.menu {
+    order: -1;
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    align-items: center;
+}
+
+.menu .brand {
+    font-size: 1.2em;
+    color: #333;
+}
+
+.menu ul {
+    display: grid;
+    list-style: none;
+    grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+    gap: 5px;
+}
+
+.menu a {
+    display: block;
+    background-color: #000;
+    text-decoration: none;
+    color: white;
+    text-align: center;
+    padding: 5px;
+    text-transform: uppercase;
+    font-size: 0.9em;
+}
+
+.menu ul li:hover a {
+    color: #000;
+    background-color: #fff;
+    transition: all .2s;
+    font-weight: 700;
+
+}
+
+/* Hamburger Menu */
+.menu-toggle {
+    display: none;
+    flex-direction: column;
+    height: 20px;
+    justify-content: space-between;
+    position: relative;
+    z-index: 999;
+    /* background-color: black; */
+}
+
+.menu-toggle input {
+    position: absolute;
+    top: 0;
+    left: -5px;
+    bottom: 0;
+    right: 0;
+    height: 20px;
+    opacity: 0;
+    cursor: pointer;
+    z-index: 999;
+}
+
+.menu-toggle span {
+    display: block;
+    width: 28px;
+    height: 3px;
+    background-color: #000;
+    border-radius: 3px;
+    transition: all .5s;
+}
+
+
+
+
+
+/* humburger animasi */
+
+.menu-toggle span:nth-child(2) {
+    transform-origin: 0 0;
+}
+
+.menu-toggle span:nth-child(4) {
+    transform-origin: 0 100%;
+}
+
+.menu-toggle input:checked~span:nth-child(2) {
+    background-color: #fff;
+    transform: rotate(45deg) translate(-1px, -1px);
+}
+
+.menu-toggle input:checked~span:nth-child(4) {
+    transform: rotate(-45deg);
+    background-color: #fff;
+}
+
+.menu-toggle input:checked~span:nth-child(3) {
+    scale: 0;
+}
+
+
+
+
+/* Services */
+.services {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
+    gap: 20px;
+}
+
+.servis {
+    background-color: #fff;
+    padding: 15px;
+    text-align: center;
+    border: 1px solid #aaa;
+    border-radius: 4px;
+    box-shadow: 0 0 2px rgba(0, 0, 0, 0.3);
+}
+
+.servis .icon {
+    font-size: 2em;
+}
+
+.servis h3 {
+    font-size: 1.5em;
+}
+
+.servis p {
+    font-weight: 200;
+    letter-spacing: 1px;
+    font-size: 0.8em;
+}
+
+
+
+
+/* Gallery */
+.gallery {
+    margin-top: 100px;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 5px;
+}
+
+.gallery h2 {
+    /* grid-column-start: 1;
+    grid-column-end: -1; */
+    grid-column: 1 / -1;
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+
+/* Responsive Breakpoint */
+
+@media (max-width: 1024px) {
+    .menu {
+        order: inherit;
+        grid-template-columns: 1fr;
+    }
+
+    .menu .brand {
+        display: none;
+    }
+
+    .hero>* {
+        display: block;
+        background-color: white;
+        color: #000;
+        padding: 5px;
+        margin-bottom: 5px;
+    }
+
+    .hero {
+        display: flex;
+        align-items: start;
+        justify-content: center;
+        flex-direction: column;
+        background-color: #333;
+        background-image: none;
+    }
+
+}
+
+@media (max-width: 768px) {
+
+    div.feature {
+        background-color: #fff;
+        background-size: 80%;
+        background-repeat: no-repeat;
+    }
+
+
+    .menu {
+        order: -1;
+        justify-items: end;
+    }
+
+    .menu-toggle {
+        display: flex;
+        /* background-color: #000; */
+    }
+
+    nav.menu ul {
+        display: flex;
+        position: absolute;
+        right: 0;
+        flex-direction: column;
+        bottom: 0;
+        height: 100%;
+        background-color: #000;
+        justify-content: space-evenly;
+        width: 100%;
+        text-align: center;
+        z-index: 1;
+        transform: translateY(-100%);
+        transition: all 1s;
+        opacity: 0;
+    }
+
+    nav.menu ul.slide {
+        transform: translateY(0);
+        opacity: 1;
+    }
+
+    header div.feature {
+        font-size: .5em;
+        color: #333;
+
+    }
+
+
+
+
+    div.fitur-2 .item {
+        margin-top: -30px;
+    }
+
+    .fitur-1 .item {
+        text-shadow: 2px 2px 5px rgba(255, 255, 255, 0.9);
+    }
+
+    .fitur-1 .price {
+        margin-top: -40px;
+    }
+
+}
+
+@media (max-width: 600px) {
+    body {
+        margin: 15px;
+    }
+
+    .header {
+        grid-template-areas:
+            'hero'
+            'fitur-1'
+            'fitur-2';
+    }
+
+    .header div.feature {
+        height: 200px;
+        background-size: 100%;
+        place-content: center;
+        font-size: 1em;
+        color: #ddd;
+    }
+
+    .fitur-2 .item {
+        padding-top: 20px;
+    }
+
+    .fitur-1 .item {
+        padding-top: 10px;
+    }
+
+}

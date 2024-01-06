@@ -1,0 +1,316 @@
+OBJECT pada JAVASCRIPT - Intro
+
+object sendiri di javascript itu topik yg cukup penting karena didalam javascript itu hampir
+semua elemnt nya terbuat dari object.
+
+contohnya seperti array yg sudah kita pelajari sebelumnya, array itu merupakan obeject
+jadi tidak ada tipe data yg namanya array, yg ada itu tipe data object.
+
+------------------------------------------------------------------------------------------------------------------------------
+
+sebelum kita liat definisi dari object kita liat dlu definisi array yah,
+
+jadi ARRAY adalah kumpulan nilai yang memiliki index, di video sebelumnya kita udah tau
+bahwa array itu sebuah variabel yg bisa menampung banyak nilai, dan nilai nya itu otomatis
+memiliki index yg dimulai dari 0 dalam array tersebut.
+
+nah sekarang OBJECT juga sama kita bisa juga sebut object adalah kumpulan nilai, tapi
+nilainya tidak memiliki index melainkan memiliki nama, ya jadi didalam object tidak ada 
+index yg dimulai dari 0 melainkan dia memiliki nama.
+	
+nah bject juga bisa disebut array yang lebih "sakti", ya jadi  nanti kita bisa melakukan
+apa yg bisa dilakukan oleh array dengan lebih kompleks lagi, bahkan ada yg bilang gini
+kalo kalian paham tentang object berarti kalian paham tentang javascirpt, karena tadi
+didalam javascript itu didalamnya berisi obejct".
+
+------------------------------------------------------------------------------------------------------------------------------
+Object pada Bahasa Pemrograman Lain
+
+- PHP : Associative Array
+- Python : Dictionaries
+- C : Hash Tables
+- Java : Hash Maps
+- Ruby & perl : Hashes
+
+------------------------------------------------------------------------------------------------------------------------------
+
+KENAPA SIH KITA MESTI MENGGUNAKAN "OBJECT" ?
+
+nah coba kita liat contoh kasus ini ya
+
+misalnya kita mau bikin kumpulan data yang menjelaskan seorang mahasiswa ya
+kan mahasiswa itu punya nilai beberapa yang melekat gitu ya, misalkan nama,umur dll.
+
+kalo kita menggunakan variabel biasa tanpa menggunakan object atau bahkan tanpa
+menggunakan array kita bisa bikin begini :
+
+var namaMhs = 'Keyla Azahra Parlani';
+var umurMhs = 31;
+
+lalu kita mau buat variabel yg mengecek apakah mahasiswa tersebut udah lulus atau belum
+ya tipe data nya boolean misalnya seperti ini
+var lulus = true;
+berarti mahasiswa itu udah lulus
+
+------------------------------------------------------------------------------------------------------------------------------
+
+terus gimana kalo kita mau menampung data dari ( ip ) atau index prestasi dari mahasiswa
+tersebut dit tiap" semesternya, nah berarti kita bisa buat variabel misalnya kita kasih nama
+IPSemeter yg berisi array yg nilai nya banyak, nah nilai" nya merupakan IPK dari taip" semester
+dari mahasiswa tersebut.
+
+kita bisa buat jadi gini :
+
+var IPSemester = [2.90, 3.10, 3.25, 2.88, 3.04];
+
+misalkan kita juga pengen punya data untuk menghitung IPK atau ip kumulatif dari mahasiswa
+tersebut, nah berarti kan kita bisa bikin aja sebuah Function biar gampang, misalnya nama
+Function nya IPKumulatif yg nerima parameternya adalah IPSemesternya yaitu array yg tadi.
+
+lalu didalam functionnya kita hitung lalu kita telusuri masing" element pada array nya
+kita jumlahkan kedalam variabel total, lalu diakhir totalnya kita bagi dengan jumlah
+semesternya atau jumlah IP nya, nah maka dihasilkan lah rata" dari IPSemester itu kita
+sebut dengan IPK.
+
+gini codingan nya :
+
+var namaMhs = 'Keyla Azahra Parlani';
+var umurMhs = 22;
+var lulus = true;
+var IPSemester = [2.90, 3.10, 3.25, 2.88, 3.04];
+
+function IPKumulatif(IPSemester) {
+    var total = 0;
+    for (var i = 0; i < IPSemester.length; i++) {
+        total += IPSemester[i];
+    }
+    return total / IPSemester.length;
+}
+
+------------------------------------------------------------------------------------------------------------------------------
+
+nah sekarang problemnya gimana kalo ada mahasiswa yg ke-2, maka artinya kita harus bikin
+variabel baru misal namaMhs1,umurMhs1, nah nanti mahasiswa ke-2 bikin variabel baru lagi
+dan terus begitu sampe jumlah mahasiswa yg banyak, nah seperti itu, itu akan jadi problem
+dan merepotkan.
+
+nah itu bisa kita perbaiki dengan menggunakan array, nah kalo mengguanakan array kita bisa
+bikin gini, bikin aja variabel mahasiswa untuk data 1 orang mahasiswa, dimana didalamnya
+kita bisa bikin banyak data didalam nya seperti ini (  var mahasiswa = ["Keyla azahra", true, 
+[2.90, 3.10, 3.25, 2.88, 3.04]];  ).
+
+seperti itu jadi namanya kita simpan sebagai element pertama, lulus atau tidak nya kita
+simpan sebagai element ke-2, dan element ke-3 isi nya array yg menampung IPSemester, ya gitu
+jadi kalo ada mahasiswa ke-2 kita bikin variabel mahasiswa2.
+
+nah untuk menghitung IPK nya kita gabisa memasukan sebagai element disini ( didalam array nya)
+nah kita ttp harus bikin fungsinya diluar contoh nya kaya gini :
+
+ var mahasiswa = ["Keyla azahra", true, [2.90, 3.10, 3.25, 2.88, 3.04]];
+
+function IPKumulatif(IPSemester) {
+    var total = 0;
+    for (var i = 0; i < IPSemester.length; i++) {
+        total += IPSemester[i];
+    }
+    return total / IPSemester.length;
+}
+
+sehingga kalo kita mau tau IPK dari mahasiswa "Keyla" ini nah kita tinggal panggilnya gini
+
+IPKumulatif(mahasiswa[2]);
+
+panggil aja fungsing IPKumulatif yg parameternya kita ambil dari array mahasiswa index ke-2  
+begini ya kalo pake array sedikit bisa kita perbaiki tetapi ttp saja banyak pengulangan baris"
+kode nantinya.
+
+------------------------------------------------------------------------------------------------------------------------------
+
+nah sekarang dengan mengguanakan object ini bisa kita lebih ringkas lagi, sehingga semua
+data nya sekarang miliki satu orang mahasiswa.
+
+ohh iya kalo kalian liat di array mahasiswa tadi, yg dimiliki array nya adalah index, seperti
+"keyla" index nya 0, true index nya 1, dan array itu index nya 2.
+
+javascript nya sama sekali gatau bahwa "Keyla" adalah nama, element ke-2 lulus atau tidak nya
+dan element ke-3 ipsemesternya, javascriptnya gatau.
+
+nah sekarang kalo kita perbaikinya menggunakan object, kita bisa bikin data ini lebih terorgalisir
+lagi, ya cara nulisnya gini :
+
+var mahasiswa = {
+    nama: "Keyla Azahra",
+    lulus: true,
+    IPSemester: [2.90, 3.10, 3.25, 2.88, 3.04],
+    IPKumulatif: function () {
+        var total = 0;
+        var ips = this.IPSemester;
+        for (var i = 0; i < ips.length; i++) {
+            total += ips[i];
+        }
+        return total / ips.length;
+    }
+}
+
+sekarang kita ttp punya variabel mahasiswa tapi kalo tadi array pake kurung siku sekarang
+kita pake kurung kurawal gitu kalo mau buat object ya, lalu didalam nya kita pasang ini (  nama :
+"Keyla Azahra", ), nah jadi kita memasangkan kywerd nya, kalo array kywerd nya adalah index
+ya yg gapernah kita bikin dibikinin otomatis sama javascriptnya, sekarang kita bikin sendiri,
+nama di isi dengan "Keyla Azahra", lulus di isi dengan true, dan IPSemester diis dengan
+array [2.90, 3.10, 3.25, 2.88, 3.04], dan yg terakhir kita juga bisa mengisi Function untuk
+menghitung IPK, bisa di liat di atas ya.
+
+nah jadi semua data itu jadi milik variabel mahasiswa, ya kalian jangan dulu bingung mengenai
+penulisannya, kalo kalian bingung itu kenapa ada kywerd (this) itu nanti kita pelajari divideo
+berikutny, pahami dlu aja bahwa sekarang kita bisa mengorganisir nilai dengan lebih baik 
+seperti itu.
+
+nah sekarang kalo saya pengen tau berapa sih ipk dari keyla ini, tinggal kita panggil
+object nya lalu denga notasi titik kita panggil fungsi didalamnya ( mahasiswa.IPKumulatif(); )
+maka nanti akan menghasilkan hasil yg sama seperti contoh array sebelumnya tadi.
+
+------------------------------------------------------------------------------------------------------------------------------
+ANATOMI Object
+
+selanjutnya kita liat anatomi atau istilah" yg ada didalam object
+
+jadi gini contohnya :
+
+var Orang = {
+    nama: "Keyla Azahra",
+    umur: 15,
+    pekerjaan: 'Front end Developer',
+    sapa: function () {
+        return 'HI, My name is ' + this.nama + 
+                   ' usia saya ' + this.umur + ' tahun, 
+                    dan saya adalah seorang ' + this.pekerjaan;
+    }
+}
+
+kita punya variabel Orang yg dida tipe nya adalah object lalu didalam nya kita tulis misalnya seperti
+ini ( nama : "Keyla azahra", umur : 15, pekerjaan : "Front end DEV", ) nah nama,umur, dan
+pekerjaan ini adalah variabel yg ada didalam object, yg semua nya itu kita sebut dengan properti,
+ya jadi mulai sekarang kalo ada variabel yg ada didalam object kita sebut dengan properti.
+
+nah masing" properti ini kita pisah kan dengan tanda koma ( , ).
+
+selanjutnya kita juga bisa punya Function misalnya gini, saya punya Function namanya
+sapa, cerita nya supaya orang ini bisa menyapa menggunakan data yg ada didalam object nya
+misalnya sapa ini akan menghasilkan sebuah string yg berisi, nama saya siapa, usia saya
+berapa, dan saya adalah seorang apa begitu misalnya.
+
+nah itu adalah function yang ada didalam object, kalo tadi variabel yg ada didalam object kita
+sebut properti, sekaran kalo Function yang ada didalam object kita akan sebut METHOD, sekali
+lagi inget nih, variabel yg ada di dalam object disebut properti, Function yg ada di dalam object
+di sebut Method.
+
+------------------------------------------------------------------------------------------------------------------------------
+
+CODING LANGSUNG
+
+ya tadi cara membuat objext kita simpel aja, kita tinggal bikin variabel yg namanya mhs
+kalian bisa tulis kurung kurawal buka dan kurung kurawal tutup ( {} ) nah dengan kalian
+menulis seperti ini ( var mhs = {}; ) itu artinya kalian membuat object kosong.
+
+kalo kita liat di console, lalu kita panggil mhs di console nya terus pencet enter, lalu akan muncul
+object kosong nya, isi dari object nya properti dan method nya kita bisa aja tulis langsung dari
+console.log nya, jadi kita bisa tulis langsung di codingan dan bisa lewat console.
+
+misalnya saya tulis gini di console, ( mhs.nama = "Keyla"; ) maka ini artinya saya akan
+buat sebuah properti baru ya, yg nama nya nama untuk object mhs, kalo saya pencet enter
+maka otomatis akan dibuat sebuah properti nama, kalo saya panggil cukup tulis mhs.nama,
+kalo saya baut lagi ( mhs.umur = 31; ) sekarang jadi ada 2 properti nya, ada properti nama
+dan ada properti umur.
+
+begitu ya, walaupun itu properti nya hanya ada di memori jadi kalo saya refresh maka akan
+hilang dan tidak kepanggil lagi, tapi kita bisa tulis langsung di codingannya nah kalo dicodingan
+nya dia permanen.
+
+------------------------------------------------------------------------------------------------------------------------------
+
+contoh codingan :
+
+var mhs = {
+    nama: "Keyla azahra",
+    umur: 15,
+    ips: [3.00, 2.50, 3.20],
+    alamat: {
+        jalan: "Jl. abc No. 123",
+        kota: 'tangerang',
+        provinsi: "Banten"
+    }
+}
+
+jadi kalo saya tulis ( nama : "KEyla Azahra", umur : 15, ips : [3.00, 2.50, 3.20] ) begini
+artinya saya sudah membuat properti didalam object, dan bahakan saya bisa bikin object
+didalam object, caranya saya buat lagi aja obejct nya disitu dengan menggunakan kurung
+kurawal (  {}  ).
+
+misalnya gini :
+ alamat: {
+        jalan: "Jl. abc No. 123",
+        kota: 'tangerang',
+        provinsi: "Banten"
+    }
+
+
+begini misal nya kalo kalian mau mengakses nama di console kalian , kalian 
+tinggal tulis object nya, titik properti maka tampil ( mhs.nama ), kalo mau umur 
+juga sama gitu, atau kalian juga bisa menggunakan kurung siku misalnya gini ( mhs["nama"] ) 
+maka hasilnya sama aja.
+
+kalo saya tulis mhs.ips maka akan muncul seluruh isi array nya, tapi kalo saya
+mau ngambil ip ke-3 saya kalian panggil beserta index nya, gini nulis nya
+( mhs.ips[2]  ) nah maka akan muncul ip 3.20 nya.
+
+sama seperti saya mau menampilkan kota tangerang, ya alamat dari mahasiswanya
+kita mau memunculkan kota nya aja, kan kalo saya tulis mhs.alamat akan muncul
+semua nya ya, tapi kalo saya mau muncul kan kota nya aja saya bisa tulis, ( mhs.alamat.kota )
+maka tampil Tangerang.
+
+atau dengan menggunakan notasi kurung siku, kalian bisa tulis  ( mhs["alamat"]["kota"] )
+gitu ya, kalo digabung gimana misalkan ( mhs.alamat["kota"] ) nah sama aja ya, nah
+jadi bisa kalian gabungkan.
+
+------------------------------------------------------------------------------------------------------------------------------
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

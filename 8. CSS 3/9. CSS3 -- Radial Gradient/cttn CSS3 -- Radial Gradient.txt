@@ -1,0 +1,200 @@
+CSS3 -- Radial Gradient
+
+Radial Gradient ini gradasi warna secara melingkar, sebelumnya ada banyak konsep dari radial
+gradient ini yang mirip dengan linear gradient.
+ 
+untuk penerapan Radial Gradient sebetulnya belum banyak websaite yg memakai nya.
+SINTAKS SEDERHANA 
+  background-image: radial-gradient(<warna-awal>, <warna akhir>);
+
+dia sama dengan linear gradient dia bukan property css3 melainkan dia value untuk property
+background image, value nya minimal menulisakan 2 buah warna ya, warna awal dan warna akhir.
+
+Value pertama itu akan menjadi warna untuk pusat lingkaran nya, contoh nya seperti ini ( di folder),
+jadi kalo misalkan kita tulis ( background-image: radial-gradient(red, blue); ), nah nanti nya dia akan
+menciptakan sebuah gradasi warna melingkar yang lingkaran nya bentukannya elipsh, ya dimana
+titik pusat lingkaran nya berwarna merah sebagai nilai pertama nya, lalu dia akan bergradasi ke
+warna biru sebagai warna akhirnya.
+
+MULTIPLE COLOR
+ 
+Lalu sama dengan linear gradient kita juga bisa memberikan multiple color atau warna yang lebih 
+dari 2 ya, jadi kita kasih warna awal, warna akhir lalu di tengah" nya kita kasih warna transisi nya 
+jadi kita bisa kasih lebih dari 2 warna. contoh nya seperti ini ( di folder  ss155 ) ada red,green,blue
+
+maka kita bisa liat bahwa red adalah warna pusat lingkaran nya lalu green sebagai warna antaranya
+dan blue sebagai warna akhirnya. Nah warna yg diberikan akan menyesuai kan ukurannya jadi
+ukuran nya akan seimbang otomatis, tapi kalo kalian ingin kalian membuat 1 warna ingin lebih 
+banyak dari warna yg lain itu kita gunakan COLOR STOP.
+
+COLOR STOP :
+  background-image: radial-gradient(red 10%, green 20%, blue 80%);
+------------------
+
+sama seperti linear gradient juga tinggal kita tambahkan besar nya berapa untuk warna tertentu,
+kalian bisa kasih persen atau pixel untuk ukuran nya, jadi kan itu red 10% nah berarti dia akan 
+berawarna merah solid sebesar 10% dari total ukuran nya, lalu setelah 10% lalu dia mulai ber-
+gradasi dengan warna hijau setelah itu biru ya begitu.
+
+--------------------------------------------------------------------------------------------------------------------------------
+
+SINTAK LENGKAP dari radial Gradient
+
+    radial-gradient(
+                    <tipe> <jangkauan> at <posisi-y> <posisi-x>,
+                    <warna-1>,
+                    <warna-2>,
+                    ...,
+                    <warna-n>
+                );
+----------------------------------------
+
+Sebetulnya sintaks yg wajib nya hanya warna awal dan warna akhirnya aja. radial-gradient punya 
+<tipe> tipenya bisa elipsh atau circle, lalu ada jangkauan, jangkauan ini jangkauan dari gradasi warna
+nya, ( at posisi-y dan posisi-x ) kita bisa tentukan posisi dari pusat gradasi nya menggunakan kywerd
+nya ( at ) dengan gunakan posisi sumbu Y dan posisi sumbu X, ini yg membuat radial gradient bisa
+jadi cukup kompleks ya. lalu setelah itu kita bisa kaish warna nya dan kalian bisa kasih color stop nya.
+
+Oh iya kalian bisa berikan semua nya sekaligus di radial-gradient nya dan atau bisa salah satu nya
+aja.
+
+  TIPE 
+- ellipse
+- circle
+
+kalo kalian ga tuliskan tipe nya itu otomatis default tipe nya adalah ellipse contohnya gini ( di folder )
+
+  JANGKAUAN
+jarak dari pusat gradient ke sisi terluar-nya, sisi yg udah gaada gradasi nya lagi
+
+- closest-corner
+  jarak dari pusat gradient ke sudut terdekat elemen
+- closest-side
+  jarak dari pusat gradient ke sisi terdekat elemen
+- farthest-corner
+  jrak dari pusat gradient ke sudut terjauh elemen
+- farthest-side
+  jarak dari pusat gradient ke sisi terjauh elemen
+
+ada 4 nilai yg bisa kita berikan, Nah closest-corner itu sudut terdekat jadi artinya jarak dari pusat
+gradient ke sudut terdekat dari elemen tersebut nanti ini untuk menentukan besar kecil nya radius
+dari gradasinya, corner itu sudut, sudut dari elemen nya, kalo kalian bikin elemen nya kotak berarti
+sudut dari kotak tersebut, sedankan side adalah sisi terdekat nya, supaya lebih jelas kita liat contoh.
+
+--------------------------------------------------------------------------------------------------------------------------------
+
+JANGKAUAN 
+
+( liat di folder ) misalnya saya punya sebuah kotak persegi panjang, nah default nya kalo kita kasih
+radial gradient itu pusat lingkaran nya ada di tengah ( liat di folder ), nah jarak dari pusat lingkaran ke
+atas itu adalah sisi terdekat nya ( liat di folder ) karena dia ngitung ke 4 sisi nya kekanan kebawah
+kekiri keatas, jadi sisi terdekat nya itu keatas atau kebawah karena itu pasti sama ya atas bawah 
+nya.
+
+Sedangkan sisi terjauhnya adalah ( liat di folder ) ke kanan atau ke kiri sama aja ya, jadi dari titik
+pusat gradient nya ke sisi dari elemen nya, nah nanti pusat gradient nya bsa kita pindah kan,
+sehingga sisi terdekat dan sisi terjauhnya mungkin berubah.
+
+Nah sekarang kita liat untuk sudut atau farthest, kalo misalnya pusat gradient nya ttp di tengah kira"
+sudut terdekat nya yg mana, nah jawaban nya adalah sama aja ( liat di folder ) karena ada di tengah"
+nanti kalo kita reset sudut terjauh dan sudut terdekat itu pasti sama aja efek nya, nah itu contoh nya
+kalo misalnya pusat gradient nya ada di tengah.
+
+Nah sekarang gimana kalo kita pindahkan, anggap aja titik nya pindah ke sini ( liat di folder ), nah
+sekarang sisi terdekat nya adalah yg atas itu ( liat di folder ), sedangkan sisi terjauh nya adalah yg ini
+( liat di folder ). Nah untuk sudut terdekat nya itu di sebelah kiri atas ( liat di folder ya ) lalu sudut
+terjauh nya adalah yg sebelah kanan bawah ( liat di folder ).
+
+--------------------------------------------------------------------------------------------------------------------------------
+
+Implementasi coding nya seperti apa ?
+
+misalnya kita punya background image nya radial-gradient tipe nya circle, lalu jangkauan nya
+terhadap closest-side atau sisi terdekat nya, lalu pusat nya merah luar nya biru. Seperti ini :
+
+background-image:
+                radial-gradient(circle closest-side, red, blue);
+
+(hasinya liat di folder )
+----------------------------------
+
+Nah jadi pusat nya ada di tengah warna nya merah lalu tipe nya lingkran, lalu karena kita pilih nya sisi
+terdekat dari si pusat berarti sisi terdekat nya itu atas dan bawah ya kan si pusat nya ada di tengah,
+nah karena kita pilih closest-side atau sisi terdekat dari pusat nya maka warna merah itu terbentuk
+lingkaran yg bagus, beda lagi kalo ganti closest-corner atau sisi terjau dari pusat gradient nya nanti
+tampilan nya si warna merah itu lebih luas karena dia ambil jarak sisi terjauh coba aja perbedaan nya. oh atau kalo kurang jelas penjelasan nya ( liat di folder).
+
+   POSISI
+memindahkan pusat gradient 
+
+posisi-y ( top,center,bottom, dan px )
+posisi-x ( left,center, right, dan px )
+
+posisi nya ada 2 value yg bisa kita kasih sama seperti kalo kalian kasih background position lah.
+Seperti ini :
+
+ background-image:
+       radial-gradient(circle farthest-side at top left, red, blue);
+----------------------------------
+
+Nah maka gradasi nya akan berakhir di sisi terjauh, nah untuk merubah posisi yaitu at top left nah
+nanti pusat gradient nya berada di pojok kiri atas, NAh jangan sampai salah mengenai sudut terjauh
+dan terdekat atau sisi terdekat dan terjauh bisa di baca lagi di atas nya ya.
+
+--------------------------------------------------------------------------------------------------------------------------------
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

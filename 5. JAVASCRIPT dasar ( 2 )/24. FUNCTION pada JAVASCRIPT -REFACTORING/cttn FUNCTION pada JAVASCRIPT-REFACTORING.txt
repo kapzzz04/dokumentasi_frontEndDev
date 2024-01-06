@@ -1,0 +1,205 @@
+FUNCTION pada JAVASCRIPT REFACTORING
+
+kita akan bahas mengenai bagaimana cara membuat penulisan kode
+program kita menjadi lebih efisien.
+
+penulisan kode menjadi lebih efisien merupakan bagian dari sebuah konsep
+yg dinamakan dengan Refactoring.
+
+Apa itu Refactoring?
+Refactoring adalah sebuah proses untuk mengubah kode agar menjadi lebih
+"baik" tanpa mengubah fungsionalitas dari program itu sendiri.
+
+nah kenapa kata BAIK itu di tulis dalam tanda kutip, karena baik ini relatif ya
+dan bisa beragam makna nya.
+
+------------------------------------------------------------------------------------------------------------------------------
+
+KENAPA kita harus melakukan Refactoring?
+
+nah ada banyak alasannya, sebagai berikut:
+
+ - Readability atau keterbacaan atau kemudahan dalam membaca kode program
+    karena program yg baik adalah program yang tidak hanya mudah dibaca oleh
+    pembuatnya tapi juga oleh orang lain, karena nantinya membuat program itu
+    pasti dilakukan secara kolaboratif dalam sebuah tim, jadi kita harus pastikan
+    kode yg kita tulis itu mudah dibacadan dipahami juga oleh orang lain.
+
+ - DRY ( Don't Repeat Yourself ) nah ini kaitan nya dengan duplikasi kode ya.
+   bisa penggunaan variabel yg berlebihan, efisiensi penggunaan Function metodhe
+   atau yg lainnya. lalu ada kegunaan lain ada yg namanya Testability.
+
+ - Testability atau penulisan kode agar mudah saat nantinya melakukan pengujian
+
+ - Performance yaitu bagaimana kita menulis kode yg dapat meningkatkan Performance
+   dari pogramnya, nah contoh sedehananya adalah ketika kalian menggunakan looping
+   dengan baik atau kalia memilih tipe data yang tepat untuk sebuah nilai, atau pengelokasian
+   memori yg efektif misalnya dalam bahasa pemograman tertentu.
+
+  dan yg terakhir Refactoring juga ini bermanfaat untuk Maintainbility
+
+ - Maintainability yaitu bagaimana program kita nantinya agar lebih mudah 
+   dikelola dan diperkembangkan.
+
+jadi itu adalah beberapa manfaat dari teknk Refactoring.
+
+------------------------------------------------------------------------------------------------------------------------------
+
+Tapi mengenai teknik refactoring ini cukup luas juga dan mendalam bahkan
+secara akademik ada kampus yang membuat topik ini menjadi matakuliah
+tersendiri.
+
+nah kali ini kita gaakan bahas itu semua ya, yg kita bahas disini hanya
+hal yg sangat sederhana aja.
+
+Yaitu bagaimana membuat kode program kita sedikit menjadi lebih efisien.
+
+nah yang sekrang kita lakukan adalah Refactoring sederhana pada program yg udah
+pernah kita buat dibeberapa video seperti ini.
+
+teman" masih inget kan pada saat kita membuat Function penjumlahan volume
+dari dua buah kubus.
+
+------------------------------------------------------------------------------------------------------------------------------
+
+CONTOH NYA:
+
+function jumlahVolumeDuaKubus(a, b) {
+    var volumeA;
+    var volumeB;
+    var total;
+
+    volumeA = a * a * a;
+    volumeB = b * b * b;
+
+    total = volumeA + volumeB;
+
+    return total;
+
+}
+
+alert(jumlahVolumeDuaKubus(8, 3));
+
+
+jadi Function ini melakukan hal yg sangat sederhana yaitu dia melakukan penjumlahan
+dua buah kubus.
+
+nah setelah kita coba kode nya itu gaada yg salah.
+
+kalian liat ya setelah kita buat FUnction nya lalu kita panggil dibawahnya menggunakan
+alert untuk menampilkan jumlah dari volume dua kubus yg satu memiliki sisi nya 8 dan
+yang satu memiliki sisinya 3.
+
+nah kalo kita lihat hsailnya maka akan muncul nilai penjumlahan dua buah volume nya,
+nah program ini sebetulnya gaada masalah sudah berjalan dengan normal, tapi kalo 
+kita liat sourcodenya nah ini sebetulnya bisa kita tulis dengan jauh lebih efisien lagi.
+
+kenapa? karena disini kita buat terlalu banyak variabel, coba kita liat sebetulnya ada ga
+variabel yg sebetulnya kita ga butuh kan.
+
+mungkin yg volumeA ya, coba kita liat pada saat kita menerima nilai dari parameter
+kita melakukan perkalian nya dengan menghitung volumenya dulu dari kubus a,
+a * a * a lalu kita tampung kedalam volumeA.
+------------------------------------------------------------------------------------------------------------------------------
+
+nah gimana kalo gini (a * a * a) ini kita langsung masukan saja kedalam variabel total jadinya gini
+total = a * a * a + volumeB;.
+
+nah jadi kita gabutuh sekarang volumeA ini, nah dengan itu kita menghemat satu variabel
+nah kalian inget ketika kita membuat variabel itu tandanya kita memesan satu memori untuk
+variabel kita.
+
+nah dengan menghilangkan volumeA kita udah melakukan sedikit penghematan, nah kalo gitu
+kita juga gabutuh variabel volumeB ya, nah ini bisa kita hilangkan juga jadi seperti ini 
+total = a * a * a + b * b * b;.
+
+sehingga kita gabutuh lagi variabel volumeB, jadi kita udah menghemat dua buah variabel.
+
+nah sekarang kalo kalian liat lagi sebetulnya kita gabutuh tuh variabel total, karena kita
+bisa aja langsung memasukan ekspresi ini kedalam return nya seperti ini 
+return a * a * a + b * b * b;.
+
+------------------------------------------------------------------------------------------------------------------------------
+
+Contohnya :
+
+function jumlahVolumeDuaKubus(a, b) {
+
+    return a * a * a + b * b * b;
+
+}
+
+alert(jumlahVolumeDuaKubus(8, 3));
+
+
+Nah sekrang liat Function kita hanya satu baris, nah jadi lebih efisiendari pada kita membuat
+tiga variabel yg sebetulnya fungsinya tempat penyimpanan sementara, nah ini kalo kita
+jalankan maka hasilnya akan tetep sama.
+
+nah itu lah maksudnya refactoring sederhana yg bisa kalian lakukan.
+jadi tips nya adalah ketika kalian sudah selesai membuat sebuah program ketika kalian
+masih punya waktu coba ditelusuri lagi kode program nya siapa tau ada kode yg bisa 
+kalian buat lebih baik lagi.
+
+simpelnya tadi ya ada ga sekiranya variabel yg tidak dibutuhkan.
+
+------------------------------------------------------------------------------------------------------------------------------
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

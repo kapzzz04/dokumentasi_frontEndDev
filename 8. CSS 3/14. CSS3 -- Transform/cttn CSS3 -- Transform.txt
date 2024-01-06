@@ -1,0 +1,376 @@
+CSS3 -- Transform
+
+Transform ini adalah properti css3 yang memungkinkan kita dapat memanipulasi format visual dari elemen HTML yg kita miliki, ya format visual nya macem" bisa ukuran, bisa bentuk dari element nya 
+maupun posisinya.
+
+Sebelumnya saya perlu jelaskan dulu bahwa properti Transform ini ada 2 jenis, 2D dan 3D, khusu untuk video kali ini yg akan kita bahas adalah hanya mengenai trasform 2D saja, dan untuk Transform 3D mungkin nanti akan dibuat kan video yg berbeda. Cara menuliskan properti nya sederhana aja kita tinggal tuliskan Transform lalu fungsi Transformasi nya mau apa.
+( transform: <fungsi>;  ).
+
+     FUNGSI Transformasi
+-	scale
+   memperbesar / memperkecil
+-	rotate
+         Memutar
+-	Skew
+   Membuat condong / miring
+-	Translate
+   Mengubah posisi
+
+yg pertama kita bisa melakukan scale untuk memperbesar atau memperkecil element yg kita punya lalu kita bisa lakukan rotate untuk merotasi atau memutar element nya, lalu ada juga namanya Skew ini untuk memberikan efek skew morfik atau membuat element nya menjadi miring atau condong, dan yg terakhir itu ada yg namanya translate untuk mengubah posisi atau translatesi.
+
+Nah sekarang saya punya file html, didalam nya ada tag p dan div kotak kosong, lalu saya kasih style agar div nya jadi kotak terus kotak dan paragf nya kita taro tengah" halaman. Seperti ini :
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style>
+        p {
+            text-align: center;
+            font-size: 20px;
+        }
+
+        .kotak {
+            width: 200px;
+            height: 200px;
+            background-color: lightblue;
+            margin: 50px auto 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="kotak"></div>
+    <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Nihil minima nesciunt fugiat       laudantium, quidem in,
+        aperiam temporibus porro iure beatae neque optio illum iusto laborum voluptatibus explicabo, nisi possimus
+        laboriosam!</p>
+</body>
+</html>
+--------------------------------------------------------------
+
+Jadi nanti yg akan kita coba adalah merubah atau mentranformasi element kotak itu. sebelum itu saya akan kasih value apa yg bisa dimasukan di properti tersebut. Seperti ini :
+
+ /* 
+        scale(angka), scaleX(angka), scaleY(angka)
+        rotate(deg), rotateX(deg), rotateY(deg)
+        skew(deg), skewX(deg), skewY(deg)
+        translate(px), translateX(px), translateY(px)
+---------------------------------------------------
+    
+Nah itu cara kalian menuliskan properti nya, yg pertama ada scale lalu kalian bisa simpan angka sebagai parameter nya ukuran nya mau sebesar apa, atau kalian bisa gunakan scaleX atau scaleY
+ya itu untuk memperbesar secara horizontal dan vertikal.
+
+----------------------------------------------------------------------------------------------------------------------------------
+
+Kita coba yg Scale dulu, kita tambahkan property transform di kotak nya, lalu kita ksih scale, misalnya kita kasih scale nya 2. Seperti ini :
+
+  .kotak {
+            width: 200px;
+            height: 200px;
+            background-color: lightblue;
+            margin: 50px auto 0;
+            transform: scale(2);
+        }
+---------------------------------
+
+Nah itu maksdnya ( 2 ) artinya perbesar ukuran kotak 2 kali lipat begitu ya, kalian bisa lihat sendiri ukuran nya lebih besar 2 kali lipat dari ukuran awalnya. Kalo saya ubah ukuran nya jadi ( 0.5 ) itu berarti ubah ukuran nya menjadi setengah dari ukuran awalnya. Seperti ini :
+
+  .kotak {
+            width: 200px;
+            height: 200px;
+            background-color: lightblue;
+            margin: 50px auto 0;
+            transform: scale(0.5);
+        }
+---------------------------------
+
+Nah sekarang gimana kalo kita mau mudah melihat perubahan nya secara nyata gitu keliatan sama kita nya kita tambahkan transisi ya. Jadi gini ketika kotak nya saya hover baru jalankan tranform yg kita mau. Seperti ini :
+
+.kotak {
+            width: 200px;
+            height: 200px;
+            background-color: lightblue;
+            margin: 50px auto 0;
+            transition: 1s;
+        }
+
+        .kotak:hover {
+            transform: scale(1.5);
+        }
+---------------------------------
+
+Nah ketika mouse di arahkan ke kotak nanti kotak nya jadi membesar itu karena kita kan nambahin transform scale nya 1.5 jadi nya lebih besar. Nah kalian juga bisa gunakan 2 parameter didalam scale itu, misalkan saya bisa tulis 1.5, 2, nah ini artinya sumbu x nya akan membesar 1 setengah kali lipat ukuran awal dan sumbu y nya atau ukuran secara vertikal nya itu akan membesar 2 kali lipat.
+
+ .kotak {
+            width: 200px;
+            height: 200px;
+            background-color: lightblue;
+            margin: 50px auto 0;
+            transition: 1s;
+        }
+
+        .kotak:hover {
+            transform: scale(1.5, 2);
+        }
+---------------------------------
+
+Nah begitu tingginya bertambah 2 kali lipat dan lebar nya bertamabah 1,5 kali lipat. atau kalian bisa gunakan value yg X dan Y nya jadi kalian nulis nya 1 persatu, Seperti ini :
+
+.kotak {
+            width: 200px;
+            height: 200px;
+            background-color: lightblue;
+            margin: 50px auto 0;
+            transition: 1s;
+        }
+
+        .kotak:hover {
+            transform: scaleX(1.5) scaleY(2);
+        }
+---------------------------------
+
+hasilnya sama aja cuman beda formatnya.
+
+----------------------------------------------------------------------------------------------------------------------------------
+
+ROTATE( DEG )
+
+rotate untuk merotasi sebuah elemen, tinggal tulis rotate aaj lalu kalian mau di rotasi atau diputar berapa derajat, misalkan 45 tambahkan deg atau degri, jadi itu akan berputar 45derajat searah jarum jam. Seperti ini : 
+
+ .kotak {
+            width: 200px;
+            height: 200px;
+            background-color: lightblue;
+            margin: 50px auto 0;
+            transition: 1s;
+        }
+
+        .kotak:hover {
+            transform: rotate(45deg);
+        }
+---------------------------------
+
+ya kalian liat itu kotak nya jadi berputar, nah knp bisa keliatan berputar gitu karena ada transition ya, kalo gapake transition mah gaada animasi nya cuma kaya ya kotak nya kaya berubah posisi, coba aja. Seperti ini :
+
+ .kotak {
+            width: 200px;
+            height: 200px;
+            background-color: lightblue;
+            margin: 50px auto 0;
+        }
+
+        .kotak:hover {
+            transform: rotate(45deg);
+        }
+---------------------------------
+
+liat aja itu hasil nya beda sama yg kalo pake transition.
+
+Jika ingin berputar nya berlawanan jarum jam tambahkan mines. SEperti ini :
+
+.kotak:hover {
+            transform: rotate(-45deg);
+        }
+---------------------------------
+
+Nah itu kalo kalian menggunakan rotate() aja, perlu di ingat kita punya rotateX dan rotateY, Kalo kalian hanya gunakan rotate() aja sumbu nya itu berada di tengah" kotak nya ( liat folder ), maka dia akan berputar sesuai dengan sumbu nya, sedangakan kalo kita gunakan rotateX() maka sekarang sumbu nya bukan lagi di tengah tapi ada secara horizontal di kotak nya. Seperti ini :
+
+ .kotak {
+            width: 200px;
+            height: 200px;
+            background-color: lightblue;
+            margin: 50px auto 0;
+            transition: 1s;
+        }
+
+        .kotak:hover {
+            transform: rotateX(90deg);
+        }
+---------------------------------
+
+Bisa kalian liat sendiri hasilnya kan, seolah" seperti memutar kartu gitu ya, Kalo misalkan kita ganti jadi 180, maka dia akan berputar secara keatas bukan kepinggir ya.
+
+.kotak {
+            width: 200px;
+            height: 200px;
+            background-color: lightblue;
+            margin: 50px auto 0;
+            transition: 1s;
+        }
+
+        .kotak:hover {
+            transform: rotateX(180deg);
+        }
+---------------------------------
+
+Sebalik nya jika kita ganti jadi rotateY ituakan berputar kesamping kaya bukan muter gitu loh coba kalian liat sendiri perbedaannya. 
+
+  .kotak {
+            width: 200px;
+            height: 200px;
+            background-color: lightblue;
+            margin: 50px auto 0;
+            transition: 1s;
+        }
+
+        .kotak:hover {
+            transform: rotateY(180deg);
+        }
+---------------------------------
+
+Perlu kalian inget juga sama seperti kalian menggunakan filter di video sebelum nya nilai/value dari tranform itu bisa kita tumpuk, jadi kita bisa memberikan lebih dari satu fungsi transformasi, misalnya gini deh saya kasih rotate nya aja 180deg terus rotate X nya 180 juga dan Rotate Y nya juga. Jadi saya akan merotasi ke tiga sumbu nya. Seperti ini :
+
+.kotak {
+            width: 200px;
+            height: 200px;
+            background-color: lightblue;
+            margin: 50px auto 0;
+            transition: 1s;
+        }
+
+        .kotak:hover {
+            transform: rotate(180deg) rotateX(180deg) rotateY(180deg);
+        }
+---------------------------------
+
+Nah liat deh hasil nya gimana saya gabisa jelasin gimana nya coba sendiri aja.
+
+----------------------------------------------------------------------------------------------------------------------------------
+
+SKEW( DEG )
+
+skew untuk membuat elemen nya menjadi miring, misalnya kita bisa kasih 30deg atua derajat, itu berarti elemen nya akan miring 30 derajat secara horizontal. Seperti ini :
+
+.kotak {
+            width: 200px;
+            height: 200px;
+            background-color: lightblue;
+            margin: 50px auto 0;
+            transition: 1s;
+        }
+
+        .kotak:hover {
+            transform: skew(30deg);
+        }
+---------------------------------
+
+Nah kalo ini agak beda dengan rotate, skew() itu sama aja dengan skewX() ya jadi kalo skew yg 30deg itu diganti jadi skewX(30deg) gini, itu hasilnya akan sama aja, Kalo tadikan rotate() sama rotateX() ya, kalo ini kebetulan sama, bedanya itu kalo ktia kasih skewY(), dia akan condong ke bawah atau ke arah vertikal nya. Seperti ini :
+ 
+ .kotak {
+            width: 200px;
+            height: 200px;
+            background-color: lightblue;
+            margin: 50px auto 0;
+            transition: 1s;
+        }
+
+        .kotak:hover {
+            transform: skewY(30deg);
+        }
+---------------------------------
+
+Kalo mau kebalikan nya tinggal tambahin mines ( -30 deg) maka nanti yg sebelah kanan yg naik
+di coba-coba aja ya.
+
+----------------------------------------------------------------------------------------------------------------------------------
+
+TRANSLATE( px ) 
+
+translate adalah untuk mengubah posisi sebauh elemen jadi ini penggunaannya mirip sama scale 
+jadi bisa satu properti aja, misalkan saya kasih 50px,ini harus pake px atau satuan ukuran yg lain.
+Seperti ini :
+
+ .kotak {
+            width: 200px;
+            height: 200px;
+            background-color: lightblue;
+            margin: 50px auto 0;
+            transition: 1s;
+        }
+
+        .kotak:hover {
+            transform: translate(50px);
+        }
+---------------------------------
+
+translate 50px berarti akan membuat elemen nya bergeser kekanan sebanyak 50px, tapi kalo kita kasih 50px,100px. Seperti ini :
+
+  .kotak {
+            width: 200px;
+            height: 200px;
+            background-color: lightblue;
+            margin: 50px auto 0;
+            transition: 1s;
+        }
+
+        .kotak:hover {
+            transform: translate(50px, 100px);
+        }
+---------------------------------
+
+maka itu artinya kekanan 50px kebawah 100px, Nah itu akan sama aja jika menggunakan translateX() dan translateY() silahkan dicoba aja. 
+
+Dan perlu di ingat dengan menggunakan translet itu kalian tidak akan mempengaruhi elemen-elemen disekitar nya, beda ketika kalian gunakan margin, nah terus apa bedanya dengan position absolut ya,
+ini kan sebenernya mirip, mirip seperti kita kasih position absoult lalu kita beri property top dan left nya begitu, efek yg dihasilkan sama aja, tapi menurut ku kalo poistion absoult lebih rumit aja, tapi juga menggunakan translate itu performa nya jauh lebih baik dari pada mengguakan position absoult.
+
+Ya karena seperti filter property transform iini menggunakan akselerasi dari hadwer atau hadwer akseleration, jadi yg bekerja adalah CPU kalian.
+
+Nah yg tadi itu menggunakan satu property translate aja, tapi kalo kalian mau menggunakan 2 properti. Seperti ini :
+
+.kotak {
+            width: 200px;
+            height: 200px;
+            background-color: lightblue;
+            margin: 50px auto 0;
+            transition: 1s;
+            position: relative;
+        }
+
+        .kotak:hover {
+            transform: translateX(50px) translateY(100px);
+
+        }
+---------------------------------
+
+itu sebenernya hasilnya sma aja sih udah.
+
+Dan terakhir kalian inget kita bisa menumpuk property transform ini, misalkan saya ingin lakukan scale perbesar jadi 0.8 kali lipat, lalu saya mau dia berputar sebanyak 360 deg. Seperti ini :
+
+ .kotak {
+            width: 200px;
+            height: 200px;
+            background-color: lightblue;
+            margin: 50px auto 0;
+            transition: 1s;
+            position: relative;
+        }
+
+        .kotak:hover {
+            transform: scale(.8) rotate(360deg);
+        }
+---------------------------------
+
+Nah nanti dia akan perkecil ukuran kotak nya sebanyak 0.8 terus dia juga berputar selama 360deg.
+
+----------------------------------------------------------------------------------------------------------------------------------
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,247 @@
+Javascript dan DOM #4 - DOM Selection (Part 2)
+
+DOM Selection Method
+
+- getElementById() 
+- getElementsByTagName()
+- getElementsByClassName()
+- querySelector()
+- querySelectorAll()
+
+kan sebelumnya kita sudah mengetahui cara" pemakain 3 dari atas ya, sisa 2 kebawah lagi
+belum kita tahu, selain temen" paham cara menggunakan Method ini, temen" juga harus tau
+mengenai apa yg di hasilkan dari masing" Method ini.
+
+kali ini kita akan membahas 2 method ini : 
+
+- querySelector()
+- querySelectorAll()
+
+jadi fungsi dari method ini adalah sama dari method sebelum nya ya, yaitu untuk memilih element
+berdasarkan, keriteria tertentu nanti kita liat perbedaan nya seperti apa, nah hasil yg di dapatkan
+dari method ini, untul yg - querySelector() dia sebetul nya sama dengan getElementById() ya,
+menghasilkan sebuah elemet.
+
+sedangkan querySelectorAll() ini menghasilkan nodeList, jadi berbeda dari yg 4 itu, baik kita
+langsung coba implementasikan saja ya LETS GOOO!!!.
+
+------------------------------------------------------------------------------------------------------------------------------
+
+// DOM Selection
+// document.querySelector()
+
+kita masih memakai halaman HTML yg sebelum nya ya, sebelum kita mengimplementasikan
+kita pahami dulu querySelector(), kalo dari terjemah nya query itu artinya menanyakan lah ya,
+menanyakan mengenai selector, nah selector yg dimaksud disitu bisa kalian anggap sebagai
+selector CSS, kita coba dulu deh.
+
+kalo kalian liat kita punya beberapa style CSS sederhana ya di file HTML nya, sebelum masuk
+ke script js nya, kita liat dulu nih kita punya sebuah element yg namanya section saya kasih
+id nya b, di dalam nya ada sebuah paragraf, nah itu paragraf 4, karena 3 paragraf lagi udah ada
+di section a.
+
+coba dengan menggunakan CSS bisa ga kalian mengubah warna paragraf 4, warna tulisan nya
+aja menjadi warna hijau, hanya paragraf 4 saja seperti ini :
+
+kalo misal kan saya tulis ( p { color: green; } ), ini tuh artinya kita mememilih semua element
+<p> yg ada di halaman HTML kita, jadi hasilnya nanti semua <p> berubah tulisan nya jadi 
+warna hijau, kalo saya pengen paragrag ke-4 aja gampang nya gini.
+
+saya bisa gunakan seleector nya b, jadi nya gini ( #b p { color: green; } ), ini artinya CSS tolong
+carikan saya <p> yg ada di dalam sebuah element yg id nya b, element yg id nya b cuma section
+yg id nya b ya, lalu cari paragraf di dalam nya, jadi hasil nya akan berubah jadi hijau p nya, tapi
+cuma paragarf yg ada di dalam section yg section nya mempunyai id nya b.
+
+jadi itu salah satu contoh untuk menyeleksi element menggunakan CSS.
+
+------------------------------------------------------------------------------------------------------------------------------
+
+contoh lain misal nya, saya mau mengubah Background color tag li yg di dalam nya terdapat
+tulisan item 2 mengubah Background nya menjadi warna oren, hanya yg item 2 saja yg berubah,
+kalo misal saya tulis ( li { background-color: orange; } ) nah ternyata hasil nya semua li nya 
+berubah warna backgroundn ya, kan saya mau hanya li yg baris ke-2.
+
+kalo saya ingin yg ke 2 saja gimana ??, dia tidak punya class, dia tidak punya id, yg kita tahu
+dia adalah element ke-2 dari serangkaian ( li ), jadi kita bisa gunakan Psudoe class ya, gini
+cara nya li titik 2 lalu tambahkan nth-child() dalam kurung nya tulis mau baris ke berapa, misalnya
+2 seperti ini :
+
+    li:nth-child(2) {
+            background-color: orange;
+        }
+---------------------------------------------
+
+nah itu yg kita tulis di dalam CSS ini adalah selector, nah untuk yg li itu bisa kita bikin lebih
+spsifik lagi dengan begini (  section#b ul li:nth-child(2) { background-color: orange; } ), nah
+sebetulnya yg paling sepesifik begitu, jadi baca nya, CSS tolong carikan saya li yg dia adalah
+anak ke-2 yg ada di dalam ul, yg ada di dalam element section yg mempunyai id b.
+
+itu untuk memastikan bahwa kita memilih element yg spesifik, ya ini topik nya mengenaik spesifisty
+( section#b ul li:nth-child(2)  ) ini adalah selector, nah selector ini lah yg nanti nya akan kita gunakan
+ke dalam Method querySelector() di javascript nya.
+
+------------------------------------------------------------------------------------------------------------------------------
+
+Method querySelector()
+
+Method querySelector() mengembalikan element
+
+misal nya saya mau target pragraf ke-4 ya, saya bikin const p4 misal nya, saya mau milih paragraf
+ke-4 misalnya, ( document.querySelector(); ), lalu dalam kurung nya saya isi dengan selector
+CSS nya, jadi carikan saya yg id element nya b lalu cari di dalam nya paragraft, begini :
+
+const p4 = document.querySelector('#b p');
+---------------------------------------------------------
+
+jadi yg kita isi kan di situ adalah selector CSS nya, kalo kita mau mewarnai sama ya seperti 
+tadi kek gini ( p4.style.color = 'green'; )
+
+kita coba lagi khasus yg ke-2 ubah background color li yg baris ke-2 menjadi oren, kita bikin
+const nya dulu ( document.querySelector(); ) lalu kita tulis yang tadi ya selector nya, seperti ini :
+
+const li2 = document.querySelector('section#b ul li:nth-child(2');
+-----------------------------------------------------------------------------------
+
+kita sekalian coba warnai ( li2.style.backgroundColor = 'orange'; ), jadi gitu cara kita menggunakan
+querySelector(), kalo kalian yg sudah lebih tau tentang CSS ini mungkin lebih mudah, apalagi
+nanti ada saat nya tidak boleh lagi mengubah ubah HTML nya, jadi gaboleh tuh kita nambahin
+class atau id, tapi kita ingin mentarget dan memanipulasi element cara nya bisa menggunakan
+querySelector() ini.
+
+------------------------------------------------------------------------------------------------------------------------------
+
+Method querySelectorAll()
+
+nah sekarang dengan menggunakan querySelector()  yg di kembalikan element dan cuma satu
+element nya, misalnya saya tulis gini, misal saya mau menyeleksi semua paragraft, lalu saya 
+tulis gini ( const p = document.querySelector('p'); ) nah ini kan saya mau mencari semua tag
+<p> kan kalo di CSS nya.
+
+tapi dengan menggunakan querySelector(), karena dia hanya mengembalikan satu element,
+maka yg akan dikembalikan hanya element yg pertama kali dai temukan saja, jadi harus nya  
+itu yg ditarget adalah paragraf yg pertama, meskin pun kita tulis nya <p> berarti semua tag p 
+harusnya gitu tapi ini ngga.
+
+nah kalo ingin memilih semua itu cara nya dengan menggunakan querySelectorAll(), nah kalo
+ini dia akan memilih semua element yg ada di halaman, kita coba yu gini :
+
+const p = document.querySelectorAll('p');
+------------------------------------------------------
+
+kita buka dulu console.log nya lalu ketik p maka nanti muncul hasil nya, nah sekarang kita punya
+4 buah element, nah tipe nya itu nodeList bukan HTMLCollection lagi, jadi sebetulnya ini sama
+aja kalo saya tulis ( const p = document.getElementsByTagName('p'); ) ini sama aja.
+
+tapi kalo saya tulis p di console.log dia beda karena dia HTMLCollection, nah kembalikan 
+lagi jadi ( const p = document.querySelectorAll('p'); ), sekarang saya sudah punya 4 buah element
+yg mirip dengan array jadi kalo saya mau mewarnai semua nya saya gabisa pake style seperti tadi
+karena kita harus kasih index nya dulu .
+
+begini ( p[2].style.backgroundColor = 'lightblue'; ) index ini di mulai dari 0, nah kalo mau semuanya
+berubah backgorund nya jadi warna lightblue itu sama aja kita gunakan LOOPING, ya kek gitu
+kalo gunain looping harus nya tau lah ya.
+
+------------------------------------------------------------------------------------------------------------------------------
+
+Kita akan pilih yang mana ???
+
+itu tergantung dari yg khasus kalian dapat kan, tergantung dari kebutuhan kalian, kalo misalnya
+di dalam HTML kalian element yang mau kalian target  itu udah punya id ya kenapa ga pake
+getElementById aja, kalo dia punya class yaudah langsung pake yg getElementsByClassName
+aja.
+
+tapi kalian diharus kan untuk tidak merubah struktur HTML ya apalagi menambah id atau class,
+kalian bisa gunakan 2 yg terakhir itu, dan dari sisi penformen method yg 2 ini getElementById
+dan getElementsByTagName, adalah method yg paling cepat di banding 3 method di bawahnya
+jadi saran pak dhika, kalian pastikan bisa gunakan ke 2 method itu, kalo misalkan dengan 2 itu
+kalian tidak bisa mentarget element yg spesifik, baru silahkan gunakan yg lain nya begitu mungkin
+
+------------------------------------------------------------------------------------------------------------------------------
+
+Mengubah node root
+
+dan yang terakhir Mengubah node root ini adalah salah satu cara agar kita lebih efektif lagi memlih
+method yg cocok untuk seleksi DOM kita.
+
+nah sekarang coba khasus nya begini kita akan mentarget paragraf ke 4 misal nya, kita bisa
+pake getElementById ga kira", gabisa ya karena paragraf 4 itu gapunya id, kita bisa target pake
+getElementsByClassName ga?, gabisa ya karena paragraf 4 itu gapunya class.
+
+mungkin yg bisa kita lakukan menggunakan getElementsByTagName, bisa ya tinggal kita hitung
+aja dia urutan ke berapa kemunculan nya didalam document, jadi kita bisa ngitung nanti, kita coba
+misal kita punya ( const p4 = document.getElementsByTagName('p'); ).
+
+lalu kita tambah kan juga di bawah nya ( p4.style.backgroundColor = 'lightblue'; ), ini ga akan
+ngaruh karena kita harus tambah kan dulu index nya, dia adalah urutan ke-3 kan jadi nya gini,
+( p4[2].style.backgroundColor = 'lightblue'; ), nah ini satu cara.
+
+atau kita juga bisa gunakan querySelectorAll(), tinggal getElementsByTagName diganti dengan
+querySelectorAll() gini :
+
+const p4 = document.querySelectorAll('p');
+p4[3].style.backgroundColor = 'lightblue';
+
+------------------------------------------------------------------------------------------------------------------------------
+
+megubah lagi ken node root
+
+nah tapi ada cara yg lain, kita bisa mengubah scope dari node root nya, kan secara default 
+node root itu document ya, jadi carikan semua element p yg ada di dalam document HTML nya,
+nah kita bisa mengganti document itu , kita persempit scope pencarian nya.
+
+misalnya saya mau mengambil seluruh section yg punya id b itu, jadi saya bisa tulis 
+( const sectionB = document.getElementById('b'); ), nah sekarang jika saya ingin mencari paragraf 
+ke-4 saya bisa tulis gini ( const p4 = sectionB.querySelector('p'); ) kaya gini di codingan nya : 
+
+const sectionB = document.getElementById('b');
+const p4 = sectionB.querySelector('p');
+----------------------------------------------------------
+
+jadi sekarang p disitu harus nya dia menacari kemunculan p pertama dari document kan ya,
+tapi saya ganti jadi sectionB disitu nya, maka dia akan mencari hanya didalam sectionB saja,
+nah karena didalam sectionB tag <p> yg pertama dan cuma hanya ada 1 aja disitu yg
+paragraf 4 hanya maka di pilih lah tag p yg itu, karena cuma ada itu aja.
+
+coba kita style gini ( p4.style.backgroundColor = 'orange'; ).
+
+atau saya bisa balikin jadi gini ( const sectionB = document.querySelector('section#b'); ) dan
+yg bawah nya jadi ( const p4 = sectionB.getElementsByTagName('p')[0]; ) nah itu dikasih index 
+juga ya kan karena dia HTMLCollection, meskipun hanya ada 1 tag p di dalam sectionB itu, kita
+ttp ambil dia sebagai array seperti ini lebih jelas nya : 
+
+
+const sectionB = document.querySelector('section#b');
+const p4 = sectionB.getElementsByTagName('p')[0];
+p4.style.backgroundColor = 'orange
+----------------------------------------------------------
+
+jadi intinya kalian fleksibel sekali ketika ingin memilih sebuah element silahkan gunakan saja
+method yg tepat menurut kalian.
+
+------------------------------------------------------------------------------------------------------------------------------
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

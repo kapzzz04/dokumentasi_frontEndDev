@@ -1,0 +1,309 @@
+CSS3 -- Box Shadow 2
+
+<x-offset> <y-offset> <blur> <SPREAD> <color>
+
+Nah sekarang kita akan mempelajari Properti yg ( OPSIONAL ) yaitu < spread> ini ya, jadi kalo 
+kalian nanti nulis ada 4 angka, misalnya seperti utrutan di atas, misal 5px 5px 5px maka angka ke-4
+nya untuk menentukan <spread> dan terakhirnya baru warna, atau saya lebih suka <spread> itu
+sebagai size atau ukuran dari bayangan nya, itu knp nanti kita liat ya.
+
+
+Oke misal kita coba ya, kita kasih spread nya 5px taro di sebelum warna ya.
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Box Shadow 2</title>
+    <style>
+        div {
+            width: 300px;
+            height: 300px;
+            background-color: #39b54a;
+            margin: 50px auto;
+            box-shadow: 5px 5px 5px 5px rgba(0, 0, 0, .75);
+        }
+    </style>
+</head>
+<body>
+    <div></div>
+</body>
+</html>
+----------------------------------------------------------------------
+
+nah tuh liat bahwa bayangan nya akan bertambah besar sebanyak 5px, atau kita mau melihat
+penggunaan lebih jelas nya kita, inspect lagi aja, Nah kalo misalnya spread nya kita hilangkan tuh
+ukuran dari bayangan nya itu sama seperti ukuran element nya 300 x 300px.
+
+misalnya kita jauhakn dulu bayangan nya kita ganti x dan y offset nya jadi 30px, lalu kita hilangkan
+dulu spread nya, nah coba 0 kan dulu blur nya maka bayangan nya solid bener" warna gitu, dan 
+ukuran bayangan nya sama persis dengan ukuran element nya.
+
+Sedangkan kalo kita tambahkan <spread> nya misalkan 5px, maka yg terjadi adalah bayangan nya
+akan membesar dulu 5px kiri kanan atas bawah nya pasti keliatan sih kalo diliat di inspect 
+perubahan bentuk ukuran nya ya.
+
+Baru dia mulai blur, jadi misalkan saya tambahkan besar nya si <spread> nya, maka bayangan nya
+akan semakin besar, baru dia mulai blur, kalo blur nya saya tambahkan dari 5px jadi 20px misal,
+maka dia tambah blur, itu caranya  menggunakan <spread> dan <blur> ya. Seperti ini :
+
+<style>
+        div {
+            width: 300px;
+            height: 300px;
+            background-color: #39b54a;
+            margin: 50px auto;
+            box-shadow: 30px 30px 20px 30px rgba(0, 0, 0, .75);
+        }
+    </style>
+-----------------------------------------------------
+
+Jadi kalo misalkan kalian kasih x-offset nya 0, maka dia tidak bergerak ke kanan atau kekiri, lalu
+y-offset nya juga kita kasih 0, dia juga ga bergerak ke atas ke bawah. lalu blur nya 0 juga, maka 
+bayangan nya solid, dan <spread> nya ada nilai nya maka seolah-olah kotak ini punya border.
+
+Seperti ini :
+
+ <style>
+        div {
+            width: 300px;
+            height: 300px;
+            background-color: #39b54a;
+            margin: 50px auto;
+            box-shadow: 0px 0px 0px 10px rgba(0, 0, 0, .75);
+        }
+    </style>
+-----------------------------------------------------
+
+Nah padahal kan dia bukan border tapi mirip loh kaya border, tapi itu adalah bayangan yg tidak ada
+blur nya, keliatan nya solid seperti itu.
+
+--------------------------------------------------------------------------------------------------------------------------------
+
+dan ada satu hal keren dengan mengenai penggunaan spread ini, ya tadi knp saya lebih suka 
+menganggap dia size buka spread itu karena.
+
+misalnya didalam box shadow nya saya kasih sumbu x-offsite nya 5px lalu y-offset nya 5px dan blur
+nya juga 5px dan <spread> atau size nya 0, bayngan nya size nya sama seperti element nya atau
+kotak hijau itu.
+
+Nah sekarang dengan menggunakan <spread> kita bisa bikin bayangan nya lebih kecil dari pada
+element nya, dengan memberikan nilai mines pada <spread> nya, Nah ini yg menyebabkan spread
+ini jadi menarik, misa saya kasih spread nya mines dan bayangan nya akan semakin kecil.
+
+Dan ini kalo misalkan kalian menggunakan nya tepat, misalnya gini x-offset nya 0 terus y-offset nya
+kita kasih 30px kalian bisa liat kan bayangan nya ada dibawah, lalu blur nya kasih 10px, dan 
+bayangan nya saya perjecil lagi misalkan -20px. Seperti ini :
+
+  <style>
+        div {
+            width: 300px;
+            height: 300px;
+            background-color: #39b54a;
+            margin: 50px auto;
+            box-shadow: 0px 30px 10px -20px rgba(0, 0, 0, .75);
+        }
+    </style>
+-----------------------------------------------------
+
+Nah liat sekarang bayangan nya jadi begitu ya.
+
+--------------------------------------------------------------------------------------------------------------------------------
+
+Misalnya saya tambahkan lagi disitu pada saat kursor nya saya arahkan ke elementnya, element
+nya bergerak misalnya, saya kasih div lalu hover, saya kasih box-shadow nya, dan saya mau juga
+kotak nya bergeser sedikit ke atas ketika terjadinya hover. Seperti ini :
+
+  <style>
+        div {
+            width: 300px;
+            height: 300px;
+            background-color: #39b54a;
+            margin: 50px auto;
+            box-shadow: 0px 30px 10px -20px rgba(0, 0, 0, .75);
+        }
+
+        div:hover {
+            box-shadow: 0px 80px 10px -40px rgba(0, 0, 0, .25);
+           margin-top: 40px;
+        }
+    </style>
+-----------------------------------------------------
+
+Jadi ya entar itu ketika kursor diletakan di kotak nya nanti si kotak sekakan-akan kaya ngangkat
+padahal cuma kita atur margin nya, itu karena kita pake <spread> nah itu yg membuat bayangan
+nya kan nah bayangan mah ga terpengaruh oleh margin jadi si bayangan diem aja terus pas
+kotak nya ngangkat jadi bayangan nya lumayan full mantep sih. ( mungkin begitu kali ya ), oh iya
+kalo nanti kalian melakukan efect ini jangan pake margin-top, nanti ada caranya.
+
+Nah setelah itu tinggal kasih transisi aja, walaupun belum belajar kita gpp ya. Seperti ini :
+
+   <style>
+        div {
+            width: 300px;
+            height: 300px;
+            background-color: #39b54a;
+            margin: 50px auto;
+            box-shadow: 0px 30px 10px -20px rgba(0, 0, 0, .75);
+            transition: .3s;
+        }
+
+        div:hover {
+            box-shadow: 0px 80px 10px -40px rgba(0, 0, 0, .35);
+            margin-top: 40px;
+
+        }
+    </style>
+-----------------------------------------------------
+
+Jadi mantep cuyy wkkwkw, oke jadi gunak bayangan itu menurut kreatifitas kalian ya.
+
+--------------------------------------------------------------------------------------------------------------------------------
+
+BOX-SHADOW INSET
+
+<INSET> <x-offset> <y-offset> <blur> <color>
+
+INI mengenai value inset yg bisa kita kasih ke box-shadow ini opsional boleh ada boleh ngga, tapi
+begitu kita kasih ini akan membuat bayangan nya berada didalam kotak nya, bukan di luar kotaknya
+seperti yg sudha kita coba tadi.
+
+Kita ubah dulu x-offset dan y-offset nya jadi 0, kalo 0 kalian gaperlu tambahkan pixel gpp ya, lalu
+blur nya 5px lalu kasih warna nya kaya tadi ya.
+
+    div {
+            width: 300px;
+            height: 300px;
+            background-color: #39b54a;
+            margin: 50px auto;
+            box-shadow: 0 0 5px rgba(0, 0, 0, .5);
+        }
+    </style>
+-------------------------------------------
+
+nah seperti itu kan bayangan nya diluar, nah sekarang dengan menambahkan inset disitu maka
+bayangan nya akan pindah kedalam element nya, ya semakin besar blurnya, nanti bayangan nya 
+akan semakin blur tapi kedalam seperti ini :
+
+
+<style>
+        div {
+            width: 300px;
+            height: 300px;
+            background-color: #39b54a;
+            margin: 50px auto;
+            box-shadow: inset 0 0 15px 5px rgba(0, 0, 0, .5);
+        }
+    </style>
+-------------------------------------------
+
+Itu lah penggunaan dari INSET.
+
+--------------------------------------------------------------------------------------------------------------------------------
+
+bOX-shadow MULTIPLE SHADOW
+
+Nah salah satu kelebihan dari box-shadow ini adalah kita bisa memberikan lebih dari satu bayangan
+pada sebuah element, misalnya kita buat dulu awalannya gini :
+
+  <style>
+        div {
+            width: 300px;
+            height: 300px;
+            background-color: #39b54a;
+            margin: 50px auto;
+            box-shadow: 5px 5px 5px rgba(255, 0, 0, .5);
+        }
+    </style>
+-------------------------------------------
+
+Nah kita bisa menambahkan bayangan yg baru, dengan menambahkan koma di akhir bayangan yg
+setelah color, misalnya saya mau bikin bayangan di kiri atas, kita bisa kasih x-offset nya -5px dan
+y-offset nya -5px supaya dia dikiri dan ke atas ya, dan kasih blur nya 5px dan kalo blur gabisa mines.
+
+Seperti ini :
+
+  <style>
+        div {
+            width: 300px;
+            height: 300px;
+            background-color: #39b54a;
+            margin: 50px auto;
+            box-shadow: 5px 5px 5px rgba(255, 0, 0, .5),
+                -5px -5px 5px rgba(0, 0, 255, 0.5);
+        }
+    </style>
+-------------------------------------------
+
+Nah sekarang bayangan nya ada 2, bisa diliat kan, nah dengan ini kalian bisa menciptakan efect yg
+menarik ya kalo kalian sudah tau cara pake multiple boxshadow ini.
+
+Misalkan yg sederhana kalian bisa kasih multipel border, jadi seolah-olah elemen kalian border nya
+banyak. misalnya kita bisa kasih  x-offset, y-offset dan blur nya 0 terus kita bermain di <spread> nya
+Seperti ini :
+
+<style>
+        div {
+            width: 300px;
+            height: 300px;
+            background-color: #39b54a;
+            margin: 50px auto;
+            box-shadow: 0 0 0 5px red,
+                0 0 0 10px green,
+                0 0 0 15px yellow,
+                0 0 0 20px orange;
+        }
+    </style>
+-------------------------------------------
+
+Nah keren kan, jadi kita bisa ngasih multiple border padahal, itu bukan border itu adalah box shadow
+yg gapunya blur, tinggal di kasih border radius nya 50%, maka semua nya berubah jadi lingkaran.
+
+Seperti ini :
+
+ <style>
+        div {
+            width: 300px;
+            height: 300px;
+            background-color: #39b54a;
+            margin: 50px auto;
+            box-shadow: 0 0 0 5px red,
+                0 0 0 10px green,
+                0 0 0 15px yellow,
+                0 0 0 20px orange;
+            border-radius: 50%;
+        }
+    </style>
+-------------------------------------------
+
+ya jadi bisa seperti itu tinggal gimana kreatifitas kita mengatur nya ya.
+
+--------------------------------------------------------------------------------------------------------------------------------
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

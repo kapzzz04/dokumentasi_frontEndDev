@@ -1,0 +1,453 @@
+Accessibility -- Belajar HTML5
+
+Ya jadi Accessibility di episode kita kali ini kita akan lebih spesifik membahas mengenai web
+Accessibility yg ada hubungan nya dengan HTML5 Accessibility, ya karena topik Accessibility itu 
+sangat luas, pernah kita bahas di episode" awal.
+
+Tapi kalo kita liat dari definisinya Apa itu Accessibility ?
+"Sebuah cara untuk membuat website kita bisa digunakan oleh sebanyak mungkin user."
+
+Ya kadang" developer apalagi developer pemula suka lupa bahwa yg akan mengakses web kita
+itu user nya beragam, kadang" kita yg mencoba web kita sendiri disaat kita buat kita tidak,
+memperhitungkan user-user yang memiliki keterbatasan atau berbeda cara pengaksesan nya
+dengan kita.
+
+Nah karena kalo misalkan kita secara statistik pengguna internet aja di indonesia ini 210jt, jadi ini
+sangat banyak sekali, dan dari calon pengguna itu kharakteristik nya sangat beragam dan banyak
+diantara pengguna ini memiliki keterbatasan atau disabilitas.
+
+contohnya misalkan keterbatasan penglihatan, ada pengguna yg memiliki keterbatasan pendengaran
+ada yg memiliki keterbatasan mobility atau misalkan dia tidak bisa menggerakan anggota tubuhnya,
+contohnya tidak bisa menggerakan tangan sehingga tidak bisa  menggunakan mouse atau kyboard.
+
+atau bahkan ada yang memiliki keterbatasan disabilytas temporer, jadi sementara aja, misalkan kita
+lagi sakit, lagi cedera atau kita sedang tidak dalam keadaan siap untuk mengakses web atau app,
+kalo misalkan kita tidak memperdulikan para pengguna ini.
+
+Itu artinya kita berpotensi untuk kehilangan banyak user, dan sebagai developer tentu saja itu kita
+tidak ingin kan, pemahaman mengenai akses Accessibility ini dapat membuat aplikasi yg kita buat
+dapat diakses oleh lebih banyak pengguna.
+
+--------------------------------------------------------------------------------------------------------------------------------
+
+WEB Accessibility Tips
+
+Jadi sehingga kita akan membahas beberapa Tips yang bisa kita terapkan aga Accessibility dari
+web kita meningkat, dan beberapa diantara nya sebelumnya sudah kita pernah coba dan bahas di
+video" awal.
+
+- Buat struktur DOM yang 'masuk akal'
+- Gunakan semantic element
+- Interactive control
+- Beri label pada semua kontrol dan gambar
+- Terapkan manajemen fokus yang intuitif
+- Website bisa diakses penuh dengan hanya menggunakan keyboard 
+- Tambahkan ARIA jika dibutuhkan
+
+Jadi yg pertama tipsnya adalah kita harus buat struktur DOM yang 'masuk akal', jadi jangan fokus
+ditampilan nya saja yang bagus, tapi kita juga harus bikin struktur html atau struktur DOM yang 
+masuk akal.
+
+cara nya itu kita bisa gunakan element semantic yang tepat, jadi sebisa mungkin gunakan element
+semantic sesuai peruntukan nya jangan menggunakan terlalu banyak div atau span, yang tidak 
+perlu.
+
+Gunakan kendali Interactive atau Interactive control, jadi kalo misalkan kalian mau membuat control
+yg Interactive gunakan element yang sesuai, jadi kalo misalkan mau bikin tombol ya gunakan 
+element <button> atau element angker <a> jangan gunakan div atau span.
+
+Tapi kalo misalkan darurat atau gaada cara lain selain pake div atau span nanti ada cara bagaimana
+cara ngakalin supaya ttp Interactive dan memiliki struktur DOM yg masuk akal.
+
+Kita harus memberi label pada semua kontrol dan gambar, kontrol ini anggap aja element" input ya,
+jadi jangan pernah bikin element input tanpa label dan juga pada element gambar.
+
+Berikutnya kita harus bisa menerapkan manajemen fokus yang intuitif, nah maksudnya jadi didalam
+HTML itu kita bisa menentukan fokus dari element nya, biasanya tuh kita kendalikan menggunakan
+tombol (tab) misalnya, jadi ketika kita tab nanti fokus dari element yg akan berpindah.
+
+Sehingga kita harus bisa pastikan bahwa apk nya itu bisa diakses penuh dengan hanya 
+menggunakan keyboard aja, berarti kita harus nyobain nih web yg kita bikin kalo kita mengendalikan-
+nya ngga pake mouse hanya menggunakan kyboard ttp bisa diakses ga.
+
+Nah ketika tadi kita tidak bisa menggunakan element yg interactive, contohnya kalian mau bikin
+element div yg bisa di klik kita harus menambahkan ARIA, jadi kita tambahkan aria ketika dibutuhkan.
+
+--------------------------------------------------------------------------------------------------------------------------------
+
+STRUKTUR DOM + Accessibility
+
+berikutnya kita akan coba bagaimana struktur DOM dan Accessibility, apa hubungan nya antara 
+struktur DOM yg ada didalam web kita dengan Accessibility.
+
+Jadi gini pada saat kita membuat kode html, itukan harusnya kalian udah tau ya element" html nya
+itu akan diterjemahkan menjadi sebuah pohon DOM atau dom tree yg ada html terus kita bisa buka
+didalam nya ada head,body, dan tag lain nya title misalnya, itu strukturnya direpresentasikan dengan
+menggunakan Tree/pohon.
+
+Nah dari DOM tree ini, itu yg kita tau itu kan diterjemahkan menjadi (GUI ) atau grafikal user intervais
+yg biasa kita liat sebagai user, ya jadi user ngeliat nya ( GUI ), padahal sebetulnya GUI yg ada di
+halaman web kita dai representasi dibelakang layar nya adaalah DOM.
+
+Nah yg mungkin kita blm tau, sebetulnya DOM tree ini diterjemahkan lagi menjadi sebuah, 
+(Accessibility Tree), nah Accessibility Tree untuk agar bisa diakses oleh user yg memiliki 
+disabilitas, jadi misalkan kalo kita bis melihat halaman web, tapi para user yg memiliki keterbatasan
+penglihatan itu kan ngga bisa melihat web nya, yg bisa diakses itu adalah Accessibility Tree nya.
+
+--------------------------------------------------------------------------------------------------------------------------------
+
+DOM TREE vS Accessibility Tree
+
+Bentuk Accessibility Tree itu begimana sehh?
+
+Nah kalo misalkan kalian buka didalam browser nya, misal buka form login atau apa gitu terus 
+inspesct element itu kita bisa melihat DOM tree ya ( seperti di folder screenshot 125 ), kita bisa liat
+element apa ada didalam element apa, seperti tag head didalam nya ada tag title dan setersunya
+nah itu representasi DOM tree ya.
+
+Sedangkan Accessibility Tree itu tampilnya seperti ini ( di folder screnshot 126), jadi kita bisa liat 
+ada RootWebArea ini untuk title, terus element yg type nya generic berupa label terus ada text box
+dan seterusnya.
+
+Nah Accessibility tree iini kedepan nya akan dibaca oleh screen reader, jadi kalo dom tree dilihat
+oleh user, kalo Accessibility tree dibaca oleh scren reader shingga user yg memiliki keterbatasan
+penglihatan dia mendengarkan sesuai dengan Accessibility tree nya. Kalo kita bikin DOM atau
+cara penulisan codingan nya gabagus maka Accessibility tree nya juga acak" an.
+
+--------------------------------------------------------------------------------------------------------------------------------
+
+CARA AKSES Accessibility TREE
+
+HTML :
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Web Accessibility</title>
+</head>
+<body>
+    <h1>Hello WPU!</h1>
+    <label>Nama :
+        <input type="text" name="nama">
+    </label>
+
+    <label for="jurusan">Jurusan :</label>
+    <select name="jurusan" id="jurusan">
+        <option value="if">Teknik Infromatika</option>
+        <option value="ti">Teknik Industri</option>
+    </select>
+
+    <button>Kirim!</button>
+</body>
+</html>
+-----------------------------------------------------------
+
+Naha kalo misal kita mau lihat Accessibility tree nya itu klik tanda panah dua di deretan (style) ke
+kanan itu loh nanti ada bacaan Accessibility. ( ada di folder ) nah ini kalo kita buka pake chrome.
+
+Berikutnya adalah SEMANTIC HTML
+
+ya tips nya tadi kita harus bikin struktur html kita sebisa mungkin semantic, ya dari pada 
+menggunakan coding di sebelah kiri ( ada di folder ya ) itu menggunakan div dengan id atau class,
+kalo misalkan Tag semantic nya ada silahkan gunakan seperti yg sebelah kanan, nah yg sebelah
+kanan lebih membuat DOM kita lebih masuk akal.
+
+--------------------------------------------------------------------------------------------------------------------------------
+
+INTERACTIVE CONTROL
+
+- Gunakan element yang sesuai, jangan gunakan div atau span
+   ~ Screen reader tidak menganggap div / span sebagai control
+   ~ Div / span tidak focusable, sehingga tidak bisa diaktifkan menggunakan keyboard
+
+YA untuk interactive control tips nya Gunakan element yang sesuai, jangan gunakan div atau span,
+karena Screen reader tidak menganggap div / span sebagai control, jadi kalo misalnya dia bentuk
+nya div tapi bisa di klik nanti pada saat screen reader membaca dia ga ngasih tau kalo itu adalah
+button, kalo mau bikin di jadi button kita harus tambahkan attribute lain yg namanya Aria.
+
+Tapi kalo misalnya mau menggunakan element native nya silahkan gunakan button atau link <a>.
+
+Terus juga Div / span tidak focusable, sehingga kita ngga bisa ngasih dia fokus misalnya
+menggunakan tab gitulah, Contoh nya seperti ini : ( di folder ada gmabr nya ), kalo misalkan kalian
+punya span yg bisa diklik sebaik nya gunakan tag <a>, kalo kalian punya div yg pengen bisa diklik
+sebaik nya gunakan <button>, kalo mau ttp pake span/div nanti pake attribute Aria.
+
+--------------------------------------------------------------------------------------------------------------------------------
+
+LABELLING
+
+- Selalu beri label pada control 
+
+nah Selalu beri label pada control misalnya kekgini :
+
+    <label for="nama">Nama :</label>
+    <input type="text" name="nama" id="nama">
+
+    <label>Nama :
+        <input type="text" name="nama">
+    </label>
+------------------------------------------
+
+Jadi kalo misalkan kita bikin input type nya text, nah selalu bikin label yg terhubung ke input itu, cara
+menghubungkan nya ada 2 cara, kalian bisa menghubungkan nya pake for hubungkan dengan id
+seperti label yg pertama, biar si html tau label sebelah itu punya si input.
+
+atau yg ke 2 kita bisa bungkus input nya menggunakan label seperti label ke 2 di contoh, kalo di
+bungkus seperti itu, kita gaperlu kasih for dan id untuk memasangkan nya.
+
+Nah kalo kita bikin label nya di luar dan inputnya ga dibungkus label dan ga saya hubungkan.
+seperti ini :
+
+  <label>Nama : </label>
+    <input type="text" name="nama">
+------------------------------------------
+
+Sebetulnya secara visual itu gaada masalah sama aja, Tapi html atau Accessibility nya belum tau
+kalo label dan input nya berpasangan, nah gimana kita sambungkan menggunakan for dan id, kita
+kasih value for dan id nya bebasa aja asalkan value nya nyambung atau sama dengan value id nya.
+
+    <label for="nama">Nama :</label>
+    <input type="text" name="nama" id="nama">
+------------------------------------------
+
+Keliatan nya setelah di ubah sama aja gaada bedanya, tapi sekarang kalo saya klik tulisan Nama
+bukan yg kotak input nya ya, nah kalo di klik nama nya input nya yg aktif, kalo sebelum kita hubung
+kan label dan inputnya itu pas klik tulisan nama nya input nya gaakn aktif.
+
+Ini berlaku juga untuk kombo box radio button dan juga checkbox.
+
+--------------------------------------------------------------------------------------------------------------------------------
+
+LABELLING
+
+- Selalu beri label pada gambar 
+
+Labelling untuk img, kita udah pernah bahas pas dimateri gambar, ketika kita mau ngasih gambar
+kita bisa kasih img lalu lalu gunakan attribute alt untuk ngasih penjelasan, kalo gambarnya
+merupakan gamabr utama yg menjadi element didalam web kita, tulis penjelasan nya sesuai 
+dengan gambar yang ditampilkan.
+
+    <!-- gambar utama -->
+    <img src="gambar.png" alt="[penjelasan]">
+------------------------------------------
+
+Kalo kita gapake alt, maka screen reader akan membaca nama gambar nya dan nama gamabr itu 
+tidak selalu sesuai dengan isi gambar nya.
+
+Nah kalo misalkan gambar nya merupakan gambar dekorasi, seperti tag img nya digunakan untuk
+logo aja atau icons, kalian mau taro ini di halaman web nya sebagai dekorasi aja sebagai
+mempercantik halaman nya, atau mau bikin pattern yg bukan merupakan element informasi di
+halaman, kalian harus ttp menuliskan alt nya tapi isi nya kosong seperti ini :
+
+    <!-- dekorasi -->
+    <img src="pattern.png" alt=" ">
+------------------------------------------
+
+Supaya screen reader itu melewati itu, jadi ngeskip, jadi ketika screen reader ngebaca itu lalu dia liat
+alt nya kosong maka gambar itu tidak akan dibacakan, Tapi kalo ga pake alt yg dibacakan nantinya
+nama file gambar nya.
+
+--------------------------------------------------------------------------------------------------------------------------------
+
+PENGATURAN FOKUS
+
+- Pengguna keyboard melakukan navigasi dengan memindahkan fokus melalui DOM
+- Sebisa mungkin gunakan element interaktif
+- Jika tidak, gunakan tabindex agar elemen custom menjadi focusable
+- Element kontrol yang custom harus merespon tombol seperti enter & spasi
+
+nah untuk pengaturan fokus ini kalo misalkan pengguna yg menggunakan keyboard, itukan dia 
+melakukan navigasi halaman itu dengan mindahin fokus nya lewat DOM, pencet tab tab aja, nanti
+screen reader nya akan ngebacain.
+
+Misalnya dia lagi ada di navigasi beranda, kita pencet tab 'about', tab lagi menu, tab lagi galery dan
+seterusnya, kalo dia udah nyampe di menu yg dia mau, pengguna nya bisa mencet spasi atau enter
+untuk melakukan aksi nya.
+
+Dan ketika sampe di dalam element yang ada interaksi nya Sebisa mungkin gunakan element yang
+interaktif, ya tadi baik itu button maupun <a> atau element" input interaktif bisa checkbox,radio button,
+kombobox,toggle, dan seterusnya.
+
+Nah tapi kalo misalnya kita mau bikin interaksi dari element yg bukan element interakrif nah caranya
+yg pertama adalah kita bisa gunakan attribute (tabindex) supaya element custom tadi, misalnya div
+atau span itu bisa menjadi focusable.
+
+Dan yg terakhir pastikan elemen interaktif tadi juga dapat merespon tombol yang biasa dipake untuk
+interaksi, di kyboard seperti enter & spasi.
+
+--------------------------------------------------------------------------------------------------------------------------------
+
+MENCOBA
+
+( masih ada sangkut paut sama tag html di awal yg banyak itu )
+
+kita bikin 3 buah div setelah tag button, terus kita tulis tombol 1, kita liat di browser ada tulisan nya
+yg sebenernya dia bukan elment interaktif, gabisa di klik terus gabisa ktia kasih focus ya, kalo kita
+klik input di atas nya terus tab tab tab nah dia ga nyambung ke 'tombol 1' nya, karena bukan elemen
+interaktif. seperti ini :
+
+ <label for="nama">Nama :</label>
+    <input type="text" name="nama" id="nama">
+
+    <label for="jurusan">Jurusan :</label>
+    <select name="jurusan" id="jurusan">
+        <option value="if">Teknik Infromatika</option>
+        <option value="ti">Teknik Industri</option>
+    </select>
+
+    <button style="margin-bottom: 30px;">Kirim!</button>
+
+    <div>tombol 1</div>
+-------------------------------------------
+
+kalo mau jadi interaktif kita ganti aja div nya jadi button gini (  <button>tombol 1</button> ), dia jadi
+focus ketika di pencet tab gitu ya, tapi kan kita mau nya ttp div yg jadi tombol gituloh. kita buat div
+nya jadi 3 dulu ya.
+
+TABINDEX
+
+NAH caranya kita kasih attribute tabindex, nah isinya kalian itu bisa kasih angka, kalo misalkan kalian
+kasih angka 1, maka dia akan menjadi element focus pertama didalam halaman nya. 
+
+
+      <div tabindex="1">tombol 1</div>
+    <div>tombol 2</div>
+    <div>tombol 3</div>
+-------------------------------------------
+
+Nah nanti ketika kau ke browser nya pencet tab nanti focus nya otomatis ke tombol 1 itu lohh,
+padahalkan sebelum nya ada element" lain yg interaktif ya, kalo saya pencet tab lagi baru dia pindah
+ke input nya, jadi tabindex 1 itu adalah yg pertama 2,3 ya yg ke 2 ke-3 gitu lah.
+
+Tapi kalo kita ngasihnya angka nya 0 nah maka  element nya akan melanjutkan lagi ke tab sebelum
+nya, jadi dia masuk ke antrian fokus nya lah, misal kita tab nah pertama ke yg input terus select
+lalu button nah baru ke div nya pake cara tabindex 0 nanti dia mengikuti sesuai urutan nya. Seperti :
+
+<div tabindex="0">tombol 1</div>
+    <div tabindex="0">tombol 2</div>
+    <div tabindex="0">tombol 3</div>
+-------------------------------------------
+
+Nah berikutnya gimana kalo kita mau ngasih interaksi untuk tombolnya, misalnya ketika tombol nya
+di klik saya pengen muncul sebuah alert sederhana lah ya, misalnya saya kasih sebuah event aja
+ya yg namanya onclick terus didalam nya kasih aja pop up alert, bukan fungction ya. Seperti ini :
+
+<div tabindex="0" onclick="alert('halo');">tombol 1</div>
+        <div tabindex="0">tombol 2</div>
+        <div tabindex="0">tombol 3</div>
+-------------------------------------------
+
+Nah jadi dia berperilaku seperti layak nya tombol, kalo kita klik tombol 1 nanti muncul tuh pup up nya.
+ini secara visual keliatan nya gaada masalah, cuman ini secara Accessibility masalah, walaupun 
+tadi kita udah coba kalo kita pencet tab dia bisa terseleksi, tapi problem nya ada beberapa nih.
+
+Yang pertama dia bukan tombol, jadi kalo dibaca di scren reader dia ga akan sebagai tombol,
+buktinya kalo kita cek di inspesct lalu cari Accessibility, kita liat disitu ada generic, lalu liat si tombol
+itu dia generic, harus nya kalo mau dibacain harusnya si div tulisan nya button bukan generic.
+
+Supayadiv kita berperilaku sebagai button, kita harus kasih sebuah Aria yg namanya role, kita akan
+ubah peran dia yg tadinya generic jadi button, ini berlaku kita ganti misal jadi navigasi atau article
+dan begitulah.
+
+  <div tabindex="0" onclick="alert('halo');" role="button">tombol 1</div>
+-------------------------------------------
+
+Nah dengan memberikan dia Aria role button, maka generic nya tergnati jadi bacaan button, nah 
+tapi masih ada satu promblem lagi.
+
+Ketika user mengakses halaman nya menggunakan keyboar, tab tab tab lalu fokus nya berada di
+tombol 1,tapi ketika kita pencet enter alert pop upnya ga muncul, karena blm kita hubungkan dengan
+keyboar shortcard.
+
+--------------------------------------------------------------------------------------------------------------------------------
+
+Kalo misalkan kalian mau memberikan interaksi pada tombol yg bukan element tombol kalian harus
+secara manual memberikan perilaku itu.
+
+Nah caranya kita harus pake javascript, jadi kita pake addEventListener, event nya adalah 'keyup' 
+atau 'keydown', kita kasih keyup aja, jadi ketika tombol keyboard di pencet jalankan fungsi beikut,
+Nah agar dia menangkap tombol tertentu saja kita bisa kasih parameter atau event di function nya
+kita pake (e) aja kek sebelumnya.
+
+Lalu kita akan ambil kode dari tombol spasi dan enter, dan jadi event yg di keyCode itu sma dengan
+32 atau event di keyCode itu sama dengan 13 maka jalankan alert 'halo' itu. Seperti ini :
+
+    <script>
+        const button1 = document.querySelector('#button');
+        button1.addEventListener('keyup', function (e) {
+            if (e.keyCode == 32 || e.keyCode == 13) {
+                alert('hello');
+            }
+        });
+    </script>
+-------------------------------------------
+
+Nah 32 itu untuk spasi dan 13 untuk enter, jadi masing" tombol itu punya angka nya sendiri 
+udah bisa ya, jadi kalau pun kita menggunakan element yg ngga interaktif sebisa mungkin perilaku
+nya samain dengan element interaktif dan jangan lupa juga tadi role nya kita kasih button.
+
+--------------------------------------------------------------------------------------------------------------------------------
+
+ACCESSIBILITY TESTING
+
+- Chrome Lighthouse
+- WCAG ( https://www.w3.org/WAI/standards-guidelines/wcag )
+
+Accessibility testing ini bagaimana menguji Accessibilitas di websaite kita, cara gampang nya kita
+bisa menggunakan tools untuk Accessibility testing yg sudah tertanam didalam browser chorome
+kita namnya lighthouse atau kalian butuh panduan nya ada yg namanya WCAG atau Web Content
+Accessibility Guidelines.
+
+tapi kalo mau lihat lighthouse, silahkan kembali ke web nya atau web apapun, pastikan halamannya
+bukan halaman statis tapi dia berjalan di sebuah server, itu cara nya klik kanan inspect, terus di
+bagian atas kanan ada yg namanya lighthouse ( liat di folder ss 130), nah disitu kita bisa liat 
+laporan dari web kita, dan tipe laporan nya macem-macem.
+
+Nah ada bacaan Categories disitu, kalo kalian mau liat Performance tinggal klik ceklis aja, kalo 
+hanya mau lihat Accessibility aja ceklis aja Accessibility nya ( liat di folder ss 131 ).
+
+Kita coba cek Accessibility nya ya, caranya kalian klik tombol Analyze page load ( ada di folder ss 132 )
+nah pas dicek ternyata Accessibility nya 100 ya, tapi kalo misalkan di webnya ada yg kurang bagus
+nanti nilai nya berkurang ya.
+    
+Nah kita coba apus beberapa element interaktif Accessibility nya ya, misalnya kita apus doctype nya
+sama lang en-us nya, terus tambahin tag <img> tapi gaada attribute alt nya. Nah setelah kita ituin
+seperti itu berkurang tuh jadi 84 ga 100 lagi, terus kita bisa cek apasi yg kurang nanti di kasih tau
+sama dia nya.
+
+NAH KALO lighthouse nya ilang di inspect berarti kurang suport keknya, atau mungkin ga pake
+http/https di link web nya jadi gabisa ngecek.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

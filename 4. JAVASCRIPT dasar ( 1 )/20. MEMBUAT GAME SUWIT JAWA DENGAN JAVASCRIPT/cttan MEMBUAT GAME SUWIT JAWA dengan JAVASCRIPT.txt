@@ -1,0 +1,316 @@
+MEMBUAT GAME SUWIT JAWA DENGAN JAVASCRIPT
+
+-----------------------------------------------------------------------------------------------------------------------------
+
+MUNGKIN sampe di video ini kalian bertanya-tanya knp sih javascript nya
+ga langsung aja di implementasiin ke websaite atau kasus lainnya.
+karena fokus kita untuk memahami dasar-dasar javascript dulu.
+
+lalu agar javascript yg sedang kita pelajari ini bisa kita gunakan sebagai
+pembuatan WEB, kita nantinya juga akan belajar dengan sesuatu yg
+dinamakan ( DOM ) atau document obeject model, jadi kalo kalian mau
+bikin websaite menggunakan javascript kalian harus tau dulu DOM.
+
+karena DOM digunakan oleh javascript agar bis berinteraksi dengan elemen -
+elemen html yg kita buat.
+
+-----------------------------------------------------------------------------------------------------------------------------
+
+jadi game nya gini kita akan menggunakan popup prompt, untuk meminta 
+inputan dari user untuk memlih, mau milih gajah semut atau orang gitu
+
+nah kalo kita memilih salah satu nah kalo menekan oke, komputer
+akan secara random milih pilihannya juga, nah kita memilih gajah
+komputernya memilih semut, nah kita tentukan gajah sama semut
+menang mana.
+
+-----------------------------------------------------------------------------------------------------------------------------
+
+sekarang disini udah ada file javascript nya, sekarang kita pikirkan dulu
+bagaimana tahapannya, pertama kita harus tau dulu playernya milih apa
+jadi kita harus menngkap pilihan player nya.
+
+dan kita hrus menagkap juga pilihan dari komputer, dan nanti kita
+akan membangkitakan bilangan random, lalu selanjutnya kita menentukan
+rulesnya, rules tu apa menang lawan apa, apa kalah lawan apa.
+
+dan diakhir tampilkan hasil.
+
+-----------------------------------------------------------------------------------------------------------------------------
+
+CONTOH DI FILENYA ( ini kita tandain pake komentar dalam javascript ) :
+
+// menangkap pilihan player
+
+// menagkap pilihan komputer
+// membangkitkan bilangan random
+
+// menentukan rules
+
+
+// menampilkan hasilnya
+
+jadi ini namnya algoritmanya atau sudokoynya
+-----------------------------------------------------------------------------------------------------------------------------
+
+untuk menangkap pilihan player misalkan kita isi variabel yg namanya ( p )
+misalkan, disini kita menggunakan prompt lalu kita kasih pesannya, misalnya
+kita kasih aja (' pilih: gunitng, kertas, batu '),
+
+nah gimana nanti kalo misalnya user menginputkan selain 3 itu yg disuruh,
+nah berarti kita hrus tangannin ya, tapi untuk sekrang gitu dulu aja.
+
+-----------------------------------------------------------------------------------------------------------------------------
+
+
+nah selanjutnya menangkap pilihan kompter, caranya gimana, nah misalnya
+gini, saya punya variabel namanya ( comp ) ya untuk menangkap piliha
+komputer, disini saya akan membangkitkan bilangna random, 
+
+menggunakan fungsi ( Math ), ya kalian gausah khwatir dulu kalo belum paham
+mengenai fungsi nanti kita bahas di video berikutnya, ( Math ) itu kita artinya
+memanggil liberynya javascript yg namanya ( Math ) lalu memanggil metodh
+atau fungsinya yg namanya ( random ).
+
+( Math.random(); ) nah ini artinya kita akan membangkitkan bilangan random 
+dari 0 sampe satu.
+
+-----------------------------------------------------------------------------------------------------------------------------
+
+contohnya deh kalo misalkan saya kasih console.log, lalu kita cek nanti akan
+muncul bilangan randomnya yg akan berubah rubah setiap di refresh.
+
+nah tinggal kita tentukan kalo angka nya berapa komputernya milih ( batu )
+kalo angka berpaa komputer milih ( kertas ) dan kalo angka berapa 
+komputernya milih ( gunting ).
+
+-----------------------------------------------------------------------------------------------------------------------------
+
+nah kita udah dapate angka randomnya gimana saya tulis
+
+jika ( if ) comp nya nilainya lebih kecil 0,34
+itu misalkan comp nya kita timpah yg tadinya angka jadi string ( 'gunting' ),
+tapi jika misalnya comp nya lebih besar sama dengan 0,34 dan comp nya
+lebih kecil 0,67 maka comp nya kita timpah dengan string ( 'kertas' ),
+sisanya ( else ) kita isi dengan comp nya string (' batu ').
+
+nah sekarang si compnya ini sudah punya nilainya
+kalo kita cek di console.log yg muncul bukan angak lagi melainkan
+kertas, gunting atau batu karena kita sudah punya nilai nya.
+
+-----------------------------------------------------------------------------------------------------------------------------
+
+sekarnag kita tentukan rulesnya
+
+nah misal kita tambah variabelnya lagi yg namanya ( hasil ) diisi oleh string kosng
+yg nantinya variabel ini akn menampilkan popup alert.
+
+nah sekarang
+
+jika (if ) P ( yg dipilih oleh player ) sama dengan comp ( yg dipilih oleh komputer )
+maka kalian tulis hasil = 'SERI' jadi var hasil di timpah string gitu jadi misalnya
+player dan kommputer mimilih yg sama makan hasilnya seri.
+
+selanjutnya jika ( else if ) si P ( playernya ) sama dengan 'GUNTING' jadi
+misal si playernya memilih gunting maka kita tentukan komputernya milih apa
+kita cek jika ( if) comp sama dengan kertas, jadi kalo comp nya milih kertas
+maka berarti  player menang maka tampilkan hasil == 'MENANG!' selain itu kita hasil == 'KALAH'.
+
+contohnya gini:
+
+var hasil = '';
+
+if (p == comp) {
+    hasil = 'SERI!';
+} else if (p == 'gunting') {
+    if (comp == 'kertas') {
+        hasil = 'MENANG!';
+    } else {
+        hasil = 'KALAH!';
+    }
+
+}
+
+dan ini kita akan bikin pilhan kita yg lainnya ada else if lagi setelah else if
+
+-----------------------------------------------------------------------------------------------------------------------------
+
+jadi teman-temen perhatikan ya misal kita menggunakan else dan if saja
+ini sebetulnya kita bisa gunakan operator ternary.
+
+jadi gini misal ( hasil sama dengan ) ternary tu gini kita tulis kondisinya
+apa menggunakan kurung, kita tulis kondisinya kalo misalkan comp
+sama dengan kertas maka jika true hasilnya menang jika false kalah
+( ( comp == 'kertas' ) ? 'MENANG' : 'KALAH' ; ).
+
+jadi itu ternary satu baris sama dengan else dan if yg di atas jadi lebih simpel
+pake yg ternary aja.
+
+-----------------------------------------------------------------------------------------------------------------------------
+
+contoh:
+
+else if ( p == gunting ) {
+hasil = ( comp == 'kertas' ) ? 'MENANG' : 'KALAH' ; 
+
+}
+ 
+jadi ternary ini kita baca
+
+cek dulu apakah computer ini memelih kertas jika true string menang akan
+masuk ke variabel hasil dan jika false string kalah akan masuk ke hasil.
+
+dan ini kita lakukan terus sampe pilihan yg di ingin kan baru terakhir kasih
+ELSE untuk kalao kita memasukan inputan selain kertas, gunting dan batu.
+
+-----------------------------------------------------------------------------------------------------------------------------
+
+baru di akhir kita tampilkan menggunakan alert
+alert( 'kamu memilih : ' + p + ' dan komputer memilih: ' + comp + '\nmaka hasilnya : kamu ' + hasil )
+
+-----------------------------------------------------------------------------------------------------------------------------
+
+kita cek apakah ada yg kurang di saat menginputkan setelah itu menampilkan
+hasilnya dan pencet ok popup nya ilang kita nya harus refresh lagi biar ada lagi
+
+biar ga ribet refresh terus maka gunakan pengulangan WHILE
+
+tinggal di tambah variabel namany ( tanya ) yg isinya true
+tinggal di while nya tulis tanya dan di akhirnya tambah kan
+tanya = confrim('ulang?');
+
+udah gitu
+
+-----------------------------------------------------------------------------------------------------------------------------
+
+hasil codingannya :
+
+var tanya = true;
+while (tanya) {
+    // menangkap pilihan player
+    var p = prompt('pilih : kertas, gunting, batu');
+
+    // menagkap pilihan komputer
+    // membangkitkan bilangan random
+
+    var comp = Math.random();
+
+    if (comp < 0.34) {
+        comp = 'kertas';
+    } else if (comp >= 0.34 && comp < 0.67) {
+        comp = 'gunting';
+    } else {
+        comp = 'batu';
+    }
+
+    var hasil = '';
+    // menentukan rules
+    if (p == comp) {
+        hasil = 'SERI!';
+    } else if (p == 'gunting') {
+        hasil = (comp == 'kertas') ? 'MENANG!' : 'KALAH!';
+    } else if (p == 'kertas') {
+        hasil = (comp == 'batu') ? 'MENANG!' : 'KALAH!';
+    } else if (p == 'batu') {
+        hasil = (comp == 'gunting') ? 'MENANG!' : 'KALAH!';
+    } else {
+        hasil = 'yang kamu masukan tidak sesuai';
+    }
+
+    // menampilkan hasilnya
+    alert('Kamu memilih : ' + p + ' dan komputer memilih : ' + comp + '\nMaka hasilnya kamu : ' + hasil);
+
+    tanya = confirm('lagi?');
+}
+
+alert('terimakasih sudah memainkan permainannya');
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

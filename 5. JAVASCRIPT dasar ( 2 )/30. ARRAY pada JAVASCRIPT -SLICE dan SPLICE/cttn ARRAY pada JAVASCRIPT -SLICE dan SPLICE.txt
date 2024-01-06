@@ -1,0 +1,183 @@
+ARRAY pada JAVASCRIPT SLICE dan SPLICE
+
+ARRAY METHOD
+
+- Length
+- Join
+- Push, pop, shift, unshift,
+- Slice, splice
+
+sekarang kita akan coba fungsi yg namanya slice dan splice tpi kita liat artinya dulu ya
+kalo tadi Push mendorong masuk, Pop itu memecahkan atau menghilangkan, Shift mengeluarkan
+atau menggeser keluar, Unshift itu menggeser kedalam.
+
+nah kalo Slice itu kan mengiris ya, mengiris array nya jadi ini digunakan ketika kita ingin 
+mengambil beberapa bagian pada array untuk menjadi array yang baru, sedangkan
+Splice artinya menyambung atau menambal gitu, jadi kita bisa menyisipkan sebuah 
+element di Tengah-Tengah menggunakan Splice.
+
+-------------------------------------------------------------------------------------------------------------------------------
+
+// 4. splice
+rumus = splice(indexAwal, mauDihapusBerapa, elemenBaru1, elemenBaru2, ....)
+kita coba yang Splice dulu ya :
+
+nah splice untuk menyisipkan element array di tengah" jadi disini kita udah punya array 
+( var arr = ['Keyla', 'Galih', 'nofa'];  ), kalo ini saya kasih contekan nya biar ga lupa, nah
+rumus nya gini splice lalu mulai dari index berapa, index awal begitu ya, lalu parameter 
+ke-2 ini Opsional, mau dihapus berapa,nah yg ini terakhir mau ditambah element baru apa
+ini juga opsional, kalian bisa kasih element baru nya lebih dari satu, nah gambarannya gini
+(  splice(indexAwal, mauDihapusBerapa, elemenBaru1, elemenBaru2)  ).
+
+nah misalkan kita udah punya array yg tadi ya, nah terus saya mau menambah element
+baru setelahh "Galih", jadi sebelum "Nofa" saya mau menambah kan element baru, caranya
+gini panggil Array nya lalu kita splice atau kita sambung, mau dimana kita splice nya
+mau setelah "Galih" kan berarti Index nya 0,1,2 berarti 2 ya, nah ada yg mau dihapus ga
+gaada ya mala kita mau nambah, berarti tulis 0 aja, lalu kita tambah kan element baru
+"Doddy"  (  arr.splice(2, 0, "Doddy");   ).
+
+paham ga, jadi index awal nya 2 disitu nya, lalu gaada yg mau dihapus, lalu kita menambahkna
+element baru tulisan "Doddy" ya, nah kalo kita console.log maka hasil nya akan seperti itu lah ya
+coba sendiri kau, nah ini juga kita bisa tambahkan lebiih dari 1 nilai.
+
+Contoh codingannya ( 1 ) :
+
+var arr = ['Keyla', 'Galih', 'nofa'];
+arr.splice(2, 0, "Doddy");
+console.log(arr.join(' - '));
+
+maka hasilnya di browser akan :
+
+Keyla - Galih - Doddy - nofa
+
+-------------------------------------------------------------------------------------------------------------------------------
+
+Nah sekarang gimana kalo gini, saya ganti jadi gini, saya mau mulai nya dari index ke ( 1 )
+berarti mulai nya dari "galih" ya, lalu saya mau menghapus 2, ini artinya apa saya ingin
+menghapus 2 element mulai dari "galih" nah dia index ke1 terus "nofa" nah dia index ke 2,
+nanti hasilnya ilang 2.
+
+Contoh codingannya ( 2 ) :
+
+var arr = ['Keyla', 'Galih', 'nofa'];
+arr.splice(1, 2);
+console.log(arr.join(' - '));
+
+maka hasilnya di browser akan :
+
+Keyla
+------------------------------------------
+
+lalu saya juga bisa langsung menambahkan begini 
+
+Contoh codingannya ( 3 ) :
+
+var arr = ['Keyla', 'Galih', 'nofa'];
+arr.splice(1, 2, "Doddy", "Fitri");
+console.log(arr.join(' - '));
+
+maka hasilnya di browser akan :
+
+Keyla - Doddy - Fitri
+------------------------------------------
+
+jadi mulai dari index ke-1 nah index ke 1 nya itu "Galih" nah saya hapus 2
+jadi index 1 dan 2 ke hapus lalu ditambahkan 2 element maka hasilnya (  Keyla - Doddy - Fitri  ).
+
+-------------------------------------------------------------------------------------------------------------------------------
+
+// 5. slice
+
+rumus slice = slice(Awal,Akhir);
+
+slice ini digunakan untuk istilahnya mengiris sebuah array menjadi array yg baru.
+
+jadi saya punya array yg mempunyai  element index nya dari 0 sampai 4, nah misalkan 
+sekarang saya ingin menampilkan 2 elemen di tengah ( 'Galih' dan 'Nofa' ) ini nanti array
+nya kita iris, mulai dari 'Galih' dan berakhir di 'Nofa'.
+
+nah slice ini rumusnya begini jadi kita tentukan dulu mau di iris mulai dari index 
+ke berapa ( awal nya ) lalu akhirnya mau index berapa, dan ini yg harus kalian perhatikan ya
+index awal akan terbawa di array yg baru tpi index akhir tidak.
+
+maksudnya gimana
+
+contohnya gini :
+
+saya mau ngambil 2 ini ya  ( 'Galih' dan 'Nofa' ) ini kan index nya 1, 2 ya, nah terus 
+sekarang kalo saya mau ngambil 2 ini saya tulis nya bukan 1 dan 2 tpi 1 dan 3, jadi
+yang 1 nya terbawa yg 3 nya ngga sehingga yg diambil 2 itu  ( 'Galih' dan 'Nofa' ),
+knp 1 dan 3 dan malah yg di ambil 2 itu karena kan index akhir ga terbawa array
+baru jadi klo kita tulis 1 dan 2 nnti yg akhir nya kan 2 , 2 nya ga terbawa dong gitu.
+
+contoh codingan (4) :
+
+var arr = ['Keyla', 'Galih', 'nofa', "Doddy", 'Fitri'];
+var arr2 = arr.slice(1, 3);
+console.log(arr2.join(' - '));
+
+maka hasilnya di browser akan :
+
+Galih - nofa
+------------------------------------------
+
+ya kita coba, berarti kita harus punya array baru, kita ambil variabel yg namanya
+arr2 diisi dengan array yg mau kita iris, lalu kita slice(1,3); maka dia akan mengambil
+array dengan index 1 dan 2, sekarang kita console.log(arr2.join(' - ');, maka hasilnya
+(  Galih - nofa ) tuh jadi itu index awal nya terbawa index akhirnya dikurangin 1 gitulh.
+
+kalo saya ingin "doddy" nya terbawa juga berarti saya tulis gini ( var arr2 = arr.slice(1, 4);  )
+nah gitu, dan hati" slice itu menghasilkan Array baru jadi kita harus tampung, array yg lamanya
+itu masih ttp bisa diakses, jadi klo saya copy console.log nya jdi gini :
+
+------------------------------------
+contoh codingan (5) :
+
+var arr = ['Keyla', 'Galih', 'nofa', "Doddy", 'Fitri'];
+var arr2 = arr.slice(1, 4);
+console.log(arr.join(' - '));
+console.log(arr2.join(' - '));
+
+maka hasilnya di browser akan :
+
+Keyla - Galih - nofa - Doddy - Fitri
+
+( beda baris karena beda console.log )
+
+Galih - nofa - Doddy
+------------------------------------------
+
+-------------------------------------------------------------------------------------------------------------------------------
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

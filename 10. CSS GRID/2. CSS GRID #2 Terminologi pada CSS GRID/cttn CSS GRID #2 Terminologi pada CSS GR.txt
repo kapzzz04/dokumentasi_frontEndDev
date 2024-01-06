@@ -1,0 +1,127 @@
+CSS GRID #2 Terminologi pada CSS GRID
+
+Kita akan membahas istilah-istilah apa saja yang ada didalam Css grid, kita harus paham dulu sehingga nanti di video berikutnya kita ga bingung. Jadi ini lah beberapa istilah yg ada didalam css grid.
+
+CSS Grid Terminology
+
+- Grid container
+- Grid item
+- Grid line
+- Grid cell
+- Grid area
+- Grid track
+- Grid gap
+
+itulah istilah-istilah nya yang ada paa CSS Grid, sebelum itu ada baik nya kalian instal dulu web browser Firefox, karena firefix itu memiliki grid inspector yg saat ini belum dimiliki google chrome, tapi karena saat ini saya merangkum video nya ternyata google chrome sudah memiliki grid inspector, kalian cukup inspect ke element lalu cari items apa gitu atau si pembungkus nya itu grid nanti klik grid nya (liat di folder). Nah tapi coba gunakan firefox karena dia lebih lengkap dan jelas (liat di ss an).
+
+Jadi apa itu grid inspector, kan kalo di chrome itu ada developer tools ya klik kanan inspeksi elemen, nah di firefox juga punya, kalo kita buka inspect element nya itu kalian bisa liat di sebelah kanan nya ada grid inspector. Jadi kalo make firefox kita bisa liat grid dan flex secara visual. Jadi nanti terlihat garis-garis nya nih, elemen" HTML kita yg sudah dibuat menggunakan GRID.
+
+----------------------------------------------------------------------------------------------------------------------------------
+
+Grid container
+"Element pembungkus grid, didefinisikan dengan menuliskan : display: grid; ". Jadi simpel aja grid container itu element yg untuk pembungkus grid dengan menggunakan display grid itu. Jadi kalo misalkan kita punya element misal div container lalu didalam nya ada beberapa <a> nah jika mau pake grid kasih display grid di container nya dan <a> itu anak dari si container nya gitu deh.
+
+Grid item
+"Element-element yang berada (1level) di dalam grid container"
+grid item itu isi dari si pembungkus grid nya, jadi konsep nya sama aja kaya flexbox gitu lohh ya.
+
+Grid line
+"Garis horizontal (kolom) atau vertikal (baris) yang memisahkan grid menjadi beberapa bagian dan ditandai dengan angka."
+Nah nanti kalo horizontal itu kita sebut dengan kolom dan vertikal itu kita sebut dengan baris, Nah ini akan dengan mudah kita lihat kalo kita pake grid inspector tadi. Jadi kalo kita buka inspector nya nanti kalian liat ada garis" nih yg kekanan atau kebawah.
+
+Nah itu ada angka" nya, angka" nya itu adalah grid line, jadi grid line untuk horizontal ada sampai 4, Nah ingat jumlah line itu pasti lebih 1 dari jumlah kolom atau baris atau table nya, jadi misal disitu kan ada 3 kolom (liat di ss an) itu pasti grid line horizontal nya ada 4 itu kalo di liat dari kiri kekanan, kalo dilait dari kanan ke kiri itu mines liat aja di ( folder ss an nya yg dilingkarin biru gitu ya).
+
+Grid cell
+"Perpotongan / pertemuan antara baris dan kolom di dalam grid."
+Inget aja kalian pake excel 1 cell itu kan perpotongan antara baris dan kolom, jadi kalo saya punya grid nya itu yg di file HTML ini, berarti kita ambil misalnya 1 kolom yg nomor 8 di HTML nya nah itu adalah 1 cell.
+
+Grid area
+"Kumpulan lebih dari satu grid cell yang membentuk kotak."
+Jadi gaboleh cell (kolom) nya ngacak, contoh nya gini kalo misalnya saya punya grid yang tadi ya yg di HTML, itu kalo kita ambil bebebrapa cell misalnya 4 cell ( liat di ssan) itu bisa kita ubah jadi satu area, mungkin yg ini udah di coba di video sebelum nya ya. atau misal seperti ini ( liat di ss an ), nah itu juga bisa jadi satu area. pokoknya harus jadi satu kotak gaboleh bolong satu, misal saya mau ambil kotak 1 dan 3 nah 2 di tengah" 1 dan 3 itu ga terpilih nah itu gabisa bolong gitu.
+
+Grid track
+"Ukuran / jarak antara 2 grid line, bida horizontal (kolom) atau vertikal (baris)."
+Atau gampang nya ukuran cell nya lah, jadi kalo saya punya grid tadi di file HTML nya kita bisa atur ukuran dari tiap" kolom nya secara vertikal atau kebalikan nya untuk horizontal saya bisa atur baris nya (liat di folder).
+
+mungkin kalo di tag <table> itu biasa hubungkan dengan cellpadding ya, ini mirip sama cellpadding ukuran dari tiap" cell. Nah kebalikan nya adalah grid gap.
+
+Grid gap
+"Spasi atau jarak antara grid track / cell."
+atau misalnya kalo di tag <table> ada yg namanya cellspacing, jadi jarak antara cell nya (liat di ss an), kalo kalian mau kasih ruang berarti kalian kasih gap nya lebih besar.
+
+Ini istilah nya untuk mempermudah ketika kita bahas di video selanjutnya biar ga bingung ya.
+dan inget juga tentang browser support untuk saat ini grid hampir di dukung oleh kalangan browser yang populer atau banyak dipake orang jadi tidak usah khawatir.
+
+---------------------------------------------------------------------------------------------------------------------------------
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

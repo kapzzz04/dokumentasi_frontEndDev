@@ -1,0 +1,182 @@
+MEMBUAT PROGRAM PENGELOLAAN PENUMPANG ANGKOT dengan JAVASCRIPT (Bagian 2)
+
+jadi kita disini akan melanjutkan program dari video sebelumnya ya
+
+-------------------------------------------------------------------------------------------------------------------------------
+jadi function yg akan kita buat itu hapusPenumapang()
+
+- 2 parameter
+   - namaPenumpang
+   - array penumpang
+
+- RULES
+   - jika angkot kosong, tampilkan pesan bahwa angkot kosong
+   - jika ada penumpang yang namanya sesuai, hapus nama penumpang pada array
+     dengan memberi nilai undefined
+   - jika tidak ada penumpang yang namanya sesuai, tampilkan pesan kesalahannya
+
+kita liat dulu rules nya ya, nah yg pertama itu sama aja sama tambahPenumpang kita punya
+2 parameter nama parameter nya namaPenumpang dan array penumpang, lalu ruler nya
+agak mirip ya rules yg pertama ketika angkot nya kosong kita akan menampilkan pesan bahwa
+angkot nya kosong, kalo angkot nya kosong berarti gaada yg bisa turun.
+
+lalu jika ada penumpang yg namanya sesuai dengan nama yg kita kirim dengan nama yg ada pada
+parameter maka kita akan menghapus nama penumpang pada array tadi, caranya dengan 
+memberi nilai undefined, ya jadi nama penumpang akan kita gani dengan undefined, nah itu
+artinya penumpang nya berhasil turun.
+
+nah yg ketiga jika kita mengirimkan nama penumpang yg tidak ada di angkot, maka kita akan
+menampilkan pesan kesalahannya bahwa gaada penumpang dengan nama tersebut gitu.
+
+-------------------------------------------------------------------------------------------------------------------------------
+
+hapusPenumpang() -Test Case 1
+
+var penumpang = [];
+
+kalo penumpang nya kosong lalu kita hapus nama "keyla", karena gaada nama "keyla" di angkot
+kan angkot nya kosng ceritanya, maka tampilkan pesan "angkot masih kosong!".
+
+-------------------------------------------------------------------------------------------------------------------------------
+
+hapusPenumpang() -Test Case 2
+
+var penumpang = ['Keyla', 'Galih', 'Doddy'];
+
+ketika ada penumpang nya didalam angkot lalu kita mau menurunkan penumpang, misalkan
+saya mau menurunkan 'Galih' dan galih tersebut ada didalam angkot, maka hasilnya 'Galih'
+tadi kita ganti nilai nya dengan undefined, nah ini lah yg menyebabkan kursi nya itu bisa bolong
+atau kosong karena penumpang nya turun.
+
+-------------------------------------------------------------------------------------------------------------------------------
+
+hapusPenumpang() -Test Case 3
+
+kalo misalnya ada penumpang ada didalam angkot, tapi kita nyuruh turun penumpang yg gaada
+didalam angkot, misalnya kita akan menghapus nama penumpang 'Nofariza', tapi 'Nofariza'
+gaada didalam angkot nya, maka tampilkan pesa namaPenumpang tadi tidak ada di dalam Angkot.
+
+-------------------------------------------------------------------------------------------------------------------------------
+
+CONTOH CODINGAN :
+
+ini variabel nya sama kaya di tambahPenumpang
+
+var hapusPenumpang = function (namaPenumpang, penumpang) {
+    // jika angkot kosong
+    if (penumpang == 0) {
+        // tampilkan pesan bahwa angkot kosong, dan
+        // tidak mungkin ada penumpang turun
+        console.log('Angkot masih kosong!');
+        // kembalikan isi array & keluar dari function
+        return penumpang;
+    } else {
+        // telusuri seluruh kursi dari awal
+        for (var i = 0; i < penumpang.length; i++) {
+            // jika nama penumpang sesuai
+            if (namaPenumpang == penumpang[i]) {
+                // hapus nama penumpang dengan mengubah namanya,
+                // menjadi undefined
+                // cara 1. penumpang[i] = undefined;
+                penumpang.splice(i, 1, undefined);
+                // kembalikan isi array & keluar dari function
+                return penumpang;
+            }
+            // jika tidak ada nama yang sesuai
+            else if (i == penumpang.length - 1) {
+                // tampilkan pesan kesalahannya
+                console.log(namaPenumpang + ' tidak ada di dalam Angkot.');
+                // kembalikan isi array & keluar dari function
+                return penumpang;
+            }
+        }
+    }
+}
+
+-------------------------------------------------------------------------------------------------------------------------------
+
+disini kita kasih nama variabel baru nya hapusPenumpang, di isi dengam function, parameternya
+ada 2, ada namaPenumpang dan array penumpang.
+
+lalu didalam nya kita akan cek kondisi yg pertama dulu ya, kondisi yg pertama ketika angkotnya
+kosong, jadi ( if ) kita cek dengan ( penumpang.length == 0 ) maka tampilkan pesanya
+( console.log('Angkot masih kosong!'); ), jadi gamungkin ada penumpang yg turun, lalu kembalikan
+nilai penumpang nya ( return penumpang; ).
+
+ELSE selanjut nya ketika, kalo udah ada penumpang nya kita telusuri lagi menggunakan FOR
+(   for (var i = 0; i < penumpang.length; i++)  ), lalu kita akan cek apakah penumpang dengan
+nomor kursi [ i ] itu namanya sama dengan namaPenumpang, yg kita kirim pada parameter
+functionya, berarti ada gitu penumpang yg mau turun nya, berarti kalo ada penumpang di kursi
+tersebut kita isi dengan undefined ( penumpang[i] = undefined; ), jadi kita mengkosongkan kursinya
+dengan cara diganti dengan nilai undefined, baru return penumpang;.
+
+itu kallo ada nama nya sama ya, nah kalo gaada, kalo sudah ditelusuri sampai kursi terakhir,
+ya sama seperti waktu peumpang nya naik ya, kalo ini kita sudah telusuri kursinya sampai akhir
+ternyata gaada penumpang dengan nama tersebut, berarti kita cek penumpang.length - 1,
+nah berarti kursi terakhir ya, nah kalo gaada tampilkan pesan console.log(namaPenumpang + ' tidak ada di dalam Angkot.'); , lalu return penumpang;.
+
+nah ini sebetul nya kita bisa bikin lebih ringkas, dengan menaruh return penumpang nya di
+akhir bisa liat contoh di codingan vs code nya langsung, tapi yg di catetan ini ga di ubah ya.
+
+-------------------------------------------------------------------------------------------------------------------------------
+
+nah sekarang kalian bisa mencoba coba hasil program yg kalian sudha buat
+mau di gimnain nanti kalo ada yg salah bisa pake tabel penelusuran ya, ditelusuri
+sampai bener dan berjalan lagi programnya tetap tenang gays.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

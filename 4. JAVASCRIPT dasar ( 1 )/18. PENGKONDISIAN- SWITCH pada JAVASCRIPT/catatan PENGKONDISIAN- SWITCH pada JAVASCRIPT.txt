@@ -1,0 +1,272 @@
+ PENGKONDISIAN SWITCH pada JAVASCRIPT
+
+jadi SWITCH ini penggunaanya mirip dengan iIF dan ELSE
+
+MISAL
+
+if (kondisi 1) {
+    aksi 1
+} else if (kondisi 2) {
+    aksi 2
+} else if (kondisi 3) {
+    aksi 3
+} ... 
+ else if (kondisi n) {
+    aksi n
+} else {
+    aksi default
+}
+
+kita punya IF kondisi 1 yang jika kondisi 1 nya itu bernilai true maka 
+lakukan aksi 1.
+
+selain itu jika masuk kondisi 2 jadi ELSE IF kondisi 2
+jika kondisi 2 bernilai true maka lakukan aksi 2.
+
+dan seterusnya kita bisa banyak sekali ELSE IF jika kita butuh
+
+sampai kekondisi ke n yang jika kondisi n bernilai true maka
+laukan aksi ke n.
+
+dan di akhir selain dari semua kondisi tersebut maka akan masuk
+ke bagian ELSE menjalankan aksi default nya
+
+kalo teman-teman masih inget syntak if dan ELSE dan IF ELSE seperti itu
+------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+nah dengan menggunakan SWITCH fungsinya juga mirip tapi
+nanti yang membedakan adalah kondisinya dimana SWITCH itu 
+tidak memiliki kondisi yang banyak.
+
+nah kondisinya hanya ada satu nanti SWITCH akan mengecek
+nilai hasil dari kondisi nya
+
+------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+jadi kalo kita menggunakan SWITCH syntak nya jadi seperti ini
+
+switch (ekpresi) {
+    case 'nilai 1':
+         aksi 1
+    break;
+    case 'nilai 2':
+         aksi 2
+     break;
+    case 'nilai n':
+         aksi n
+     break;
+    default:
+        aksi default
+     break;
+}
+
+jadi syntak nya switch dalam kurung ekspresi, ekspresi ya bukan kondisi
+nah nanti ekspresi nya menghasilkan sebuah nilai, kita kasih dengan 
+kurung kurawal buka dan tutup.
+
+nah di dalam nya kita mengecek menggunakan case atau kasus-kasus
+hasil dari ekspresi nya.
+
+misal nya, misal case nya atau nilai dari ekspresi nya itu nilai 1 maka
+jalankan aksi 1, 
+
+setiap aksi nya kita boleh aja menambahkan kywerd BREAK, kywerd 
+break ini opsional nanti kita liat cara pakai nya seperti apa, ini supaya 
+aksi 1 dijalankan dia keluar dari switch ini.
+
+atau jika nilai dari eksepresi nya nilai 2 jalankan aksi 2 ya sampai nilai
+ke n, jika nilai nya tidak terpenuhi dari semua nilai di atas maka akan
+masuk ke aksi default nya.
+
+jadi sama seperti if, else if, else if, else if, else
+
+jangan lupa setelah case atau default memakai nya ini ( : ) bukan ( ; )
+
+------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+MISALNYA
+
+saya punya sebuah variabel angka dan isi dengan 1, misal if kondisi ( 1 ) nya
+angka sama dengan 1, aksi ( 1 ) nya alert('anda memasukan angka 1'), dan
+else if kondisi ( 2 ) nya angka sama dengan 2 aksi ( 2 ) nya alert('anda
+memasukan angka 2') selain dari semua nya maka else memunculkan
+aksi defalut aksinya yaitu alert('angka yang anda masukan salah').
+
+CONTOH JIKA DITERJEMAHKAN KE DALAM CODINGAN:
+
+var angka = 1;
+
+if (angka == 1) {
+    alert('anda memasukan angka 1');
+} else if (angka == 2) {
+    alert('anda memasukan angka 2');‎
+} else {
+    alert('angka yang anda masukan salah');
+}
+
+misal mau user yg inputkan angka nya bisa diganti dengan prompt
+var angka = prompt( 'maksukan angka:' );
+‮
+ini kalo gunakan if else , else if
+
+------------------------------------------------------------------------------------------------------------------------------------------------------------
+menggunakan switch CONTOH
+
+var angka = prompt('masukan angka');
+
+switch (angka) {
+    case '1':
+        alert('anda memasukan angka 1');
+        break;
+    case '2':
+        alert('anda memasukan angka 2');
+        break;
+    case '3':
+        alert('anda memasukan angka 3');
+        break;
+    default:
+        alert('anda memasukan angka yg salah');
+        break;
+}
+
+jadi karena tipe data nya beda jika yg case 1 itu tidak di beri string misa
+case 1 gini aja akan salah yg bener case '1' gini karena apa yg dimasukan
+ke dalam prompt akan menjadi string mau apapun itu.
+
+nah jadi  ( angka ) itu eskpresi dan case nya harus nilai dan kita tidak bisa
+memasukan kondisi di dalam case .
+
+------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+CONTOH LAIN
+
+var item = prompt('masukan nama makanan / minuman: \n (cth: nasi,daging,susu,humburger,softdrink,)');
+
+switch (item) {
+
+    case 'nasi':
+        alert('makanan / minuma SEHAT');
+        break;
+    case 'daging':
+        alert('makanan / minuma SEHAT');
+        break;
+    case 'susu':
+        alert('makanan / minuma SEHAT');
+        break;
+    case 'humburger':
+        alert('makanan / minuma TIDAK SEHAT');
+        break;
+    case 'softdrink':
+        alert('makanan / minuma TIDAK SEHAT');
+        break;
+    default:
+        alert('tidak sesuai intruksi');
+        break;
+
+}
+
+di atas cara menulis nya dan baca nya gini
+
+switch ( item ) itu artinya nanti kita akan memilih kasus mana yg akan dikerjakan
+sesuai isi dari variabel ( item ).
+
+kalo misalnya isi var ( item ) itu daging maka dia akan mencari case daging, kalo 
+ketemu maka tampilkan aksi nya dan kalo ktemu break dia akan keluar 
+dari switch.
+
+sebetulnya itu cara pakai dari SWITCH
+
+------------------------------------------------------------------------------------------------------------------------------------------------------------
+------------------------------------------------------------------------------------------------------------------------------------------------------------
+Misalkan kalian tidak menggunakan break
+
+sebetulnya ini lebih efektif jika tidak menggunakan break
+
+karena gini, contohnya aja misal user memasuki nasi, maka case yg akan dipilih
+case yg nasi kan maka jalan kan alert( 'makanan / minuman SEHAT' ) terus
+ketemu breka keluar dari switch.
+
+kalo gaada break nya setelah aksi di jalankan, dia tidak keluar dari switch dan
+karena tidak ada break dia jalan ke case berikutnya tampilkan aksi 2 baru
+break, nah makannya yg akan terjadi alert nya tampil 2 kali.
+
+------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+jadi maksudnya gini:
+
+
+var item = prompt('masukan nama makanan / minuman: \n (cth: nasi,daging,susu,humburger,softdrink,)');
+
+switch (item) {
+
+    case 'nasi':
+    case 'daging':
+    case 'susu':
+        alert('makanan / minuma SEHAT');
+        break;
+    case 'humburger':
+    case 'softdrink':
+        alert('makanan / minuma TIDAK SEHAT');
+        break;
+    default:
+        alert('tidak sesuai intruksi');
+        break;
+
+}
+
+jadi kalo orang milih nasi tidak usah tampilkan apa- apa, kalo
+user pilih daging gausa tampilkan apa-apa juga, baru ketika
+case nya susu baru tampilkan aksi nya alert.
+
+maksudnya gini
+
+kalo user menginputkan nasi maka tampilkan aksi itu si alert
+ya karena dia kebawah gaada apa-apa sampai kebawah lagi
+ada alert baru jalankan aksi setelah itu break keluar.
+
+yang humburger dan softdrink juga sama gitu.
+
+nah jadi kita bisa lakukan penghilangan break jika aksi ada yg sama
+kalo setiap case aksi nya berbeda tidk usah menghilangkan break
+jadi sesuaikan kondisi.
+
+------------------------------------------------------------------------------------------------------------------------------------------------------------
+------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+kalian hanya bisa memasuki valeu ke case atau nilai saja dan perhatikan
+tipe data nya
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  

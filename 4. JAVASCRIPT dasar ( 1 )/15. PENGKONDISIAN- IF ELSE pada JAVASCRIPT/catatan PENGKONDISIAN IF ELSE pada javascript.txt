@@ -1,0 +1,271 @@
+PENGKONDISIAN IF ELSE pada JAVASCRIPT
+
+syntak dasar dari if else
+
+if( kondisi ) {
+
+aksi
+} else {
+
+aksi
+}
+
+jadi jika kondisi nya itu bernilai true maka jalankan aksi
+dan jika kondisi bernilai false maka keluar dari blok nya atau if
+
+--------------------------------------------------------------------------------------------------------------
+
+CNTOH;
+
+var angka = 1;
+
+if( angka === 1 ) {
+
+alert( 'anda memasukan angka 1')
+
+}
+
+dan jika dijalankan maka akan muncul alert nya ya
+
+--------------------------------------------------------------------------------------------------------------
+
+CNTOH;
+
+var angka = 2;
+
+if( angka === 1 ) {
+
+alert( 'anda memasukan angka 1')
+
+}
+
+nah var angka diganti jadi angka 2 jadinya, angka === 1 berarti false ya 
+karena 2 ga sama dengan 1 maka alert nya itu tidak akan dijalankan 
+dan dia keluar dari blok nya, karena setelah if tidak ada apa-apa jadi
+kalo di cek diconsole ga nongol apa-apa ya.
+ 
+--------------------------------------------------------------------------------------------------------------
+
+nah selanjutnya kita bisa mnyimpan kondisi nya macam-macam
+
+maksud kondisi itu if( kondisi ) ini ya
+
+bisa kita isi kondisi nya dengan operator lebih kecil dari 
+
+CONTOH;
+
+var angka = 2;
+
+if( angka < 5 ) {
+
+alert( angka + ' lebih kecil dari 5' );
+
+}
+
+jadi kita ttp punya variabel angka yg di isi 2 dan kondisinya
+jika angka lebih kecil dari 5 maka tampilkan alert
+
+kalo angka nya 5 gimana jadi 5 lebih kecil dari 5, maka akan
+bernilai false ya gays jadi alert nya ga muncul.
+
+--------------------------------------------------------------------------------------------------------------
+
+atau bisa juga misal kita mau mengecek sebuah bilangan ganjil atau genap
+
+CONTOH: 
+
+var angka = 2;
+
+if (angka % 2 == 0) {
+    alert(angka + ' adalah angka genap ');
+}
+
+JADI itu dibacanya jika angka modulos 2 atau sisa baginya itu sama
+dengan 0 maka angka tersebut pasti bilangan GENAP
+
+nah misal angka nya 3 berarti ga tampila apa-apa dong
+
+nah giman jika kalian mau mengecek angka ganjil saja
+bisa aja begini 
+
+--------------------------------------------------------------------------------------------------------------
+
+CONTOH:
+
+var angka = 3;
+
+if (angka % 2 == 1) {
+    alert(angka + ' adalah angka GANJIL ');
+}
+
+
+jadi jika sisa baginya sama dengan 0 maka tampilkan genap
+dan jika sisa baginya sama dengan 1 tampilkan GANJIL
+
+--------------------------------------------------------------------------------------------------------------
+
+jadi kita biasanya ga pake cara itu
+
+var angka = 3;
+if (angka % 2 == 0) {
+    alert(angka + ' adalah angka genap ');
+}
+
+if (angka % 2 == 1) {
+    alert(angka + ' adalah angka ganjil');
+}
+
+
+kita bisa gunakan sebuah cara untuk menagkap jika nilai yg dihasilkan
+atau jika konndsi didalam if itu bernilai FALSE nah kita bisa tangkap
+nilai nya itu menggunakan kywerd ELSE
+
+JADI cara pakai nya gini, jika kita ingin  tangkap sisa bagi selain 0
+kita bisa ganti aja blok IF yg kedua itu menggunakan ELSE
+
+--------------------------------------------------------------------------------------------------------------
+
+CONTOH CARA PAKAI NYA:
+
+var angka = 3;
+
+if (angka % 2 == 0) {
+    alert(angka + ' adalah angka genap ');
+}
+else {
+    alert(angka + ' adalah angka ganjil');
+}
+
+jadi tidak terpenuhi kondisi si IF itu atau IF nya bernilai FALSE maka
+akan dijalankan yg bgian ELSE
+
+maka jika kita jalankan tampil nya yg mana, apakah 3 di bagi 2
+itu sisa bagi nya 0? false ya maka kalo false dia akan ke bagian
+ELSE jalankan yg ada di ELSE nya.
+
+ELSE nya itu bisa kita isi apa aja ya ga harus ( alert ) bebas
+sesuaikan keadaannya aja.
+
+--------------------------------------------------------------------------------------------------------------
+
+misal kan kalian ingin var angka itu di input kan oleh user maka 
+kalian tinggal gunakan menggunakan POP UP yg bernama ( prompt )
+
+CONTOH NYA:
+
+var angka = prompt('masukan angka random:');
+
+if (angka % 2 == 0) {
+    alert(angka + ' adalah angka genap ');
+}
+else {
+    alert(angka + ' adalah angka ganjil');
+}
+
+jadi user nya memasukan angka, kalo 1 ganjil, kalo 2 genap.
+
+--------------------------------------------------------------------------------------------------------------
+
+ya walaupun itu masih ada kekurangan, kekurangan nya apa ? jadi
+jika user memasuki kharkter selain angka misal dia masukin 
+huruf, kira-kira tampilnya apa, nah 
+
+jika user masukan huruf A hasil nya false kan nah jadi dia akan masuk
+ke dalam else itu yg aksi nya ( alert ) itu ngerti lah ya
+--------------------------------------------------------------------------------------------------------------
+
+jadi itu penggunaan if dan else yg sangat sederhana
+
+--------------------------------------------------------------------------------------------------------------
+
+LATIHAN
+
+suruh bikin file angkot3.js dan menampilkan hal yg sama yaitu
+ada sebuah angkot berjumblah 10 pengen nya 1-6 beroperasi
+dengan baik dan 6-10 sedang tidak beroperasi, nah harus 
+menggunakan 1 buah for aja dan pengkondisian
+
+CONTOH CODINGAN NYA 
+
+var jmlAngkot = 10;
+var noAngkot = 1;
+var angkotBeroperasi = 6;
+
+for (noAngkot = 1; noAngkot <= jmlAngkot; noAngkot++) {
+
+    if (noAngkot <= angkotBeroperasi) {
+        console.log('Angkot No ' + noAngkot + ' beroperasi dengan baik.');
+    } else {
+        console.log('Angkot No ' + noAngkot + ' sedang tidak beroperasi.');
+    }
+
+}
+
+--------------------------------------------------------------------------------------------------------------
+
+jadi jika noAngkot lebih kecil sama dengan jmlAngkot maka jalankan
+aksi yg ada di dalam FOR, yg ada di dalam for kan pengkondisian itu
+nah dia jalanin dulu tuh si pengkondisian nya dibacanya gini
+
+jadi jika noAngkot lebihkecil sama dengan angkotBeroperasi
+maka jalan kan console.log yg di bagian IF, kan 1 lebih
+kecil dari 6 ya berarti true terus nongolon si console.log di
+bagian IF nah baru noAngka itu ditambah 1 jadi 2 ya
+
+kan ada inscrement jadi setiap pengulangan si noAngkot itu
+ditambah 1 jadi noAngkot itu nilai nya ga ttp 1 akanbertambah
+sehingga nnti akan bernilai false semisal udah sampe
+10 nilai yg didalam noAngkot tersebut maka ke 11 dlu
+agar menghentikan loop nya / pengulangan nya jadi
+bernilai false
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

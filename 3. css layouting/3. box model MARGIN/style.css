@@ -1,0 +1,52 @@
+body {
+    font-family: arial;
+
+
+}
+
+.konten,
+.dalam {
+    box-sizing: border-box;
+}
+
+
+
+.satu {
+    width: 200px;
+    height: 200px;
+    background-color: lightblue;
+    margin: 10px 20px 30px 40px;
+}
+
+.dua {
+    width: 100px;
+    height: 100px;
+    background-color: salmon;
+}
+
+.tiga {
+    width: 50px;
+    height: 50px;
+    background-color: aqua;
+}
+
+.konten {
+    width: 500px;
+    height: 500px;
+    background-color: darkgray;
+    margin: auto;
+    padding-top: 150px;
+
+
+}
+
+.dalam {
+    width: 400px;
+    height: 200px;
+    background-color: yellow;
+    border: 1px black solid;
+    margin: auto;
+    padding-top: 75px;
+    padding-left: 100px;
+
+}

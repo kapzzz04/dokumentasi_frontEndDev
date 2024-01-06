@@ -1,0 +1,900 @@
+Canvas -- Belajar HTML5
+
+Definisi dari canvas
+"Elemen canvas dapat digunakan untuk menampilkan grafis,seni, atau gambar secara langsung
+menggunakan script."
+
+untuk membuat sebuah canvas sebetulnya simpel kita punya Tag pembukan dan tag penutup
+( <canvas></canvas> )
+
+Nah sekarang apa aja sih yg bisa dibuat dengan canvas, jadi canvas itu bisa membuat yg paling
+sederhana itu sahve, jadi bentuk dasar dua dimensi bisa kotak bisa lingkaran,segitiga atau bentuk
+apapun selama dia merupakan bagian dari sahve di canvasnya.
+
+Terus juga element"  yg bisa kita kasih warna kedepannya bisa kita animasikan dan seterusnya.
+selain itu juga canvas bisa kita gunakan untuk membuat digital art contohnya adalah kita bikin
+lingkaran seperti ini ( liat di folder aja ya).
+
+( https://codepen.io/jackrugile/pen/kMWyeM )
+
+Yang kalo kalian kunjungi websaite nya itu keren banget, jadi bisa membuat seni digital seperti itu
+lah ya, nah itu dibuat dengan menggunakan canvas. Berikutnya juga kita bisa bikin seni digital yg
+intraktive ( https://codepen.io/waisbren89/pen/gwvVpP ), yg ketika saya gerakan mousenya itu
+seolah" ada percikan api, nah itu dibuat juga menggunakan canvas.
+
+Nah game juga bisa kita buat dengan menggunakan sebuah canvas dengan menggabungkan 
+element" grafis animasi dan juga interaksi ( https://codepen.io/onuraslan/pen/jRGMjo ) dan masih
+banyak yg bisa kita buat dengan menggunakan canvas. 
+
+Di video kali ini itu sederhana aja kita cari  tau gimana cara penggunaan canvas pada halaman web
+kita, nah nanti kedepannya kalo misalnya kita mau belajar lebih jauh mengenai canvas itu nanti kita 
+akan buat di seri atau playlist yg terpisah.
+
+-------------------------------------------------------------------------------------------------------------------------------
+
+<CANVAS> kharakteristik
+
+- Digunakan untuk menggambar grafis menggunakan javascript 
+- BIasa digunakan untuk membuat: animasi, game, visualisasi data, manipulasi foto dan 
+  pemrosesan video secara real-time
+- Dapat berisi object 2D atau 3D
+- Menggunakan Canvas API atau WebGL API
+
+Dia digunakan untuk menggambar grafis yg manipulasinya yaitu dilakukan menggunakan javascript
+jadi Tag canvas ini HTML tapi apa yg bisa kita lakukan di dalam canvasnya itu di manipulasi
+menggunakan javascript. 
+
+Berikutnya canvas ini biasa digunakan untuk bikin animasi, game, visualisasi data, manipulasi foto 
+dan pemrosesan video secara real-time, didalamnya itu bisa berisi object 2D atau 3D walaupun
+yg akan kita coba di video kali ini hanya yg 2D.
+
+Nah untuk yg 2D itu kita gunakan yang namnya Canvas API sedangkan untuk yg 3D itu bisa 
+gunakan WebGL API, jadi ada 2 API yg bisa kita hubungkan kedalam canvas kita.
+
+-------------------------------------------------------------------------------------------------------------------------------
+
+<CANVAS> attributes
+
+- width
+- height
+
+sebetulnya attribute nya hanya ada 2 ya teman", kita cuma bisa kasih width dan height nya saja,
+ini digunakan untuk mengatur lebar dan tinggi dari canvas milik kita, ya walaupun kedepannya 
+ukuran dari canvasnya ini bisa kita manipulasi juga menggunakan javascript.
+
+CANVAS API
+
+Sekarang kita langsung masuk aja ke canvas API, jadi ini lah cara kita untuk menghubungkan 
+canvas agar kita bisa manipulasi  menggunakan javascript, jadi menurut definisi nya :
+
+" Canvas API menyediakan cara untuk menggambar grafis 2D menggunakan javascript. "
+
+nah tapi sebelum kita liat fungsi" javascript  apa saja yg bisa kita gunakan untuk memanipulasi
+canvas nya kita harus paham dulu mengenai Grid dari canvas ya. Jadi ketika kita membuat sebuah
+canvas berapapun dimensi nya yg kalian harus pahami adalah canvas itu bisa kita anggap
+representasinya sebagai diagram cartesian ( seperti di gambar ).
+
+Dimana cordinat 0,0 nya itu berada di atas kiri dari canvasnya sumbu harizontal itu disebut dengan
+X dan sumbu yg vertikal itu disebut dengan sumbu Y. Jadi nanti ketika kita mau membuat sebuah
+object kita harus tentukan dulu titik nya mau mulai dari mana.
+
+Misalnya kita mau bikin sebuah kotak sederhana aja, nah nanti kita harus kasih tau titik awalnya 
+ada dimana, misalnya saya mau bikin (50,50) itu artinya saya akan geser sumbu x ke kanan, 
+positif itu ke kanan 50px lalu 50px lagi kebawah ke sumbu Y. ( ini kaya mtk lah ya persumbuan ).
+
+nah berarti ketika saya mau bikin sebuah kotak mulai nya dri situ ( liat di gambar titik kursornya ),
+berikutnya kita tinggal tentukan dimensi dari kotak nya berapa, lebar nya berapa tinggi nya berpa,
+manipulasinya menggunakan width dan height.
+
+-------------------------------------------------------------------------------------------------------------------------------
+
+Membuat Canvas
+
+Berikutnya kita akan liat cara bikin canvasnya, script apa yg bisa kita gunakan untuk membuat
+canvas, yg pertama tentu saja kita butuh Tag <canvas> nya dulu sebagai element HTML, boleh
+dikasih ( id ) agar kita gampang nanti memanggilnya menggunakan Javascript, berikutnya baru kita
+tulis javascript nya. Seperti ini :
+
+HTML :
+
+<canvas id="mycanvas"></canvas>
+--------------
+Javascript :
+
+const mycanvas = document.getElementById('mycanvas');
+
+mycanvas.widht = window.innerWidth;
+mycanvas.height = window.innerHeight;
+
+const c = mycanvas.getContext('2d');
+----------------------------------------
+
+Nah ini ada beberapa hal yang harus kalian perhatikan ya, jadi yang pertama kita ambil dulu 
+element canvasnya, setelah itu kita atur dulu dimensi nya mau berapa, lebar dan tinggi ketika kita
+tidak mendefinisikan didalam element canvasnya.
+
+Saya bisa tulis lebarnya atau width nya itu sesuai dengan lebar dari window kita, jadi berapapun 
+lebar window nya itu adalah ukuran canvasnya, jadi saya bisa tulis seperti itu keitika saya pengen 
+canvasnya full satu layar, Tapi kalo kalian mau tulis angka pun boleh ya mislanya 500px,300px dan
+berapun lah ya.
+
+Tapi untuk codingan javascript di atas itu artinya canvasnya full satu layar begitu juga dengan 
+height nya. Nah setelah kita punya element dan kita punya dimensinya barulah kita pangil context-
+nya. Nah kita mau bikin contex nya sebagai apa.
+
+Kalo kita mau pake canvas API berarti kita bikinnya ('2d') setelah itu kita masukan kedalam sebuah 
+variabel, nah variabel itulah yang kedepan nya akan kita gunakan untuk memanipulasi canvasnya,
+ya variabel nya juga namanya bebas apa aja.
+
+-------------------------------------------------------------------------------------------------------------------------------
+
+Canvas API shapes
+
+- Rectangle
+- Arc / Circle
+- Path
+- Bezier & Quadratic Curve
+
+sekarang kita masuk dulu ke bentuk apa saja yang bisa dibuat menggunakan canvas API atau 
+shapes ya.
+
+yg pertama kita bisa bikin kotak ya atau Rectangle, yg ke-2 kita bisa bikin arc atau circle atau
+lingkaran, yg ke-3 kita bisa bikin Path nah kalo ini nanti shapes nya bentuknya bebas tergantung
+dari path yang kita buat, Jadi path ini jalur yang kalo misalkan jalurnya kita tutup nanti akan 
+membuat sebuah shapes, terserah kita jalurnya mau berapa garis mau dari titik mana ke titik mana
+itu bebas.
+
+Berikutnya kita bisa bikin Bezier dan Quadratic curve, Nah ini misalnya teman" mau bikin sebuah
+Kurva itu bisa menggunakan 2 itu, tapi di video kali ini kita akan mencoba yg sederhana dulu aja
+ya yg 3 ke atas.
+
+-------------------------------------------------------------------------------------------------------------------------------
+
+Rectangle
+
+nah untuk membuat sebuah kotak  atau rectangle, nah yg pertama kita bisa tulisa aja sebuah
+methiod yang bernama ( fillRect() ) jadi kita pangil tadi object context nya lalu kita tulis fillRect.
+Seperti ini :
+
+c.fillRect(25, 25, 100, 100);
+-------------------------------
+
+Nah itu kita tulis angka nya, yg petama mulai dari mana titiknya ( maksudnya titik sumbu x atau y ),
+lalu dimensi kotak nya berapa. Jadi 25 pertama sumbu X 25 yg ke-2 sumbu Y, lalu 100 yg pertama
+width dan 100 yg ke-2 itu height.
+
+Maka nanti kotak nya akan mulai dari kordinat (25,25) lalu lebar nya 100 tinggi nya 100, sehingga
+nanti akan ada kotak berwarna hitam yg posisinya ada disitu ( liat di folder ) dengan ansumsi 
+canvas kita memenuhi satu layar, Nah kan tadi kita udah atur canvas kita dengan memenuhi satu
+layar ya menggunakan window.innerWidth dan height nya juga terus udha kita ke context in juga
+jadi bisa kotak nya ada di posisi itu.
+
+ya kalian bisa gabungkan antara canvas dengan element HTML biasa itu bisa, nanti kita tinggal 
+atur aja dimensi canvas nya tapi untuk sekarang yg kalian liat itu adalah canvas yg memenuhi
+satu layar.
+
+-------------------------------------------------------------------------------------------------------------------------------
+
+c.fillStyle = 'pink';
+c.strokeStyle = '#333';
+c.lineWidth = 5;
+
+c.rect(50, 50, 300, 400);
+c.fill();
+c.stroke();
+-------------------------------
+
+Berikutnya kalo kita mau lebih fleksibel lagi mengatur perilaku dari kotak nya saat bikin rectangle
+kita juga bisa kasih tau isi warna nya mau apa, mau ada garis bordernya atau tidak lalu tebal
+dari bordernya mau apa. Sehingga pada saat kita panggil itu ga langsung ( fillRect ) seperti tadi
+tapi kita tulis satu", lalu kita kasih ( fill() ) atau warna isinya fill itu ngambil dari ( fillStyle ) ya. Nah
+baru kita kasih ( stroke() ) atau garis nya, nanti garisnya tampil sesuai perilaku yg kita kasih di yg
+ada di atas codingan ( c.react ) itu.
+
+Sehingga nanti tampilnya begitu lah ya, ada kotak yg dimulai dari (50,50) terus lebarnya 300 tinggi
+nya 400 warna nya pink garis nya warna abu-abu tebal nya 5px. bisa di pahamin aja codinganya
+itu ya.
+
+-------------------------------------------------------------------------------------------------------------------------------
+
+CIRCLE
+
+Berikutnya kalo kita mau bikin sebuah circle atau lingkaran Nah cara bikin nya itu gini :
+
+const mycanvas = document.getElementById('mycanvas');
+
+mycanvas.widht = window.innerWidth;
+mycanvas.height = window.innerHeight;
+
+const c = mycanvas.getContext('2d');
+
+c.fillStyle = 'lightblue';
+c.strokeStyle = '#000';
+c.lineWidth = 2;
+
+c.arc(300, 300, 150, 0, 2 * Math.PI);
+c.fill();
+c.stroke();
+-------------------------------------------------------------------------
+
+sama ya seperti sebelumnya tapi yang membedakan itu untuk memanggil lingkaran nya kita 
+gunaka (arc), mau mulai dari mana sumbu X sumbu Y, terus radius nya berapa, lalu yg 0 itu sudut
+awalnya mau berapa, lalu ( 2 * Math.PI) itu sudut akhirnya mau berapa. 
+
+Nah kalo sudutnya kita tulis nya 0 dan  2 * Math.PI, ini tuh 2 di kali 22 per 7, nah 22 per 7 kaya 
+rumus menghitung lingkaran gayss. nah nanti akan menghasilkan sebuah lingkaran yg sempurna.
+
+Ya jadi dia akan mulai dari (300,300), nah ini untuk lingkaran kalian harus perhatikan 300 kali 300
+itu (300,300) ada di tengah" lingkarannya, Jadi titik awalnya ada di tengah" lingkarannya setelah itu
+dikasih radius atau jari-jari nya 150. Jadi kalo misal kalian nulisnya 50 kali 50 (50,50) nanti lingkaran
+nya kepotong ke atas, karena sumbu Y dan X itu adalah titik tengah dari lingkarannya.
+
+Jadi membuat lingkaran kaya belajar mtk aja ada jari-jari nya sama 22 per 7 itu kan rumus 
+menghitung mtk pas kelas 6 sd, oh iya untuk jari-jari nya kan 150 dan sudut x dan y nya 300 
+berarti radius atau jari" nya itu harus setengah dari sudut x dan y. Itukan x dan y nya 300 nah radius
+atau jari-jari nya kasihlah 150. kita juga bisa ubah x dan y nya 150 lalu jari-jarinya jadi 75 entar 
+lingkarannya jadi keliatan tapi lebih kecil. EH tapi radius keknya buat perkecil atau perbesar sebuah
+lingkaran deh coba" aja.
+
+-------------------------------------------------------------------------------------------------------------------------------
+
+PATH
+
+Nah kalo path ini terserah kita bentuknya mau seperti apa cara nulis nya seperti ini teman" :
+
+const mycanvas = document.getElementById('mycanvas');
+
+mycanvas.widht = window.innerWidth;
+mycanvas.height = window.innerHeight;
+
+const c = mycanvas.getContext('2d');
+
+c.fillStyle = 'lightgreen';
+c.strokeStyle = '#000';
+c.lineWidth = 2;
+
+c.beginPath();
+c.moveTo(300, 50);
+c.lineTo(450, 350);
+c.lineTo(150, 350);
+c.lineTo(300, 50);
+c.fill();
+c.stroke();
+------------------------------------------------------------------
+
+Seperti biasa yg udah ngerti kode nya gausah dijelasin lagi yee. Untuk menulisakan Path kita harus
+awali dengan method ( beginPath() ) nah jadi kita mulai path nya, terus kita tentukan titik awal nya
+mau di mana kita kasih moveTo sumbu x 300 sumbu y 50.
+
+Baru setelah itu dari titk tersebut buat garis ke kordinat mana, setelah itu buat garis lagi ke kordinat
+mana setelah itu buat garis lagi ke kordinat mana baru kita kaisih warna ( fill() ), terus kita kasih
+garis ( stroke() ), Kalo misalnya garis-garis ini tidak menutup maka kita harus tutup dengan 
+menggunakan closePath, tapi kebetulan yg kita buat ini garis nya nutup sehingga dia membentuk
+sebuah segitiga.
+
+Semisal ga ngerti cara penggunaannya itu bisa di teliti dulu satu persatu garis nya, misal moveTo
+itu kan menentukan sumbu x dan y nya, nah tentuin dulu seterah berapa, tapi jangan lupa untuk
+border sama warna nya itu loh.
+
+nah kalo udah di tentuin boleh bermain atau coba-coba dulu kasih lineTo satu dulu jadi misal 
+x 150 dan y 100, itu artinya dimulai itu dari kiri 150 dari atas 100 jadi posisi titik di mulai nya ya
+begitu lah, Terus kau coba tulis ( c.lineTo(150, 300); ) dengan sumbu yg udah di tentuin itu tuh
+x 150 y 100 nanti nongol tuh garis lurus.
+
+nah itu bisa lurus karena 150 x itu sama dengan 150 lineTo nya jadi jarak nya sama dari sisi
+kiri window itu sama-sama 150 jadinya lurus sedangkan kalo 300 di lineTo itu, itu garis nya
+antara jarak sumbu x 150 sama 150 lineTo nya jadi 300 itu jarak nya 300 jadi terbentuk garis
+lurus.
+
+Nah kalo kita tulis 100 untuk clineTo yg ke-2 kan 150 itu c.lineTo yg ke-1 nah kalo c.lineTo yg ke-2
+kita tulis 100 sama kaya sumbu y nya 100 juga entar kalo sama gitu ga muncul garisnya karena
+itu entar 100 di c.lineTo nya ke itung dari atas 100 sama, sama sumbu y nya, biar keliatan sedikit
+harus lebih dari sumbu y nya untuk c.lineTo ke-2 misal sumbu y 100 kita kasih 110 atau 150 bisa.
+coba aja
+
+-------------------------------------------------------------------------------------------------------------------------------
+
+Canvas 3rd party library
+
+- D3.js
+- three.js
+- p5.js
+- matter.js
+- Phaser
+- babylon.js
+
+
+Saya mau kasih tau dulu bahwa sebetulnya kita bisa membuat atau memanipulasi isi dari canvas
+itu ga menggunakan canvas API yg defaultnya, kita juga bisa menggunakan 3rd party library, jadi
+ada banyak library yg bisa kita gunakan untuk mempermudah kita menulis atau memanipulasi 
+canvas.
+
+ada yg namanya D3.js, three.js, lalu ada p5.js ini untuk visualisasi data biasanya ya dan untuk
+menampilkan object 3D, ada yg namanya matter.js dan Phaser biasa nya 2 ini digunakan untuk
+membuat game, begitupula dengan babylon.js, jadi ini adalah beberapa library yg bisa kita pake
+untuk mempermudah pengelolaan canvas kita.
+
+Ya tapi sebelum kita masuk ke 3rd party library tentu saja kita harus tau dulu bagaimana canvas 
+nya itu bekerja. Nah kita akan coba buat yg object" sederhana tadi.
+
+-------------------------------------------------------------------------------------------------------------------------------
+
+#AWAL MEMBUAT OBJECT SEDERHANA ATAU APA LAH YA
+
+Nah sekarang kita buat file baru html nya terus isi di body nya Tag canvas kasih id namanya 
+mycans lalu hubungkan html ke javascript nya, terus saya mau kasih style sedikit supaya 
+menghilangkan margin dan padding di body nya ya.
+
+Nah pertama kita mulai menyiapkan canvas nya, kita harus tangkap dulu element canvas nya,
+berikutnya kita atur ukuran canvas nya. Seperti ini :
+
+// Menyiapkan Canvas
+const cans = document.getElementById('mycans');
+
+// Atur ukuran Canvas
+cans.width = window.innerWidth;
+cans.height = window.innerHeight;
+--------------------------------------------
+
+nah window itu untuk menentukan lebar dari browser kita, jadi kalo browser nya nanti kita resaise
+ukurannya menyesuaikan. Setelah kita atur ukurannya berikutnya kita tentukan context nya dulu ya
+mau 2d atau 3d, yg kita bikin misalnya pake variabel kita kasih nama ( c ) tadi ya. Seperti ini :
+
+// Menyiapkan Canvas
+const cans = document.getElementById('mycans');
+
+// Atur ukuran Canvas
+cans.width = window.innerWidth;
+cans.height = window.innerHeight;
+
+// Tentukan Context
+const c = cans.getContext('2d');
+----------------------------------------------------------------------
+
+Nah berarti kita siap memanipulasi canvas menggunakan object (c) itu atau variabel nya, berikut-
+nya tinggal kita manipulasi canvas nya. 
+
+Yang pertama kita coba biki dulu kotak ya, kita bikin Rectangle dengan cara kita ngasih dulu 
+perilaku nya mau apa, misalnya saya mau kasih warna berarti saya tulis ( c.fillStyle ), Nah untuk
+mengetahui ada method" apa saja yang bisa kita gunakan, itu kallian harus kunjungi dokumentasi
+nya di link ini :
+
+Penjelasan Canvas
+- https://html.spec.whatwg.org/multipage/canvas.html#the-canvas-element
+- https://developer.mozilla.org/en-US/docs/Web/HTML/Element/canvas
+- https://developer.mozilla.org/en-US/docs/Web/API/Canvas_API
+- https://developer.mozilla.org/en-US/docs/Web/API/CanvasRenderingContext2D
+
+Setelah kita kasih warna kita juga bisa kasih ( strokeStyle ) jadi ini warna untuk bordernya dan yg
+terakhir kita kasih tebal dari border nya gunakan ( lineWidth ). Seperti ini :
+
+// Menyiapkan Canvas
+const cans = document.getElementById('mycans');
+
+// Atur ukuran Canvas
+cans.width = window.innerWidth;
+cans.height = window.innerHeight;
+
+// Tentukan Context
+const c = cans.getContext('2d');
+
+// Manipulasi Canvas
+
+// Membuat Rectangle
+c.fillStyle = 'pink';
+c.strokeStyle = '#999';
+c.lineWidth = '5';
+
+-------------------------------------------------------------------------------------------------------------------------------
+
+Nah baru prilakunya, berikutnya kita simpan kotaknya dengan method ( rect ) untuk membuat kotak
+nya ya, begini ( c.rect(50, 50, 300, 300); ). urutan nya 50 sumbu x, 50 sumbu y, 300 width, 300
+height.
+
+Nah itu akan membuat kotak tapi kalo kita liat di web browser nah hasil kotak nya itu ga keliatan
+itu karena kita baru bikin kotak nya aja, belum kita kasih warna, Nah ini baru kita nyiapin perilakunya,
+belum kita tempel atau terapkan ke kotak yg kita punya, cara nya kita tinggal kasih 
+( fill() dan stroke() ). Seperti ini :
+
+// Menyiapkan Canvas
+const cans = document.getElementById('mycans');
+
+// Atur ukuran Canvas
+cans.width = window.innerWidth;
+cans.height = window.innerHeight;
+
+// Tentukan Context
+const c = cans.getContext('2d');
+
+// Manipulasi Canvas
+
+// Membuat Rectangle
+c.fillStyle = 'pink';
+c.strokeStyle = '#999';
+c.lineWidth = '5';
+
+c.rect(50, 50, 200, 200);
+c.fill();
+c.stroke();
+
+-------------------------------------------------------------------------------------------------------------------------------
+
+Berikutnya misal kita mau buat lingkaran ya, nah cara kita membuat lingkaran itu tinggal kita tulis
+aja method ( arc ), Nah ini kita tulis kita mau mulai dari sumbu mana kalo misal kita tulis ( 50,50 )
+berarti starnya dari titik yang sama dengan kotak kita, Tapi inget start ini adalah titik tengah dari
+lingkarannya.
+
+Coba kalo misal saya mau bikin si radius nya itu 150 lalu kita tulis sudut awalnya 0 dan sudut akhir
+nya itu 2 kali 22 per 7 ( 2 * Math.PI ). Seperti ini :
+
+// Membuat Lingkaran // Circle / Arc
+c.arc(50, 50, 100, 0, 2 * Math.PI);
+c.fill();
+c.stroke();
+--------------------------------
+
+karena ini masih di file yg sama kaya kita msih ngelanjutin yg di atas jadi codingan yg di ambil
+segitu aja, Nah kalo kita cek di browser hasil nya disitu ada lingkaran dan kotak yg warna nya
+sama" pink, itu karena si lingkaran nya masih memakai perilaku yg di atas.
+
+Nah kalo kita misalnya pengen lingkaran ini punya perilaku yg berbeda kita harus timpa perilakunya
+misal kita timpa warna biru muda misal. Seperti ini :
+
+// Membuat Lingkaran // Circle / Arc
+c.fillStyle = 'lightblue';
+c.arc(50, 50, 100, 0, 2 * Math.PI);
+c.fill();
+c.stroke();
+--------------------------------
+
+sekarang kan harus nya lingkaran itu menggunakan warna biru muda dan kotak warna pink, kalo 
+kita jalanin sekarang 22 nya malah jadi biru muda, Nah itu karena disitu kita harus kasih dulu
+method ( beginPath() ), untuk menganggap bahwa si lingkaran ini merupakan ya si lingkaran jadi
+kepisah gitu maybe. Seperti ini :
+
+// Membuat Lingkaran // Circle / Arc
+c.fillStyle = 'lightblue';
+c.beginPath();
+c.arc(50, 50, 100, 0, 2 * Math.PI);
+c.fill();
+c.stroke();
+--------------------------------
+
+Nah sekarang kita sudah bisa punya lingkaran nya tapi radius nya ada di tengah situ, nah saya
+pengen dia ada di sebelah kanan kotak nya, Berarti kita harus cari tau titik tengah berapa yg pas
+untuk di simpan di samping kotak nya. Jadi kita ubah aja sumbu x dan y nya biar dia berubah 
+posisi. Sperti ini :
+
+// Membuat Lingkaran // Circle / Arc
+c.fillStyle = 'lightblue';
+c.beginPath();
+c.arc(400, 150, 100, 0, 2 * Math.PI);
+c.fill();
+c.stroke();
+
+-------------------------------------------------------------------------------------------------------------------------------
+
+Berikutnya kalo kita mau buat Path misalnya bentuknya segitiga, pertama ku mau kasih warna dulu
+biar beda ya, lalu kita tulis lagi beginPath(). Nah sekarang kita akan tentukan dulu titik awalnya mau
+dimana. Misalnya saya mau bikin segitiga di sebelah lingkarannya. Seperti ini :
+
+// Membuat Path (Segitiga)
+c.fillStyle = 'orange';
+c.beginPath();
+c.moveTo(660, 60);
+c.lineTo(560, 260);
+c.lineTo(760, 260);
+c.lineTo(660, 60);
+c.fill();
+c.stroke();
+-------------------------------------
+
+MoveTo itu digunakan untuk mencari sumbu x dan y, Baru kita bikin garis nya, jadi dari titik itu mau
+kemana garis nya lineTo juga kosakata atau apa nya itu sumbu x dan y, lineTo pertama sumbu x
+nya 560 dan y nya 260 itu artinya kita mau garisnya panjang nya 260 dari titik dan width nya 560
+dari posisi browser paling kiri, jadi kalo kita tulis sumbu x nya yg tadinya 560 jadi sama dengan
+moveTo jadi 660 nanti hasil nya jadi garis lurus. silahkan di coba.
+
+Nah kita juga bisa tutup langsung dengan menggunakan closePath(), jadi lineTo terakhir kita ganti
+jadi itu. Seperti ini :
+
+// Membuat Path (Segitiga)
+c.fillStyle = 'orange';
+c.beginPath();
+c.moveTo(660, 60);
+c.lineTo(560, 260);
+c.lineTo(760, 260);
+c.closePath();
+c.fill();
+c.stroke();
+
+#AKHIR MEMBUAT OBJECT SEDERHANA ATAU APA LAH YA
+-------------------------------------------------------------------------------------------------------------------------------
+
+ANIMASI CANVAS
+
+Nah setelah tadi kita coba membuat object yang sederhana berikutnya kita akan coba gimana cara
+nya menganimasikan object yang udah kita buat. Jadi nanti misalnya kita mau bikin sebuah object
+lingkaran aja misalnya, terus lingkaran nya saya mau dia geser kekanan misalnya.
+
+Codingan nya :
+
+// Menyiapkan Canvas
+const cans = document.getElementById('mycans');
+
+// Atur ukuran Canvas
+cans.width = window.innerWidth;
+cans.height = window.innerHeight;
+
+// Tentukan Context
+const c = cans.getContext('2d');
+
+c.fillStyle = 'pink';
+c.strokeStyle = '#999';
+c.lineWidth = '5';
+c.beginPath();
+c.arc(150, 150, 100, 0, 2 * Math.PI);
+c.fill();
+c.stroke();
+---------------------------------------------
+
+Ceritanya saya mau buat dia berjalan ke kanan gitu. cara nya yaitu..................................................
+
+Canvas API animation
+
+- requestAnimationFrame()
+- clearRect()
+
+untuk melakukan animasi pada canvas itu kita butuh beberapa method didalam canvas API yg 
+pertama kita butuh yg disebut dengan requestAnimationFrame() ya nanti ketika kita memanggil
+method itu maka canvas nya akan membuat animasi nya berjalan.
+
+Baru berikutnya kita juga butuh method yg namanya clearRect() ini untuk membersihkan atau 
+menghapus Frame sebelumnya pada canvas, Karena kalo misalnya gapake clearRect ini maka
+posisi terakhir dari object pada canvas akan tersisa sehingga tidak akan terlihat seperti animasi.
+
+Nah untuk menjalankan requestAnimationFrame() kita harus memasukan object yg akan kita buat
+didalam canvas kedalam sebuah Function. Kenapa? karena requestAnimationFrame() didalamnya
+menerima parameter callback.
+
+contohnya kekgini :
+
+window.requestAnimationFrame(draw);
+---------------------------------------------
+
+kita panggil window.requestAnimationFrame() nah didalamnya berisi nama fungsi callback nya
+misalnya kita kasih nama fungsinya bisa animat atau apapun ya atau draw biasanya kalo temen"
+liay tutorial di internet dikasih namanya draw.
+
+Nah itu artinya kita harus bungkus semua ini :
+
+window.requestAnimationFrame(draw);
+c.fillStyle = 'pink';
+c.strokeStyle = '#999';
+c.lineWidth = '5';
+c.beginPath();
+c.arc(150, 150, 100, 0, 2 * Math.PI);
+c.fill();
+c.stroke();
+---------------------------------------------
+
+kedalam fungsi yg namanya (draw) kenapa di sebut draw, karena ini akan menggambar setiap 
+frame nya. Coba kita liat ya, sekarang kita masukin dulu kedalam sebuah function namnya draw,
+sekarang kita tulis ini dulu aja :
+
+function draw() {
+    window.requestAnimationFrame(draw);
+
+    c.fillStyle = 'pink';
+    c.strokeStyle = '#999';
+    c.lineWidth = '5';
+    c.beginPath();
+    c.arc(150, 150, 100, 0, 2 * Math.PI);
+    c.fill();
+    c.stroke();
+
+}
+---------------------------------------------
+
+Kalo kita liat hasil nya maka itu ga tampil ya, karena fugnsi draw itu harus kita panggil dulu biar 
+tampil, kita pangiil ya :
+
+function draw() {
+    window.requestAnimationFrame(draw);
+
+    c.fillStyle = 'pink';
+    c.strokeStyle = '#999';
+    c.lineWidth = '5';
+    c.beginPath();
+    c.arc(150, 150, 100, 0, 2 * Math.PI);
+    c.fill();
+    c.stroke();
+}
+
+draw();
+---------------------------------------------
+
+supaya fungsinya di jalan si draw di pangiil, lalu requestAnimationFrame(draw) dipanggil lalu
+fungsi nya akan berjalan terus menerus, jadi lingkaran nya itu di cetak terus terusan, tapi kalo kita
+liat di browsernya, Kalian akan melihat sebuah lingkaran yg tidak bergerak tapi lingkaran itu
+digambar atau dicetak terus menerus setiap detik nya.
+
+Nah untuk membuktikanya kita bisa tulis aja sebuah console.log('ok!') supaya kita bisa liat 
+seberapa banyak fungsi ini dijalankan. GINI ya:
+
+function draw() {
+    window.requestAnimationFrame(draw);
+    console.log('ok!');
+    c.fillStyle = 'pink';
+    c.strokeStyle = '#999';
+    c.lineWidth = '5';
+    c.beginPath();
+    c.arc(150, 150, 100, 0, 2 * Math.PI);
+    c.fill();
+    c.stroke();
+}
+
+draw();
+
+lihat lah ketika kiat inscpesct liat di inspect, nah disitu ada ok'' yg berjalan terus menerus seper-
+sekian detik 'ok!' dijalananin, nah begitu pula dengan gambar lingkaran itu setiap sepersekian
+detik lingkaran itu digambar ulang terus-menerus, jadi seharusnya sudah ada ratusan lebih 
+lingkaran yang digambar terus-menerus.
+
+-------------------------------------------------------------------------------------------------------------------------------
+
+Nah tapikan kita gamau lingkaran digambar terus-menerus di tempat yg sama, nah saya pengen
+setiap sepersekian detik itu geser ke kanan dia bergerak brp pixel brp pixel brp pixel begitu.
+
+Nah caranya kita harus ubah sumbu X nya supaya dia geser kekanan sehingga itu akan kita jadikan
+sebuah variabel seperti ini ( c.arc(x, 150, 100, 0, 2 * Math.PI); ), dan kita harus punya dulu nih nilai
+awal dari X nya.
+
+Misalnya kita bikin variabel let x = 150; berarti nilai awalnya 150, lalu saya akan bikin dipaling bawah
+sebelum penutup function agar si X nya itu kita tambah, jadi setiap requestAnimationFrame(draw)
+dipanggil X nya nambah 1, yg tadinya 150 terus 151,152,153 dan seterusnya. Seperti ini :
+
+let x = 150;
+
+function draw() {
+    window.requestAnimationFrame(draw);
+    console.log('ok!');
+    c.fillStyle = 'pink';
+    c.strokeStyle = '#999';
+    c.lineWidth = '5';
+    c.beginPath();
+    c.arc(x, 150, 100, 0, 2 * Math.PI);
+    c.fill();
+    c.stroke();
+
+    x++;
+}
+
+draw();
+---------------------------------------------
+
+Nah tapi problemnya adalah lingkaran sebelumnya masih ada, jadi ini ga keliatan kaya yg bener"
+bergerak tapi menyisakan tempatnya tuh. Nah supaya gaada sisa tempatnya itu, kita harus apus
+keadaan sebelumnya. Nah caranya tadi dengan menggunakan clearRect() tadi ya.
+
+Jadi kita kasih (c.clearRect() ) didalam functionya ya, nah ini akan menghilangkan semua yg ada
+didalam canvasnya, jadi kita bisa tulis mulai nya dari kordinat (0,0) yg mau saya hilangkan itu
+lebarnya (innerWidth) dan tinggi nya (innerHeight). Jadi ceritanya sicanvasnya semuanya dihapus
+diganti sama frame yg baru.
+
+Seperti ini :
+
+function draw() {
+    window.requestAnimationFrame(draw);
+    c.clearRect(0, 0, innerWidth, innerHeight);
+    console.log('ok!');
+    c.fillStyle = 'pink';
+    c.strokeStyle = '#999';
+    c.lineWidth = '5';
+    c.beginPath();
+    c.arc(x, 150, 100, 0, 2 * Math.PI);
+    c.fill();
+    c.stroke();
+
+    x++;
+}
+
+draw();
+---------------------------------------------
+
+Nah sekarang kita liat, udah bergerak kan ya tapi bergeraknya pelan banget, nah kalo pengen lebih
+cepet geraknya kalian bisa manipulasi x nya, jadi kan diatas x += 1; nah kita ganti aja misal x += 6;
+berarti nanti setiap draw di panggil x nya ditambahin 6 jadi lebih cepet, misal 150,156,162 dan
+seterusnya x nya bertambah. Seperti ini :
+
+let x = 150;
+
+function draw() {
+    window.requestAnimationFrame(draw);
+    c.clearRect(0, 0, innerWidth, innerHeight);
+    console.log('ok!');
+    c.fillStyle = 'pink';
+    c.strokeStyle = '#999';
+    c.lineWidth = '5';
+    c.beginPath();
+    c.arc(x, 150, 100, 0, 2 * Math.PI);
+    c.fill();
+    c.stroke();
+
+    x += 6;
+}
+
+draw();
+---------------------------------------------
+
+Nah tapi ada problem lagi nih, kalo kita biarkan lingkarannya akan terus jalan ke arah kanan 
+sehingga dia menghilang dari layar karena kan X nya terus bertambah otomatis x nya makin besar
+angka nya jdi dia hilang lah.
+
+gimana kalo misalnya saya pengen kalo lingkarannya udah mentok dia balik lagi dan terus bolak
+balik, Nah ini kita bisa tambahkan pengkondisian didalam function nya. Jadi kalo misalnya X nya itu
+sudah lebih besar dari innerWidth, maka saya pengen bikin ( x += 6 ) nah angka 6 itu berubah
+jadi mines. Kan kalo x ditambah 6 itu geser kanan ya, kalo x ditambah mines 6 itu geser kiri ya.
+
+Nah gimana kalo kita ganti jadi speed disitu nya ( x += speed ), jadi kita buat variabel baru namanya
+speed kita isi 6, Nah kalo speed nya udah mentok baru kita akan ganti speed nya jadi negatif.
+Seperti ini :
+
+let x = 150;
+let speed = 6;
+
+function draw() {
+    window.requestAnimationFrame(draw);
+    c.clearRect(0, 0, innerWidth, innerHeight);
+    c.console.log('ok!');
+    c.fillStyle = 'pink';
+    c.strokeStyle = '#999';
+    c.lineWidth = '5';
+    c.beginPath();
+    c.arc(x, 150, 100, 0, 2 * Math.PI);
+    c.fill();
+    c.stroke();
+    if (x > innerWidth) {
+        speed = -speed;
+    }
+    x += speed;
+}
+
+draw();
+---------------------------------------------------
+
+kalo masih kurang paham coba di telusuri aja ya dibagian pengkondisian nya ya, Nahh tapi ketika
+si lingkaran nya udah mentok dia di titik tengah ya, saya pengen nya di ujung kanan niih.
+
+Nah berarti bukan pas x lebih besar di width ya karena nanti berhentinya di titik tengah lingkaran itu,
+berarti kita tambah aja ( x + radius > innerWidth ), kita harus tambah x tambah radius nya supaya
+nyentuhnya di dinding lingkarannya.
+
+Supaya dinamis kita ganti angka 150 nya jadi radius terus kita buat variabel baru diluar function 
+namanya radius. Seperti ini :
+
+let x = 150;
+let speed = 6;
+let radius = 100;
+
+function draw() {
+    window.requestAnimationFrame(draw);
+    c.clearRect(0, 0, innerWidth, innerHeight);
+    console.log('ok!');
+    c.fillStyle = 'pink';
+    c.strokeStyle = '#999';
+    c.lineWidth = '5';
+    c.beginPath();
+    c.arc(x, 100, radius, 0, 2 * Math.PI);
+    c.fill();
+    c.stroke();
+    if (x + radius > innerWidth) {
+        speed = -speed;
+    }
+    x += speed;
+}
+
+draw();
+
+-------------------------------------------------------------------------------------------------------------------------------
+
+Nah ini sip udah bener, tapi problemnya kalo pas udah mantul terus dia ke kiri dia bablas lagi ga
+berhenti, Nah gimana kita bikin supaya kalo kekiri mantul juga, kalian bisa tambah kan else atau
+(or), jadi kalo x nya lebih kecil dari 0, berarti kalo x nya udah lebih kecil dari 0 nanti dibalikin lagi yg
+tadinya mines jadi positif, nah tapi jangan lupa dikurangin radius nya juga. Seperti ini :
+
+
+let x = 150;
+let speed = 6;
+let radius = 100;
+
+function draw() {
+    window.requestAnimationFrame(draw);
+    c.clearRect(0, 0, innerWidth, innerHeight);
+    console.log('ok!');
+    c.fillStyle = 'pink';
+    c.strokeStyle = '#999';
+    c.lineWidth = '5';
+    c.beginPath();
+    c.arc(x, 100, radius, 0, 2 * Math.PI);
+    c.fill();
+    c.stroke();
+    if (x + radius > innerWidth || x - radius < 0) {
+        speed = -speed;
+    }
+    x += speed;
+}
+
+draw();
+--------------------------------------------------
+
+Jadi ya kenapa x - radius < 0 terus malah bisa plus lagi bukannya mines pdahal kan si speed nya
+itu mines nah karena kan, yg lebih kecil dari 0 itu kan -1 terus ibaratnya gini jika x - radius, berarti
+ibaratnya jika -1 < 0, jika mines 1 lebih kecil dari 0 maka, input -5 pada speed ibarat nya ya, terus
+dibawahnya berarti anggapannya x itu -1 lalu -1 ditambah -5 jadinya ( -1 + -5 ) karena min ketemu
+min jadi positif hasilnya karena itulah.
+ 
+-------------------------------------------------------------------------------------------------------------------------------
+
+Nah kalo kalian mau bikin bisa mantul ke atas ke bawah kesamping tinggal copy paste aja kode
+pengkondisian yg X terus yg x nya ganti aja Y, terus kita buat variabel baru namanya Y lalu isinya
+kita isi Y kita sebelum nya berapa misal 100 nah udah tinggal sesuai in aja kaya yg X nya.
+
+Seperti ini :
+
+let x = 150;
+let speedX = 6;
+let speedY = 6;
+let radius = 100;
+let y = 100;
+
+function draw() {
+    window.requestAnimationFrame(draw);
+    c.clearRect(0, 0, innerWidth, innerHeight);
+    console.log('ok!');
+    c.fillStyle = 'pink';
+    c.strokeStyle = '#999';
+    c.lineWidth = '5';
+    c.beginPath();
+    c.arc(x, y, radius, 0, 2 * Math.PI);
+    c.fill();
+    c.stroke();
+    if (x + radius > innerWidth || x - radius < 0) {
+        speedX = -speedX;
+    } else if (y + radius > innerHeight || y - radius < 0) {
+        speedY = -speedY;
+    }
+    x += speedX;
+    y += speedY;
+}
+
+draw();
+-----------------------------------------------------------------------
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

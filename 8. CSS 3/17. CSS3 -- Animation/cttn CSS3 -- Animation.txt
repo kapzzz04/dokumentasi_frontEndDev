@@ -1,0 +1,520 @@
+CSS3 -- Animation
+
+animation, dimana kita tau kita bisa melakuka animasi dengan 2 cara, cara yg pertama adalah menggunakan transition cara ke2 menggunakan properti animation, sekarang kita masuk ke animation kalo kalian inget di video transition kita bisa membuat animasi, jadi mirip dengan transition tapi kita tahu bahwa didalam animation itu memiliki beberapa keadaan, tidak seperti transition hanya memiliki 2 keadaan, keadaan awal dan keadaan akhir.
+
+Dengan menggunakan animation kita punya yg namanya ( keyframe ), jadi kita bisa bikin keadaan antara nya seperti ini ( liat di folder ), jdi bisa bikin banyak keyframe, jadi intinya animation ada pada keyframe, Nah untuk membuat keyframe property yg digunakan adalah seperti ini :
+
+ @keyframes [name] {
+            from {
+                [property-css]
+            }
+
+            to {
+                [property-css]
+            }
+        }
+-----------------------------------
+
+Jadi kita harus tulis dulu sintaks untuk keyframe nya dengan cara menulis kan @keyframes, lalu kita tulis nama animasi kita mau apa, nanti kalian tulis sintaks itu dibagian mana pun di css kalian, tidak perlu menulis didalam sebuah selector, jadi itu sintaks nya nulis nya di luar selector.
+
+lalu didalam keyframes nya itu ada from dan to, dari keadaan awal ke keadaan akhir, walaupun kita bisa ganti from dan to itu dengan persen, supaya nanti keyframes nya ga cuman 2 tapi bisa banyak.
+
+----------------------------------------------------------------------------------------------------------------------------------
+
+Untuk contoh sederhana nya di halaman html saya sudah punya kotak yg lebarnya 200 x 200, Lalu kotak itu akan saya coba animasikan dengan memperbesar lebarnya kesebelah kanan, misalnya tadi lebarnya 200 kita ubah lebarnya jadi 500.
+
+kita coba dulu dengan menggunakan Transition, inget ya transition itu harus ada keadaan akhirnya, kita gunakan hover aja sebagai keadaan akhirnya, seperti ini :
+
+ <style>
+        .kotak {
+            width: 200px;
+            height: 200px;
+            background-color: salmon;
+            transition: 2s ease all;
+        }
+
+        .kotak:hover {
+            width: 500px;
+        }
+    </style>
+-----------------------------------
+
+Ketika saya hover kotak nya dia akan berubah secara halus, dan ketika saya keluarkan kursor dari kawan kotak nya dia juga akan kembali ke bentuk semula secara halus, itu kalo menggunakan Transition.
+
+----------------------------------------------------------------------------------------------------------------------------------
+
+Menggunakan animation
+
+jika menggunakan animation kita tentu saja gaperlu property transition lalu widht di hover juga gaperlu tapi untuk sekarang hovernya biarkankosong dulu aja ya. Sekarang saya akan buat keyframes nya, caranya tulis dulu @keyframes nya lalu nama animasi nya bebas, tapi saya kasih nama animasiKotak, lalu jika hanya 2 keadaan kalian bisa tulis from lalu dibawah from tulis to, misalkan keadaan awalnya kita sama kan lebarnya 200px, lalu keadaan akhirnya 500px. Seperti ini :
+
+@keyframes animasiKotak {
+            from {
+                width: 200px;
+            }
+
+            to {
+                width: 500px;
+            }
+        }
+-----------------------------------
+
+Nah seperti itu, jadi sekarang saya sudah punya keyframes dari animasi yg siap saya gunakan, itu kalo saya save terus ke browser nya itu tidak akan terjadi apa-apa, karena animasinya baru saya siapkan belum saya gunakan.
+
+Cara gunakan nya itu kita akan gunakan property animation di selector yg ingin kita beri animasi, untuk saat ini saya ingin beri animasi nya di kotak ketika di hover. caranya proeprty nya animation lalu 
+syntaks nya yg pertama adalah nama animation, nama animasi nya harus sama persis dengan keframes yg sudah kita buat.
+
+Lalu yg ke-2 sama seperti transisi durasi animasinya mau berapa misalnya 2 detik, dan selanjutnya timing function nya misalnya ease. Seperti ini :
+
+
+<style>
+        .kotak {
+            width: 200px;
+            height: 200px;
+            background-color: salmon;
+        }
+
+        .kotak:hover {
+            animation: animasiKotak 2s ease;
+        }
+
+        @keyframes animasiKotak {
+            from {
+                width: 200px;
+            }
+
+            to {
+                width: 500px;
+            }
+        }
+    </style>
+-----------------------------------
+
+Itu lah sintaks yg sederhana nya, nanti nilai yg bisa kita kasih di property animation ini ada banyak ya. lihat ketika saya arahkan kursornya kedalam si kotak itu maka kotak nya akan berubah width nya, tapi ketika sudah mencapai 500px keadaan akhir yg sudah kita tentukan itu, nah dia otomatis kembali ke keadaan awal, Nah itu bedanya dengan transition, itu karena sudah melakukan 1 kali animasi.
+
+Jadi kita bisa kasih 2 nilai seperti itu keadaan awal dan keadaan akhir, from itu bisa saya ganti jadi persen, pada keadaan 0% diakhiri pada keadaan 100%. Seperti ini :
+
+@keyframes animasiKotak {
+            0% {
+                width: 200px;
+            }
+
+            100% {
+                width: 500px;
+            }
+        }
+-----------------------------------
+
+Nah hasilnya sama aja ya, Nah itu bisa juga kita kasih keadaan diantranya, misalnya disitu saya akan beri pada saat keadaan 50% saya mau bikin lebarnya bertambah jadi 500px tapi tinggi nya ttp 200px.
+Jadi dia lebar dulu kekanan, nah baru diakhir pada saat keadaan 100% tingginya saya ubah jadi 500px. Seperti ini :
+
+ @keyframes animasiKotak {
+            0% {
+                width: 200px;
+            }
+
+            50% {
+                width: 500px;
+                height: 200px;
+            }
+
+            100% {
+                width: 500px;
+                height: 500px;
+            }
+        }
+-----------------------------------
+
+Nah liat kan ya begitu, Tapi diakhir dia kembali ke posisi semula, nanti ada cara nya biar ga kembali ke posisi semula.
+
+----------------------------------------------------------------------------------------------------------------------------------
+
+Nah sekarang kita bisa aja tidak menggunakan si hover nya, jadi animasi nya itu di simpan di kotak nya langsung tanpa pake hover ya, kan hover itu untuk menjalankan suatu aksi jika kursor berada di area tersebut ya. Seperti ini :
+
+<style>
+        .kotak {
+            width: 200px;
+            height: 200px;
+            background-color: salmon;
+            animation: animasiKotak 2s ease;
+        }
+
+        @keyframes animasiKotak {
+            0% {
+                width: 200px;
+            }
+
+            50% {
+                width: 500px;
+                height: 200px;
+            }
+
+            100% {
+                width: 500px;
+                height: 500px;
+            }
+        }
+    </style>
+-----------------------------------
+
+Jadi nanti itu animasinya akan terjadi ketika halamannya pertama kali kita buka atau ketika halamannya di refresh, coba aja kalian refresh itu animasinya akan berjalan otomatis tanpa ada triger apapun, Nah kalo sudah paham dengan mekanisme dari keyframes dan animation itu, sekarang kita liat nilai apa saja yg bisa kita kasih kedalam property animation itu.
+
+----------------------------------------------------------------------------------------------------------------------------------
+
+animation:
+[name] [duration] [timing-function] [delay] [iteration-count] [direction] [fill-mode] [play-state].
+
+Yang pertama [name] ini wajib ada, name ini adalah nama dari animasi nya yg harus sama dengan nama keyframe yg kita buat, yg ke-2 itu [duration] dari animasi nya, jad [duration], [timing-function], dan [delay] itu persis sama dengan transition.
+
+Lalu ada iteration-count ( <angka> | infinite )
+iteration-count dimana kita bisa kasih angka mau berapa kal di ulang nya atau mau di ulang terus menurus menggunakan kywerdnya infinite.
+
+untuk menambahkan iteration-count kalian tinggal tambahkan saja di situ nya angka, defaultnya adalah 1, kalo 1 animasinya sama aja gaada perbedaan nya kalo pake atau gak nya karena kan itu default nya. Nah kalo kita ganti jadi 2, dia akan melakukan animasinya selama 2 kali. Seperti ini :
+
+ .kotak {
+            width: 200px;
+            height: 200px;
+            background-color: salmon;
+            animation: animasiKotak 2s ease 2;
+        }
+
+        @keyframes animasiKotak {
+            0% {
+                width: 200px;
+            }
+
+            50% {
+                width: 500px;
+                height: 200px;
+            }
+
+            100% {
+                width: 500px;
+                height: 500px;
+            }
+        }
+-----------------------------------
+
+jadi dia pertama akan menjalankan animasinya sesuai keyframe nya 1 kali nah karena kita tulis 2 jadi dia ngulang 1 kali lagi baru selesai coba kalian liat deh. Atau kita ganti aja dengan infinite, nah kalo ini akan di ulang terus menurus ga akan berhenti-berhenti. Seperti ini :
+
+    .kotak {
+            width: 200px;
+            height: 200px;
+            background-color: salmon;
+            animation: animasiKotak 2s ease infinite;
+        }
+
+        @keyframes animasiKotak {
+            0% {
+                width: 200px;
+            }
+
+            50% {
+                width: 500px;
+                height: 200px;
+            }
+
+            100% {
+                width: 500px;
+                height: 500px;
+            }
+-----------------------------------
+
+jadi dia akan berulang terus menerus.
+
+Saya pengen kasih tau sebenernya yg kita gunakan itu :
+
+animation: animasiKotak 2s ease infinite;
+
+itu shorthand ya atau properti singkatan nya, jadi cukup tulis animation lalu kita tulis rangkaian nilai dari property animasi. Sebetulnya kita bisa tulis satu persatu. Seperti ini :
+
+	animation-name: animasiKotak;
+            animation-duration: 2s;
+            animation-timing-function: ease;
+            animation-iteration-count: infinite;
+-----------------------------------
+
+Jadi kalian bisa tulis satu baris begitu, tapi kalo sudah paham fungsi dari masing-masing property itu cukup gunakan yg shorthandnya. 
+
+Paham ya kita sudah gunakan  iteration-count coba yg sebelum nya kita ganti angka 2, itu artinya dia akan berulang sebanyak 2 kali. Seperti ini :
+
+.kotak {
+            width: 200px;
+            height: 200px;
+            background-color: salmon;
+            animation: animasiKotak 2s ease 2;
+        }
+
+        @keyframes animasiKotak {
+            0% {
+                width: 200px;
+            }
+
+            50% {
+                width: 500px;
+                height: 200px;
+            }
+
+            100% {
+                width: 500px;
+                height: 500px;
+            }
+        }
+----------------------------------------------------------------------------------------------------------------------------------
+
+	DIRECTION 
+( normal | reverse | alternate | alternate-reverse )
+
+direction secara default nilainya adalah normal, jadi animasinya akan berjalan dari awal sampai akhir, kalo reverse kebalikan nya dia dari akhir dulu baru ke awal, kalo saya tulis normal itu animasi nya biasa aja gaada perubahan nya ttp animasinya dari awal ke akhir dilakukan 2 kali.
+
+Kalo reverse animasinya akan dilakukan dari akhir dulu, berarti dari kotak nya besar dulu ya. Seperti ini :
+
+ .kotak {
+            width: 200px;
+            height: 200px;
+            background-color: salmon;
+            animation: animasiKotak 2s ease 2 reverse;
+        }
+
+        @keyframes animasiKotak {
+            0% {
+                width: 200px;
+            }
+
+            50% {
+                width: 500px;
+                height: 200px;
+            }
+
+            100% {
+                width: 500px;
+                height: 500px;
+            }
+        }
+-----------------------------------------
+
+Nah begitu lah ya liat sendiri hasilnya dan itu diulang selama 2 kali ya.
+
+Jika kita gunakan yg alternate maka dia akan berganti-ganti, dari awal sampai akhir lalu dari akhir ke awal kan kita diulang selama 2 kali kalo ga ada ulangin 2 kali ya dia sama aja sih. Jadi nanti seolah-olah bolak balik animasinya Seperti ini :
+
+ .kotak {
+            width: 200px;
+            height: 200px;
+            background-color: salmon;
+            animation: animasiKotak 2s ease 2 alternate;
+        }
+
+        @keyframes animasiKotak {
+            0% {
+                width: 200px;
+            }
+
+            50% {
+                width: 500px;
+                height: 200px;
+            }
+
+            100% {
+                width: 500px;
+                height: 500px;
+            }
+        }
+-----------------------------------------
+Nah begitu lah ya liat sendiri hasilnya dan itu diulang selama 2 kali ya. Nah kalo diulang nya saya ganti jadi angka 3 berarti ngulang nya selama 3 kali, berarti alternatenya dia akan dari awal ke akhir, ke-2 dari akhir ke awal, pengulangan yg ke-3 nya dari awal ke akhir.
+
+.kotak {
+            width: 200px;
+            height: 200px;
+            background-color: salmon;
+            animation: animasiKotak 2s ease 3 alternate;
+        }
+
+        @keyframes animasiKotak {
+            0% {
+                width: 200px;
+            }
+
+            50% {
+                width: 500px;
+                height: 200px;
+            }
+
+            100% {
+                width: 500px;
+                height: 500px;
+            }
+        }
+-----------------------------------------
+
+Lalu ada juga yg terakhir alternate-reverse, kalo ini sama dengan alternate tapi ini mulai nya dari akhir dulu, kan kalo alternate dari awal dulu kalo ini dari akhir dulu. Seperti ini :
+
+  .kotak {
+            width: 200px;
+            height: 200px;
+            background-color: salmon;
+            animation: animasiKotak 2s ease 3 alternate-reverse;
+        }
+
+        @keyframes animasiKotak {
+            0% {
+                width: 200px;
+            }
+
+            50% {
+                width: 500px;
+                height: 200px;
+            }
+
+            100% {
+                width: 500px;
+                height: 500px;
+            }
+        }
+-----------------------------------------
+
+awalnya adalah kotak yg 100% widht nya 500px itu, itu dulu awal nya, baru mundur ke 50% ke 0% nya gitu.
+
+Tapi yang paling natural adalah yg alternate, kita ganti aja jadi alternate lagi, nah tapi pas di akhir itu dia langsung loncat ke posisi yg awal karena kan iteration-count nya ganjil, nah nanti ada caranya supaya dia berhenti di akhir animasinya.
+
+----------------------------------------------------------------------------------------------------------------------------------
+
+	FILL-MODE
+( none | forwards | backwards | both )
+
+Nah fill-mode untuk menentukan akhir dari transisinya seperti apa, jika ingin transisinya tidak kembali loncat langsung ke posisi awal kita nanti pake nya yg forwards. Seperti ini :
+
+ .kotak {
+            width: 200px;
+            height: 200px;
+            background-color: salmon;
+            animation: animasiKotak 2s ease 3 alternate forwards;
+        }
+
+        @keyframes animasiKotak {
+            0% {
+                width: 200px;
+            }
+
+            50% {
+                width: 500px;
+                height: 200px;
+            }
+
+            100% {
+                width: 500px;
+                height: 500px;
+            }
+        }
+-----------------------------------------
+
+Kalo kalian liat dia berhenti di akhirnya kotak nya akan berbentuk yg width 500px dan height 500px, liat sendiri 
+
+----------------------------------------------------------------------------------------------------------------------------------
+
+    PLAY-STATE
+( running | paused )
+
+play-state defaultnya itu adalah running ya, jadi animasinya memang berjalan aja seperti bagaimana mestinya, dan jika saya kasih nilainya paused maka animasinya akan berhenti. Nah kalo kita gunakan paused di sourcode kita itu animasinya ga akan berjalan, karena kita sudah paused dari awal kita nulis sourcecode nya. 
+
+Nah makannya paused ini biasanya digunakan ketika kalian pake javascript supaya berhenti di tengah-tengah animasi. Seperti ini :
+
+ .kotak {
+            width: 200px;
+            height: 200px;
+            background-color: salmon;
+            animation: animasiKotak 2s ease 3 alternate forwards running;
+        }
+-----------------------------------------
+
+Kalo disitu nya saya kasih running berarti kan itu normal-normal aja ya, tapi ketika saya kasih paused. Seperti ini :
+
+.kotak {
+            width: 200px;
+            height: 200px;
+            background-color: salmon;
+            animation: animasiKotak 2s ease 3 alternate forwards paused;
+        }
+-----------------------------------------
+
+Maka animasinya memang tidak akan berjalan karena dari awal sudah kita paused, nah supaya kita bisa hentikan ditengah jalan, caranya kita bisa gunakan javascript, tapi untuk sekarang saya akan gunakan inspect elemen di browser nya supaya kalian bisa liat memang berhenti di tengah jalan.
+
+Caranya misal kita ubah dulu durasi nya 3 detik terus iteration-count nya saya ganti jadi infinite supaya berulang terus menerus ya. Seperti ini : 
+
+ .kotak {
+            width: 200px;
+            height: 200px;
+            background-color: salmon;
+            animation: animasiKotak 3s ease infinite alternate forwards;
+        }
+-----------------------------------------
+
+Nah maka dia akan jalan terus ya.
+
+Lalu kita ke inspect elemen, lalu di situnya kita tambahkan css animation-play-state ( liat di folder )
+lalu disitu juga ada pilihan nilai" yg mau kita bisa pake ada inherit, initial, running dan paused ( liat di folder ) kita pilih yg paused. 
+
+Nah kalo kita coba-coba pas animasinya lagi jalan terus kan ada pilihan pencet paused nanti akan berhetin sendiri animasinya ( liat di folder ). Jadi nanti itu kita bisa gunakan Javascript yg menggunakan browser hanya simulasinya saja.
+
+dan janga lupa sebelum kalian panggil animation nya kalian harus buat keyframes nya. keyframesnya kalian bisa bikin sesuai dengan kebutuhan kalian ya bisa 1 bisa 10 atau berapa seterah. tinggal nanti kalian main-main di persen nya misal 10% 20% 30% dan begitu.
+
+Dan di video ini hanya diberikan cara penggunaan nya untuk lainnya bisa coba sendiri ya.
+
+----------------------------------------------------------------------------------------------------------------------------------
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+
+ 

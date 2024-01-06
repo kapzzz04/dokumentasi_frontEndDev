@@ -1,0 +1,44 @@
+div.kk {
+    width: 300px;
+    height: 300px;
+    background-color: coral;
+    margin: 20px auto;
+    padding: 50px;
+    border: 1px black solid;
+}
+
+/* kalo kalian
+liat sekarang dengan css ini kotak nya bakal beda ukuran ya
+padahal lebar nya itu sudah di atur sama ya
+
+agar lebar kedua ini sama kita harus mengatur masing-masing
+width nya baru lebar nya jadi sama ya
+tapi ada cara yg lebih praktis
+*/
+
+/* 
+tambah aja properti nya box-sizing
+nah ini yg membuat lebar kotaknya itu ttp 600px
+berapupun padding dan border yg kita kasih
+*/
+
+.satu,
+.dua {
+    width: 600px;
+    margin: 10px auto;
+    box-sizing: border-box;
+
+}
+
+
+.satu {
+    background-color: royalblue;
+    border: 30px solid red;
+    padding: 10px;
+}
+
+.dua {
+    background-color: lightgreen;
+    padding: 30px;
+    border: 10px dashed orange;
+}

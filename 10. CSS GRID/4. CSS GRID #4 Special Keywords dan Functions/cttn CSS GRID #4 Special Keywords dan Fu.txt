@@ -1,0 +1,301 @@
+CSS GRID #4 Special Keywords dan Functions
+
+Sebelum kita memasuki ke property selanjut nya ada yg harus kita pahami dulu mengenai 
+Special Function & Keyword pada saat kita memberikan nilai pada property yg sudha kita bahas sebelumnya.
+
+Special Function & Keyword
+- repeat()
+- min-content & max-content
+- minmax()
+- auto-fill & auto-fit
+
+---------------------------------------------------------------------------------------------------------------------------------
+
+REPEAT()
+
+repeat() itu untuk menentukan ukuran dari grid track secara berulang, jadi kita gaperlu lagi nulisin semua ukuran kolom atau baris nya satu-persatu, jadi klian bisa tulis gini (liat di ss an), misalnya saya pengen 9 kolom yang ukuran nya sama-sama 1fr dari pada kita nulis 9 kali 1fr, cukup tulis awal 9 untuk 9 kolom lalu koma ukuran nya mau berapa, gini ( repeat(9, 1fr) ).
+
+Kasus kita dari video sebelum nya kita punya kolom 9 buah nah itu bisa kita ringkas aja dengan cara menuliskan repeat lalu mau berapa kali repeat nya koma ukuran atau nilai nya mau berapa 1fr misalkan. Gini :
+
+ .container {
+            width: 60%;
+            margin: 50px auto;
+            display: grid;
+            grid-template-columns: repeat(9, 1fr);
+        }
+--------------------------------
+
+atau nilai nya mau diganti jadi 150px atau 50px bebas, atau kalian mau lebih kompleks lagi nih, misalkan kalian punya 9 kolom nih saya sekarang mau ubah 4 kolom ukuran nya 1fr, 5 kolom nya 1.5fr, nah kalian bisa tulis 2x seperti ini :
+
+   .container {
+            width: 60%;
+            margin: 50px auto;
+            display: grid;
+            grid-template-columns: repeat(4, 1fr) repeat(5, 1.5fr);
+        }
+--------------------------------
+
+Jadi hasilnya yg kolom 1-4 ukuran 1fr sisanya 1.5fr, begitu pula kalo kalian mau nyoba untuk yang grid-template-rows sama aja ya.
+
+---------------------------------------------------------------------------------------------------------------------------------
+
+MIN-content & MAX-content
+
+Nah ini untuk menentukan seberapa besar ukuran grid tracknya mau horizntal atau vertikal berdasarkan content dari sebuah item nya, mau maximal atau mau minimal. (liat di ssan nya )
+
+cara ngasih nya kita bisa kasih, bukan angka bukan px,%, auto dan sebagainya, kita tulisnya gini :
+
+ .container {
+            display: grid;
+            grid-template-columns: min-content | max-content;
+        }
+---------------------------------------------
+
+Misalkan kalo saya tulis gini :
+
+ .container {
+            width: 60%;
+            margin: 50px auto;
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+        }
+---------------------------------------------
+
+Kalian pasti udah tau apa yg akan terjadi kan, benar itu akan jadi 3 kolom, ukuran nya sama kalo yg tengah mau lebih besar kita kasih (2fr) misalnya, nah sekarang kalo yg tengah saya ganti jadi ( min-content ), maka yg tengah ukuran nya akan mengecil sesuai dengan isi content nya berapa, karena content nya cuma angka maka dia akan mengecil gitu.
+
+  .container {
+            width: 60%;
+            margin: 50px auto;
+            display: grid;
+            grid-template-columns: 1fr min-content 1fr;
+        }
+---------------------------------------------
+
+Nah kalo misalkan item atau kotak no 5 itu saya ganti jadi tulisan "sandhika" gitu, maka ukuran nya akan sebesar content minimal nya, coba kalo kita ganti jadi max-content :
+
+ .container {
+            width: 60%;
+            margin: 50px auto;
+            display: grid;
+            grid-template-columns: 1fr max-content 1fr;
+        }
+---------------------------------------------
+
+Jadi kalo saya liat di browser harusnya sama aja ukuran nya segitu, terus apa dong bedanya Min-content & Max-content, perbedaanya akan lebih jelas ketika kita punya tulisan atau lebih dari satu kata, misalnya saya punya "sandhika galih", kalo saya tulis nya max-content :
+
+ .container {
+            width: 60%;
+            margin: 50px auto;
+            display: grid;
+            grid-template-columns: 1fr max-content 1fr;
+        }
+---------------------------------------------
+
+Maka hasilnya ukuran nya masih sesuai baris gitu, kalo saya tulis nya min-content :
+
+ .container {
+            width: 60%;
+            margin: 50px auto;
+            display: grid;
+            grid-template-columns: 1fr min-content 1fr;
+        }
+---------------------------------------------
+
+Nah jadi bedanya kalo min-content itu tulisan nya akan dipecah menjadi tiap-tiap kata dan tiap-tiap kata nya akan dicari mana kata yang paling panjang itu yg akan dipilih. jadi kalo misalkan saya punya 
+tulisan nya panjang gini :
+
+ <div class="item">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quod, temporibus.</div>
+---------------------------------------------
+
+makan kalo menggunakan min-content dia akan bikin semua nya jadi satu kolom perkata dicari mana yg paling panjang itu diambil itu untuk min-content, beda dengan max-content. Kalo max-content itu gapeduli ada berapa baris, dia akan ambil seluruh kata nya jadi satu baris dan sisanya akan mengikuti jadi dia akan berbentuk kesamping ga memanjang kebawah seperti min-content.
+
+Keliatan nya agak aneh cuma ini akan kepake ketika kita kombinasikan semua function dan keywerd ini.
+
+---------------------------------------------------------------------------------------------------------------------------------
+
+Auto-FILL & Auto-FIT
+
+Katanya auto-fill & auto-fit ini menentukan jumlah item untuk berada pada grid track, biasanya digunakan didalam nilai repeat(). (liat ss an nya di folder)
+
+Jadi kita bisa ngasih didalam repeat() itu bukan angka tapi auto-fit atau auto-fill, gini :
+
+ .container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, 150px);
+        }
+---------------------------------------------
+
+Nah sekarang kita bisa coba tulis ginikan ya ukuran nya repeat(4, 2fr), itu artinya saya mau bikin 4 kolom ukuran nya 2fr, lebih dari 4 kolom dia turun :
+
+.container {
+            width: 60%;
+            margin: 50px auto;
+            display: grid;
+            grid-template-columns: repeat(4, 2fr);
+        }
+---------------------------------------------
+
+ga aneh ya, coba kalo kita ganti jadi auto-fit dan ganti juga jadi 100px :
+
+ .container {
+            width: 60%;
+            margin: 50px auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, 100px);
+        }
+---------------------------------------------
+
+Nah lihat jadi nay kaya gitu, kaya nya ga ada yang aneh ya, lalu kalo saya ganti jadi auto-fill gaada perubahan juga. apa nih maksudnya nah ini agak tricky ya. Sekarang saya mau kasih lihat container nya ada border.
+
+ .container {
+            width: 60%;
+            margin: 50px auto;
+            border: 5px orange solid;
+            display: grid;
+            grid-template-columns: repeat(auto-fill, 100px);
+        }
+---------------------------------------------
+
+nah sekarang ada kotak yg mengelilingin items nya dan itu ada sisanya tuh di sisi kanan nya, itu karena kotak nya gamuat kalo sisanya di taro di ruang yg sisa itu makannya kotak nay turun kebawah dan ada sisa ruang nya gitu. Nah itu keren nya pake auto-fill kita bisa secara otomatis nentuin ada berapa kolom yg ada di dalam wadah nya. lihat lah kalo kita perbesar atau perkecil ukuran browsernya itu ukuran items atau kotak nya akan menyesuaikan loh kaya responsive gitu coba aja sendiri.
+
+Sekarang apa bedanya dengan Auto-Fit, kita ubah dulu jadi auto-fit :
+
+ .container {
+            width: 60%;
+            margin: 50px auto;
+            border: 5px orange solid;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, 100px);
+        }
+---------------------------------------------
+
+Tampilnya sama ya, kalo kita pake auto-fit itu sama aja ternyata kalo kita perbesar atau perkecil browser nya dia akan seperti responsive gitu, nah terus apa bedanya, perbedaanya akan terlihat ketika items nya itu lebih sedikit dari lebar container nya, karena itu lebih banyak ya jadi sama aja.
+
+coba saya pake 3 kotak aja dulu, sekarang kita nyalahkan si grid overlay nya di browser firefox ya, Kalo misalkan kita menggunakan auto-fit, kalian lihat (di ss an folder) disitu grid nya secara "Explicit" berakhir di element terakhir, nah kalo kita pake auto-fill itu garis "Explicit" nya berakhir  disitu bukan di element terakhir, element terakhir kan kotak 3 nah garis explicit atau solid nya kalo pake auto-fill itu dia ga berakhir disitu tapi lebih ke kanan dikit beda ya dengan menggunakan auto-FIT. (liat ss an folder)
+
+Nah iya juga kalo yang auto-fill itu dia menentukan grid "Explicit" nya itu berakhir disitu lah namanya, nah artinya dia akan ngecek ada tempat kosong disitu artinya kayanya bakalan muat satu lagi, maka dia akan menentukan akhir dari grid (garis solid explicit) nya disitu. Kalo auto-fit dia akan berada diakhir dari items atau (grid) nya, nah ini akan kepake ketika kalian mau bikin elemen layout yg responsive terus kalian mau bikin satu bagian itu kosong itu bisa menggunakan auto-fit & auto-fill.
+
+---------------------------------------------------------------------------------------------------------------------------------
+
+MINMAX()
+
+minmax() ini bisa kita pake untuk menentukan ukuran minimal dan maximal dari sebuah grid track, jadi nanti kita bisa kasih minimalnya segini maximal nya segini, kalo misalnya bisa pake yg maximal tapi kalo ukuran layar nya jadi kecil kurangin sampai batas minimalnya. (liat di ssan fodler )
+
+Misalnya kita punya 3 kolom ukuran nya 1fr 1fr 1fr, gaada masalah ya lalu sekarang yg tengah nya kita ganti jadi minamax yg didalamnya kita kasih 2 nilai misalkan 200px dan 300px, gini :
+
+.container {
+            width: 60%;
+            margin: 50px auto;
+            display: grid;
+            grid-template-columns: 1fr minmax(200px, 300px) 1fr;
+        }
+----------------------------------
+
+Nah itu maksudnya minimal 200px da maximal 300px, nah itu kalo browsernya kita kecilin dia akan ngecilin sampai ukuran nya 200px, jadi karena itu udha gamuat lagi kaya nya gamungkin 200px, coba kita ganti di html nya gini :
+
+ <div class="item">sandhika</div>
+ <div class="item">2</div>
+  <div class="item">galih</div>
+----------------------------------
+
+nah sekarang kalo dikecilin browsernya dia akan ngecilin, kalo ukuran kiri kanan nya udah gamuat, dia akan ngecilin sampai maximal 200px, jadi kalo udah lebih kecil dari 200px dia gamau tambah kecil lagi. Jadi dia akan menyesuaikan kalo layar nya kecil dia pake 200px dan kalo dikecilin lagi kotak nya ga akan lebih kecil dari 200px gitu nah kalo layar nya besar dan bisa ukuran kotka nya jadi 300px dan kalo layar nya lebih besar lagi ukuran kotak nya bakal 300px aja ga lebih dari itu.
+
+---------------------------------------------------------------------------------------------------------------------------------
+
+Responsive Image Gallery
+
+Dan itu semua yang dijelasin hanya cara pakai nya nah supaya lebih paham lagi kita langusng coba aja atau implementasikan nya langsung ya, kita coba membuat Gallery Responsive.
+
+Nah jadi disini kita punya folder namanya img dan didalamnya terdapat 10 buah gambar yg ukuran nya sama ya. Lalu kita buat ul aja ya yg didalam nya li didalam li ada img cara nulis cepet nya gini 
+(  ul.gallery>li*10>img[src="img/$.jpg"]  ). jadi cara baca nya saya mau bikin <ul> yg nama class nya gallery yg didalamnya ada <li> 10 buah yg didalamnya ada img yg attribute src nya adalah nah tulis format buat ke ambil file nya, lalu ($) dolar itu agar bisa terurut dari 1 sampai yg kita mau jadi gaperlu cape" ganti angka nya gitu.
+
+lalu kita buat stylenya gini dulu :
+
+ <style>
+        * {
+            padding: 0;
+            margin: 0;
+        }
+
+        body {
+            background-color: #ddd;
+
+        }
+
+        img {
+            display: block;
+            width: 100%;
+        }
+    </style>
+-------------------------------------
+
+nah inget <img> itu default display nya innline kita ganti dulu block lalu biar responsive kita kasih lebarnay 100%. Kita mau atur supaya memenuhi ul nya, kita bikin lebarnya 80% dari lebar halaman. lalu supaya ilang titik dari <li> nya kita kasih list-style nya none :
+
+  .gallery {
+            width: 80%;
+            margin: auto;
+            border: 10px solid white;
+            list-style: none;
+        }
+-------------------------------------
+
+Nah itu style dasarnya, sekarang kita atur style grid nya, pertama pasti harus kasih dulu display grid ya. Lalu kita cukup gunakan 1 property aja grid-template-columns, berapa kolom 3 atau 4 atau kolom nay ngatur sendiri, kalo saya tulis repeat 3, 1fr itu aja udah bisa ya, tapi kalo untuk resposive nya belum karena gambarnya selalu 3 dilayar apapun.
+
+saya pengen semakin besar layar nya gambar nya ngatur sendiri, saya pengen pake auto-fit inget auto-fit itu akan ngisi tempat yg kosong kan, lalu ukuran nya kita kasih minmax(), jadi minimal gambarnya itu misalnya 150px tapi kalo layarnya membesar kasih dia 1fr.
+
+.gallery {
+            width: 80%;
+            margin: 20px auto;
+            border: 10px solid white;
+            list-style: none;
+            box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.3);
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+        }
+-------------------------------------------------------------------
+
+Nah udah ya hanya dengan 1 baris kita sudah bisa buat resposive nya keren kan. jadi itu kalo browser nya di perbesar atau diperkecil dia ngatur sendiri terus kalo pengen ada jarak nya bisa pake grid-gap :
+
+   .gallery {
+            width: 80%;
+            margin: 20px auto;
+            border: 10px solid white;
+            list-style: none;
+            box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.3);
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            grid-gap: 5px;
+        }
+-------------------------------------------------------------------
+
+kalo kalian liat langsung otomatis ada jaraknya tuh jadi gaperlu atur border secara manual bener keren kan. dan grid-gap kita akan bahas di selanjutnya ya.
+
+---------------------------------------------------------------------------------------------------------------------------------
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

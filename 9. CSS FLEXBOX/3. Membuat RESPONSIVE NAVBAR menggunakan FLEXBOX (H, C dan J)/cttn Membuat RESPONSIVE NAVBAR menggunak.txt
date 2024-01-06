@@ -1,0 +1,475 @@
+Membuat RESPONSIVE NAVBAR menggunakan FLEXBOX (H, C dan J)
+
+Kita akan buat sebuah navigasi yg kita sebut navbar, Nanti ketika kita resize akan ada beberapa perubahan, pertama ketika kita buka web nya di lebar websaite kira" di tablet gitu dan ketika di buka di mobile dia akan berubah jadi tombol gitu, liat aja nanti gimana perubahan nya ya.
+
+Sekarang kita buat struktur html nya dulu ya :
+
+<nav>
+        <div class="logo">
+            <h4>Web Keyla</h4>
+        </div>
+
+        <ul>
+            <li><a href="">Home</a></li>
+            <li><a href="">Product</a></li>
+            <li><a href="">Service</a></li>
+            <li><a href="">Gallery</a></li>
+            <li><a href="">About</a></li>
+        </ul>
+    </nav>
+------------------------------------------
+
+Sekarang kita hubungkan halaman html nya ke css ya.
+
+kita reset semua margin dan padding menjadi 0 begini :
+
+* {
+    margin: 0;
+    padding: 0;
+}
+-----------------------------
+
+Lalu kita kasih style ke si navbar nya, Kita akan anggap didalam tag <nav> itu ada 2 komponen ada logo dan list, mungkin nanti kita tambahin burger menu pas tampilan headphone tapi itu nanti belakangan. Anggap aja 2 komponen di dalam nav itu adalah item sehingga nanti kita dapat dengan mudah membuat nav nya menjadi flexbox. Supaya semua elemen nya atau item nya ngejejer kekanan.
+
+Jadi kita bikin dulu supaya navbar nya display nya flex, pas kita kasih display flex di tag <nav>  list nya msih kebawah belum ngejejer kekanan. Itu karena nanti list nya juga akan kita kasih display flexbox ya. sekarang itu yg flex baru ul nya <li> nya belum.
+
+nav {
+    display: flex;
+}
+-----------------------------
+
+Lalu sekarang kita bikin dulu si <ul> nya jadi flexbox :
+
+nav ul {
+    display: flex;
+}
+-----------------------------
+
+Nah sekarang sudha ngejejer semuanya ke kanan, karena masih pada dempetan tulisan ny kita pake aja justify-content biar rapih ya.
+
+nav {
+    display: flex;
+    background-color: #2db7e6;
+    justify-content: space-around;
+}
+-----------------------------
+
+Maka akan ada jarak di tengah" nya, supaya terlihat enak bisa kasih padding atas bawah nya 20px kiri kanan nya 0 aja ya. Sekarang kita coba hilangkan dulu titik di tag <li> nya ya, kita bisa tulis di ul nya list-style kita bisa kasih none :
+
+nav ul {
+    display: flex;
+    list-style: none;
+}
+-----------------------------
+
+Terus gimana kalo ktia kasih lebar si <ul> nya misalnya kita kasih 40%, lalu asih justify-content supaya ada jarak nya setiap li nya. gini :
+
+nav ul {
+    display: flex;
+    list-style: none;
+    width: 40%;
+    justify-content: space-between;
+}
+-----------------------------
+
+Dan saya disini menggunakakn juga font dari google, kalian tinggal cari fonts.google lalu cari aja font nama nya montserrat dan Pacifico, nanti kalian bisa klik ada tanda + lalu di kanan nya nanti diberikan sebuah link yg di taro di html nya jadi kita gaperlu download ya.
+
+Nah udah lanjut ke atur font di list nya, sepertinya kebesaran ukuran nya kita kecilin ukurannya dulu
+gimana kita pake ukuran nya gini, kalo kita tulisa font-size ( 1em ) itu artinya ukuran font default nya tapi kalo kita kecilin kita bisa tulis 0.8em :
+
+nav ul li a {
+    text-decoration: none;
+    color: #e7ecee;
+    font-size: 0.8em;
+}
+-----------------------------
+
+Sekarang kita atur hover nya :
+
+nav ul li a:hover {
+    color: #fff;
+}
+-----------------------------
+
+ini udah nih tinggal kita atur biar tulisan nya ga dempet ketika masuk ke tampilan tablet. Jadi kita mau bikin 3 breakpoint, ketika ukuran nya besar mau berapapun sampai lebar layar ketika dempet tulisan nya, dan ketika lebar layar mobile.
+
+Jadi kita harus punya media query, cara bikin nya itu gini :
+
+
+@media screen and (max-width: 768px) {
+    nav ul {
+        width: 50%;
+    }
+}
+-----------------------------
+
+Jadi ketika media nya adalah screen atau layar dan lebar maximal nya 768px, ya ketika lebar layar nya segitu maka apa yg mau berubah. Yang mau berubah adalah nav ul nya. Kalo tadi lebar nya diluar itu 40% jadi sekarang width ul nya ketika layar nya 768px adalah 50%.
+
+Nah lalu disaat tampilan mobile kita perbaiki lagi biar menu nya ilang dan tergantikan oleh tombol nya ya. Jadi nanti gini kalo misalnya di ukuran mobile di ukuran nya 576px kita bikin supaya ul nya ilang dulu aja ya jadi display nya none :
+
+@media screen and (max-width: 576px) {
+    nav ul {
+        display: none;
+    }
+}
+-----------------------------
+
+MEMBUAT TOMBOL BUGER 
+
+Ini kita akan coba bikin nya murni pake CSS jadi kita akan ngakalin dengan checkbox, kita bikin dulu sebuah tombol nya ya :
+
+ <div class="menu-toggle">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+-----------------------------
+
+kita bikin div dengan class menu-toggle lalu didalam nya ada 3 span yg masing" span nya itu adalah garis.
+
+pertama kita buat dulu humburger menu nya ya, kita buat si span nya biar berbentuk dulu seperti ini :
+
+.menu-toggle span {
+    display: block;
+    width: 28px;
+    height: 3px;
+    background-color: #d9eff8;
+    border-radius: 3px;
+}
+-----------------------------
+
+Lalu kita atur si parent nya span yaitu div, kita bikin div nya display nya jadi flex, kalo flex defalut nya dia ngejejer ke kanan ya, kita mau nya dia kebawah bukan ke samping kita ubah dulu pake flex-direction column, nah sekarang kita atur tinggi si pembungkus nya si <div> nya bukan span nya ya. 
+
+Kita atur height nya 20px, biar ada jarak nya biar tinggi pembungkus nya lebih tinggi dari span itu dan nanti nya jarak itu bisa kita atur coba deh kasih background color biar bisa liat jarak nya. Nah kan ada jarak nya biar kita ga usah atur margin apa nya kita pake aja justify-content. Gini :
+
+.menu-toggle {
+    display: flex;
+    flex-direction: column;
+    height: 20px;
+    justify-content: space-between;
+}
+-----------------------------
+
+Sekarang gimana caranya kita bikin si tombol nya jadi interactive. Nah sebenernya kalo dari sini kalian pake javascript itu lebih gampang. Ngakalin menggunakan CSS kita akan pakai checkbox yg berada di atas humburger menu nya yg transparan nanti orang gabisa liat. Pake chackbox supaya kita bisa kasih CSS ketika checkbox itu di ceklis atau tidak. ini untuk supaya kita ngga pake javascript.
+
+Caranya kita bikin dulu sebelum Span nya sebuah input yg tipe nya check box :
+
+ <div class="menu-toggle ">
+            <input type="checkbox">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+-----------------------------
+
+Supaya enak ngatur nya checkbox nya kita bikin positionnya absolute , sehingga pembungkusnya harus kita bikin non-statik karena child dari parent nya non-statik juga. Jadi si pembungkusnya kita kasih position relative :
+
+.menu-toggle {
+    display: flex;
+    flex-direction: column;
+    height: 20px;
+    justify-content: space-between;
+    position: relative;
+}
+-----------------------------
+
+lalu kita kasih di input nya position absolute :
+
+.menu-toggle input {
+    position: absolute;
+
+}
+-----------------------------
+
+karena bentuk cheackbox nya kecil sekarang kita bikin biar dia bentuk nya pas sama pembungkus nya ya. Biar ketika di klik itu pas sama pembungkus nya.
+
+.menu-toggle input {
+    position: absolute;
+    width: 100%;
+    height: 20px;
+    opacity: 0;
+}
+-----------------------------
+
+kita sudah atur besar nya dan opacity nya biar dia ga keliatan, nantinya ketika di ceklis atau tidak itu yg akan menentukan munculnya si list nya.
+
+----------------------------------------------------------------------------------------------------------------------------------
+
+MEMBERI ANIMASI PADA HUMBURGER NYA
+
+Sekarang kita beri animasi pada humberger nya biar ketika di klik dia menyilang.
+
+Logika nya gini kan ada 3 buah span ya, nanti span yg pertama dia mau dibuat bergerak 45 derajat kebawah, span yg ke 2 mau saya kasih animasi supaya dia perlahan ilang, span yg ke 3 kebalikan dari span yg pertama mau saya kasih rotasi 45 derajat tapi kebalikan nya sehingga nanti membentuk tanda silang.
+
+Ini kita menggunakan CSS yg namanya sibling, tapi kita cari tau dulu gimana mentarget elemen yg itu, jadi kita tau ketika tulis gini ( .menu-toggle span ) ini akan ngambil semua span yg ada di div itu.
+
+Jadi input itu anak yg pertama dari si <div> nya, jadi kalo saya tulis gini :
+
+.menu-toggle span:nth-child(2) {}
+--------------------------------
+
+ini untuk mengambil anak ke 2 dari si pembungkus ny gitu ya. saya mau ketika saya klik checkbox nya span yg pertama menjadi merah misalnya. Cara nya saya ambil dulu si input nya :
+
+.menu-toggle input:checked~span:nth-child(2) {}
+--------------------------------
+
+Jadi ketika input yg di menu-toggle itu di ceklis, maka cari css yg merupakan sibling atau sodara kandung lah ya, jadi saya bisa tulis cari sibling nya yg merupakan span yg dia anak ke 2 dari si pembungkus nya. Jadi ketika input di ceklis cari sodara nya yg merupakan span anak ke 2 dari si pembungkus nya terus ubah background color nya jadi red.
+
+.menu-toggle input:checked~span:nth-child(2) {
+    background-color: red;
+}
+--------------------------------
+
+Kita mau bikin trasnformasi, kita mau bikin garis pertama ini berotasi 45 derajat kebawah, sebenernya kita bisa kasih aja transform rotate 45deg, tapi itu ketika berubah poros nya ada di tengah, saya pengen poros nya pindah ke kiri pojok atas di ujung, supaya klo di puter dia muter nya ga di tengah tapi dari ujung, supaya gampang bentuk x nya.
+
+Nah cara mindahin poros nya kita pake ( transform-origin) mau di taro kemana poros nya, kalo saya mau di atas kiri, kita tinggal kasih ( 0 0 ) artinya sumbu x dan y nya 0.
+
+.menu-toggle span:nth-child(2) {
+    transform-origin: 0 0;
+}
+
+.menu-toggle input:checked~span:nth-child(2) {
+    transform: rotate(45deg);
+}
+--------------------------------
+
+Nah sekarang kita ubah yg span terakhir, kalo yg terakhir itu kebalikan nya, kita mau ambil poros nya di kanan bawah nya, dan rotate nya kita kasih mines 45deg :
+
+.menu-toggle span:nth-child(4) {
+    transform-origin: 0 100%;
+}
+
+.menu-toggle input:checked~span:nth-child(4) {
+    transform: rotate(-45deg);
+}
+--------------------------------
+
+oh iya jangan lupa kasih z-index lebih dari 1 di bagian input nya karena dia non-statik nya absoult, supaya dia bisa di ceklis kasih z-index gini :
+
+.menu-toggle input {
+    position: absolute;
+    top: 0;
+    left: -5px;
+    bottom: 0;
+    right: 0;
+    height: 20px;
+    opacity: 0;
+    cursor: pointer;
+    z-index: 999;
+}
+
+--------------------------------
+
+Nah udah nih tapi silang nya gabagus nih soalnya ga ngepas harus ada yg kita ubah sedikit nih, ubahnya translate (-1px , -1px ), jadi sumbu x nya mundur 1 naik satu :
+
+.menu-toggle input:checked~span:nth-child(2) {
+    transform: rotate(45deg) translate(-1px, -1px);
+}
+--------------------------------
+
+Nah sekarang tinggal kita kasih animasi biar keren, kita kasih di span nya gini :
+
+.menu-toggle span {
+    display: block;
+    width: 28px;
+    height: 3px;
+    background-color: #d9eff8;
+    border-radius: 3px;
+    transition: all .5s;
+}
+--------------------------------
+
+tinggal kita ilangin span yg tengah nya, kita pake scale nya 0, supaya ketika di klik maka kecilkan atau hilangkan span yg tengah sehingga tersisa 2 span berbentuk X :
+
+.menu-toggle input:checked~span:nth-child(3) {
+    scale: 0;
+}
+
+----------------------------------------------------------------------------------------------------------------------------------
+
+MEMBUAT DESAIN NAV NYA KETIKA DI KLIK
+
+Oh iya kita atur dulu si tombol nya supaya ketika lebar nya normal dia ga muncul, tinggal ganti aja di lebar normal display nya none, dan di lebar mobile lebar nya flex.
+
+/* ukuran mobile */
+@media screen and (max-width: 576px) {
+    nav ul {
+        display: none;
+    }
+
+    .menu-toggle {
+        display: flex;
+    }
+}
+-----------------------------------
+
+Lalu kita buat sekarang si list nya muncul ketika tombol di klik ya, Jadi kalo misal ukuran mobile kita pindahkan ul nya jadi ke kanan dan itu sepertinya kita butuh javascript.
+
+Jadi si ul ini pertama kita kasih position nya absolute, yg kita kasih mepet kanan berarti right nya 0, 
+terus supaya tulisan nya ngejejer kebawah kita kasih flex-direction column, tapi itu posisinya masih di atas nya, biar keliatan coba kasih background-color black :
+
+@media screen and (max-width: 576px) {
+    nav ul {
+        position: absolute;
+        right: 0;
+        flex-direction: column;
+        /* background-color: black; */
+    }
+
+    .menu-toggle {
+        display: flex;
+    }
+}
+-----------------------------------
+
+Kita kan mau si ul nya itu penuh sampai bawah, oh iya kita kasih flex-direction itu karena di atas sudah di kasih display flex ya, jadi begitu pahami sendiri.
+
+Nah agar semuanya penuh kebawah kita bisa kasih height 100% dan bottom nya 0, Lalu kita bisa tambahkan justify-content, dan kita kasih width nya juga 80% biar enak, lalu kita ganti aja background color nya, dan kita mau dia ada dih bawah si <nav> nya jadi kita kasih z-index nya -1 :
+
+/* ukuran mobile */
+@media screen and (max-width: 576px) {
+    nav ul {
+        position: absolute;
+        right: 0;
+        flex-direction: column;
+        bottom: 0;
+        height: 100%;
+        background-color: #2db7e6;
+        justify-content: space-evenly;
+        width: 80%;
+        text-align: center;
+        z-index: -1;
+    }
+
+    .menu-toggle {
+        display: flex;
+    }
+}
+-----------------------------------
+
+Seperti itu masih setengah jadi mungkin. Hasil nya itu kita kan pengen nya begitu tombol di klik baru muncul ya si listnya itu. berarti di awal kita kasih transformasi nya itu supaya dia geser kekanan, kasih aja translateX nya 100% supaya dia ngumpet kekanan :
+
+@media screen and (max-width: 576px) {
+    nav ul {
+        position: absolute;
+        right: 0;
+        flex-direction: column;
+        bottom: 0;
+        height: 100%;
+        background-color: #2db7e6;
+        justify-content: space-evenly;
+        width: 80%;
+        text-align: center;
+        z-index: -1;
+        transform: translateX(100%);
+    }
+
+    .menu-toggle {
+        display: flex;
+    }
+}
+-----------------------------------
+
+Tapi itu di malah bisa geser kekanan dia otomatis ada scroll nya yg bisa geser kekanan. Supaya ga ada scroll nya kita kasih overflow-x hidden di bagian body nya gini :
+
+
+body {
+    font-family: 'Montserrat', sans-serif;
+    overflow-x: hidden;
+}
+-----------------------------------
+
+Nah selanjutnya kita gunakan class jadi Kalo nav ul itu kena atau punya class slide maka balikin lagi posisi dari ul nya jadi balikin lagi translate nya jadi 0 : 
+
+@media screen and (max-width: 576px) {
+    nav ul {
+        position: absolute;
+        right: 0;
+        flex-direction: column;
+        bottom: 0;
+        height: 100%;
+        background-color: #2db7e6;
+        justify-content: space-evenly;
+        width: 80%;
+        text-align: center;
+        z-index: -1;
+        transform: translateX(100%);
+    }
+
+    nav ul.slide {
+        transform: translateX(0);
+    }
+
+    .menu-toggle {
+        display: flex;
+    }
+}
+-----------------------------------
+
+Ini kalo si ul nya punya class slide, Nah supaya dia punya class slide kita pake javascript untuk ini, jadi ketika di klik div nya maka tambahkan class slide di ul nya gini :
+
+ const menu = document.querySelector('.menu-toggle');
+        const baru = document.querySelector('nav ul');
+
+        menu.addEventListener('click', function () {
+            baru.classList.toggle('slide');
+        });
+-----------------------------------
+
+Biar tambah keren kasih transisi 1 detik di bagian nav ul nya untuk tampilan mobile ya.
+----------------------------------------------------------------------------------------------------------------------------------
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

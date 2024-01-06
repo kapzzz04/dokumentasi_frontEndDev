@@ -1,0 +1,261 @@
+OPERATOR PADA JAVASCRIPT
+
+apa itu operator jadi operator pada javascript adalah sebuah simbol yang digunakan
+untuk melakukan operasi.
+--------------------------------------------------------------------------------------------------------------------
+jenis operator pada javascript
+
+OPERATOR
+
+ - Aritmatika atau sebut aja matematika
+ - penugasan
+ - perbandingan
+ - logika
+ - string
+ - kondisional
+ - typeof
+
+nah operator-operator ini bisa kita bagi berdasarkan operannya
+
+ binary
+ - Aritmatika atau sebut aja matematika
+ - penugasan
+ - perbandingan
+ - logika
+ - string
+
+  ternary
+  - kondisional
+
+ unary
+  - typeof
+
+apa itu maksudnya
+
+--------------------------------------------------------------------------------------------------
+BINARY adalah sebuah operator yg membutuhkan 2 operand
+misalnya gini:
+
+operand1 operator operand2
+
+maksudnya bisa di artikan
+
+operand1 = 1
+operator = +
+operand2 = 1
+
+jadi maksudnya 1 + 1 gitu
+
+gini deh operand1 operator operand2
+                   1              +            1
+nah gitu you know lah
+--------------------------------------------------------------------------------------------------
+nah kalo UNARY hanya membutuhkan 1 operand
+
+nah nanti kalian bisa menuliskan operatornya dulu lalu operand nya apa
+atau kebalikannya
+--------------------------------------------------------------------------------------------------
+nah kalo TERNARY yg membutuhkan 3 buah operand
+
+
+
+--------------------------------------------------------------------------------------------------
+sekarang kita membahas operator ARITMATIKA
+
+ada +. -, *, /, %
+
+nah di dalam javascript tu tidak menggunakan tanda x untuk perkalian tetapi
+tanda * dan bagi juga bukn tanda : melainkan ini /
+
+jadi kita tuh kaya mtk aja cara kerja nya 
+misal 1 + 1 = 2 nah itu nnti yg nongol misalmau nulis tambah-tambah an
+atau kalkulator lu lagi mati bisa tulis apa nah nnti si javascriptnya munculin
+jawaban yg menurut dia.
+
+
+% bisa di sebut modulo atau modulus atau sisa bagi
+
+nah kalo ini caranya tuh
+
+misal 10 / 5 haasilnya 2 kan
+
+kalo ini 10 % 5 maka hasilnya 0
+terus 10 % 3 maka hasilnya 1
+
+knp kok gitu jadi dia ambil sisa dari pembagian, kalo 10 / 5 kan 2 gaada sisanya jadinya 0 hasilnya
+kalo 10 / 3 kan 3 tapi masih ada sisanya 1 maka itu lah hasilnya 1 silahkan dicoba di console 
+browser kalian.
+
+tapi hati-hati jika kalian mengoprasikan mtk dengan cara digabung
+
+misal 1 + 2 * 3 - 4 maka hasilnya 3
+nah itu pake rumus OPERATOR PRECEDENCE atau urutan operasi matematika
+
+bisa di sebut kukabataku ( kurung kali bagi tambah kurang )
+nah itu urutannya yg di kerjakan dluan ya semisal ada soal hanya ada KALI dan BAGI  saja
+maka itu yg dikerjakan duluan dari depan awal yg kita tulis atau ketik misal pas kita ketik
+di buku nah dri kiri kan yaudah dri kiri lah seperti di komputer kiri kan ya gitu deh ngerti kali.
+----------------------------------------------------------------------------------------------------------------------
+operator  PENUGASAN / ASSGNMENT
+
+yang paling kita sering gunkana adalah tanda (sama dengan ) =
+dan ini di gunakan ketika kita mengerjakan menggunakan variabel
+
+untuk mencoba ini kita mencoba dengan variabel walaupun belum belajar variabel gausah
+pusing dulu 
+
+untuk membuat variabel pada javascript kita menulis kan
+
+VAR
+
+contohnya: 
+
+> var x
+>undefined
+>x = 20
+<20
+>x
+<20
+>x = 200
+<200
+
+ini contoh di console nya di bawah ini penjelasannya
+
+
+var x  ( maksudnya itu kita isi variabel itu bernama x )
+x = 20 ( maksudnya x itu kan nama variabel nya pengen di kasih angka nah angkanya 20 sama dengan itu dari simbol oprator penugasan kan yakan jadi intinya x itu pengen di kasih angka 20 atau bisa di sebut  x saya mau tolong angka nya 20 ya nah itu mangkin maksud dari penugasan,)
+10 ( nah angka 10 itu udah ke simpan ke dalam komputer anda misal kamu pencet x terus enter maka yang muncul angka 10 karena kan udah ke simpan di data komputernya.)
+
+nah misal kita tulis lagi
+x = 200 ( maka angka 10 yg tadi kita udh tulis maka akan di ganti jadi 200 nnti kalo kita panggil x terus enter yg muncul angka 200 karena sudah ketimpa.)
+
+selain tanda = masih ada jenis tanda lain di penugasan
+
+jenisnya
+  =
+  +=
+  -=
+  *=
+  /=
+  %=
+jika kita memakai salah satu dari nilai ini nilai yg kita simpen itu tidak akan hilang tetapi akan di opersikan terlabih dahulu
+
+contoh:
+
+x = 10
+x += 5
+15 ( nah kenapa hasilnya 15 karena 10 + 5 di jumblah kan menjadi 15 dan jenis yg lain nya juga seperti itu menyesuaikan)
+
+lagi 
+x = 20
+x /= 4 ( maka hasil yg muncul adalah angka 5 seperti itu karena kan x nya itu 20 )
+
+-------------------------------------------------------------------------------------------------------------------------
+operator PERBANDINGAN / COMPARISON
+
+ini untuk membandingkan 2 operand
+
+ada banyak jenis operator perbandingan
+
+operator perbandingan           keterangan
+  
+        ==                             sama dengan  
+       !=                               tidak sama dengan
+       ===                            strict sama dengan 
+       !==                             strict tidak sama dengan
+       >                                 lebih besar dar
+       <                                 lebih kecil dar
+       >=                               lebih besar sama dengan
+       <=                               lebih kecil sama dengan
+
+lalu operator perbandingan ini akan menghasilakan sebuah nilai BOOLEAN ( true / false )
+
+contohnya:
+
+>10 == 10
+<true
+>10 == 9
+<false
+>10 != 10
+<false
+>10 == "10"
+<true
+> 10 === "10"
+<false
+
+ini di atas contoh dari console dan di bwah ini penjelasan detailnay
+
+
+10 == 10 (apakah 10  sama dengan 10 maka yg akan muncul itu true nah kalo kita gnti 10 dengan 9
+maka hasilnya false)
+atau 10 != 10 hasilnya false
+
+apa bedanya yg == dan === 
+
+kalo yg 2 == ( sama dengan") itu misal
+
+10 == "10" (ini beda tipe data ya 10 ada kutip nya itu adalah string nah kalo pake yg 2 ==
+maka hasilnya true udah jelas lah ya)
+
+Kalo kalian mau ngecek tipe data nya sama atau tidak itu pake yg 3 ini tidak hanya membandingkan
+nilai nya tapi juga tipe data nya
+
+kalo pake yg 3 === itu misal
+
+10 === "10" (maka hasilnya false karena di baca gini apakah angka 10 sama dengan string 10
+ya maka jawaban nya tidak/false)
+-------------------------------------------------------------------------------------------------------------------------
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

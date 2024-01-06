@@ -1,0 +1,213 @@
+Viewport Unit (vw, vh, vmin, vmax)
+
+ke-4 unit itu atau disebut dengan Viewport Units, jadi untuk yg vh itu singkatan dari viewportheight, sebuah unit yg realtif terhadap tinggi dari viewport,viewport itu area yg kita liat pertama kali membuka aplikasi misalnya, baik kalian liat nya di browser di laptop atau diekstop maupun menggunakan browser di mobile phone kalian.
+
+(vw) itu relatif terhadap lebar karena dia viewport width relatif terhadap lebar viewport, terus ada ( vmin ) ini relatif terhadap viewport minimum atau dimensi terkecil dari viewport, kan viewport punya panjang dan lebar nah diantara panjang dan lebar itu yg mana ukurannya paling kecil dia disebut (vmin) nya.
+
+Begitu pula dengan (vmax) kalo tadi dimensi terkecil kalo ini dimensi terbesar dan ini biasanya kalo kalo untuk dekstop atau laptop itu ke balik ya kan dimana lebar dan panjang diantara itu yg paling besar nya dia disebut (vmax), nah kalo di laptop vmin nya tinggi dari laptop nya lalu vmax nya itu lebarnya. tapi kalo hp itu tinggi dari hp nya itu vmax nya ya.
+
+---------------------------------------------------------------------------------------------------------------------------------
+
+LETS-CODE
+
+kita udah punya file nya, dan ada 1 gambar buat background di css nya ya,  lalu file index.html isi awal nya ada header didalam nya h1 lalu ada setelah nya section didalanya div didalam div ada span lalu ada didalam section ada div dan <p> 2 gitu.
+
+Lalu ada style.css saya punya body, h1 ada font-size nya pake rem, dan line-height nya pake em. lalu yg section sebenarnya ga harus diperhatikan itu hanya memberi style saja tidak pengaruh dengan kasus kita.
+
+Tapi halaman html itu saya ga kasih bizefont-size jadi saya gapunya font-size di element html mau pun body, kita pelajari dulu ya kita liat yg h1, kira" yg h1 kita ini sekarang ukuran nya berapa px :
+
+h1 {
+    font-size: 4rem;
+    line-height: 1.2em;
+    color: white;
+    text-shadow: 1px 1px 5px rgba(0, 0, 0, .8);
+    text-align: center;
+}
+---------------------------------
+
+jadi artinya kalo 4rem itu 4dikali font root nya, karena kita gapunya font root nya berarti pake 16px nilai defaultnya, jadi ukuran font-size h1 itu 4 kali 16px aman ya, sekarang line-height nya 1.2em kira" berapa pixel ya, kalo em kita liat dulu em nya itu dipake untuk font-size atau untuk length, inget length itu selain font-size gitu kalian bisa pake untuk margin,padding dll. kalo selain font-size maka dia akan liat dulu dari element yg bersangkutan font-size nya berapa kalo ada, kalo ga ada baru dia naik ke atas.
+
+Nah karena kita punya 4rem yg pixel nya itu 64px, berarti pixel untuk line-height itu hasil dari 1.2em dikali 64px seharusnya. maka line-height nya itu 76.8px. Kenapa saya pake ini, nah karena begitu kita kecilin layar nya font nya kan turun, nah karena font nya turun jarak antara baris 1 dan baris 2 itu kan line-height, nah kalo saya ganti line-height nya jadi 1.2rem maka secara pixel jadi kecil ukuran nya jadi 1.2rem dikali 16px itu hasilnya makannya kita pake EM.
+
+---------------------------------------------------------------------------------------------------------------------------------
+
+Sekarang kita masuk ke studi kasus kita, saya mau membuat bagian header itu kita punya background, yg background nya memenuhi layar, layar apapun yg kita buka, mau pake laptop atau hp tabllet dll.
+
+Kita setting header nya kita kasih background-color supaya kalo gambar nya ga tampil ada warna background  yg mirip background nya. gini :
+
+header {
+    background-color: #ccc;
+    background-image: url(img/6.jpg);
+}
+---------------------------------
+
+klo gitu aja gambarnya akan memenuhi tinggi maximal, tinggi maximal dari header adalah h1 karena content nya hanya h1, maka kita harus atur height nya, kalo kita kaish height nya pixel :
+
+header {
+    background-color: #ccc;
+    background-image: url(img/6.jpg);
+    height: 500px;
+}
+---------------------------------
+
+maka tampilnya tingginya 500px maka dibuka dimana pun tablet atau hp manapun tinggi nya ttp 500px ga relatif, kalo kita kasih tinggi nya 100% :
+
+header {
+    background-color: #ccc;
+    background-image: url(img/6.jpg);
+    height: 100%;
+}
+---------------------------------
+
+itu100% terhadap element pembungkus nya, jadi hasilnya balik lagi seperti sebelumnya blm dikasih height, karena element pembungkusnya ga kita kasih tinggi, element pembungkus nya si header ya, nah karena ga dikasih tinggi maka dia akan mengikuti tinggi dari content nya, isi si header nya h1 kan. maka kita dapat dengan mudah diganti 100% dari viewport nya gini :
+
+header {
+    background-color: #ccc;
+    background-image: url(img/6.jpg);
+    height: 100vh;
+}
+---------------------------------
+
+Jadi itu tinggi dari yg kita liat, maka tinggi nya akan selalu penuh kalo pertama kali kita buka aplikasinya tpi ketika kita scrol kebawah itu tinggi nya ga full sebody jadi cuma kaya terlihat backgroundnya sebelum kita scroll gitu. jadinya kaya poster sambutan kita gitu.
+
+---------------------------------------------------------------------------------------------------------------------------------
+
+lalu kalo browsernya kita ubah" bentuk nya kecilin besarin gitu itu akan sama perilakunya dia akan memenuhi tinggi nya yg kita liat pas kita scroll kebawah dia akan memunculkan content yg lain nya gitu.
+
+tapi karena gambarnya ga menyesuikan gitu, kita kasih aja backgroud-size cover, jadi berapapun lebar dari bungkus nya kita bikin dia memenuhi bungkus nya, gini :
+
+header {
+    background-color: #ccc;
+    background-image: url(img/6.jpg);
+    background-size: cover;
+    height: 100vh;
+}
+---------------------------------
+
+maka lebarnya akan selalu maximal sampai dia udah gamuat lagi, dan biasanya dibikin kalo backgroundnya ada object tujuan nya saya biasanya saya bikin ditengah" biar terobject gitu :
+
+header {
+    background-color: #ccc;
+    background-image: url(img/6.jpg);
+    background-size: cover;
+    background-position: center;
+    height: 100vh;
+}
+---------------------------------
+
+jadi kalo saya kecilin lebarnya akan selalu berada di tengah gitu, dan kita bikin agar tulisan nya h1 nya ada ditengah" ya :
+
+header {
+    background-color: #ccc;
+    background-image: url(img/6.jpg);
+    background-size: cover;
+    background-position: center;
+    height: 100vh;
+    display: flex;
+}
+
+h1 {
+    font-size: 4rem;
+    line-height: 1.2em;
+    color: white;
+    text-shadow: 1px 1px 5px rgba(0, 0, 0, .8);
+    text-align: center;
+    margin: auto;
+}
+---------------------------------
+
+kita kasih display flex di header nya dan margin auto di h1 nya maka akan di tengah" secara otomatis.
+
+---------------------------------------------------------------------------------------------------------------------------------
+
+Nah itu kita bikin tinggi nya dari 100% dari tinggi viewport, nah hati" kalian jangan pake VW, kalo vw itu lebarnya yg pasti sesuai dengan viewport, jadi nya gitu karena tinggi nya dia nyesuai in jadinya ga pengaruh ke lebar, dia lebarnya akan ttp penuh karena dia pake cover tapi, kita gamau itu kita pengen nyesuai in inggi nya aja dari viewport jadi pake vh.
+
+Nah kalo browsernya kita kecilin lama" tulisan nya itu bakal kepotong ya, kan alangkah lebih enak gitu kalo kita buka didekstop atau dilaptop tulisan nya besar seperti itu, tapi kalo kita buka di headphone tulisan nya ngecilin, sebenarnya itu gampang banget kalo pake media query ya.
+
+Tapi kita bisa akalin walaupun ga 100% sempurna pake viewport unit juga, jadi caranya kita liat font-size di h1 nya, sekarang kita ganti font-size nya jadi 4vw :
+
+h1 {
+    font-size: 4vw;
+    line-height: 1.2em;
+    color: white;
+    text-shadow: 1px 1px 5px rgba(0, 0, 0, .8);
+    text-align: center;
+    margin: auto;
+}
+----------------------------------------
+
+Jadi 4vw itu artinya 4% dari lebar viewport nya jadi 1 huruf ukuran nya 4% dari viewport nya gitu, jadi semakin lebar layar browser nya ukuran font nya semakin besar, semakin kecil viewportnya ukuran font nya semakin kecil.
+
+Jadi sekarang setiap huruf nya hanya 4% dari total lebar viewportnya, jadi kalo dikecilin tambah kecil font nya tapi problem nya ketika dibuka di mobile dia kecil banget tapi ga kepotong tulisan nya, jadi pake viewport width bisa relative seperti itu.
+
+Nah gimana kalo sekarang coba paek vmax gini :
+
+h1 {
+    font-size: 4vmax;
+    line-height: 1.2em;
+    color: white;
+    text-shadow: 1px 1px 5px rgba(0, 0, 0, .8);
+    text-align: center;
+    margin: auto;
+}
+----------------------------------------
+
+jadi lebarnya 4% dari lebar maximal layar nya, hasilnya ketika di dekstop gaada bedanya ketika pake vw karena vw ketika kondisi lebar layar nya desktop sama dengan vmax, karena width adalah lebar maximal layar saya artinya vmax nya itu, terus saya kecilin browser nya, tapi ketika sampai tinggi atau height nya lebih panjang dari lebar browsernya maka sekarang ngitung nya ketinggi nya karena tinggi nya itu ukuran terpanjang antara tinggi dan lebar jadi diambillah dia sebagai vmax kalo pas ukuran mobile gitu.
+
+Jadi sekarang kalo pas di ukuran mobile font-size nya 4% dari tinggi layar nya, disitulah ktia menggunakan vmin dan vmax.
+
+jadi ketika kita cocokan di headphone yg merek nya beda" otomatis beda juga bentukaan hp nya maka dari itu kalo kita pake vmax vh gitu jadi keliatan rapih jadi awalan nya pas kita buka pasti bener" full background kita tapi pas di scroll baru dia muncul content nya. 
+---------------------------------------------------------------------------------------------------------------------------------
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

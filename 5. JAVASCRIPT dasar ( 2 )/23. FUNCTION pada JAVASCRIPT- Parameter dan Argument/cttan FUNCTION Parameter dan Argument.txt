@@ -1,0 +1,509 @@
+FUNCTION Parameter dan Argument
+
+mungkin di video sebelumnya kita sudah sedikit bahas mengenai parameter
+bahwa parameter itu istilahnya adalah material atau bahan baku yg bisa kita
+gunakan di dalam function.
+
+sekarang kita bahas dulu mengnai istilah parameter dan argument serta
+perbedaan dari keduanya.
+
+ARGUMENT dan ARGUMENTS BERBEDA YA INGETT.
+
+-------------------------------------------------------------------------------------------------------------------------------
+
+PARAMETER
+parameter adalah variabel yang di tulis di dalam kurung pada saat function kita buat, jadi
+tu function kalo kita buat kita buat dulu kywerd function lalu spasi nama function lalu setelah
+itu kita tulis kurung buka dan kurung tutup, Parameter ini digunakan untuk menampung nilai
+yang dikirimkan saat function dipanggil.
+
+dan inget ya function itu ada dua hal pembuatan dan pemanggilan.
+
+ARGUMENT
+Argument adalah nilai yang dikirimkan ke parameter tadi saat fungsinya dipanggil.
+
+paham ya perbedaannya
+jadi Parameter itu ketika fungsinya dibuat sedangkan
+Argument itu ketika fungsinya dipanggil
+
+-----------------------------------------------------------------------------------------------------------------------------
+
+kita liat, jika kita punya sebuah Function
+
+sebuah function namanya tambah yg didalam nya menjumlahkan 2 buah nilai
+lalu function ini kita panggil dan saya simpan di dalam variabel hasilnya.
+
+CONTOH:
+                          ( parameter )
+function tambah(a, b) {
+    return a + b;
+}
+                             ( argument )
+var coba = tambah(5, 10);
+
+coba kalian liat mana yg parameter mana yang argument ?
+
+
+kalo kalian liat yg a dan b ini adalah parameter, jadi variabel yg kita masukan ke dalam
+kurung ketika fungsinya dibuat.
+
+sedangkan 5 dan 10 ini adalah nilai yg benar-benar dikirim kan jadi ini kita sebut
+deng argument.
+
+-----------------------------------------------------------------------------------------------------------------------------
+nah sekarang untuk mengunakan parameter dan argument ini kita lihat 
+contoh sederhananya ini :
+
+function tambah(a, b) {
+    return a + b;
+}
+
+tambah(2, 3);
+
+nih cerita nya kalo kita membuat function namanya tambah lalu parameternya
+a dan b yg dimanan didalamnya kita hanya menuliskan return a + b; nah jadi
+fungsinya mengembalikan nilai jumlah a + b.
+
+lalu kita panggil dengan menuliskan nama functionnya ditambah dengan argument
+atau bahan baku yg mau dikirim kan nah misalkan tambah(2,3) nah itu artinya ( 2, 3 )
+ini akan dikrim kan ke dalam parameter function nya.
+
+jadi 2 dan 3 adalah argument, a dan b adalah parameter.
+
+kalo kita save lalu jalankan cek browser ini hasilnya ksong aja karena blm kita
+tampilkan, nah kalo kita cetak di console tingaal tambah aja console.log(tambah(2 , 3 ));
+
+
+ketika kita cek di console maka tampil hasilnya angka 5, nah angka 5 ini hasil dari penjumlahan
+2 masuk ke dalam parameter a dan 3 masuk kedalam parameter b.
+
+dan sekarang argument ini bisa kita isi nilainya dengan banyak cara, nah cara pertama kita
+bisa tulis langsung seperti di contoh.
+
+atau cara lainnya kita bisa simpan dulu ke dalam variabel misalnya saya punya variabel a
+yg diisi 10 dan variabel b di isi 20. 
+
+dan saya bisa simpan a dan b seperti ini tambah(a,b).
+
+nah nanti yg perlu kalian perhatikan adalah variabel a dan b sebagai argument itu beda ya
+dengan a dan b sebagai parameter ga perlu bingung karena nanti dijawab di video SCOPE.
+
+-----------------------------------------------------------------------------------------------------------------------------
+
+ contoh nya:
+
+
+function tambah(a, b) {
+    return a + b;
+}
+
+var a = 10;
+var b = 20;
+
+console.log(tambah(a, b));
+
+maka hasilnya 20 karena 10 + 20.
+
+-----------------------------------------------------------------------------------------------------------------------------
+
+atau misalnya
+
+a dan b nya diganti jadi gini
+
+var a = prompt('Masukan nilai 1 : ');
+var b = prompt('Masukan nilai 2 : ');;
+
+nah kalo ini tergantung user yg mengisikan angka nya
+
+CONTOH:
+
+function tambah(a, b) {
+    return a + b;
+}
+
+var a = prompt('Masukan nilai 1 : ');
+var b = prompt('Masukan nilai 2 : ');;
+
+console.log(tambah(a, b));
+
+kalo kita sv kita jalankan lalu cek browser masukan nilai 1 misal kita isi 100
+masukan nilai 2 kita isi 70 nah ini hasilnya berapa?, harusnya 170 ya karena
+100 + 70 = 170 tpi ini beda nih hasilnya.
+
+hasilnya yg ditampilkan itu berbeda yaitu 10070 knp 10070 bukan 170 nah itu
+karena kita buat sebuah promt itu yg kita masukan adalah stirng ya sedangkan
+yg mau kita jumlah kan adalah intege.
+
+oleh karena itu kita harus ubah stirng nya menjadi integer nah caranya kalian
+bisa simpen saja yaitu ( parseInt ) sehingga ketika kita masukan nilai di ubah
+dulu jadi integer.
+
+sehingga begitu di jumlah kan maka ini operasi matematik bukan operasi 
+penjumlahan stirng atau konkatkenasi.
+
+CONTOH NYA:
+
+var a = parseInt(prompt('Masukan nilai 1 : '));
+var b = parseInt(prompt('Masukan nilai 2 : '));
+
+nah baru ketika dimasukan 100 dan 70 maka hasilnya 170.
+
+jadi kita bisa memasukan variabel, kita bisa memasukan inputan dari user
+bahkan kita juga bisa memasukan operasi matematik
+
+-----------------------------------------------------------------------------------------------------------------------------
+
+misalnya disini saya tulis
+
+console.log(tambah(a * 2, b * 2));
+
+nah maksudnya jadi apapun inputan dari user kita jadikan integer
+lalu kita kali kan 2 begitu pula dengan b.
+
+jadi jika kita tulis di nilai 1 = 5, dan nilai 2 = 10, harusnya 15 ya
+kan 5 + 10 = 15, tapi yg terjadi adalah 5 di kali 2 dulu = 10,
+lalu 10 x 2 = 20, jadi yg dijumlahkan nya adalah 10 + 20 = 30.
+
+itu tadi jadi kita bisa memasukan argument menggunakan exspressi.
+
+CONTOH:
+
+function tambah(a, b) {
+    return a + b;
+}
+
+var a = parseInt(prompt('Masukan nilai 1 : '));
+var b = parseInt(prompt('Masukan nilai 2 : '));
+
+console.log(tambah(a * 2, b * 2));
+
+-----------------------------------------------------------------------------------------------------------------------------
+
+atau ini contoh satu lagi
+
+kita bisa memasukan argument nya itu adalah function juga
+misalnya gini :
+
+cerita nya saya punya satu buah Function lagi yg namanya kali,
+kali juga mempunyai 2 parameter a dan b, dan sekarang dia akan
+return a * b;
+
+nah jadi sekarang saya punya 2 function
+sekarang kita coba bikin variabel hasil yg isinya
+
+Function kali, function kali ini menerima 2 parameter jadi saya tulis
+argument nya adalah misalnya gini tambah(1,2) dan tambah(3,4);
+
+nah di dalam codingan ini yg  kali(tambah(1, 2), tambah(3, 4));
+nah koma ( , ) ini itu artinya dan ya ya gitu.
+
+translet kan ke codingan :
+
+function tambah(a, b) {
+    return a + b;
+}
+
+function kali(a, b) {
+    return a * b;
+}
+
+var hasil = kali(tambah(1, 2), tambah(3, 4));
+console.log(hasil);
+
+-----------------------------------------------------------------------------------------------------------------------------
+
+nah jadi pertama sebelum menjalankan fungsi kali kita jalankan dulu fungsi tambah ini
+1 + 2 maka = 3, selanjutnya 3 + 4 = 7,  jadi function kali ini akan mengalikan 3 di kali 7.
+
+harusnya hasilnya 21 nah bener 
+jadi kita bisa menyimpan argumen itu macem2 caranya
+silahkan nanti kalian coba2 sendiri aja.
+
+-----------------------------------------------------------------------------------------------------------------------------
+
+nah sekarang ada pertanyaan begini
+
+bagaimana jika Parameter dan Argunent-nya tidak sesuai?
+nah maksudnya jumlah nya ga sesuai, kalo kita menuliskan 
+parameter nya ada 3 misal nya sedang kan argumennya ada 2.
+
+atau sebalik nya parameternya 2 argument nya 3, itu apa yg akan
+terjadi kita liat satu-satu ya.
+
+- jika Parameternya lebih sedikit dari argument, maka
+- Argument kelebihannya akan diabaikan.
+
+nah kharakteristik ini hanya untuk javascript ya, untuk bahasa pmograman lain
+meski punya function sama ya, tapi mungkin aja prilaku nya ga sama seperti ini.
+
+mungkin aja ketika parameternya dan argument nya ga sama itu akan eror
+nah kalo javascript engga.
+
+-----------------------------------------------------------------------------------------------------------------------------
+
+nah kita liat contoh nya misal nih:
+
+kaya tadi function tambah(a,b) {
+return a + b;
+
+}
+
+var coba = tambah(5,10,20);
+
+nah sekarang bedanya adalah pada saat kita panggil function nya
+itu argument nya ada tiga padahal parameter yg menerima nya ada 2,
+nah sekarang apa yg akan terjadi dengan angka 20.
+
+nah kaya tdi nilai 20 nya akan diabaikan, nah untuk sementara pahaminya
+gitu aja dulu, karena ga dipake ya gpp javascriptnya ga eror tapi angka 20
+ini di abai kan.
+
+-----------------------------------------------------------------------------------------------------------------------------
+
+sekarang sebalik nya jika Parameter-nya lebih banyak dari argument, maka
+parameter kelebihannya akan kasi nilai default nah nilai default nya adalah 
+undefined jadi ini yg harus kalian perhatikan.
+
+CONTOH NYA:
+
+function tambah(a,b,c) {
+return a + b;
+
+}
+
+var coba = tambah(5,10);
+
+kalo saya punya function tambah parameter nya ada 3 berarti dia mengharapkan
+ada 3 nilai yg dikirim kan, tapi pada saat dipanggil argument nya yg ditulis hanya 2.
+
+nah sehingga c tidak menerima nilai, maka nilai dari parameter ( c ) adalah
+undefined, misal kalo kalian proses dalam function nya nilai c itu hati2 karena
+nilai nya undefined.
+
+nah sebetulnya secara umum pemahaman mengenai parameter dan argument
+itu sampai sini aja tapi khusus didalam javascript itu ada sebuah variabel khusus
+yg namanya arguments beda ya.
+
+kalo tadi istilah argument itu kalo sekarang ARGUMENTS adalah sebuah variabel
+atau definisi nya array yang berisi nilai yang dikirimkan saat fungsi dipanggil, secara
+default itu ada.
+
+ini disebut nya ( suode ) variabel atau variabel semu, variabel yg kaya nya ga keliatan
+tapi sebetulnya ada ya itu soude variabel, nah bentuk nya adalah array, nah kalian
+gausah pusing dulu mengenai apa itu array.
+
+tapi pahami nya gini aja dulu, array adalah sebuah variabel tapi variabel nya sedikit
+lebih sakti karena dia bisa menampung lebih dari satu nilai, kan biasanya variabel 
+bisa nampung nya hanya satu ya.
+
+-----------------------------------------------------------------------------------------------------------------------------
+
+nah tar kita liat
+
+pokoknya ada sebuah variabel yg namanya ARGUMENTS yg tipe nya adalah array
+dia berisi nilai yang dikirimkan saat fungsi dipanggil.
+
+nah jadi CONTOHNYA GINI:
+
+kalo saya punya seperti tadi
+
+function tambah(a,b) {
+return a + b;
+
+}
+
+var coba = tambah(5,10,20);
+
+function tambah parameternya 2 tapi pada saat dipanggil kita kirimkan argument nya
+3, tadikan angka 20 nya diabaikan ya, nah itu diabaikan untuk function ini yaitu si tambah.
+
+memang ga dipake 20 nya untuk function tambah, jadi 20 nya diabaikan, tapi sebetulnya
+semua argument ini selain dikirimkan ke parameter, dia ditampung juga dalam sebuah 
+variabel arguments tadi.
+
+nah jadi kalo misalnya saya panggil dengan argument yg berbeda
+
+tambah(5,10,20,"hi",false);
+
+saya panggil dengan 5 buah argument
+
+5,10,20 = ini integer
+"hi" = ini string
+false = ini boolean
+
+nah semua argument ini nantinya akan ditampung ke dalam sebuah variabel yg tipenya
+arguments array arguments = [5,10,20,"hi",false]; nah kalo array pake kurung siku ya
+jadi didalam nya bisa banyak.
+
+dan masing-masing nilai itu mempunyai index nah sekali lagi kita akan bahas mengenai
+array di video yg lain tapi kita pahami dulu aja array itu bentuk nya begini.
+
+-----------------------------------------------------------------------------------------------------------------------------
+
+CONTOH:
+
+function tambah() {
+
+return arguments;
+}
+
+nah jadi kalo saya punya function tambah yg gaada parameter nya
+tapi function ini mengembalikan nilai arguments array yg tadi lalu
+kita panggil function nya seperti ini.
+
+var coba = tambah{5,10,20,"hi",false};
+
+padahal gapake parameter ya disini tapi kita panggil nya pake argument,
+semua nilai ini akan diabaikan oleh function tambah, tapi nilai nya akan
+ttp masuk ke variabel argumentS.
+
+
+jadi kalo kita console.log(coba); 
+
+maka hasilnya akan ada 5 buah arguments yg isi nya 
+seperti ini :
+
+Arguments(5)
+ 0: 5
+ 1: 10
+ 2: 20
+ 3: "hi"
+ 4: false
+
+jadi kalo cek di browsernya kaya gitu munculnya.
+
+CONTOH CODINGAN :
+
+function tambah() {
+    return arguments;
+}
+
+var coba = tambah(5, 10, 20, 'hi', false);
+console.log(coba);
+
+-----------------------------------------------------------------------------------------------------------------------------
+
+untuk kalianyg bingung gpp tpi mungkin akan lebih jelas lagi ketika kalian belajar
+array lebih mendetail
+
+tapi coba kita liat contoh berikut ini ya:
+
+misalnya sekarang saya punya function tambah yg parameter nya ( a,b )
+lalu saya panggil dengan argument ( 3,4 ) jadi gamsalah ya 3 akan masuk
+ke a, argument 4 akan masuk ke b lalu di jumlah kan sehingga hasilnya 7
+ya gaada masalah.
+
+tapi kalo misal nya saya kasih di sini 5 tambah(3,4,5); akan dijumlahkan 
+tidak kira2, ya tidak ya karena 5 tidak ada tempat penampungan nya dia
+akan diabaikan sehingga hasilnya tetap 7.
+
+nah sekarang gimana caranya, saya ingin menjumlah kan semua argument
+yg ada di function ini tanpa memperdulikan parameternya.
+
+tuhkan kalo misalnya saya mau menjumlah kan 3 berarti harus menambah kan
+parameter nya jadi ada 3 parameternya ya, baru di return a + b + c; nah baru dia
+dijumlah kan.
+
+nah gimana kalo 4 berarti saya tambahkan lagi di setiap argument dan parameter 
+dam returnya ya nah itu akan menjadi cukup merepotkan, karena kita gabisa tau
+user mau menginputkan berapa parameter misalkan.
+
+nah ini kita bisa memanfaatkan array argumentS tadi, sehingga functionnya saya
+tulis begini sekarang :
+
+function nya ttp tambah tapi didalam nya begini, kita akan memanfaat kan 
+variabel argumentS tadi, karena bentuk nya array itu kita bisa looping isi nya,
+isi dari element array nya.
+
+-----------------------------------------------------------------------------------------------------------------------------
+nah gini caranya:
+
+
+function tambah() {
+
+    var hasil = 0;
+    for (var i = 0; i < arguments.length; i++) {
+
+        hasil += arguments[i];
+
+    }
+    return hasil;
+}
+
+var coba = tambah(1, 2, 3, 4, 5);
+console.log(coba);
+
+penjelasan singkat typing saya
+
+jadi i < argument.length itu mungkin cek kan ada 5 baris berarti sampe angka
+4 behenti looping nya karena dimulai dari 0 dan berhenti jika ( i ) nya udh 5
+
+terus misal argument[i] itu mungkin hasil += arguments[i]
+
+0 += 1
+1 += 2
+3 += 3
+6 += 4
+10 += 5
+
+mungkin gitu
+
+-----------------------------------------------------------------------------------------------------------------------------
+
+kita gunakan for lalu kita gunakan variabel ( i ) untuk melooping index nya
+kita isi dengan 0, lalu looping ini akan berjalan sebanyak argumentS yg kita
+kirim kan.
+
+jadi kita bisa menghitung ada berapa argumentS yg nanti dikirim kan pada
+saat fungsi nya dipanggil, menggunakan arguments array nya ( arguments.lengt )
+nah ini untuk tau berapa isi nya berapa panjang nya, lalu ( i++ ).
+
+dan sekarang misalnya saya punya variabel hasil yg nilai awal ya 0, nah disini
+variabel hasilnya akan ditambah dengan arguments, dengan index ke (i ).
+
+jadi sekali lagi kalo bingun juga gpp karena nanti hal seperti itu sangat umum
+sekali ketika kita menggunakan array.
+
+nah inti nya dia akan melooping tiap elemen yg ada pada argument dan menjumlahkannya
+didalam variabel hasil, sehingga ketika kita return hasil; lalu kita panggil dengan bikin
+variabel yg namanya coba di isi dengan panggil function tambah argument nya saya isi 3
+misalnya (1, 2, 3), kalian liat ya saya kirim argument nya 3 tapi gaada parameternya.
+
+itu gpp ya karena ditangani oleh variabel argumentS
+
+sekarang kalo kita console.log(coba); maka hasilnya 6 betul ya 1 + 2 + 3 = 6
+nah kalo misalnya saya tambah 4 argument lagi itu kita tidak perlu merubah
+Functionya, kalo misal kan kita tambah 5 lagi itu maka otomatis menambah
+1 + 2 + 3 + 4 + 5 = 15 ya.
+
+nah itu ya mengenai soude variabel arguments yg ada pada function di jabascript
+mudah-mudah an kalian ga bingung.
+-----------------------------------------------------------------------------------------------------------------------------
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

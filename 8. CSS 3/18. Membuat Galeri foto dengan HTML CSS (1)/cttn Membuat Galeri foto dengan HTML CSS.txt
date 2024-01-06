@@ -1,0 +1,186 @@
+Membuat Galeri foto dengan HTML CSS (1)
+
+Jadi sekarang kita akan membuat galery poto yg didalam nya menerapkan sebuah fitur LightBox, kalian tau dong lightbox itu apa, jadi lightbox itu adalah sebuah galery yg dibuat menggunakan Javascript. Jadi galery nya itu ada serangkaian tumnel, yg tumnel nya kalo kita klik itu akan menampilkan gambar yg ukurannya besar. Nah untuk lightbox yg akan kita buat kali ini itu tidak akan menggunakan Javascript melainkan murni menggunakan HTML dan CSS3.
+
+Jadi di video kali ini kita akan buat persiapan nya dulu, terus kita akan buat struktur galery nya dulu, nah baru nanti di video setelah ini kita akan tambahkan fitur lightbox nya, Selanjutnya sebelum kita mulai ngoding ada beberapa hal yg harus kalian persiapkan.
+
+1. ASSET jadi file-fie apa saja yg kita butuh kan untuk membuat galery ini, pertama kita butuh beberapa gambar, tapi nanti kalian siap kan 2 ukuran terus pastikan semua gambar itu ukuran nya sama. lalu ada 2 ukuran 1 ukuran nya 600 x 800, 1 nya 120 x 120.
+
+2. Struktur folder
+3. font jika mau pake itu.
+----------------------------------------------------------------------------------------------------------------------------------
+
+Nanti biasakan kalo kalian membuat project simpan file-file nya kedalam folder khusus supaya rapih nantinya, untuk folder img itu didalam nya kita punya 2 folder lagi, yg pertama folder full untuk menyimpan gambar yg fulsize nya dan thum untuk menyimpan yg ukuran kecilnya.
+
+Sebenarnya ada pake font bebanoue tapi karen saya gada internet jadi gapake. kalo mau pake kalian gunakan format file woff ya. 
+
+Saya mau nanti ketika gambar nya diklik itu muncul gambar yg besar nya.
+----------------------------------------------------------------------------------------------------------------------------------
+
+Pertama kita buat judul untuk galery nya, lalu buat div container nya supaya nanti gambarnya bisa kita atur nya enak, terus nanti kita buat sebuah list kita pake <ul> aja ya, yag nanti isi nya gambar-gambar thumnel nya.
+
+Jadi saya punya ul class nya galery, terus didalamnya pasti punya <li> ya, yg didalam <li> nya ada 2 hal yg pertama tentu saja ada img ya lalu dibawah nya ada caption di tiap" gambarnya nanti kita pake aja <span> entar tulis aja namanya apa caption nya.
+
+Nah sekarang kita masukan file gambar nya ke img, karena file nya itu didalam folder nanti pake caranya kan udah di ajaran di html dasar ya. Seperti ini :
+
+<li>
+       <img src="img/thum/1-thum.jpg" alt="Set UP Laptop">
+  </li>
+------------------------------
+
+Nanti kita akan coba dulu style untuk satu gambar dulu aja ya, Karena nanti kalo 1 gambar udah beres baru nanti bikin <li> yg lain nya. Selanjutnya kita membuat file css nya dulu. Tapi sebelum kita gunakan file css nya biasakan kita reset dulu file css nya ( udah di ajarin css reset ya di css layouting ), yg kita lakukan sekarang memisahkan file utama dan file css reset nya. Jadi nanti saya bikin 2 bua file, supaya nanti si file css reset nya bisa dipake untuk project" yg lain nya ya.
+
+Yang akan pertama kali lakukan adalah kita panggil dulu file font yg kita punya, karena gapunya yaudah gausah. yg pertama kita kasih style untuk body, kita atur font nya dulu kita pake shorthand buat font nya ya. Pertama kita atur dulu ukuran nya 18px, lalu kita atur line-height nya 36px, lalu kasih font yg akan digunakan untuk semua text didalam body, terus falback untuk font nya kalo font yg kita cantumi gaada di browser user nya. Seperti ini :
+
+font: 18px/36px 'Arial Narrow', arial, sans-serif;
+---------------------
+
+Lalu yg pertama kita kasih style si h1 nya, kasih font-size nya 80px. NAH KARENA SAYA males ngerangkum kaya gini kalo ga lengkap baca coidingan nya aja ya. paling ini dijelasin ya ga ngerti" amat.
+
+Galery kita warnanya monocrom aja supaya ga susuh cari warnanya jadi nanti warna nya antara putih sampai hitam aja, jadi putih abu-abu hitam.
+
+Jadi nanti galery nya akan disimpan kedalam container, ontainer lebar nya misalnya 600px aja, lalu nanti didalam nya ada gambar-gambar nya begitu.
+
+Lalu kita akan style li nya nanti li nya saya mau gambarnya itu bulet ya, lalu kalo di klik memunculkan gambar yg besar nya, Nah ternyata di img nya itu ada yg kurang karena kita butuh sebuah yg bisa di klik jadi kita butuh <a> agar bisa di klik aja gitu lebih baik gitu. Kita akan simpan img dan span nya kedalam sebuah link. Seperti ini :
+
+ <li>
+                <a href="">
+                    <img src="img/thum/1-thum.jpg" alt="Set UP Laptop">
+                    <span>Set UP Satu</span>
+                </a>
+
+            </li>
+---------------------------
+
+sehingga sekarang bisa saya klik li nya atau gambar nya.
+
+ini style untuk li nya :
+
+.container .galery li {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+}
+---------------------------
+
+kita kasih width dan height nya sama seperti ukuran gambar nya lalu kasih border-radius 50% agar pasti dia akan bulet ya, nah ini pas kita cek ternyata ga bulet ya, karena ini yg bulet baru li nya, gambarnya ga ikutan bulet karena dia lebih besar dari ukuran li nya,cara supaya gambarnya ikutan bulet itu gampang nya kita kasih overflow hidden. gini :
+
+.container .galery li {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    overflow: hidden;
+}
+---------------------------
+
+Sekarang li nya bulte, tapi apapun yg keluar dari li nya kita sembunyikan makannya termasuk tulisan nya hilang. Selanjutnya supaya lebih keren kita kasih border juga ya. Nah sekarang kita udah bikin li nya satu walaupun tulisan nya ilang nanti kita benerin ya.
+
+Nah sekarang saya pengen nya begitu di sorot gambar nya atau di hover tulisan yg di <span> nya baru muncul, tapi sebelum nya kita liat dulu kalo misalkan saya tambahkan gambar yg baru saya pengen nya ada di sebelah nya bukan di bawah nya ya. Nah karena li itu default display nya itu blok, kalo blok pasti kebawah, Nah cara gampangnya mengatasi itu kita bisa kasih property float si li nya supaya sebelah-sebelahan.
+
+.container .galery li {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    overflow: hidden;
+    border: 5px solid #666;
+    float: left;
+}
+---------------------------
+
+pasti gambar setelahnya ada disebelah kanan nah tapi masalah nya container nya runtuh malah colabs, coba aja deh kalian liat, Nah untuk ngebenerin supaya containernya ga kecil kaya gitu kita harus kasih clear dulu di akhir elemen li nya.
+
+Jadi di css nya kita bikin dulu selector namanya clear lalu property nya adalah both. gini :
+
+.clear {
+    clear: both;
+}
+---------------------------
+
+lalu kita bikin div baru diakhir dari li nya:
+
+ <ul class="galery">
+
+            <li>
+                <a href="">
+                    <img src="img/thum/1-thum.jpg" alt="Set UP Laptop">
+                    <span>Set UP Satu</span>
+                </a>
+
+            </li>
+            <li>
+                <a href="">
+                    <img src="img/thum/2-thum.jpg" alt="Set UP Laptop">
+                    <span>Set UP dua</span>
+                </a>
+
+            </li>
+            <div class="clear"></div>
+        </ul>
+---------------------------------------------------------------------------------
+
+atau gampang nya simpan di sebelum tutup <ul> nya ya.
+
+SUdah ya jadi kita sudah punya li nya, selanjutnya kita bikin ketika gambar nya di hover baru muncul
+tulisan <span> nya, lalu pada saat gambarnya di hover akan ada lapisan warna hitam transparan gitu
+baru ada tulisannya. Supaya kita bisa atur ukuran span nya itu kita harus ubah dulu display nya, karena span display defaultnya itu inline, kalo inline gabisa di atur width dan heiht nya, agar bisa diatur ganti display nya jadi inline-block ya.
+
+Karena saya mau tulisan span nya muncul ketika di hover saya buat span nya sampai tidak keliatan berarti kita berikan opacity sampai 0, jadi awal nya gaada tapi ketika disorot, jadi kita buat kan opacity nya 0 tuh, lalu buat lagi untuk span pas disorot jadiin opacity nya 1, YG disorot itu a nya bukan li nya ya. gini :
+
+.galery li a:hover span {
+    opacity: 1;
+
+}
+---------------------
+
+Jadi ini baca nya ketika a yg didalam li nya disorot maka span didalam nya opacity nya jadi 1 atau solid.
+
+atau kita bisa bikin yg lebih unik lagi tuh, nanti begitu tampil ga hanya muncul nya transparan gitu aja, tapi kita bikin dia muter gitu, asalnya kecil transparan terus dia muter jadi besar gitu.
+
+.galery li a:hover span {
+    opacity: 1;
+    transform: scale(1) rotate(350deg);
+}
+------------------------------------------
+
+jadi dia nanti akan ada transisi muter gitu, jadi sebelum di hover scale dan rotate nya itu 0 semunya 0, lalu saat di hover segitu ukuran nya.
+
+Nah karena <li> satu nya itu udah selesai tinggal kita copy aja li nya untuk sisa gambar nya yg ada gampang kan kalo kita bikin satu li dulu baru yg lain nya tinggal isi aja jadinya lebih mudah gitu.
+
+----------------------------------------------------------------------------------------------------------------------------------
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

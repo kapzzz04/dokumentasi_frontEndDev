@@ -1,0 +1,136 @@
+CSS3 -- RGBa & HSLa
+
+Kita disini masih ada sangkut paut sama yg Opacity ya, buat ngejawab kasus nya, gimana kita bisa
+membuat sebuah element itu transparan menggunakan property opacity, di video tersebut kita 
+bikin 2 buah elemen bersarang, dimana kita berikan opacity untuk div dengan class satu ini bagian
+parent nya dan div 2 itu child nya.
+
+yg div-satu kita kasih opacity nya 0.5, maka dia akan transparan terhadap background nya kan, Nah
+pada saat kita kasih opacity pada sebuah elemen, bahwa semua elemen didalam nya akan 
+mengikuti tranparan yg kita atur di element pembungkus nya, Nah di sebelumnya kita pengen
+membuat elemen child nya tidak opacity tapi elemen pembungkus nya ada transparan, ternyata
+itu gabisa ya. ada cara lain untuk mengatasinyadan terjawab di materi ini.
+
+Untuk membuat kotak div satu nya itu transparan dan kotak div dua nya ga transparan sama sekali
+itu kita ga lagi pake opacity ya, Nah ini caranya itu kita menggunakan sebuah property yg namanya
+( RGBa() ) atau red green blue alpha.
+
+kalo kalian masih inget kalo kita ngasih warna kesebuah elemen pasti itukan ada beberapa cara ya,
+bisa pake nama warna bisa pake hexa desimal dan bisa juga pake rgb, Nah di css3 itu ada satu
+property yg menambahkan satu buah cenel atau satu buah parameter yaitu ( alpha )  atau artinya
+transparansi, jadi kita pake rgba itu bisa kasih warna beserta transparansi nya.
+
+Nah kita coba ya, nah kotak div satu itu warna orange kan cari rgb dari warna orange itu berapa.
+Seperti ini :
+
+      .satu {
+            width: 300px;
+            height: 300px;
+            background-color: rgb(255, 102, 0);
+            position: relative;
+
+        }
+---------------------------------------
+
+nah sekarang kita bisa kasih satu buah parameter lagi yaitu ( a ), a itu untuk transparansi nya, jadi 
+kalian tambahkan lagi setelah ( 0 ) itu tambahin koma dan isi seperti atur value di opacity misal 0.5
+bisa itu, angka nya bisa 0-1 ya perisis sama seperti opacity. Seperti ini :
+
+  .satu {
+            width: 300px;
+            height: 300px;
+            background-color: rgba(255, 102, 0, 0.6);
+            position: relative;
+
+        }
+---------------------------------------
+
+Tuh jadi sekarang kalian bisa bikin parent nya transparan tapi element didalam nya ga transparan
+dengan menggunakan ( RGBA ), nah ini juga karena yg kita kasih tranparan itu warna bukan elemen
+nya lagi, jadi RGBA  ini digunakan untuk memberikan transparansi pada warna. 
+
+Kalo opacity itu digunakan untuk transparansi pada element, jadi opacity itu gapeduli mau elemen 
+nya div mau elemen nya gambar, ya itu semua jadi transparan, tapi kalo rgba hanya bisa diberikan 
+pada element yg bisa kita kasih warna. Jadi <img> gabisa ya karena gabisa dikasih warna.
+
+--------------------------------------------------------------------------------------------------------------------------------
+
+HSLA :
+
+Mumpung lagi bahas rbga, itu ada lagi satu lagi sebetulnya property css3 yg fungsi nya sama untuk
+memberikan warna dan transparansi tapi menggunakan nilai yg berbeda bukan rgb, kalo rgb kan
+red,green,blue ya, jadi kalian nulisin kadar" warna nya mau berapa.
+
+Tapi sekarang ada satu lagi property nya namanya ( hsla ) Hue saturation lightness alpha, ini juga
+sama untuk menentukan warna, Nah kita buka potoshop nya, warna orange di div itu klo di ituin di
+potoshop muncul ( HSL) nya, Nah ( H ) itu untuk hue nya, ( s ) itu untuk saturasi, ( L ) untuk lightnes.
+
+Hue itu ada yg bilang roda warna ya, jadi kalo misalkan saya ganti hue nya itu akan merubah warna 
+nya, ( s ) saturasi nilai nya bisa kita kasih 0-100 persen, nah 100% itu artinya warna nya murni dari
+hue yg kita pilih, kalo kita kurangin warna nya itu akan bergerak kearah putih, dan lightnes semakin
+besar nilai nya akan semakin terang dan semakin kecil nilai nya akan semakin gela.
+
+Seperti ini :
+
+   .satu {
+            width: 300px;
+            height: 300px;
+            background-color: hsla(24, 100%, 50%, 0.6);
+            position: relative;
+        }
+---------------------------------------
+
+Nah dengan hsla itu hasilnya sama aja dengan yg rgba ya bisa liat sendiri aja
+
+--------------------------------------------------------------------------------------------------------------------------------
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

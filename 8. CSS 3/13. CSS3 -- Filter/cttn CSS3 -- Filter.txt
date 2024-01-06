@@ -1,0 +1,303 @@
+CSS3 -- Filter
+
+Filter adalah properti css3 yang digunakan untuk memberikan efek visual pada gambar, background
+atau border. Cara menuliskan nya itu gampang aja tinggal tulisa properti nya filter lalu value nya tipe
+filter nya mau apa ( filter: <tipe-filter> ). jika ga ngaruh di chrome filter ini pake lah vendor prefixes.
+
+	TIPE FILTER
+blur		grayscale	invert
+brightness	sepia		opacity
+contrast	hue-rotate	drop-shadow
+saturate
+
+itu jumlah nya ada 10 tipe ya, langsung aja ke tutorial cara pake ftipe filter nya ya. Saya sudah buat
+halaman web yg ada 1 poto aja terus dia di tengah", nanti img nya kita pake buat nyoba tipe filter nya.
+
+Nah di file html nya saya beri komentar tentang cara pakai atau penggunaan nya untuk mengatur 
+filternya bisa pake px atau angka atau %. Seperti ini :
+
+   /* Filter 
+        blur(px)		
+        brightness(angka | %)	
+        contrast(angka | %)
+        saturate(angka | %)
+        grayscale(angka | %)
+        sepia(angka | %)
+        hue-rotate(deg)
+        invert(angka | %)
+        opacity(angka | %)
+        drop-shadow(sama seperti box-shadow)    
+     */
+----------------------------------------------------------------------------------------------------------------------------------
+
+blur(px)	
+
+pertama kita coba dulu blur, cara nya kita panggil dulu img nya biar kita bisa atur style img nya, lalu
+kita tulis properti css3 nya yaitu filter tipenya adalah blur, sebetulnya filter ini kalo di buka di chrome
+dia harus menggunakan vendor prefix, Nah karena saya pas ngerangkum ini udah bisa properti filter
+nya jadi gausah lagi pake vendor prefix ya.
+
+Nah tipe nya blur terus kita bisa berikan ukuran blur nya mau seperti apa, Nah kalo kita liat di 
+potoshop buka filter terus blur terus cari gausonssian Blur ( liat di folder ), nah efek blur yg diberikan
+oleh css3 itu adalah efek gausonssian Blur.
+
+Misalnya di css3 kita kasih blur nya 10px Seperti ini :
+
+ img {
+            width: 500px;
+            filter: blur(10px);
+        }
+-----------------------------------
+
+semakin besar angkanya maka semakin blur begitu.
+
+----------------------------------------------------------------------------------------------------------------------------------
+
+brightness(angka | %)	
+
+Yang ke-2 kita akan coba brightness lalu kita bisa kasih dia angka atau persen,nilai default nya adalah
+100% atau kalo angka nya adalah 1, jadi sama aja ya 1 dan 100%, kalo saya tulis 1 buat value nya
+maka tidak akan terjadi apa-apa, tapi begitu saya tambah misalnya 1.5 Seperti ini :
+
+ img {
+            width: 500px;
+            filter: brightness(1.5);
+        }
+-----------------------------------
+
+Nah maka gambarnya akan bertambah terang, 1.5 itu sama aja 150%, jadi ini akan bertambah terang
+jika angka nya semakin lebih besar dari 1 atau 100% dan akan bertambah gelap jika angka nya lebih
+kecil dari 1 atau 100%, misalnya ( 0.5 ) atau 50%.
+
+img {
+            width: 500px;
+            filter: brightness(50%);
+        }
+-----------------------------------
+
+jadi ini seperti kalian menggunakan efek img editing menggunakan css sama seperti ig tapi lebih
+sederhana lah, atau ini tuh kaya lagi ngedit kecerahan warna pada gambar seperti ngedit di picart,
+nah jadi brightness untuk mengatur gelap atau terang nya gambar.
+
+----------------------------------------------------------------------------------------------------------------------------------
+
+contrast(angka | %)
+
+Lalu ke-3 itu contrast, contrast juga sama seperti brightness nilai default nya adalah 100% atau 1 ya,
+kalo kita kasih 150%. Seperti ini :
+
+img {
+            width: 500px;
+            filter: contrast(150%);
+        }
+-----------------------------------
+
+Nah dia akan terang dan jika dibawah 100% atau 1 dia akan gelap tapi ini beda ya maksud dari terang
+dan gelap nya sama si brightness, di coba aja.
+
+----------------------------------------------------------------------------------------------------------------------------------
+
+ saturate(angka | %)
+
+Nah saturate ini untuk mengatur saturasi dari sebuah gambar, jadi semakin besar saturate nya maka
+gambarnya akan semakin berwarna, semakin kecil saturate nya warna nya akan semakin hilang s
+sampai nanti akhirnya dia berubah jadi abu-abu. 
+
+Nah ini default nya 100% ya, begitu dia saya kasih 150% maka kalian bisa liat perubahan warna nya ya, warna nya semakin cerah, semakin keluar warna nya. Seperti ini :
+
+ img {
+            width: 500px;
+            filter: saturate(150%);
+        }
+-----------------------------------
+
+Nah begitu, kalo saya ganti jadi 200% nanti akan lebih cerah lagi dan kalo ganti ke 20% warna nya
+hampir hilang tidak ada warna tapi kalian masih bisa liat warna nya dikit kalo 0% sampe jadi abu-abu
+atau greyscale.
+
+----------------------------------------------------------------------------------------------------------------------------------
+
+grayscale(angka | %)
+
+tipe grayscale kalo kita kasih 100% itu kebalikan dari saturate ya, kalo grayscale kita kasih 100% maka dia akan abu-abu gitu. Seperti ini :
+
+ img {
+            width: 500px;
+            filter: grayscale(150%);
+        }
+
+-----------------------------------
+
+bener kebalikan nya kalo kita kasih dia dibawah 100% maka warnanya akan semakin cerah kalo semakin besar dari 100% maka warnanya semakin abu-abu.
+
+----------------------------------------------------------------------------------------------------------------------------------
+
+sepia(angka | %)
+
+Sepia ini akan memberikan efek sama seperti grayscale tapi bukan menjadi abu-abu tapi dia berubah menjadi seperti warna kunig gitu. Nah sepia sama seperti greyscale kalo saya kasih 0 berarti itu nilai
+default nya, tapi kalo saya kasih 100% berarti ini full sepia. Seperti ini :
+
+ img {
+            width: 500px;
+            filter: sepia(100%);
+        }
+-----------------------------------
+
+----------------------------------------------------------------------------------------------------------------------------------
+
+hue-rotate(deg)
+
+berikutnya tipe filter ini agak berbeda dari yg lain, jadi filter ini ceritanya kita merotasi warnanya, karena dalam teori warna itu ada yg namanya roda warna, hue-rotate ini merotasi atau memutar si
+roda warna tadi.
+
+Supaya lebih jelas kita pake photshop dulu ya, ke adjustments terus hue/saturation ( liat di folder )nah disitu kita bisa atur ya ( liat di folder ), untuk hue itu ketika misal kita geser warna nya kekiri maka dia
+akan merubah seluruh warnanya, misal kita geser kekiri warna yg di gambar nya semua jadi ungu 
+atau merah misal gitu.
+
+Misalkan kita rotasi menjadi 100deg atau degri, kita akan putar warnanya 100derajat searah jarum jam, Seperti ini :
+
+img {
+            width: 500px;
+            filter: hue-rotate(100deg);
+        }
+-----------------------------------
+
+Nah hasilnya ya gitu ya, jadi itu sama aja kita merotasi warna nya 100derajat searah jarum jam.
+
+----------------------------------------------------------------------------------------------------------------------------------
+
+invert( angka | % )
+
+kalo invert itu dia akan membuat poto nya negatif film gitu, nilai default nya adalah 0 ya, kalo kita kasih
+dia 100% maka liat aja perubahan gambar nya gimana. Seperti ini :
+
+img {
+            width: 500px;
+            filter: invert(100%);
+        }
+-----------------------------------
+
+Nah itu untuk invert.
+
+----------------------------------------------------------------------------------------------------------------------------------
+
+Nah sekarang ada 2 terakhir ni ada opacity dan dropshadow, nah kalian tau ya itu adalah properti 
+css nya sendiri ya, opacity di filter itu sama aja dengan opacity di properti css nya sendiri gunanya
+untuk membuat element jadi transparant ya. Nilai nya sama kalian bisa kasih 0 atau 1 atau 0 - 100%.
+Seperti ini :
+
+img {
+            width: 500px;
+            filter: opacity(.5);
+        }
+-----------------------------------
+
+Ya bitu sama aja jadi nya transparant, Nah lalu apa sih bedanya menggunakan filter dan menggunakan opacity property biasa nya? Nah 2 hal itu opacity dan drop-shadow kalo kalian menggunakan filter, itu yg terjadi di belakang layar itu dilakukan operasi matematik ya supaya gambarnya bisa berubah.
+
+Sebetulnya semua itu tipe filter nya yg terjadi dibelakang layar adalah browser nya mengerjakan atau melakukan operasi matematik agar gamabarnya bisa berubah, nah dengan menggunakan filter itu operasi mtk tersebut menggunakan bantuan hadrew kalian, jadi disebutnya hadrew acselerasion.
+
+Sedangkan properti opacity box-shadow dan text-shadow itu murni menggunakan kemampuan browser kalian, nah jadi menggunakan filter itu jauh lebih cepat proses nya daripada menggunakan properti css biasa, ya karena yg berkerja adalah hadrew komputer kalian.
+
+DROP-SHADOW
+
+Jadi drop-shadow ini nilai nya sama seperti box-shadow jadi ada xoffset, yoffset blur banyangan nya, dan yg terakhir warnanya ya. Misalnya 5px 5px itu artinya kekanan 5px kebawah 5px, lalu ukuran blur nya bayangan nya 5px dan warnanya black. Seperti ini :
+
+ img {
+            width: 500px;
+            filter: drop-shadow(5px 5px 5px black);
+        }
+-----------------------------------
+
+Gaada yang aneh ya sama aja kaya menggunakan box-shadow, tapi drop-shadow ini sedikti lebih keren daripada kalian gunakan box-shadow atau text-shadow, karena gini kalo kalian mau ngasih bayangan pada gambar ya itukan menggunakan box-shadow tapi ketika kalian ingin memberikan bayangan pada text kalian harus ganti properti nya jadi text-shadow ya.
+
+Nah dengan menggunakan Drop-shadow itu bisa di implementasikan ke 2 properti tersebut, misalnya saya kasih h1 di body nya terus bikin shadow menggunakan drop-shadow. Seperti ini :
+
+h1 {
+            font-size: 200px;
+            filter: drop-shadow(5px 5px 5px black);
+        }
+-----------------------------------
+
+nah lihat, tanpa merubah tipe nya, jadi gaada box-shadwo atau text-shadow efek nya sama ngaruh ke si h1 ya jadi ada bayangan nya, itu perilaku yg pertama.
+
+Perilaku yg ke-2 misalnya saya punya sebuah gambar yg gambar itu ada tulisan yg transparant gitu loh tipe file nya png, jadi nanti ada transparasi di belakangan nya si tulisan itu liat aja di ( folder ), 
+kalo misalkan ngga menggunakan filter, saya gunakan box-shadow. Seperti ini :
+
+img {
+            width: 500px;
+            box-shadow: 5px 5px 5px black;
+        }
+-----------------------------------
+
+Nah kalo pake box-shadow hasil nya akan seperti ini ( liat di folder ), yg akan diberikan bayangan itu box nya bukan tulisan nya, ya jelas box nya kan box-shadow. Tapi liat ketika saya ganti menjadi 
+drop-shadow. Seperti ini :
+
+  img {
+            width: 500px;
+            filter: drop-shadow(5px 5px 5px black);
+        }
+-----------------------------------
+
+Bayangan nya saya img nya masih sama, tapi ketika kita liat dan ternyata yg di shadow in itu bukan box nya tapi tulisan yg ada di img itu seperti ini hasil nya ( liat di folder ). Nah atau dia akan otomatis memberikan bayangan kepada elemen yg tidak trasparan di gambar nya/img, jadi kalo kalian punya gambar terus ada sebuah object yg trasparan nah maka dia akan kasih bayangan pada object nya bukan pada kotak gambar nya.
+
+----------------------------------------------------------------------------------------------------------------------------------
+
+Selanjutnya efek ini bisa kalian tumpuk penggunaan nya jadi ga harus satu" cobain seperti contoh di atas itu, itu ga harus kek gitu ya. jadi mungkin sama aja kaya instagram kalian bsia kasih lebih dari
+satu efek ya.
+
+Misalkan saya mau asih dia blur dan grayscale misalnya, caranya tinggal kalian tulis aja blur nya mau berapa terus tambahkan disitu nya dengan menggunakan spasi sebelum tipe filter baru atau sebelum grayscale tambahkan spasi. Seperti ini :
+
+ img {
+            width: 500px;
+            filter: blur(5px) grayscale(100%);
+        }
+-----------------------------------
+
+jadi nya ada blur dan grayscale.
+
+Nah kalo misalkan kalia ingin secara interaktiv memberikan efek pada sebuah gambar dari pada kalian mengiri" value nya berapa, itu kalian bisa gunakan layanan dari sebuah websaite :
+
+( http://html5-demos.appspot.com/static/css/filters/index.html )
+
+bisa di kunjungi aja nanti jadi kalian atur value terus nanti bisa liat kalo udah sesuai langsung copy aja value yg udah di dapat disitu.
+
+Dan mungkin efek ini bisa kalian gunakan, pada saat kalian ingin mengarahkan kursornya di atas gambar misalkan, kalian bisa gunakan hover. Seperti ini :
+
+ img {
+            width: 500px;
+            filter: blur(5px) grayscale(100%);
+            transition: 1.5s;
+        }
+
+        img:hover {
+            filter: blur(0) grayscale(0);
+        }
+-----------------------------------
+
+Nah yaudah begitulah ya. 
+
+----------------------------------------------------------------------------------------------------------------------------------
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

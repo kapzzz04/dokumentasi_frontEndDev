@@ -1,0 +1,364 @@
+CSS3 -- Border Radius
+
+untuk menjelajahi lebih detail mengenai border radius mari kita buat file hmtl, lalu didalam nya kita 
+buat div kosong aja, kalian ingetin ya border radius adalah property CSS3 yg fungsinya adalah 
+membuat kotak yg kita punya itu ujung kotak nya menjadi tumpul, semakin besar border radius yg
+kita berikan maka ujung dari kotak nya akan semakin tumpul.
+
+misalnya kita kasih style dulu div kosong nya :
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Border Radius</title>
+    <style>
+        div {
+            width: 300px;
+            height: 300px;
+            background-color: salmon;
+            border-radius: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div></div>
+</body>
+</html>
+----------------------------------------
+
+Jadi simpel aja bikin border radius, untuk membuat sudutnya tumpul itu pake border radius, Nah
+hati" juga kalo misalkan kalian nulisa sesuatu didalam div kosong diatas, seperti ini :
+
+ <div>Hello World</div>
+----------------------------------------
+
+Ya begitu div nya kita kasih border radius 70px, maka tulisan nya akan keluar tidak menyesuaikan
+bentuk nya, karena tadinya kotak sekarang kita bikin tumpul maka tulisan nya akan keluar, begitu
+pula ketika kalian bikin element yg lain, nanti dia akan keluar juga.
+
+Kita bikin tulisan di div nya biar di tengah dan supaya dia ditengah" kotak nya bukan align center aja
+maka kita kasih line-height yg besar nya sama dengan tinggi div nya. Seperti ini :
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Border Radius</title>
+    <style>
+        div {
+            width: 300px;
+            height: 300px;
+            background-color: salmon;
+            border-radius: 70px;
+            text-align: center;
+            line-height: 300px;
+        }
+    </style>
+</head>
+<body>
+    <div>Hello World</div>
+</body>
+</html>
+----------------------------------------
+
+Nah itu pasti tulisan nya di tengah" kotak.
+
+Nah kita juga bisa kasih border radius nya 100px, nanti semakin besar kita kasih border radius nya
+nanti dia akan semakin tumpul terus terus sampai pada akhirnya dia akan jadi sebuah lingkaran, 
+Nah kalo saya kasih 150px maka dia akan menjadi lingkaran sempurna, terus kalo kita kasih dia 
+lebih besar dari 150px, misalnya 200px, nah itu sudah tidak akan terjadi apa-apa lagi. Seperti ini :
+
+LINGKARAN 150PX :
+ <style>
+        div {
+            width: 300px;
+            height: 300px;
+            background-color: salmon;
+            border-radius: 150px;
+            text-align: center;
+            line-height: 300px;
+        }
+    </style>
+
+UDAH MENTOK LINGKARAN 200PX :
+
+  <style>
+        div {
+            width: 300px;
+            height: 300px;
+            background-color: salmon;
+            border-radius: 200px;
+            text-align: center;
+            line-height: 300px;
+        }
+    </style>
+-------------------------------------------------------------
+
+kalo udah 200px itu udah gaad perubahan lagi, itu karena sudut yg paling tumpul itu akan membentuk
+sebuah lingkaran, RUMUS NYA ITU, kalo misalnya si border radius nya itu setengah dari lebar dan
+tinggi nya kalo dia KOTAK ya jadi setengah nya itu 150px kan, nah dia pasti udah jadi lingkaran.
+
+Tapi kalo kita ganti height dan width nya kita ganti 400px dan radius nya ttp 150px. Seperti ini :
+
+ <style>
+        div {
+            width: 400px;
+            height: 400px;
+            background-color: salmon;
+            border-radius: 150px;
+            text-align: center;
+            line-height: 300px;
+        }
+    </style>
+-------------------------------------------
+
+Nah kalo udh kita ubah begitu maka nanti bentukan nya ga lingkaran lagi, karena 150px di border
+radius itu bukan setengah dari height dan width nya jadi ga berbentuk lingkaran, untuk membentuk
+lingkaran kita ganti aja border radius nya jadi 200px karena 200px setengah dari height dan 
+widthnya.
+
+Nah supaya kalian gaperlu mengubah" border radius nya setiap diganti height dan width nya, cukup
+kalian ganti border radius nya dengan 50%, nah jadi sesuai kan setengah dari height dan width nya
+untuk menjadi sebuah lingkaran sempurna. Seperti ini :
+
+ <style>
+        div {
+            width: 200px;
+            height: 200px;
+            background-color: salmon;
+            border-radius: 50%;
+            text-align: center;
+            line-height: 200px;
+            margin-left: 40px;
+        }
+    </style>
+-------------------------------------------
+
+Nah kalo kotak nya ga persegi dia akan berubah menjadi elipsh, misalkan width nya 400px heightnya
+200px. Seperti ini :
+
+    <style>
+        div {
+            width: 400px;
+            height: 200px;
+            background-color: salmon;
+            border-radius: 50%;
+            text-align: center;
+            line-height: 200px;
+            margin-left: 40px;
+        }
+    </style>
+-------------------------------------------
+
+Maka dia jadi bentuk elipsh kalo border radius nya 50%.
+
+--------------------------------------------------------------------------------------------------------------------------------
+
+Nah selanjutnya kita bisa kasih border radius itu untuk masing" sisi nya, kan kalo kita tulis border
+radius seperti di atas artinya ke 4 sisinya ya.
+
+Nah kalo cuman satu sisi, CSS3 punya property yg namanya border, misalnya saya mau ganti yg
+atas kanan nya aja yg tumpul, sisanya lancip, tinggal kita ganti (  border-top-right-radius: 50%; ),
+maka hasilnya ya begitu silahkan coba sendiri.
+
+Nah kalo mau 2 sisi, tinggal tambahin aja. seperti ini :
+
+  <style>
+        div {
+            width: 200px;
+            height: 200px;
+            background-color: salmon;
+            border-top-right-radius: 50%;
+            border-bottom-left-radius: 50%;
+            text-align: center;
+            line-height: 200px;
+            margin-left: 40px;
+        }
+    </style>
+-------------------------------------------
+
+Seperti itu, jadi satu-satu ya, bagus bukan jadinya. Jadi kalian bisa satu-satu :
+
+            border-top-right-radius: 50%;
+            border-bottom-right-radius: 50%;
+            border-top-left-radius: 50%;
+            border-bottom-left-radius: 50%;
+
+Bisa satu-satu begitu, atau kalian mau pake satu property kaya margin gitu, tinggal kita bikin border
+radius baru kita bikin ke 4 sisi nya itu dalam satu baris aja. NAH ini dimulai dari atas kiri lalu atas
+kanan lalu bawah kanan lalu bawah kiri, ya hampir kaya searah jarum jam sama lah kaya margin
+susunan sisi nya. Seperti ini :
+
+    <style>
+        div {
+            width: 200px;
+            height: 200px;
+            background-color: salmon;
+            border-radius: 0 50% 0 50%;
+            text-align: center;
+            line-height: 200px;
+            margin-left: 40px;
+        }
+    </style>
+-------------------------------------------
+
+seperti itu caranya, atau kita mau bikin yg lancipnya atas kiri aja tinggal kek gini :
+
+(     border-radius: 0 50% 50% 50%; )
+
+--------------------------------------------------------------------------------------------------------------------------------
+
+background-img DALAM BORDER-RADIUS
+
+Nah berikutnya kalo kita kasih background-img pada div nya itu, maka img itu akan otomatis berada
+di balik border radius nya, jadi lingkaran itu tuh udah kaya frame pto, jadi kaya background-img nya
+bakal menyesuaikan bentuk border-radius.
+
+Misalnya nih saya udah ada file gambar nya, terus saya akan seimpen sebagai background-img
+dari div itu. Seperti ini :
+
+  <style>
+        div {
+            width: 400px;
+            height: 400px;
+            background-image: url(img/pyp.jpg);
+            border-radius: 0 50% 50% 50%;
+            text-align: center;
+            line-height: 200px;
+            margin-left: 40px;
+        }
+    </style>
+-------------------------------------------
+
+Kalo kita liat hasilnya otomatis gambarnya ada didalam frame nya , jadi udah otomatis terbungkus
+didalam border radiusnya, nah karena itu potonya berulang, kita kasih background-repeat, no-repeat,
+lalu biar gambarnya otomatis penuhin frame nya kasih background-size: cover;. Seperti ini :
+
+    <style>
+        div {
+            width: 450px;
+            height: 450px;
+            background-color: salmon;
+            background-image: url(img/pyp.jpg);
+            background-repeat: no-repeat;
+            background-size: cover;
+            border-radius: 0 50% 50% 50%;
+            text-align: center;
+            line-height: 200px;
+        }
+    </style>
+-------------------------------------------
+
+itu kalo kita pake backgroudn-img, nah kalo kita ganti border radius nya jadi gini :
+
+( border-radius: 0 50% 0 50%; ) 
+
+Nah maka dia otomatis gambarnya mengikuti frame nya.
+
+Nah hati-hati juga ketika gambarnya itu bukan jadi background-img untuk div itu, tapi jadi element
+<img> didalam div. Seperti ini :
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Border Radius</title>
+    <style>
+        div {
+            width: 450px;
+            height: 450px;
+            background-color: salmon;
+            border-radius: 0 50% 0 50%;
+            text-align: center;
+            line-height: 200px;
+        }
+    </style>
+</head>
+<body>
+    <div>
+        <img src="img/pyp.jpg" alt="profil">
+    </div>
+</body>
+</html>
+-------------------------------------------
+
+nah kalian bisa liatkan sekarang gambarnya keluar, keluar dari border radius nya, jadi ga menyatu
+sama kaya tadi tulisan hello world nya.
+
+Nah ini untuk mengatasinya, caranya kalian bisa aja kasih di div nya itu overflow lalu hidden, jadi 
+apapun yg keluar dari border radius di sembunyikan, tinggal nanti kalian atur aja ukuran img nya
+supaya, memenuhi ya. Seperti ini :
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Border Radius</title>
+    <style>
+        div {
+            width: 400px;
+            height: 400px;
+            background-color: salmon;
+            border-radius: 50%;
+            text-align: center;
+            line-height: 200px;
+            overflow: hidden;
+        }
+    </style>
+</head>
+<body>
+    <div>
+        <img src="img/pyp.jpg" alt="profil">
+    </div>
+</body>
+</html>
+-------------------------------------------
+
+Baik udah itu aja ya, dan kalo mau bermain dengan border radius silahkan agar lebih mengenal lagi.
+
+--------------------------------------------------------------------------------------------------------------------------------
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

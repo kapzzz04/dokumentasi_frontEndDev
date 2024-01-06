@@ -1,0 +1,311 @@
+CSS GRID #5 Grid Area dan Grid Gap
+
+- grid-template-areas
+- grid-template
+- grid-columns-gap
+- grid-rows-gap
+- grid-gap
+- grid
+
+Jadi sebetulnya itu property nya mirip" ya, intinya topik kita ada 2 Area & Gap.
+
+---------------------------------------------------------------------------------------------------------------------------------
+
+GRID-TEMPLATE-AREA
+
+"Mendefinisikan grid template menggunakan nama dari area yang ditulis pada property grid-area pada item."
+
+GTA ini mendefinisikan grid template menggunakan nama dari areanya, ya jadi kita definisikan area nya didalam container nanti items nya akan memakai nama tersebut nama area nya, jdi itu digunakan di container dan juga item nya.
+
+Cara memberi area nya gampang aja kalian cukup panggil property nya grid-template-area, terus kalian boleh kasih nama area nya apa lalu pisahkan dengan spasi untuk memberi nama area berikutnya. (liat di ssan folder)
+
+Langsung aja misalkan kita punya grid 3x3 simpel aja, kita punya sebuah grid yg terdiri dari 9 element item dibungkus kedalam container lalu kita kasih 3 kolom gini :
+
+ .container {
+            width: 80%;
+            margin: 50px auto;
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+        }
+----------------------------------
+
+Nah sekarang kita mau kasih area, kita ambil contoh kita sudah punya grid 3x3, nah misalnya saya pengen bikin 3 kolom paling atas itu akan berubah jadi header terus dibawahnya ada 2 kotak sebelah kiri yg jadi sidebar dan 4 kolom sisanya kita jadiin content kek gitu, (liat di folder).
+
+atau bisa ngeflow nya kalian balik kalian dapet desain web nya, misalnya kalian mau mengerjakan frontend kalian dapet dari web desainnya tampilan webnya terus mau dijadiin html kalian ubah dulu jadi grid diliat mana bagian yg akan jadi sebuah area.
+
+Jadi yg akan kita lakukan kita bikin dulu property nay grid-template-areas, lalu didalamnya disi menggunakan kutip ( ' ' ) untuk mengisi area nya, nah kutip nanti merepsentasikan tiap" row nya atau baris, nah saya kan pengen yg atas nya header semua kan jadi contoh nya kalo saya tulis gini :
+
+.container {
+            width: 80%;
+            margin: 50px auto;
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            grid-template-areas:
+                'header header header'
+                'sidebar content content'
+                'sidebar content content'
+                'footer footer footer';
+        }
+----------------------------------
+
+jadi kotak 1,2,3 header lalu kotak 4 sidebar, 5 dan 6 content, kotak 7 sidebar, kotak 8 dan 9 content, nah kotaknya kan sampe 9 aja, terus itu saya buat juga footer nya itu misal kalo kedepan nya ada kotak 10 itu kita mau siapin aja si footer nya gitu, jadi itu diatas adalah template nya kalo liat dibrowsernya mah sama aja gaada perubahan karena kita baru punya template nya, nama" itu belum kita tempelkan ke tipa" item nya .
+
+Nah sekarang supaya namanyabisa nempel ke item nya kita bisa kasih class dulu untuk tiap" kotak nya biar ga puseng ya, jadi yg item pertama saya kasih class header lalu angka 1 nya saya ganti jadi tulisan header dan yg lain nya juga gitu :
+
+  <div class="container">
+        <div class="item header">header</div>
+        <div class="item sidebar">sidebar</div>
+        <div class="item content">content</div>
+        <div class="item footer">footer</div>
+    </div>
+----------------------------------
+
+Nah div sisanya itu kita hilangkan jadi ada 4 kotak doang, jadi itu aturan nya belum yg saya ingin kan, nah biar yg kita ingin kan, masing" dari item nya harus kita kasih grid area, seperti ini :
+
+     .header {
+            background-color: aqua;
+            grid-area: header;
+        }
+
+        .sidebar {
+            background-color: lightcoral;
+            grid-area: sidebar;
+        }
+
+        .content {
+            background-color: rgb(72, 255, 0);
+            grid-area: content;
+        }
+
+        .footer {
+            background-color: rgb(183, 0, 255);
+            grid-area: footer;
+        }
+----------------------------------
+
+Nah itu tinggal kita kasih aja property ( grid-area ) itu tinggal kita kasih tau aja area nya yg mana, kan header di template nya namanya header nah kalo item itu mau aatau termasuk dari template si header yaudah namain aja grid-area nya jadi header. bahkan kita bisa ganti yg tadinya si footer di bawah jadi footer diatas dan header di bawah tinggal gini aja :
+
+ .header {
+            background-color: aqua;
+            grid-area: footer;
+        }
+
+ .footer {
+            background-color: rgb(183, 0, 255);
+            grid-area: header;
+        }
+----------------------------------
+
+Nah udah keganti itu posisinya gampangkan. Nah ini keren juga ketika pake resposive, gimana ketika ukuran nya mobile kita ubah lagi perilaku dari layout nya. jadi kita kasih lebar di atas headphone. gini :
+
+/* Resposive Breakpoint */
+        @media screen and (min-width: 576px) {
+            .container {
+                grid-template-areas:
+                    'header header header'
+                    'sidebar sidebar content'
+                    'sidebar sidebar content'
+                    'footer footer footer';
+            }
+        }
+----------------------------------
+
+Jadi kalo misal lebar di atas headphone layar nya maka kasih template yg kek gitu, tapi kalo ukuran layar dibawah 576px kita mau bikin jadi semua nya 1 kolom, nah tinggal kita pindahin aja di yg normal nya jadi sama rata gini :
+
+  .container {
+            width: 80%;
+            margin: 50px auto;
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            grid-template-areas:
+                'header header header'
+                'sidebar sidebar sidebar'
+                'content content content'
+                'footer footer footer';
+        }
+----------------------------------
+
+Jadi kalo ukuran nya headphone atau dibawah 576px maka pakai ukuran si default nya kalo di atas 576px pake ukuran mediaquery nya gitu ya.
+
+---------------------------------------------------------------------------------------------------------------------------------
+
+GRID-TEMPLATE
+
+"Shorthand untuk mendefinisikan grid-template-rows, grid-template-columns, dan grid-template-areas dalam satu deklarasi."
+
+grid-template adalah sebuah short-hand atau sebuah singkatan dari 3 buah property, jadi biasanya kita kasih gtr atau gtc atau gta itukan 3 property kita bisa gabungin menggunakan shorthand nya itu jadi cuman satu baris. Gini :
+
+.container {
+            grid-template: <grid-template-rows> | <grid-template-areas> / <grid-template-columns>;
+        }
+------------------------------------------------------
+
+Kita liat contoh nya kita masuk ke latihan2.html, kita hanya punya 6 buah item saja yg stuktur grid nya gini :
+
+  .container {
+            width: 60%;
+            margin: 50px auto;
+            display: grid;
+            grid-template-rows: [baris1-mulai] 50px [baris1-khir baris2-mulai] 100px [baris2-akhir];
+            grid-template-columns: 1fr 2fr 3fr;
+            grid-template-areas:
+                'header header header'
+                'footer footer footer'
+            ;
+        }
+------------------------------------------------------
+
+Jadi disitu saya punya grid-template-rows yg saya kasih lengkap ada namanya kan bisa kasih nama yg disebut dengan <line-name> ya, jadi ada namanya ada ukuran nya ada namanya ada ukuran nya ada namanya gituh. Liat baris nya berarti baris pertama ukuran nya 50px baris ke2 100px.
+
+Baru kita punya grid-template-columns 1fr 2fr 3fr, dan kita punya grid-template-areas yg 3 diatas header yg 3 diatas footer, walaupun kita belum punya item untuk menyimpan atau merepsentasikan area nya itu baru template nya.
+
+Nah 3 property itu bisa kita singkat menjadi hanya 1 property, kita bisa tulis begini :
+
+grid-template lalu inget ya urutann nya itu rows dulu, sebenernya kalo kalian hanay tulis rows dan columns gampang aja, kaya gini :
+
+   .container {
+            width: 60%;
+            margin: 50px auto;
+            display: grid;
+            grid-template: 50px 100px / 1fr 2fr 3fr;
+        }
+------------------------------------------------------
+
+Nah hasilnya gitu ya sama aja kalo pake property biasa sama hanya 1 property aja, inget rows dulu baru columns, nah kalo kalian mau menyisipkan area nya simpen didepannya ukuran untuk baris, untuk merepsentasikan area dibaris pertama gitu, jadi saya bisa tulis gini :
+
+  .container {
+            width: 60%;
+            margin: 50px auto;
+            display: grid;
+            grid-template: 'header header header' 50px 'footer footer footer' 100px / 1fr 2fr 3fr;
+        }
+------------------------------------------------------
+
+Jadi itu untuk merepsentasikan area baris pertama header dan baris ke2 si footer begitu, kalo kita mau nambahin nama kita simpen aja didepannya lagi misalkan begini :
+
+ .container {
+            width: 60%;
+            margin: 50px auto;
+            display: grid;
+            grid-template: [baris1-mulai] 'header header 
+             header' 50px [baris1-khir baris2-mulai] 'footer 
+             footer footer' 100px [baris2-akhir] / 1fr 2fr 3fr;
+        }
+------------------------------------------------------
+
+Jadi kalo ada namanya bisa kalian simpan didalam kurungsiku seperti itu, nah 1 property itu sama persis dengan code yg 3 property itu, yg harus kalian inget hanya rows duluan baru baris.
+
+---------------------------------------------------------------------------------------------------------------------------------
+
+GRID-GAP
+
+untuk grid-grap sebenernya ada 2 cara penulisan, ada cara lama ada cara baru yg kita udah pernah coba itu cara lama, dan yg kita coba itu untuk membuat gap pada baris dan kolom sekaligus (grid-gap), yg sebenernya bisa dipisah.
+
+kita bisa tulis kan grid-column-gap & grid-row-gap kalian mau horizontal nya saja atau vertikal nya saja atau salah satu, nah nulis nya itu cara lama yg ada grid nya didepan nya makannya kalo kalian pake vscode mau nulis property itu terus ada saran nah saran nya itu kecoret gitu artinya udah ada yang barunya. Yang barunya column-gap & row-gap.
+
+Mendefinisikan ukuran grid-line / jarak antara baris atau kolom.
+
+  .container {
+            /* cara baru */
+            column-gap: <line-size>;
+            row-gap: <line-size>;
+
+            /* cara lama */
+            grid-column-gap: <line-size>;
+            grid-row-gap: <line-size>;
+        }
+-------------------------------------
+
+Langsung aja kita coba ya, saya sekarang punya 9 kolom yg saya kasih 3 kolom masing" 1fr, sekarang kalo saya mau kasih jarak vertikal, 
+
+        .container {
+            width: 90%;
+            margin: 50px auto;
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            grid-column-gap: 5px;
+        }
+-------------------------------------
+
+tuh jadi ada jarak ya ditengah nya inget itu kita masih gunakan cara lama, nah cara baru nya tinggal ganti aja column-gap begitu pula untuk yg horizontal nya tinggal gini :
+
+        .container {
+            width: 90%;
+            margin: 50px auto;
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            column-gap: 10px;
+            row-gap: 10px;
+        }
+-------------------------------------
+
+Nah gitu lah cara barunya ya. Nah sekarang gimana kalo mau ke2 nya sekaligus tapi dengan 1 property nah kita pake yng namanya grid-gap :
+
+   .container {
+            width: 90%;
+            margin: 50px auto;
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            grid-gap: 10px;
+        }
+-------------------------------------
+
+Nah grid-gap juga sama kalo kalian liat dia ada coretan nya kalo di vscode gitu berarti itu udah ada yg barunya, berarti yg barunya cukup tulis gap saja gini :
+
+ .container {
+            width: 90%;
+            margin: 50px auto;
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 10px;
+        }
+-------------------------------------
+
+Nah jadi tuh dengan property gap kita udah atur jarak horizontal dan vertikal nya. nah itu tadi grid gap / gap
+
+"Shothand untuk mendefinisikan column-gap, row-gap dalam satu deklarasi."
+
+  .container {
+            /* cara baru */
+            gap: <grid-row-gap> <grid-column-gap>;
+
+            /* cara lama */
+            grid-gap: <grid-row-gap> <grid-column-gap>;
+        }
+
+AKHIR GRID-GAP
+
+---------------------------------------------------------------------------------------------------------------------------------
+
+GRID
+
+grid ini adalah Shorthand untuk mendefinisikan properti-properti berikut dalam satu deklarasi :
+
+grid-template-rows, grid-template-columns, grid-template-areas, grid-auto-rows, grid-auto-columns dan grid-auto-flow.
+
+Jadi dengan 1 propety GRID itu bisa mendefinisikan semua porpeti diatas tapi ini kalo sebanyak itu dijadiin satu bener" bakal bingung juga ya ngeliat nya, jadi menurut pak dhika mah mending 1 1 properti aja lebih gampang diinget nya, kan kalo banyak gitu bingung juga urutan nya ya, jadi pake yg paling nyaman aja ya.
+
+---------------------------------------------------------------------------------------------------------------------------------
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

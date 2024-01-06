@@ -1,0 +1,299 @@
+OBJECT pada JAVASCRIPT - Latihan Object (SELESAI)
+
+nah di vidio kali ini kita akan latihan untuk menerapkan pemahaman kita mengenai object
+yg sudah kita pelajari, nah untuk latihannya kita akan melanjutkan lagi studi khasus yg
+sudah pernah kita buat di vidio" sebelumnya yaitu mengenai juragan angkot.
+
+ya kalo temen" inget, sebelumnya pada khasus juragan angkot ini kita sudah pernah mencoba
+mengenai penglolaan penumpang, dan pengelolaan penumpang ini kita buat menggunkan
+array pada javascript.
+
+nah sekarang kita akan tambah kompleks sitas pada program kita yaitu untuk mengelola angkot
+angkot nya itu sendiri, ya karena banyak komponene yg ada di dalam angkot itu, dan sekarang
+kita akan coba kelola data angkot ini menggunakan object.
+
+------------------------------------------------------------------------------------------------------------------------------
+
+nah untuk pengelolaan angkot ini ada terkait beberapa hal nah seperti ini :
+
+- Sopir
+- Trayek
+- Kas
+- Penumpang
+  - penumpang naik
+  - penumpang turun
+
+pertama nanti kita akan mengetahui siapa supir dari angkot yg kita kelola, misalkan nanti
+kalian juragan angkot yang memilki beberapa angkot, nah tentu saja pasti kalian ingin tahu
+supir dari angkot tertentu itu siapa.
+
+yang ke-2 kita juga harus tau Trayek yg berjalan, jdi mungkin aja kalian punya beberapa
+angkot yg tiap" angkot nya memiliki trayek yg berbeda, nanti kita juga bisa kelola.
+
+yang ke-3 kita juga bisa mengelola kas atau uang yang disimpan oleh supir tadi, karena
+tiap penumpang ketika turun itu pastikan membayar sejumlah uang tertentu, nah nanti
+kita bisa pantau kita bisa kelola ada berapa jumlah kas dari sebuah angkot.
+
+lalu yg ke-4 kita juga bisa kelola penumpangnya, nah jadi ini kenapa lebih kompleks tadi
+karena sekarang kita juga bisa sambil mengelola penumpang, di dalam pengelolaan angkot ini,
+nanti di dalam nya ada mekanisme penumpang naik, kita bisa tau siapa yg naik, lalu ada 
+penumpang turun, ya mungkin nanti juga kita bisa sisip kan, proses bayar nya saat penumpang
+itu turun.
+
+------------------------------------------------------------------------------------------------------------------------------
+
+sekarang saya ambil contoh misalkan saya punya angkot seperti ini, ya nanti sebut aja
+angkot1 misalnya, yg mempunyai data awal itu seperti ini :
+
+sopir : Agus
+trayek : Cicaheum - cibiru
+penumpang : kosong
+kas : Rp. 0
+
+yg pertama dia punya data supir, ya misalkan supir si angkot1 ini namanya agus, lalu
+trayek nya itu dari Cicaheum ke cibiru, lalu kita inisialisasi atau kita kasih nilai awal
+ketika angkot nya pertama kali jalan itu penumpang nya kosong, nah nanti ketika penumpang
+naik baru ada isi nya.
+
+dan yang terakhir kita kasih kas awal nya juga Rp. 0, jadi sehingga waktu angkot nya berjalan
+karena belum ada penumpang nya ya jelas dia belum dapet uang, jadi kas nya masih
+kosong.
+
+ya coba pahami aja ilustrasi nya seperti itu jadi kita mau mengelola sebuah angkot.
+
+------------------------------------------------------------------------------------------------------------------------------
+
+nah sekarang gimana pembuatan object nya untuk pembuatan angkot tadi, nah kita
+implementasi kan pemahaman tadi dari video" sebelum nya.
+
+// Membuat Object Angkot
+
+nah untuk sekarang membuat object angkot kita menggunakan cara counstuktor aja
+biar lebih gampang, sehingga nanti ketika kita akan menambah kan angkotnya nah itu
+ga terlalu susah.
+
+jadi kalian bisa bikin Function kita kasih nama aja Angkot, A nya huruf besar karena itu
+konfensi untuk membuat object, lalu di dalam nya kita simpan property" yg nanti nya
+kita simpan pada saat angkot yg pertama inisialisasi.
+
+misalnya kita butuh nama supir, trayek nya seperti apa, lalu kita butuh daftar penumpang nya
+dan yg terakhir kita butuh kas, seperti ini :
+
+function Angkot(sopir, trayek, penumpang, kas) {
+ 
+}
+
+ya jadi ini parameter yg akan kita jadi kan nilai unutuk construktor nya, nah lalu di dalam 
+Function nya atau di dalam object nya sekarang kita tulis atau kita buat property" dan
+method yg kita butuh kan.
+
+------------------------------------------------------------------------------------------------------------------------------
+
+misalkan untuk menyimpan data supir di dalam object kita bikin property ( this.sopir = sopir; )
+nah gitu lalu seterus nya sampai di KAS, jadi nya seperti ini :
+
+function Angkot(sopir, trayek, penumpang, kas) {
+    this.sopir = sopir;
+    this.trayek = trayek;
+    this.penumpang = penumpang;
+    this.kas = kas;
+
+}
+
+jadi nanti pada saat object ini di buat atau construksi kita punya nilai awal dari 4 property itu,
+jadi kalo kita punya object nya seperti ini lalu kita panggil, misalnya saya punya var angkot1,
+lalu saya panggil ( new Angkot() ) yg di dalam nya saya kasih nilai awalnya.
+
+misalnya di sopir kita kasih nama di dalam string, terus teriminal awal dan akhirnya kita bikin
+aja pake array, lalu penumpang nya awal nya itu kosong kan, jadi kalo kosong misalnya saya
+mau tampung penumpang itu dalam bentuk array juga, dan yg terakhir kas nya 0, karena
+angkot nya baru jalan jadi kas nya 0 rupiah, jadi nya seperti ini :
+
+var angkot1 = new Angkot('Keyla', ['Cicahum', 'Cibiru'], [], 0);
+
+jadi yg function itu object nya lalu yg var angkot1 itu instansiasi object baru, jadi
+kalo saya cek di console.log lalu tulis angkot1 maka muncul isi object nya, nanti
+kalo misal saya punya angkot berikutnya angkot2 misalnya, nah kita tinggal ganti
+data yg perlu di ganti aja tpi pemanggilan nya sama seperti angkot1.
+
+------------------------------------------------------------------------------------------------------------------------------
+
+PENUMPANG NAIK
+
+nah sekarang gimana cara kita mengelola penumpang, ketika penumpang nya naik atau turun
+dan kas ketika penumpang nya bayar, sederhana aja lah ya, kalo penumpang nya naik array nya
+bertambah, kalo penumpang nya turun array nya berkurang dan kas nya bertambah.
+
+oke sekarang kita coba kelola ketika penumpang nya naik, kita bikin sebuah method misalnya
+gini ( this.penumpangNaik ) nah itu kita isi dengan Function, jadi Function yg ada di dalam
+object itu kita sebut nya Method, nah ini menerima parameternya adalah namaPenumpang,
+nah nanti namaPenumpang nya siapa.
+
+yang terjadi adalah kita akan memasukan array ( namaPenumpang ke array penumpang )
+cara nya gini ( this.penumpang.push(namaPenumpang); ) jadi ketika nanti di panggil 
+penumpangNaik masukin nama nya siapa, maka penumpang tersebut akan masuk ke array 
+lalu kita kembalikan saja array nya ( return this.penumpang; ) begitu seperti ini :
+
+function Angkot(sopir, trayek, penumpang, kas) {
+    this.sopir = sopir;
+    this.trayek = trayek;
+    this.penumpang = penumpang;
+    this.kas = kas;
+
+    this.penumpangNaik = function (namaPenumpang) {
+        this.penumpang.push(namaPenumpang);
+         return this.penumpang; 
+    }
+}
+
+
+jadi kalo kita ke console.log terus kita mau nambahin penumpang kita tulis gini
+( angkot1.penumpangNaik('Erik'); ) nah jadi kita ituin nama variabel nya lalu panggil Function
+nya dan isi argument nya nama penumpang nya, nah kalo udah gitu berarti udah ke input 
+nama si erik nya ke angkot1.
+
+jadi kalo kita tulis anglot1.penumpang kita bisa liat isi dari array penumpang, terus ketemu
+penumpang lagi misalkan nama yg naik 'Doddy', nah sekarang penumpang nya ada 2.
+
+------------------------------------------------------------------------------------------------------------------------------
+
+PENUMPANG TURUN #angkot kosong
+
+kita sudah kelola penumpang naik sekarang gimana mengelola penumpang turun,
+nah kita butuh method lagi berarti, misal ( this.penumpangTurun ) nama nya function nya,
+sekarang ini agak beda, penumpang turun butuh 2 parameter.
+
+parameter pertama nama nya ( namaPenumpang ) kalo ini kita bisa cek lah kalo namanya
+gaada kita bisa kasi pesan, tapi ini ada 1 parameter lagi jadi kalo penumpang nya turun dia
+harus bayar, jadi saya punya 2 parameter ini ( namaPenumpang dan bayar ).
+
+jadi yg terjadi gini di dalam method nya kita cek dulu kalo angkot nya misalnya masih kosong,
+jadi saya bisa gini ( if( this.penumpang.length === 0 ) klao dia sama dengan 0, berarti belum
+ada penumpang nya ya, berarti kalian bisa kasih alert aja misal kan "angkot masih kosong"
+lalu kita return false supaya dia keluar dari method nya.
+
+kalo kita coba dulu di console.log ya, misal angkot nya masih kosong terus di console.log 
+kita gini in ( angkot1.penumpangTurun('Erik', 1000); ) misal nya dia bayar 1000 ya, karena
+angkot masih kosong lalu muncul alert nya.
+
+codingan gambaran nya seperti ini :
+
+  this.penumpangTurun = function (namaPenumpang, bayar) {
+        if (this.penumpang.length === 0) {
+            alert('angkot masih kosong!');
+            return false;
+        }
+    }
+
+------------------------------------------------------------------------------------------------------------------------------
+
+PENUMPANG TURUN #angkot ga kosong
+
+kalo angkot nya ga kosong kita tinggal lakukan pengulangan untuk menelusuri penumpang yg
+ada didalam angkot, nanti kita cek ada ga namaPenumpang yg bersangkutan, jadi cara nya
+kita bikin ( for(var i = 0; i < this.penumpang.length; i++)  ), pengulangan nya akan berjalan
+sebanyak jumlah penumpang lalu i++.
+
+sekarang kita cek ada ga nama penupang tertentu di dalam angkot itu dengan begini
+( if (this.penumpang[i] == namaPenumpang) ), maka kita turun kan penumpang nya,
+nah tempat duduk yg kosong itu karena penumpang nya turun kita set menjadi undefined gini
+( this.penumpang[i] = undefined; ), ya jadi penumpang nya turun terus penumpang nya bayar,
+berarti kalo bayar kas bertambah ya jadi nya gini (this.kas += bayar; ) dan yg terakhir kita
+( return this.penumpang; ).
+
+codingan gambaran nya seperti ini :
+
+for (var i = 0; i < this.penumpang.length; i++) {
+    if (this.penumpang[i] == namaPenumpang) {
+        this.penumpang[i] = undefined;
+        this.kas += bayar;
+    }
+}
+
+sampe sini aja ya, silahkan jika kalian ingin menangani, jika tidak ada nama penumpang 
+tertentu di dalam angkot nya seperti yg kita lakukan di array silahkan kalian tambahkan.
+
+------------------------------------------------------------------------------------------------------------------------------
+
+itu simpel aja ketika ada penumpang nya ingin mengahpus lalu kita set aja dengan undefined
+lalu kas nya ditambahkan dengan uang yg dibayarkan oleh penumpang, sekarang kita coba
+misal ada penumpang yg naik ( angkot1.penumpangNaik('Doddy'); ), lalu misal ada lagi
+misalkan "Erik", sekarang saya punya 2 penumpang.
+
+jadi ketika penumpang nya turun, jadi saya tulis ( angkot1.penumpanTurun('Erik', 2500); )
+nah maka erik menjadi undefined dan kas bertambah 2500.
+
+
+ codingan nya :
+
+// Membuat Object angkot
+
+function Angkot(sopir, trayek, penumpang, kas) {
+    this.sopir = sopir;
+    this.trayek = trayek;
+    this.penumpang = penumpang;
+    this.kas = kas;
+
+    this.penumpangNaik = function (namaPenumpang) {
+        this.penumpang.push(namaPenumpang);
+        return this.penumpang;
+    }
+
+
+    this.penumpangTurun = function (namaPenumpang, bayar) {
+        if (this.penumpang.length === 0) {
+            alert('angkot masih kosong!');
+            return false;
+        }
+
+        for (var i = 0; i < this.penumpang.length; i++) {
+            if (this.penumpang[i] == namaPenumpang) {
+                this.penumpang[i] = undefined;
+                this.kas += bayar;
+                return this.penumpang;
+            }
+        }
+    }
+}
+
+var angkot1 = new Angkot('Keyla', ['Cicahum', 'Cibiru'], [], 0);
+
+var angkot2 = new Angkot('joyoy', ['curug', 'legok'], [], 0);
+
+------------------------------------------------------------------------------------------------------------------------------
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

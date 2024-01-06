@@ -1,0 +1,231 @@
+PENGULANGAN WIHILE pada JAVASCRIPT
+
+----------------------------------------------------------------------------------------------------------------------------------------------------
+PENGULANGAN bagian kywerd WHILE
+
+sebelumnya kita sudah bahas bahwa dengan pengulagan 
+kita bisa melakukan sesuatu yang sama berulang kali.
+
+contoh sederhananya seperti ini
+
+jika kalian ingin mencentak tulisan hello world kedalam console 10 x ( di codingnya 
+di file html terpisah ya bukan langsung di console nya) sebenernya simpel aja 
+kalian tinggal tuliskan ( console.log('hello world'); ) sebanyak 10 x di dalam script kita.
+
+CONTOHNYA :
+console.log('Hello World');
+console.log('Hello World');
+console.log('Hello World');
+console.log('Hello World');
+console.log('Hello World');
+console.log('Hello World');
+console.log('Hello World');
+console.log('Hello World');
+console.log('Hello World');
+console.log('Hello World');  ( tips gausah di copy tinggal block mna yg mau di ituin trs ctr + shift + d)
+
+----------------------------------------------------------------------------------------------------------------------------------------------------
+
+nah misalkan sekrang kalian gamau 10 baris mau nya 100 baris
+bisa aja copy sampe 100 trs coba kalo ribuan gimana.
+
+nah misal mau ganti nama nya jangan hello world gampang 
+aja kan tinggal di ganti tidak memakai pengulangan.
+
+nah bagaimana jika ingin setiap hello world ada susunan angka, misal hello world pertama 1 terus 2
+dan hello world selanjutnya berurutan angka nya, kalo sampai kita tulis hingga 100 atau 1000
+baris akan merepotkan, karena disini kita tidak bisa copy paste karena angka nya harus di ganti
+1 per 1, nah disini lah kita butuh fitur pengulangan di dalam program kita.
+
+----------------------------------------------------------------------------------------------------------------------------------------------------
+
+jadi untuk menggunakan WHILE kalian cukup tuliskan kywerdnya while
+lalu syntak nya begini
+
+while (kondisi) {
+    aksi
+}
+
+ini bacanya gini selama kondisi yg ada didalam kurung itu bernilai true
+maka lakukan aksi yg ada di dalam blok kurung kurawangnya.
+aksinya bisa lebih dari satu baris itu contohnya hanya satu baris saja
+
+
+misalkan gini :
+
+while (true) {
+    console.log('Hello World!');
+}
+
+while nya bernilai true dan aksinya console.log
+dan hasilnya di console browser akan ada berapa
+tulisan hello world?
+
+maka hasilnya di console itu akan tak terbatas atau infinite loop
+karena dia terjadi pengulangan terus menerus tidak ada yg mengstopi
+
+nah misal true itu di ganti dengan false maka tulisan hello world nya
+tidak akan muncul dikarena kan console itu tidak akan pernah
+menjalankannya karena kondisinya false.
+
+----------------------------------------------------------------------------------------------------------------------------------------------------
+
+jangan sampai kalian berada di keeadaan itu karena bakal pusing juga
+
+dan ada cara agar pengulangan nya itu berhenti ( yg while nya true ya bukn false )
+pertama bisa dihentikan oleh user dengan kendali berada di user dengan cara
+seperti ini.
+
+CONTOH:
+
+var ulang = true;
+
+while (ulang) {
+    console.log('hello world');
+    ulang = confirm('coba lagi?');
+}
+
+
+
+dibaca nya ulang nya kan true ( itu memakai boolean ya ) terus selama while nya
+ulang ( true ) maka tuliskan hello world ke layar, nah kan tulisan ulang dibawah
+tuh nah jadi hasilnya bakal true setelah hasilnya true muncul confirm tulisan
+coba lagi.
+
+bisa dicoba nnti sete;ah ada tulisan coba lagi terus cansel kan udah false
+maka berhenti tulisan hello world nya bisa di liat di console langsung.
+
+itu yg pertama kita bisa menghentikan loop ini berdasarkan dari kemauna user.
+
+----------------------------------------------------------------------------------------------------------------------------------------------------
+
+nah yang kedua kita bisa menggunakan program itu sendiri
+nah kita yg tentukan mau brp kali tulisan itu muncul mau 100x 1000x bebas
+
+untuk menuliskan while tersebut itu harus
+
+CONTOH:
+
+nilai awal
+
+while (kondisi terminasi) {
+    aksi
+
+    increment / decrement
+}
+
+ada 3 komponen penting
+kita harus punya nilai awal
+kita hrus punya kondisi terminasi kapan loop nya akan berhenti
+lalu kita harus punya increment / decrement
+
+nah ini nanti yg menyebabkan loop nya akan berhenti
+
+CONTOHNYA ;
+var nilaiawal = 1;
+
+while (nilaiawal <= 5) {
+
+    console.log('hello world');
+    nilaiawal++;
+
+}
+
+ 
+
+ 
+jadi kan nilai awal 1 nah,while nya nilaiawal ( 1 )lebih kecil daripada 5 
+true dong maka dicetak lah tulisan hello world, terus nilaiawal++;
+atau nilaiawal = nilaiawal + 1 ; jadi nilaiawal kan 1 ditambah 1 jadi 2
+nah 2 lebih kecil dari 5 true kan maka pengulangan masih jalan
+pengulangan akan berhenti jika nilaiawal lebih besar dari 5.
+
+
+dan itu jika kalian ingin menghentikannya dengan program sendiri
+
+----------------------------------------------------------------------------------------------------------------------------------------------------
+
+sekarang kita mau ubah dari codingan itu yg bagian tulisan hello wolrd
+sebanyak 10 x tpi hello world itu setiap pengulangn itu ada angka
+yg berurutan misal hello world 1,hello world 2, dan seterusnya
+GIMANA ITU CARANYA???
+
+CONTOH:
+
+var nilaiawal = 1;
+
+while (nilaiawal <= 10) {
+
+    console.log('hello world' + ' ' + nilaiawal);
+    nilaiawal = nilaiawal + 1;
+
+}
+
+nah di atas ini adalah codingan nya yg hasil di consolenya yaitu
+
+HASILNYA:
+
+hello world 1
+hello world 2
+hello world 3
+hello world 4
+hello world 5
+hello world 6
+hello world 7
+hello world 8
+hello world 9
+hello world 10
+
+----------------------------------------------------------------------------------------------------------------------------------------------------
+
+jadi itu tinggal tambah nilaiawal nya di dalam kurung
+console.log nya itu
+
+knp itu bisa ngaruh pas ditambah karena kita memakai operator 
+konkatenasi atau penjumblahan 2 atau lebih string
+
+nah jadi begitu
+
+---------------------------------------------------------------------------------------------------------------------------------------------------
+
+soal 
+
+hasil codingan nya :
+
+var nilaiawal = 1;
+
+while (nilaiawal <= 10) {
+
+    console.log('Angkot No.' + ' ' + nilaiawal + ' ' + 'beroperasi dengan baik.');
+    nilaiawal = nilaiawal + 1;
+
+}
+
+CONTOH DI CONSOLE.LOG :
+
+Angkot No. 1 beroperasi dengan baik.
+Angkot No. 2 beroperasi dengan baik.
+Angkot No. 3 beroperasi dengan baik.
+Angkot No. 4 beroperasi dengan baik.
+Angkot No. 5 beroperasi dengan baik.
+Angkot No. 6 beroperasi dengan baik.
+Angkot No. 7 beroperasi dengan baik.
+Angkot No. 8 beroperasi dengan baik.
+Angkot No. 9 beroperasi dengan baik.
+Angkot No. 10 beroperasi dengan baik.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,285 @@
+CSS3 -- Opacity
+
+Divideo kali ini kita akan membahas mengenai bagaimana memberikan traspransi pada sebuah
+element html yg kita buat. Langsung aja kita buat file index html nya.
+
+Dimana didalamnya saya punya div kosong dan ada img juga, dan img nya akan saya pake untuk
+backggorund halama nya juga. Seperti ini :
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Opacity</title>
+    <style>
+        body {
+            background-image: url(bg.jpg);
+            background-repeat: no-repeat;
+            background-size: cover;
+        }
+
+        div {
+            width: 300px;
+            height: 300px;
+            background-color: orange;
+        }
+    </style>
+</head>
+<body>
+
+
+    <div></div>
+
+
+</body>
+</html>
+---------------------------------------------------------
+
+Nah itu juga div nya dikasih style biar ada kotak nya juga di div nya, Nah sekarang yg ingin saya 
+lakukan adalah gimana caranya supaya kotak orange itu trasparan, ya kadang" kita pengen bikin
+sebuah element itu memiliki tingkat transparasi tertentu.
+
+Sekarang kita bahas gimana cara ngasih transparan tapi sebelum ada CSS3, kembali lagi ya kita
+butuh bantuan dari potoshop, lagi" kita ngatur transparasi nya di potoshop biar si kotak nya 
+trasnparan sama background kita. Lalu jika sudah bikin kotak yg transparan kita crop dikit kotak yg
+dibuat di potoshop nya lalu jadikan yg transpran itu jadi background img buat div kita.
+
+-------------------------------------------------------------------------------------------------------------------------------
+
+OPACITY
+
+Nah karena ribet banget kalo bikin transparasi nya begitu, Nah karena udah ada CSS3 kita tinggal
+pake aja property css3 ini, jadi opacity ini digunakan untuk mengatur transparasi sebuah element.
+
+Cara pake nya gampang aja, tinggal tambahin property nya opacity, tinggal kita kasih value nya,
+valuenya kalian bisa kasih nilai dair ( 0-1 ), 0 itu artinya akan membuat element nya menjadi sangat
+transparan sampai ga keliatan, dan 1 itu sama aja kaya kita ga ngatur transparan sama element 
+nya.
+
+Nah misalnya saya mau membuat kotak nya transparan sebanyak 80%, maka kita tulis ( 0.8 ).
+Seperti ini:
+
+ div {
+            width: 300px;
+            height: 300px;
+            background-color: orange;
+            opacity: 0.8;
+        }
+--------------------------------
+
+nah bisa kan jadi transparan, kalo misalkan kurang transparan 0.8 itu ubah aja jadi 50% jadinya ( 0.5)
+Oh iya ini ada juga kalo misalnya kalian memberikan nilai pada sebuah propety di css itu 0 koma, itu
+( 0 ) nya bisa aja kalian ga tulis. Seperti ini :
+
+
+        div {
+            width: 300px;
+            height: 300px;
+            background-color: orange;
+            opacity: .25;
+        }
+--------------------------------
+
+dengan saya nulis nya titik 25 ( .25 ) tanpa 0 didepan nya itu sama aja kaya 0.25, kalo saya tulis ( .9)
+itu juga sama aja kaya 0.9 ya.
+
+-------------------------------------------------------------------------------------------------------------------------------
+
+Sekarang kita liat gimana kalo didalam elemen div ini ada element yg lain, misalnya div nya kita
+kasih class, misalnya namanya satu, lalu didalam nya ada satu div lagi tapi nama class nya dua, ya
+misalnya Seperti ini :
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Opacity</title>
+    <style>
+        body {
+            background-image: url(bg.jpg);
+            background-repeat: no-repeat;
+            background-size: cover;
+        }
+
+        .satu {
+            width: 300px;
+            height: 300px;
+            background-color: orange;
+            opacity: .5;
+        }
+
+        .dua {
+            width: 200px;
+            height: 200px;
+            background-color: blue;
+        }
+    </style>
+</head>
+<body>
+
+
+    <div class="satu">
+        <div class="dua"></div>
+    </div>
+
+
+</body>
+</html>
+----------------------------------------------------------------
+
+Nah kalo kita liat ada kotak warna biru yang otomatis dia juga terkena transparan sebesar ( 0.5 ), 
+nah ini karena dia mewarisi transparansi dari element parent nya, tapi ada yg lain, misalnya kita
+posisikan element div yg ke-2 itu supaya agar overlap terhadap element yg ke-1.
+
+Misalnya yg ke-1 kita kasih position nya relative, yg ke-2 absolute supaya saya bisa geser" , terus
+misal saya kasih right nya -50px dan bottom nya -50px. Seperti ini :
+
+  .satu {
+            width: 300px;
+            height: 300px;
+            background-color: orange;
+            opacity: .7;
+            position: relative;
+        }
+
+        .dua {
+            width: 200px;
+            height: 200px;
+            background-color: blue;
+            position: absolute;
+            right: -50px;
+            bottom: -50px;
+        }
+    </style>
+-------------------------------------------------
+
+Nah sekarang kotak nya antara satu sma lain itu gaada transparansi, karena mereka memiliki
+tingkat transparansi yg sama yaitu 0.5, kalo mau  element yg ke-2 itu transparan terhadap element
+yg satu, berarti kita harus kasih dia juga opacity, jadi opacity didalam opacity, sekarang saya kasih
+0.5 juga misal. Seperti ini :
+
+
+        .satu {
+            width: 300px;
+            height: 300px;
+            background-color: orange;
+            opacity: .5;
+            position: relative;
+        }
+
+        .dua {
+            width: 100px;
+            height: 100px;
+            background-color: blue;
+            position: absolute;
+            right: -50px;
+            bottom: -50px;
+            opacity: 0.5;
+        }
+-------------------------------------------------
+
+Nah hasilnya, ini akan membuat si element yg warna biru itu lebih transparan lagi, karena yg itu 
+saya kasih 0.5, tapi kalian mesti inget 0.5 itu diambil  dari 0.5 yg orange, jadi kalo kita liat dari luar
+sebetulnya biru itu transparansi nya 0.25, karena setengah dari si orange nya.
+
+Mungkin jadi sebenernya opacity dari biru 0.25 padahal disitu ditulis 0.5, karena kan itu masih ada
+sangkut paut sama orange nya, kalo 0.5 juga untuk si bitu ya harusnya dia ilang ga nampak lagi,
+karena orange aja 0.5, atau kan 0.5 itu 50% kan berarti yg diambil itu trasnparan dari orange nya,
+kan orange 0.5 lalu biru juga ikut 0.5 itu sebelum biru di kasih opacity, lalu biru mau transparan
+lagi 50% dari opacity yg dia punya sekarang, jadi lah 0.25, kan 0.5 itu 50% nya 0.25.
+
+-------------------------------------------------------------------------------------------------------------------------------
+
+Nah gimana sekarang kalo saya pengen bikin si orange nya itu gak transparan, jadi parant nya ga
+transparan, tapi yg birunya transparan, Nah kotak yg satu kita ilangin transparan nya lalu kotak yg
+ke-2 biarkan opacity nya 0.5. Seperti ini :
+
+    .satu {
+            width: 300px;
+            height: 300px;
+            background-color: orange;
+            position: relative;
+        }
+
+        .dua {
+            width: 100px;
+            height: 100px;
+            background-color: blue;
+            position: absolute;
+            right: -50px;
+            bottom: -50px;
+            opacity: 0.5;
+        }
+-------------------------------------------------
+
+nah maka sekarang yg ke-2 akan transparan 0.5  terhadap kotak yg satu, jadi keknya transparan 
+nya terhadap kotak orange nya aja ya bukan ke body mungkin begitu.
+
+Nah sekarang kita balik, saya pengen kotak satu nya transparan misalnya opacity 0.5, tapi kotak 
+ke-2 nya ga transparan mau nya ya warna nya normal, misalnya opacity nya 0.5 untuk orange lalu
+opacity 1 untuk biru. Seperti ini :
+
+
+        .satu {
+            width: 300px;
+            height: 300px;
+            background-color: orange;
+            position: relative;
+            opacity: 0.5;
+        }
+
+        .dua {
+            width: 100px;
+            height: 100px;
+            background-color: blue;
+            position: absolute;
+            right: -50px;
+            bottom: -50px;
+            opacity: 1;
+        }
+-------------------------------------------------
+
+Nah ternyata gabisa kalo seperti itu, itu ttp transparan terhadap background nya, berarti kita gabisa
+bikin sebuah element child itu solid atau ga transparan ketika element parent nya transparan. Jadi
+saya gabisa bikin element yg kotak biru ngga transparan sama sekali kalo element pembungkus 
+nya udah transparan.
+
+Cara mengatasinya itu kita gapake ( opacity ) lagi, kita pake satu property yg akan nanti kita pake di
+video selanjutnya ya disini CSS3 -- RGBa & HSLa, nanti disitu dijelasin kalo warna pake rbg itu kan
+ada 3 ya rgb( 0, 0,0) gitu kalo pake opacity nanti terakhirnya ada opacitynya jadi ada 4 bukan 3.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

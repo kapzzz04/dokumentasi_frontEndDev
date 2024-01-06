@@ -1,0 +1,191 @@
+CONTROL FLOW pada javascript
+atau alur kendali dari sebuah program
+
+apa itu alur kendali atau control flow
+
+kita lihat dulu hal berikut ini ya
+
+jadi didalam pemograman ada yg disebut dengan normal flow atau alur normal
+maksudnya begini jadi apabila program kita memiliki lebih dari satu statement,
+maka statement tersbut akan dieksekusi dari atas ke bawa atau dari kiri ke kanan.
+
+contohnya begini :
+
+alert('halo');
+alert('nama');
+alert('saya');
+alert('keyla');
+
+
+  kita mempunyai program sederhana ini dimana didalamnya terdapat 5 buah statement
+maka statement ini akan di eksekusi dari atas kebawah sehingga hasilnya akan menampilkan dialog,
+dan alert ini tidak akan tertukar dan akan berjalan setelah statement sebelumnya selesai di eksekusi.
+
+contoh lain:
+
+var angka = prompt("masukan angka");
+alert("angka yang anda masukan adalah :" + angka);
+
+nah ini juga sama ya jadi jika kita punya 2 statement seperti ini maka statementnya akan di eksekusi dari atas ke bawah.
+
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+nah nanti saat kalian membuat program alur program atau control flow nya itu tidak harus seperti itu ( normal flow ),
+bisa saja kita mengatur agar alur nya tidak luru dari atas kebwah, karena mungkin aja ada baris program atau statement
+yg tidak ingin di eksekusi karena hal tertentu.
+
+untuk melakukan hal tersbut dibutuhkan sesuatu yg dinamakan pengulangan dan pengkondisian, nah 2 hal ini lah yg
+nnti nya dapat mengatur soal di program kita.
+
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+pertama PENGULANGAN ( loop / iteration )
+
+ini adalah sebuah konsep untuk mengerjakan atau mengeksekusi sebuah statement yg sama lebih dari satu kali
+atau berulang
+
+jika tadi ilurtrasi dari normal flow seperti ini panah lurus kebawah ( anggap aja panah lurus kebawah ).
+
+ilustrasi dari konsep pengulangan itu berbeda jika program kita sedang mengeksekusi serangkaian statement kebawah
+nah nanti ada statement yg ingin kita lakukan secara berulang ada banyak statement yg sama yg ingin kita lakukan dari
+satu kali maka kita akn lakukan dlu pengulangan nya, pengulangan pada statement tersebut nah lalu setelah itu kita
+lanjutkan lagi ke statement berikutnya.
+
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+nah syntak pengulangan pada javascript itu ada banyak
+
+PENGULANGAN
+ - for
+ - while
+ - do while
+
+syntak ini nanti kita bahas di vidio yg akan datang ya
+
+contoh paling sederhananya gini:
+   
+   alert('mulai');
+alert('Hello World!');
+alert('Hello World!');
+alert('Hello World!');
+alert('Hello World!');
+alert('Hello World!');
+alert('Selesai');
+
+kita punya beberapa stetament berikut ini dan kalian liat
+ada stetament yg sama dan ada yg beda
+
+yg kalian liat kita akan mengeksekusi hello world lebih dari satu.
+
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+nah ini bisa kita ganti dengan penulisan alert si hello world ini
+dengan sebuah syntak seperti ini...........
+
+contohnya;
+ 
+ alert('mulai');
+
+for (var i = 0; i < 5; i++) {
+    alert('Hello World!');
+}
+
+
+alert('Selesai');
+
+ini kita menggunakan kyword for agar kita dapat melakukan pengulangan pada
+syntak yg ingin kita eksekusi berulang kali, cara penulisannya ada di atas
+, sekali lagi detailnya ada di vidio berbeda.
+
+tapi itu menghasilkan hasil yg sama seperti syntak sebelumnya, sama-
+sama ada 5 hello world nya klo di cek ke browser.
+
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+selanjutnya adalah pengkondisian atau percabangan
+
+pengkondisian atau percabangan ini adalah sebuah keadaan dimana program kita
+bisa memilih untuk mengeksekusi stetament yg berbeda berdasarkan kondisi yg
+di berikan.
+
+jadi ilustrasinya kalian bisa lihat seperti ini setelah kita mengeksekusi pada
+rangkaian stetament dari atas kebawah.
+
+nanti pada satu titik program kita akan di beri sebuah kondisi, nah nnti jika 
+kondisi tersebut menghasilkan nilai true misalnya maka selanjutnya akn
+mengeksekusi treatment yg ada di bawah nya.
+
+tapi jika kondisi tadi menghasilkan nilai false maka yg di eksekusi stetament yg lain
+jadi ada stetament yg tidak dikerjakan, lalu nanti melanjutkan sampai akhir stetament.
+
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+beberapa syntk yg harus kita pahami di pengkondisian
+
+PENGKONDISIAN
+ - IF
+ - if... lalu else
+ - if.. else if..  lalu else
+ - switch
+
+contoh sederhanya :
+
+var angka = prompt('masukan angka');
+
+if (angka % 2 === 0) {
+    alert(angka + " " + "adalah bilangan genap");
+} else {
+    alert(angka + " " + 'adalah bilangan ganjil');
+}
+
+yg pertama kita akan meminta dulu agar user memasukan angka
+random ke dalam prompt dan kita simpan ke dalam variabel angka
+
+lalu kita melakukan pengecekan menggunakan kyword nya if
+
+baca nya gini jika angka yg dimasukan tadi di bagi 2 maka sisa baginya
+adalah 0 nah maka dia adalah bilangan genap
+
+tapi jika sisa bagi nya tidak 0 maka dia akan masuk ke else ini
+sehingga yg akan tampil bilangan ganjil.
+
+SEKIAN TERIMAKASIH SEMOGA PAHAM AAMIIN
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

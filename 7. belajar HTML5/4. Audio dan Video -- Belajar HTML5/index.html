@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Audio & Video</title>
+    <style>
+      /* body,
+        h1 {
+            padding: 0;
+            margin: 0;
+            font-family: arial;
+        }
+
+        .hero {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            /* background-color: rgb(0, 0, 0, 0.3); */
+      /*
+            background-image: linear-gradient(to right, rgba(0, 242, 96, 0.3), rgba(219, 75, 154, 0.3));
+            color: rgb(255, 255, 255, 0.5);
+            font-size: 3em;
+            position: relative;
+            min-height: 100vh;
+            overflow: hidden;
+        }
+
+        .video-bg {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            min-height: 100%;
+            min-width: 100%;
+            z-index: -1;
+        } */
+    </style>
+  </head>
+
+  <body>
+    <!-- <audio src="audio/1.mp3" controls></audio> -->
+
+    <!-- <figure>
+        <figcaption>
+            Dengarkan "Skyline - Anno Domini"
+        </figcaption>
+        <audio controls loop muted>
+            <source src="audio/1.ogg" type="audio/ogg">
+            <source src="audio/1.mp3" type="audio/mpeg">
+        </audio>
+    </figure> -->
+
+    <!-- <video src="video/1.mp4" controls width="400"></video> -->
+
+    <!-- <figure>
+        <figcaption>
+            Inperfect The Series
+        </figcaption>
+        <video width="500px" poster="img/poto.jpg" loop autoplay muted>
+            <source src="video/1.webm" type="video/webm">
+            <source src="video/1.mp4" type="video/mp4">
+            Browser tidak mendukung tag <code>video</code>
+        </video>
+    </figure> -->
+
+    <!-- <div class="hero">
+        <h1>Welcome to ZIPS</h1>
+        <video class="video-bg" src="video/1.mp4" muted autoplay loop></video>
+    </div> -->
+
+    <video controls width="450px">
+      <source src="video/2.mp4" type="video/mp4" />
+      <track
+        src="caption/caption2.vtt"
+        kind="captions"
+        title="Bahasa indonesia"
+        srclang="id"
+      />
+      <track
+        src="caption/caption2.vtt"
+        kind="captions"
+        title="English"
+        srclang="en"
+      />
+    </video>
+    <iframe
+      width="560"
+      height="315"
+      src="https://www.youtube.com/embed/Q2VqCG13ejA"
+      title="YouTube video player"
+      frameborder="0"
+      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+      allowfullscreen
+    ></iframe>
+  </body>
+</html>

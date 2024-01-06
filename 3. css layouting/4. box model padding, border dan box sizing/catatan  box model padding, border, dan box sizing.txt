@@ -1,0 +1,77 @@
+PADDING
+
+padding biasa di  gunakan untuk memberikan jarakdi sebuah kotak yang berisi barisan
+jadi memberi jarak pada barisan di dala kotak nya
+
+sisi PADDING juga bisa di atur sisinya seperti margin berapa px gitu
+
+ bedanya padding yaitu
+ -tidak bisa diberi nilai negatif seperti margin
+ -padding tidak bisa memakai nilai auto
+
+PADDING ITU MEMPENGARUHI UKURAN YANG DIBUAT
+
+misal lebar sebuah kotak 500px tambah eleemen PADDING 20px
+itu akan menambahkan menjadi 520px 
+
+-------------------------------------------------------------------------------------------------------------------------
+BORDER
+
+border: 5px solid black;
+
+5px = tebal nya
+solid = jenis bordernya
+black= warnanya
+
+jenis boedernya
+ -solid = normal
+ -dotted = titik titik
+ -dashed= titik titik agak lebar
+ -double
+
+di border juga bisa misal hanya saatu sisi saja yang ingin di beri border bisa menggunakan ini
+border-left: 5px solid black; 
+
+border juga menambahkan elemen seperti padding
+misal lebal kotak 400px border 10px menjadi 410px total lebarnya
+
+jadi jika kalian memakai  WIDHT = 500PX SAMA PADDING 30PXSAMA BORDER 2PX
+jadi total semuanya menjadi 532px
+----------------------------------------------------------------------------------------------------------
+BOS-SIZING 
+
+eleman ini berguna untuk kita tidak usah mengatur ukuran nya agar 500px gitu
+agar tidak menambah terus jika kita kasih padding atau margin 
+
+misal widht 500px kita tambah padding 30px tmbah margin 5px
+jika memakai elemen BOX-SIZING itu semua tidak akan menambahkan posisinya
+lebar nya akan tetap mengikuti menjadi 500px mengikuti widht nya yang
+sudah kita atur 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

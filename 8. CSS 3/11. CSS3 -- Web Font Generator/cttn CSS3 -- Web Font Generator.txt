@@ -1,0 +1,128 @@
+CSS3 -- Web Font Generator
+
+materi ini masih ada sangkut paut nya sama materi sebelum nya yaitu font-face ya coba simak aja
+materi ini.
+
+Kalo kita liat dari fontsquerall ini ada beberapa font yg bahkan memberikan sintaks font-face nya 
+pada saat kalian download font nya jadi kalian ga perlu lagi ngetik manual, tapi ga semua font 
+memiliki fasilitas itu, contoh nya kita ambil dari font random lah misal apa kek, nah mau ambil font 
+nya ga ngeklik tulisan download yg warna biru itu, tapi kita klik font nya yg mau kita donload
+( liat di folder ) nanti masuk kedalam detail font nya kalian bisa liat contoh penulisan nya seperti apa.
+
+Nah yg kita butuh kan itu menu yg bagian ( Webfont Kit ) bisa liat di ( folder ss nya ), yg kalo saya klik
+nanti ada menu seperti ini ( liat di folder ), kita bisa mendownload format file yg ktia perlu kan  untuk
+@font-face kita, ga semua font punya fasilitas ( Webfont Kit ), nah kalian bisa pilih format file 
+seperti apa yg mau di download ( liat di folder ), ya sebetulnya font yg paling bagus untuk web 
+adalah woff, misalkan saya mau download yg woff aja jadi ceklis nya matikan biar yg kedownload yg
+woff aja.
+
+Nah setelah itu saya klik download, nanti setelah udah di download nanti berbentuk file zip, file nya di
+konvert dulu biar jadi folder, coba klik 2 kali di file zip yg kita download entar jadi folder, nah isi folder
+nya itu ada penjelasan nya atau cara penggunaan nya dan font nya, misal nya saya mau ngambil
+folder yg reguler nya ( liat di folder ss ), nah didalam nya ada file nya yg untuk di taro di tag src di
+@font-face nya ( liat di folder ), nah kan file nya yg woff ya inget tipe nya woff.
+
+Nah kalo kalian liat disitu ( liat folder ) pada saat kita download font tadi juga menyediakan font css
+jadi kita kalo mau ke css in tinggal copy code nya dari file yg dikasih tapi jangan lupa pindahin juga
+file woff nya ke folder yg diinginkan. Seperti ini :
+
+  @font-face {
+            font-family: 'open_sansregular';
+            src: url('OpenSans-Regular-webfont.woff') format('woff');
+            font-weight: normal;
+            font-style: normal;
+        }
+
+ h1 {
+            font-size: 100px;
+            text-align: center;
+            font-family: 'open_sansregular', arial;
+           
+        }
+----------------------------------
+
+Begitu lah cara pake nya, kalo bisa gunakan file yg tipe nya WOFF karena ini jauh lebih cepat di load
+oleh halaman nya.
+
+----------------------------------------------------------------------------------------------------------------------------------
+
+WOFF / WOFF2
+
+- Web Open File format 
+- Dikembangkan oleh Mozilla
+- Dibuat khusus untuk websaite
+- Di-load lebih cepat daripada jenis font yang lain
+- Merupakan kompresi dari tipe TTF / OTF 
+
+WOFF itu sendiri adalah Web Open File Format yg di bikin oleh Mozilla dan memang dibuat khusus
+untuk websaite supaya dapat di load lebih cepat dibanding TTF / OTF, walaupun sebetulnya dia ttp
+formatnya mirip TTF / OTF tapi di kompresi lagi supaya jauh lebih cepat di load nya.
+
+Nah kalo yg kita dapat kan file format TTF / OTF sebetulnya kita bisa ubah dia jadi WOFF suapaya
+lebih cepat, cara nya adalah dengan menggunakan web font generator, Nah kebetulan 
+websaite fonstquerall punya fasilitas itu.
+
+Jadi caranya coba liat web nya dulu lalu kallian liat di menu atas itu ada bacaan Generator 
+( liat di folder ), kalian klik aj nanti masuk ke menu nyadengan tampilan seperti ini ( liat folder ya ),
+tinggal kalian upload aja file font yg ttf / otf tadi, kalo udah upload file nya tinggal kalian pilih settingnya
+mau seperti apa, biar gampang kita pilih yg optimal aja ( liat do folder ), terus untuk agremen nya
+pastikan kalo font nya memang boleh digunakan di web.
+
+Kalo sudah kita download aja lalu save nah file dari sono nya kalo di liat dari pak dhika sih berformat
+ZIP jadi kita klik 2 kali dulu baru ada folder nya yg isi nya itu file punya kita.
+
+UDAH GITU AJA.
+
+----------------------------------------------------------------------------------------------------------------------------------
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

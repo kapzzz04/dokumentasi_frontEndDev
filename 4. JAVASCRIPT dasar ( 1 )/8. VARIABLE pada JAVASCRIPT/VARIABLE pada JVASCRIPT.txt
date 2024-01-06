@@ -1,0 +1,189 @@
+VARIABLE pada javascript 
+
+apa itu variable, variable adalah sebuah tempat / wadah yng memiliki nama,
+yang digunakan untuk menyimpan nilai.
+
+atau gampangnya gini deh bayangkan saja variable itu seperti 
+
+gelas atau ember yg fungsinya kedua benda tersbut sama-sama
+untuk menampung seuatu,apa saja yang dapat di tampung,
+meskinpun ember ini diperuntukan untuk air tapi dia bisa di isi
+oleh pasir kan.
+
+sama seperti variable dia tempat menampung nilai nah ini bisa macem-macem
+bisa angka,bisa tulisan,bisa boolean dll.
+
+untuk memahami variable ini kita perlu paham 3 hal berikut ini
+
+kita harus paham
+ -deklarasi
+ -inisialisasi
+ -assignment
+
+ -deklarasi adalah sebuah tahap mendaftarkan variable kedalam lingkup yg sesuai
+ -inisialisai yaitu peroses untuk pemesanan atau penyediaan memori yg nantinya digunakan
+  untuk variable
+ -assignment adalah untuk menetapkan nilai yang spesifik untuk disimpen kedalam 
+  variable itu sendiri
+
+contohnya begini:
+
+  var x; 
+( jadi kalian sudah mendeklarasikan & insialisasi variable yang namanya x
+           , jadi setelah kalian menulis ( var x ), artinya variable tersbut akan di daftarkan
+           di dalam lingkup yg sesuai lalu, akan dipesan 1 blok memori lalu nantinya kita
+          bisa menyimpan di dalam nya ).
+
+  x = 20;
+( lalu ada ( x = 20; ) ini artinya proses assignment atau kita menugaskan angka 20 untuk
+  di simpen variable x, nah biasakan untuk selalu melakukan ( DEKLARASI & INISIALISASI )
+ trlebih dahulu sebelum kita melakukan assignment, knp ini kita lakukan untuk menghindari 
+ hal yg tidak di ingin kan, nanti di vid yg akan datang kita akan menjelaskan apa yg terjadi
+jika tidak menulisakan kywerd itu ).
+
+------------------------------------------------------------------------------------------------------------------------------------------------
+untuk melakukan deklarasi tadi kita memakai kywerd var ya
+
+nah sebetulnya masih ada kywerd lain yg bisa kita gunakan untuk mendeklarasikan variable yaitu....
+
+deklarasi variable
+ - var
+ - let
+ - const
+
+yg masing masing kywerd ini memliki perilaku yg berbeda. tapi untuk ini kita bahas yg var dulu ya.
+
+penulisan variable:
+
+var <nama variable>
+
+untuk membuat variable itu kita tulis kywerd nya ( var ) lalu spasi lalu nama variable ny apa
+nah nama variable ini bebas aja bisa kalian tulis sesuka kalian tapi dengan beberapa aturan
+
+- tidak boleh menggunakan spasi pada nama variable kalian, jadi kalo nama variablenya
+  lebih dari 1 kata itu gaboleh pake spasi
+- jadi nama variable itu boleh menggunakan angka tapi tidak boleh di awali dengan angka
+  misal ( 1gaboleh ) gitu jangan ya kalo gini ( bole2h )
+- kalo nama nya lebih dari satu kata kalian bisa menggunakan nama nya menggunakan ( _ )
+  itu contoh ( var ini_juga_boleh; )
+- atau kalian bisa menggunakan simbol misal ( var boleh$; )
+- kalian juga bisa menggunakan seperti ini misal ( var namaVariablePanjang; )
+
+seperti itu pada umum nya sering digunakan oleh programer nama ky gitu 
+di sebut dengan Camel Case, dimanahuruf pertama dari kata 1 itu huruf kecil
+dan huruf pertama dari kata setelah kata 1 itu kapital.
+
+------------------------------------------------------------------------------------------------------------------------------------------------
+selain itu kalian juga tidak boleh menggunakan kata yg kalian itu tidak boleh menggunakan
+sebagai nama variable. kata tersebut dinamakan kyword & reserved word
+
+kyword & reserverd word ini kata yg diguakan sebagai bagian dari syntak javascritp, jadi kita
+kita gaboleh menggunakan itu sebagai nama variable kita.
+
+berikut kata-kata tersebut:
+
+break, case, catch, class, const, continue, debugger, default, do, else, enum, delete,
+export, extends, false, finally, for, function, if, implements, import, in, instanceof, interface,
+let, new, null, package, private, protected public, return, static super switch this throw,
+true try typeof var void while with yield.
+
+kalian tidak perlu repot-repot menghafalkan kata ini knp, karena kita jrang sekali membuat variable
+dengan nama-nama ini.
+
+------------------------------------------------------------------------------------------------------------------------------------------------
+lalu selanjut nya dalam pembuatan variable khususnya jika kita membuat banyak variable dalam satu
+program dan sebelumnya memang akan seperti itu ya. nah kita bisa menggunakan shorthand 
+
+shorthand yaitu syntak untuk menyingkat penulisan variable.
+
+cara penggunaan nya, 
+contohnya jika kita menulisakan variable:
+
+var nama;
+var umur;
+var lulus;
+
+nama = "keylaazahra";
+umur = 15;
+lulus = true;
+
+nah dengan menggunakan shorthand kalian cukup menulisakan 1 kali kyword var
+
+contohnya:
+
+var nama = "keyla",
+     umur = 15,
+     lulus = true;
+
+lalu kita bisa langsung assignment untuk tiap-tiap variablenya jadi kita deklarasikan variablenya
+inisialisasi variablenya langsung kita assignment dalam satu syntak atau dlam satu ekspresi
+
+lalu untuk membuat variable berikut nya kita ga perlu bikin kyword var lagi tinggal langsung kasih
+koma aja seperti yg di atas gitu
+
+------------------------------------------------------------------------------------------------------------------------------------------------
+dan yg terakhir di dalam variable ada yg disebut lingkup variable atau variable scope
+
+kalo tadi di awal kita membahas pendeklarasian variable dmana  sebuah tahap mendaftarkan 
+variable kedalam lingkup yg sesuai. nah nanti lingkup nya itu ada di variable scope
+
+tapi topik ini tidak akan di jelaskan sekarang khwatirnya saya bingung karena untuk memahami ini
+butuh pemahaman function dan object terlebih dahulu
+
+ nah nanti kita akan mempelajari tpoik ini setelah mempelajari function dan object.
+
+------------------------------------------------------------------------------------------------------------------------------------------------
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

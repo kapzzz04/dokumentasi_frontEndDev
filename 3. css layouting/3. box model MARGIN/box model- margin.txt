@@ -1,0 +1,445 @@
+box model margin
+
+cara pakai margin
+
+ - overlapping margin
+dimana 2 margin saling bertemu
+ - negatif margin
+ - auto
+ - shorthand
+cara menyingkat syntak dari margin
+
+-----------------------------------------------------------------------------------------------------------------------------
+
+mempunyai 3 div di html
+
+CONTOHNYA:
+
+<div class="satu">1</div>
+    <div class="dua">2</div>
+    <div class="tiga">3</div>
+
+CSS
+
+.satu {
+    width: 200px;
+    height: 200px;
+    background-color: lightblue;
+}
+
+.dua {
+    width: 100px;
+    height: 100px;
+    background-color: salmon;
+}
+
+.tiga {
+    width: 50px;
+    height: 50px;
+    background-color: aqua;
+}
+
+-----------------------------------------------------------------------------------------------------------------------------
+
+kalo kita liat di browser kita sudah punya 3 buah kotak dengan ukuran
+yang berbeda-beda.
+
+sekarang kita coba kasih margin untuk kotak yg pertama ya	
+
+masih inget konsep nya margin adalah area teransparan di 
+sekitar kotak, jadi kalo saya tambahkan ( margin-left ) itu artinya
+saya akan menambahkan area di sebelah kiri kotak nya.
+
+misalnya kita isi ( margin-left: 100px; ) ketika di cek browser
+maka sekarang saya menambahkan jarak 100px di sebelah kiri.
+
+begitu pula kalo saya tambahkan margin top, saya kasih misalnya
+( margin-top: 50px; ), nah sekarang di atas nya sudah ada 30px.
+
+sekarang kita tambahkan yang bawahnya ( margin-bottom: 150px; )
+nanti dibawahnya 150px.
+
+dan yang terakhir kalo kita kasih margin di sebelah kanan, misalnya
+( margin-right: 50px; ), nah nanti ga keliatan, karena di sebelah 
+kanannya gaada elemen apa-apa, tapi sebetulnya itu ada jarak 
+sebesar 50px.
+
+-----------------------------------------------------------------------------------------------------------------------------
+
+CONTOh codingannya
+
+.satu {
+    width: 200px;
+    height: 200px;
+    background-color: lightblue;
+    margin-left: 100px;
+    margin-top: 30px;
+    margin-bottom: 150px;
+    margin-right: 50px;
+
+}
+
+bisa dicek langsung ke browser dengan syntak ini.
+
+-----------------------------------------------------------------------------------------------------------------------------
+
+jika kalian ingin melihat margin nya seperti apa itu kalian
+klik kanan terus inscpect, lalu cari nama nya computed
+lalu disitu ada keterangan besar box model nya.
+
+itu adalah gimana kita memberi margin, jadi mudah aja 
+seperti itu.
+
+jadi itu cara pakai nya
+
+-----------------------------------------------------------------------------------------------------------------------------
+
+kita bisa gunakan ke 4 tadi dari top,right,bottom, dan left
+
+dan ada juga kita pake hanya 1 syntak saja tapi nanti
+di bahas di bagian shorthand
+
+-----------------------------------------------------------------------------------------------------------------------------
+
+OVERLAPPING MARGIN
+
+ini terjadi ketika kita menggabungkan 2 buah margin biasanya
+kiri dan kanan atau atas dan bawah.
+
+misalnya ini. untuk div yang satu kita tahu dia mempunyai
+( margin-bottom: 150px; ) sebesar 150px, nah ini artinya
+kalo kita liat di browser jarak dari kotak yg satu ke bwah
+150px ya.
+
+nah sekarang gimana kalo kita kasih margin top untuk
+kotak yg ke 2, misalnya kita kash ( margin-top: 50px; )
+jadi dari kotak 1 kebawah 150px, dari kotak 2 keatas
+50px.
+
+----------------------------------------------------------------------------------------------------------------------------
+
+CONTOH CODINGANNYA :
+
+.satu {
+    width: 200px;
+    height: 200px;
+    background-color: lightblue;
+    margin-left: 100px;
+    margin-top: 30px;
+    margin-bottom: 150px;
+    margin-right: 50px;
+
+}
+
+
+
+.dua {
+    width: 100px;
+    height: 100px;
+    background-color: salmon;
+    margin-top: 50px;
+}
+-----------------------------------------------------------------------------------------------------------------------------
+
+
+kan logikanya kotak 1 ke bawah 150,kotak 2 ke atas 50px 
+jadi semuanya 200px itu logikanya, kalo kita liat langsung 
+di browser ternyata gaada perubahan, nah itu karena 
+margin itu tidak saling menambahkan khusus yg vertikal seperti
+itu.
+
+jadi margin yg akan diambil margin yg paling besar ukurannya
+atau bayangkan aja gini yg kotak satu itu mendorong kebwah
+sebanyak 150px, sedangkan kotak ke 2 itu mendorong keatas
+sebanyak 50px.
+
+nah itukan belum sampe kotak 1 nah itu keburu kedorong ama yg
+atas nah itu logikanya.
+
+itu yg di sebut OVERLAPPING MARGIN untuk yg vertikal
+
+-----------------------------------------------------------------------------------------------------------------------------
+
+nah sekarang OVERLAPPING MARGIN untuk yg horizontal
+
+untuk membikin si element itu sejajar kekanan itu pake syntak apa
+itu kita harus buat div yg kita punya itu yg tadinya displaynya block
+kita harus buat div nya menjadi inline atau inline blok.
+
+jadi kita tambahkan syntak di css nya gini
+
+div {
+ display: inline;
+}
+
+jadi semua div yg ada di html jadikan display inline, tapi
+kalo kita hanya pake display inline hanya sejajar saja tapi
+ukurannya tidak bisa di ubah, jadi widht dan height itu ga
+berpengaruh.
+
+supaya berpengaruh displaynya bukan inline tapi
+inline-block, jadi dia akan sejajar grgr inline dan
+dia bisa di atur ukurannya grgr blok jadi itu gabungan
+inline dan block.
+
+kita liat hasilnya sudah sejajar dan bener.
+
+-----------------------------------------------------------------------------------------------------------------------------
+
+tapi ini agak aneh knp ada jarak antara satu kotak
+dengan kotak yg lainnya padahal saya belum kasih
+margin.
+
+misal kasih margin-right di kotak satu dengan ukurannya
+0, pas di cek itu tidak berpengaruh, tapi kalo kita kasih
+10px baru dia bergeser, tapi kalo saya kasih 0 knp jarak
+nya ttp ada.
+
+nah ini menurut pak dika ini suatu ke anehan ketika kalian
+memakai inline atau inline block.
+
+untuk menghilangkan jarak antara kotak kita harus menghilangkan
+spasi di codingannya di bagian div itu, kalo kita lakukan itu baru
+bisa tidak ada jarak antara kotak nya walaupun belum dikash
+margin.
+
+-----------------------------------------------------------------------------------------------------------------------------
+
+selarang kita kasih margin-right ( 30px ) untuk kotak yg pertama
+dan sekarang kita coba overlapping yg harizontal.
+
+saya akan kasih margin left ( 20px ) untuk kotak yg ke dua
+
+kalo tadi pake teori yg vertikal bahwa margin yg diambil adalah margin
+yg paling besar, misal kita pake teori yg vertikal margin yg ( 30 px ) akan
+ngaruh dan yg ( 20px) tidak akan ngaruh, itu untuk yg vertikal.
+
+tapi kalo untuk yg horizontal ketika kita cek maka margin nya nambah
+jadi jarak dari kotak 1 ke kotak 2 kalo dari samping itu  ( 50px ) soalnya
+kan mereka jadi menjumblah.
+
+jadi itu bedanya yg harus kallian perhatikan.
+
+jadi kalo vertikal margin yg dipilih adalh margin yg pling besar 
+sedangkan kalo yg harizontal itu akan menjumbkahkan margin
+kiri dan margin kanannya itu berlaku untuk yg inline dan inline-block.
+
+-----------------------------------------------------------------------------------------------------------------------------
+
+CONTOH CODINGANNYA :
+
+div {
+    display: inline-block;
+}
+
+.satu {
+    width: 200px;
+    height: 200px;
+    background-color: lightblue;
+    margin-right: 30px;
+
+}
+
+.dua {
+    width: 100px;
+    height: 100px;
+    background-color: salmon;
+    margin-left: 20px;
+}
+
+
+-----------------------------------------------------------------------------------------------------------------------------
+
+NEGATIF MARGIN
+
+margin itu bisa kita kasih negatif margin.
+
+nah sekarng kita coba kita kasih margin-bottom ( 30px )
+untuk kotak yg ke 1, nah kita cek dia kasih jarak ( 30px )
+nah gaada yg aneh kan.
+
+nah sekarang kalo kotak yg ke 2 kita kasih margin top
+sebesar ( 20px ) itu tidak terjadi apa-apa ya kan overlapping.
+
+tapi gimana kalo kotak 2 margin-top nya kita kasih ( -50px )
+nah kalo kita ksih ( -50px ) kotak nya akan ke atas, jadi
+negatif margin akan membuat kotak nya berlawanan arah.
+
+sama seperti misalnya saya kasih kotak ke 2 margin left
+( 100px ) maka dia akan geser ke kanan, tapi kalo saya 
+kasih ( -100px ) maka kotaknya akan berada ke kiri jadi
+dia keluar dari areanya.
+
+-----------------------------------------------------------------------------------------------------------------------------
+
+
+CONTOH CODINGANNYA :
+
+.satu {
+    width: 200px;
+    height: 200px;
+    background-color: lightblue;
+    margin-bottom: 30px;
+
+}
+
+.dua {
+    width: 100px;
+    height: 100px;
+    background-color: salmon;
+    margin-top: -20px;
+    margin-left: -100px;
+
+
+}
+
+-----------------------------------------------------------------------------------------------------------------------------
+
+itu bisa kalian gunakan klo ingin menyembunyikan element
+dan inget kalo misalkan kalian kasih margin top mines
+maka elemet yg dibawahnya akan ikut terbawa ke atas.
+
+-----------------------------------------------------------------------------------------------------------------------------
+
+AUTO
+
+nilai dari property margin khusus yg namanya AUTO
+Auto ini adalah nilai yg bisa kita kasih ke dalam margin
+khusus untuk margin kiri dan margin kanan.
+
+kita bisa kasih margin-left dengan nilai auto di kotak 
+pertama dan margin-right nya dengan nilai auto.
+
+nah kalo misalkan kalian ingin mendapatkan efek ini
+kiri kanan nya harus auti gaboleh salah satu, jika kita
+liat di browser nah itu akan membuat element nya
+berada di tengah-tengah dari perentnya, karena
+perentnya gaada lagi selain body, maka dia akan
+di tengah-tengah browser.
+
+-----------------------------------------------------------------------------------------------------------------------------
+
+CONTOH CODINGANNYA :
+
+
+.satu {
+    width: 200px;
+    height: 200px;
+    background-color: lightblue;
+    margin-left: auto;
+    margin-right: auto;
+
+
+}
+
+.dua {
+    width: 100px;
+    height: 100px;
+    background-color: salmon;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.tiga {
+    width: 50px;
+    height: 50px;
+    background-color: aqua;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+-----------------------------------------------------------------------------------------------------------------------------
+
+SHORTHAND
+
+shorthand adalah cara menyingkat penulisan margin
+
+nah yg tadi yg kita tau kita bisa kasih ke tiap sisinya
+kanan, atas, kiri, bawah, nah tapi kita juga bisa kasih
+satu nilai aja ( margin: ) nah itu valeu nya bisa macem"
+
+bisa 1 nilai bisa 2 nilai bisa 3 dan 4 nilai.
+
+kita liat contohnya
+kalo misal kita kasih ke kotak ke 1 ( margin: 50px ) 
+begitu margin 50px ini artinya say akan buat ke 
+empat sisinya itu memiliki margin 50px.
+
+contoh codingan nya :
+
+.satu {
+    width: 200px;
+    height: 200px;
+    background-color: lightblue;
+    margin: 50px;
+}
+
+-----------------------------------------------------------------------------------------------------------------------------
+
+sekrang kita bisa kasih 2 nilai begini nih
+
+( margin: 50px 100px; ) jadi gini baca nya valeu 
+pertama yg ( 50px ) itu untuk atas dan bawah
+valeu ke 2 ( 100px ) untuk kiri dan kanan.
+
+nah kalo kita mau atas bawah 50 dan kanan kiri
+auto kita tinggal tulis ( margin: 50px auto; )
+
+oke sekarng kita kasih 3 nilai misalnya
+( margin: 30px 50px 40px; ) jadi gini bacanya
+atas ( 30px ) kanan kiri ( 50px ) dan bawah
+( 40px ) jadi dimulai selalu dari atas ya
+
+contoh codingannya:
+
+.satu {
+    width: 200px;
+    height: 200px;
+    background-color: lightblue;
+    margin: 30px 50px 40px;
+}
+
+-----------------------------------------------------------------------------------------------------------------------------
+
+dan yg terakhir 4 nilai dari pada kalian tullis 4 baris lebih baik tulis 1 baris kalo mau
+di setiap sisinya berbeda.
+
+misalnya gini ( margin: 10px 20px 30px 40px ) jadi bacanya atas ( 10px ), kanan
+( 20px ), bawah ( 30px ) dan kiri ( 40px ) jadi bacanya sesuai arah jarum jam.
+
+-----------------------------------------------------------------------------------------------------------------------------
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

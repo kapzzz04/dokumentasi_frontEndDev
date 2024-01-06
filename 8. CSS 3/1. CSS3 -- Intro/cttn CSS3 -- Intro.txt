@@ -1,0 +1,189 @@
+CSS3 -- Intro
+
+Definisi CSS3
+
+"Generasi ke-3 dari spesifikasi CSS yang direkomendasikan oleh W3C"
+
+bedanya CSS3 dengan CSS generasi" sebelumnya, jika kita liat pada diagrag berikut ( gambar di
+folder ), kita bisa lihat bahwa ada lingkaran" yg mengelompokan mengenai beberapa materi pada
+CSS, yg linkaran palng kecil itu adalah CSS1, dan biru veris ke-2 dam yg terakhir versi ke-3.
+
+Jika kita liat versi pertama itu isinya merupakan syntax dari CSS dasar ya, jadi kalo misalkan kita 
+menggunakan property font background, itu merupakan property yang sudah ada sejak css1 
+walaupun sampai sekarang kita masih bisa gunakan. css yg lama itu masih bisa kita gunakan.
+
+Nah seiring dengan perkembangan waktu, property" yg ada di css1 itu berkembang, dengan 
+menambahkan beberapa property yg lain atau baru, it berkembang menjadi css2 dimana kita bisa
+menggunakan box model table dan selector. kalo pas masih css1 kita gabisa menggunakan itu.
+
+Nah begitu pula dengan css3, fitur" yg ada pada css versi sebelumnya itu ditambahkan, ada yg ttp
+sama, ada yg diperbaikin dan ada yg dihilangkan, na jadi diagram digambar itu adalah fitur" css3
+terbaru.
+
+Fitur" yg ada di css3 itu akan kita sebut dengan modul, karena css3 itu dibagi menjadi beberapa
+modul, dan tiap" itu modulnya menambahkan kemampuan / fitur yang ada di css veris sebelumnya.
+
+Nah modul" nya atau property nya bisa kita liat seperti ini (gambar ada di folder ss 134 ), jadi kita ga
+bicara langsung property nya apa aja, tapi kita modul ya, misalkan ada modul color, nah nanti css3
+itu memperkaya penggunaan kita terhadap warna, jadi ada banyak modul" di css3, yg nanti akan
+kita pelajari itu gasemua hanya yg penting" dan sering terpakai saja.
+
+--------------------------------------------------------------------------------------------------------------------------------
+
+KENAPA CSS3 ?
+
+- Membuat website menjadi lebih fleksibel
+- Membuat mock-up dengan cepat tanpa bantuan bahasa scripting
+- Mengurangi penggunaan gambar = kecepatan load halaman
+- Penggunaan selector untuk menghindari penggunaan markup yang boros
+
+pertama tentu saja Membuat website menjadi lebih fleksibel dan interactive ya, yg ke-2 kita nanti dpt
+Membuat mock-up dengan cepat tanpa bantuan bahasa scripting mungkin dalam hal ini javascript
+ya, jadi yg sebelumnya itu ktia harus meminta bantuan javascript, sekarang css3 dapat dengan 
+mudah melakukan hal tersebut.
+
+Selanjutnya kita akan Mengurangi penggunaan gambar, semakin banyak gambar halaman nya 
+semakin lama di load nya, jadi kita Mengurangi penggunaan gambar supaya meningkatkan
+kecepatan load dari halaman.
+
+Lalu karena css3 itu memiiki kemampuan untuk memanfaat kan selector dengan sangat baik, jadi
+nanti kita bisa menggunaan selector untuk menghindari penggunaan markup yang boros, apalagi
+nanti digabungkan dengan tag" html5, mungkin saja nanti kita ga butuh id atau class.
+
+--------------------------------------------------------------------------------------------------------------------------------
+
+SEBELUM CSS3
+
+Supaya nanti kalian lebih jelas mengenai manfaat css3 ini, akan kita contoh kan bagaimana kita 
+membuat sebuah element tertentu waktu belum ada css3.
+
+contohnya misalnya saya mau membuat sebuah kotak tapi ujungnya itu tumpul, kalo sebelum ada
+css3 itu kita bisa di web kita membuat kotak yg ujung nya tumpul, kita buat dulu kotak yg sama
+seperti di ptoshop ( gambar ada di folder ), kita coba buat dulu kotak yg sama nya menggunakan
+css.
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Sebelum ada css3</title>
+    <style>
+        div {
+            width: 400px;
+            height: 300px;
+            margin: 50px auto;
+            background-color: #ff9966;
+        }
+    </style>
+</head>
+<body>
+    <div></div>
+</body>
+</html>
+-------------------------------------
+
+kotak nya sudah ada 400 x 300, tapi ujung nya lancip karena dia div, sekarang gimana kita membuat
+ujung nya tumpul tanpa menggunakan css3, pertama buka ptoshop lalu saya ambil ujung kiri pto
+yg tadi di ptoshop kotak yg tumpul, lalu saya crope sebagai gambar, saya ambil yg sudut nya aja
+yg tumpulnya aja seperti ini ( gambar nya di folder ya ).
+
+lalu didalam html di div nya kita bikin span, untuk menyimpan gamabr tumpul tadi, nanti gambarnya
+akan kita jadikan sebagai background img, dari element span, liat aja hasilnya digambar.
+
+( gambar code nya di ss 137 ) ( gambar hasil nya pas css nya sisi kiri atas nya jadi tumpul di ss 
+138)
+
+Nah kebayangkan cukup merepotkan itu baru satu sisi yg tumpul, gimana kalo mau 4 4 nya tumpul
+juga, jadi kita harus buat 4 span juga ya merepotkan, banyak hal yg dulu nya bisa kita lakukan itu 
+butuh bantuan gambar atau bantuan flesh, nah dengan css3 itu sangat terbantu sekali.
+
+--------------------------------------------------------------------------------------------------------------------------------
+
+DENGAN CSS3
+
+Nah sekarang kita liat gimana kita lakukan hal yg tadi dengan property CSS3, nah dengan CSS3 kita
+itu gampang aja kita tinggal kasih dia border radius, tinggal kita kasih radius atau tumpul nya mau
+berapa px, nah dengan satu baris property itu saja hasilnya sama bahkan ke 4 sisinya tumpul 
+semua. seperti ini :
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Sebelum ada css3</title>
+    <style>
+        div {
+            width: 400px;
+            height: 300px;
+            margin: 50px auto;
+            background-color: #ff9966;
+            border-radius: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div></div>
+</body>
+</html>
+-------------------------------------
+
+Jadi yg akan kita pelajari di css3 itu mengenai property-property apa saja yg sering digunakan.
+
+link : ( http://www.quackit.com/css/css3/properties/ )
+
+Nah contohnya yg akan kita pelajari ini ( gambar ad di folder ss 139 )
+
+Nah karena css3 itu masih expremental property nya jadi ada beberapa property nya yg belum
+jalan di beberapa browser, jadi ada browser yg belum suport property css3 itu, nah jadi ad beberapa
+property yg hanya berjalan di browser tertentu saja, nanti kaitan nya dengan brower support.
+
+seperti ini ( gamabr ada di folder )
+
+Nah itu bisa jadi kendala, karena kan kita mau semuanya jalan di semua browser ya, nah untuk
+jalan di semua browser nanti kita juga akan mengatasinya dengan menambahkan (vendor-prefixes)
+
+nanti kita akan belajar menganai itu (vendor-prefixes), ngakalin supaya minimal di dibrowser populer
+itu jalan normal.
+
+--------------------------------------------------------------------------------------------------------------------------------
+
+(vendor-prefixes)
+
+-webkit-
+-moz-
+-ie-
+-o-
+
+jadi nanti kita akan menambahkan di depan dari property css3 nya (vendor-prefixes) itu di atas.
+kenapa harus repot" menambahkan vendor-prefixes, karena alasannya tiap brower memiliki 
+kharakteristik yg berbeda padahal kita pengen nya semua browser mau pake apapun itu tampilnya
+normal, karena kita gabisa tau user itu pake browser apa, jadi seoarang developer mengejar
+costumer dengan web nya agar bisa digunakan semua orang tanpa terkecuali.
+
+Selain kita belajar property css3 kita juag nanti belajar ngakalin gimana supaya css3 itu berjalan
+disemua browser, supaya nanti kalian bikin web nya ga tampil menarik tapi interactif juga.
+--------------------------------------------------------------------------------------------------------------------------------
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

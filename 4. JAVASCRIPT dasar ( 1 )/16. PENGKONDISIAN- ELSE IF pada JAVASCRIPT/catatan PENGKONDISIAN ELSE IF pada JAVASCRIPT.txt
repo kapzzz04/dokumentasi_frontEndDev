@@ -1,0 +1,223 @@
+PENGKONDISIAN ELSE IF pada JAVASCRIPT
+
+syntak nya untuk pengkondisan if else nya dlu nih 
+
+if ( kondisi ) {
+
+aksi 1
+} else {
+
+aksi 2
+}
+
+-------------------------------------------------------------------------------------------------------------
+
+nah nanti kondisinya bisa sederhna yg seperti tadi kita lakukan 
+di angkot3.js cek file bisa di folder if else ya.
+
+nah bisa kita lakukan kondisinya seperti angka lebih kecil 
+berapa atau sebuah nilai sam dengan atau tidak sama 
+dengan apa
+
+bahkan nanti kalian bisa gabungkan dengan operator logika
+misalkan &&, ( atau ) ||, nah seperti itu.
+
+tapi initinya jika kondisinya bernilai true maka lakukan aksi 1
+yg di atas itu tapi selain dari itu atau jika kondisinya bernilai
+FALSE baru lakukan aksi 2 itu yg contoh di ata ya
+-------------------------------------------------------------------------------------------------------------
+
+CONTOH: 
+
+var angka = prompt('masukan angka random');
+
+if (angka % 2 == 0) {
+    alert(angka + ' adalah angka GENAP');
+} else {
+    alert(angka + ' adalah angka GANJIL');
+}
+
+
+atau kita liat contoh sederhana lain nya dimana kita bisa ngecek 
+sebuah nilai itu bilangan GENAP atau bilangan GANJIL
+
+jadi disitu user masukin angka dulu lalu kita cek
+( IF ) jika angka nya modulos 2 itu artinya jika
+angka itu ketika dibagi 2 sisa nya 0 atau habis ya
+maka angka tersebut pasti bilangan GENAP
+
+selain dari itu maka dia angka nya GANJIL.
+
+-------------------------------------------------------------------------------------------------------------
+
+
+misal kita masukan angka 10 nah 10 di bagi 2 pasti
+habis ya sisanya 0 maka 10 pasti bilangan GENAP.
+
+kalo misalkan saya masukan angka 15, 15 bagi 2
+ada sisanya kan 1 nah berarti dia masuk ke ELSE
+jdi nya 15 adalah bilangan GANJIL.
+
+nah tapi statement ini terdapat kesalahan, kesalahan nya seperti apa
+nah gimana misalnya user memasukan yg bukan angka, misalkan 
+si user memasukan huruf, hufuf A misalnya
+
+karena A dibagi 2 FALSE maka A masuk ke bagian ELSE
+jadinya A adalah bilangan ganjil.
+
+-------------------------------------------------------------------------------------------------------------
+nah gimana kita cara menanganinya nah disini kita
+buth kywerd ELSE IF
+
+ELSE IF ini digunakan ketika kalian punya kondisi lain, selain IF DAN ELSE tadi
+
+-------------------------------------------------------------------------------------------------------------
+kalo misalkan if dan else statement nya begini
+
+if ( kondisi ) {
+
+aksi 1
+} else {
+
+aksi 2
+}
+
+jika kondisi nya true maka lakukan aksi 1 dan selain dari
+itu lakaukan aksi 2 gimana jika ada kondisi lain, nah disinilah
+kita membutuhkan ELSE IF.
+
+nah misalnya kondisi yg pertama kita sebut kondisi 1
+nah nanti kita punya ELSE IF yg bisa kita isi kan
+kondisi yg ke 2 untuk melakukan aksi 2 sehingga
+yg else itu akan berubah aksi 3.
+
+jadi kita bisa sisipkan ELSE IF diantara IF dan ELSE
+nah nanti ELSE IF itu ada banyak bisa ELSE IF 2
+kali atau lebih baru dibawah nya ELSE nya
+
+-------------------------------------------------------------------------------------------------------------
+
+
+CONTOH NYA BEGINI
+
+if (kondisi 1) {
+    aksi 1
+} else if (kondisi 2) {
+    aksi 2
+} else {
+    aksi 3
+}
+
+-------------------------------------------------------------------------------------------------------------
+
+jadi kalo kita kestatement tadi jadi nya gini
+
+CONTOH NYA:
+
+var angka = prompt('masukan angka random');
+
+if (angka % 2 == 0) {
+    alert(angka + ' adalah angka GENAP');
+} else if (angka % 2 == 1) {
+    alert(angka + ' adalah angka GANJIL');
+} else {
+    alert('angka yang anda masukan salah');
+}
+
+nah dibagian ELSE IF dibacanya gini, jika angka
+modulos 2 itu sisa baginya 1 tampilkan angka 
+bilangan ganjil, selain dari itu maka yg dimasukan oleh
+user itu pasti yg dimasukan bukan ANGKA.
+
+-------------------------------------------------------------------------------------------------------------
+LATIHAN lanjutin angkot3.js
+
+jadi gini bikin file angkot4.js nah kalian harus bikin angkot 1-6 beroperasi dengan
+baik, angkot 7,9,10 sedang tidak beroperasi, dan angkot 8 sedang lembur.
+
+JAWABAN:
+
+var jmlAngkot = 10;
+var angkotBeroperasi = 6;
+var noAngkot = 1;
+
+for (noAngkot = 1; noAngkot <= jmlAngkot; noAngkot++) {
+
+    if (noAngkot <= angkotBeroperasi) {
+        console.log('Angkot No. ' + noAngkot + ' beroperasi dengan baik.');
+    } else if (noAngkot == 8) {
+        console.log('Angkot No. ' + noAngkot + ' sedang lembur.');
+    } else {
+        console.log('Angkot No. ' + noAngkot + ' sedang tidak beroperasi.');
+    }
+}
+
+-------------------------------------------------------------------------------------------------------------
+
+PENJELASAN
+
+kita cek di atas, ketika var noAngkot di isi 1 nah kita cek apakah 1 lebih kecil
+10 ( jmlAngkot ) hasilnya true maka dia masuk ke pengulangan, sekarang
+ kita cek noAngkot sekarang kondisinya sedang angka 1 jadi 1 lebih kecil
+dari 6 ya berarti if itu yg di kerjakan, 
+
+begitu IF dikerjakan maka ELSE IF dan ELSE  nya di atas tidak perlu dikerjakan, 
+maka dia keluar dari pengkondisian dan melakukan INCREMENT ( noAngkot++ )  
+lalu pengulangan nya lanjut lagi berulang terus sampai noAngkot nya 7.
+
+nah sekrang 7 kita bahas dibagian FOR dulu, apakah 7 lebih kecil 10 true ya
+kalo terus masuk ke pengulangan nya lalu cek di pengkondisia bagian IF
+apakah 7 lebih kecil sama dengan  6 FALSE, berarti dia keluar terus masuk
+ke ELSE IF ke kondisi yg ke 2, nah apakah 7 sama dengan 8 FALSE ya
+nah maka otomatis dia masuk ke ELSE.
+
+sekarang keluar dari pengkondisia dan ( noAngkot++ ) dan masuk ke 
+noAngkot 8 nah apakah 8 lebih kecil sama dengan 10 TRUE ya 
+masuk ke pengulangan nah ( IF ) apakah 8 lebih kecl dari 6 FALSE
+terus ke ELSE IF apakah 8 sama dengan 8 TRUE  baru lah jalankan
+aksi yg ada di ELSE IF.
+
+lalu dia keluar pengkondisian dan ( noAngkot++ ) nah 9 lebih kecil
+10 berarti true nah terus melakukan pengulangan sampai mentok gitu
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

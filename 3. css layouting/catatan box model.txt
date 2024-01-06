@@ -1,0 +1,309 @@
+BOX MODEL
+
+- setiap elemen di halaman berada di dalam sebuah box (kotak)
+
+- kita bisa mengatur ukuran dan posisi kotak tersebut
+
+- kita bisa memberi warna / gambar sebagai background
+  kotak tersebut
+----------------------------------------------------------------------------------
+CSS box model mendefinisikan 'kotak' yang dihasilkan
+oleh sebuah elemen, lalu menampilkannya sesuai 
+dengan format visualnya.
+
+CSS box model terdiri dari margin, border, padding dan content.
+------------------------------------------------------------------------------------------
+CSS Box Model
+
+MARGIN
+  area transparan di sekitar kotak (di luar border)
+
+PADDING
+   area transparan di dalam kotak (antara content dan border)
+
+BORDER
+   batas disekeliling content dan padding
+
+CONTENT
+   konten sebenarnya di dalam box, bisa berupa teks atau gambar
+
+-----------------------------------------------------------------------------------------------
+PROPERTI UNTUK MARGIN,PADDING & BORDER
+
+margin-top                              
+margin-right
+marigin-bottom
+margin-left
+margin
+
+padding-top
+padding-right
+padding-bottom
+padding-left
+padding
+
+border-top
+border-right
+border-bottom
+border-left
+border
+
+------------------------------------------------------------------------------------------
+BOX model Margin
+-------------------
+cara pakai margin
+
+margin adalah sisi trasparan di semua sisi jadi jika ingin keliatan margin pake lah
+background color
+
+begini cara pakai nya 
+setiap margin punya sisi KANA, KIRI, ATAS, BAWAH
+
+nah contoh propertinya 
+margin-left: 50px; 
+memakai satuan nya itu sudah di jelaskan
+
+------------------------------------------------------------------------------------------------
+
+overlapping margin 
+
+overlapping margin terjadi ketika kita menggabungkan kanan kiri margin
+atau atas dan bawah
+
+jadi misal 
+
+satu {
+    width: 200px;
+    height: 200px;
+    background-color: lightgreen;
+    margin-left: 100px;
+    margin-top: 150px;
+    margin-bottom: 150px;
+    margin-right: 50px;
+}
+
+.dua {
+    width: 100px;
+    height: 100px;
+    background-color: lightblue;
+    margin-top: 50px;
+}
+
+di atas itu contoh KODE CSS nya 
+kan 
+MARGIN satu bottom nya 150px
+MARGIN dua top nya 50px
+
+
+harus nya hasil margin satu dan dua jadi 200px ya
+tapi ini tidak karna margin itu tidak menambahkan
+dia akan tetap segitu di ambil yang paling besar nominal PX nya
+dan ini hanya berlaku ke bawah atau atas tidak berlaku ke samping
+atau di sebut vertikal
+---------------------------------------------------------------------------------------
+
+untuk menghilangkan spasi di hsail proyeknya jika menggunakan inline block 
+itu bisa hilangkan saja spasi nya di codingan
+
+jika mau ke sampingin dan bisa di atur sisi tinggi atau lebar nya
+bisa menggunakan INLINE-BLOCK
+
+CONTOH NYA
+
+dari
+ <div class="satu">1</div>
+    <div class="dua">2</div>
+    <div class="tiga">3</div>
+jadi gini
+  <div class="satu">1</div><div class="dua">2</div><div class="tiga">3</div>
+
+jadi di pepetin aja gausah spasi in
+
+jika overlapping horizontal atau ke kanan ke kiri 
+itu akan di jumlahkan 
+
+misal 
+MARGIN satu 30px
+MARGIN dua 20px
+
+itu akan di jumblah kan menjadi 50px jarak nya
+
+
+.satu {
+    width: 200px;
+    height: 200px;
+    background-color: lightgreen;
+    margin-right: 30px;
+}
+
+.dua {
+    width: 100px;
+    height: 100px;
+    background-color: lightblue;
+    margin: life: 20px;
+}
+
+di atas adalah contoh codingan CSS yang mengambar kan nanti di proyek nya
+jadi itu contoh overlapping margin ke sisi kanan atau kiri atau horizontal
+----------------------------------------------------------------------------------------------------------------------------
+NEGATIF MARGIN
+
+negatif margin property margin-left: -50px;
+
+CONTOH CODINGAN:
+
+.satu {
+    width: 200px;
+    height: 200px;
+    background-color: lightgreen;
+    margin-bottom: 30px;
+}
+
+.dua {
+    width: 100px;
+    height: 100px;
+    background-color: lightblue;
+    margin-top: -50px;
+}
+
+jika di coba ke html yang DUA itu akan ke atas menimpa SATU
+jadi itu akan menimpa margin di atas nya jika memakai negatif margin
+
+ini bisa di gunakan jika ingin menyembuyikan sebuah elemen HTML
+atau yang lain nya
+------------------------------------------------------------------------------------------------------------------------
+nilai yang ada di margin
+YAITU AUTO
+
+AUTO khusus hanya di MARGIN-LEFT / MARGIN-RIGHT
+
+contohnya:
+
+.satu {
+    width: 200px;
+    height: 200px;
+    background-color: lightgreen;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+Jadi di atas itu contohnya dia akan berada di tengah-tengah parrent boddy
+jika di boddy tidak ada apa apa dia akan berada di tengah-tengah browser nya
+
+------------------------------------------------------------------------------------------------------------------------------------
+SHORTHAND atau cara menyingkat penulisan margin
+
+jadi begini contoh nya
+
+margin: 20px 100px;
+
+itu di bacanya 20px bawah atas 
+100px kanan kiri
+
+margin: 20px auto 40px;
+
+itu di bacanya 20px atas 
+AUTO kanan kiri
+40px bawah 
+
+margin: 20px 50px 60px 40px;
+
+itu dibacanya 20px atas
+50px kanan
+60px bawah
+40px kiri
+
+jika memakai 4 gitu di baca nya bisa memakai ARAH JARUM JAM
+------------------------------------------------------------------------------------------------------------------
+
+properti baru
+
+LINE-HEIGHT
+  untuk mengatur tinggi sebuah elemen di dalam div agar di posisikan di tengah-tengah div
+   di sesuaikan dengan tinggi elemen div 	
+
+
+
+
+/*websaite buat milih background SUBTLEPATTERNS*/
+
+
+/* unsplash.com buat nyari gambar gratis yang ada */
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

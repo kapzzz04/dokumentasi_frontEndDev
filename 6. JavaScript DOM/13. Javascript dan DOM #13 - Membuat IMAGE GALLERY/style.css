@@ -1,0 +1,50 @@
+* {
+  margin: 0;
+  padding: 0;
+  line-height: 0;
+}
+
+body {
+  background-color: #ccc;
+  text-align: center;
+}
+
+img.jumbo {
+  width: 600px;
+  height: 400px;
+}
+
+img.tum {
+  width: 200px;
+  height: 130px;
+  float: left;
+  border: 2px solid white;
+  box-sizing: border-box;
+}
+
+.container {
+  width: 600px;
+  margin: 10px auto;
+  border: 5px solid salmon;
+  overflow: auto;
+}
+
+img.tum:hover {
+  opacity: 0.5;
+  cursor: pointer;
+}
+
+@keyframes fadee {
+  to {
+    opacity: 1;
+  }
+}
+
+.fade {
+  opacity: 0.1;
+  animation: fadee 0.5 forwards;
+}
+
+.aktif {
+  opacity: 0.5;
+}

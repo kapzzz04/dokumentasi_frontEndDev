@@ -1,0 +1,232 @@
+CSS3 -- Font Face
+
+@font-face ini digunakan untuk mengelola font pada css kita, knp harus di kelola oleh css3 padahal
+lita tau kan css biasa pun punya property yg namanya font-family untuk mengelola font, fontfamily
+mempunya beberapa keterbatasan mungkin ya.
+
+riview dulu bagaimana sebelumnya css mengelola font pada halaman web kita, kita cek dulu
+penggunaan font pada css sebelum css3, yg pertama tentu saja kita bisa gunakan font-family, cara
+pakai nya seperti ini (   font-family: "Arial Narrow", arial, sans-serif; ), nah itu artinya kita memrintahkan 
+kepada css untuk mencarikan font yg bernama arial narrow di dalam sistem operasi
+dari user atau client, kalo misalnya tidak ada dia akan mencari font setelah tanda koma itu. atau kita
+sebut nya dengan fallback ( arial,sans-serif ). kalo font arial gaada di sistem operasi user maka dia
+ganti menjadi sans-serif, sans-serif itu bukan font melainkan kategory dari font, jadi font itu ada
+beberapa kategory ada yg tipe nya serif ada sans-serif ada monospay dll.
+ 
+Jadi font yang kalian pilih menggunakan font family harus ada di sistem operasinya client atau user,
+Nah kalo kita ingin menggunakan font yang bagus tanpa harus memikirkan user atau client itu punya
+font tersebut atau tidak kita bisa gunakan cara yg ke-2 yaitu menggunakan layanan dari google
+Google Fonts ( http://www.fonts.google.com ), jadi di websaite itu banyak sekali font yang bisa 
+digunakan ddan bagus" juga, jadi font" itu bisa ktia gunakan.
+
+Cara pengguanan nya misalkan kaian sudah memilih font yg mau dipake lalu kalian tekan tanda ( +)
+disitu ( liat di folder ), nanti dia akan memilih font yg berkesangkutan nanti muncul seperti ini 
+( liat di folder ) lalu klik itu, nanti setelah di klik kalian liat disitu ada cara penempatan didalam css nya
+ada 2 cara, cara standard dan cara teknik IMPORT, yg akan saya coba sekarang itu yg standard,
+cara nya kalian tinggal copykan saja script link itu ( liat di folder ) didalam bagian head, karena itu link
+css nya bukan script js ya. Nah taro link css nya di head supaya font nya bisa terdaftar didalam font
+family kita.
+
+<head>
+    <meta charset="UTF-8">
+    <title>CSS3 - Font</title>
+    <link href="https://fonts.googleapis.com/css?family=indie+Flower" rel="stylesheet">
+    <style>
+        h1 {
+            font-size: 100px;
+            text-align: center;
+            font-family: "Arial Narrow", arial, sans-serif;
+        }
+    </style>
+</head>
+----------------------------------------------
+
+kita taro link nya di head sebelum style css kita, Nah setalah itu kita tinggal taro di font family nya, 
+Nah di google nya disitu ada perintah nya gimana cara naro font nya di font family ( liat di folder )
+Seperti ini :
+
+<style>
+        h1 {
+            font-size: 100px;
+            text-align: center;
+            font-family: 'Indie Flower', cursive;
+        }
+    </style>
+----------------------------------------------
+
+Jadi cursive itu tipe atau kategory font seperti sans-serif ya, oh iya kalo kalian menggunakan teknik
+ini pastikan kalian menggunakan koneksi internet ya karena font itu kita ngambil dari server nya 
+google, jadi itu ya cara ke-2 dengan menggunakan Google Fonts.
+
+----------------------------------------------------------------------------------------------------------------------------------
+
+JIKA Google fonts tidak cukup atau kita mau fonts yg lebih bagus yg tidak ada di google FONTS ?
+Nah maka kita akan gunakan teknik @font-face, memang didepan nya ada tanda @ nya, cara pake 
+nya kita liat dulu syntaks nya ( liat di folder ), kalian gausah khwaitr kok banyak banget sintaks nya.
+
+Jadi caranya yg pertama sebelum kalian menggunakan sintaks css itu, yg harus kalian lakukan 
+adalah kalian harus punya dulu font nya, nanti kalian bisa download font nya di berbagai macama 
+WEBSAITE, setelah kalian punya font nya nanti simpan aja didalam folder websaite kalian lalu 
+setelah itu baru di css nya di paling atas nya kalian tulis property @font-face nya, lalu baris pertama-
+nya kalian tulis font-family: pake string lalu masukan nama font baru nya, nama nya bebas tapi kalo
+mau mah ikutin aja sesuai nama font yg kita ambil ( font-family: 'namaFontBaru'; ).
+
+Nah lalu selanjutnya kalian arahkan font tersebut menggunakan attribute src, jadi lokasi file nya itu
+ada dimana tuh ini nyambungin file nya caranya sama seperti tag ( a ) ya begitulah, kalo misalnya
+satu folder tulis aja langsung nama file nya begitu.
+
+Nah knp disitunya banyak, itu karena mungkin aja font kalian itu tipe nya ada banyak, tipe file nya
+seperti eot,woff2,woff,ttf lalu kalian bisa tulis seperti poto di folder, sebetulnya kalo kalian hanya punya
+1 file aja misalnyakalian punya nya hanya ttf, ya kalian cukup satu baris aja gpp.
+
+Nah maisng-masing dari font itu karena tipe nya berbeda dukungan browser terhdap font itu juga
+berbeda kalian bisa liat ( di folder ), file ttf dan woff hampir di dukung sama semua browser, nah tapi
+nanti ada bedanya juga, nah knp udah aja pake yg ttf aja, ttf adalah tipe font yg paling standar ya, nah 
+karena ttf ini bukan spesfik untuk digunakan websaite, jadi halaman kalian disaat menampilkan font
+tersebut itu jauh lebih lambat dari pada kita gunakan woff.
+ 
+karena woff itu khusus untuk web, nanti kita cari tau deh gimana cara ngakalin nya kalo kita cuma
+punya 1 file itu, jadi kalian sudah tau kan browser mana aja yg suport untuk tipe file nya.
+
+----------------------------------------------------------------------------------------------------------------------------------
+
+NAH gimana kita dapetin font nya untuk dipake di @font-face nya itu :
+
+   LAYANAN FONT
+fonts.google.com
+fontsquirell.com
+fontspring.com
+webtype.com
+typotheque.com
+        dll.
+
+Jadi ada banyak layanan untuk mendownload font, sebetulnya tadi di google font juga kita bisa 
+download file nya supaya kita bisa gunakan secara offline kalo tidak ada akses internet, hati-hati font
+nya itu ada yg berbayar ada yg gratis, dan kalin harus perhatikan laisens nya, apakah boleh 
+digunakan untuk websaite kita atau tidak.
+ 
+Nah yg akan saya bahas kali ini itu yg fontsquirell.com, itu adalah web layanan font yg sering pak
+dhika gunakan, kalo kita kunjungi websaite nya itu tampilnya seperti itu, seperti gooogle font tadi
+banyak sekali font nya untuk kita guanakan, Nah pada saat kalian pertama kali buka kalian akan di
+arahkan ke halaman yg ada bacaan 'free font utopia', disitu kalian bisa gunakan cara nya tinggal klik
+di bagian downoald nya yg warna biru sebelah kanan seperti ( di folder ).
+
+Tapi sebelum nya kalian perhatikan dulu ada ikon-ikon di sebelah kiri itu ( liat folder ), disitu ada 4 icon
+yg masing-masing itu punya peruntukan yg berbeda, kalian bisa liat kalo di font pertama itu icon nya
+yg 2 berwarna hitam yg 2 berwarna putih, kalo yg putih berarti dia ga suport atau jangan diguanakan
+disitu, kan ada 4 icon yg harus kalian perhatikan icon urutan ke 2 ya karena jika itu berwarna hitam
+berarti mendukung untuk digunakan di websaite dan perhatikan icon urutan terakhir itu kalo warna
+nya hitam berarti diperbolehkan untuk digunakan misal untuk aplikasi mobile.
+
+Karena saya ngerangkum tidak ada internet maka dari itu simak poto yg ada di folder aja ya
+bisa kalian liat di folder 179-181, lalu di folder poto 181 itu ada file nya dan laisanse nya atau cara
+penggunaan nya dll. kalo sudah kalian bisa copyan saja ( liat di ss 182 ), jadi simpan file nya di dalam
+folder kita.
+
+Selanjutnya kalo kita sudah punya file nya tinggal kita tuliskan sintak css3, sekarang didalam css nya
+dipaling atas kita tuliskan sintaks @font-face nya, pertama kita registrasi kan dulu nama dari font nya
+atau add kan nama font nya di font family, sebetulnya kasih nama nya kita bebas tapi nanti biasanya
+itu sudah disarankan pake namanya apa, misal kita tulis ( Alex Brush ), lalu selanjutnya kita arahkan
+halaman web kita ini dengan file yg sudah kita download, menggunakan tag nya src, lalu url, karena
+file nya disimpan dalam satu folder langsung saja tulisnkan nama file nya aja, lalu pake format yg
+sesuai dengan tipe file, kita menggunakan ttf format nya truetype. Seperti ini :
+
+ @font-face {
+            font-family: 'Alex Brush';
+            src: url('AlexBrush-Regular.ttf') format('truetype');
+        }
+----------------------------------
+
+Nah karena saya gaada internet jadi itu hanya saya tulis sesuai video aja file nya gaad di vscode nya
+ya. Nah kalo sudah kita tulis @font-face nya seperti itu berarti kita sudah mengadd font yg bernama
+alex brush di font-family. lalu tinggal kita kasih aja font-family di h1 nya lalu tulisa nama font nya yg
+baru kita kasih di @font-face nya. Seperti ini :
+
+  <style>
+        @font-face {
+            font-family: 'Alex Brush';
+            src: url('AlexBrush-Regular.ttf') format('truetype');
+        }
+
+        h1 {
+            font-size: 100px;
+            text-align: center;
+            font-family: 'Alex Brush', arial;
+        }
+    </style>
+-------------------------------------------------------
+
+Jadi begitu cara penggunaannya untuk font face itu, kalo udah punya internet coba aja ya, saya ini
+ngerangkum nya tidak menggunakan internet.
+----------------------------------------------------------------------------------------------------------------------------------
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

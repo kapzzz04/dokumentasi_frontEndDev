@@ -1,0 +1,373 @@
+FUNCTION pada JAVASCRIPT - REKURSIF
+
+sebuah konsep didalam dunia pemograman yg dinamakan dengan REKURSIF
+atau istilah nya rekursi / recursior.
+
+nah tapi sebelum kita memahami rekursif ini kita harus paham dulu mengenai rekursif
+
+jadi apa itu Rekursif
+Rekursif adalah sebuah fungsi yang memanggil dirinya sendiri, nah kok bisa ya.
+
+nah kita kembali dulu kepemahaman mengenai fungsi di beberapa videosebelumnya
+kita tau bahwa fungsi itu dijalankan ketika kita mempunyai sebua input yg dimasukan
+kedalam fungsi atau function dan nanti menghasilkan sebuah output, gitu ya
+kharakteristik dari function.
+
+-----------------------------------------------------------------------------------------------------------------------------
+
+nah untuk rekursif ini yg terjadi adalah begini, kita punya sebuah input nah nanti input ini
+akan masuk kedalam sebuah function dan function nya akan dijalankan, tapi setelah 
+dijalankan didalam function nya itu ada baris kode yg memanggil dirinya sendiri.
+
+jadi didalam function ada pemanggilan dirinya sendiri, nanti didalam functionya
+dia memanggil dirinya sendiri dan begitu seterusnya sampai suatu saat pemanggilannya
+berhenti dan menghasilkan sebuah nilai, ya harapan nya begitu.
+
+nah tapi mungkin aja kalian mengemplementasika konsep rekursif ini pemanggilannya
+ga berhenti", sama seperti kita menggunakan looping lalu mungkin aja kita msuk kedalam
+looping yg tidak pernah berakhir, nah hati" menggunakan rekursif pun bisa seperti itu.
+
+nah jadi nanti pastikan pada penggunaan rekursif ini fungsinya harus berakhir dan dia
+harus menghasilkan sebuah nilai.
+
+-----------------------------------------------------------------------------------------------------------------------------
+
+kita liat contoh berikut ini
+
+CONTOH:
+
+function tes() {
+
+        return tes();
+
+}
+
+tes();
+
+kalo kalian punya kode sederhana kaya gitu
+
+ya kalian liat misalnya kita punya sebuah function namanya tes yang
+didalamnya itu mengembalikan function tes() itu sendiri, nah maka
+setelah function tes() nya dijalankan, itu fungsinya akan terus" an
+memanggil dirinya sendiri tanpa ada akhir nya, sehingga nanti hasilnya.
+
+kalo kaliankan jalan kan didalam console nya akan muncul seperti itu dan ada
+tulisan "maximum call stack size exceeded" nah ini artinya terlalu banyak
+pemanggilan fungsi Rekursif.
+
+atau contoh sederhananya kita liat khasus berikut ini.
+
+-----------------------------------------------------------------------------------------------------------------------------
+
+misalnya saya punya script sederhana seperti ini
+misalnya saya ingin mencetak nilai ke layar dari 10 sampai 1 gitu mundur
+
+itu kan sebutulnya kita bisa menggunakan looping ya, misalnya gini
+
+CONTOH :
+
+
+for (var i = 10; i >= 1; i--) {
+    console.log('angka ' + i);
+}
+
+jadi kalo saya jalankan akan menampilkan angka 10 sampai 1 itu kalo
+kita menggunakan looping.
+
+-----------------------------------------------------------------------------------------------------------------------------
+
+looping ini bisa kita ubah menggunakan fungsi rekursif
+
+misalnya caranya gini
+
+kita buat sebuah Function namanya tampiLAngka(n), yg memiliki argument nya
+( n ) untuk jumlah angka nya, lalu fungsinya gini:
+
+tampilkan nilai nya ( console.log(n); )
+lalu fungsi ini akan mengembalikan ( tampiLAngka(n); ) lagi jadi memanggil dirinya
+sendiri tapi sekarang argument nya saya kurangin satu jadi gini ( tampiLAngka(n-1); ).
+
+jadi kalo awalnya angka nya 5 nanti, 5 nya akan ditampilkan lalu
+panggil lagi 5 kurangin 1, jadi harapannya akan berkurang terus akan berkurang
+satu demi satu ya.
+
+nah kita panggil tampiLAngka(10);
+
+-----------------------------------------------------------------------------------------------------------------------------
+
+nah gini coba kalian liat ya :
+
+CONTOH :
+
+function tampiLAngka(n) {
+
+    console.log(n);
+    return tampiLAngka(n - 1);
+
+}
+
+tampiLAngka(10);
+
+nah nanti 10 masuk ke tampiLAngka(n) di cetak angka 10 console.log(n);,
+lalu di kurang 1 return tampiLAngka(n - 1); , panggil lagi fungsi nya 9
+console.log(9); dikurangi 1 lagi ( return tampiLAngka(9 - 1); ) terus menerus
+begitu aja di ulang" tidak ada berhentinya sehingga karena gaada stopnya maka
+di console tampilnya jadi mines ( - ) ya karena kita blm mengehentikannya.
+
+nah kalo kita cek console.log itu awalnya dari sepuluh betul nah sampai 1 betul,
+tapi karena kita gasuruh dia berhenti di angka 1, maka dia terus terusan memanggil
+sampai akhirnya dia ga sanggup lagi, nah itu jadi hati" begitu melakukan pemanggilan
+secara REKURSIF harus ada kondisi berhenti nya.
+
+-----------------------------------------------------------------------------------------------------------------------------
+
+nah kondisi berhentinya itu kita sebut dengan BASE CASE
+
+Base Case
+Base case adalah kondisi akhir dari Rekursif yang menghasilkan sebuah nilai.
+
+jadi kalo misalkan fungsi tampiLAngka tadi mau kita berhentikan nah itu kita harus
+tambah kan sebuah BASE CASE.
+
+CONTOH NYA SEPERTI INI:
+
+function tampiLAngka(n) {
+
+    if (n === 0) {
+        return;
+    }
+
+    console.log(n);
+    return tampiLAngka(n - 1);
+
+}
+
+tampiLAngka(10);
+
+atau kalian bisa buat syntak si BASE CASE nya seperti ini lebih singkat:
+
+if (n === 0 ) return;
+
+udah gitu aja bisa.
+---------------
+
+kita bikin sebuah kondisi jika nanti pada akhirnya ( n ) nya sama dengan ( 0 )
+maka return, ini return nya ga dikasih nilai apapun karena ini fungsinya hanya 
+untuk memberhentikan fungsinya aja.
+
+jadi ( if ) itu yg kita sebut dengan BASE CASE ya jadi kondisi Rekursif nya
+suatu saat akan berhenti.
+
+-----------------------------------------------------------------------------------------------------------------------------
+
+contoh lain atau contoh clasic yg biasa digunakan dalam Rekursif ini adalah FAKTORIAL
+
+FAKTORIAL
+nah kalian inget ya Faktorial ialah konsep matematik perkalian.
+
+jadi contoh nya saya punya 5 faktorial jadi artinya ini :
+( 5! = 5 x 4 x 3 x 2 x 1 )
+
+nah ini akan sangat mudah dilakukan dengan Rekursif.
+
+kalo kalian liat syntak berikut ini :
+
+function faktorial(n) {
+
+    if (n === 0) return 1;
+    return n * faktorial(n - 1);
+
+}
+
+var hasil = faktorial(5);
+
+console.log(hasil);
+
+misalnya saya punya function namnya faktorial yg menerima argument nya ( n)
+nah kita punya base case nya ya, jika ( n ) nya sama dengan ( 0 ) maka nanti
+kembalikan nilai 1, nah nanti nilai sebenarnya adalah angka 1 ini.
+
+lalu function nya mengembalikan ( n ) dikali nah ini rekursifnya ( faktorial(n-1); )
+
+-----------------------------------------------------------------------------------------------------------------------------
+
+jadi kalo kita telusuri jadinya seperti ini
+
+misalnya yg pertama kita panggil faktorial 5 misalnya ( fakotorial(5) )
+nah faktorial 5 dia akan ngecek, dia masuk ke argument nah di cek 
+apakah ( n ) sama dengan 0 kalo tidak di skip, masuk ke kembalikan
+nilai 5 dikali faktorial(5-1) jadi dikali faktorial 4.
+
+jadi gambarannya gini:
+
+5 * faktorial(4)
+
+nah nanti di faktorial 4 nya dia masuk lagi kedalam function ( n ) nya manggil function lagi
+dan ke ( if ) apakah 4 sama dengan 0 tidak ya, lalu masuk lagi kesini   return n * faktorial(n-1);
+begitu seterusnya sampai dia nanti masuk ke faktorial 1.
+
+kalo 1 kan apakah 1 sama dengan 0 tidak ya, lalu ke bawahnya, lalu 1-1 = 0,
+nah begitu 0, maka dia cek apakah 0 sama dengan 0 ya berarti return 1.
+
+jadi hasilnya begini :
+
+5 * faktorail(4)
+5 * (4 * faktorial(3))
+5 * (4 * ( 3 * faktorail(2)))
+5 * (4 * ( 3 *( 2 * faktorial(1))))
+5 * ( 4 * (3 *( 2 * 1)))
+
+nah baru sekarang bisa di hitung dari 2 * 1 = 2
+2 * 3 = 6
+6 * 4 = 24
+5 * 24 = 120
+
+jadi kalo fungsi faktorial kalian jalankan dengan mengirimkan parameter nya 5 
+pasti hasilnya nanti 120.
+
+-----------------------------------------------------------------------------------------------------------------------------
+
+menurut penjelasan saya knp ya kan parameternya 5 nah tapi si ( n ) yg return ke dua
+itu angka nya ttp 5 ga berubah jadi nagka yg di kurang misalnya angka 4 gitu jadi
+ttp 5 aja gitu agak bingung.
+
+tapi yg  ( n ) di faktorial nya itu berubah angka nya ga 5 aja dia berubah sesuai yg dikurangin
+nah tuh knp ya padahal mereka sama-sama ( n)
+
+nah setelah saya telusuri oke kan itu nya 5 * faktorial(4) nah ini itu udah ke input yg pertama
+setelah itu n nya kan 4 nah 4 * faktorial(3) 3 ya karena 4-1 = 3
+jadi ini tuh kaya keinput entah dimana kali jadi hasilnya gini
+
+5 * 4 * 3 dan seterus nya jadi itu tuh akhirnya disatuain sesuai dengan format
+karena pak dhika ga digituin dlu jadi saya belum tau maksudnya jadi sekarang si n
+itu ttp ke ganti ya.
+
+mungkin gambarannya kaya gini :
+
+var n = 5;
+
+n * faktorial(n - 1);
+
+n * 4;
+4 * 3;
+3 * 2;
+2 * 1;
+
+di satuin jadi nya 5 * 4 * 3 * 2 * 1;
+
+-----------------------------------------------------------------------------------------------------------------------------
+
+jadi itu contoh pemanfaatan rekursif untuk FAKTORIAL nilai
+
+nah selanjutnya semua looping itu bisa dibuat rekursifnya, tapi tidak sebaliknya.
+jadi kalo kita buat sesuatu dengan rekursif blm tentu kita bisa buatkan looping nya.
+
+nah contoh nya yg tadi ya
+
+untuk cetak angka nah itu sebetulnya kita bisa gunakan looping :
+
+function cetakAngka(n) {
+    for (var i = n; i >= 1; i--) {
+        console.log(i);
+    }
+}
+
+cetakAngka(10);
+
+nah tapi looping ini kita sudah terjemahkan ke REKURSIF :
+
+function cetakAngka(n) {
+    if (n === 0) return;
+    console.log(n);
+    cetakAngka(n - 1);
+}
+
+cetakAngka(11);
+
+-----------------------------------------------------------------------------------------------------------------------------
+
+ya sama juga untuk faktorial tadi :
+
+function fatorial(n) {
+    var hasil = 1;
+    for (var i = n; i > 0; i--) {
+        hasil *= i;
+    }
+    return hasil;
+}
+
+console.log(faktorial(5));
+
+sebetulnya dengan menghasilkan faktorial kita bisa menggunakan konsep 
+looping.
+tapi tadi kita udah coba gunakan teknik rekursif supaya kodenya lebih elegan 
+
+REKURSIF :
+
+function faktorial(n) {
+
+    if (n === 0) return 1;
+    return n * faktorial(n - 1);
+
+}
+
+var hasil = faktorial(5);
+
+console.log(hasil);
+
+-----------------------------------------------------------------------------------------------------------------------------
+
+selanjutnya untuk IMPLEMENTASI REKURSIF itu banyak sekali ya
+
+- Menggantikan looping
+- Fibonacci kita juga bisa membuat sebuah deret fibonacci
+- tadi juga kita bisa melakukan FAKTORIAL
+- Pencarian dan penelusuran pada struktur data list dan tree
+- Bahasa pemrograman yang tidak memiliki pengulangan
+  - Haskell, Erlang, Prolog, dll.
+- dll.
+
+tadi kita udah coba untuk menggantikan LOoping, lalu kita juga bisa membuat 
+sebuah deret fibonacci buat yg blm tau silahkan cari tahu sendiri, tadi juga kita
+bisa melakukan faktorial, bahkan yang untuk lebih lanjutnya kalian bisa lakukan
+pencarian dan penelusuran pada struktur data list atau tree, lalu Rekursif ini
+juga digunakan untuk bahasa pemograman yg tidak memiliki konsep pengulangan.
+
+jadi ada bahasa pemrograman yang tidak memiliki pengulangan contoh nya 
+Haskell, Erlang, Prolog, dll., nah karena mereka gapunya pengulangan jadi
+mau gamau harus menggunakan Rekursif.
+
+dan rekursif masih banyak lagi bisa buat intelegi buatan dan pembuatan dan
+masih banyak lagi.
+
+nah tapi gausah khwatir sampai kesana kita baru belajar konsep dasar rekursifnya
+aja.
+
+kalo kalian cari do google recursion maka dia kaya menanyakan yg kita cari jadi
+kaya muter muter aja gitu.
+-----------------------------------------------------------------------------------------------------------------------------
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,340 @@
+Javascript dan DOM#1 - Pendahuluan
+
+kali ini kita akan memepelajari DOM atau Document Object Model, belajar mengenai DOM
+ini sangat penting ketika nanti kalian akan berinterkasi dengan halaman web kalian, untuk 
+membuat halaman nya lebih interaktif, lebih menarik dan lebih baik lagi.
+
+kalo kalian lihat dari video sebelumnya disitu kita belum berinteraksi dengan halaman web kita
+kita hanya menggunakan console.log sebagai alat interaksi kita, dan juga ada beberapa element
+POP UP, nah itu bagian dari browser bukan bagian dari halaman HTML kalian nah ketika kita 
+mau berinteraksi dengan HTML nah kita butuh DOM ini.
+
+------------------------------------------------------------------------------------------------------------------------------
+Apasih DOM ini ?
+
+menurut mozila, DOM atau Document Object Model adalah antaramuka pemrograman unutuk
+HTML yang merepresentasikan halaman web, sehingga program dapat mengubah dan 
+memanipulasi strukturnya.
+
+dari pada bingung sama definisi menurut si mozila ini, coba kita liat dulu masing" kata dari
+DOM ini.
+
+Document Object Model, kata pertama nya itu Document, nah maksudnya apa itu Document
+yg ada di dalam DOM ini, nah Document itu adalah Document web kita, tentu saja ya, nah tapi
+kita liat :
+
+<body>
+    <h1>Javascript dan DOM - Pendahuluan</h1>
+
+    <h3>Web Programing UNPAS</h3>
+    <p>paragraf 1</p>
+    <p>paragraf 2</p>
+
+    <ul>
+        <li>item 1</li>
+        <li>item 2</li>
+        <li> item 3</li>
+    </ul>
+    <script src="script.js"></script>
+</body>
+
+liat hasil nya cerita nya itu web sederhana
+
+kalo kita liat ada sebuah websaite sederhana seperti itu yg kalian buka lewat web browser
+kalian iat tampilan nya seperti itu, kalo kalian liat di area yg putih , itu adalah Document
+isi dari websaite nya, isi dari Websaite tersebut tentu saja bagain dari window nya kan
+nah itu lain lagi, kita fokus nya di area isi websaite nya saja dan itu di sebut document
+( mau liat ada di folder nya gambarnya ).
+
+------------------------------------------------------------------------------------------------------------------------------
+
+Object
+
+sekarang kita liat apa itu Object, nah harusnya temen" udah tau ya, nah Object itu contohnya
+seperti ini :
+
+let mhs = {
+    nama : 'Keyla',
+    nrp : '0430451233',
+    email : [
+        'keyla@gmail.com',
+        'azahra@gmial.com'
+    ],
+    hitungIPK : function() {
+        ....
+    }
+}
+
+nah jadi Object itu adalah sebuah nilai atau tipe data yang ada dalam javascript, contoh nya
+seperti di atas, itu termasuk Object sederhana, jadi kita bikin variabel namanya mahasiswa
+yg di dalam nya terdapat banyak Nilai, dan yang namanya Object dia punya property, contohnya
+seperti nama,nrp dan email, dan ada yg di sebut dengan Method seperti hitungIPK.
+
+Function merupakan nilai juga di dalam javascript jadi function di sebut method di dalam object.
+
+jadi itu contoh object yang sederhana, nanti nya object itu bisa kita buat sangat komplekx,
+kita bisa bikin object di dalam object yg di dalam nya ada array terus yg didalam array itu
+element nya object juga, jadi sekali lagi object yg di maksud dalam DOM itu ya itu seperti
+contoh di atas.
+
+------------------------------------------------------------------------------------------------------------------------------
+
+Model
+
+nah Model mungkin ini artinya representasi aja ya, dia representasi terhadap sesuatu gitu.
+
+nah jadi kalo pak dhika rangakai dari ke 3 kata tersebut menurut dia definisi nya seperti iini :
+
+menurut pak dhika, jadi DOM atau Document Object Model adalah Representasi elemen
+HTML yang ada di dalam dokumen untuk nantinya di jadikan sebagai sebuah object.
+
+jadi ada element HTML yg kalian bikin menggunakan file, nah itu nanti nya oleh browser itu
+di representasikan sebagai object atau di model kan sebagaia object di simpan ke dalam
+browsernya
+
+------------------------------------------------------------------------------------------------------------------------------
+
+kalo misalkan tadi ya khasusnya adalah sebuah websaite sederhana yg di dalam nya itu 
+terdapat beberapa element html, nah itu kan kita bikin nya di file html, menggunakan tag"
+HTML, begitu file itu di buka di browser seperti itu tadi.
+
+maka element" HTML itu akan di baca oleh browser dan diterjemahkan atau di representasikan
+sebagai object di dalam nya, makannya kalo kita coba gini, kalian buka console nya terus
+kalian ketik document aja ( seperti di gambar dangambar ada di folder ).
+
+nanti dia akan menghasil kan seperti ini, dia akan mengembalikan ada nilai tanda ( #document )
+jad representasi halaman kalian itu sama si browser di simpan nya sebagai itu, sebagai model 
+itu, kalo kita buka si ( #document ) nah keliatan isi tag" yg kita buat di file HTML nya.
+
+------------------------------------------------------------------------------------------------------------------------------
+
+misal kita coba ya, jadi sudah ada file index.html nya dan sudah di hubungkan ke javascriptnya
+kalo saya tulis gini :
+
+<body>
+    <h1>Javascript dan DOM - Pendahuluan</h1>
+
+    <h3>Web Programing UNPAS</h3>
+    <p>paragraf 1</p>
+    <p>paragraf 2</p>
+
+    <ul>
+        <li>item 1</li>
+        <li>item 2</li>
+        <li> item 3</li>
+    </ul>
+    <script src="script.js"></script>
+</body>
+--------------------------------------------
+
+nah itu gaada yg aneh yg kalo pad tampil di browser nya, dan yg tampil di browser
+yg kita tulis di dalam tag aja ya kek tulisan hello world gitu ya, nah tapi yg di simpen di dalam
+browser nya itu representasi dari model nya ya.
+
+nah kalo sekarang kita tulis di file js nya langsung dengan menggunakan ( console.log(document) )
+sama aja ya akan menghasilkan niali yg sama ya, jadi DOM nya itu representasi yg ada di dalam
+browser nya.
+
+------------------------------------------------------------------------------------------------------------------------------
+
+pohon hirarki DOM ( DOM Tree ) 
+
+nah si DOM ini model tadi itu tersimpan sebagai pohon hirarki DOM, jadi di dalam memori
+kalian itu tersimpannya sebagai pohon hirarki DOM, atau ada yg bilang ini namanya DOM Tree
+kenapa DOM Tree? karena nanti representasi nya mirip seperti pohon, dia punya cabang dia
+punya akar dll.
+
+contoh nya itu seperti ini :
+
+( liat pohon nya di gambar ya di folder ada cari aja berbentuk struktur gitu. )
+
+jadi kalo kita buat sebuah halaman WEB yg tersimpan itu representasi nya itu model nya
+jadi sesuai dengan hirarki HTML yang kalian tulis, inget kan kalo kita bikin HTML itu pasti
+tag terluar nya adalah HTML, terus di dalam nya ada 2 tag utama, ada HEAD dan BODY.
+
+nah itu yg di sebut dengan pohon hirarki DOM, dan pemahaman tentang DOM Tree ini
+akan jadi sangat penting, terutama kalian akan memilih atau menyeleksi sebuah element
+dan menelusurinya, tpi itu nanti lah kita liat nya.
+
+tiap" kotak yg kalian liat itu, itu nantinya akan kita sebut SIMPUL atau NODE, yg bentuk nya
+juga sama, dia object juga, dan semua Simpul ini dia berada di bawah satu buah simpul
+ya tadi namanya DOCUMENT.
+
+( ada poto nya di folder liat aja ).
+
+------------------------------------------------------------------------------------------------------------------------------
+
+atau ga kita liat nih contoh berikut ini, misalnya saya punya element HTML sederhana seperti ini :
+
+   <p>ini adalah paragraf dengan
+        <a href="tes.html">link</a>
+        di dalam nya.
+    </p>
+
+satu tag html paragraf, nah di dalam paragraf nya ada tulisan, "ini adalah paragraf dengan",
+lalu spasi ada tag <a> nya di situ, jadi paragraf di dalamnya ada tulisan dan ada <a> nya,
+<a> nya punya atribut, atribut nya tentu saja ( href=" " ) ya, nah ada href nya supaya kalo
+di klik dia pindah ke halaman lain atau kemana kek.
+
+nah pindah kemana, pindah ke ( tes.html ) terus tulisan yg ada di <a> nya itu link, terus
+setelah itu ada tulisan ( di dalamnya ) sesuai kan yg dengan contoh di atas, nah simpel 
+aja seperti itu, nah kira" representasi pohon DOM nya seperti apa?
+
+nah itu tuh hasil nya seperti ini :
+
+( ada di folder ini ya cari aja gambar nya ).
+
+jadi tag utama nya adalah <p> yg di dalamnya dia terbagi beberapa simpul, ada tulisan ( ini adalah
+paragraf ), terus ada tag <a> yg a nya itu punya atribut dan seterusnya, nah tadi ya tiap" kotak
+dan lingkaran itu kita sebut dengan simpul/node.
+
+jadi banyak Node nya, ini baru 1 tag <p> gimana klo misalkan halaman nya komplekx, ya tentu
+saja DOM Tree nya akan sangat besar sekali begitu.
+
+------------------------------------------------------------------------------------------------------------------------------
+
+ya kalo misal ita kembali lagi ke contoh kita yg ini :
+
+<body>
+    <h1>Javascript dan DOM - Pendahuluan</h1>
+
+    <h3>Web Programing UNPAS</h3>
+    <p>paragraf 1</p>
+    <p>paragraf 2</p>
+
+    <ul>
+        <li>item 1</li>
+        <li>item 2</li>
+        <li> item 3</li>
+    </ul>
+    <script src="script.js"></script>
+</body>
+
+kita ada beberapa khasus tag-tag HTML, ada h1 nya,h3,p,ul, dan li, yg representasi nya kalian
+udah bisa liat di console, itu ada di dalam object Document, di representasikan sebagai 
+pohon DOM atau DOM Tree.
+
+nah sebetulnya object Document ini dia juga merupakan bagian dari object yg lain yg lebih tinggi
+gitu, karena Document tadi pak dhika bilang itu adalah area yg putih atau area websaite nya lah
+nah browser itu ada lagi di object yg lebih tinggi.
+
+------------------------------------------------------------------------------------------------------------------------------
+
+nah sebetulnya di atas document itu ada lagi yg nama nya Window seperti ini urutan nya :
+
+( liat di folder ini udah ada poto nya cari aja )
+
+document hanya salah atu dari bagian window, nah window ini isi nya lebih besar lagi, kalo 
+tadi kan Document cuma mengelola apapun yg ada di dalam websaite, nah kalo window dia
+bisa sampe ngontrol browser nya, dia tau ukuruan browser nya berapa, dia tau posisi kursor
+ada dimana,dia tau kita lagi scroll di jarak berapa dll, tu jadi ada object lagi yg lebih besar lagi.
+
+jadi kalo kita liat tadi document itu hanya disitu ya ( lihat di folder ada yg gambar ada bacaan
+document nya ), hanya di bagian websaite nya saja ya, nah window itu semuanya, tapi kita
+ga mikirin yg window dulu, kita fokus ke yg document nya aja dulu, gimana kita bisa mengelola
+element" yg ada di dalam websaite kita menggunakan DOM tadi.
+
+mungkin sampe sini bisa paham DOM itu apa ya.
+
+------------------------------------------------------------------------------------------------------------------------------
+
+ya jadi kalo kita recape :
+
+DOM
+
+- Antarmuka pemrograman berbasis objek yang merepresentasikan dokumen web
+- DOM membuat seluruh komponen dari halaman web dapat diakses & dimanipulasi
+- Komponen
+  - Elemen HTML
+  - Atribut
+  - Text
+  - dll
+- DOM dapat dimanipulasi ( dibuat, diubah, dihapus ) menggunakan javascript
+
+DOM itu adalah antarmuka pemrograman berbasis objek, untuk merepresentasikan tadi memodel
+kan dokumen web, nah jadi dia kita sebut antarmuka pemograman lah ya, kenapa?? karena nanti
+nya kita bisa menghubungkan javascript, ke dalam element html tadi.
+
+antarmuka nya apa?? ya DOM tadi, jadi ya kek menyambungkan atau menghubung kan mungkin,
+nah nanti kita kek nyuruh DOM tollong cari kan element apa gitu.
+
+sehingga kita bisa membuat seluruh komponen yg ada didalam dokument nya tadi kita bisa
+akses, dan kita manipulasi, lalu Komponen yg bisa kita akses dan manipulasi itu macem" yg 
+paling gampang adalah element HTML, di cari element nya terus kita manipulasi gitu.
+
+terus kita bisa cari atributnya misalkan, element tersebut punya atribut apa nanti kita ubah, atau
+misalnya kita ubah tulisannya, yg tadinya tulisannya apa kita ubah jadi apa, dan masih banyak lagi
+yg bisa kita akses dan mnipulasi dengan DOM ini.
+
+nah nanti kita Manipulasi nya menggunakan javascript.
+
+------------------------------------------------------------------------------------------------------------------------------
+
+nah jadi selanjut nya, misal temen" buka Fackbook, dan mau nulis sesuatu di fackbook nya
+begitu di klik kolom status nya dia langsung berubah menjadi besar seperti ini :
+
+( liat di folder aja gambar nya ada )
+
+nah itu knp bisa gitu, nah itu karena ada script di FB nya yg mengakses ke dalam DOM HTML nya
+kaya kalo ga dipencet gambar nya kecil ketika di pencet gambar nya ada banyak macam" lagi,
+kaya misal di toko online ada apa gitu gambar yg kecil pas diklik langusng pindah halaman atau
+gambar nya berubah tanpa pindah halaman.
+
+nah itu gaaakan bisa kaya gitu kalo misalkan tidak ada script yg mengakses DOM nya, atau
+kalian mau bikin game, nah kaya game suwit jawa, itu kan bisa di bikin animasi pake html
+dan di jalankan menggunakan javascript nya nah butuh DOM tu.
+
+------------------------------------------------------------------------------------------------------------------------------
+
+apa yang akan dipelajari di seri ini ??
+
+Materi di seri ini :
+
+- DOM Selection
+- DOM Manipulation
+- DOM Traversal
+- Event Handling
+- Studi Kasus
+  - membuat program" sederhana
+
+
+kita akan belajar menyeleksi atau DOM selection, bagaimana kita memilih sebuah element yg ada
+di dalam document menggunakan Javascript, itu namanya DOM Selection, lalu ada DOM
+Manipulation, atau manipulasi element html menggunakan DOM, misalkan menmabah element
+baru,menghapus, dll, dan yg terakhir ada yg di sebut DOM Traversal atau menelusuri element
+HTML lewat element HTML yg lain, nah ini penting ya.
+
+lalu kita juga akan belajar mengenai Event Handling, dimana nanti kita akan melakukan perubahan
+pada DOM nya atau Menelusuri DOM nya, karena ada Triger misalkan, mau stiklik, kursor
+digerakan dan lain".
+
+dan setelah kita belajar semua itu tentu saja nanti kita akan buat ada studi khasus biar kalian ada
+implement tasinya, kita akan buat program" sederhana, mungkin nanti kita akan buat kalkulator
+sederhana
+
+
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

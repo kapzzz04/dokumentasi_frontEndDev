@@ -1,0 +1,124 @@
+PENGULANGAN FOR pada JAVASCRIPT
+
+
+FOR adalah kywerd lain selain while yg dapat kita gunakan untuk
+melakukan pengulangan
+
+syntak dari FOR
+
+for (penentuan nilai awal; penulisan kondisi terminasi; increment/decrement) {
+   aksi yang akan di munculkan
+    
+}
+
+atau 
+
+for (var nilaiAwal = 1; nilaiAwal <= 10; nilaiAwal++) {
+    console.log('hello world ' + nilaiAwal + 'x');
+}
+yg kalian liat ini sama aja seperti while tapi dari penulisan nya
+ini lebih ringkas karena ditulis nya dalam satu baris
+
+jadi for ini ya sama aja kaya while cuma beda penempatannya
+
+------------------------------------------------------------------------------------------------------------
+
+LATIHAN
+
+soal nya 
+angkot 1-6 beroperasi dengan baik angkot 7-10 sedang tidak beroperasi
+tapi kita bagi jadi 2 blok untuk angkot yg beroperasi dengan baik kalian 
+menggunakan while dan untuk angkot sedang tidak beroperasi kalian
+gunakan for jadi nanti kalian mempunyai 2 blok pengulangan.
+
+dan gunakan variabel nya seperti ini :
+
+var jmlAngkot = 10;
+var angkotBeroperasi = 6;
+var noAngkot = 1;
+
+------------------------------------------------------------------------------------------------------------
+
+JAWABAN:
+
+var jmlAngkot = 10;
+var angkotBeroperasi = 6;
+var noAngkot = 1;
+
+while (noAngkot <= angkotBeroperasi) {
+    console.log('Angkot No. ' + noAngkot + ' beroperasi dengan baik.');
+    noAngkot++;
+}
+
+for (noAngkot = angkotBeroperasi + 1; noAngkot <= jmlAngkot; noAngkot++) {
+
+    console.log('Angkot No. ' + noAngkot + ' sedang tidak beroperasi.')
+
+}
+
+------------------------------------------------------------------------------------------------------------
+
+jadi yang bagian while dibaca nya
+
+jika noAngkot lebih kecil dari pada angkotBeroperasi maka jalan kan
+aksi, aksi nya disitu consol.log ya
+
+setelah jalankan aksi di increment jadi noAngkot nya di tambah 1
+setiap selesai aksi, karena setiap selesai aksi ditambah 1
+otomatis angka noAngkot bertambah dan akan terus bertambah
+
+sampai bernilai false gitu.
+
+------------------------------------------------------------------------------------------------------------
+
+jadi yang bagian for di bacanya
+
+noAngkot sama ( = ) angkotBeroperasi ditambah 1 maksudnya tuh
+si noAngkot di isi atau di namakan lagi angkotBeroperasi + 1
+supaya noAngkot itu berubah menjad angka 7 
+
+dan memakai nama variabel angkotBeroperasi agar lebih masuk
+akal dan simpel jadi kamu ngertikan 
+
+nah terus jika noAngkot lebih kecil daripada jmlAngkot jadi gini
+jika 7 lebih kecil dari pada 10 maka jalankan aksinya
+
+disitu juga ada increment yg menambah kan 1 di setiap selesai aksinya
+jadi dia akan berhenti setelah menerima false.
+
+bisa diliat atau praktekan di console anda.
+
+------------------------------------------------------------------------------------------------------------
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

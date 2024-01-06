@@ -1,0 +1,136 @@
+CSS3 -- Text Shadow
+
+Property css3 ini mirip banget dengan property yg sudah kita pelajari di video sebelumnya yaitu
+box-shadow, bahkan property ini lebih simpel daricara penggunaannya.
+
+ini fungsinya untuk memberikan bayangan pada text, value yang bisa kita berikan pada text shadow
+ini ada 4 ya. <x-offset> <y-offset> <blur> <color>, ya ini sama seperti box-shadow.
+
+dan text shadow ini lebih simpel karena dia gapunya inset dan spread, kalo box shadow kan ada ya,
+harus nya kalian udah tau fungsi dari tiap-tiap value ini.
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Text Shadow</title>
+</head>
+<style>
+    h1 {
+        font-size: 100px;
+        font-family: arial;
+        text-align: center;
+    }
+</style>
+<body>
+    <h1>Hello World</h1>
+</body>
+</html>
+----------------------------------------
+
+Cara kita ngasih bayangan gampang ya, kita tinggal kasih property nya text-shadow, lalu value nya
+diberikan secara berurutan ya sesuai yg di atas itu.
+
+<style>
+    h1 {
+        font-size: 100px;
+        font-family: arial;
+        text-align: center;
+        text-shadow: 5px 5px 10px green;
+    }
+</style>
+----------------------------------------
+
+Jadi nanti bayangan nya ada di sebelah kanan bawah 5px lalu ukuran blur nya 10px, jadi gampang
+banget sama seperti box-shadow penggunaan nya ya.
+
+MULTIPLE TEXT SHADOW
+
+Lalu sama seperti box shadow, pada text-shadow kita bisa kasih lebih dari satu bayangan ya atau
+multiple shadow, tingga kita kasih koma untuk menambah lebih dari satu bayangan nya, kasih koma
+setelah color nya ya.
+
+misalnya saya mau bayangan nya ada di kiri atas kasih -5px untuk x dan y dan blur nya 10px warna
+nya red, sekali lagi kita gaakan pernah kasih bayangan dengan warna yg solid atau warna tanpa
+opacity ya. itu hanya untuk contoh aja supaya keliatan.
+
+<style>
+    h1 {
+        font-size: 100px;
+        font-family: arial;
+        text-align: center;
+        text-shadow: 5px 5px 10px green,
+            -5px -5px 10px red;
+    }
+</style>
+----------------------------------------
+
+Nah sekarang bayangan nya ada 2, ada dikiri atas ada di kanan bawah, udah gampang gitu doang
+tinggal kalian bermain-main dengan value nya supaya bisa menghasilkan efect yg bagus.
+
+Contoh nya salah satu efect yg sering dipake itu, kita bikin tuh text nya seolah-olah 3D, misalnya kita
+kasih tulisan nya jadi warna putih gitu, lalu text-shadow nya saya kasih gini : 
+
+<style>
+    h1 {
+        font-size: 100px;
+        font-family: arial;
+        text-align: center;
+        color: white;
+        text-shadow: 0 2px 1px black;
+    }
+</style>
+----------------------------------------
+
+Ini akan memunculkan efect seperti itu, menurut saya ini text ny kaya editan di apk pixelab, jadi 
+seolah-olah text nya itu 3D. Sebetulnya banyak efect yg bisa kita kasih ke text itu supaya tulisan nya
+terlihat semakin menarik.
+
+Nah untuk melihat efect yg lebih bagus bisa kunjungi link di yt pak dhika atau di codepen 
+
+Contoh Text Shadow
+
+http://codepen.io/webprogrammingunpas/pen/YWyjjP
+--------------------------------------------------------------------------------------------------------------------------------
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

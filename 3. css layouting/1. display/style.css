@@ -1,0 +1,16 @@
+.navigasi li {
+    display: inline;
+
+}
+
+.tiga {
+    width: 500px;
+    background-color: cornflowerblue;
+    
+}
+
+.lima {
+    background-color: darkslategrey;
+    display: block;
+    width: 500px;
+}

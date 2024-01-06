@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Form Validation</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        form {
+            width: 600px;
+            padding: 20px;
+        }
+
+        label {
+            display: block;
+        }
+
+        form div {
+            margin: 10px;
+        }
+
+        input:invalid,
+        input:required:invalid {
+            border: none;
+            outline: 2px solid red;
+            border-radius: 2px;
+        }
+
+
+        input:valid,
+        input:required {
+            border: 1px solid black;
+            outline: inherit;
+            border-radius: inherit;
+        }
+    </style>
+</head>
+
+<body>
+
+
+    <form action="" method="get" autocomplete="off">
+        <div>
+            <label for="nama">Masukan nama: </label>
+            <input type="text" name="nama" id="nama" autofocus required minlength="2" maxlength="5"
+                oninvalid="this.setCustomValidity('ini harus di isi')" oninput="this.setCustomValidity('')">
+        </div>
+
+        <div>
+            <label for="1">Masukan email: </label>
+            <input type="email" name="email" id="1">
+        </div>
+
+        <div>
+            <label for="nohp">Masukan No HP: </label>
+            <input type="tel" name="nohp" id="nohp">
+        </div>
+
+        <div>
+            <label for="websaite">Masukan URL Websaite: </label>
+            <input type="url" name="websaite" id="websaite">
+        </div>
+
+        <div>
+            <label for="angka">Masukan angka: </label>
+            <input type="number" name="angka" id="angka" min="10" max="100" step="5">
+        </div>
+
+        <div>
+            <label for="slider">Masukan angka: </label>
+            <span class="awal"></span>
+            <input type="range" name="slider" id="slider" min="0" max="100">
+            <span class="akhir"></span>
+        </div>
+
+        <div>
+            <label for="tanggal">Masukan tanggal: </label>
+            <input type="time" name="tanggal" id="tanggal">
+        </div>
+
+        <div>
+            <label for="warna">Masukan warna: </label>
+            <input type="color" name="warna" id="warna">
+            <span class="hexa"></span>
+        </div>
+
+        <div>
+            <label for="kodepos">Masukan kodepos: </label>
+            <input type="text" name="kodepos" id="kodepos" pattern="^(\+62|62|0)8[1-9][0-9]{6,9}$">
+        </div>
+
+        <div>
+            <button type="submit">KIRIM!</button>
+        </div>
+    </form>
+
+
+    <script src="script.js"></script>
+</body>
+
+</html>

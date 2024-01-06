@@ -1,0 +1,243 @@
+POPUP BOX pada javascript
+
+apa itu popup box jadi popup box atau bisa di sebut dialog box adalah sebuah windows
+kecil didalam browser kita yg dapat kita mnculkan sebagai alat interaksi yg digunakan 
+agar user dapat berdialog dengan halaman web.
+
+---------------------------------------------------------------------------------------------------------------------
+ada 3 buah popup box yg dapat kita gunakan yaitu
+ -alert
+ -prompt
+ -confirm
+
+3 popup box ini akan digunakan untuk latihan kita pada javascript
+
+yg pertama itu alert, untuk membuat alert box itu caranya gampang aja 
+nnti di javascript nya yang perlu kalian tuliskan adalah
+
+contoh:  alert("hello world!");
+
+jadi ada sebuah fungsi ygnama nya alert, nah kalian tinggal tulisa aja
+di javascript, lalu fungsi ini ( alert ) dia menerima parameter ( ("hello world") )
+nnti kita bahas lebih lanjut pada bagian fungsi, dan parameter ini bisa 
+di isi dengan pesan yg ingin kita sampai kan pada popup alert nya.
+
+bisa di coba jika ingin liat hasilnya dengan tulisan contoh di atas itu.
+
+nanti browsernya widow kecil yg berisi pesan tulisan parameter
+( hello world ) itu dan hanya ada tombol ok aja, dan nnti ketika
+tombol ok di tekan window kcilnya akan hilang, dan baru kita
+bisa mengakses apa yg ada di browser nya.
+
+untuk popup box ini akan tampil yg berbeda di setiap browser.
+
+---------------------------------------------------------------------------------------------------------------------
+kita juga bisa membuat alert dengan banyak
+
+contoh nya: 
+
+alert('halo');
+alert('nama');
+alert('saya');
+alert('keyla');
+
+ini nanti akan muncul 4 alert yg nanti nya akan muncul setelah alert sebelumnya
+di hilangkan dengan menekan tombol ok.
+
+nah tadi kalo misalkan kita menampilkan banyak alert dalam satu halaman ini 
+browsernya akan memunculkan sebuah notifikasi di bawah sini ( bisa di liat di browser )
+nah kalo kalian tidak mau memunculkan popup nya bisa di ceklis aja tetapi kita
+tidak akan bisa mengakses popup apapun setelah nya, agar muncul lagi bisa ke tab baru
+aja biar muncul lag, sebaliknya jika tidak biarkan saja jika ingin muncul terus.
+
+---------------------------------------------------------------------------------------------------------------------
+popup yang kedua yaitu PROMPT
+
+prompt ini fungsinya sama memunculkan window kecil tapi sekarang
+tdak hanya ada tombol oke saja, cara penulisannya..
+
+contoh:
+ 
+ prompt("masukan nama:");
+
+sama seperti alert kita tinggal menuliskan kyword nya atau prompt lalu didalam nya
+itu kita msukan pesanya yg mau di tampilkan di dialognya, tapi ini agak berbeda
+jadi ada sebuah teks box nya untuk kita memasukan sebuah inputan, nanti kalian
+bisa menuliskan apapun di teks box itu ( bisa di liat langsung ke browser ).
+
+jika kalian menuliskan nama atau apapun di teks box nya terus tekan ok
+maka popup nya ilang, tapi sebenernya ga ilang bener-bener, jadi popup
+itu mengembalikan nilai apapun yg kita tuliskan didalam inputannya, nah
+maksudnya mengembalikan nilai gmna?.
+
+jadi saat kita memanggil prompt user yg menuliskan sesuatu didalam inputannya
+itu akan ada yg di ambil, nah supaya kita dapat akses ke nilai tersbut sebaiknya
+prompt ini kita simpan ke dalam sebuah variable, supaya nilai yg di inputkan
+oleh user bisa di tampung
+
+contohnya:
+
+ var x = prompt('masukan nama:');
+
+kan udah gitu terus ke browser isi apapun di dalam teks box nya ketika
+di pencet ok maka popup nya akan hilang tapi sekarang nilai nya itu sudah
+tersimpan di dalam variable x, tapi memang belum saya gunakan.
+cara menggunakannya....
+
+tinggal pake variable x nya 
+
+misalkan:
+
+  var x = prompt('masukan nama:');
+  alert(x);
+
+jadi nanti akan tampil sebuah popup alert yg berisi tulisan apapun yg user
+tuliskan di prompt sebelumnya.
+
+---------------------------------------------------------------------------------------------------------------------
+popup yg ke 3 yaitu confirm
+
+ini syntak nya simpel aja cukup kita menuliskan
+
+misal;
+ 
+ confirm('kamu yakin??');
+
+nah confirm ini digunakan untuk meminta confirmasi dari user
+jadi misalnya kaya gini, saya menuliskan conform dan pesannya
+kamu yakin?, dia akan menampilkan seperti ini ( bisa cek di browser)
+
+jadi sama seperti alert bedanya di conform itu ada tulisan cansel nya
+nah sama seperti prompt tombolnya ada 2 cansel dan ok, tapi nanti
+kita bisa tentukan, apa yg terjadi jika user menekan tombol ok dan
+apa yg terjadi jika user menekan tombol cansel.
+
+paling simpel ini digunakan misalkan kamu mau mendelet data
+pastikan jika data nya beneran mau di apus pasti nongol penconfirmasian gitu
+siapa tau user ga sengaja klik tombol delet, kalo ada tombol confirm seperti 
+ini user tinggal pencet cansel aja supaya gajadi mengahapus data nya.
+
+--------------------------------------------------------------------------------------------------------------------
+kita cobaya misal......
+
+confirm('kamu yakin??');
+
+sekarang jika saya pencet ok atau canselitu tidak akan terjadi
+apa-apa karena sama seperti prompt tadi, fungsi confirm ini
+mengembalikan nilai. 
+
+tapi beda dengan prompt kalo prompt mengembalikan nilai apapun yg user ketik inputannya.
+
+sedangkan conform mengembalikan boolean true atau false, true ketika kita 
+menekan tombol ok, dan false ketika kita menekan tombol cansel.
+
+misalkan gini :
+  
+  var tes = confirm('kamu yakin??');
+  alert(tes);
+
+saya punya sebuah variable terus gitu tu kek yg di atas nah supaya kita bisa ngeliat 
+betul ga nilai nya true atau false, lalu kita alert aja tampilkan tes nya.
+
+nah coba di javascript kalian di ituin nah cek ke browser lalu munculkan popup nya
+jika kamu tekan ok maka muncul true jika kamu tekan cansle maka muncul false
+itu bener gayss.
+
+conform ini biasa kita gunakan nantinya jika kita sudah belajar pengkondisian
+atau pengulangan.
+
+--------------------------------------------------------------------------------------------------------------------
+
+contoh sederhananya gini deh, biarkan aja kalo kalian belum tahu mengenai
+pengkondisian dan pengulangan kita liat aja syntak nya seperti ini
+
+contohnya:
+
+      var tes = confirm('kamu yakin??');
+if (tes === true) {
+    alert('user menekan tomnbol OK!');
+} else {
+    alert('user menekan tombol cansel');
+}
+
+
+misal nya saya punya conform seperti ini ( di atas ) yg saya simpan ke dalam 
+variable tes, 
+nah saya tulis gini jika kalo tes nya itu bernilai true ( atau misal kamu memencet Ok )
+maka akan keluar alert itu,
+
+nah terus else ( selain itu berarti selain user memencet tombol ok maka hasilnya itu
+mau dia teken apa hasilnya itu karena kan selain memencet tombol ok yakan )
+nah maka yg keluar itu karena hanya 2 tombol berarti jika memencet tombol
+cansel maka yg keluar itu ya gayss semoga paham.
+
+dan itu biasa digunakan ketika kita butuh confirmasi dari user.
+
+--------------------------------------------------------------------------------------------------------------------
+
+atau kita juga bisa menggunakan pengulangan.
+
+sederhananya gini deh kita akan gabungkan ke 3 popup box ini
+
+contohnya:
+
+  alert('selamat datang...');
+
+var lagi = true;
+
+while (lagi === true) {
+    var nama = prompt('masukan nama:');
+    alert('halo' + " " + nama);
+    lagi = confirm('coba lagi?');
+}
+
+alert('terimakasih................');
+
+
+
+awalnya saya punya alert ( di atas contohnya )
+lalu di bwah nya misalnya begini saya punya variabel yg namanya ( lagi )
+untuk mengecek apakah nanti user ingin melakukan sesuatu secara berulang atau tidak, 
+
+variabel lagi ini saya isi nilai nya dengan TRUE, jadi nilai awal dari ( lagi ) adalah true, 
+
+lalu saya tulis ( while ) ini adalah contoh pengulangan ya ( kalo mau liat cara penulisannya bisa cek contoh di atas ),
+jadi di baca nya yaitu selama ( lagi ) itu nilai nya ( true ) maka pengulangan ini akan berjalan terus,
+
+pengulangan nya akan berhenti jika ( lagi ) nya berubah jadi ( false ) maksudnya gmna 
+jadi misal kita tekan ok maka ulang lagi, jika cansel maka sudh selesai atau tidak di ulang lagi.
+
+kan udah ke bawah tu ( var nama ) itu udah ngerti lah 
+
+nah kita kasih nilai ( lagi ) terus confirm nah teks nya kan coba lagi? 
+jika user menekan ok maka dia akan dari ulang lagi masukin nama lagi gitu terus
+jika user menekan cansel maka selesai lah gitu 
+
+semoga ngerti ya bebep kuh.
+
+--------------------------------------------------------------------------------------------------------------------
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

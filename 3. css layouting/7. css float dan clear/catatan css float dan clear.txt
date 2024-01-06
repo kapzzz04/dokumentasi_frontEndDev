@@ -1,0 +1,212 @@
+ CSS FLOAT
+
+Float merupakan properti pada css untuk mengatur sebuah elemen. Sebuah elemen dapaat di paksa 
+untuk berada di sebelah kiri atau kanan dari parent/ pembungkus nya menggunakan properti ini.
+
+sebeleumnya kita mengatur posisi elemen dengan margin nah kalo pake margin kan harus
+pake ukuran berapa PX kalo pake css float bisa di permudah.
+
+FLOAT
+ none
+ left
+right
+
+normal flow VS out-of flow
+
+jadi dua ini adalah perilaku dari elemen-elemen yang sudah kita kasih css
+yang sudah kita buat ini yaitu normal flow seperti box model
+ 
+jadi kalo elemen dengan display block akan berada di elemen sebelumnya
+kalo elemen dispalynya inline akan berada di sebelah kanan dan itu noermal aja
+
+dan nanti FLOAT ini dia akan tipenya out-of flow
+
+YAANG BISA DILAKUKAN MENGGUNAKAN PROPERTI FLOAT
+
+- text wrapping
+  membuat teks mengelilingi gambar / elemen lain
+
+- image gallery
+  membuat serangkaian menjadi galeri
+
+- multi-column layout
+  membuat halaman memiliki beberapa kolom
+
+- dll
+  dan masih banyak lagi 
+
+KALIAN INGAT KETIKA KITA BIKIN FLOT SI ELEMEN NYA KELUAR DARI NORMAL FLOW
+SEHINGGA SI CONTAINERNYA TIDAK MENGIKUTI BLOK NYA
+--------------------------------------------------------------------------------------------------------------------
+CLEAR
+
+cara menghentikan / membersihkan float
+
+- menggunakan property overflow
+- menggunakan <div> kosong
+- menggunakan teknik micro clearfix
+
+menggunakan property overflow itu tidak terlalu di saran kan lebihbaik memakai
+
+        CLEAR
+berfungsi menghenntikan / membersihkan float
+
+- left = jika float nya left maka clear nya juga left dan seterusnya
+- right
+- both
+
+pastikan jika menggunakan float jika tidak lagi di gunakan beri clear agar tidak bermasalah hasilnya nnti
+
+
+
+
+/**
+ * For modern browsers
+ * 1. The space content is one way to avoid an Opera bug when the
+ *    contenteditable attribute is included anywhere else in the document.
+ *    Otherwise it causes space to appear at the top and bottom of elements
+ *    that are clearfixed.
+ * 2. The use of `table` rather than `block` is only necessary if using
+ *    `:before` to contain the top-margins of child elements.
+ */
+.cf:before,
+.cf:after {
+    content: " "; /* 1 */
+    display: table; /* 2 */
+}
+
+.cf:after {
+    clear: both;
+}
+
+/**
+ * For IE 6/7 only
+ * Include this rule to trigger hasLayout and contain floats.
+ */
+.cf {
+    *zoom: 1;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

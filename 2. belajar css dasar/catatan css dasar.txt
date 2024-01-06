@@ -1,0 +1,451 @@
+SELCTOR
+------------------------------------------------
+
+-Digunakan untuk memilih dan memanipulasi elemen spesifik pada HTML.
+
+-Elemen HTML dipilih berdasar kan tag,id,class,bahkan pola/pattrn
+
+-Semakin kopleks stuktur HTML 
+ selctor juga bisa semakin kompleks/spesifik
+
+--------------------------------------------
+CONTOH :
+
+selector { property: value; }
+
+
+h1 { color: blue; }
+
+CSS, pilih seluruh elemen h1, lalu
+ubah teks didalamnya menjadi berwarna biru
+
+-----------------------------------------------
+
+-embed
+ <style></style>
+ ini di pakai di daalam teks HEAD 
+
+-inline
+ <p style="color: lightblue;">...</p>
+
+-external
+ <link rel="stylesheet" href="...">
+
+--------------------------------------
+
+FONT
+
+font-family
+ mengatur jenis font yang akan digunakan
+
+font-size
+ mengatur ukuran font
+
+font-weight
+ megatur ketebalan font
+
+font-variant
+ mengubah font menjadi small caps
+
+font-style
+ mengubah font menjadi cetak miring
+
+line-height
+ mengatur spasi antara baris 
+
+-------------------------------------------------
+pengertian 
+
+
+   font-family
+nama font
+generic family
+
+  font-size
+px
+%
+em
+
+  font-weight
+lighter
+normal
+100-900
+bold
+bolder
+
+  font-variant
+normal
+small caps
+
+  font-style
+normal
+italic
+oblique
+
+  line-height
+normal
+px
+em
+
+--------------------------------------------------------
+TEXT
+color
+ memberi warna pada tulisan
+
+text-align
+ mengatur format paragraf/teks
+
+text-indent
+ memberi indentasi paragraf/teks
+
+text-decoration
+ mengatur dekorasi pada teks
+
+text-transform
+ menguubah jenis huruf menjadi huruf besar , kecil/kapital
+
+letter-spacing
+ mengatur spasi antar huruf
+
+word-spacing
+ mengatur spasi antar kata
+
+---------------------------------------------------------
+PENGERTIAN
+
+    color
+nama warna
+-red, lightblue, royalblue, dll
+
+hexadecimal
+-#ff0000, #20b2aa, #4169e1, dll...
+
+rgb
+- rgb(255,0,0), rgb(32,178,170), rgb(65,105,255), dll...
+
+WEBSAITE MENCARI WARNA 
+www.colorpicker.com
+
+    TEXT-ALIGN
+left
+right
+center
+justify
+
+    TEXT-INDENT
+%
+px
+
+   TEXT-DECORATION
+none
+underline
+overline
+line-through
+
+   TEXT-TRANSFORM
+none
+lowercase
+uppercase
+capitalize
+
+   LETTER-SPACING
+normal
+px
+
+   WORD-SPACING
+normal
+px
+
+-----------------------------------------------------
+
+BACKGROUND
+
+background-color
+ mengatur warna pada background
+
+background-image
+ mengatur gambar yang ingin di gunakan pada background 
+
+background-position
+ mengatur posisi gambar pada background
+
+background-repeat
+ mengatur jenis pengulangan pada background
+
+websaite gambar yang bagus
+
+SUBTLEPATTERNS.COM
+subtlepatterns.com
+
+-------------------------------------------------------------
+
+value
+
+
+background-position
+ top left
+ top center
+ top right
+ center left 
+ center center
+ center right
+ bottom left
+ bottom center
+ bottom right
+ x% y%
+ x pos y pos
+
+background-repeat
+ repeat
+ no-repeat
+ repeat-x
+ repeat-y 
+-------------------------------------------------------------------------
+
+SELECTORS
+
+ elemen html
+   id
+   class
+ complex selector
+------------------------------------------------------------------------
+ID
+-Sebuah elemen HTML hanya boleh memiliki 1 id
+
+-Setiap halman hanya boleh memiliki 1 elemen dengan id tersebut 
+
+-Dapat digunakan sebagai penanda untuk link
+
+-Digunakan juga untuk javascrip
+
+-Sebaiknya tidak digunakan untuk CSS [lebih baik gunakan class
+------------------------------------------------------------------------
+CONTOH
+
+h2,h1 {
+  color: red;
+}
+
+note; di atas h1 an h2 di kasih {,} yang artinya {,} = dan. jadi dia berguna jika ingin sama warna jadi tidak usah di tulis elemen 1 per 1
+     tinggal di gabung aja itukan h1 dan h2 mau di tambah h3 juga bisa. jadi artinya semua yang ada di h1,h2,h3 tulisan nya menjadi warna MERAH 
+
+ul li a {
+  color: red;
+}
+
+NOTE: di atas ul li a di kasih [spasi] nah arti dari spasi di situ adalah [didalam] jadi maksudnya elemen [a] yang ada di dalam [li] yang aada didalam [ul]
+     di ubah menjadi warna MERAH
+
+untuk selector ID awalan nya menggunakan [#] id di pakai menggunakan di dalam elemen HTML
+contoh: #2 {
+       color: red;   
+}
+
+
+untuk selector CLASS awalan nya menggunakan [.] CLASS di pakai menggunakan di dalam elemen HTML
+contoh: .2 {
+       color: red;   
+}
+
+didalam calss bisa menggunakan lebih dari 1 kode tetapi di id tidak bisa
+CONTOH: .2 4 {
+        color: red;
+}
+
+kan di CLASS mengasih kode misal [cetak-tebal] nah itu dipakai oleh syntak [a] dan [p]  jika saya memakai hanya kode nya saja tapi saya ingin mengubah 
+paragraf nya saja ini cara nya agar hanya [p] saja yang ngaruh gini contoh nya
+
+CONTOH: p.cetak-tebal {
+         color: red;
+}
+
+jadi contoh nya itu di bacanya gini CSS TOLONG CARIKAN [P] TAPI YANG MEMILIKI KODE [CETAK-TEBAL]
+
+------------------------------------------------------------------------------------------
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+   
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

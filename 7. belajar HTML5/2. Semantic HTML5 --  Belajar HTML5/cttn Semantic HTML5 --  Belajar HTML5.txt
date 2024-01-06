@@ -1,0 +1,504 @@
+Semantic HTML5 --  Belajar HTML5
+
+arti kata dari semantic itu katanya
+
+"Relating to meaning in language or logic" 
+artinya "Beruhubungan dengan makna / arti kata"
+
+semantik ada di berbagai bidang tapi kalo kita bahas nya khusus di dalam programing kita liat
+dulu beberapa contoh ya.
+
+-------------------------------------------------------------------------------------------------------------------------------
+
+Semantic dalam Programming ?
+
+misal contoh yg pertama begini kalo misal kita punya baris" kode sepeti ini :
+
+let nilai1 = 10;
+let nilai2 = 20;
+
+nilai1 = nilai2;
+nilai2 = nilai1;
+-----------------------
+
+kalo kalian liat kira" ada yg salah ga dari kode yg saya tulis ini ? nah ini kode nya tidak ada yg salah
+tapi ketika baris" kode ini saya kasih konteks, misalnya saya ingin membuat sebuah program untuk
+menukar nilai. Isi dari variabel niali1 mau saya pindah kan ke variabel nilai2 dan isi dari variabel 
+nilai2 mau saya pindahkan variabel ke nilai 1.
+
+hingga pada akhir nya saya pengen nya tuh nilai1 berisi 20 dan nilai2 berisi 10. Nah dengan 
+melakukan seperti di atas itu jelas ada yang salah. Karena sekarang nilai nya, 22 nya malah jadi
+isi nya jadi 20 ( kalo ga paham telusuri geh codingan di atas dengan detai wowkwkw ). Nah ini 
+secara makna salah walaupun ini secara syntakx ini benar wkwkwk.
+
+Atau kita liat contoh lainnya. Seperti ini :
+
+function a(b, c) {
+   return b + c;
+}
+
+( ini javascript basic jadi gua gausah jelasin maksudnya gimana harusnya bisa. )
+---------------------------------------------------------------------
+
+lalu saat saya memanggil fungsi nya seperti ini (  a(10,20); ), ini juga gaada yg salah. Tapi kalo
+misalkan kita baca ada kemungkinan bingung ya, apalagi declarasi fungsi nya di bikin oleh orang 
+lain kita bertugas menuliskan kode untuk memanggil fungsi nya. Pasti bingung ini fungsi ( a ) itu
+berguna untuk apa.
+
+Alangkah baik nya kita bikin nama fungsi yg merepresentasikan kegunaan dari function nya. 
+Contohnya Gini :
+
+function jumlahkanDuaNilai(nilai1, nilai2) {
+    return nilai1 + nilai2;
+}
+------------------------------------------------------
+
+jadi kita kasih makna ke dalam Function kita nya ya. Jadi nantinya ketika fungsinya gini 
+( jumlahkanDuaNilai(10, 20);  )  dipanggil lebih masuk akal atau lebih memiliki makna jumlahkan 
+2 nilai ketika ketemu argument 10  dan 20 ini kita bisa berasumsi bahwa kita menjumlahkan 2 nilai
+yg ada di dalam Function nya.
+
+Kurang lebih seperti itu contoh sederhana semantic di dalam Programming. atau sekarang kita
+liat di dalam HTML5 ya.
+
+-------------------------------------------------------------------------------------------------------------------------------
+
+SEMANTIC DI HTML5 ?
+
+kita kasih contoh yg sederhana dulu. Misalkan saya punya hasil dari tulisan HTML seperti ini :
+
+teks 1 hasil nya Hello WPU!
+teks 2 hasil nya Hello WPU!
+--------------------------------------
+
+tulisan ke 2 itu persis sama, kira" bisa nebak ga teks 22 nya itu dibikin dari Tag apa ? keliatannya
+sama ya secara visual sama ya. Nah ini kalo kita liat pak dhika itu membuat teks nya dengan Tag
+yg berbeda. Begini :
+
+ <h1>Hello WPU!</h1>
+    <span style="font-weight: bold; font-size: 32px; 
+margin: 21px 0;">Hello WPU!</span>
+-----------------------------------------------------------------
+
+yg pertama menggunakan H1 yg ke 2 menggunakan Tag span yg di dalamnya dikasih style yg 
+menyerupai style default Heading1. Secara visual sama tapi tulisan yg pertama secara Semantic
+benar, karena tujuan nya untuk membuat heading atau judul. 
+
+Sedangkan yg ke 2 itu saya menyisipkan preseptasi atau style visual ke dalam sebuah Tag yg 
+tidak memiliki makna, kebetulan span itu tidak memiliki makna sama seperti div. div dan span itu
+Tag yg tidak memiliki makna, jadi jangan menggunakan yg ke-2 kalo memang tujuannya ingin
+membuat judul atau Heading pada sebuah halaman.
+
+gunakan lah Tag yg sesuai dengan peruntukan nya, karena hampir semua Tag itu memiliki makna
+didalamnya. Jadi kurang lebih semantic itu seperti itu.
+
+-------------------------------------------------------------------------------------------------------------------------------
+
+ALASAN MENULIS SEMANTIC HTML
+
+alasan kita harus menulis html nya secara semantic. Ada 3 alasan utama nya
+
+- Accessibility (mudah dibaca user)
+- Maintainability (mudah dibaca developer)
+- SEO (mudah dibaca mesin pencari)
+
+jadi itu 3 alasan utama knp kita harus menulis secara semantic. Atau istilah nya supaya lebih 
+gampang mengingat nya. alasan pertama itu agar HTML kita mudah dibaca oleh user, yg ke-2
+agar HTML kita mudah dibaca oleh developer, dan yg ke-3 agar HTML kita mudah dibaca oleh 
+mesin pencari.
+
+(2) ALASAN MENULIS SEMANTIC HTML
+
+- HTML harus di tulis dengan mrepresentsikan data yang akan ditampilkan, bukan berdasarkan
+  bagaimana dia ditampilkan (style).
+- Memudahkan aksesibilitas, terutama saat menggunakan screen reader.
+- Lebih mudah untuk mencari & mengelola code yang memilik makna.
+- Berpengaruh pada SEO, karena semantic HTML dianggap oleh mesin pencari sebagai kata 
+  kunci yang penting.
+
+Atau yg lebih detail lagi yg pertama HTML ituharus ditulis dengan merepresentasikan data yang 
+akan ditampilkan, jadi kita mau nampilin data apa, bukan berdasaran bagaimana dia ditampilkan 
+(style). ya bagaimana ditmapilkan itu warna nya apa ukurannya berapa style nya seperti apa nah
+itu bukan.
+
+tapi kita harus tulis dia tuh sebetulya data apa, jadi setiap data yg kita tulis harus di bungkus
+dengan sebuah tag yg sudah kita tau maksud nya apa. kaya misal mau bikin tulisan pake lah
+Tag (p) terus mau bikin tombol pake lah Tag (button).
+
+berikutnya memudahkan aksesibilitas, terutama saat menggunakan screen reader ketika halaman 
+web kita dibaca oleh teman" kita yg memiliki disabilitas, misalnya ada kesulitas penglihatan.
+
+berikutnya  sebagai developer kita jadi lebih mudah untuk mencari & mengelola code yang memiliki 
+makna, nanti kita akan liat bedanya kode yg gapake semantic dengan kode yg menggunakan
+semantic.
+
+
+-------------------------------------------------------------------------------------------------------------------------------
+
+ELEMENT di HTML5?
+
+nah sebelum kita membahas mengenai Tag" apa saja yg harus kita perhatikan saat kita mau 
+membuat halaman web yg semantic kita akan lihat dulu element" apa aja yg sekarang ada 
+di HTML5. Ya sebetulnya seperti yg pak dhika bilang tadi hampir semua element yg ada di HTML5
+Tag HTML5 itu sudah ada peruntukan nya sendiri".
+
+Yang kalo kita lihat didalam HTML5 tuh elmentnya itu dibagi jadi beberapa kategori. 
+
+Kategori Element HTML5
+
+- Metadata
+- Flow
+- Sectioning
+- Heading
+- Phrasing
+- Embedded
+- Interactive
+
+yg kalo misalkan kita liat pembagian nya itu diagramnya kalian bisa lihat seperti ini :
+
+( poto nya ad di folder ya )
+
+ada beberapa element yg dia masuk kedalam kategori yg berbeda. Contohnya kalo kalian liat
+di bagian embedded itu berarti ada element" yg merupakan kategori nya embedded tapi dia juga 
+merupakan Phrasing juga dan dia merupakan Flow element juga.
+
+jadi ada misal 1 elemenet dia masuk ke 3 kategori yg ada begitu maksudnya. Kalo kalian mau lihat 
+lebih detail bisa kunjungin link web di bawah ini :
+
+( https//html.spec.whatwg.org/multipage/com.html#content-categories )
+
+-------------------------------------------------------------------------------------------------------------------------------
+
+Nah yg pembagian tag nya kalo kita lihat secara singkat contohnya seperti ini :
+
+- Metadata content :
+base, link, meta, noscript, script, style, template, title.
+
+nah Metadata ini biasanya kita pake untuk mendeskirpsikan informasi dari websaite kita dan biasa
+nya yang ada di dalam metadata tidak tampil ke layar.
+
+- Flow content :
+( liat aja di folder soalnya panjang benget )
+
+nah ini adalah secara umum element" yg kita pake di dalam halaman web kita. Jadi hampir semua
+nya masuk kedalam flow element.
+
+- Sectioning content :
+article, aside, nav, section.
+
+nah ini yg penting nih Sectioning element adalah element" yg biasa kita gunakan untuk menjelas
+kan bagian" tertentu dari websaite kita dan ini biasanya sebelum di html5 itu kita gunakan Tag div
+untuk membuat sectioning atau bagian" dari halamnya.
+
+jadi sebelumnya itu kita punya div dengan class header terus div dengan class footer,
+Nah kalo sekarang ada element" nya sendiri.
+
+- Heading content :
+h1, h2, h3, h4, h5, h6, hgroup
+
+ini untuk menuliskan judul.
+
+- Phrasing content
+(liat aja di folder ya panjang soalnya )
+
+ini digunakan untuk menjelaskan informasi yg ada didalam halaman web kita baik itu tulisan
+ataupun element" media ya. Misalnya gambar, audio, vidio, tombol dll.
+
+- Embedded content
+audio, canvas, embed, iframe, img, math, object, picture, svg, video.
+
+nah ini adalah element" multimedia yg bisa kita masukan ke dalam halaman Web kita.
+
+- Interactive content
+a*, audio*, button, details, embed, iframe, img*, input*, keygen, label, object, select, textarea, video.
+
+ini element" yg bisa kita berikan interaksi, misalnya bisa di klik bisa dipilih atau bisa diganti isinya
+dll.
+
+-------------------------------------------------------------------------------------------------------------------------------
+
+nah sekarang setelah kita tau element" yg ada di dalam HTML5 dan kita sudah tau kategori nya apa
+saja. Nah sekarang kita liat bagaimana menerepkan semantic element pada halaman Web kita.
+
+Contoh pas masih pake HTML4:
+( ada di folder potonya )
+
+Nah saya mau ambil contoh waktu kita bikin websaite pake HTML4 itu kan biasa nya kita membagi
+tiap" halamannya menggunakan DIV. Karena memang div itu sebetulnya element yang tidak punya
+makna, dia hanya digunakan sebgai pembungkus atau tempat kita menggabungkan beberapa Tag
+atau element html.
+
+dari artinya aja kan division, jadi dia gunanya untuk membagi aja apa yg dibagi nya ? seterah kita
+mau tulisan mau gambar bebas. jadi makna nya kita yg kasih menggunakan id atau class yg 
+sekali lagi itu hanya bisa dibaca oleh developernya aja. Pada saat dibaca oleh screen reader yg
+dibaca hanya isi nya aja nah itu waktu kita bikin nya pake html4.
+
+nah sekarang kalo misalkan kita mau menerjemahkan jadi HTML5 hampir semua nama atau 
+penanda yg kita berikan di HTML4 itu ada Tag HTML nya sendiri. 
+
+Contoh menggunakan HTML 5 :
+
+  <div class="container">
+        <header></header>
+        <nav></nav>
+        <main>
+            <article></article>
+            <article></article>
+            <article></article>
+        </main>
+        <footer></footer>
+    </div>
+
+( ada juga yg lebih jelasnya di folder ya )
+
+-------------------------------------------------------------------------------------------------------------------------------
+
+LIHAT PERNEDAANYA !!!
+
+<!-- HTML4-->
+    <div id="header"></div>
+    <div id="sidebar"></div>
+    <div class="main">
+        <div class="section">
+            <div class="article">
+                <div class="figure">
+                    <img>
+                    <div class="figcaption"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="footer"></div>
+
+    <!-- HTML5 -->
+    <header></header>
+    <main>
+        <section>
+            <article>
+                <figure>
+                    <img>
+                    <figcaption></figcaption>
+                </figure>
+            </article>
+        </section>
+    </main>
+<footer></footer>
+
+jadi kalo teman" mau bikin websaite itu disarankan gunakan element yg semantic nya walaupun
+kalo kalian liat beberapa web pada saat ini yg populer pun masih ttp ada yg menggunakan div
+sebagai element untuk groping nya dan ada juga yg sudah gunakan semantic.
+
+-------------------------------------------------------------------------------------------------------------------------------
+
+Nah sekarang kita liat beberapa contoh element semantic di HTML5 yg tugas nya untuk membagi
+halaman tadi ya.
+
+Contoh Semantic ELEMENT HTML5
+- <main>
+- <nav>
+- <section>
+- <header>
+- <footer>
+- <article>
+- <aside>
+dan masih ada beberapa yg lain, kalo kalian mau lebih tau detail cara pake nya kalian bisa kunjungi
+web dibawah ini :
+( https://developer.mozilla.org/en-US/docs/Web/HTML/Element#sectioning_root )
+
+Margin :
+
+kita ambil contoh kalo misalkan kita mau tau cara pake <main> deh. Katanya tag <main> itu
+merepresentasikan content yg dominan di dalam body dari document kita, nah content utama ini
+teridiri dari konten" yg berhubungan langsung dengan topik utama dari halaman web kita atau
+sebagai fungsionalitas central dari aplikasi kita.
+
+dan tag <main> ini hanya boleh ada satu didalam satu halama web. sebuah document tidak boleh
+memiliki lebih dari satu Tag <main> yg tidak punya attribute hidden. Jadi kalo mau lebih dari satu
+itu boleh tapi itu adalah element yg awal nya di sembunyikan dulu. Misalkan di munculkan nya
+menggunakan Javascript atau menggunakan teknik lain.
+
+misal kalo menggunakan Javascript itu kalo awal nya kita hidden terus kita klik apa gitu nah jadi
+ada tuh tag <main> nya misalnya ya. Terus ada cara pakai nya jadi isi dari <main> harus unique
+terhadap document nya. Kalo konten nya berulangcontoh nya kaya sidebar atau navigation biasa
+kan navigation ada di atas kadang di bawah. Itu gaboleh dimasukan ke dalam main nya.
+
+terkecuali fungsi utama dari halamannya adalah form pencarian jadi penjelasan setiap tag
+semanticnya sudah lengkap ada di mozilla ya jan lupa pelajarin.
+
+Section :
+
+nah ini biasanya dipake untuk ngegantiin div yg kita kasih id apa gitu ya. Jadi section ini 
+merepresentasikan sebuah bagian yg berdiri sendiri dari document, yg dimana didalamnya tidak
+memiliki element semantic yg spesifik. Jadi biasanya kalo misalnya saya punya web porfolio yg
+ada bagian about nah itu saya masukin kedalam section about. misal saya punya bagian galery, 
+nah saya bungkus kedalam tag section untuk galery.
+
+Contoh nya misal kalo saya punya 2 buah artikel yg punya judul dan paragraf yg berbeda, kita
+bisa masukan ke dalam section, atau kalo mau lebih spesifik bisa dimasukan ke dalam Tag 
+article.
+
+satu hal yg penting ketika menggunakan section adalah setiap section itu harus bisa di identifikasi
+biasanya dengan menambahkan heading didalam nya. Heading nya boleh h1-h6 jadi judul section
+nya isitilahnya lah ya.
+
+( https://developer.mozilla.org/en-US/docs/Web/HTML/Element#sectioning_root )
+
+-------------------------------------------------------------------------------------------------------------------------------
+
+Nah sekarang gimana kalo misalkan kita ingin menambahkan semantic pada element yg tidak
+semantic. contohnya tadi yg dia tuh gapunya tag semantic nya. Tapi kita pengen bikin agar element
+nya ttp baik ketika dibaca oleh screen reader khususnya untuk akses aksesibillity ya.
+
+Nah ini cara nya dengan menambahkan sesuatu yg dinamakan WAI-ARIA ini singkatan dari
+( Web Accessibillity Initiative - Accessible Rich Internet Applications ) ini nanti detial nya akan kita
+bahas di materi tentang Accessibillity tapi supaya teman" dapet gambaran singkatnya kita akan
+cobain ya.
+
+misalnya sekarang kita punya contoh khasus sederhana ya seperti ini :
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Semantic HTML</title>
+</head>
+<body>
+    <h1>Welcome to My Site</h1>
+    <div id="navigation">
+        <h2>Navigation Title</h2>
+        <ul>
+            <li><a href="#">Link 1</a></li>
+            <li><a href="#">Link 2</a></li>
+            <li><a href="#">Link 3</a></li>
+        </ul>
+    </div>
+</body>
+</html>
+--------------------------------------------------
+
+jadi saya punya websaite sederhana aja, kalo kita lihat web nya gaad yg aneh ya. Tapi gimana
+kalo web nya kita lihat menggunakan screen reader ( kita harus download screen reader ya gays ).
+
+menginstal sebuah extancen kalo pake chrome ( serching aja screen rader di chrome nya ), 
+nah nanti ketika dijalankan dia akan membaca websaite kita. kalo kita pindah ke halaman web kita,
+nanti dia akan membaca nya.
+
+tapi dia bacain dulu title nya terus baru berikut nya kita bacakan Halamannya. atau kita navigasi
+menggunakan ( shift + alt + atas atau bawah ). seperti itu lah ya, jadi dia ngasih tau bahwa ada
+tulisan Welcome to My site yg bentuk nya H1.
+
+kalo saya pencet lagi ( shift + alt +  bawah ), nah dia ngebaca Navigation title H2. jadi dia ngeskip
+div kita, jadi orang yg mengakses websaite kita menggunakan screen reader gatau kalo bakal
+ketemu kumpulan navigasi.
+
+ya walaupun kalau kita lanjutkan lagi pencet ( alt + shift + bawah ), dia akan membaca link pertama
+dia kasih tau ada link ke satu dari ke 3 link katanya. Nah tapi ada hal penting yg keskip. Nah itu dia
+akan ketemu sebuah div navigation jadi div nya ke skip.
+
+-------------------------------------------------------------------------------------------------------------------------------
+
+Nah sekarang kita ganti aja div nya menjadi tag semantic <nav> kalo kita ganti itu ada informasi
+tambahan yg di kasih tau sama screen reader nya. Tuh jadi dia bilang dulu bahwa kita masuk ke
+sebuah navigation baru ada judul navigasi nya apa dalam bentuk h2.
+
+Nah jadi yg mendengarkan web kita dia tau dulu, oh saya mau ketemu navigation jadi itu kenapa
+kita menggunakan element semantic. Tapi kita balik ke topik kita kalau misalnya ttp pake div
+seperti tadi lah ya. Tapi kita mau bikin di jadi sebuah semantic element tanpa merubah dia menjadi
+Tag <nav>.
+
+Nah itu kita bisa tambahin aria nya, yg pertama kita bisa kasih dia ( role ) nya apa dulu, dia mau jadi
+apa, misalnya saya mau buat dia jadi sebuah navigation. Nah begitu kita kasih role nya Navigation
+kalo saya coba lagi dia jadi sama aja saat menggunakan Tag <nav>.  Seperti ini :
+
+ <h1>Welcome to My Site</h1>
+    <div id="navigation" role="navigation">
+        <h2>Navigation Title</h2>
+        <ul>
+            <li><a href="#">Link 1</a></li>
+            <li><a href="#">Link 2</a></li>
+            <li><a href="#">Link 3</a></li>
+        </ul>
+    </div>
+-------------------------------------------------
+
+Jadi itu cara kita kalo mau ngasih semantic ke element nonsemantic. Bahkan lebih jauh nya kita 
+bisa kasih dia sebuah label. Misalnya mau ada namanya nih kita bisa kasih ( aria-label ), misalnya
+my-main-navigation. Seperti ini :
+
+ <h1>Welcome to My Site</h1>
+    <div id="navigation" role="navigation" aria-label="my-main-navigation">
+        <h2>Navigation Title</h2>
+        <ul>
+            <li><a href="#">Link 1</a></li>
+            <li><a href="#">Link 2</a></li>
+            <li><a href="#">Link 3</a></li>
+        </ul>
+    </div>
+-------------------------------------------------
+
+tuh jadi ada informasi tambahan lagi di depan nya my main navigation bentuk nya navigation baru 
+kita masuk ke navigation title nya. ya untuk ini nanti kita akan bahas lebih lanjut di saat masuk
+ke vid accesibility.
+
+sebisa mungkin gunakan lah Tag sesuai makna dan peruntukannya secara semantic karena tadi
+manfaat nya banyak sekali ygays.
+-------------------------------------------------------------------------------------------------------------------------------
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

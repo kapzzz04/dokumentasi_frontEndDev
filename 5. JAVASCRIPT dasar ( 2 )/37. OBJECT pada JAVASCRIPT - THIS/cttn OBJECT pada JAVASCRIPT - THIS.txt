@@ -1,0 +1,273 @@
+OBJECT pada JAVASCRIPT - THIS
+
+
+nah di video kali ini kita akan membahas sebuah konsep yg dinamakan dengan ( THIS )
+nah untuk memahami this ini syrat nya memang kita harus paham betul dulu bagaimana
+membuat dan memanggil object dengan berbagai cara seperti tadi.
+
+kenapa kita harus paham dulu??, karena saat kita membuat dan memanggil object khususnya
+menggunakan Function, nanti kita akan berada pada sebuah context atau sebuah keadaan
+yg berbeda nah tergantung bagaimana cara kita membuat dan memanggil Functionnya, jadi
+ketika kita membuat dan memanggil Functionnya dengan cara yg berbeda, kita nanti akan
+berada pada contect yg berbeda pula.
+
+kalo bingung kita liat contoh nya aja ya, karena memang topik this ini, cukup mebingungkan
+apalagi untuk para pemula.
+
+------------------------------------------------------------------------------------------------------------------------------
+
+oke sebelum kita masuk mengenai this, gimana kalo kita riviwe dlu cara pembuatan dan
+pemanggilan object yg sudah kita pelajari di video sebelumnya ya.
+
+sekarang kita buat object dulu ya, nah cara pertama itu kita bisa bikin dengan menggunakan
+Function declaration, jadi ini cara nya kita cukup membuat Function biasa saja tapi didalamnya
+ada object kosong misalnya saya punya sebuah Function nama nya ( halo() ).
+
+dan didalamnya kita buat ( console.log ("halo world"); ) misalkan, nah ini cara membuat
+Function declaration biasa, didalam nya kalian nanti bisa bikin object seperti kalian bisa bikin
+misalkan ( var obj = {}; ), di isi dengan object kosong, tapi kita contoh kan kita bisa memanggil
+Function declaration biasa aja seperti ini :
+
+function halo() {
+    console.log('halo');
+}
+
+halo();
+
+nah itu cara pertama membuat Function declaration biasa, nah cara memanggilnya gimana??
+kalian cukup panggil nama Function nya lalu dengan kurung buka kurung tutup, nah nanti
+itu akan mengembalikan nilai halo, nah ini cara pertama menggunakan Function Declaration
+yg bagian dasar cara menggunakan function declaration, ku hrapa kau ga bingung ya, anggap
+aja ini tuh belajar dasar kek dulu gitu jadi gausah bingung maksudnya gimana.
+
+------------------------------------------------------------------------------------------------------------------------------
+
+nah cara ke-2 itu kita bisa bikin pake object literal, jadi kita bisa langsung bikin objectnya
+misalnya kita bikin variabel namanya ( obj ) terus di isi dengan object kosong gini ( var obj = {}; ),
+lalu misal kita bisa bikin sebuah Function didalam object ini atau kita sebut dengan method ya.
+
+kalian tinggal tulis obj.halo, misalnya saya mau buat sebuah method nama nya halo yg berisi
+sebuah Function yg mengembalikan console.log('hello') seperti ini codingannya :
+
+var obj = {};
+obj.halo = function () {
+    console.log('hallo');
+}
+
+ini kita baru bikin object dan method nya, cara manggilnya kita panggil object nya tiitk halo
+seperti ini (  obj.halo();  ).
+
+nah kalo kita jalankan tampilnya sama persis dengan kita jalankan menggunakan function
+declaration.
+
+------------------------------------------------------------------------------------------------------------------------------
+
+cara ke-3 adalah menggunakan constructor function
+
+klo menggunakan constructor ini kita butuh kyword NEW, jadi kita bikin dulu Function nya
+lalu nama function nya inget kalo menggunakan constructor nama depan nya harus huruf
+KAPITAL YA, kita namain Halo aja yg didalam nya console.log('halo') sama aja.
+
+cara bikin nya sama seperti function declaration, yg beda adalah cara manggil nya, cara
+manggil nya kalian bisa menggunakan kyword new, atau kita bisa simpan ke dalam variabel 
+sama aja.  CODINGAN NYA :
+
+function Halo() {
+    console.log('halo');
+}
+
+new Halo();
+
+nah tampilnya sama aja, jadi ke 3 hal tersebut menampilkan hal yg sama tapi yg harus kalian
+pahami adalah Context nya berbeda, ya cara membuat dan memanggil nya berbeda, contextnya
+berbeda, akhirnya pemahaman itu akan ke pake ketika kita belajar mengenai this.
+
+------------------------------------------------------------------------------------------------------------------------------
+
+THIS
+
+jadi sekarang kita masuk ke konsep this, jadi gini this adalah sebuah kyword spesial
+yg secara otomatis itu di definisikan di setiap function, jadi setiap kalian bikin funciton 
+atau bikin object lah ya sama aja, menggunakan cara apapun itu otomatis ada kyword this
+yg di definisikan.
+
+contoh nya gini, saya langsung tulis gini ya console.log(this); gitu, saya cuma tulis itu aja
+ada kah this, nah pas cek di console langsung ternyata this itu berisi sesuatu, kalo kita
+tulis console.log(this); seperti ini maka secara default isi dari kywrod this atau variabel this
+adalah window, atau bisa disebut dengan object Global, object window adalah object global.
+
+jadi ini sama aja ketika saya tulis console.log(window); maka isi nya sama aja, misal saya
+tulis gini window === this, jadi apakah window sama dengan this, maka hasilnya TRUE.
+
+------------------------------------------------------------------------------------------------------------------------------
+
+nah sekarang gini misalnya saya punya variabel nama nya ( a ) di isi angka 10, kalo saya
+console.log(a); itu pasti nilai nya 10 ya, nah tapi saya juga bisa tulis ( this.a ), nah ini sama aja
+karena this itu kan window, nah kalo saya ganti dengan window gin (  console.log(window.a);  ),
+nah itu sama aja.
+
+jadi setiap kita membuat variabel di scope global nah itu sama aja dia adalah property atau
+method dari object window, karena object window sama dengan objecttis makannya kita bisa
+ganti window nya dengan this.
+
+ya jadi Context yg pertama seperti itu, jadi kalo kita bikin di scope global this adalah window,
+itu yg pertama.
+
+------------------------------------------------------------------------------------------------------------------------------
+
+nah gimana kalo kita coba menjalankan this pada tiap" cara membuat object tadi yg 3 itu,
+nanti kita liat Context dari this nya itu berbeda-beda.
+
+kita coba cara ke 1 dulu jadi cara pertama itu menggunakan Function Declaration
+
+codingan awal seperti ini :
+
+function halo() {
+    console.log('halo');
+}
+
+halo();
+
+tadi tampil nya halo ya, tapi gimana kalo gini, di dalam function nya saya tulis console.log(this);
+seperti ini :
+
+function halo() {
+    console.log(this);
+    console.log('halo');
+}
+
+halo();
+
+nah hasilnya ternyata sama seperti kita bikin this di scope global, nah sama aja karena kalo 
+kalian inget property dan method, property itu adalah variabel yg ada di dalam object, sedangkan
+method function yg ada di dalam object, nah scope global itu adalah window, anggap aja object
+window gitu, saat kita bikin ( var a = 10;  ), berarti kita bisa bilang object window di dalamnya
+ada sebuah property a isi nya 10.
+
+nah sekarang kalo saya tulis halo(); begini, kan dia menjalankan function ya, itu sama aja
+dengan saya tulis window.halo(); karena dia scopenya global, nah artinya saya juga bisa
+ganti window itu dengan this ( this.halo(); ), jadi sama ya.
+
+ketika kita bikin function declaration this adalah mengembalikan object global, itu yg pertama ya
+jadithis pada function declaration Context nya adalah mengembalikan object global.
+
+------------------------------------------------------------------------------------------------------------------------------
+
+cara ke 2 menggunakan object Literal
+
+var obj = {};
+obj.halo = function () {
+    console.log('hallo');
+}
+
+obj.halo();
+
+nah kita liat sekarang klo kita pake object literal this itu maksudnya apa, nah di dalam function
+kita panggil console.log(this); sama" manggil this, sama" di dalam function, tapi karena kita
+membuat dan memanggil object Literal, kalo kita liat di console reaksi nya berbeda seperti ini 
+hasil nya :
+
+{halo: ƒ}halo: ƒ ()[[Prototype]]: Object
+hallo
+
+sekarang dia mengembalikan object ini ( obj.halo(); ), jadi hanya kembalikan object ini, 
+atau istilah nya object yg bersangkutan atau object itu sendiri lah ya.
+
+nah kalo saya tambahkan sebuah property di object nya seperti ini ( {a : 10, nama : 'kala'}; ),
+nah ini artinya saya tambahkan propety saat membuat objectnya lalu saya tambahkan
+method di bawahnya, begitu saya console.log(this); nah reaksi di console nya itu gimana :
+
+codingan nya :
+
+var obj = { a: 10, nama: 'kala' };
+obj.halo = function () {
+    console.log(this);
+    console.log('hallo');
+}
+
+obj.halo();
+----------------------------
+di console nya :
+
+{a: 10, nama: 'kala', halo: ƒ}
+ hallo
+
+nah tuh liat yg dikembalikan object nya beserta semua isi nya ada peroperty a,nama dan
+ada method hallo, jadi cara 2 menggunakan object literal this adalah mengembalikan object
+yang berkesangkutan
+
+------------------------------------------------------------------------------------------------------------------------------
+
+nah cara ke-3 menggunakan constructor Function
+
+codingan awal :
+
+function Halo() {
+    console.log('halo');
+}
+
+new Halo();
+
+kalo kita menggunakan constructor function in mirip sebetulnya dengan object literal ya,
+kita lihat, kalo kita menuliskan console.log(this); di situ, karena ini sebetulnya sama persis
+dengan Function declaration bedanya pada sat manggilnya aja kalo yg tadi langsung halo 
+kalo sekarang pake new.
+
+kalo langsung halo manggil nya this berisi window atau object global, tapi begitu pake
+new di depan nya, nah kita liat, nah ternyata mengembalikan object nya, tapi bukan object
+yg function Helo, tapi dia mengembalikan object yg baru di buat yg ( new Helo();  ), jadi kan
+new itu membuat instan.
+
+codingan nya :
+
+function Halo() {
+    console.log(this);
+    console.log('halo');
+}
+
+new Halo();
+--------------------------
+di console nya :
+
+Halo {}
+ halo
+
+jadi this nya mengembalikan object yg baru di buat, contoh nya saya buat var obj1 = new Helo(); 
+maka this adalah obj1, kalo saya tulis di bawah nya var obj2 = new Halo(); nah ini sama"
+memuat instan dari object Halo, tapi sekarang this nya beda".
+
+yg obj1 itu this nya untuk object baru itu si function Helo, sedangkan obj2 this nya adalah untuk 
+obj2, jadi menggunakan  constructor this nya mengembalikan object yg baru dibuat, nanti
+contoh khasusnya akan jelas ketika kalian sudah bersangkutan dengan DOM.
+
+jadi sekarang inget" aja apa yg dikembalikan kyword this ketika kita memanggil Function atau
+object nya dengan cara yg berbeda.
+
+------------------------------------------------------------------------------------------------------------------------------
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

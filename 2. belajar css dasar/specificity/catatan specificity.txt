@@ -1,0 +1,355 @@
+SPECIFICITY
+
+setiap deklarasi css (selector)
+memiliki berat yang berbeda. Berat
+tersebut menentukan seberapa
+spesifik sebuah elemen dipilih 
+oleh selector.
+----------------------------------------------------------
+jadi begini jika sebuah HTML mempunya 1 paragraf saja dan mempunyai 
+CSS seperti di bawah ini.....
+
+p {
+	color: red;
+}
+
+p {
+	color: green;
+}
+
+di itu ada 2 perintah pertama pengen (p) nya jadi warna merah
+yang perintah ke dua (p) nya pengen warna hijau 
+
+yang akan terjadi jika itu ada di dalam satu CSS itu akan 
+(p) nya berubah menjadi HIJAU 
+
+karna dia paling bawah , tapi ada lagi 
+
+--------------------------------------------------------------------
+
+jadi begini jika sebuah HTML mempunya 1 paragraf saja dan mempunyai 
+CSS seperti di bawah ini.....
+
+#p1 {
+	color: red;
+}
+
+p {
+	color: green;
+
+
+nah jika CSS seperti itu yang berubah akan menjadi warna MERAH
+tidak berwarna HIJAU 
+
+karna dia menggunakan selector (ID)
+selector (ID) lebih besar dari selector elemen (P) saja
+
+jadi cara menghitung nya begini
+
+di bawah ini ada empat 0
+
+0000  , nah
+
+jadi urutan nya 
+
+0 pertama di isi oleh = inline
+0 kedua di isi oleh = id
+0 ketiga di isi oleh = class
+0 ke empat di isi oleh = element
+
+------------------------------------------------------------------------------
+
+jadi begini cara ngitung contoh kodingan di atas
+
+kan sesuai contoh 0 di atas ya
+
+misal 
+ #p1 berada di 0 kedua ya jdi gini
+
+0100 ini kan soal nya id ada 1 saja tidak lebih
+
+dan 
+ (P) berada di 0 keempat
+
+0001 karna kan element nya 1 aja ya
+
+jika di banding kan 0100 dengan 0001 lebih banyak mana nominal nya secara
+logika , jelas gedean 0100 kan , nah karna itu warna yang akan berubah
+jadi merah tidak hijau.
+
+-----------------------------------------------------------------------------------
+
+contoh lagi ini
+
+
+HTML 
+
+<ul id="sarapan">
+	<li class="favorit">nasigoreng</li>
+	<li>mie goreng</li>
+	<li>bubur ayam</li>
+	<li>nasi kuning</li>
+</ul>
+
+CSS 
+
+ul#sarapan li {
+	color: green;
+}
+
+.favorit {
+	color: red;
+}
+
+yang CSS itu di baca nya CSS TOLONG CARI KAN (LI) YANG DI DALAM 
+(UL) YANG UL NYA MEMPUNYAI (ID SARAPAN) 
+
+lalu warna nya paasti HIJAU 
+ 
+tapi saya pengen yang NASIGORENG itu berubah menjadi warna
+MERAH sendiri tidak hijau seperti yang lain 
+
+ini karna spesifik nya lebih berat jadi tidak bisa menjadi warna MERAH
+jdi begini penjelasan nya 
+
+kita itung kaya 0 di atas ya
+
+kan css pertama itu 
+
+ul 1 element
+#sarapan 1 id
+li 1 element
+
+jdi kan misal 0000
+
+nah ini 0102
+kan gitu menyesuaikan yang ada 
+
+sedang kan 1 nya lagi hanya mempunyai 
+
+1 class yaitu .favorit 
+
+jadi 0010
+
+jika di banding kan dengan 0102 dengan 0010 itu akan menang 0102
+karna kan lebih besar dia ya
+
+jadi lah warna hijau semua yang itu ga di anggap karena udah kalah besar nya
+
+
+- buat elemen yang diingin kan 
+  agar menjadi lebih SPESIFIK
+
+- tambahkan beban pada elemen 
+  tersebut agar semakin berat 
+
+
+--------------------------------------------------------------------
+
+jadi agar bisa berubah jadi warna  MERAH yaitu CSS yang 
+bagian class .favorit di ubah jadi liat di bawah ini
+
+
+HTML 
+
+<ul id="sarapan">
+	<li class="favorit">nasigoreng</li>
+	<li>mie goreng</li>
+	<li>bubur ayam</li>
+	<li>nasi kuning</li>
+</ul>
+
+CSS 
+
+ul#sarapan li {
+	color: green;
+}
+
+ul#sarapan li.favorit {
+	color: red;
+}
+
+nah itu sudah di ubah 
+jadi di baca nya yaitu 
+
+CSS TOLONG CARIKAN (LI) YANG MEMPUNYAI (CLASS .FAVORIT)
+YANG DI DALAM NYA UL YANG (UL NYA MEMPUNYAI ID #SARAPAN)
+
+jika sudah tag nya di ubah menjadi seperti itu warna NASI GORENG 
+akan menjadi warna MERAH tapi yang lain nya juga tetap hijau
+
+begini cara itung nya
+
+peratama
+
+inline ada 0
+id ada 1 yaitu #SARAPAN
+class ada 0
+elementn ada 2 yaitu LI DAN UL
+
+jadi 0102
+
+
+terus yang kedua
+
+inline ada 0
+id ada 1 yaitu #SARAPAN
+class ada 1 yaitu .FAVORIT
+element ada 2 yaitu LI DAN UL
+
+jadi 0112
+
+jika di bading kan 0102 dengan 0112 akan menang 0112
+karna dia lebih besar nominal nya jadi begitu cara itung SPECIFICITY
+ya gaysss
+
+INI BERGUNA JIKA SUATU SAAT MEMPUNYAI CSS PUNYA ORANG
+TERUS INGIN MENGGUNAKAN CSS ORANG ITU DAN KITA INGIN 
+MENGUBAH SEDIKIT , TAPI SAAT DI UBAH TAG YANG KITA TAMBAHKAN
+ADA YANG GAK BISA ITU KARNA BEBAN NYA KALAH SAMA
+CSS YANG KAMU PAKE JADI HARUS DI TAMBAHKAN BEBAN NYA
+BEGITU
+
+kalo bingung cara ngitung nya bisa ke websaite
+
+http://specificity.keegan.st
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

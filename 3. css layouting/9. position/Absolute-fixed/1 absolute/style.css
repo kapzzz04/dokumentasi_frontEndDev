@@ -1,0 +1,64 @@
+div {
+    width: 200px;
+    height: 200px;
+    margin: auto;
+}
+
+.satu {
+    background-color: aqua;
+}
+
+.dua {
+    background-color: cornflowerblue;
+    position: absolute;
+    left: 0px;
+    top: 0px;
+}
+
+/* tag di atas menjelaskan , kenapa dia bisa berada di atas sebelah kiri karna dia
+sudah berada naik satu dimensi dan dia menimpa elemen yang ada di atas atau di bawahnya
+, nah kenapa itu memakai elemen top: 0px; malah naik ke atas seharusnya kan 
+menjaga jarak dri yang atas nya, itu karna properti absolute jadi properti absolute
+top dan left nya berbeda dari elemen yang lain*/
+
+.tiga {
+    background-color: indianred;
+    margin-bottom: 300px;
+}
+
+.pembungkus {
+    width: 600px;
+    height: 650px;
+    border: 4px solid black;
+    position: relative;
+}
+
+.satu1 {
+    background-color: aqua;
+
+}
+
+.dua2 {
+    background-color: blue;
+    position: absolute;
+    right: 0px;
+    top: 0px;
+}
+
+/* seharusnya jika sudah di kasih right: 0px; dan top: 0px; kotak nya
+harusnya berada di pojok kanan atas di parent nya nah kita udah kasih perent-nya
+, parent-nya kan .pembunngkus itu harusnya di posisi si perent nyakan */
+
+/* pas kita coba posisi nya malah ada di pojok kanan atas dan keluar dari pembungkusnya
+, kenapa bisa begitu karna kita kasih dia properti absolute tanda nya elemen itu
+sudah naik 1 dimensi dan pembungusnya itu beda di mensi atau di bawahnya si elemen ini
+jadi otomatis keluar dari pembungkusnya */
+
+/* jadi agar dia tidak keluar dari pembunkusnya atau dari parent yang sudah kita buat
+yang membungkus si kotak biru nya , caranya dengan kita menaikan dimensi si pembungkusnya
+gimana cara naikin dimensi si pembungkusnya, cara nya menggunakan elemen relative
+jadi gitu  */
+
+.tiga3 {
+    background-color: chartreuse;
+}

@@ -1,0 +1,525 @@
+#24 - Membuat WEBSITE RESPONSIVE menggunakan CSS GRID
+
+Kita akan membuat sebuah websaite ya, disitu kita harus punya sebuah gambar yg lebar nya 800 x 600, lalu untuk featurs nya untuk sebelah kanan 1024x1024, dan 1280x1280. Sekarang kita akan bikin dulu file index kita ya. Nanti kalo kita mau memakai font nya google bisa pake aja ya.
+(https://fonts.google.com/).
+
+kita buat file css nya dan seperti biasa kasih css resetnya kek gini :
+
+* {
+    margin: 0;
+    padding: 0;
+}
+---------------------
+
+itu artinya semua selector css saya kasih margin dan padding nya 0. lalu kita kasih img nya width nya 100%, body nya kasih font-size 18px kasih margin nya 50px supaya sekeliling ada jarak gitu.
+lalu kita juga mau kasih font dari google namanya oswald :
+
+body {
+    background-color: #ddd;
+    font-size: 18px;
+    font-family: 'Oswald', Arial, Helvetica, sans-serif;
+    margin: 50px;
+}
+------------------------------------------
+
+Pertama kita mau bikin containernya dulu karena kita mau bikin semua nya jadi grid maka itu kita bungkus kedalam sebuah container, walaupun nanti tiap element yg ada didalam nya mungkin aja saya bikin jadi grid juga jadi nanti ada grid didalam gird.
+
+nah element yg pertama yg akan kita buat bagian header nya walaupun navigasi (si menu nya) muncul nya paling atas, tapi itu bisa muncul karena nanti urutan nya kita ubah, kalian inget kita punya order supaya ngatur urutan.
+
+kita bikin header nama class nya header, yg isinya ada 3 bagian , gambar di sebelah kiri terus di sebelah kanan nya ada link, jadi yg kiri itu saya mau bikin div nama class nya hero, dan yg link nya saya mau bikin itu namanya features, dan saya kasih 2 class dimasing" features nya :
+
+<header class="header">
+            <div class="hero"></div>
+            <div class="feature fitur-1"></div>
+            <div class="feature fitur-2"></div>
+        </header>
+------------------------------------------
+
+untuk yg hero itu nanti saya punya yg ada tulisan nya kita bikin h2 dan p yg di is tulisan singkat, nanti tulisan nya akan kita hilang kan ketika lebarnya berapa gitu, terus gambar si hero akan kita bikin sebagai background-image.
+
+untuk feature ada nama barang dan harga nya, kita pake h4 dan p di isi dengan tulisan nya. Lalu lakukan hal yg sama untuk fitur-2 juga sama seperti hero kita akan bikin gambar nya background image.
+
+---------------------------------------------------------------------------------------------------------------------------------
+
+Header nya udah tinggal kita kasih style css nya, untuk header saya mau kasih display nya gird terus saya mau bikin template kita akan anggap header nya terbagi jadi 6 kolom grid maisng" baris nya terdapat 3 kolom gitu, misal baris pertama saya mau dibagi 3 ada hero 2 feature 1 dan bawah nya juga sama gitu bedanya feature 2, gini :
+
+.header {
+    display: grid;
+    grid-template-areas:
+        'hero hero fitur-1'
+        'hero hero fitur-2';
+}
+-----------------------------
+
+jadi saya bikin nya 6 kolom ya nanti kita set maisng" kolom nya, pertama kita set si hero ini agar nama area nya menyesuai kan dan si fitur juga, terus kita kasih tinggi minimal si hero nya misalnya 350px, terus kasih backgroudn-image dan size, background-size cover supaya gambarn ya menyesuaikan layar, supaya gambar nya ada di posisi tengah kita kasih bakcground- position center, gitu :
+
+.hero {
+    grid-area: hero;
+    min-height: 350px;
+    background-image: url(img/hero.jpg);
+    background-size: cover;
+    background-position: center;
+}
+-----------------------------
+
+atau tingginya kita atur 300px terus kita kasih padding nya 50px, supaya nanti kita kasih tulisan didalam hero itu ga mepet  :
+
+.hero {
+    grid-area: hero;
+    min-height: 300px;
+    background-image: url(img/hero.jpg);
+    background-size: cover;
+    background-position: center;
+    padding: 50px;
+}
+-----------------------------
+
+Lalu sekarang saya pengen tulisan didalam hero default nya ilang dulu, jadi kalian bsia tulis selector nya satu" gini :
+
+.hero h2,
+.hero p {
+    display: none;
+}
+-----------------------------
+
+atau bisa pake teknik lain :
+
+.hero > *{
+    display: none;
+}
+-----------------------------
+
+maksudnya itu carilah hero lalu cari apapun yg didalam hero karena didalam hero hanya ada 2 tag h2 dan p doang ya maka ubah display tag tersebut jadi none.
+
+---------------------------------------------------------------------------------------------------------------------------------
+
+Lalu kita akan set si feature nya, kita set 22 nya dulu lalu saya mau atur tulisan disitu ada di tengah" nah supaya gampang si feature ini jadi grid, lalu kita atur tata letak nya, lalu kasih juga cursor pointer supaya kalo di hover cursor nya ganti jadi pointer atau kalian mau kasihitu tag <a> juga bisa :
+
+.feature {
+    background-color: #000;
+    color: white;
+    display: grid;
+    place-content: center;
+    text-align: center;
+    cursor: pointer;
+}
+--------------------------------
+
+Baru sekarang satu" saya akan set background-image nya, dan atur grid area nya yg tadi udah di atur di container untuk template nya ya :
+
+.fitur-1 {
+    grid-area: fitur-1;
+    background-image: url(img/senia.jpg);
+}
+
+.fitur-2 {
+    grid-area: fitur-2;
+    background-image: url(img/avanza.jpg);
+}
+--------------------------------
+
+Sekarang kita akan atur ukuran dari harga nya, kita kasih font-size nya misal nya 2em 2 kali lipat dari ukuran default nya 18px yg di atur di body itu, gini :
+
+.feature .price {
+    font-size: 2em;
+    font-weight: 200;
+}
+
+.feature .item {
+    font-size: 1.5em;
+}
+
+atur-atur aja biar pas ya
+
+---------------------------------------------------------------------------------------------------------------------------------
+
+NAVIGASI
+
+Lalu sekarang kita masuk ke nav nya, kita kasih class nya menu, terus kita bikin 2 elemen dulu ya yg humburger menu belakangan, kita bikin ada 2 judul web nya dan navigasinya, judul web nya kita buat pake div nama class nya brand atau didalam div nya kita kasih h1 baru judul nya, terus ada ul naam class nya menu-list baru didalamnya li ada tag <a> juga.
+
+        <nav class="menu">
+            <div class="brand">
+                <h1>MARS Merch</h1>
+            </div>
+
+            <ul class="menu-list">
+                <li><a href="">Home</a></li>
+                <li><a href="">Mobil</a></li>
+                <li><a href="">Price</a></li>
+                <li><a href="">Kontak</a></li>
+            </ul>
+        </nav>
+----------------------------------------
+
+menu nya kita atur jadi display grid, inget grid itu ada 2 judul sama ul nya, saya mau bikin agar si header nya itu lebih kecil dari nav nya, saya bikin grid-template-column nya judul nya 1fr ul nya 2 fr :
+
+.menu {
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+}
+----------------------------------------
+
+supaya ngejejer kekenan list nya itu belakangan karena ul itu akan saya bikin grid lagi. Lalu kita masuk ke navigasinya kita mau bikin si ul nya display nya grid, kita ilangin titik disamping tulisan nya yg li pake list-style none, terus kta set column nya pake gtc, nah ini supaya resposive kita bikin element nya didalam nya itu repeat auto-fit jadi secukup nya gitu menyesuaikan, kan kalo repeat di awal kita atur jumlah kolom nya mau berapa tapi supaya dinamis kita pake auto-fit, lalu ukuran nya kita kasih minmax minimal nya misalnay 100px max nya 1fr, kita selingkan pake px dan fr agar terjadi resposive, gini :
+
+.menu ul {
+    display: grid;
+    list-style: none;
+    grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+}
+----------------------------------------
+
+kita bikin tulisan di li nya ada ditengah" secara vertikal kita kasih di menu nya supaya semuanya di tengah" :
+
+.menu {
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    align-items: center;
+}
+----------------------------------------
+
+tinggal kita kasih bakcground terus ilangin garis di <a> nya, kita kasih display a nay block supaya yg di klik ga cuman tulisan nya tapi 1 kotak itu kita klik, lalu kasih background color hitam kasih text align center terus kasih padding, gitu :
+
+.menu a {
+    display: block;
+    background-color: #000;
+    text-decoration: none;
+    color: white;
+    text-align: center;
+    padding: 5px;
+}
+----------------------------------------
+
+Terus supaya ada jarak antara item atau jarak antara sesama a kita kasih gap aja di grid nya :
+
+.menu ul {
+    display: grid;
+    list-style: none;
+    grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+    gap: 5px;
+}
+----------------------------------------
+
+Nah untuk navigasinya udah selelsai sekarang kita akan coba buat resposive untuk setengah jadi ini.
+
+---------------------------------------------------------------------------------------------------------------------------------
+
+RESPOSIVE 
+
+Jadi style yg udah kita buat itu untuk layar yg sangat besar, nanti kita akan set layar nya ada beberapa width screen, jadi ada titik" dimana media nya berubah disaat width mobile desktop, dan tablet.
+
+Kita buat media query max-width nya ya bukan minimal nya, jadi ketika lebarnya berapa style apa yg kita rubah, untuk yg full sd kita set 1024px, terus kalo di tablet 768, lalu di headphone harus nya 300 berapa tpi kita aset agak gede di 550px, kalian bisa pake ( screen and ) atau gausah itu gpp hasilnya akan sama :
+
+/* Responsive Breakpoint */
+
+@media (max-width: 1024px) {
+  
+}
+
+@media (max-width: 768px) {
+  
+}
+
+@media (max-width: 500px) {
+   
+}
+----------------------------------------
+
+Pertama gini harusnya ketika defaultnya lebarnya di atas 1200 harusnya navigasi menu itu ada di atas header, kalo di 1024 baru saya pindahkan kebawha baru menghilang si tulisan judul nya, jadi sekarang kita pindahin dulu ke atas caranya kalian bikin dulu si container nya gird.
+
+.container {
+    display: grid;
+}
+----------------------
+
+Kalo semua nya udah jadi grid kita bisa atur urutan nya, kita bikin urtan anv nya berada di atas sebelum header, kita ubah urutan nya menggunakan order ternyata di grid bisa pake ( order) juga, kita kasih order nya di nav cri nama class nya menu, kaish dia order -1, :
+
+.menu {
+    order: -1;
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    align-items: center;
+}
+----------------------
+
+Nah maka dia pindah ke atas nah saya pengen ketika lebar dibawah 1024px dia pidanh ke setelah header dan tulisan judul nya ilang, nah cara nya kita bikin di responsive nya si menu itu order nya supaya order nya itu balikin lagi ke awal jadi kita kasih (inherit) atau awal nya berapa :
+
+@media (max-width: 1024px) {
+    .menu {
+        order: inherit;
+    }
+}
+----------------------
+
+Nah udah balik ke awal tapi saya pengen tulisan judul nya ilang, jadi si judul nya kita bikin display nya jadi none :
+
+  .menu .brand {
+        display: none;
+    }
+----------------------
+
+nah tapi sekarang problem nya si ul nya jadi turun ga sejajar ke samping, itu karena di default style nya kita set columns nya selalu 2 kita gamau gitu, kita mau dia responsive jadi kita bikin dia 1 kolom pake GTC, dan karena jarak antara nav dan header nya mepet kita kasih ga di container nya juga :
+
+.container {
+    display: grid;
+    gap: 10px;
+}
+
+  .menu {
+        order: inherit;
+        grid-template-columns: 1fr;
+    }
+--------------------------------------------
+
+Sudah oke, dan sekarang kalo dilebar nya 1024 saya mau munculin tulisan yg tadi dihilangkan di bagian header hero nya, kita bikin display nya jadi block, lalu kita mau dia ada di tengah", begini :
+
+( > * ) semua yg ada didalam tag hero maka ubah dia jadi gitu
+
+   .hero>* {
+        display: block;
+        background-color: white;
+        color: #000;
+        padding: 5px;
+        margin-bottom: 5px;
+    }
+
+    .hero {
+        display: flex;
+        align-items: start;
+        justify-content: center;
+        flex-direction: column;
+    }
+--------------------------------------------
+
+Nah itu udah lalu sekarang kalo kita kecilin lagi sampai di lebar tablet saya pengen si nav nya hilang karena dia berubah jadi humburger menu. Kita butuh humburger menu nya kita pake humburger nya yg sudah dibuat di latihan flexbox nya.
+
+Kita akan copy beberapa codenya, yg akan kita copy kan itu menu-toggle nya, lalu kita akan simpan dibagian nav sebelum brand nya, lalu kita akan copy bagian css nya, cari humburger menu lalu simpan di css kita, simpan nya dibagian navigation sebelum resposive, selanjutnya di css nya dibagian resposive break point nya menu-toggle sampai ul.slide nya copykan lalu taro di ukuran max 768px.
+
+Nah jadi sekarng posisi si nav humburger nya ada di sebelah kiri bawah, kita bikin si menu nya balikin lagi ke atas kan tadi menu nya di bawah header kita balikin ke atas header, atur di media query 768px :
+
+  .menu {
+        order: -1;
+    }
+--------------------
+ 
+Tapi posisinya itu masih disebelah kiri maka kita harus pindahkan ke kanan pake justify item end :
+
+  .menu {
+        order: -1;
+        justify-items: end;
+    }
+--------------------
+
+Lalu tinggal kita ganti warna" nya, terus tinggal kita benerin supaya turun nya dari atas, supaya turun nya dari atas itu kita butuh javascript ya liat aja ya, sekarang kita bikin supaya dia turun nya dari atas ga dari kanan. kita liat di resposive nya di bagian ( nav ul ) di nav ulada transform (translateX) sekarang kita ganti jadi translateY, terus supaya muncul dari atas kita kasih -100%, karena kalo 100% dia muncul nya dari bawah, lalu class slide nya diganti jadi translateY juga :
+
+    nav ul {
+        position: absolute;
+        right: 0;
+        flex-direction: column;
+        bottom: 0;
+        height: 100%;
+        background-color: #999;
+        justify-content: space-evenly;
+        width: 100%;
+        text-align: center;
+        z-index: -1;
+        transform: translateY(-100%);
+        transition: all 1s;
+        opacity: 0;
+    }
+
+    nav ul.slide {
+        transform: translateY(0);
+        opacity: 1;
+    }
+------------------------------------------------------------
+
+Karena posisi nya masih dibawah si header kaya ketimpa gitu maka kita posisikan supaya didepan caranya kita kasih z-index nya 1.
+
+   nav ul {
+        position: absolute;
+        right: 0;
+        flex-direction: column;
+        bottom: 0;
+        height: 100%;
+        background-color: #999;
+        justify-content: space-evenly;
+        width: 100%;
+        text-align: center;
+        z-index: 1;
+        transform: translateY(-100%);
+        transition: all 1s;
+        opacity: 0;
+    }
+------------------------------------------------------------
+
+Tapi sekarang problem nya adalah humberger menunya ketutup alias ketimpa, supaya menu-toggle nya keliatan kita ubah z-index nya juga supaya lebih besar dari 1, :
+
+.menu-toggle {
+    display: none;
+    flex-direction: column;
+    height: 20px;
+    justify-content: space-between;
+    position: relative;
+    z-index: 999;
+    /* background-color: black; */
+}
+-------------------------------------------------
+
+tinggal kita benerin supaya ul nya ngejejernya kebawah, itu kenapa ngejejernya kekanan karena kita kasih display nya grid kalo dilatihan flexbox kan kita kasih flex maka kita hrus kasih nav ul nya display nya flex, tapi kalo dikasih flex ttp gaakan jalan, karena dia ttp display nya grid, kenapa display nya grid karena di default style nya kita punya ( .menu ul ) di situ nya, padahal menu itu nama class nya nav ya, nah itu kita kena spesifikasi selector.
+
+maka dari itu tinggal kita ubah aja selector yg tadi nya ( nav ul ) jadi nav.menu ul gini :
+
+  nav.menu ul {
+        display: flex;
+        position: absolute;
+        right: 0;
+        flex-direction: column;
+        bottom: 0;
+        height: 100%;
+        background-color: #999;
+        justify-content: space-evenly;
+        width: 100%;
+        text-align: center;
+        z-index: 1;
+        transform: translateY(-100%);
+        transition: all 1s;
+        opacity: 0;
+    }
+-------------------------------------------------
+
+maka sekarang display nya ditimpah jadi flex gitu.
+
+---------------------------------------------------------------------------------------------------------------------------------
+
+Sekarang kita atur nya ketika ukuran mobile, kita akan bikin kalo mobile yg 2 itu feature nya jadi turun
+kita kasih header nya area yg berbeda, kalo tadi tu kita bikin nya 6 columns kalo sekarang semuanya jadi 1 column, gini aja :
+
+@media (max-width: 600px) {
+    .header {
+        grid-template-areas:
+            'hero'
+            'fitur-1'
+            'fitur-2';
+    }
+
+    .header div.feature {
+        height: 200px;
+        background-size: 100%;
+        place-content: center;
+        font-size: 1em;
+        color: #ddd;
+    }
+
+    .fitur-2 .item {
+        padding-top: 20px;
+    }
+
+    .fitur-1 .item {
+        padding-top: 10px;
+    }
+
+}
+-------------------------------------------------
+
+jadi itu kita hanya perlu ubah itu nya saja untuk ukuran mobile dan kita ubah jadi disaat ukuran nya 600px biar ga terlalu mepet.
+
+Sekarang kita masuk ke service nya kalo ini jauh lebih gampang, karena kita gaperlu atur resposive nya karena udah otomatis atur sendiri. Kita bikin html nya dulu setelah nav, kita bikin section kasih nama class services, lalu didalam nya ada div servis didalam servis ada div icon dan h3 judul nya misalkan tutorial dan ada paragraf, kita buat 4 ya tinggal ganti h3 nya aja.
+
+Nah sekarang tinggal kita kasih style ya, kita kasih services nya display grid lalu GTC nya repat pake auto-fit biar responsive dan ukuran nya minmax(200px,1fr), servis nya kita kasih padding 15px tulisan nya ditengah :
+
+.services {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 20px;
+}
+
+.servis {
+    background-color: #fff;
+    padding: 15px;
+    text-align: center;
+}
+-------------------------------------------------
+
+tinggal kita atur" aja ukuran nya, kita bikin si icon nya lebih gede, karena icon kita pake font kita atur font-size nya aja. nah pokok nya udah ya gitu bisa diliat langsung di codingan. Dan sekarnag yg terakhir adalah membuat Gallery, kalo gallery ini gampang aja ya, kita bikin section setelah services tadi ya.
+
+Kita buat h2 didalam nya dan kita mau bikin img, img nya tadi kita mau ngambil dari unsplash cara ngambil nya itu gampang aja ke source.unsplash.com, atau kasih aja url ini https://source.unsplash.com/random/200x200 yg (200x200) itu adalah ukuran nya bisa ganti aja seterah ukuran nya mau berapa, biar gampang pake kesaktian emet aja gini :
+
+ img[src="https://source.unsplash.com/random/20$x20$"]*10
+-------------------------------------------------
+
+maka dia akan membuat kan 10 img dengan urutan angka 1-10 gitu.
+
+Kita bikin gallery nya kek gini :
+
+.gallery {
+    margin-top: 100px;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+}
+-------------------------------------------------
+
+Tinggal kita bikin h2 nya ditengah", karena kita udah kasih dia gird kita bisa atur si h2 nya kan item kita atur supaya h2 nya itu sebaris, kita pake grid-column-start dan end gini :
+
+/* Gallery */
+.gallery {
+    margin-top: 100px;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 5px;
+}
+
+.gallery h2 {
+    /* grid-column-start: 1;
+    grid-column-end: -1; */
+    grid-column: 1 / -1;
+    text-align: center;
+    margin-bottom: 30px;
+}
+-------------------------------------------------
+
+jadi nya h2 nya satu baris karena dimulai dari 1 berakhir di -1 gitu. kita ubah juga margin di body nya karena terlalu besar :
+
+@media (max-width: 600px) {
+    body {
+        margin: 15px;
+    }
+}
+-------------------------------------------------
+
+Nah udahh gitu
+
+--------------------------------------------------------------------------------------------------------------------------------
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

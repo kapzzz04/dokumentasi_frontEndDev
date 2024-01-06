@@ -1,0 +1,372 @@
+CSS Calc
+
+calc() itu sebuah function di CSS, kita sebelumnya udah belajar mengenai satuan" didalam CSS nah dengan mengetahui mengenai function calc() ini akan membuat pemahaman kita mengenai CSS unit sebelum nya lebih seru.
+
+calc() 
+fungsi pada CSS, yang memungkinkan kita untuk melakukan operasi matematika / kalkulasi pada nilai dari sebuah properti.
+
+Kita kan tau kita bisa kasih banyak banget nilai di CSS yg tiap nilai nya satuan nya pun beragam nah nanti kita liat bagaimana calc() ini melakukan kalkulasi dan operasi matematika terhadap property tadi.
+
+Nah sekarang kita liat apa aja yg bisa kita kalkulasi dengan fungsi calc() ini, Nilai yang bisa dikelola diantaranya <length>, <angle>>, <time>, <percentage>, <number>
+
+nilai yg hubungan nya dengan lenght atau panjang ya kita bisa pake pixel pake em, vw, vh, lalu bisa mengelola nilai yg memiliki satuan angle atau sudut ada radian gradiant degri (deg), terus ada time
+second atau milisecond, terus percentage atau persentase dan juga number atau angka yg ga memiliki satuan seperti opacity atau z-index.
+
+itulah nilai" yg bisa kita kasih operasi mtk menggunakan calc().
+
+Cara nulis nya simpel aja :
+
+property: calc(expression);
+------------------------------------
+
+property nya apa, misal property nya margin terus kita panggil aja fungsi calc lalu expression adalah operasi mtk nya, contohnya gini :
+
+Penjumlahan
+
+width: calc(10px + 100px);
+-----------------------------------
+
+Pengurangan
+
+width: calc(100% - 30px);
+-----------------------------------
+
+kita bisa melakukan penjumlahan dan pengurangan edisien dan subtricksien, contoh nya kek di atas kalo kita tulis yg penjumlahan 10px + 100px maka nanti width akhirnya akan berjumlah 110px, atau pengurangan kita bisa kasih width nya 100% dari containernya lalu dikurangin 30px, jadi satuan nya beda pun bisa ya.
+
+Nah penjumlahan dan pengurangan bisa lalu perkalian juga bisa, tapi hati" lakukan perkalian nya itu harus dengan nilai yg tidak memiliki satuan syarat nya itu kalo perkalian, gini :
+
+Perkalian
+.el {
+    /* Valid */
+    margin: calc(10px * 3);
+
+    /* Valid */
+    margin: calc(3 * 10px);
+
+    /* Invalid */
+    margin: calc(30px * 3px);
+}
+-----------------------------------
+
+Jadi kalo misalkan 10px itu harus dikali dengan berapa gitu nilai yg tidak memiliki satuan gaboleh 10px dikali 10px itu gabisa kalo 10px dikalo 10 itu bisa, atau 3 dikali 10px itu bisa yang gaboleh ada satuan nya. Jadi kalo perkalian ada syarat nya begitu pula sama dengan pembagian syarat nya juga sama. gini :
+
+Pembagian
+.el {
+    /* Valid */
+    margin: calc(30px / 3);
+
+    /* Valid */
+    margin: calc(30px / 10px);
+
+    /* Tidak bisa dibagi 0 */
+    margin: calc(30px / 0);
+}
+-----------------------------------
+
+nah yg berbeda itu kita tidak bisa membagi dengan angka 0.
+
+---------------------------------------------------------------------------------------------------------------------------------
+
+Nah kalian hati-hati jangan sampai kalian ga memberikan Spasi pada expressi nya, Gini :
+
+.el {
+    /* Valid */
+    font-size: calc(3vw + 2px);
+
+    /* invalid */
+    font-size: calc(3vw+2px);
+
+    /* Valid */
+    font-size: calc(3vw - 2px);
+
+    /* Invalid */
+    font-size: calc(3vw-2px);
+}
+-----------------------------------
+
+Jadi operator nya harus berada di tengah sebelum dan setelah nya harus ada spasi nya, operator itu ( + ), jadi kalo misalkan nempel kek di contoh itu gabisa harus ada spasi jarak nya, kalo yg invalid itu ga akan jalan liat di contoh nya.
+
+ini beberapa contoh :
+
+.el {
+
+    font-size: calc(3vw + 2px);
+    width:       calc(100% - 20px);
+    height:      calc(100vh - 20px);
+    padding:   calc(1vw + 5px);
+}
+-----------------------------------
+
+kita juga kasih di kadar warna ketika kita kasih RGB nilai" di dalam nya bisa kita kasih calculasi menggunakan calc(), lalu ketika kita mengatur element yg menggunakan flex misalnya lebarnya tinggi nya itu bisa kita atur juga menggunakan calc().
+
+Selanjutnya fungsi calc() ini bisa kita bikin lebih kompleks lagi dengan cara menggunakan NESTING atau bersarang :
+
+Nesting
+.el {
+    width: calc(calc(100% / 3) - calc(1rem * 2));
+}
+-----------------------------------
+
+kita bisa bikin fungsinya begitu, atau kalo mau gampang kita ga perlu menggunakan calc didalamnya gini aja :
+
+.el {
+    width: calc((100% / 3) - (1rem * 2));
+}
+-----------------------------------
+
+jadi calc nya sekali aja di awal dan operasi mtk nya ada didalam nya, dan kalo mau lebih simpel lagi sebetulnya calc ini juga sudah menganut atau menjalankan order of Operation, jadi yg akan di kerjakan duluan itu pasti kali bagi tambah kurang jadi sesuai, 
+
+.el {
+    width: calc(100% / 3 - 1rem * 2);
+}
+-----------------------------------
+
+jadi kalo misalkan kaya gitu dia ga akan menjumlahkan dari kiri kekanan tapi dia mengalikan 1rem kali 2 lalu pembagian nya nah baru hasilnya di lakukan pengurangan gitu.
+
+---------------------------------------------------------------------------------------------------------------------------------
+
+bahkan kita bisa menggabungkan dengan variabel, yg kita ketahui di CSS ini juga bisa menggunakan Variabel atau custom properties kalo di CSS bilang nya.
+
+CSS Variables / Custom Properties
+:root {
+    --header-height: 32px;
+}
+
+.el {
+    height: calc(100vh - var(--header-height));
+}
+-----------------------------------
+
+ini ketika misalnya kita mau element kita itu penuh satu layar tapi tidak menghalangi navbar atau header yg ada di atas, jadi itu kita buat height nya 100vh lalu di kurangin tinggi dari navbar.
+
+Nah saat ini calc() udah hampir sudah bisa dijalankan di semua browser hampir semuanya ya, yg gabisa itu opera mini dan IE dia suportnya dikit" doang ga semua versi bisa.
+( https://caniuse.com/calc )
+
+---------------------------------------------------------------------------------------------------------------------------------
+
+LETS CODE!!!
+
+Studi kasus sudah ada file nya, isi html nya ada heading judul terus paragraf dan img di antara paragraf, semuanya di bungkus sama div.container, dan sudah ada css nya juga udah jadi dengan tambahan font dari google menggunakan @import di css nya.
+
+Sekarang kita akan menggunakan calc(), misalnya kita mau ubah halaman nya biar jadi lebih responsive karena di css nya blm di kasih resposive. Pertama kita kasih di containernya itu lebar nya ga fix kita kasih max-width 800px, jadi maximal nya 800px tapi kalo lebih kecil dia menyesuaikan.
+
+.container {
+    max-width: 800px;
+    margin: 0 auto;
+}
+-----------------------
+
+tapi ketika saya kecilin ukuran mobile tulisan nya terlalu mepet sama body nya, supaya ada spasi kita bisa gunakan calc(), jadi max-width nya itu ttp 800px tapi kalo misalnya lebih kecil kita bikin dia width nya terus kita kasih calc gini :
+
+.container {
+    max-width: 800px;
+    width: calc(100vw - 4em);
+    margin: 0 auto;
+}
+-----------------------
+
+width nya itu akan maximal 100vw, kalo misalkan width: 100vw; gitu doang ga pake calc itu sama aja akan penuh gaada jarak, tapi sekarang kita bisa kasih calc() baca nya gini 100vw itu akan selalu penuh di kurangin kiri kanan nya mau berapa misalnya 4em.
+
+Jadi si container nya ga 100% tapi 100% dari lebar viewport nya di kurangin 4em jadi ada jarak nya kiri kanan nya. itu contoh yg pertama.
+
+---------------------------------------------------------------------------------------------------------------------------------
+
+Lalu contoh yg ke-2 kita bisa bikin tulisan menjadi resposive, sebenernya ini udah kita coba waktu kita belajar vw dan vh, kalo misalkan kita kasih di h1, taro lah saya pengen huruf nya lebih besar gampang kan, tapi kita mau bikin dia resposive ketika layar nya besar huruf nya besar dan ketika layar nya kecil menyesuai kan ga terlalu kecil.
+
+Nah kita bisa ganti jadi VW, jadi dia akan berubah sesuai dengan lebar layar nya misal kita kasih 6vw, itu kalo kita perbesar layar nya dia akan makin besar. :
+
+h1 {
+    font-size: 6vw;
+    text-align: center;
+    color: lightblue;
+}
+-----------------------
+
+tapi ini ketika di buka di mobile jelek banget karena huruf nya ikut sama besar sama paragraf, kita pengen nya begitu di mobile ngecilin tapi ga sekecil itu, cara ngakalin nya kita pake calc gini :
+
+h1 {
+    font-size: calc(6vw + 1.5rem);
+    text-align: center;
+    color: lightblue;
+}
+------------------------------
+
+kalian tinggal atur" aja agar ttp resposive tapi ukuran huruf nya pas gitu. teknik" ini di ambil dari yt kevin powel ya (https://www.youtube.com/watch?v=PKVKwluRTfo).
+
+---------------------------------------------------------------------------------------------------------------------------------
+
+Sekarang kita coba si gambar nya, saya pengen gambar nya itu full screen di lebar apapun di mobile tablet atau dimanapun, ini akan lebih bagus kalo kalian punya gambar yg persegi panjang. Caranya kita kasih class dulu di html nya biar bisa bedain. 
+
+Supaya full sebetulnya kita bisa kasih max-width yg kita ksaih 100% dari view port nya jadi 100vw, jadi lebarnya akan sesuai dengan lebar view port, gini :
+
+.full-size {
+    max-width: 100vw;
+}
+-------------------------
+
+tapi problemnya adalah kita kan udah bikin container nya resposive jadi kalo semakin besar ya jarak nya akan semakin besar, tapi kalian bisa pastikan ukuran layar nya sama ukuran gambar nya itu udah sama tapi dia grgr kita udah kasih resposive di kiri kanan jadi nya gambarnya geser kanan.
+
+Berarti cara kita tinggal di tarik ke kiri gambar nya, cara narik ny itu kita kasih margin yg mines ( - ) kan kita tau kalo kita kasih margin mines di horizontal nya dia akan kekiri, kita kasih margin atas bawah 0, kiri kanan nya itu kita kalkulasi, karena kita gabisa langsung kasih -50%.
+
+Kita hitung dulu 50% dari view port nya, jadi -50vw, jadi dia akan selalu setengah nya, tapi dia terlalu kekiri nah kalo udah kita tinggal kita tambah 50% nah itu udah pasti nempel gini :
+
+.full-size {
+    max-width: 100vw;
+    margin: 0 calc(-50vw + 50%);
+}
+-------------------------------------
+
+Jadi itu mau di buka dimanapun akan terus nempel, cuma ini problem nya kita jadi punya horizontal bar scroll nya itu, ada horizontal bar nya itu karena ketika ita pake vw itu dia ngitung ada scroll bar, jadi scroll bar nya keitung.
+
+nah kalo misalkan kita mau ngilangin scroll bar nya kita harus kasih overflow didalam body :
+
+body {
+    font-family: Nunito, sans-serif;
+    min-height: 100vh;
+    font-size: 1.4rem;
+    line-height: 1.6;
+    color: #333;
+    overflow-x: hidden;
+}
+-------------------------------------
+
+jadi scrollbar nya di sembunyikan.
+
+---------------------------------------------------------------------------------------------------------------------------------
+
+Nah sekaran saya pengen bikin satu paragraf ada highlight yg ada background color nya terus background color nya memenuhi layar, kita anggap aja tulisan nya qouetes biar dia lebih menonjol di halaman nya.
+
+p.highlight {
+    background-color: lightblue;
+    text-align: center;
+    font-style: italic;
+}
+----------------------------
+
+dengan cara yg sama kita bisa lakukan, agar background nya bisa full satu halaman, kita itu mau buat background nya full width body gitu sama kaya gambar tadi gini :
+
+p.highlight {
+    background-color: lightblue;
+    text-align: center;
+    font-style: italic;
+    padding: 2em;
+    margin: 0 calc(-50vw + 50%);
+}
+----------------------------
+
+Nah supaya lebih keren lagi semakin besar layar font itu nya juga semakin besar :
+
+p.highlight {
+    background-color: lightblue;
+    text-align: center;
+    font-style: italic;
+    padding: 2em;
+    margin: 0 calc(-50vw + 50%);
+    font-size: calc(1vw + 1rem);
+}
+----------------------------
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

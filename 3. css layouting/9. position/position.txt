@@ -1,0 +1,279 @@
+POSITION 
+
+Position memungkin kan kita menggeser sebuah element tanpa memikirkan elemen di sebelah nya
+jika kita tidak memberi property position pada sebuah elemen maka position itu adalah static
+
+   POSITION
+ -static = static itu suadah ada valeu nya sebelum di tambahaknnya property itu
+ -relative
+ -abosolute
+ -fixed
+
+-------------------------------------------------------------------------------------------------------------------------------------------------
+CSS Position 
+
+- static adalah nilai default dari tiap-tiap elemen ketika tidak di beri property position
+
+- menggunakan position selain static  (non-static), akan membuat elemen menjadi seolah-olah
+  berada dimensi dari elemen lainnya
+
+- Elemen yang di beri position selain static dapat dapat menggunakan property
+  (top,left,bottom dan right) untuk mengatur posisinya
+
+------------------------------------------------------------------------------------------------------------------------------------------------
+
+jadi jika kita memberi property position dan valeu nya relative itu akan berada dimensi 1 atau naik 1 dimensi
+jadi secara pemikiran gini dia tidak bergabung dengan elemen di sebelah nya atau elemen yang berada di sekitar nya
+jadi dia bisa bergeser ke atas mau pun bawah tetapi elemen yang di atasnya atau di bawah nya tidak ikut bergeser mengikuti dia
+nanti kamu bisa meyontohkan sendiri
+
+jadi intinya relative itu yang tadi nya normal flow jadi out-of flow
+
+------------------------------------------------------------------------------------------------------------------------------------------------
+
+Relative
+
+- ketika kita menggerakan elemen dengan posisi relative 
+  (menggunakan property top,bottom,left, dan right), ruang
+  yang di tempati elemen tersebut masih ada
+
+- ketika kita menggerakan elemen dengan posisi relative, elemen
+  akan bergerak relative terhadap posisi semula-nya
+
+- jika kita memberi property top: 0; dan left: 0; maka elemen
+  tidak berubah posisisinya
+
+biasanya menggunakan elemen ini hanya untuk keluar dari elem lainnya atau naik dimensi
+
+-------------------------------------------------------------------------------------------------------------------------------------
+POSITION ABSOLUTE
+
+- ketika kita menggerakan elemen dengan posisi absolute 
+   (menggunakan properti left,right,bottom dan top), ruang 
+   yang di tempati oleh elemen tersebut di anggap TIDAK ADA
+
+- ketika kita menggerakan elemen dengan posisi absolute, elemen
+   akan bergerak relatife terhadap posisi dari elemen parent-nya 
+   selama elemen perent-nya memiliki posisi yang juga non-static
+   (maksud dari elemen perent yaitu elemen pembungkusnya sebagai contoh
+    -nya body atau sebagainya).
+  (non-static itu elemen yang out-of flow atau keluar dari normal flow nya
+   atau dia sudah naik satu dimensi contohnya valeu yang ada di properti POSITION).
+
+- jika kita memberi properti top: 0; dan left: 0; maka elemen
+  akan berada di ujung kiri atas dari elemen parentnya
+
+---------------------------------------------------------------------------------------------------------------------------------------
+
+ ( jadi kalo kita kasih elemen itu properti absolute dan di bawah nya masih ada elemen
+    - elemen lain maka yang di bawah akan menempati posisi yang tdi elemen kita kasih
+    properti absolute, karna dengan kita kasih properti absolute elemen nya akan naik satu dimensi
+    atau bisa di bilang elemen yang di belakang nya tidak mengaggap dia ada yaitu yang memakai
+    properti absolute).
+
+--------------------------------------------------------------------------------------------------------------------------------------
+CONTOH CSS
+
+div {
+    width: 200px;
+    height: 200px;
+    margin: auto;
+}
+
+.satu {
+    background-color: aqua;
+}
+
+.dua {
+    background-color: cornflowerblue;
+    position: absolute;
+    left: 0px;
+    top: 0px;
+}
+
+/* tag di atas menjelaskan , kenapa dia bisa berada di atas sebelah kiri karna dia
+sudah berada naik satu dimensi dan dia menimpa elemen yang ada di atas atau di bawahnya
+, nah kenapa itu memakai elemen top: 0px; malah naik ke atas seharusnya kan 
+menjaga jarak dri yang atas nya, itu karna properti absolute jadi properti absolute
+top dan left nya berbeda dari elemen yang lain*/
+
+.tiga {
+    background-color: indianred;
+    margin-bottom: 300px;
+}
+
+--------------------------------------------------------------------------------------------------------------------------------
+CONTOH CSS
+
+.pembungkus {
+    width: 600px;
+    height: 650px;
+    border: 4px solid black;
+    position: relative;
+}
+
+.satu1 {
+    background-color: aqua;
+
+}
+
+.dua2 {
+    background-color: blue;
+    position: absolute;
+    right: 0px;
+    top: 0px;
+}
+
+/* seharusnya jika sudah di kasih right: 0px; dan top: 0px; kotak nya
+harusnya berada di pojok kanan atas di parent nya nah kita udah kasih perent-nya
+, parent-nya kan .pembunngkus itu harusnya di posisi si perent nyakan */
+
+/* pas kita coba posisi nya malah ada di pojok kanan atas dan keluar dari pembungkusnya
+, kenapa bisa begitu karna kita kasih dia properti absolute tanda nya elemen itu
+sudah naik 1 dimensi dan pembungusnya itu beda di mensi atau di bawahnya si elemen ini
+jadi otomatis keluar dari pembungkusnya */
+
+/* jadi agar dia tidak keluar dari pembunkusnya atau dari parent yang sudah kita buat
+yang membungkus si kotak biru nya , caranya dengan kita menaikan dimensi si pembungkusnya
+gimana cara naikin dimensi si pembungkusnya, cara nya menggunakan elemen relative
+jadi gitu  */
+
+.tiga3 {
+    background-color: chartreuse;
+}
+
+----------------------------------------------------------------------------------------------------------------------------------------
+POSITION FIXED
+
+-ketika kita menggerakan elemen tersebut menggunakan (top,left,bottom dan right),
+ maka dia akan selalu bergerak terhadap windows browser ini, jadi dia tidak akan memperdulikan
+ elemen perent-nya meski pun perent-nya non-static
+
+-ketika jadi ini lah kenapa ketika di kasih  left: 0; dan top: 0; posisinya relative ya
+ dan ketika kita scroll halaman nya elemen tersebut akan terkunci di posisi itu 
+  ( misal kan elemennya berada di kiri pojok atas nah kalo kita scrol dia tidak akan ikut
+   hilang atau tenggelam ketika di scroll dia akan diam saja di posisinya itu).
+
+-------------------------------------------------------------------------------------------------------------------------------------
+Z-INDEX	
+
+z-index itu digunakan untuk mengatur tumpukan dari elemen ketika kita kasih elemennya non-static
+jadi ketika elemen nya non static kita bisa gunakan z-index ini ( code css nya z-index: 1;)
+hanya berlaku pada elemen non-static contohnya : absolute, relative, fixide
+
+z-index kita bisa beri angka ya
+jadi ini untuk agar naik dimensi dari dimensi lainnya
+semakin besar angkanya semakin dia paling tinggi paling di depan dimensi nya
+
+kalo sumbu z itu 3 dimensi 
+
+kalo di dalam css itu hanya di bei z-index: 1; maka dia akan paling depan
+
+biasanya jika kamu ingin mempunyai elemen yg lebih depan dari pada elemen lainnya
+maka kamu beri angka yng paling besar yaitu 9999 atau yg jika ingin yg paling kecil
+dari elemen yg kamu punya maka -9999
+
+contoh nya
+
+ .satu {
+    background-color: red;
+    z-index: 9999;
+
+}
+   
+
+.dua {
+    background-color: yellow;
+    top: 100px;
+    left: 100px;
+    z-index: -9999;
+}
+
+coba sendiri kalo mau
+
+jadi menurut saya z-index itu berguna jika mau bikin navigaasi menggunakan position fixed
+karna waktu itu saya belum mencoba z-index nah bikin project menggunakan position fixed
+kan kita bikin navigasi yg paling atas itu agar pas di scroll dia tidak ikut tenggelam
+nah pas udah bikin kan di bawah elemen itu ada elemen lain yang ku tambah
+elemen position lainnya nah pas di scroll itu dia nembus dari elemen navigasi ku
+setelah itu ku hapus lah position yg ada di elmen itu karna nembus terus
+dan ternyata ini kunci nya.
+
+----------------------------------------------------------------------------------------------------------------------------------------
+
+penggunaan lain dari position ;
+
+penggunaan property top,left,bottom, dan right pada position yang  non-static
+
+jadi bisa memakai property itu tanpa di kasih dimensi weidht/height
+
+ini knp di pelajarin 
+
+ini bisa di gunakan untuk membuat iklan di layar saat masuk ke websaite
+
+nanti ada iklan gitu bisa gunakan property ini
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

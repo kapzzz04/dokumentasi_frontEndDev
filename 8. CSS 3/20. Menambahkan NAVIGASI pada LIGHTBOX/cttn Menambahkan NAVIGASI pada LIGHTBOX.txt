@@ -1,0 +1,126 @@
+Menambahkan NAVIGASI pada LIGHTBOX
+
+Nah di video sebelumnya kita udah buat yg namanya Light box ya, tapi kita disini akan menambahkan sebuah navigasi yg untuk menggeser kekanan atau kekiri gitu.
+
+Kalo penjelasan nya kurang jelas emang, jadi baca kode nya aja terus di telusuri ya.
+
+jadi setelah tag img nya kita akan tambahkan tombol yg bisa geser gambar kekiri kekanan ya, kita pake tag ( a ) karena ini ada href nya ya, yg nanti href nya bisa berguna untuk mengarahkan ke gambar selanjutnya.
+
+Nah lalu kita atur css nya ya, kita pake background img nya ya buka tag ( img ) di html nya ya. 
+Nah inget ya display dari <a> itu inline jadi gabisa atur width dan height nya ya. kita ubah dulu ya position nya jadi absoult, lalu karena width dan height gambarnya itu kegedan, kita ganti aja width dan hegth tag <a> nya jadi 125px. lalu kita pake background-size (cover) biar gambarnya itu ga tenggelem biar keliatan pake ( cover ) ya. :
+
+a.next {
+    width: 125px;
+    height: 125px;
+    background-image: url(../img/next.png);
+    background-size: cover;
+    position: absolute;
+}
+-----------------------------------
+
+karena di tag <a> itu saya kasih tulisan next nya, jadi ada tulisan next nya itu liat di file html nya, biar tulisan nya ilang itu kita pake text-indent ( -99999px ), sehingga tulisan nya akan bergerk kekiri layar dan dia hilang. :
+
+.next {
+    width: 125px;
+    height: 125px;
+    background-image: url(../img/next.png);
+    background-size: cover;
+    position: absolute;
+    text-indent: -9999px;
+}
+-----------------------------------
+
+Lalu sekarang tinggal kita atur agar panah nya di tengah" ya.
+
+.next {
+    width: 125px;
+    height: 125px;
+    background-image: url(../img/next.png);
+    background-size: cover;
+    position: absolute;
+    text-indent: -9999px;
+    top: 40%;
+    filter: drop-shadow(2px 2px 0px white) drop-shadow(-2px -2px 0px white);
+}
+-----------------------------------
+
+Nah yg next nya udah jadi, tinggal buat yg tombol prev nya. Nah tinggal kita tambahkan class prev nya :
+
+.next,
+.prev {
+    width: 93px;
+    height: 93px;
+    background-image: url(../img/next.png);
+    background-size: cover;
+    position: absolute;
+    text-indent: -9999px;
+    top: 40%;
+    margin-left: 30px;
+    filter: drop-shadow(2px 2px 0px white) drop-shadow(-2px -2px 0px white);
+}
+-----------------------------------
+
+jadi itu dibaca nya berikan efek itu ke next dan prev jadi gitu. tinggal kita atur aja ya, lalu dibawah nya kita atur khusus si prev nya sendiri untuk mengatur img yg khusus prev nya gini :
+
+.prev {
+    background-image: url(../img/prev.png);
+    margin-left: -125px;
+}
+-----------------------------------
+
+Nah sekarang yg kita lakukan itu menambahkan ke masing" ptoo nya si tombo itu, Jadi nanti kalo kita klik yg next berarti dia akan pindah ke gambar-2 atau ke gambar selanjutnya, kalo kita klik yg prev dia akan pindah ke gambar-4 atau ke gambar sebelumnya.
+
+Nah udah ya liat aja kek gimananya. NAh kita biar bisa pas di klik gambarnya pidanh ke gambar selanjutnya maupun sebelumnya itu kita gunakan href nya menuju id masing" gambar ya, kan itu gambar-1 udah ada nama id nya jadi di href tombol kita tulis aja id yg mau dituju misal kita mau tuju gambar-1 tulis aja di href nya id gambar 1 kek gini : (   #gambar-1 ) gitu ya.
+
+Lalu kita buat animasi baru supaya panah nya ga langsung muncul ya, kita kasih namanya ( fadeAjah ), jadi untuk 0% opacity nya 0 dulu kalo udah 100% kasih 1 :
+
+@keyframes fadeAjah {
+    0% {
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 1;
+    }
+}
+-----------------------------------
+
+Nah sekarang kita akan kasih ke overlay target itu, jadi pada saat overlay nya di target, lalu tombol next dan prev nya itu kita kasih animasi :
+
+.overlay:target .next,
+.overlay:target .prev {
+    animation: fadeAjah .5s .5s forwards;
+}
+-----------------------------------
+
+terus kita ubah yg animasi img nya jadi fadeAjah ya biar enak diliat :
+
+.overlay:target img {
+    animation: fadeAjah;
+}
+-----------------------------------
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

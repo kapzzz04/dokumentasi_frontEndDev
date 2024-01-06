@@ -1,0 +1,148 @@
+
+LINGKUNGAN pengembangan JAVASCRIPT
+
+
+
+Lingkungan Pengembangan / Development Environment
+                             JAVASCRIPT
+
+-----------------------------------------------------------------------------------------------------------
+Sebuah sistem atau tools dimana nantinya kita akan menuliskan program kita
+
+biasanya untuk bahasa pmograman lain seperti java,#C, atau phyton itu ada yang harus kita instal
+convigurasi terlebih dahulu  seperti kita harus instal dulu compailer atau program" pendukung lainnya
+
+nah untungnya dengan javascript kita tidak perlu melakukan itu semua, karna pda umumnya
+kalian sudah punya lingkungan pengembangan javascriptnya, knp? karna kalian pasti
+sudah punya web browser di komputer atau laptop kalian
+
+jadi tiap-tiap browser sudah ada interpreter javascript di dalamnya
+
+selanjutnya ada dua cara agar kita bisa berinteraksi dengan interpreter javascript
+
+yg pertama itu dengan menggunakan 1.Console yang ada di devoloper tools yang ada
+di tiap-tiap browser
+
+cara mengakses Console pada google chrome, kita harus mempunyai halaman web atau
+di sebut file html agar bisa di akses Console nya halaman webnya tidak harus ada isinya
+ini hanya supaya kita bisa membuka halamannya aja di web browser.
+
+kita bisa buka dulu halaman html yg udah di buat terus klik kanan di mouse terus klik inspect
+kita juga bisa klik titik tiga di pojok sebelah kanan lalu cari more tools lalu cari developer tools
+nah kan udah ada tuh tinggal cari yang bacaan Console nya.
+
+apa saja yang bisa kita lakukan dengan Console ini,Console ini penting banget buat kita pelajari
+yang pertama kita bisa menuliskan perintah javascript atau syntak nya langsung di Console ini.
+
+CONTOH NYA:
+
+alert ('Hello World');
+
+itu adalah satu baris perintah sederhana dari javascript nanti tinggal pencet enter aja untuk
+mengsave
+
+yang kedua kita bisa menggunakan Console ini jika nanti mengalami eror atau kesalahan pada file
+javascript kita
+yang ketiga nanti kalian bisa menggunakan Console ini untuk melakukan di bug pada program kalian 
+
+nanti kita akan sering banget menggunakan sebuah pungsi yg namanya Console.log
+ yg kalian tuliskan di script javascriptnya untuk memunculkan sesuatu di dalam Console ini
+
+jadi itu cara pertama kita bisa berinteraksi pda javascript menggunakan Console.
+
+----------------------------------------------------------------------------------------------------------------------------------------
+
+nah yang kedua bagaimana kita berinteraksi dengan javascript adalah dengan menuliskan script javascript
+ nya sendiri di halaman HTML, nah cara menuliskannya juga ada dua cara kita bisa simpan di file yg sama
+di file HTML nya atau kita bisa membuat file javascript terpisah seperti CSS ya
+
+caranya itu kita bisa membuat nya di dalam tag html yang namanya SCRIPT nah tag script itu nantinya
+ kita bisa simpan di akhir body nya atau sebelum tutup bodynya
+
+contohnya:
+
+<body>
+    <p>Hello World</p>
+
+
+    <script>
+        alert('Hello World');
+    </script>
+</body>
+
+nah kalian gausah mikir dulu knp script di taro di akhir nnati kita jelaskan di vidio selanjutnya
+nah kalian juga gausah mikir tu gunanya buat apa sih syntak nya dan syntak itu apaan 
+karna ini hanya contoh saja nnti kalo udah waktunya ngerti ngerti kok.
+----------------------------------------------------------------------------------------------------------------------------------
+
+sekarang kalian juga bisa menuliskan di file terpisah caranya
+
+ sama kita juga menggunakan teks script tapi tidak seperti tadi melainkan kita taro scr nah hubungkan
+ ke file latihan.js yg udah kita buat
+
+contohnya:
+
+(di file html nya)
+<body>
+    <h1>Hello World </h1>
+
+    <script src="latihan.js"></script>
+</body>
+
+( di file latihan.js nya )
+
+alert('Hello World');
+
+itu akan menghasilkan pop nya atau ada notif gitu weh cek sendiri mandiri
+
+itu lah cara kita berinteraksi dengan javascript yang pertama itu menggunakan
+Console dan halaman web kita yaitu html
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

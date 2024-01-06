@@ -1,0 +1,377 @@
+FUNCTION
+
+apa itu function gimana cara bikin nya?, gimana cara pakai nya? dan prilakunya
+seperti apa, kita akan bahas pada bagian ini.
+
+mungkin nanti FUNCTION ini akan saya jadi beberapa video.
+
+jadi FUNCTION itu adalah kunci utama pada javascript yang membuat
+javascript sangat powerfull.
+
+nah katanya kalo di dalam bahasa pmograman lain kalian mengenal dengan
+istilah Method, Class, Constructor, Module nah itu di javascript semua hal
+ini bisa di lakukan dengan FUNCTION aja.
+-----------------------------------------------------------------------------------------------------------------------------
+
+Definisi dari FUNCTION itu sendiri
+
+- Sebuah sub-program / sub-routine yang dapat "dipanggil" di bagian
+  lain pada program ( jadi ceritanya FUNCTION itu sub program atau
+  program yg ada didalam program lainnya dan program tersebut dapat
+  dipanggil pada bagian lain dalam programnya ).
+
+- Merupakan struktur dasar pembentuk dari javascript atau disebut juga 
+  fundamental vinding blocks ( jadi javascript itu dibentuk dari function"
+  didalam nya ).
+
+- Disebut juga sebagai prosedur (kumpulan statement untuk melakukan
+  tugas atau menghitung sebuah nilai) jadi sebuah fungsi dibuat untuk 
+  melakukan tugas tertentu atau mengkalkulasi sebuah nilai tertentu.
+
+- Untuk dapat menggunakannya, kita harus "membuat" terlebih dahulu
+  function tersebut, lalu "memanggil" nya, jadi 2 hal ini sangat terkait ya
+  kalo kalian pengen pake function, functionya harus dibikin dulu baru
+  kalian bisa pake.
+
+ meskipun nantinya ada function yg kalian buat sendiri dan ada function
+ yg sudah dibuatkan di javascript
+
+- Lalu function itu termasuk kedalam First-Class Object
+
+-----------------------------------------------------------------------------------------------------------------------------
+lalu selanjutnya kenapa sih kita harus membuat function, knp kita ga nulis program 
+seperti biasa aja.
+
+  KENAPA Function ?
+
+- Karena masalah Reusability atau penggunaan kembali dari kode yg sudah kita buat 
+  atau istilahnya tuh (DRY : DO not Repeat Yourself), jdi maksudnya itu dari pada kita
+  menulis kode program yang berulang" dengan menggunakan FUNCTION, kita nantinya
+  cukup menuliskan satu buah blok program cukup sekali nanti kita panggil berulang-ulang.
+
+- Dekomposisi / Abstraksi nah ini maksudnya untuk menyembunyikan kopleksitas
+  dari program yg kita buat, karena kita pecah" nanti bagian" dari programnya nah itu
+  terkait dengan Modularitas.
+
+- Modularitas ketika kita menyembunyikan kompleksitasnya dengan cara membuat prgram
+  kita menjadi sub program atau modul-modul, ya itu nantinya akan memudakan kita pada
+  saat kita ingin menelusuri kesalahan, dri pada kita menelusuri tiap baris nah dengan adanya
+  FUNCTION kita dengan akan mudah mencari dimana letak kesalahan dari progrma yg kita
+  buat.
+
+-----------------------------------------------------------------------------------------------------------------------------
+Selanjutnya ada 2 kategori FUNCTION bedasarkan pembuatanya
+
+- Built-in Function atau ini istilahnya Function yg sudah di buat kan oleh javascript
+  dan jadi kita tinggal pake aja dengan gratis.
+
+- User-Defined Function kalo ini Function yang kita buat sendiri
+
+kita liat satu persatu dari kategori function ini
+
+-----------------------------------------------------------------------------------------------------------------------------
+ 
+  Built-in Function
+
+- Fungsi yang sudah disediakan / 'dibuat' oleh javascript
+
+- Kita tinggal 'memangginya' saja atau kita tinggal pake aja
+  nah cara pake nya gimana?, sebetulnya sampai saat ini kita sudah sering memanggil
+  Function yg sudah dibuat oleh javascript.
+
+- COntohnya : - alert(); - confirm(); - prompt();
+  itu artinya kalian sudah pernah memanggil built-in function karena ke 3 hal ini
+  adalah functionnya yg memang sudah dibuatkan oleh javascript. jadi ada di
+  dalam libery javascript didalam browser kalian itu kumpulan fungsi" yg sudah
+  di buat tinggal kita mau make atau tidak function tersebut.
+
+- dan masih banyak yang lain
+  ada banyak function di dalam javascript kalian tidak harus menghapal satu
+  persatu kalian cukup hapalin yg sering digunakan nya saja. atau kalian pengen
+  tau ada function apa aja dan cara pakai nya gimana tinggal kunjungi saja 
+  dokumentasinya.
+
+-----------------------------------------------------------------------------------------------------------------------------
+
+Berikut ini beberapa contoh Built-in function yg ada di javascript yg terkait dengan string
+
+ada Function yg namanya
+
+- charAt(), slice(), split(), toString(), toLowerCase(), topUpperCase(), dll
+
+dan kalian bisa liat lengkap nya di
+
+- https://www.w3schools.com/jsref/jsref_obj_string.asp
+
+jadi functionnya banyak ya yg bisa kita pake
+
+contohnya:
+
+var nama = "Keylaa Azahra";
+console.log(nama.charAt(5));
+
+misalnya kita menggunakan yg charAt nah charAt ini fungsinya untuk
+mengetahui ada karakter apa didalam sebuah string.
+
+nah saya punya variabel yg namanya nama saya isi dengan nama saya
+lalu kalo saya jalankan nama.charAt(5) lalu saya simpan ke dalam
+console.log nya itu artinya saya meminta ke javascript tolong cari tahu
+ada karakter apa di posisi ke 5 dari sebuah string.
+
+dan kalian inget nih ya posisi ke 5 itu cara ngitungnya selalu memulai index
+itu dari 0 dan maka jika kita itung huruf yg ada di dalam string posisi ke 5
+itu hasilnya ( a ) jadi gitu.
+
+-----------------------------------------------------------------------------------------------------------------------------
+Misal yg lain nya dalam hal matematika ada Built-in function:math
+
+misalnya menghitung sinus,consinus mencari bilangan random membulatkan
+mencari logaritma dan lain-lain
+
+-sin(), cos(), tan(), random(), round(), floor(), ceil(), log() dll
+
+kalian bisa liat lebih lengkap di link ini
+
+- https://www.w3schools.com/jsref/jsref_obj_math.asp
+
+atau contohnya nih misalnya untuk membangkitkan bilngan random
+kalian tinggal panggil Math.random, lalu jika saya console.log bilangannya
+maka akan menghasilkan bilangan random dari 0 sampe 1.
+
+dan Masih banyak lagi Built-in Function yang lainnya.
+
+jadi karena hanya dikasih contoh beberapa jadi tugas kalian mencari tahu
+ada berapa built-in function di dalam javascript dan cai tahu juga kira"
+yg sering digunakan yang mana lalu cara pakainya gimana gitu ya.
+
+-----------------------------------------------------------------------------------------------------------------------------
+
+Selanjutnya yg tidak kalah penting mengenai User-defined function
+
+- Fungsi yang ktia buat sendiri karena kalian nanti akan sering banget membuat
+  function kalian sendiri. gimana cara bikinnya
+
+- Menggunakan keyword function
+
+- Nama Function (optional) bisa di kasih nama seterah mau apa, nah nanti
+  kita liat kapan kita boleh aja ga ngasih nama di function yg kita buat.
+
+- Parameter / Argument nah didalam Function kita bisa berikan atau bahan baku
+  untuk membuat function, bahan baku yg bisa digunakan didalam sebuah funsction.
+
+    - parameter ini nanti disimpan didalam kurung buka dan kurung tutup () setelah
+      kita menuliskan nama function.
+
+    - parameter juga boleh ada atau tidak, dan jika ada boleh lebih dari satu.
+
+    - dan jika lebih dari satu pisahkan prameter tersebut dengan menggunakan koma ( ,).
+
+- Lalu didalam Functionnya itu ada body nya yg kita bungkus nanti dengan menggunakan
+  kurung kurawal buka dan kurung kurawal tutup {}, sama seperti kita membuat pengulagan
+  atau pengkondisian yg didalam kurung kurawalnya berisi kumpulan statement.
+
+- Dan lalu function juga dapat mengembalikan nilai atau ( return value ) atau tidak
+  mengembalikan nilai jadi fungsi tu boleh mengembalikan nilai atau tidak.
+
+jadi ini cara membuat fungsi kita sendiri.
+
+-----------------------------------------------------------------------------------------------------------------------------
+
+Sekarang untuk membuatnya, kalo tadi kita udah tau caranya harus ada komponen
+pembentuknya seperti apa dan sekarnag cara bikin nya ada 2 :
+
+Membuat user-defined function
+
+- Dengan deklarasi / function declaration atau dengan cara
+- Dengan ekspresi / function expression
+
+
+kita liat satu persatu bagaimana cara membuat nya.
+
+-----------------------------------------------------------------------------------------------------------------------------
+FUNCTION DECLARATION
+
+dengan cara Function declaration
+
+jadi contohnya begini saya ingin membuat sebuah program yg menghitung penjumblahan
+dari 2 buah bilangan dengan menggunakan function declaration maka saya buat seperti :
+
+CONTOH :
+
+function jumlahDuaBilangan(a, b) {
+
+    var total;
+    total = a + b;
+
+    return total;
+
+}
+
+dengan kywerd function lalu nama function nya jumblah 2 bilangan lalu seperti itu
+saya beri kurung buka dan kurung tutup tempat saya menyimpan parameter a dan
+b misalnya untuk digunakan nanti di dalam body functionnya.
+
+lalu didalam functionnya saya mempunya variabel total dan total itu diisi dengan
+a + b itu hasil dari parameter tadi nah lalu saya mengembalikan nilai total.
+
+kesimpulannya itu kita membuat sendiri ini tuh hampir sama ky pengkondisian atau
+pengulangan karena di dalam body si function itu ada var terus a + b terus di return
+berarti menurut ku kaya munculkan di console.log tapi bukan juga sih.
+
+jadi a + b jika nanti kita panggil functionnya kita anti aja misal mau nongolin di console.log
+tinggal gini aja console.log(jumlahDuaBilangan(3, 6)); nah a + b itu dari yg kywerd si
+function itu kita ganti aja jadi angka nanti otomatis ditambahkan sama javascriptnya
+ini baru hal sederhana dari contoh FUNCTION DECLARATION ya.
+
+-----------------------------------------------------------------------------------------------------------------------------
+
+FUNCTION EXPRESSION
+
+nah selanjutnya jika saya ingin membuat function yg sama menjumblahkan 2 buah
+bilangan tapi menggunakan Function expression.
+
+jadi saya buat nya begini CONTOH :
+
+var jumlahDuaBilangan = function (a, b) {
+
+    var total;
+    total = a + b;
+
+    return total;
+
+}
+
+jadi kalo Function expression saya simpan Function ke dalam variabel
+jadi saya bikin variabel dengan nama yang sama dengan nama function tadi ya
+jumlahDuaBilangan yg diisi dengan sama dengan function(a, b) nah kalo ini
+gaada namanya langsung dengan kurung buka dan kurung tutup tempat mengisi
+parameternya dan function body nya persis sama dengan function declaration tadi
+
+
+jadii ini 2 cara membuat function yg satu dengan declarasi yg satu dengan expression.
+
+-----------------------------------------------------------------------------------------------------------------------------
+
+STRUKTUR FUNCTION
+
+sekarang kalo kita liat struktur dari function ini kita ambil contoh dari function
+declaration ajaa ya
+
+itu pasti kita punya sebuah kywerd function untuk membuat functionnya
+dan punya nama function
+ada parameter
+ada function body dan
+ada nilai kembalian / return value
+
+sekali lagi parameter boleh ada atau tidak, kalo gaada parameternya kurung buka
+dan kurung tutupnya tetap harus kalian tulis.
+
+dan nilai kembalian ga harus ada, jadi sebuah function boleh ada returnnya boleh
+tidak ada.
+
+jadi ini lah Struktur pembentuk function yg sederhana.
+
+-----------------------------------------------------------------------------------------------------------------------------
+
+Memanggil / menjalankan function
+
+cara menjalankan functionnya itu cukup dengan memanggil dengan
+nama functionnya di ikuti dengan kurung buka dan kurung tutup.
+
+jika functionnya membutuhkan parameter maka kalian langsung isi saja
+parameternya.
+
+dan kelebihannya jika menggnakan function kalian bisa panggil functionnya
+berulang ulang satu program seperti ini.
+
+CONTOH :
+
+alert(jumlahDuaBilangan(1, 2));
+alert(jumlahDuaBilangan(25, 30));
+alert(jumlahDuaBilangan(1500, 17.5));
+
+jadi kalian bisa menjumblahkan beberapa bilangan sekaligus.
+
+jadi saya memanggil menggunakan pop up alert yg nanti kalo dijalankan
+mereka akan menjublah sesuai arahan di codingan function tersebut.
+
+jadi alert yg pertama (1, 2) di dalam kurung maka yg akan muncul angka 3
+alert ke dua (25, 30) maka yg akan muncul angka 55
+alert ke tiga (1500, 17.5) maka yg akan muncul angka 1517.5
+
+jadi itu sederhananya membuat dan menjalankan function itu seperti ini.
+
+-----------------------------------------------------------------------------------------------------------------------------
+
+untuk video selanjutnya kita akan membahas
+
+- User-defined Function jadi nanti kita akan pahami lagi lebih lanjut mengenai
+  ini, bagaimana kita membuat Function.
+
+- Function DEclaration vs. Function Expression lalu kita cari tahu lagi apa perbedaan
+  yg lebih detail lagi mengenai ini dan mana yg lebih bagus dipakai disebuah kondisi
+  kapan memakai yg satu kapan memakai yg ini.
+
+- Parameter / Argument lalu kita akan bahas ini.
+
+- Return Value lalu kita akan membahas ini digunakannya kapan untuk apa kapan
+  boleh nya kapan boleh gaada.
+
+- Scope ada juga yg penting mengenai scope atau lingkup dari function nah ini
+  penting sekali kalian pahammi karena topik ini sangat membingungkan untuk
+  kalian yg baru belajar mengenai pemograman.
+
+- Refactoring yaitu bagaimana cara kita untuk lebih efektif lagi menuliskan kode
+  program kita.
+
+- Hoisting adalah sebuah konsep yg harus kalian pahammi tentang bagaimana
+  perilaku dri inter preater dari javascript dalam membaca baris" program kita.
+
+- Closure atau konsep nah ini terkait dengan function expression nah jadi
+  bagaimana menggunakan function expression yg lebih konpleks lagi.
+
+- Recursion yaitu bagaimana sebuah function itu bisa memangil diri nya sendiri.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

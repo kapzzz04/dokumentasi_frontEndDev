@@ -1,0 +1,196 @@
+CSS3 -- Box Shadow 1
+
+Jadi box shadow ini adalah property css3 yg gunanya untuk memberikan bayangan pada elemen
+yang kita buat, sebelum kita liat cara kerja property css3 ini, kita liat yg implementasi box shadow
+sebelum ada property css3 nya ini.
+
+Nah kita disini menggunakan bantuan potoshop, kita akan buat element kotak kita kasih ukuran
+300px x 300px, kasih aja warna hijau, nah sekarang jika kita mau membrikan bayang pada kotak
+itu di potoshop, itu caranya kita bisa klik kanan di (layers) nya, terus kita bisa pilih ( blending option).
+
+Nah pada saat kita memberikan layer style itu akan ada yg namanya dropshadow ( di folder gambar
+nya ), kalo kita klik nah maka otomatis kotak nya akan ada bayangan nya, nah ada beberapa hal yg
+harus kita pahami didalam drop shadow ini, yg nantinya perilaku nya itu sama seperti pada saat
+kita kasih css3 nantinya.
+
+setelah klik dorop shadow, liat di selahkanan nya ( seperti di folder ya gambar nya ), yg pertama ada
+(bland mode) itu kita abaikan saja karena itu hanya di terapkan di potoshop nya aja ya. Lalu yg ke-2
+itu ada (Opacity) ini untuk mengatuur transparansi dari bayangan, yg secara defalut pada saat kita
+kasih bayangan, bayangan nya berada di sebelah kanan bawah dari kotak nya ya. Kalo kita kurangin 
+opacity nya bayangan nya akan semakin transparan ya.
+
+Lalu dibawah nya ada (Angle) ini menentukan sudut datang nya cahaya, kalo kalian liat disitu ada 
+garis, garis nya bisa kita atur posisinya, sekarang cahaya nya datang dari kiri atas ( liat folder ), jdi
+tentu saja bayangan nya ada di kanan bawah, kalo kita geser garis nya maka bayangan nya juga
+akan berubah ya ini sesuai dengan datang nya cahaya, kalian bisa putar garisnya atau kalian bisa
+langsung kasih aja berapa derajat sudutnya.
+
+Lalu selanjutnya ada (Distance) ini adalah jarak bayangan terhadap object atau element nya, kalo
+Distance nya kita perbesar maka bayangan nya akan semakin jauh, nah ini Distance sama angle
+ada hubungan nya, kalo Distance nya saya tambah lalu angle nya saya putar maka dia akan 
+berubah" posisi kalo kita atur ya.
+
+Lalu ada ( size) ini untuk mengatur ukuran dari blur bayangan nya, jadi semakin saya perbesar
+size nya maka semakin besar blur nya, kalo saya perkecil sampe 0, maka bayangan nya akan solid
+gaada bur nya, jadi seolah" saya punya 2 buah kotak yg saling bertumpuk ( folder ss 144).
+
+Nah untuk (Spread) ini untuk menambahkan tebal bayangannya, jadi kalo saya tambahkan Spread
+nya maka bayangan nya akan semakin besar, bukan blur nya tapi bayangan nya. Jadi ini perilaku
+drop shadow pada poto shop. Ini dikasih tau di awal karena perilaku nya nanti mirip sama perilaku
+css3.
+
+--------------------------------------------------------------------------------------------------------------------------------
+
+IMPLEMENTASI DIDALAM CSS3
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Box Shadow 1</title>
+    <style>
+        div {
+            width: 300px;
+            height: 300px;
+            background-color: #39b54a;
+        }
+    </style>
+</head>
+<body>
+    <div></div>
+</body>
+</html>
+------------------------------------
+
+CARA kita ngasih bayangan nya BOX-SHADOW
+
+<x-offset> <y-offset> <blur> <color>
+
+Jadi pada saat kalian ingin menambahkan bayangan pada element kalian itu property nya adalah
+box-shadow, lalu value yg bisa kalian kasih itu ada 4 parameter, nah ini harus di inget ya, jadi urutan
+nya itu seperti di atas harus berurutan ya, itu 4 nilai yg harus ada pada property box-shadow.
+
+<x-offset> untuk mengatur jarak bayangan pada sumbu horizontal, ini nilai nya lumerik/numerik, jadi
+kalo saya kasih 10px maka dia akan bergerak kekanan sebanyak 10px, kalo saya kasih mines maka
+bayangan nya akan bergerak ke sebelah kiri element nya sebanyak 10px.
+
+<y-offset> untuk mengatur jarak versi vertikal nya ya, kalo tadi horizontal nya ini versi vertikal nya.
+
+<blur> ini mirip seperti property (size) di poto shop tadi, jadi untuk mengatur seberapa besar blur
+yg ingin kita kasih ke bayangan nya.
+
+<color> dan ini tentu saja untuk mengatur warna pada bayangan nya.
+
+Jadi itu adalah 4 value wajib yg harus ada, dan sebetulnya kita bisa tambah lagi 2 value opsional 
+<inset> dan <spread>, tapi ini kita bahas belakangan, kita akan coba yg utamanya dulu aja.
+
+--------------------------------------------------------------------------------------------------------------------------------
+
+jadi cara memberi bayangan kita kasih property nya box-shadow, lalu kita kasih x-offset nya yaitu 
+jarak bayangan terhadap sumbu x ya, misalnya kita kasih 5px, itu artinya bayangan nya akan 
+bergerak kekanan 5px, lalu misal saya kasih 5px untuk y-offset nya. terus kita kasih blur nya, kita 
+kasih 5px aja ya lalu warnanya kasih hitam aja, walaupun kita jarang banget ngasih warna yg solid
+seperti itu, seperti tadi kalian liat di potoshop bayangan nya itu ada opacity nya ya.
+
+   <style>
+        div {
+            width: 300px;
+            height: 300px;
+            background-color: #39b54a;
+            margin: 50px auto;
+            box-shadow: 5px 5px 5px black;
+        }
+    </style>
+-----------------------------------
+
+nah kan kalian bisa liat ada bayangan nya, ada di sebelah kanan 5px dan ada di bawah 5px, jadi
+sekarang gampang banget ngasih bayangan pada sebuah element menggunakan css3.
+
+Nah untuk x-offset dan y-offset mungkin jarak nya itu di itung dari sisi element si kotak nya misalkan
+itu di tulis 5px berarti jarak 5px dari si kotak nya, kalo mines di itung nya dari sebelah kiri dan yg 
+bawah juga kalo mines jadi pindah di atas bukan di bawah. (coba nanti cari tau lagi ).
+
+--------------------------------------------------------------------------------------------------------------------------------
+
+Nah kita jarang banget ngasih warna bayangan solid kek itu, biasanya kita kasih warnanya itu ada
+alpha nya ya, jadi kita kasih rgba, kita kasih kadar nya 0 semua itu artinya warna hitam, terus 
+transparansi bayangan nya tadi misalnya 75%. Seperti ini :
+
+    <style>
+        div {
+            width: 300px;
+            height: 300px;
+            background-color: #39b54a;
+            margin: 50px auto;
+            box-shadow: 10px 10px 5px rgba(0, 0, 0, .75);
+        }
+    </style>
+-----------------------------------
+
+nah sekarang tergantung kalian cara ngasih bayangan nya biar bagus, Nah biar gampang untuk
+mencari tau bayangan yg bagus gimana sih pasti kita coba" dulu ya nah itukan harus ctrl + s terus
+itu ribet ya.
+
+Nah biar gampang pake aja inspect element kan ada bagian style nah disitu ada box-shadow, kita 
+bisa atur dulu ganti" apanya biar bagus gausah ribet" ctrl+s terus yakan. Nah gampang nya untuk
+melihat perubahan ketebalan atau jarak x-offset atau atur besaran blur nya kita bisa klik berapa px
+di browser inspect element di style nya pilih klik dulu misal tadi kan 5px ya klik tuh yg 5px, lalu kita
+tinggal atur berapa px nya pake kyboard atas bawah nanti angka nya naik atau turun sendiri 
+gampang kan. kita jadi bisa liat perubahan nya dengan gampang dan jelas.
+
+( contoh nya liat di ss 145).
+
+--------------------------------------------------------------------------------------------------------------------------------
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

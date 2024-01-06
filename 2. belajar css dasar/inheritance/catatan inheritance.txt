@@ -1,0 +1,22 @@
+PROPERTI YANG DIWARISKAN 
+
+ -color
+ -font
+ -letter-spacing
+ -line-height
+ -list-style
+ -text-align
+ -text-indent
+ -text-transform
+ -visibility
+ -white-space
+---------------------------------------------------------
+ yang dimaksud INHERITANCE tag css nya yaitu [INHERIT]
+
+jadi tag ini berguna untuk mewarisi sebuah warna jika di body
+memakai tag color, ada yang ga berubah warna font nya nah itu pakai
+tag [inherit] kalo mau contoh nya cek file atau folder nengggg
+--------------------------------------------------------------
+kata pak shandika galih
+ini bergna jika kalo tag yang ingin di ubah nah itu ada yang ga berubah 
+warna nya berarti harus memakai tag [inherit]

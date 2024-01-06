@@ -1,0 +1,170 @@
+Javascript dan DOM #11 - Prevent Default
+
+di video kali ini kita akan membahas 2 topik, topik yg pertama mengenai Prevent Default itu 
+bagaimana cara kita untuk menghentikan aksi Default yg di lakukan oleh element Web kita, nah
+nanti topik ke 2 kita akan membahas mengenai event Bubling.
+
+untuk topik yg pertama kita masih menggunakan codingan dari vid sebelumnya yg membahasa
+mengenai DOM Traversal, jadi websaite yg di buat itu web untuk menampung kontak dari teman"
+kita, yg dimana kita bisa menekan tombol (x), ketika tombolnya di klik ceritannya kontak nya hilang
+atau terhapus, yg kalo kita refresh lagi kontak nya muncul seperti semula.
+
+nah di file HTML nya ada div dengan nama class card, nah itu untuk merepresentasikan 1 kontak 
+tadi, jadi 1 kontak itu adalah 1 buah div dengan class card dan di dalam nya terdapat banyak 
+element.
+
+kalo kalian liat di file js nya, kita sudah buat sebuah event handling ya, dimana ketika saya menekan
+tombol close nya, nah di atas itu kita ambil dulu tombol close nya, menggunakan querySelectorlAll,
+dimana querySelectorlAll itu menghasil kan sebuah array atau nodelist, yg di simpan ke dalam
+variabel close.
+
+lalu kita looping variabel close nya, nah tiap" element yg kita representasikan sebagai variabel baru
+yg namanya (el) dan (el) ini kita kasih sebuah event, yg kita tempelkan sebuah event yg namanya
+( 'click' ), jadi ketika tombol nya di click ( tombol itu yg ( x ) nya ya ).
+
+nah maka dia akan mentarget element ( x ) nya lalu mengambil parent element nya, lalu merubah
+css nya dengan display none. nah jadi itu ( parentElement) DOM Traversal nya.
+
+karena kalo parentElement nya di hilangkan, maka nanti yg ilang hanya tombol nya saja. kita
+gamau itu kita pengen yg hilang semua kartu nya, maka kita telusuri dulu sampai ke parent 
+element nya, nah kalo kita kasih ( .parentElement.parentElement ) lagi maka dia akan mengakses
+element yg lebih atas nya lagi.
+
+close.forEach(function (el) {
+    el.addEventListener('click', function (e) {
+        e.target.parentElement.parentElement.style.display = 'none';
+    })
+});
+--------------------------------------------------
+
+dalam hal itu adalah container nya, sehingga kalo saya click tombol ( x ) yg mana pun maka 
+container nya yg hilang jadi hilang semua, itu yg sudah kita pelajari dari pertemuan sebelumnya ya.
+
+------------------------------------------------------------------------------------------------------------------------------
+
+nah sekarang kita akan membahas sesuatu yg dinamakan prevent default, ini adalah sebuah
+method yg ada di dalam object event tadi ( yg e di dalam function ), tujuan nya adalah untuk
+menghentikan aksi Default yg di lakukan sebuah element.
+
+misalnya gini liat yg tag close ini ( <span class="close">x</span> ), nah disitu kita buat dengan
+element span, nah sekarang kita ganti dengan element ( a ) supaya lebih masuk akal ya karena
+element a itu bisa di klik ya, lalu kita kasih attribute nya href.
+
+tapi karena saya tidak mau pindah ke halaman mana pun jadi saya kosong kan saja href nya,
+kalo kita liat hasil nya, tombol nya sama aja, tapi sekarang ada garis di bawah ( x ) nya tuh karena
+default nya tag ( a ) itu punya underline, yasudah kita ilang kan saja garis bawah nya dengan css
+ya, bsiakan ituin sendiri.
+
+nah sudah tuh, tapi ketika saya klik tombol ( x ) nya kontak nya itu ga ilang atau ke apus, nah ini
+karena ada aksi default yg dilakukan oleh ( a ) ini, ( a ) itukan kalian tau dia adalah hyperlink, 
+dimana kalo kita klik text di dalam a nya.
+
+dia akan pindah ke halaman lain, halaman yg kita tulis pada attribute href nya, nah sekarang karena
+kita ga tulis apa" didalam attribute href nya. itu artinya pada saat kita klik halaman nya akan kembali
+ke halaman semula, otomatis dia akan merefresh lagi halaman nya. 
+
+begitu halaman nya di refresh yg pasti halaman nya balik lagi semuanya. jadi pada saat di klik
+halaman nya hilang sebentar sepersekian detik lalu halam nya refresh kembali, nah sekarang
+gimana caranya supaya kita bisa menghentikan aksi Default itu.
+
+karena kadang" nanti dengan menggunakan Javascript kalian pengen membuat aksi sendiri dan
+menghentikan aksi default nya, seperti kalian mencet sebuah tombol, ketika kalian melakukan
+ceklis, ketika kalian memilih sebuah element di kombo box, bahkan sumbit pada form dll.
+
+nah kalian ada kala nya ingin menghentikan aksi itu dan menggantinya dengan aksi punya kalian
+sendiri, itu caranya gampang aja.
+
+------------------------------------------------------------------------------------------------------------------------------
+
+const close = document.querySelectorAll('.close');
+close.forEach(function (el) {
+    el.addEventListener('click', function (e) {
+        e.target.parentElement.style.display = 'none';
+    })
+});
+
+kita udah punya script nya ya, kalian liat begitu tombol close di click hilangkan parent nya, nah
+setelah parent nya hilang halamanya di refresh, nah kita gamau melakukan halamanya di refresh,
+maka caraya kalian cukup panggil ( e ) atau event nya lalu tambahkan sebuah method namanya
+( preventDefault() ), jadi preventDefault itu cegah aksi default nya.
+
+jadi preventDefault itu untuk menghentikan refresh otomatis.
+
+------------------------------------------------------------------------------------------------------------------------------
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

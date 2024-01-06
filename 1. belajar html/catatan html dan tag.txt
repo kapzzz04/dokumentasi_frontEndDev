@@ -1,0 +1,113 @@
+MACAM MACAM TAG HTML DASAR 
+
+atribut TITLE berguna untuk menjelasakan atau jika kursor mouse di letaakn di bagian
+tag yang ada atribut TITLE  bisa terlihat penjelasannya
+
+JIKA INGIN LEBIH TAU CONTOH NYA COBA SENDIRI  ATAU LIAT DI WEBSAITE UDAH SAYA SIMPAN SIH
+
+
+ <hr> untuk membuat garis lurus ke samping
+
+ <p> untuk paragraf
+
+ <br> untuk baris baru atau agar ada space di bawah 
+
+ <pre> untuk menyesuaikan apa yang kita tulis misal ada sepasi atau baris baru
+           di codingan nya atau apapun itu di dalam tag <pre> akan seperti itu sesuai yang kita
+           tulis
+
+ <b> untuk menebal kan huruf menjadi jrengg
+
+ <strong> untuk menebal kan huruf tetapi dia lebih bermakna 
+
+ <i> untuk meng italic kan sebuah huruf atau hrufu jaadi sedikit lebih miring
+ <em> untuk meng miringkan hruf atau menajdi kecil mungkin sedikit
+           mirip dengan tag <i>
+
+ <small> untuk membuat text lebih kecil dari yang lain atau bisa dilihat sendiri ya
+
+ <mark> untuk menandakan huruf atau mewarnakan hruf seperti di buku memakai stabilo
+
+ <del> untuk mencoret huruf bisa di coba sendiri deh kalo belum ngerti ya
+
+ <ins> untuk untuk menggaris bawahi sebuah huruf
+
+ <sub> tag ini berada di bawah huruf lain nya dan lebih kecil bisa di pakai buat pangkat MTK
+             atau menandakan tag kimia apalah itu
+
+ <sup> tag ini sama dengan tag <sub> bedanya ini berada di atas 
+
+------------------------------------------------------------------------------------------------------------------------------------------------
+ <blockquote> untuk membuat sebuah paragraf nya lebih ke samping di banding text lain nya
+                              seperti membuat puisi mungkin bisa di coba sendiri ya
+
+ <q> sebagai tag penanda jika sebuah kalimat di tekankan ada tanda kutip di awal dan di akhir
+         bisa dicoba sendiri ya
+ 
+ <abbr> sebagai tag yang menjelaskan singkatan dari sebuah kalimat misal nya
+                "FIFA" nah itu contoh nya dan di bwah kata tersebut ada garis patah-patah
+                bisa di coba sendiri ya
+
+ <address> untuk di sebuah surat di akhir atau di awal untuk nama pengirim nya dan pesan kesan nya
+                       bisa di coba sendiri
+
+ <cite> untuk menanda kan nama gambar atau tokoh di sebuah poto bisa coba sendiri
+
+ <bdo> tag ini dapat di gunkana untuk membalikan huruf coba sendiri aja
+
+-------------------------------------------------------------------------------------------------------------------------------------
+
+  <MAP> digunakan untuk membuat petagambar, dan ditautkan ke gambar dengan menggunakan
+                atribut nama yang diperlukan
+
+  <area> mendefinisikan area yang dapat di klik di dalam peta gamabar
+  
+  <picture> mendfinisikan wadah untuk beberapa sumber gambar, berisi satu atau lebih elemen
+                     <source> masing-masing merujuk ke gambar yang berbeda melalui atribut SCRSET
+                      Dengan cara ini browser dapat memilih gambar yang paling sesuai dengan tampilan
+                     dan/atau perangkat saat ini.
+jadi itu misal gambar nya kebsaran atau ke gedean bisa pake elemen itu agar menyesuaikan di brwoser
+
+beberapa browser atau perangkat mungkin tidak mendukung semua format gambar. Dengan menggunakan elemen <picture>
+anda dapat menambah gambar dari semua format, dan browser  akan menggunakan format pertama yang dikenalinya, salah
+satu elemen berikut.
+
+
+ <
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

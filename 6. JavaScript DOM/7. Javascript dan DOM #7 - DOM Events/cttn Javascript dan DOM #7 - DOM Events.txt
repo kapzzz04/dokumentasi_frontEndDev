@@ -1,0 +1,499 @@
+Javascript dan DOM #7 - DOM Events
+
+sebelum kita mempelajari lebih jauh mengenai Events ini perlu diketahui bahwa Events ini tidak
+sama dengan Even, nah itu 2 hal yg berbeda ya, kalo Even itu artinya genap, kalo Events itu
+artinya kejadian.
+
+selanjutnya apa itu Events ?
+
+Event pada javascript dia merepresentasikan sebuah kejadian yang nantinya akan terjadi di 
+dalam DOM. kejadian tersebut itu bisa dilakukan oleh user, ya yg paling simpel itu ketika kita 
+melakukan klik pada mouse kita,ketika kita menekan tombol pada kyboard, mengisikan sesuatu 
+pada element input, menggerakan mouse dan lain sebagainya semua kejadian yg dilakukan oleh
+user.
+
+atau Events ini bisa dilakukan otomatis oleh API ya mungkin untuk ini kita akan mempelajari lebih
+lanjut, nah ini maksudnya itu ketika kalian menjalankan animasi menggunakan CSS, nah ketika
+animasi selesai dijalankan kita bisa menangkap Events nya atau kejadian nya, atau ketika halaman
+kalian selesai di load ke dalam memori nah itu dilakukan otomatis oleh komputer atau istilahnya
+oleh API nya.
+
+dan definisi ini didapatkan websaite Developer mozila mengenai Events.
+
+-------------------------------------------------------------------------------------------------------------------------------
+
+Bagaimana cara Bikin nya ?
+
+Cara 'mendengarkan' event
+
+#Event Handler
+  - inline HTML attribute
+  - Element method
+#addEventListener()
+
+ada beberapa cara untuk menerapkan event ini, atau istilah kita mendengarkan, jadi istilahnya nanti
+komputer itu akan mendengar kan apakah ada sebuah kegiatan yg dilakukan oleh user atau tidak.
+
+cara mendengarkan nya itu kita bisa melakukan 2 cara yg pertama itu menggunakan sesuatu yg
+dinamakan Event Handler dan yg ke 2 kita bisa menggunakan Method addEventListener() dan
+method yg ke 2 itu adalah method yg lebih baru dari Event Handler.
+
+untuk Event Handler ada 2 jenis yg bisa kita lakukan, pertama kita bisa menambahkan attribute
+HTML secara inline jadi kita langsung tanam di HTML nya, atau kita bisa gunakan Method untuk
+element yg nanti kita seleksi, untuk lebih jelas lagi nanti kita liat contoh nya aja ya, intinya ada 2
+cara untuk mendengarkan atau menjalankan event pada DOM. 
+
+-------------------------------------------------------------------------------------------------------------------------------
+
+Event Handler
+
+cara membuat event handler itu gampang nya gini kalian bisa memanggil sebuah kywerd namanya
+( on ) lalu di ikuti dengan event nya itu apa ( on<event> ), jadi kalo misalkan user menekan tombol
+pada mouse atau pada trackpad, event yg bisa kita dengarkan namanya ( onclick ), langsung kita
+coba cara mengimplementasikan event handler pada kode kita.
+
+Mengimplementasikan Event Handler 
+
+oke jadi kita sudah punya file HTML sepeerti di video" sebelumnya ya, sekarang kita akan 
+menggunakan event handler oneclik tadi, nah ceritanya begini kita akan mendengarkan sebuah
+aksi ketika kita melakukan sesuatu terhadap DOM itu, misalnya tadi ya menekan  tombol pada
+mouse atau trackpad.
+
+nah saya pengen ketika saya click ( paragraf 3 ) itu maka warna background nya akan berubah,
+itu yg paling sederhana, yg akan kita lakukan di saat klik ( paragraf 3 ) maka warna background
+nya berubah, nah sebetulnya kita bisa melakukan hal itu dengan CSS, yaitu menggunakan 
+pseudo class ya.
+
+tapi kalo menggunakan CSS di saat kita klik object yg ditentukan itu maka warna nya berubah
+misal warna hijau, maka disaat kita klik warna backgroundnya menjadi hijau, tapi itu kita masih
+tekan terus tombolnya si mouse nya, tapi ketika saya lepas tombol mouse nya maka dia 
+kembali lagi warna nya seperti semula, jadi kalo kita gunakan CSS itu berpengaruh nya disaat kita
+klik aja tapi ketika sudah tidak di klik maka tidak berpengaruh lagi dan tidak berubah warna nya.
+
+tapi yang kita mau itu di saat ( paragraf 3 ) di klik maka background nya berubah warna dan
+setelah di klik juga ttp warna nya yg kita ingin kan seblum nya apa atau permanen gitu warnanya.
+
+-------------------------------------------------------------------------------------------------------------------------------
+
+sekarang kalo kita ingin memberikan warna background pada ( paragraf 3 ) itu tanpa menggunakan
+event clik tadi, kita kan bisa langsung aja gini ya, kita tangkap dulu element nya seperti ini :
+
+const p3 = document.querySelector('.p3');
+p3.style.backgroundColor = 'lightblue';
+--------------------------------------------------------
+
+nah menggunakan ini juga ( paragraf 3 ) nya jadi berubah warna, tapi dia dari awal sudah berubah
+grgr javascript nya nyuruh dia dari awal ubah warna nya jadi lightblue, nah kita pengen nya ketika
+di klik baru berubah secara permanen menjadi warna lightblue.
+
+nah berarti dibwah ini :
+
+p3.style.backgroundColor = 'lightblue';
+--------------------------------------------------------
+
+dilakukan ketika event nya berhasil dijalankan.
+
+cara tadi kita gunakan event handler ya, nah yang paling gampang gini, kita buat dulu Function ya
+kita bisa simpan Function dimana pun ya, lalu kasih aja nama Function nya misalkan ( ubahWarna)
+lalu di dalam nya saya simpan ini ( p3.style.backgroundColor = 'lightblue'; ) gini :
+
+function ubahWarna() {
+    p3.style.backgroundColor = 'lightblue';
+}
+-----------------------------------------------------
+
+jadi cerita nya ada Function namanya ubahWarna, lalu ubahWarna itu erubah p3 menjadi lightblue
+nah saya pengen ketika ( paragraf 3 ) itu diklik berubah warnanya ya.
+
+nah itu caranya tambahkan Event Handler di dalam element nya, kita simpan di tag p3, ya
+langsung di simpan di tag HTML nya di p3 nya itu, nah kita akan lakukan yang pertama, kalo tadi
+kita liat itu menggunakan Event Handler ada 2, kita bisa simpan sebagai attribute HTML kita bisa
+simpan sebagai Method.
+
+-------------------------------------------------------------------------------------------------------------------------------
+
+Event Handler ( inline HTML attribute / simpan sebagai attribute HTML )
+
+nah sekarang kita coba yg pertama dulu, walaupun yg pertama ini sangat tidak di sarankan untuk
+dilakukan ya karena pertama kita mencampur adukan antara HTML dengan Javascript di dalam
+file HTML nya ya nah itu gabagus, yg ke 2 kita memodivikasi HTML nya padahal kita bisa 
+menambahkan EVent tanpa menyentuh HTML nya gpp kita coba dulu aja.
+
+nah disini lah kita bisa tambahkan sebuah attribute seperti ini 
+
+<p class="p3" onclick="">paragraf 3</p>
+-----------------------------------------------------
+jadi ini maksudnya ketika paragraf ini di klik kita akn jalankan sebuah Function, function yg tadi
+ubahWarna, nah dia akan mengecek di dalam javascript nya  seperti ini :
+
+<p class="p3" onclick="ubahWarna()">paragraf 3</p>
+-------------------------------------------------------------------------
+
+nah silahkan di coba dengan codingan di atas maka berhasil sudah ketika kita klik berubah warna
+background nya, nah sekarang berubah nya permanen, jadi kita hanya satu kali Klik aja langsung
+berubah warna nya tidak kembali putih lagi, walaupun kalo saya refresh dia akan berubah lagi
+seperti awal.
+
+jadi kita bisa lakukan seperti itu, simpan attribute event handler nya ke dalam element nya, 
+sehingga kalo di klik element nya berubah.
+
+-------------------------------------------------------------------------------------------------------------------------------
+
+Event Handler ( Element method )
+
+nah sekarang kita akan coba lakukan yang ke-2, kita gunakan Method jadi kita ga lagi nyimpen di
+attribute HTML nya, nah misalnya saya mau bikin ( paragraf 2 ) jadi kalo paragraf 2 nya di klik
+dia akan berubah warna background nya juga, tapi saya gabakal pake attribute onclik lagi di
+attribute HTML nya ya.
+
+nah sekarang gini, sekarang saya bisa tangkap atau seleksi si p2 itu seperti ini :
+
+const p2 = document.querySelector('.p2');
+--------------------------------------------------------
+
+lalu saya akan lakukan gini :
+
+const p2 = document.querySelector('.p2');
+p2.onclick = ubahWarna;
+--------------------------------------------------------
+
+jadi itu p2 titik lalu di isi dengan method nya lalu event nya apa ya (onclick) ya nah sama dengan
+di isi oleh nama function yg kita ingin jalankan, jadi menurut saya sendiri dari situ udah tertara
+banget gini, jika disaat p2 di klik maka jalankan lah function nya, nah function yg dimaksud itu
+bisa apa aja mau kita isi function nya ternyata saat klik p2 kita ubah tulisan si judul nah itu oke
+aja, ga selalu tertuju pada yg kita klik berarti itu yg kita ubah, bisa aja yg kita klik p2 yg berubah
+malah p1 itu bisa aja, semoga ngerti maksud gueh ya uhuyy.
+
+--------------------------------------------------------
+
+lalu kita kasih contoh codingan semuanya :
+
+const p3 = document.querySelector('.p3');
+
+function ubahWarna() {
+    p3.style.backgroundColor = 'lightblue';
+}
+
+const p2 = document.querySelector('.p2');
+p2.onclick = ubahWarna;
+--------------------------------------------------------
+
+nah ini codingan seluruh nya kita coba, di saat kita klik p2 nya tapi kita liat yg berubah warna
+background nya itu malah p3, nah itu karena function ubahWarna disitu itu di dalam function itu
+masih ( p3 style nya ) jadi yg berubaha warna nya itu si p3, kalo mau p2 yg berubah warna nya
+maka ganti aja jadi seperti ini :
+
+function ubahWarna() {
+    p2.style.backgroundColor = 'lightblue';
+}
+
+const p2 = document.querySelector('.p2');
+p2.onclick = ubahWarna;
+--------------------------------------------------------
+
+tapi sekarang kalo paragarf 3 nya di klik dengan kondisi codingan seperti di atas, maka yg berubah
+warna nya malah p2, pargraf 3 nya tidak berubah warna, itu karena tujuan atau value nya itu
+sama jadi di saat di klik jalan kan function ubahWarna jadi kaya satu tujuan sedengkan di function
+ubahWarna itu hanya salah satu saja style yg akan dijalankan antara p2 atau p3 yg berubah warna
+nya jadi kita harus membuat function untuk setiap paragraf yg mau di ubah warna nya agar tidak
+terjadi seperti itu.
+
+-------------------------------------------------------------------------------------------------------------------------------
+
+nah kalo kalian ingin merubah warna sesuai dengan paragraf yg di klik sebenernya paling gampang
+kalian bisa ganti aja nama Function nya misalnya yg p2 jadi ubahWarnaP2 dengan didalam nya
+( p2 style ) lalu bikin lagi Function nya namanya ubahWarnaP3 dengan di dalam nya ( p3 style ),
+lalu tinggal ganti aja tujuan Function nya di paragraf yg kita ingin kan dengan function yg sesuai
+yg kita mau misal gini  :
+
+yg paragraf 3 kita ganti jadi gini   
+<p class="p3" onclick="ubahWarnaP3()">paragraf 3</p>
+
+yg paragraf 2 kita ganti jadi gini 
+p2.onclick = ubahWarnaP2;
+-------------------------------------------------------------------------------
+
+tapi nanti ada cara mudah nya tidak seperti itu, tapi kalo kaya gini juga bisa, jadi begitu ya
+kita bisa gunakan ( on ) lalu nama Event nya apa.
+
+-------------------------------------------------------------------------------------------------------------------------------
+
+addEventListener()
+
+selanjutnya kita bisa menggunakan Method addEventListener() nah kalo Method ini dia lebih baru
+dari pada ( on ) fungsi nya sama aja, tapi nanti kita akan liat apasih perbedaannya.
+
+sekarang yg kita akan lakukan gini, kita akan mendengarkan event ketika ( paragraf 4 ) itu di klik
+saya akan menambahkan list item baru, jadi setiap saya klik sekali ( paragraf 4 ) nya maka akan
+menambahkan sebuah list item baru.
+
+Mengimpelementasikan addEventListener()
+
+yg pertama kita akan tangkap dulu si paragraf 4 seperti ini :
+
+const p4 = document.querySelector('#b p');
+---------------------------------------------------------
+
+nah sekarang kita ga akan tulis p4.onclick tapi sekarang kita akan gunakan gini :
+
+const p4 = document.querySelector('#b p');
+p4.addEventListener();
+---------------------------------------------------------
+
+teman" perhatikan cara penulisan nya ya, ada huruf besar dan ada huruf kecil, nah bedanya 
+di dalam kurung si ( addEventListener() ) ini tulisakan 2 buah parameter, yg pertama dengan
+menggunakan kutip, kalian bisa tuliskan Event nya mau apa. seperti ini :
+
+const p4 = document.querySelector('#b p');
+p4.addEventListener('click');
+---------------------------------------------------------
+
+jadi baca nya gini, javascript carikan element p4 lalu ketika ada event click lakukan sesuatu, nah
+lakukan nya apa, nah tambahkan parameter ke 2, lalu jalankan sebuah function, kalian boleh bikin
+Function kaya tadi atau kita bikin Function Expresion seperti ini :
+
+const p4 = document.querySelector('#b p');
+p4.addEventListener('click', function () {
+    alert("ok");
+});
+---------------------------------------------------------
+
+maka ketika saya klik p4 maka harusnya muncul alert "ok", nah sudah berhasil di dengarkan
+sekarang yg ingin kita lakukan adalah menambah list item baru.
+
+-------------------------------------------------------------------------------------------------------------------------------
+
+caranya kita butuh beberapa hal, kita tangkap dulu parent nya dari tempat yg mau kita tuju, inget
+parent nya itu adalah ul, karena bikin list item baru sudah ada di vidio sebelumnya jadi kita tinggal
+masukin aja ke dalam function yang ada. seperti ini :
+
+const p4 = document.querySelector('#b p');
+p4.addEventListener('click', function () {
+
+    const ul = document.querySelector('#b ul');
+    const liBaru = document.createElement('li');
+    const teksLi = document.createTextNode('item baru');
+    liBaru.appendChild(teksLi);
+    ul.appendChild(liBaru);
+
+});
+---------------------------------------------------------------------------
+
+jadi kalo yg lalu itu hanya menambahkan item baru aja ya itupun satu li saja, tapi kalo sekarang
+setiap ngeklik maka dibuat kan item baru itu.
+
+jadi gini, ambil parent nya dulu, lalu bikin element baru nya ( li ) baru, lalu kita rangkai atau
+gabungkan antara element baru dan teks baru agar menjadi satu, lalu kita simpan didalam ( ul ).
+
+nah jadi kalo saya klik paragraf 4 dia akan terus terusan nambah item baru, jadi itu cara kita
+menggunakan Event pada javascript ya.
+
+-------------------------------------------------------------------------------------------------------------------------------
+
+Perbeaanya ?
+
+kita sudah tau cara pake event handler dan kita sudah tau cara pake event listener, perbedaanya
+apa?, kapan kita pake yg satu kapan kita pake yg lain nya?
+
+menggunakan Event Handler itu merupakan cara lama, ya walaupun apa yg bisa dilakukan
+oleh event handler pasti bisa dilakukan oleh addEventListener, nah perbedaannya adalah ketika 
+kita memberikan lebih dari  satu perubahan pada sebuah events, jika kita menggunakan events
+handler maka perubahan yg terakhir dilakukan akan menimpa perubahan sebelum nya. sedangkan
+mengguakan addEventListener dia akan menambah perubahan nya.
+
+contoh nya gini menggunakan ( Event Handler )  :
+
+sekarang misalka kita mau melakukan hal yang sama seperti tadi ya saya ingin ketika saya
+klik paragraf 3 maka background color nya berubah menjadi warna biru muda misal gini :
+
+const p3 = document.querySelector('.p3');
+p3.onclick = function () {
+    p3.style.backgroundColor = 'lightblue';
+}
+-------------------------------------------------------
+
+nah kita jalankan nah saat di klik gaada masalah ya, nah kalo saya tambahkan sebuah Event lagi
+tapi Event nya sama" onclick, tapi saya mau mengubah warna tulisan paragraf 3 nya. seperti ini :
+
+const p3 = document.querySelector('.p3');
+p3.onclick = function () {
+    p3.style.backgroundColor = 'lightblue';
+}
+p3.onclick = function () {
+    p3.style.color = 'red';
+}
+-------------------------------------------------------
+
+jadi ada 2 hal nih, kalo di klik awalnya dia background color nya lightblue yg ke 2 warna tulisannya
+menjadi merah, coba kira" apa yg akan terjadi apakah background nya menjadi biru muda dan
+tulisannya menjadi merah, apa hanya salah satu saja.
+
+nah ternyata di saat di klik yg dilakukan hanya yg ke 2 saja, event yg pertama di timpa atau 
+diabaikan, jadi dia tidak peduli dengan apa yg dilakukan oleh (onclick) yg pertama, paham ya
+itu kalo kita pake Event Handler.
+
+-------------------------------------------------------------------------------------------------------------------------------
+
+contoh nya gini menggunakan ( addEventListener()  )  :
+
+sekarang kita lakukan hal yg sama seperti yg di atas atau seperti sebelum nya seperti ini :
+
+---------------------------------------------------------
+const p3 = document.querySelector('.p3');
+
+p3.addEventListener('click', function () {
+    p3.style.backgroundColor = 'lightblue';
+});
+p3.addEventListener('click', function () {
+    p3.style.color = 'red';
+});
+---------------------------------------------------------
+
+nah seperti itu kita lakukan hal yang sama seperti melakukan menggunakan ( Event Handler )
+kita coba ya, begitu di klik ternyata 2 2 nya dilakukan, klik yg pertama di lakukan klik yg ke 2 juga
+dilakukan.
+
+jadi itu lah perbedaan antara Event handler dan addEventListener()
+
+-------------------------------------------------------------------------------------------------------------------------------
+
+EVENT LIST
+
+ada event apa aja si di dalam DOM ini ?
+
+Daftar Event
+
+- Mouse Event
+- Keyboard Event
+- Resources Event
+- Focus Event
+- View Event
+- Form Event
+- CSS Animation & Transition Event
+- Drag & Drop Event
+- dll.
+
+EVENTS DOM LENGKAP oleh MOZILLA
+https://developer.mozilla.org/en-US/docs/Web/Events
+
+dan tiap-tiap kategori nya ada banyak Event di dalam nya 
+
+Mouse Event
+- click
+- dblclick
+- mouseover
+- mouseleave
+- mouseenter
+- mouseup
+- wheel
+
+Keyboard Event
+- keydown
+- keypress
+- keyup
+
+View Event
+- resize
+- scroll
+
+Form Event
+- reset
+- sumbit
+
+-------------------------------------------------------------------------------------------------------------------------------
+
+kita kasih beberapa contoh nya ya :
+
+
+const p3 = document.querySelector('.p3');
+
+p3.addEventListener('dblclick', function () {
+    p3.style.backgroundColor = 'lightblue';
+});
+-------------------------------------------------------
+
+ini digunakan di saat kita double klik maka warna nya akan berubah tetapi kalo 1 kali klik saja
+tidak berubah warnanya.
+
+const p3 = document.querySelector('.p3');
+
+p3.addEventListener('mouseenter', function () {
+    p3.style.backgroundColor = 'lightblue';
+});
+-------------------------------------------------------
+
+lalu ada juga mouseenter ini berpengaruh ketika kita arah kan kursor nya ke paragraf 3, nah
+ dia akan menjadi warna biru muda, tapi ketika kita tidak mengarahkan nya lagi warna nya ttp
+biru muda. biar jadi warna putih bisa gunakan gini :
+
+-------------------------------------------------------------
+const p3 = document.querySelector('.p3');
+
+p3.addEventListener('mouseenter', function () {
+    p3.style.backgroundColor = 'lightblue';
+});
+p3.addEventListener('mouseleave', function () {
+    p3.style.backgroundColor = 'white';
+});
+---------------------------------------------------------------
+
+ini mirip seperti di CSS menggunakan hover gitu, tapi ini kita bisa ganti jadi warna hijau bisa
+seperti ini :
+
+---------------------------------------------------------------
+const p3 = document.querySelector('.p3');
+
+p3.addEventListener('mouseenter', function () {
+    p3.style.backgroundColor = 'lightblue';
+});
+p3.addEventListener('mouseleave', function () {
+    p3.style.backgroundColor = 'lightgreen';
+});
+---------------------------------------------------------------
+
+jadi di saat kursor nya di area paragraf 3 maka warna nya berubah menjadi biru muda, tetapi
+di saat kursornya keluar dari area paragraf 3 maka background warna paragraf 3 menjadi
+warna hijau muda.
+
+-------------------------------------------------------------------------------------------------------------------------------
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

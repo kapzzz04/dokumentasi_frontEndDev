@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Image Elements</title>
+
+    <style>
+      body {
+        font-family: sans-serif;
+        min-height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-size: 1.125em;
+        line-height: 1.6;
+        color: #333;
+        padding: 2em;
+      }
+
+      .hero {
+        display: grid;
+        grid-gap: 2em;
+        align-items: center;
+      }
+
+      img {
+        max-width: 100%;
+        height: auto;
+      }
+
+      @media (min-width: 960px) {
+        .hero {
+          grid-template-columns: repeat(2, 1fr);
+        }
+      }
+    </style>
+  </head>
+
+  <body>
+    <!-- <h1 style="margin-bottom: 1500px;">Image Elements</h1>
+
+    <img src="img2/normal.jpg" alt="">
+    <img src="img2/large.jpg" alt="">
+    <img src="img2/small.jpg" alt="">
+
+    <img src="img/small.jpg" alt="SETUP komputer" srcset="img/small.jpg 500w, 
+    img/2.jpg 750w, img/large.jpg 1000w" sizes="(min-width: 1200px) 50vw" loading="lazy">
+
+    <figure>
+        <img src="img/small.jpg" alt="SET_UP">
+        <figcaption>SET-UP inspirasi kamar kamu jadi lebih nyaman</figcaption>
+    </figure>
+
+    <picture>
+        <source media="(min-width: 1200px" srcset="img/small.jpg" sizes="50vw">
+        <source media="(min-width: 960px" srcset="img/large.jpg" sizes="50vw">
+        <source media="(min-width: 600px" srcset="img/2.jpg">
+        <img class="example" src="img/small.jpg" alt="SET_UP">
+    </picture> -->
+
+    <!-- ini baru nya -->
+
+    <div class="hero">
+      <div class="hero-text">
+        <h1>Hello GGP</h1>
+        <p>
+          Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+          Exercitationem, laboriosam esse! Quisquam mollitia rem neque quos cum
+          saepe dolor esse harum cumque? Itaque quos atque consequatur possimus
+          esse officiis dolorum?
+        </p>
+      </div>
+
+      <picture>
+        <source
+          media="(min-width: 960px)"
+          srcset="img2/normal.jpg"
+          sizes="50vw"
+        />
+        <source media="(min-width: 600px)" srcset="img2/large.jpg" />
+        <img src="img2/small.jpg" alt="LAPTOP RGB" />
+      </picture>
+    </div>
+  </body>
+</html>

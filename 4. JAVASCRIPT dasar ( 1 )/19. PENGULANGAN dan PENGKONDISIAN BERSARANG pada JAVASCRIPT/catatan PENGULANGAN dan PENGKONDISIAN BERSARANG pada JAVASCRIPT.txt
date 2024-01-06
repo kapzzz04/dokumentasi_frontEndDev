@@ -1,0 +1,357 @@
+PENGULANGAN dan PENGKONDISIAN BERSARANG pada JAVASCRIPT
+
+
+di vidio ini kita akan membahas mengenai pengulangan dan pengkondisian
+tapi sedikit lebih kompleks dimana nantinya kita akan mencoba membuat
+pengulangan dan pengkondisian nya tersebut istialah nya bersarang
+
+misalnya nanti kita menyimpan pengkondisian didalam pengulangan 
+atau sebaliknya misalnya, atau menyimpan pengulangan di dalam
+pengulangan lagi.
+
+karena jika nantinya kalian membuat program atau aplikasi di dunia nyata
+hal ini pasti akan terjadi, ya kalian harus paham betul mengenai perilaku
+dari pengulangan dan pengkondisian ini.
+
+kita liat aja contohnya.
+-----------------------------------------------------------------------------------------------------------------------------
+
+nah sekarang gini 
+gimana saya ingin mencentak ( ***** ) 5 buah bintang kedalam
+console javascript saya?
+
+mungkin ada yg jawab langsung aja pak
+console.log( '*****' );
+
+jadi kita bisa mencentak langsung mengguna console.log
+seperti ini
+
+kalo kita cek langsung di console.log ya gitu hasilnya
+tapi kan kita udah belajar tentang pengulangan
+
+jadi gimana kalo kita gunakan pengulangan untuk mengulang
+bintang nya tidak langsung di tulis seperti di atas.
+
+-----------------------------------------------------------------------------------------------------------------------------
+
+misalnya begini kita punya pengulangan, menggunakan FOR
+
+CONTOH:
+
+for (var i = 0; i < 5; i++) {
+    console.log('*');
+}
+
+kita pake angka 5 biar bintangnya 5 ya
+
+nah pas kita liat di console ternyata bintang nya di cetak 5 kali
+tapi dia tidak di cetak kesamping kanan gimana ya caranya
+
+-----------------------------------------------------------------------------------------------------------------------------
+
+supaya tertulis ke kanan buatlah sebuah variabel kosong yg nanti isinya
+itu kita menambahkan string bintang menggunakan operator konket/+
+
+caranya gini
+
+var s = '';
+
+for (var i = 0; i < 5; i++) {
+
+    s += '*';
+}
+
+console.log(s);
+
+akan tampil bintangnya ada 5, kalo misalnya bintang nya pengen 10
+gimana, ganti aja angaka 5 nya dengan 10, nanti hasilnya akan
+ada 10 bintang ke sampingkanan, bisa dicoba aja.
+
+-----------------------------------------------------------------------------------------------------------------------------
+
+sekarang gimana bintang nya saya gamau kesebelah kanan
+tapi dia turun kebawah, jadi setiap setelah mencetak bintang
+kita turun 1 baris, gimana?
+
+jadi tinggal tambah kan saja, ( s )  ditambah dengan kharakter
+yg ada di javascript untuk membuat baris baru yaitu ( \n ).
+
+jadi setelah cetak bintang cetak ( \n ) jadi hasilnya akan kebawah
+
+CONTOH CODINGANNYA:
+
+var s = '';
+
+for (var i = 0; i < 10; i++) {
+
+    s += '*';
+    s += '\n';
+}
+
+console.log(s);
+
+-----------------------------------------------------------------------------------------------------------------------------
+
+sekarang gimana kalo tiap baris nya bintangnya ada 5 jadi
+ada 10 baris tiap-tiap barisnya bintang nya ada 5
+
+nah gampang nya tulis lagi aja bintang nya 5 di syntak yg
+tadi nya ( s += '*'; ) gini jadi gini pak ( s +='*****' )
+
+nah hasilnya gitu kan pak, tapi saya gamau kalian curang
+seperti itu, gimana kita ganti atau tambahkan dengan
+pengulangan juga.
+
+jadi ada pengulangan untuk mengulang baris dan ada
+juga pengulangan lagi untuk mengulang berapa bintang
+yg ingin kita cetak dalam baris tertentu.
+
+-----------------------------------------------------------------------------------------------------------------------------
+
+nah setelah FOR dibawah nya tambah  FOR  lagi yang nama variabel nya
+itu ( p ) dan isi nya ( 0 ) lalu ( p ) nya lebih kecil dari 5 karena kita ingin tiap
+barisnya ada 5 bintang, lalu increment p++, lalu didalam nya kita tulis
+( s += '*'; ) nah ( s += '\n'; itu di luar pengulangan var p ya.
+
+jadi setipa 5 kali bintang keluar dari loop nya lalu turun satu baris.
+
+CONTOH:
+
+var s = '';
+
+for (var i = 0; i < 10; i++) {
+
+    for (var p = 0; p < 5; p++) {
+        s += '*';
+    }
+    s += '\n';
+
+}
+
+console.log(s);
+
+
+-----------------------------------------------------------------------------------------------------------------------------
+
+sekarang saya pengen 7 baris tiap-tiap barisnya ada 10
+bintang, nah var ( i ) yg di atas yg tadi nya angka 10 ganti
+angka 7 dan var ( p ) di atas yg tadinya angka 5 ganti 
+angka 10.
+
+ 
+
+sekarang gimana kalo baris pertama bintang nya 1 baris
+ke 2 bintangnya 2, baris ke 3 bintangnya 3 dan seterusnya.
+
+nah kalo sekarang pengen 5 baris aja nah ( i ) nya diganti
+5 ya nah kalo ( p ) nya diganti 1 nanti semua barisnya 1
+ya bukan gitu berarti.
+
+kalo kalian jelih jumbalah bintang yg ada tiap baris itu
+sesuai dengan nomor baris nya ya, nah kita ganti aja
+yg tadinya (p < 5 ) ganti dengan nomor barisnya yaitu
+( p < i ).
+
+CONTOH CODINGAN NYA:
+
+var s = '';
+
+for (var i = 0; i < 5; i++) {
+
+    for (var p = 0; p < i; p++) {
+        s += '*';
+    }
+    s += '\n';
+
+}
+
+
+console.log(s);
+
+-----------------------------------------------------------------------------------------------------------------------------
+
+tapi kalo codingan seperti di atas hasilnya baris pertama
+itu akan kosong.
+
+kita telusuri
+
+var i = 0 lalu kita cek apakah 0 lebih kecil dari 5, betul
+i++ kita lakukan belakangan, langsung masuk ke 
+var p = 0, nah apakah 0 lebih kecil dari 0 salah ya.
+
+jadi aksi didalam for ke 2 itu ga dijalankan langsung di kerjakan
+( s += '\n'; ), nah baris pertama itu dia langsung blackslash
+atau turun 1 baris, berarti ada yg salah di codingan itu.
+
+
+gimana kalo kita kasih sama dengan ( = ) maksudnya gini
+ni, kasih sama dengan ya ( p <= i ), supaya pada saat ke for 
+ke 2 itu.
+
+( var p = 0; ), apakah 0 lebih kecil sama dengan 0 nah baru true
+tuh nilai nya, bedanya gaada sama denga sama yg ada itu
+kalo yg gaada setiap angka yg sama maka hasilnya FALSE
+dan kaloada sama dengan setiap angka yg sama maka hasilnya
+TRUE gatau knp ya anggap aja gitu.
+
+contoh codingan setelah nya:
+
+var s = '';
+
+for (var i = 0; i < 5; i++) {
+
+    for (var p = 0; p <=  i; p++) {
+        s += '*';
+    }
+    s += '\n';
+
+}
+
+
+console.log(s);
+
+kalo diganti barisnya 15 maka dia baris terakhir itu 15
+
+-----------------------------------------------------------------------------------------------------------------------------
+
+misalnya kalian pengen balik jadi yg paling banyak bintang nya dibaris 
+pertama lalu semakin dikit bintang nya sampai bintang nya tinggal satu.
+
+saya pengen ada 10 baris tapi bintang nya yg paling banyak di atas
+berarti kita harus melakukan pengulangan nya mundur
+
+jadi dibaris pertama itu var i nya ( var i = 10; ) diganti angka 10 lalu
+karena pengulangan nya mundur kita balik ( i > 0 ), selama ( i ) nya
+lebih besar dari 0.
+
+jadi selama 10 lebih besar dari 0 kita mundur, hati-hati jangan pakai
+( ++ ) di increment nya nah disini kita ganti jadi ( i-- ) supaya mundur.
+
+-----------------------------------------------------------------------------------------------------------------------------
+
+
+CONTOH CODINGAN NYA:
+
+var s = '';
+
+for (var i = 10; i > 0; i--) {
+
+    for (var p = 0; p <= i; p++) {
+        s += '*';
+    }
+    s += '\n';
+
+}
+
+
+console.log(s);
+
+-----------------------------------------------------------------------------------------------------------------------------
+
+hasilnya udah bener berkurang kebawah tapi akhirnya ga satu ni
+
+bintang di baris pertama 11, nah gimana baris pertama biar 10
+bintang nya coba kita telusuri ya.
+
+var i = 10; 
+i lebih kecil dari 0 true
+var p = 0;
+p lebih kecil sama dengan 10 true, nah tampilkan bintang
+terus p++ , p nya jadi 1
+var p = 1
+p lebih kecil sama dengan 10 treu, tampilkan lagi bintang nya
+dan increment lagi p++
+
+nah sampai lah ke
+var p = 10;
+p lebih kecil sama dengan 10 true ya karena pake sama dengan 
+( = ) kita jdi di input 11 kali karena kita mulai dari 0 dan FALSE nya 
+di angka 11.
+
+jadi gini 0 <= 10 TRUE tampil 1 bintang, setiap true terus jalankan aksi terus ( p ) di tambah 1 ya
+
+1 <= 10 TRUE tadi 1 bintang tmbh 1 lagi jdi 2
+2 <= 10  TRUE 2 tmbh 1 bintang nih
+nah dan setertusnya sampe di
+10 <= 10 TRUE jadi kalo kita itung dari angka 0 ke 10 jadi nya 11 ya
+karena kita ga itung dari 1, karena ini juga FALSE nya diangka 11 <= 10 ya.
+
+-----------------------------------------------------------------------------------------------------------------------------
+
+jadi kita ganti sama dengan ( = ) di ( p <= i ) itu di apus aja
+supaya dia mengulang hanya 10 kali.
+
+CONTOH CODINGAN NYA:
+
+var s = '';
+
+for (var i = 10; i > 0; i--) {
+
+    for (var p = 0; p < i; p++) {
+        s += '*';
+    }
+    s += '\n';
+
+}
+
+
+console.log(s);
+
+-----------------------------------------------------------------------------------------------------------------------------
+ 
+
+ya jadi kalian harus pinter-pinter menggunakan kondisi yg ada didalam pengulanga
+nya.
+
+nah nanti bisa aja kalian mempunyai banyak for di dalam nya bisa
+4 for nah nanti nya didalam for nya itu ada if nya nah nanti dia
+ngecek kalo barisnya genap apa yg dia lakukan kalo barisnya ganjil
+apa yg dia lakukan.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

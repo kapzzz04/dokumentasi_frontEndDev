@@ -1,0 +1,199 @@
+Membuat Galeri foto dengan HTML CSS (2)
+
+Di video kali ini kita akan menambahkan lightbox, jadi kita ngelanjutin codingan di video sebelum nya ya, sekarang kita mau lakukan adalah pada saat kita klik gambarnya itu akan muncul gambar yang ukuran besar nya ya.
+
+Yang akan kita lakukan sekarang adalah kita akan membuat sebuah div baru di masing-masing <li> nya, sama seperti video sebelumnya kita akan menyesaikan dulu 1 gambar baru yg lain nya tinggal di copy ya.
+
+jadi ceritanya gini saya mau membuat sebuah div yg class nya overlay, nah gunanya apa class overlay ini, nah itu untuk lapisan warna hitam sebagai dasar dari lightbox nya nah itu kita sebut dengan overlay tempat kita untu menaruh gambar nya. Nah overlay ini adalah lapisan warna hitam transparant, jadi kita bisa liat element dibelakang nya ya.
+
+caranya untuk membuat lapisan hitam transpran itu kita pake position fixed, ternyata itu untuk memudahkan kita agar bisa full selayar nya ya, lalu tambahkan juga z-index agar li yg lainya tertutupi juga, kalo ga pake z-index coba aja liat perbedaan nya. Seperti ini :
+
+.overlay {
+    position: fixed;
+    background-color: rgba(0, 0, 0, .3);
+    width: 100%;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    z-index: 9999;
+}
+-------------------------------
+
+sekarang kita sudah punya lapisan untuk menyimpan gambarnya, tapi itu kan lapisan nya muncul dari awal ya, Nanti kita bikin lapisan nya muncul ketika kita klik aja ya. Nah sekarang kita buat lapisan nya muncul ketika di klik saja, pada saat kita tulis top,left,bottom dan widht itu artinya ukuran nya penuh satu layar, padahal saya pengen ukuran nya penuh satu layar hanya ketika saya klik.
+
+Nah disini kita butuh sebuha psudoe class yg namanya (target), yg saya lakukan adalah kita kasih indentitas dulu tipa <li> dan overlay div nya, misalkan untuk li yg pertama kita kasih aja href nya (#gambar-1), lalu untuk div overlay yg pertama kita kasih id nya (gambar-1). seperti ini :
+
+          <li>
+                <a href="#gambar-1">
+                    <img src="img/thum/1-thum.jpg" alt="Set UP Laptop">
+                    <span>SET UP SATU</span>
+                </a>
+
+                <div class="overlay" id="gambar-1"></div>
+            </li>
+--------------------------------------------------------------
+
+Jadi nanti pada saat <a> itu saya klik maka url halaman nya akan megarah ke #gambar-1, nah pada saat memanggil #gambar-1, dia akan mengtarget atau triger id gambar-1, sehingga saya bisa gini, overlay adalah keadaan awal, lalu saya pengen pada saat overlay nya itu di target maka saya akan pindahkan bottom dan right nya. Seperti ini :
+
+.overlay {
+    position: fixed;
+    background-color: rgba(0, 0, 0, .3);
+    width: 100%;
+    top: 0;
+    z-index: 9999;
+}
+
+.overlay:target {
+    bottom: 0;
+    left: 0;
+}
+--------------------------------------------------------------
+
+Jadikan kalo href doang itu href biasanya di isi untuk link ya yg kalo kita pencet menuju link nya, nah kalo pake id itu pake #nama id nya, Nah itu biar menuju ke id tersebut kalo kita klik, nah itu baru penggunaan html nya aja, sedangkan kalo pake css itu pake psudoe class target yg kalo kita klik href nya menuju ke si id nya nah id nya kan si iv yg lapisan hitam jadi nya gitu paham kan.
+
+Nah jadi pada saat keadaan awal itu elemen nya blm penuh satu layar, nah pada saat di target element nya baru dia memenuhi layar nya begitu. pertama kan keadaan awal nya lalu kita klik tuh baru nongol lapisan nya, terus di url browser kita itu ada tulisan (#gambar-1) itu tandanya dari si href yg di klik menuju si id nya. Kalo kita hapus itu (#gambar-1) nanti dia kembali seperti semula.
+
+Kalo penjelasan nya dikit doang, bisa baca di code css atau html nya aja ya.
+
+----------------------------------------------------------------------------------------------------------------------------------
+
+Sekarang kita atur ke bagian besar nya gambar untuk di lapisan hitam, Nah ktia atur gambar nya max-height nya 100%, ini untuk agar gambar itu menyesuaikan atau mengikuti tinggi dari si browsernya ya jadi ga kepotong gambar nya. Seperti ini :
+
+.overlay img {
+    max-height: 100%;
+}
+---------------------------
+
+Nah kita kasih padding juga terus kasih text-align center nya di bagian selector overlay ya jangan di img nya. Nah lalu masalah selnajutnya kita kalo udah ngeklik itu terus munculkan lapisan sama gambarnya terus kalo kita mau refresh itu masih ttp, terus kalo mau kembali ke awal nya juga harus di apus #gambar-1 nya di url browser kita nya ya.
+
+Nanti kita kasih tombol close gitu ya, Sekarang kita bikin animasi zoomfade gitu untuk si gambar nya, liat di codingan nya aja ya yg nama animasi nya zoomDanFade. Lalu kita ituin nya pas di target ya. Seperti ini :
+
+.overlay:target img {
+    animation: zoomDanFade .8s;
+}
+
+/* animasi */
+@keyframes zoomDanFade {
+    0% {
+        transform: scale(0);
+        opacity: 0;
+    }
+
+    100% {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+------------------------------------------------------
+
+Jadi nanti pada saat overlay nya di target img didalam nya itu kita kasih animasi gitu.
+
+Sekarang kita coba bikin tombol cloese ya, supaya ga ribet apus #gambar-1 di url nya. Sepert ini :
+
+<div class="overlay" id="gambar-1">
+                    <a href="#" class="close">x close</a>
+                    <img src="img/full/1.jpg" alt="full set up laptop">
+
+                </div>
+------------------------------------------------------
+
+Nah itu kita udah bikin a sebelum tag img nya untuk si tombol close, nah href di a itu kita kasih (#) gitu untuk supaya menghilangkan id gambar-1 di url kita nya, di coba dulu aja, nah kalo kalian klik tombol close nya pasti nanti lapisan dan gambar nya ilang karena di url nya yg tadinya id gambar-1 jadi tergantikan oleh isi href dari tag <a> tombol close ini liat aja di paling ujung url browsernya ya.
+
+Nah close nya mau kita kasih animasi ya, kan kalo gambar ini animasinya dari kecil ke besar ya, gimana kalo kita nuggu dulu gambar nya muncul sekitar 80% an baru tombol nya muncul disaat gambarnya 80% muncul.
+
+Kita beri animasi nya jadi dia turun dari atas ke bawah sedikit dari mulai tranparan sampai solid dari atas kebawah. Seperti ini :
+
+@keyframes sitDown {
+    0% {
+        opacity: 0;
+        margin-top: -20px;
+    }
+
+    100% {
+        opacity: 1;
+        margin-top: 0;
+    }
+}
+------------------------------------------------------
+
+Nah kalo udah tinggal dipasang disini :
+
+.overlay:target .close {
+    animation: sitDown .5s .5s forwards;
+}
+------------------------------------------------------
+
+dan kasih juga forwards untuk animasi nya ga kembali ke keadaan awalnya ya.
+lalu jangan lupa di keadaan awal nya di close nya itu kasih opacity nya 0 biar ga eror gini :
+
+.overlay .close {
+    position: absolute;
+    top: 50px;
+    left: 50%;
+    margin-left: -20px;
+    background-color: black;
+    border: 1px solid white;
+    color: white;
+    text-decoration: none;
+    line-height: 14px;
+    padding: 5px;
+    opacity: 0;
+}
+------------------------------------------------------
+
+Sipp kaya nya udah tinggal kita copy aja ke gambar yg lain nya ya.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

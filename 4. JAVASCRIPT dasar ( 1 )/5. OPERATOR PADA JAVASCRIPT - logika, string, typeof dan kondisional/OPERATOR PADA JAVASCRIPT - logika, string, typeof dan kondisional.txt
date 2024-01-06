@@ -1,0 +1,182 @@
+operator pada javascript 
+logika, string, typeaof dan kondisional
+
+------------------------------------------------------------------------------------------------------------------------------------------
+Operator logika / logical
+
+operator ini digunakan untuk menentukan logika dari beberapa ekspresi yg nanti kalian gabung kan
+
+ada jenis simbol
+
+operator logika       keterangan
+        &&                       AND
+         | |                        OR
+          !                        NOT
+
+cara penggunaannya begini
+
+misal saya mempunyai X yg berisi angka 5
+kita ganti x nya jadi angka genap misal angka 12 ya
+
+(x % 2 === 0) hasilnya false karena ada sisa 1 ya
+
+(x % 2 === 0) && (x < 10 )  {hasilnya maka false knp, karena ada salah satunya jawabannya salah kalo itu make AND ya jadi kalo mau jawaban nya TRUE 22 nya harus sesuai} 
+
+{beda lagi kalo kita memakai operator nya || atau OR kalo itu salah satu nya TRUE maka hasilnya akan
+TRUE] CONOTH
+
+(x % 2 === 0) || (x < 10 ) [nah ini kan x nya 12 , 12 lebih kecil dari 10 salah dong tapi karena make yg OR ||
+maka yg muncul hasilnya akan true seperti yg sudah saya jelasin]
+
+terakhir operator yg NOT itu untuk membalikan hasil dari BOOLEAN NYA
+misal yg tadinya hasilnya TRUE kita pake NOT maka nanti jadi FALSE 
+contoh aja nih:
+
+(12 + 10 === 22) hasilnya maka 22 yakan tapi kalo kita pake NOT maka
+
+! (12 + 10 === 22) maka hasilnya jadi FALSE silahkan di coba di console kamu ya
+
+----------------------------------------------------------------------------------------------------------------------------------------
+Operator string 
+
+menggunakan simbol + 
+
+kebetulan tanda + di javascript memiliki 2 fungsi jika itu menggunakan angka maka type data nya artimatika
+dan jika menggunakan string maka hasilnya juga string/tulisan
+
+contohnya gini:
+
+saya punya dua variabel satu name var nya a kedua name var nya b
+
+nah a = "apple"
+b = "pen" (berarti saya menginput var a dan b tulisan itu masing-masing)
+
+jadi
+a + b hasilnya maka "applepen" coba aja di console kamuh
+
+jika mau di beri spasi maka tulis lah
+a + "  " + b hasilnya maka " apple pen"
+
+nah bagaimana jika kita menggunakan nya dengan angka
+
+jika
+10 + "10" maka hasilnya akan string "1010"
+sama juga dengan
+"10" + 10 maka hasilnya akan sama
+
+beda lagi jika ku tulis
+
+10 + 10 + "10"  (maka hasilnya string "2010" knp karena 10 + 10 ny bukan string jdi di jumblah kan dulu tapi di akhir 
+di tambah string maka dia ikut dengan string nya kek logika mtk lah)
+
+ada lagi nih
+"10" + 10 + 10  (maka hasilnya "101010" knp begitu karena javascript sudah mengetahui tipe data apa yg 
+di jumblah kan karena ini awalnya string maka yg selanjutnya mengikuti string tidak di jumblahkan 
+begitu jadi kita harus make logika yagesya)
+----------------------------------------------------------------------------------------------------------------------------------------------------
+Operator typeof ( jenis operatornya unary karena hanya membuthkan satu operand)
+
+operator ini digunakan untuk mengetahui tipe data apa dari nilai nanti yg kita msukan kedalam nya
+
+caranya kalian tinggal
+typeof (operand)
+
+jadi gini
+typeof (10)
+maka yg muncul tulisan number pikirnya gini deh ( angka sepeluh itu tipe datanya apa sih
+ya number muncul nya)
+
+typeof ("10") 
+maka yang muncul tulisan string karena ada string di dalam nya begitu ya harus ngerti kamu
+
+typeof (true)
+maka tulisan yang muncul boolean gitu coba di console kamu deh
+
+----------------------------------------------------------------------------------------------------------------------------------------------------
+Operator kondisional (jenis operatornya ternary terdapat 3 operand)
+
+operator ini digunakan untuk melakukan pengecekan pada sebuah kondisi dan menentukan nilai yg di
+hasilkan ketika kondisnya bernilai true atau false.
+
+cara nulisnya
+(kondisi) ? benar : salah
+atau
+(x % 2 === 0) ? "genap" : "ganjil"
+
+
+ada tambahan nih
+
+nah "genap" ataupun "ganjil" itu cuman sebagai title atau judul aja...
+jadi kalau kondisi nya itu benar dia ngambil kanan (kaya di contoh kan itu kondisinya bener 0 ya kalo
+di ganti jadi 3 maka salah kondisinya)
+kalo kondisinya salah dia ngambil yg kiri ( misal ga ngerti contoh)
+
+(x % 2 === 0) ? "ganjil" : "genap"
+maka hasilnya "ganjil" karena bener dari kondisinya
+
+kalo (x % 2 === 3) ?  "ganjil" : "genap"
+maka hasilnya "genap" karena kondisinya itu salah 
+
+kan x itu 12 nah 12 % 2 sama dengan 0 12 bagi 2 sisanya 0 bener kalo 12 bagi 2 sisanya 3 salah ya
+ya begitu semoga ngerti terus ya sayangkuhh
+
+
+----------------------------------------------------------------------------------------------------------------------------------------------------
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

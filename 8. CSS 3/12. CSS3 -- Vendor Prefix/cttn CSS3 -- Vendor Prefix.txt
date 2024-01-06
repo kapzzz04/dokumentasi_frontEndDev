@@ -1,0 +1,161 @@
+CSS3 -- Vendor Prefix 
+
+Vendor prefixes adalah teknik di css3 yg kita gunakan agar sintaks css3 yg kita buat itu compatibel
+di semua browser. definisi nya "sintaks khusus yang harus ditambahkan untuk beberapa property
+CSS3", ya jadi nanti ada beberapa propertycss3 yg gaakan jalan di semua browser, nah supaya 
+jalan kita harus akalin menggunakan Vendor Prefix ini, nah nanti sintaks khusus nya itu spesifik
+berbeda untuk tiap" browser.
+
+Karena tiap browser itu memiliki kharakteristik yg berbeda sehingga penanganan mereka terhadap
+CSS3 sedikit berbeda, Sebelum kita coba vendor prefix itu seperti apa kita bahas dulu mengenai
+kata nya sendiri ya, prefix itu di pelajaran bahasa indonesia aritnya ( awalan ) awalana pada sebuah
+kata, jadi nanti kita menambahkan sebuah awalan pada property CSS3 yg blm di suport oleh browser
+tertentu, sedangkan vendor adalah browser yg bersangkutan.
+
+cara menambahkan nya begini 
+	VENDOR PREFIXES
+-webkit-<properti-css3>
+-moz-<properti-css3>
+-ms-<properti-css3>
+-o-<properti-css3>
+
+Nah jadi kita tambahkan awalan di depannya ada ( - ) webkit ( - ), lalu kita tulisa peroperty css3 nya
+apa, jadi mines ( - ) didepan dan belakang nya pake ya. masing-masing prefix ini itu akan membuat
+properti css3 nya bekerja di browser tersebut.
+
+Kenapa harus menambahkan prefix tersebut? itu karena tidak semua browser support css3, setidak
+nya untuk saat ini, ya karena nanti semakin  kedepan browser nya di perbarui maka properti yg dulu
+nya ga suport pasti nantinya jadi suport, contohnya beberapa tahun yg lalu properti seperti border-
+radius, text-shadow, dan box-shadow itu harus menggunakan vendor prefix, tapi saat ini itu tidak
+perlu kita tambahkan lagi prefix karena sekarang semua browser sudah suport.
+
+Nah sekarang kita liat hubungan prefix denga nvendor nya ya
+
+-webkit- (Chrome, Safari, Opera veris terbaru )
+-moz- (Firefox)
+-ms- ( Internet Explorer)
+-o- ( Opera versi terdahulu)
+
+jadi nanti kita tambahkan mines ( - ) webkit itu agar bisa jalan di browser Chrome, Safari, Opera 
+veris terbaru, sedangkan -moz- untuk Firefox, -ms- untuk Internet Explorer, dan -o- untuk Opera versi
+terdahulu. Jadi kalo kalian ingin jalan di semua browser maka itu semua harus ditambahkan. Nah
+tapi nanti kita liat ya ada beberapa properti css3 yg di FIREFOX jalan, jadi kita gaperlu menambahkan
+-moz- agar properti nya jalan, tapi di Chrome, Safari, dan Opera veris terbaru ngga jalan, makannya
+nanti kita tambahkan hanya webkit nya saja.
+
+untuk melihat contohnya itu saya sudah buat html sederhana yg didalam nya terdapat tag img, Nah
+sekarang saya mau menambahkan sebuah properti yg namanya Filter, misalnya saya mau 
+menambahkan style di img nya Filter, Nah filter ini secara umum dia digunakan untuk memberikan
+efek pada sebuah elemen khusus nya gambar, agar gambar nya bisa berubah baik itu keterangan
+nya kecerahan nya dll. 
+
+Misalnya saya mau kasih flternya value nya grayscale supaya gambarnya jadi abu", kita kasih 100%
+karena ini dibuat 6 tahun yg lalu video nya pak dhika, dan pak dhika mencoba filter grayscale ini di
+buka di browser chrome dan ternyata ga terjadi apa" ga ngaruh apa", jadi 6 tahun yg lalu properti
+filter belum bisa digunakan di browser Chrome, Tapi jika saat itu dbuka di browser Firefox ternyata
+ngaruh. Karena firefox itu suport dan browser chrome belum suport filter.
+
+Nah supaya filternya jalan di google Chrome kita harus tambahkan vendor prefix untuk browser
+chrome karena chrome itu prefix nya -webkit- maka kita tambahkan Seperti ini :
+
+img {
+            margin: 50px 0;
+            width: 500px;
+            -webkit-filter: grayscale(100%);
+            filter: grayscale(100%);
+        }
+---------------------------
+
+Jadi cara gunakan vendor prefix itu seperti diatas, Nah kalo mau gunakan vendor prefix properti
+utamanya ttp berikan jangan di ilangin dibiarkan aja properti aslinya, pake seperti di atas ya, nah jdi
+sekarang udah berubah atau filter nya itu berpengaruh di browser chorme safari dan opera terbaru.
+Tapi karena saya ngerangkum ini di 2023 maka saya tidak perlu vendor prefix lagi karena sekarang
+sudah diperbarui browser nya ya.
+
+----------------------------------------------------------------------------------------------------------------------------------
+
+properti css3 apa saja yang butuh vendor prefixes?
+
+untuk bisa melihat properti apa saja yg butuh vendor prefix, itu ada beberapa websaite yg bisa kita
+kunjungi ya.
+
+- shouldiprefix.com
+- caniuse.com
+- http://pleeease.io/play/
+- plagin emmet
+
+pertama shouldiprefix.com, ini untuk mengetahui peroperty mana saja yang harus saya beri prefix,
+kalo buka web nya banyak kan properti css3, nah  disitu yg berwarna hijau itu artinya properti itu 
+kita tidak perlu berikan prefix tpi yg warna biru itu harus menggunakan prefix, itu kalian tinggal klik
+aja nanti ada cara penggunaannya.
+
+websaite lain yg bisa kita kunjungi  itu caniuse.com, kalo ini lebih lengkap ya semua properti css
+dan html itu bisa kalian cek penggunaan nya disitu, diatas ini ( folder ) kalian bisa tulisakan properti
+yg ingin kalian dapatkan informasinya bisa digunakan atau tidak.
+
+Misalkan saya tulis filter, nah kalian liat disitu, yg warna merah ( di folder ) itu artinya tidak di suport
+yg warna kuning tidak di suport secara penuh ya, kalo yg hijau itu di suport, nah untuk yg chrome itu
+dia warna hijau tapi ada tanda kuning nya itu di bagian hijau dia, itu artinya suport tapi menggunakan
+prefix -webkit- nya, nah angka" itu kalo kalian liat itu versi dari browser nya.
+
+websaite selanjut nya kita bisa kunjungi http://pleeease.io/play/, kalo ini web nya cukup keren ya,
+kalian gaperlu menghapal peroperti mana saja yg kalian butuhkan untuk menambahkan vendor prefix
+kalian tinggal menulisakan saja sintaks css kalian lalu websaite itu akan menerjemahkan apakah
+butuh vendor prefix atau tidak. lihat tampilan web nya ( di folder ), di sebelah kiri ada sintaks css
+murni nya, di sebelah kanan itu hasil perubahan kedalam vendor prefix nya.
+
+Terakhir kita bisa gunakan plagin emmet, tinggal dowload emmet di code ediotr kita, dengan 
+menggunakan emmet caranya cukup, kalian tulisakan sintaks css3 nya , lalu sebelum tanda titik 2
+kita tekan tab, misal kita tulis ( filter ) gitu aja langusng tab maka otomatis akan ditambahkan vendor
+prefix yg dibutuhkan. Kalo blm instal emmet liat di video yt nya pak dhika ada ya.
+
+Jadi tujuan dari menggunakan vendor prefix itu adalah supaya sintak css3 kita itu kompatible di 
+semua browser itulah knp di awal disarankan untuk menginstal browser yg populer ya, supaya kalian
+bisa menguji web kalian apakah tampil normal di semua browser, karena kita gatau user atau client
+kita memakai web apa.
+----------------------------------------------------------------------------------------------------------------------------------
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

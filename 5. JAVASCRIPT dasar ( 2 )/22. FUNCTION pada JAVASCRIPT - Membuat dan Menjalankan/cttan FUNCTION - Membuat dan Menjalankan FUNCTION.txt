@@ -1,0 +1,337 @@
+Membuat dan Menjalankan FUNCTION
+
+cara kerja sebuah Function jadi alurnya seperti ini
+
+ketika kita bekerja menggunakan Function maka biasanya kita akan memiliki sebuah
+
+- Input atau sebuah nilai yg nantinya akan menjadi bahan atau istilahnya material
+  misalnya ya, yg nantinya akan dimasukan kedalam Function
+
+- Function lalu nanti function itu sendiri akan mengerjakan sesuatu terhadap 
+  bahan baku atau material tadi sehingga nanti akan menghasilkan nilai baru
+
+- Output menghasilkan sesuatu
+
+jadi kurang lebih cara kerja Function seperti ini
+
+
+FUNCTION
+nah Function yg baik hanya mengerjakan 1 hal saja
+
+----------------------------------------------------------------------------------------------------------------------------------
+
+jadi kalo bisa saya ilustrasikan itu contohnya seperti ini
+atau saya kasih pertanyaan ke kalian.
+
+pernah ga nemu alat atau sebuah mesin yg bisa nerima
+misalnya nih
+
+menerima inputannya padi lalu menghasilkan Output 
+nasi goreng misalnya. nah ky urutan tdi berarti kita 
+membutuhkan alat yg kalo di inputkan padi hasilnya
+atau Ouputnya nasigoreng gitu.
+
+memungkin kan ga, atau ada ga menurut kalian alat yg
+menerima inputannya PADI dan menghasilkan nasigoreng
+yg siap dimakan. kaya nya gaada ya karena untuk merubah 
+padi menjadi nasi goreng yg siap dimakan itu sepertinya
+membutuhkan tahapan yg sangat panjang atau proses
+yg panjang.
+
+----------------------------------------------------------------------------------------------------------------------------------
+
+misalnya dari padi kita masukan dlu ke sebuah alat
+yang fungsinya itu mengubah padi menjadi gabah.
+jadi dari pada di ubah dulu menjadi gabah menggunakan
+alat yg sudah ada atau tersedia istilahnya begitu.
+
+setelah itu gabah juga dimasukan ke mesin yg lain
+yg fungsinya merubah gabah tadi menjadi beras,
+belum selesai.
+
+nah untuk menjadi nasi beras ini harus diproses menggunakan
+alat Ricecooker, tapi apakah dari beras masuk ke ricecoker
+bakal langsung jadi nasi ngga ya, nah ini membutuhkan satu
+buah inputan lain yaitu AIR.
+
+jadi mesin ini membutuhkan lebih dari 1 inputan yg pertama
+beras itu sendiri lalu yg ke 2 air, lalu nasi juga akan diproses
+lagi dengan tambahan bahan baku yg lain lalu di masak
+sehingga jadi lah nasigoreng yg siap di hidangkan.
+
+jadi prosesnya panjang
+nah kalo kita liat kenapa harus melalui proses yg panjang ya ada beberapa hal
+sepertinya tidak ada mesin yg dapat melakukan hal itu walaupun ada kita akan
+khawatir dengan kebersihannya, keepatan prosesnya dll.
+
+jadi melalui tahapan yg panjang masuk kedalam mesin atau alat yg fungsinya
+sepesifik sehingga nanti itu akan menjadi bahan untuk kita, untuk mengetahui
+dan menelusur jika ada kesalahan.
+
+----------------------------------------------------------------------------------------------------------------------------------
+
+contohnya gini :
+
+ketika kalian memakan nasi goreng nya ada nasi yg masih keras
+misalnya, nah pasti kalian mikir ricecokernya bermasalah, jadi
+kalian bisa tau bagian mana yg melakukan kesalahan.
+
+jadi ketika kita liat kedalam function didalam pemograman itu mirip ya
+
+  FUNCTION
+
+- Blok kode yang dibuat untuk melakukan tugas spesifik, nah jadi nanti
+  kalo kalian membuat sebuah Function didalam nya mengerjakan banyak
+  hal nah ada kemungkinan kalian melakukan kesalahan.
+
+- Blok kodenya Dapat dipanggil berulang-ulang kali, kelebihan dari Function
+
+- Memudahkan penelusuran nah bisa mepermudah ya, kalo ada kesalahan
+  nanti kita gampang mengetahui bagian mana didalam program kalian yg eror
+  nah ini terkait dengan Reusability.
+
+- Reusability atau penggunaan ulang dari kode program kita
+
+----------------------------------------------------------------------------------------------------------------------------------
+CONTOH KASUS
+
+agar kita lebih paham lagi langsung ke cnoth kasus aja
+
+
+misalnya gini ceritanya saya punya 2 buah kubus, kita sebut aja
+kubus a dan kubus b, kalian inget ya tiap" kubus itu memiliki sisi
+yang sama.
+
+nah misalnya kita akan membuat program untuk menjumblahkan
+Volume dari ke 2 buah kubus ini, nah kira" dengan cara matematik
+kita menyelesaikan nya bagaimana.
+
+----------------------------------------------------------------------------------------------------------------------------------
+Menjumlahkan volume 2 kubus
+
+kita liat algoritma nya
+
+1. Ketahui sisi maising" kubus, nah kita ambil contoh aja
+    misalnya kubus a sisi nya 8 dan kubus b sisi nya 3.
+
+2. Hitung volume masing" kubus, jadi kita hitung dulu ya
+    tinggal sisi kali sisi aja misal jadinya ( a ) 8 pangkat 3 = 512
+    dan ( B ) 3 pangkat 3 = 27 ini hanya misanya aja ya.
+
+3. Jumlahkan hasilnya, jadi kita jumblahkan 512 + 27.
+
+4. Kembalikan nilai jawabannya atau kita mendapatkan hasilnya yaitu 539.
+
+jadi ini secara matematik
+dan sekarang kalo kita ingin memakai kode javascript gimana?
+
+----------------------------------------------------------------------------------------------------------------------------------
+
+jadi ceritanya kita akan membuat sebuah program dari menghitung
+volume 2 buah kubus.
+
+kita bikinnya tanpa menggunakan Function dulu
+
+jadi pertama kita harus ketahui dulu berapa dari masing" kubusnya,
+jadi misalnya gini saya mempunyai variabel namanya a, untuk
+mengetahui sisi dari a nya yg saya isi dengan 8.
+
+lalu kubus yg ke 2 misalnya b saya isi dengan 3, lalu nanti untuk
+menampung volumenya saya juga butuh variabel, variabel namanya
+volumeA lalu kita juga punya volumeB, lalu untuk menyimpan jumblahnya
+kita butuh variabel baru kita kasih namanya ( total ) ya.
+
+jadi kita siapkan dulu penampungnya atau wadahnya lalu kerjakan
+proses matematiknya.
+
+yg pertama untuk menghitung volumeA gampang aja ya tinggal 
+( a*a*a ) dan yg voleumeB ( b*b*b ), dan yg terakhir adalah
+totalnya adalah jumlah dari volumeA + volumeB.
+
+nah saat di cek di browser belum ada apa" karena kita baru menginputkan ke variabel
+saja tapi kita bisa pastikan sudah ada nilai yg tersimpan didalam memori didalam
+variabel total itu
+agar bisa tampil dan dilihat oleh kita tinggal menggunakan console.log(total).
+
+----------------------------------------------------------------------------------------------------------------------------------
+
+Contoh codingan yg tersusun rapih :
+
+var a = 8;
+var b = 3;
+var volumeA;
+var volumeB;
+var total;
+
+volumeA = a * a * a;
+volumeB = b * b * b;
+
+total = volumeA + volumeB;
+
+console.log(total);
+
+nah ini jika kita jumlahkan volume 2 buah kubus
+sebenernya gaada masalah dengan kodenya
+nah tapi gimana misalnya saya punya 2 buah kubus baru
+misalnya kubus C dan kubus D.
+
+yg memiliki sisi yg berbeda juga itu gimana, nah artinya
+kita harus mempunyai atau bikin variabel baru untuk c dan d,
+misal var c = 10 dan var d = 15.
+
+terus kita itung lagi volumeC dan volumeD nah dari sini dimulai
+jadi gaefektif, nntinya kita punya banyak variabel lalu kita punya 
+hal yg sama berulang-ulang itu kurang efektif ya.
+
+nah disini kita membutuhkan Function supaya kita gaperlu lagi
+mengulang-ngulang hal yg sama.
+
+----------------------------------------------------------------------------------------------------------------------------------
+Nah gimana bikin FUNCTION nya?
+MEMBUAT FUNCTION
+
+nah nanti kalian butuh
+
+arahan dibawah contoh nya angka itu sesuai penjelasannya nomor
+tertara
+
+CONTOH:
+
+(1) Function (3) jumlahVolumeDuaKubus (4)( (5) a, b ){
+
+
+return (6)
+
+} (2)
+
+AKHIR CONTOH
+
+1.) Keyword function, untuk memberitahu interpreter javascript bahwa kita
+    akan mulai menulis sebuah fungsi
+
+2.) Lalu kita bungkus Function nya atau kita batasi dengan kurung kurawal,
+    untuk menandai awal dan akhir sebuah fungsi.
+
+3.) Kita harus berinama Function nya dengan nama yg menjelaskan apa yg akan
+     kalian lakukan didalam function nya, jadi kalian ngasih namanya harus jelas,
+     agar mudah memahami kode yg kita buat itu untuk apa.
+
+4.) Selalu tuliskan kurung setelah nama functionnya  yg nanti nya akan kita gunakan
+     sebagai tempat untuk menyimpan ( BAHAN BAKU ) atau bisa disebut juga parameter
+     / argumen yg nantinya bahan baku ini kita akan pake didalam Functionnya.
+
+5.)  Selanjutnya parameter / argumen ini adalah data atau nilai yg dikirim dari luar pada
+     saat nanti functionnya dipanggil, untuk nanti digunakan di dalam function, nanti kalian
+     anggap aja sebagai variabel khusus untuk function yg bisa digunakan didalam function,
+     parameter boleh ada atau tidak ada, tapi kurung nya harus ada meski parameternya
+     gaada, dan kalian bisa tulis parameer sebanyak" nya.
+
+6.) - Sebuah function biasanya mengembalikan sebuah nilai, cara mengembalikannya kalian
+      menggunakan kywerd return, lalu diikuti dengan nilai kembaliannya apa.
+      - nah kegunaan dari return ini adalah untuk memberitahu interpreter bahwa kita telah selesai
+      mengerjaka sesuatu dan 'inilah' hasilnya.
+      - Return ini digunakan juga sebagai cara untuk memberhentikan function nya, jadi nanti ketika
+        kode kalian sampai pada kywerd Return, function ny berhenti berjalan, karena mungkin aja
+        di dalam function kalian terdapat 2 buah Return, nah Return nya mungkin saja di simpan
+        di dalam block pengkondisian.
+       jadi if apa return dan else return yg lain gitu deh
+
+jadi didalam function ini mungkin aja mengembalikan 2 nilai tapi tergantung kondisinya
+apa.
+        
+----------------------------------------------------------------------------------------------------------------------------------
+
+jadi kalo kita masukan algoritma perhitungan volume kita tadi
+
+1. Ketahui sisi masing2 kubus
+2. Hitung volume masing2 kubus
+3. Jumlahkan hasilnya
+4. Kembalikan nilai jawbannya
+
+pertama nah nanti kita simpan kedalam parameternya tadi
+
+keempat kita juga sudah bisa return nilai jawabannya sehingga
+kita bisa punya total, ya bikin dulu variabel total nya, nanti function
+ini akan mengembalikan total.
+
+lalu tinggal 2 lagi, nah tinggal kita tulis volumeA berapa dan
+volumeB berapa dan total berapa.
+
+----------------------------------------------------------------------------------------------------------------------------------
+
+
+CONTOHNYA:
+
+function jumlahVolumeDuaKubus(a, b) {
+
+    var volumeA;
+    var volumeB;
+    var total;
+
+    volumeA = a * a * a;
+    volumeB = b * b * b;
+
+    total = volumeA + volumeB;
+
+    return total;
+
+}
+
+jadi kita sekarang sudah punya sebuah function tapi kalo kita
+jalankan tidak tampil apa" karena fungsi ini baru kita buat saja
+belum kita jalankan nah itu dua hal yg berbeda ya, itu baru kita
+buat.
+
+nah cara menjalankan nya itu
+
+kalian cukup tuliskan nama functionnya ikuti dengan kurung buka
+dan kurung tutup, lalu jika ada parameter simpan parameternya
+di sini.
+
+jumlahVolumeDuaKubus(8, 3) nah ini contohnya
+
+nah 8 ini artinya akan dikirim kan ke parameter a dan 3 akan
+dikirim kan ke parameter b. jadi 8 akan masuk ke dalam 
+variabel a dan 3 akan masuk kedalam variabel b.
+
+kalo kita jalankan lagi kita cek dibrowser tidak muncul apa-apa juga
+kalo mau ditampilkan kalian bisa simpan di dalam 
+console.log(jumlahVolumeDuaKubus(8, 3));
+
+----------------------------------------------------------------------------------------------------------------------------------
+
+kita udah coba kubus 8 dna kubus 3, misalkan sekarang saya mau itung yg lain
+
+misalkan sekarang saya punya kubus 10 dan kubus 15, jadi saya bisa itung
+berulang-ulang
+
+jadi ini maksudnya kita buat nya sekali tapi kita bisa pangilnya berulang-ulang
+menggunakan bahan baku yg berbeda beda
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

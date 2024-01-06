@@ -1,0 +1,599 @@
+Javascript dan DOM #5 - DOM Manipulation (Part 1)
+
+kita akan membahas mengenai memanipulasi DOM, topik ini akan di bagi 2 seri
+
+DOM Manipulation Method 
+- Manipulasi Element
+- Manipulasi Node
+
+kita akan Manipulasi Element, element yg kita tangkap atau kita seleksi sebelum nya, misal
+mau menangkap judul halaman,merubah warna nya, mengambil paragraf, mengambil isi nya
+dll. 
+
+topik ke-2 dari manipulasi ini kita akan mencoba meManipulasi Node nya, nah maksudnya dari
+manipulasi Node ini adalah ketika kita ingin, misalnya menyisipkan element baru pada halaman,
+misalkan pada awal nya kalian punya 3 buah paragraf aja, kalian ingin menyisip kan paragraf 
+ke-4 nah itu kita sebut nya memanipulasi Node atau misalkan kalian ingin menghilangkan sebuah
+element nah itu juga kita sebut dengan memanipulasi Node nah ini kita akan bahas di video 
+berikut nya.
+
+------------------------------------------------------------------------------------------------------------------------------
+
+Manipulasi Element
+
+- element.innerHTML
+- element.style.<property>
+- element.setAttibute()
+- element.classList
+- .......
+
+ini kita punya beberapa method yg akan kita gunakan, sebetulnya di luar method itu masih banyak
+yg kita bisa gunakan untuk memanipulasi element, tapi yg akan kita bahas hanya beberapa yg
+sering digunakan saja.
+
+dan beberapa dari method di atas udah kita coba di video sebelum nya ya, nah yg pertama
+method yg akan kita gunakan adalah elemet.innerHTML nah ini untuk merubah isi dari sebuah
+tag yg sudah kita seleksi.
+
+lalu method style nah ini untuk merubah style atau CSS dari sebuah eleemnt yg sudah kita
+seleksi.
+
+lalu method setAttribute untuk memanipulasi attribute pada sebuah element, ya attribute juga 
+macem", yg melekat pada sebuah element yg sudah kita seleksi.
+
+dan yg terakhir secara spesifik kita akan memanipulasi classList, class itu sebetulnya merupakan 
+salah satu attribute juga, tapi karena class itu berperan penting di dalam sebuah element, ya dalam
+satu element itu boleh memiliki lebih dari 1 class, dan juga class yg sama bisa juga di terapkan 
+untuk beberapa element di dalam halaman, beda dengan id, ya makannya nanti class bisa kita 
+kelola secara khusus.
+
+jadii itu beberapa method yg akan kita coba pada topik manipulasi element kita kali ini.
+
+------------------------------------------------------------------------------------------------------------------------------
+
+oke teman" kita sudah punya studi khasus, kita punya file HTML yg sama seperti di video
+sebelumnya :
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Dom Manipulasi 1</title>
+    <style>
+        * {
+            border: 2px solid #999;
+            padding: 15px;
+            margin: 15px;
+        }
+
+        html {
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            max-width: 600px;
+            margin: 30px auto;
+            font-family: sans-serif;
+            color: #333;
+        }
+    </style>
+</head>
+
+<body>
+
+    <h1 id="judul">Hello World</h1>
+    <div id="container">
+        <section id="a">
+            <p class="p1">paragraf 1</p>
+            <a href="http://instagram.com/kapzzz04">Instagram Keyla Azahra</a>
+            <p class="p2">paragraf 2</p>
+            <p class="p3">paragraf 3</p>
+        </section>
+        <section id="b">
+            <p>paragraf 4</p>
+            <ul>
+                <li>item 1</li>
+                <li>item 2</li>
+                <li>item 3</li>
+            </ul>
+        </section>
+
+
+    </div>
+
+
+    <script src="script.js"></script>
+</body>
+
+</html>
+
+------------------------------------------------------------------------------------------------------------------------------
+
+// DOM Manipulasi
+// element.innerHTML
+
+kita akan mencoba element.innerHTML, method ini adalah untuk mengubah isi dari sebuah
+tag yg sudah kita seleksi, kita ambil contoh dari yg judul ini ya atau h1, kalo misalkan h1 ini
+saya seleksi, ya nanti misalkan make method getElementById atau apa seterah, intinya
+setelah kita seleksi tag itu, lalu kita ubah innerHTML nya, maka itu sama aja dengan kita mengubah 
+isi dari tag nya.
+
+yg sudah kita coba hanya mengganti tulisan nya tapi sebetulnya kita bisa isi kan apapun, selain
+tulisan kita bisa isi kan tag HTML lagi, jadi innerHTML itu apapun yg ada di dalam tag HTML nya
+mari kita coba.
+
+codingan : 
+
+const judul = document.getElementById('judul');
+--------------------------------------------------------------
+
+kalo sudah seperti itu kita bisa manipulasi isinya, jadi teman" cukup tulis seperti ini :
+
+judul.innerHTML = 'Keyla';
+----------------------------------
+
+jadi kita tulis seperti itu dan yg teks nya itu boleh bebas tapi dengan saya menuliskan "Keyla" 
+disitu maka teks di dalam h1 berubah menjadi 'Keyla' karena sudah saya innerHTML in,
+paham ya jadi kita ubah menjadi tulisan, sebetulnya kita bisa ganti apapun isi dari innerHTML nya.
+
+misalnya kita mau buat dia jadi cetak miring, kita bisa tambahkan tag <em> aja misal
+seperti ini :
+
+judul.innerHTML = '<em>Keyla</em>';
+----------------------------------------------------
+
+maka nanti tulisannya berubah menjadi cetak miring, ya jadi intinya kita bisa isi kan apapun didalam
+tag yg sudah ktia seleksi.
+
+------------------------------------------------------------------------------------------------------------------------------
+
+atau contoh lain nih, misalkan saya mau ganti isi dari section a itu, nah itu kan satu blok gitu yakan
+misal kita pake const lalu nama variabel nya sectionA lalu kita seleksi menggunakan method
+querySellector(), misalkan cari kan saya section yg id nya a, jadi nya begini nih :
+
+const sectionA = documnet.querySelector('section#a');
+-----------------------------------------------------------------------
+
+sekarang sudah kita tangkap atau kita seleksi, lalu sekarang kita ubah sectionA, itu innerHTML nya
+saya ganti misalkan menjadi 'Hello world' gini :
+
+const sectionA = document.querySelector('section#a');
+sectionA.innerHTML = 'hello world';
+-----------------------------------------------------------------------
+
+nah kalian liat ya sectionA itu di halaman nya di file HTML nya gaada isi nya atau tulisan nya,
+tapi isi sectionA itu tag" lain, tapi dengan kita menambahkan innerHTML dan mengganti menjadi
+Hello World maka semua tag" yg ada di dalam sectionA itu akan terganti dengan tulisan 
+'Hello world' ini.
+
+tuh jadi itu fungsi dari innerHTML
+
+kalian sebenernya bisa merangkai lagi tag HTML nya, misalkan kalian mau tambahkan div yg
+didalam nya ada div lagi mungkin, jadi apapun kita bisa ganti kedalam innerHTML nya.
+
+------------------------------------------------------------------------------------------------------------------------------
+
+// DOM Manipulasi
+// element.style.<property>
+
+sebetulnya ini juga sudah pernah kita coba di video" sebelumnya, gampang aja kalian tinggal cari
+element yg sudah di seleksi, lalu tambahkan method style lalu tambahkan property CSS nya
+seterah mau apa aja.
+
+kita coba misalkan kita tangkap judul lagi ya, const judul sama dengan document terus pake
+querySelector() seperti ini :
+
+const judul = document.querySelector('#judul');
+------------------------------------------------------------
+
+kalo pake querySelector harus pake pagar supaya membedakan mana yg id mana yg class mana
+yg element HTML gitu, lalu kita tulis :
+
+judul.style.color = 'aqua';
+--------------------------------
+
+nah setelah style kan di tulis ( color ) ya nah itu property CSS yg saya mau, jadi seterah kita
+mau ubah apa bisa tulisa apa aja property CSS nya, itu simpel aja untuk menggunakan style ya.
+
+------------------------------------------------------------------------------------------------------------------------------
+
+// DOM Manipulasi
+// element.setAttribute()
+
+lalu selanjutnya kita bisa memanipulasi Attribte dengan menggunakan setAttribute(), atau bahkan
+kita bisa mengelola attribute itu menggunakan method yg lain seperti ini :
+
+- element.getAttribute()
+- element.setAttribute()
+- element.removeAttribute()
+
+ini untuk mengelola attribute ya, attribute itu sesuatu yg menempel pada element HTML,
+coba kita liat ya, nah kalo kalian liat di file HTML nya di dalam tag nya itu bisa kita simpan
+seperti id, href, class dll nah itu kita bisa sebut dengan attribute.
+
+sekarang misalnya kita ambil lagi dari judul nya atau h1 ya, seperti ini ya :
+
+const judul = document.getElementsByTagName('h1')[0];
+--------------------------------------------------------------------------
+
+karena menggunakan getElementsByTagName jadi kita menggunakan index ya karena dia
+mengembalikan HTMLCollection, ini pak dhika mau nunjukin berbagai cara untuk menyeleksi
+sebuah element.
+
+judul nya sudha kita tangkap lalu misalnya saya mau menambahkan attribute baru pada judul itu
+tadi nya kan dia hanya punya attribute id ya, misal kan saya mau tambahkan attribute baru ya
+misalkan saya mau kasih attribute name aja ya.
+
+cara nya itu saya tulis begini judul lalu kita setAttribute() lalu isi yg didalam kurung nya dengan
+nama attibute nya yg mau ditambahkan msial gini :
+
+judul.setAttribute('name', 'keyla azahra');
+------------------------------------------------------
+
+nah kita isi yg di dalam kurung nya seperti itu, nah itu sembarang aja walaupun attribute name
+itu gaakan kepake, ini hanya nunjukin aja, kalo cek di inspesct nya di bagian elments di cek
+aja disitu di bagian body nah sekarang ada attribute baru di tag h1 namanya name isi nya
+'keyla azahra'.
+
+jadi attribute ini kita tambahkan menggunakan setAttribute, itu setAttribute jadi kita bisa 
+menambahkan attribute baru, apapun attribute nya kedalam sebuah element.
+
+misalnya kalo saya ambil lagi const a kita ambil si tulisan instagram nya ya sepeti ini :
+
+const a = document.querySelector('a');
+------------------------------------------------------
+
+kalo kita tulis a aja di dalam kurung nya itu bisa aja, karena tag a itu, satu" nya tag a yg ada
+pada halaman HTML tersebut, tapi jika ingin spesifik lagi, bisa isi ini aja di dalam kurung nya
+( 'section#a a' ) gitu ya.
+
+nah udah nih kita tangkap a nya, nah misalkan kita mau menambahkan attribute baru, nah
+kita tinggal tulis gini aja :
+
+const a = document.querySelector('a');
+a.setAttribute('id', 'link');
+------------------------------------------------------
+
+jadi artinya akan ada attribute baru nama nya id yg isi nya 'link', nah itu untuk menambahkan 
+attribute.
+
+------------------------------------------------------------------------------------------------------------------------------
+
+// DOM Manipulasi
+// element.getAttribute()
+
+nah kalo kita mau tau isi dari sebuah attribute kita bisa pake getAttribute, misalnya saya pengen tau
+nih misalkan saya klik ini ( link ig nya ) nah dia akan ngelink kemana, nah itu ada kan didalam
+attribute href ya, jadi kalian tinggal tulis begini :
+
+a.getAttribute('href');
+----------------------------
+
+jadi tampilkan attribute dari tag a yg namanya href, maka dikembalikan isi dari attribute hfref nya
+begitu gyss kalo mau liat hasil nya bisa tulis gini aja di codingan kita :
+
+console.log(a.getAttribute('href'));
+---------------------------------------------
+
+// DOM Manipulasi
+// element.removeAttribute()
+
+nah yg terakhir kalo kita mau menghilangkan sebuah atttribute kalian bisa tulis gini, ambilkan 
+saya misalnya element a lalu kita remove attribute nya lalu misal kita mau remove href misalnya
+seperti ini : 
+
+a.removeAttribute('href')
+------------------------------------
+
+maka akan otomatis ilang garis bawah nya di teks HTML nya dan tidak bisa di klik sekarang, 
+karena attribute href nya sudah hilang di tag a nya.
+
+------------------------------------------------------------------------------------------------------------------------------
+
+nah sekarang sebetulnya kita bisa menambahkna sebuah attribute class pada sebuah element
+misalnya nih kita liat dari yg paragraf 2, kalo kita liat paragraf 2 itu dia punya class p2, misalnya
+saya mau menambahkan attribute baru, jadi nanti dia punya  p2 dan label misal nya, ya saya
+mau menambahkan class label ke dalam p2.
+
+saya mau menambah kan label nya itu menjadi gini kan misal ini tag html nya nah kita tambah
+class label tuh yg tadi nya gini :
+
+ <p class="p2">paragraf 2</p>
+
+jadi gini 
+
+ <p class="p2 label">paragraf 2</p>
+-----------------------------------------------
+
+kalo menggunakan javascript itu kan kita tangkap dulu ya gini in aja ya :
+
+const p2 = document.querySelector('.p2');
+-------------------------------------------------------
+
+sekarang kalo saya tulis p2.setAttribute(), ceritanya saya mau nambahin class kan, jadi
+kita setAttribute class yg namanya label seperti ini : 
+
+p2.setAttribute('class', 'label');
+----------------------------------------
+
+coba kalo saya tulis gitu, kira" berhasil ga label masuk kedalam p2, harus nya berhasil ya,
+kita cek di inspesct nya dulu, nah pas kita cek class label nya bener ada tapi class p2 nya
+menghilang, padahal niat kita itu menambahkan class baru, bukan ngeganti classnya,
+
+tapi kalo menggunakan setAttribute itu dia menimpa gitu jadi class yg ada sebelumnya menghilang
+karena tertimpa itu, nah supaya kita bisa menambahkan class baru atau bahakan memanipulasi
+class yg ada itu kita ga pake setAttribute, kita pake method lain yg guna nya untuk mengelola class
+
+------------------------------------------------------------------------------------------------------------------------------
+
+// DOM Manipulasi
+// element.classList
+
+ini adalah element.classList ada banyak bisa kita lakukan terhadap class taman" bisa liat seperti
+ini :
+
+- element.classList.add()
+- element.classList.remove()
+- element.classList.toggle()
+- element.classList.item()
+- element.classList.contains()
+- element.classList.replace()
+
+ada ( add() ) ini untuk menambah class baru, ( remove() ) ini untuk menghiangkan class yang ada,
+( toggle() ) dengan menggunakan toggle ini kalo misalkan sebuah element itu gaounya class 
+tertentu maka dia akan menambah kan tapi begitu element tersebut udah punya toggle akan 
+menghilangkan class tersebut.
+
+lalu ada ( item() ) untuk mengetahui class tertentu yg ada didalam sebuah element, misalkan 
+sebuah element itu punya 3 class nah saya pengen tau class ke-3 nya apa, nah pake si 
+item, nah kalo ( contains() ) kita ngecek dalam sebuah element punya ga class tertentu, dan
+yg terakhir ( replace() ) untuk ngeganti class yg ada dengan class yg baru.
+
+------------------------------------------------------------------------------------------------------------------------------
+
+Mencoba satu per satu yah
+
+// classList.add()
+sekarang kita sudah punya : const p2 = document.querySelector('.p2'); 
+
+nah misalkan saya akan menambah kan class baru saya cukup tulis ( p2.classLits.add() )
+nah kita tambahkan class baru di dalam kurung nya, kita tambahkan label ya, seperti ini :
+
+const p2 = document.querySelector('.p2');
+p2.classList.add('label');
+-------------------------------------------------------
+
+dengan kita menambahkan class "label" di p2 maka kalian kalo maun gecek bner ke tambah
+atau gak nya tulis gini aja di console.log nya :
+
+p2.classList
+----------------
+nanti yg muncul nya gini :
+
+DOMTokenList(2) ['p2', 'label', value: 'p2 label']
+-------------------------------------------------------
+
+// classList.remove()
+
+kalo saya tulis p2.classList.remove() lalu isi di dalam kurung nya class yg ingin di hapus apa,
+kita hapus label yg tadi ya dengan gini :
+
+p2.classList.remove('label');
+-------------------------------------
+
+nah maka dia akan menghapus class label kalo element p2 nya itu punya, kalo gapunya ya gpp,
+tapi begitu ada class nya di hilangkan, kalo mau tau hilang apa ngga cek aja sendiri di console.log
+kaya yg tadi ya.
+
+------------------------------------------------------------------------------------------------------------------------------
+
+// classList.toggle()
+
+tapi ketika saya memakai toggle terus saya tulis label yg tadi nya udah kita hpus di atas itu,
+nah ini dia akan ngecek p2 udah punya label belum, kalo belum di tambah kan kalo sudah
+di hapus gitu, seperti ini codingan nya :
+
+p2.classList.toggle('label');
+-------------------------------------
+
+nah kalo kita tulis codingan itu di console.log lalu enter maka hasilnya true, berarti ada yg di
+kembalikan, kalo kita cek ke element nya nah malah ke tambah lagi tuh si label nya, nah kalo
+saya jalan kan sekali lagi si toggle nya dengan di dalam kurung ada lebel nya seperti ini :
+
+p2.classList.toggle('label');
+-------------------------------------
+
+maka hasilnya false berarti udah hilang si label nya begitu, jadi begitu ada true class nya ditambah
+kan begitu ada false class nya di hilangkan.
+
+nah sekarang misal saya punya class namanya biru-muda di dalam style file HTML nya ya
+seperti ini : 
+
+ .biru-muda { background-color: lightblue; }
+--------------------------------------------------------
+
+nih saya mau ngambil si body nya dengan menggunakan cost nama variabel nya body lalu di isi
+dengan document.body seperti ini :
+
+const body = document.body;
+---------------------------------------
+
+lalu kita tambahkan style di bawah nya dengan menuliskan body.style.backgroundColor sama
+dengan lalu di isi dengan warna lightblue seperti ini :
+
+const body = document.body;
+body.style.backgroundColor = 'lightblue';
+--------------------------------------------------------
+
+maka si body nya berubah ya jadi warna lightblue ya, nah sekarang saya bisa gini nih
+
+saya tulis masih kaya tadi const lalu nama variabel nya body di isi dengan document.body, nah
+ini kalo saya tulis body gausah pake get" an ya, karena dia sudah punya sendiri node nya, lalu
+di bawah nya saya tulis dengan body.classList.toggle() yg isi nya 'biru-muda' sepeti ini :
+
+const body = document.body;
+body.classList.toggle('biru-muda');
+----------------------------------------------
+
+maka otomatis dia akan menambahkan class biru muda ke dalam si body, jadi kan tadi nya
+class biru-muda yg isi nya itu background-Color warna nya lightblue nah dia property dan value
+nya itu di tulis didalam style saja bukan di dalam si body nya, tapi dengan menggunakan toggle
+jadi gambaran nya sepertii ini :
+
+yg tadi nya gini :
+
+   <style>
+        body {
+            max-width: 600px;
+            margin: 30px auto;
+            font-family: sans-serif;
+            color: #333;
+        }
+
+        .biru-muda {
+            background-color: lightblue;
+        }
+    </style>
+
+nah kan class biru-muda nya di luar si body kan, nah dengan menggunakan si toggle jadi gini
+gambaran nya mah gambaran aja ini mah loh :
+
+   <style>
+        body {
+            max-width: 600px;
+            margin: 30px auto;
+            font-family: sans-serif;
+            color: #333;
+            background-color: lightblue;
+        }
+
+    </style>
+
+jadi menurut saya mah property dan value yg di dalam biru-muda di pindahin ke si body jadi gitu
+mungkin ya.
+
+------------------------------------------------------------------------------------------------------------------------------
+
+nah tadi kan codingan nya gini :
+
+const body = document.body;
+body.classList.toggle('biru-muda');
+
+nah itu body nya berubah jadi warna lightblur karena disana nya terjadi TRUE maka kalo true
+di inputkan class tersebut, lalu kalo di bawah nya saya input jadi gini :
+
+const body = document.body;
+body.classList.toggle('biru-muda');
+body.classList.toggle('biru-muda');
+
+karena yg pertama di inputkan nya satu jadi nya true, lalu pas di inputkan yg ke 2 jadi nya false
+maka ke apus warna lightblue nya di dalam si body, kalo mau liat lebih jelas bisa coba di 
+console.log nya aja nanti terlihat true false nya ya.
+
+gambaran di console.log :
+
+body.classList.toggle('biru-muda');
+false
+
+body.classList.toggle('biru-muda');
+true
+-------------------------------------------------
+
+nah nanti ini bisa kalian simpan ke dalam sebuah tombol, misal ketika tombol di klik tambahkan
+class, ketika di clik sekali lagi class nya hilang, itu jadi kaya matiin lampu nyalahin lampu gitu,
+dan nanti itu kita akan pelajari ketika masuk ke dalam topik yg namanya even.
+
+------------------------------------------------------------------------------------------------------------------------------
+
+//classList.item()
+
+sekarang ( item() ) nah kalo item untuk mengetahui nama class pada sebuah element, jadi saya
+udah punya ini : const p2 = document.querySelector('.p2');
+
+kalo saya tulis p2.classLits di console.log nya nah nongol tuh ada berapa class kita punya nya,
+kita punya 1 class ya, nah kalo kita tambahkan seperti ini : 
+
+const p2 = document.querySelector('.p2');
+p2.classList.add('satu');
+p2.classList.add('dua');
+p2.classList.add('tiga');
+---------------------------------------------------------
+
+jadi sekarang si p2 ini mempunya 4 class ( p2, satu, dua dan tiga ), nah kalo saya tulis
+p2.classList.item() lalu didalam kurung isi urutan class nya, misalnya saya pengen tau class 
+ke2 nya, ini di mulai dari 0 ya index nya, jadi tulis nya gini :
+
+p2.classList.item(2);
+------------------------------
+
+maka yg muncul "dua", jadi dia akan mencari urutan class index ke 2 tuh apa, nah itu kalo pake
+item.
+
+//classList.contains()
+
+nah kalo pake contains itu kalian tulis gini p2.classList.contains() nah ini nanya ke javascript nya
+ada ga class yg namanya "dua" gini :
+
+p2.classList.contains('dua');
+--------------------------------------
+
+kalo hasil nya true pas cek di console.log berarti ada class yg namanya "dua" itu, kalo saya tanya
+"empat", gini :
+
+p2.classList.contains('empat');
+--------------------------------------
+
+karena p2 gaada nama class nya empat maka yg muncul hasilnya false, dia gapunya katanya.
+
+------------------------------------------------------------------------------------------------------------------------------
+
+//classList.replace()
+
+nah yg terakhir ada ( replace() ) kalo replace itu menggan ti, jadi disini saya sudha punya :
+
+const p2 = document.querySelector('.p2');
+p2.classList.add('satu');
+p2.classList.add('dua');
+p2.classList.add('tiga');
+-------------------------------------------------------
+
+saya sudah punya class ( p2, satu, dua dan tiga ), kalo saya tulis p2.classList.replace()
+nah di dalam kurung nya tulis ( 'tiga', 'empat' ) jadi makasudnya gini replace tiga jadi empat 
+seperti ini codingan nya :
+
+p2.classList.replace('tiga', 'empat');
+------------------------------------------------
+
+kalo sudah gitu, kalo kalian cek di console.log dengan format p2.classList nanti akan muncul
+isi class dari si p2 maka si "tiga" itu udah ilang di gantikan menjadi si "empat".
+
+------------------------------------------------------------------------------------------------------------------------------
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,310 @@
+CSS3 -- Transition (1)
+
+mungkin transition ini properti yg sudah kita coba di beberapa video sebelum nya, dengan menggunakan trasition itu memungkinkan kita dapat mengubah nilai dari property HTML secara halus.
+jadi kywerd nya ada di situ "secara halus".
+
+TRANSITION vs ANIMATION 
+Sebelum kita coba properti transiton ini kita akan jelaskan perbedaan antara transition dan animasi,
+Jadi didalam css3 itu ada 2 properti yg fungsi nya mengubah nilai dari property HTML secara halus.
+Nah sebetulnya ke dua hal itu mirip, yg membedakan hanya lah keadaan awal dan keadaan akhirnya.
+
+kita liat contoh dari Transition, jika kita lihat animasi seperti menggeser kekanan gitu, kaya dari kiri geser kekanan gitu, Nah itu artinya kotak bergerak dari posisi sebelah kiri ke sebelah kanan, Nah itu
+kita sebut kotak disebelah kiri itu keadaan awal ( liat di folder ), dan kotak disebelah kanan itu keadaan akhir, sedangkan pergerakan nya itu atau animasi nya itu kita sebut dengan transisi ( liat di folder ).
+
+Jadi sebetulnya secara konsep pergerakan nya disebut animasi, tapi properti css nya adalah Transisi jika hanya ada keaadaan awal dan keadaan akhir saja.
+
+Selanjutnya kita lihat contoh dari Animation, misalnya saya akan menggerakan lagi kotak nya tapi pergerakan nya lebih dari 2 keadaan, jadi bukan hanya ada keaadan awal dan keadaan akhir tapi ada beberapa keadaan di antara nya.
+
+Jadi kita ttp punya keadaan awal dan keaadan diantaranya kita sebut dengan ( keyframe ), keyframe yang bisa kita tambahkan itu banyak sehingga kita bisa mempunya banyak keadaan diantara seperti ini ( liat di folder ), jadi itu lah yg membedakan nanti pada saat kita menggunakan properti Transiton atau animation. Jadi itu  perbedaan nya sekarang kita balik lagi untuk membahas Transiton dulu ya.
+
+----------------------------------------------------------------------------------------------------------------------------------
+
+Transition
+
+transition: [property] <durasi> [fungsi] [delay];
+
+cara penulisan nya, jadi properti nya adalah transition dan dia memiliki 4 buah parameter yang bisa kalian tulis, dari ke 4 parameter itu ada 1 parameter yg wajib kalian tulis yaitu value <durasi>, properti yang 3 sisi nya itu adalah properti opsional jadi boleh kalian tulis atau tidak.
+
+DURASI
+ s / ms
+
+Jadi durasi itu bisa kita isi dengan angka dan angka tersebut memiliki satuan s / ms itu artinya second atau detik / milisecond, jadi durasi ini artinya pada saat kalian merubah nilai dari properti html dari keadaan awal ke keadaan akhir durasinya mau berapa lama, sekali lagi ini adalah properti yg wajib.
+
+kita coba aja ya, jadi saya sudha punya html dengan div class nya kotak, lalu style body nya padding dan margin nya 0. Seperti ini :
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Transition (1)</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="kotak"></div>
+</body>
+</html>
+-------------------------------
+
+Lalu kita kasih style dulu si kotaknya ya. gini aja ya :
+
+.kotak {
+            width: 100px;
+            height: 100px;
+            background-color: aqua;
+        }
+-------------------------------
+
+Nah kalo kalain lihat hasil nya kek gitukan, nah nanti itu akan disebut keadaan awal, yg dimana keadaan akhirnya biasa nya kita simpan misalnya dalam ( hover ), untuk pas bagian di hover itu saya mau buat keadaan akhirnya itu misal mau pake transform lalu rotate nya 180derajat. Seperti ini :
+
+ .kotak {
+            width: 100px;
+            height: 100px;
+            background-color: aqua;
+        }
+
+        .kotak:hover {
+            transform: rotate(180deg);
+        }
+-------------------------------
+
+Pada saat saya hover itu kotak nya tau kan hover apa harusnya tau lah udah ya, nah pada saat di hover itu kotak nya keliatannya ga terjadi apa", padahal si kotak nya sudah sudah berputar sebanyak 180 derajat, nah 180 derajat  itu posisi nya kembali seperti semula ya, kalo kalian mau lihat perubahan nya mungkin bisa kita ubah jadi 45 derajat, nah ini juga knp 180 derajat ga keliatan pada saat di hover pdahal sebenernya kan itu udah berputar dia, ini karena kita belum kasih properti Transition ya liat aja coba. kita ganti rotate nya jadi 45deg : 
+
+ .kotak {
+            width: 100px;
+            height: 100px;
+            background-color: aqua;
+        }
+
+        .kotak:hover {
+            transform: rotate(45deg);
+        }
+-------------------------------
+
+Kalo kita ubah jadi 45 derajat pas di hover jadi keliatan kan tuh perubaha nya ya, Ya walaupun tadi kalian tahu kalau saya ganti jadi 180deg sebetulnya dia berputar tapi karena perpindahan dari keadaan awal ke keadaan akhir nya instan jadi kita tidak bisa melihat perubahan nya.
+
+Nah supaya kita bisa melihat perubaha nya kita harus tambahkan transisi supaya perpindahan nya halus begitu, oh iya simpan properti transisi itu selalu di keadaan awal jangan di keadaan akhir, Ya kita tambahkan properti transition lalu parameter pertama yg wajib nya adalah berapa lama durasi dari transisi nya, misal saya kasih 1 detik. Seperti ini :
+
+  .kotak {
+            width: 100px;
+            height: 100px;
+            background-color: aqua;
+            transition: 1s;
+        }
+
+        .kotak:hover {
+            transform: rotate(180deg);
+        }
+-------------------------------
+
+Sekarang pada saat mouse nya saya arahkan ke kotak nya dia akan berputar sebanyak 180 derajat, ketika mouse nya saya arahkan keluar atau kursornya tidak di atas kotak nya lagi dia akan kembali berputar sebanyak 180 derajat.
+
+----------------------------------------------------------------------------------------------------------------------------------
+
+[ PROPERTY ]
+
+parameter property ini menentukan property apasaja yg akan dilakukan Transisi, bisa saja lebih dari satu property atau hanya satu saja yg ingin kalian beri terhadap Transisi.
+
+Jika kita lihat kembali ke kasus kita dimana kita sudah punya keadaan awal dan keadaan akhir dan kita sudah coba melakukan transisi selama satu detik, Nah pada saat kita melakukan transisi maka css akan melihat perubahan apa yg terjadi dari keadaan awal dan keadaan akhir, Nah dalam hal kasus kita itu yg berubah hanya satu saja yaitu transform.
+
+Sebetulnya kita bisa ubah sekaligus beberapa properti misalnya, saya akan ubah kotak nya geser kekanan sebanyak 800px, saya tinggal kasih margin left 800px. Seperti ini :
+
+ .kotak {
+            width: 100px;
+            height: 100px;
+            background-color: aqua;
+            transition: 1s;
+        }
+
+        .kotak:hover {
+            transform: rotate(180deg);
+            margin-left: 800px;
+        }
+-------------------------------
+
+kita lihat hasilnya dia akan berputar sebanyak 180 derajat lalu bergeser 800px kekanan ya. Itu kalo kalian liat sepertinya gerakan nya kaya patah-patah gitu ya, Nah ini karena pada saat kita arahkan mouse nya ke atas elemen nya kotak nya akan berusaha bergeser ke sebelah kanan, jadi setiap pergerakan yg dilakukan css akan menghitung ulang posisinya sehingga apabila kita menggerakan mouse nya terlihat seperti patah-patah.
+
+Ya untuk menghindari itu dengan cara kita memberi elemen pembungkus untuk kotak itu, contoh nya 
+kita membungkus kotak itu kedalam sebuah div lagi, lalu keadaan akhirnya bukan pada saat saya meletakan kursornya diatas kotak tapi saya akan melakukan transisi ketika saya meletakan kursornya diatas kontainer jadi ketika mouse nya diletakan diatas container, container itu nama class div yg membungkus si kotak, jadi ketika kursor di atas container maka ubah kotak nya jadi transform nya rotate(180deg) dan margin left nya 800px jadi gitu. Seperti ini :
+
+ .container {
+            width: 900px;
+            margin: 10px auto;
+            border: 5px solid black;
+        }
+
+        .kotak {
+            width: 100px;
+            height: 100px;
+            background-color: aqua;
+            transition: 1s;
+        }
+
+        .container:hover .kotak {
+            transform: rotate(180deg);
+            margin-left: 800px;
+        }
+-------------------------------
+
+Bisa dilihat kan hasilnya gimana, kalo belum paham baca lagi ya. Nah kembali lagi ke property tadi ya, nah di atas kan ada 2 property yg ditambahkan di keadaan akhir ya transform dan margin-left nya.
+kalo mau saya tambahkan pun bisa lagi berapa pun bisa aja ya. misalkan saya ubah backgroun-color nya saya ubah jadi warna salmon :
+
+   .kotak {
+            width: 100px;
+            height: 100px;
+            background-color: aqua;
+            transition: 1s;
+        }
+
+        .container:hover .kotak {
+            transform: rotate(180deg);
+            margin-left: 800px;
+            background-color: salmon;
+        }
+-------------------------------
+
+Ketika saya coba maka dia akan berputar sebanyak 180deg bergeser kekanan 800px dan berubah warna yg tadinya aqua menjadi salmon, kalo misalkan saya ubah jadi lebih banyak putaran nya misal 720deg. Seperti ini :
+
+ .kotak {
+            width: 100px;
+            height: 100px;
+            background-color: aqua;
+            transition: 1s;
+        }
+
+        .container:hover .kotak {
+            transform: rotate(720deg);
+            margin-left: 800px;
+            background-color: salmon;
+        }
+-------------------------------
+
+Jadi [property] transtion secara DEFAULT nya akan mengubah aapa yg bisa dia ubah, maksudnya itu secara default dia akan mengubah yg diperintahkan di keadaan akhirnya, keadaan akhirnya itu yg hover,  [property] secara default nya dia akan mengubah ya kaya transform nya margin dan warna background nya gitu. Karena ada 3 hal yg berubah maka dia akan coba ubah 3 hal itu.
+
+Kalo kita tidak tuliskan [property] itu di transition hanya si <durasi> nya aja itu sebetulnya yg terjadi kita menuliskan ( all ) pada transition nya. Seperti ini :
+
+.kotak {
+            width: 100px;
+            height: 100px;
+            background-color: aqua;
+            transition: all 1s;
+        }
+
+        .container:hover .kotak {
+            transform: rotate(720deg);
+            margin-left: 800px;
+            background-color: salmon;
+        }
+-------------------------------
+
+all itu salah satu nilai dari [property] ada yg lain sebetulnya, jadi itu hasilnya sama aja kalo kalian coba tapi kita juga bisa mengganti ( all ) itu dengan proerty apa yg mau kita ubah, misalnya hanya ingin satu saja, misalnya saya mau margin left nya saja yg di transisi in yg 2 lain nya jangan. Seperti ini :
+
+.kotak {
+            width: 100px;
+            height: 100px;
+            background-color: aqua;
+            transition: margin-left 1s;
+        }
+
+        .container:hover .kotak {
+            transform: rotate(720deg);
+            margin-left: 800px;
+            background-color: salmon;
+        }
+-------------------------------
+
+Jadi itu yg terjadi adalah transisikan margin left nya, dan untuk transform dan background-color nya tidak di transisikan, jadi nanti dia akan bergeser dari kiri kekanan secara halus sedangkan perputaran dan warna nya itu akan berubah secara instan maksud instan itu perubahan nya ga keliatan coba liat aja.
+
+Ya kalian bisa liat dari warna aqua ke salmon nya instan, lalu kalian tidak lagi bisa melihat perputaran nya karena 720 derajat itu kembali keposisi semulanya, kecuali kita ganti dia ke 45 derajat. Seperti ini :
+
+ .kotak {
+            width: 100px;
+            height: 100px;
+            background-color: aqua;
+            transition: margin-left 1s;
+        }
+
+        .container:hover .kotak {
+            transform: rotate(45deg);
+            margin-left: 800px;
+            background-color: salmon;
+        }
+-------------------------------
+
+Nah maka dia akan secara instan berubah menjadi miring seperti itu coba aja ya. Nah jadi paham kan kalian bisa lakukan satu persatu untuk [property] nya atau all, kalo all sebetulnya ga di tulis juga ttp bisa karena nilai default nya dia.
+
+yg bisa diberikan di [property]
+
+- all
+- <nama property>
+- none
+
+Selanjutnya kita liat property apa saja yg bisa kita rubah secara halus, Jadi ternyata ga semuanya 
+bisa kita animasikan, ini adalah beberapa contoh property yg bisa kita animasikan :
+
+		  animatable properties
+
+background-color			top left bottom right
+background-position			margin padding
+background-size			width height
+	border					Opacitiy
+	Color				  Transform
+  Filter					word-spacing
+font-size				letter-spacing
+line-height					...........
+
+Tapi ada juga beberapa properti yg memang tidak bisa kita animasikan :
+
+non-animatable properties
+
+- font-family
+- display
+- position
+
+Jadi perubahan font itu tidak bisa misalnya dari arial ke tims new romance itu tidak bisa secara halus, 
+kita juga tidak bisa mengubah yg tadinya blok ke inline secara halus, begitu juga dengan position kita gabisa ubah yg tadinya relative jadi absolute secara halus.
+
+----------------------------------------------------------------------------------------------------------------------------------
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

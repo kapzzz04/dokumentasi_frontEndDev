@@ -1,0 +1,630 @@
+Audio & Video | Belajar HTML5
+
+jadi element ini atau Tag ini merupakan Tag" baru yg ada di HTML5
+
+-------------------------------------------------------------------------------------------------------------------------------
+
+AUDIO
+
+Tag audio adalah sebuah Tag atau element yg merepresentasikan suara atau aliran audio. untuk
+membuat sebuah element AUDIO ini cukup mudah ya kita tinggal memanggil Tag nya. Seperti ini:
+
+    <audio controls src="audio/1.mp3"></audio>
+---------------------------------------------------
+
+Attribute yg wajib ada yaitu src atau source nya, tempat kita menyimpan file audio nya lalu kita bisa
+menambahkan attribute controls, untuk menambahkan control untuk play pause atau pun scraber
+ya atau buat kita menggeser" posisi audio nya, serta kita juga bisa mengatur volume nya.
+
+Jadi dengan menggunakan Tag Audio seperti itu saja sudah cukup. atau kalo misalkan kita mau
+lebih kompleks kita bisa masukan ke dalam Tag <figure> seperti yg sudah kita bahas di video
+sebelumnya. Kita juga bisa menyisipkan element  multimedia selain gambar yaitu audio.
+
+ya jadi ada <figcaption> nya lalu ada audio nya, dan di antara Tag audio nya atau di dalam Tag
+audio nya kita bisa menuliskan Teks ketika audio ini atau tag ini tidak di suport oleh browser nya.
+Jadi kalo browser nya tidak mensuport Tag audio, yg akan muncul adalah tulisan atau teks 
+tersebut. Seperti ini :
+
+    <figure>
+        <figcaption>
+            Dengarkan "Skyline - Anno Domini"
+        </figcaption>
+        <audio control src="audio/1.mp3">
+            Browser tidak mendukung tag <code>audio</code>
+        </audio>
+    </figure>
+---------------------------------------------------
+
+<audio> attributes
+
+- src
+- controls
+- preload
+- autoplay
+- loop
+- muted
+
+di dalam tag audio ini yg pertama tentu saja kita butuh src itu adalah attribute wajib nya, yg kedua
+kita bisa memberikan controls agar user bisa mengendalikan audionya menggunakan controls
+default nya. Nah kalo misalkan kita gapake controls itu nanti audionya akan asumsi nya akan 
+dijalankan atau dikendlikan menggunakan javascript. 
+
+Preload ini untuk membuat file audio nya di-load dulu sebelum dijalankan, Karena defaultnya Tag
+audio itu di load ketika kita menekan tombol play. berikutnya ada autoplay untuk menjalankan audio
+secara otomatis. 
+
+Ada loop untuk mengulang audio nya ketika sudah sampai akhir, jadi kalo gapake loop itu hanya 
+behenti saja satu kali tapi kalo pake loop nanti audio nya muter terus ya, dan yg terakhir ad muted
+ini untuk membuat audio nya gaada suara nya.
+
+-------------------------------------------------------------------------------------------------------------------------------
+
+<audio>
+ada beberapa catatan untuk Tag audio ini 
+
+- Digunakan unutk menjalankan file audio
+- File yang didukung: .mp3, .wav, .ogg
+- Bisa menggunakan tag <source> untuk memilih audio
+
+yg pertama jelas digunakan unutk menjalankan file audio, nah ada beberapa file audio yg bisa kita 
+gunakan yaitu ( .mp3, .wav, .ogg ) untuk wav itu kualitasnya lebih baik walaupun ukuran file nya
+jauh lebih besar, lalu ada ogg ini file yg tidak umum atau jarang digunakan tapi ukuran nya lebih
+kecil dari mp3.
+
+Kita bisa menggunakan tag <source> untuk memilih audio, jadi kita bisa masukan beberapa 
+source dengan tipe file yg berbeda, nah nanti Tag audio nya akan menjalankan Tag source yg
+pertama kali di temukan dan di suport file nya. Jadi kita bisa masukan 3 file yg berbeda tapi audio
+nya sama ya. misal yg satu mp3 trs wav trs ogg itu bisa.
+
+Langsung aja kita coba cuss :
+
+pertama kita gunakan tag audio yg sederhana dengan gunakan Tag audio saja, kita buat folder
+dulu agar file html dan file audio nya terpisah biar ga bingung ya. nah di dalam folder audio itu ada
+2 file, isi dari file nya sama hanya beda format atau extenci nya saja. yg satu mp3 yg satu ogg.
+
+<audio src="audio/1.mp3"></audio>
+-------------------------------------------
+
+Kalo kita menjalankan Tag audio hanya seperti itu, hanya menggunakan attribute src maka hasil
+nya tidak terlihat apa" di browser, Karena kita tidak berikan attribute 'controls' nya. kalo kita tambah
+kan attribute 'controls' nya maka akan keliatan hasilnya ya. Seperti ini :
+
+<audio src="audio/1.mp3" controls></audio>
+-------------------------------------------
+
+Nah itu cara nya sangat sederhana sekali, kalo kita mau lebih kompleks kita bisa taro Tag audio di
+dalam Tag figure ( tag figure bisa digunakan untuk element multimedia ). Kita bikin Tag figure lalu
+didalam nya kita kasih figcaption dulu, caption nya boleh diatas atau di bawah.
+
+Jadi silahkan kalian boleh gunakan file apapun tapi hati" kalo misalkan nanti disimpan di internet 
+pastikan audio nya bebas copywrite. Setelah buat Tag figcaption lalu kita buat Tag audio nya bisa
+panggil seperti sebelum nya atau kita bisa gunakan tag <source>. Seperti ini :
+
+ <figure>
+        <figcaption>
+            Dengarkan "Skyline - Anno Domini"
+        </figcaption>
+        <audio>
+            <source src="audio/1.ogg" type="audio/ogg">
+            <source src="audio/1.mp3" type="audio/mpeg">
+        </audio>
+    </figure>
+---------------------------------------------------------
+
+kalo kita mau pake source Tag audio nya gausah dikasih attribute src, karena <source> nya kita
+akan simpan didalam nya, jadi kita bisa tulis <source> lalu attribute src nya ada di dalamnya. 
+Tinggal kita kasih misal file yg ogg tadi ya.
+
+oh iya kita kasih attribute type di Tag <source> nya untuk setiap file berbeda tipe, karena kita untuk
+file yg ogg kita gunakan type="audio/ogg" begitu. terus kita ambil file yg lain nya juga yg mp3 terus
+ganti type nya jadi 'mpeg'.
+
+Nah jadi kalo kita nulis seperti di atas kita akan cek dulu browser suport ga file ogg kalo suport jalan
+kan yg ogg karena itu ukuran file nya lebih kecil jadi asumsinya adalah benwift yg digunakan juga
+lebih kecil. Kalo misalnya browsernya ga suport maka dia jalankan yg file mp3 nya.
+ 
+oh iya jangan lupa tambah kan attribute 'controls' di Tag audio nya ya buka tag <source> nya agar
+audio nya bisa terlihat seperti ini :
+
+<figure>
+        <figcaption>
+            Dengarkan "Skyline - Anno Domini"
+        </figcaption>
+        <audio controls>
+            <source src="audio/1.ogg" type="audio/ogg">
+            <source src="audio/1.mp3" type="audio/mpeg">
+        </audio>
+    </figure>
+
+silahkan mau pake yg compleks seperti di atas atau mau pake yg simpel hanya tag audio nya aja
+bebas.
+
+-------------------------------------------------------------------------------------------------------------------------------
+
+AUTOPLAY
+
+berikutnya kita bisa kasih autoplay :
+
+<figure>
+        <figcaption>
+            Dengarkan "Skyline - Anno Domini"
+        </figcaption>
+        <audio controls autoplay>
+            <source src="audio/1.ogg" type="audio/ogg">
+            <source src="audio/1.mp3" type="audio/mpeg">
+        </audio>
+    </figure>
+----------------------------------------------------
+
+nah dengan menambahkan autoplay seperti itu, itu akan membuat audionya otomatis dilajankan
+tapi saat ini hampir semua browser itu sudah menjaga agar audio itu tidak bisa dijalankan secara
+otomatis, karena user itu gasuka kalo kita msuk ke sebuah web tiba" ada audio yg jalan.
+
+Nah dengan adanya autoplay kalo kita ke browser liat hasil nya itu ttp gaaakn jalan secara otomatis
+audionya ya. Kadang" kita harus melakukan interaksi dulu sama websaitenya baru audio nya jalan.
+misal kita liat hasil di browser nya terus kita klik apapun di web nya maka baru audio ya otomatis
+berjalan. tapi intinya tidak akaan langsung berjalan ya.
+
+-------------------------------------------------------------------------------------------------------------------------------
+
+LOOP & MUTED
+
+<figure>
+        <figcaption>
+            Dengarkan "Skyline - Anno Domini"
+        </figcaption>
+        <audio controls loop>
+            <source src="audio/1.ogg" type="audio/ogg">
+            <source src="audio/1.mp3" type="audio/mpeg">
+        </audio>
+    </figure>
+----------------------------------------------------
+
+kita juga bisa kasih attribute 'loop' untuk membuat audionya berulang setelah selesai sampai akhir
+audio nya. Contohnya kita play sampai akhir kalo udh selesai nah dia otomatis ulang lagi dari awal
+begitu.
+
+Nah kalo misalnya kita kasih attribute 'muted' :
+
+<figure>
+        <figcaption>
+            Dengarkan "Skyline - Anno Domini"
+        </figcaption>
+        <audio controls loop muted>
+            <source src="audio/1.ogg" type="audio/ogg">
+            <source src="audio/1.mp3" type="audio/mpeg">
+        </audio>
+    </figure>
+----------------------------------------------------
+
+Nah kalo kita jalankan maka audio nya akan otomatis di mute dan suaranya gaada tapi audio nya
+jalan. Jadi itu penggunaan Tag audio yg sangat sederhana kalian bisa tambahkan lebih dari satu
+audio di halaman Web kalian.
+
+( ohh iya kalo di folder audio gaada file nya karena emang blm ada dan blm saya downolad
+  terus file video juga file 'webm' nya blm ada baru ada mp4 nya )
+
+*********************************************************************************************************
+
+<VIDEO>
+
+Nah kalo Tag video ini dia lebih kompleks ya teman"
+
+menurut penjelasan nya dia adalah sebuah "element yang digunakan untuk menampilkan video,film 
+ataupun audio"
+
+Jadi kita bisa pake tag video untuk menjalankan audio juga, cara bikin nya juga sama seperti audio
+bisa simpel, kita tulis src nya terus kasih 'controls' supaya ada tombol pengendali nya, tapi kita 
+juga bisa menentukan lebar dan tinggi dari sebuah video nya. Seperti ini :
+
+<video src="video/1.mp4" controls width="400"></video>
+---------------------------------------------------
+
+kita juga bisa bikin dia jadi kompleks di simpan didalam Tag <figure> tapi sekarang kita liat dulu
+attribute nya ya. Jadi attribute nya lebih banyak dari pada audio.
+
+-------------------------------------------------------------------------------------------------------------------------------
+
+<video> attributes
+
+- src
+- controls
+- poster
+- preload
+- autoplay
+- loop
+- muted
+- width
+- height
+
+dimulai dari src attribute wajib nya berikutnya controls, terus ada poster nah ini untuk menampilkan
+sebuah gambar yg akan menggantikan video nya ketika video nya gabisa tampil. 
+
+terus ada preload sama seperti audio, lalu ada autoplay nah kalo untuk video autoplay nya nanti 
+bisa kita akalin supaya bisa jalan. lalu ad loop juga, terus muted juga, nah sekarang bedanya ada 
+widt dan juga height.
+
+-------------------------------------------------------------------------------------------------------------------------------
+
+POSTER, WIDTH & CONTROLS
+
+Mari kita coba ya, tapi sebelumnya kita siap kan dulu video nya ya. 
+
+Oke sekarang kita sudah punya video, yg di dalam nya ada beberapa file video, yg pertama ada
+2 buah video yg sama tapi tipe data nya beda, jadi yg satu ada mp4 yg kedua ada webm. webm ini
+adalah sebauh extensi video yg ukura nya lebih kecil daripada mp4.
+
+dan satu lagi ada video hasil compresi dari episode 1 kita belajar html5 ya, yg udah saya kompresi
+atau yg udah saya kompret menjadi 'webm' itu nanti kita coba belakangan aja. Kita coba yg 2 itu 
+dulu ya.
+
+Nah sekarang kita panggil Tag nya video yg metode simpel dlu ya, lalu kita panggil attribute src nya
+Seperti ini :
+
+<video src="video/1.mp4"></video>
+--------------------------------
+
+kalo kalian liat hasil nya di web itu tampilnya gambar yg besar dan video nya ga jalan tapi gabisa
+kita play juga karena attribute controls nya gaada ya, coba kita atur width nya dlu ya kita kasih width
+nya 400px terus kita kasih attribute controls. Oh iya nyimpen attribute nya boleh ketuker seterah
+mau controls di tengah awal depan atau attribute yg lain depan tengah bebas. 
+
+Seperti ini :
+
+<video src="video/1.mp4" controls width="400"></video>
+---------------------------------------------------------
+
+kalo kita liat hasil nya sekarang jadi ada control nya nih, lalu kalo saya play video nya tampil itu
+beserta audionya juga tampil, walaupun video nya gaada audio nya secara default dia akan 
+menajalankan audio nya.
+
+sekarang kalo misalnya kita mau menggunakan tag <figure> juga cara nya sama kita tinggal kasih
+aja Tag Figure lalu figcaption baru di bawah nya kita kasih Tag video. kita mau simpan di dalam tag
+<source> juga bisa sama seperti audio cara penulisan nya. Seperti ini :
+
+<figure>
+        <figcaption>
+            Inperfect The Series
+        </figcaption>
+        <video controls width="400px">
+            <source src="video/1.webm" type="video/webm">
+            <source src="video/1.mp4" type="video/mp4">
+            Browser tidak mendukung tag <code>video</code>
+        </video>
+    </figure>
+---------------------------------------------------------
+
+disitu kita panggil file yg format nya 'webm' dulu ya, oh iya jangan lupa kasih type nya ya. Nah yg 
+berikut nya kita panggil yg mp4 nya karena webm itu blm di suport oleh semua browser maka 
+kita simpan diurutan pertama ya.
+
+Jadi buat yg suport pake itu dulu kalo ga suport baru follback nya ke mp4, kalo mp4 cenderung bisa
+digunakan oleh semua browser, dan di akhir itu kita bisa tulis untuk memeberi tahu kalo browser
+nya ga mendukung Tag video. itu semisal yg mp4 dan webm gabisa kita munculkan tulisan itu aja.
+
+Kalo kita mau tambahkan attribute 'poster' juga bisa ya. Jadi misalnya saya sekarang sudah punya
+folder namanya img yg didalamnya ada gambar yg akan saya jadikan sebagai poster. Nah caranya
+kita tinggal tulisa aja attribute 'poster' nya di Tag video nya.
+
+Tinggal diisi si 'poster' nya path atau tempat penyimpanan gambar tersebut. Seperti ini :
+
+<figure>
+        <figcaption>
+            Inperfect The Series
+        </figcaption>
+        <video controls width="500px" poster="img/poto.jpg">
+            <source src="video/1.webm" type="video/webm">
+            <source src="video/1.mp4" type="video/mp4">
+            Browser tidak mendukung tag <code>video</code>
+        </video>
+    </figure>
+---------------------------------------------------------
+
+ini tuh kaya di ( youtube ) kan sebelum kita play vid yt pasti ada tuh gambar editan nya gitu di vid
+yt nya tapi pas kita play video depan nya ga sama kaya gambar awal sebelum kita play pokoknya
+gitu deh ngerti meren.
+
+Nah kalo misalkan kita jalanin yg default nya tampil adalah poster kita, kalo di play baru dia jalan
+atau kalo misalnya video nya ga tampil maka gambar yg tampil. Misal kalo kita salah nulis nama
+file nya nah nanti itu yg tampil poster nya walaupun itu gabisa di play.
+
+Nah kalo gaada attribute 'poster' nya tapi file nya salah atau file nya gabisa di tampilin maka dia
+blangg atau gelap ga berfungsi, jadi kalo mau pake poster silahkan tambahkan saja attribute nya.
+
+-------------------------------------------------------------------------------------------------------------------------------
+
+LOOP, AUTOPLAY & MUTED
+
+nah sekarang kita juga bisa gunakan attribute loop, atribute loop akan membuat video nya terus 
+berputar jadi ngulang lagi dari awal dan begitu terus. Contoh pempatan attribute loop & autoplay :
+
+<figure>
+        <figcaption>
+            Inperfect The Series
+        </figcaption>
+        <video controls width="500px" poster="img/poto.jpg" loop autoplay>
+            <source src="video/1.webm" type="video/webm">
+            <source src="video/1.mp4" type="video/mp4">
+            Browser tidak mendukung tag <code>video</code>
+        </video>
+    </figure>
+---------------------------------------------------------
+
+dan untuk video kita bisa pake Autoplay nah tapi ada cara ngakalin nya, kalo kita pake autoplay
+ttp gajalan video nya, itu karena sama seperti audio browser nya gamau menjalankan autoplay 
+kalau misalkan tiba" ada audio yg muncul. ( kan video itu ada suara nah itu audio nya loch )
+
+Tapi kalau video aja tanpa audio browser nya mau jalanin, ya karena user tergangunya sama suara
+yg mendadak muncul ya. nah cara nya itu kita tinggal kasih attribute 'muted' di Tag video nya.
+
+Seperti ini : 
+
+<figure>
+        <figcaption>
+            Inperfect The Series
+        </figcaption>
+        <video controls width="500px" poster="img/poto.jpg" loop autoplay muted>
+            <source src="video/1.webm" type="video/webm">
+            <source src="video/1.mp4" type="video/mp4">
+            Browser tidak mendukung tag <code>video</code>
+        </video>
+    </figure>
+--------------------------------------------------------------------------------------------
+
+Nah jadi audio nya gajalan tapi video nya autoplay nah ini bisa kita gunakan. jadi pas kita masuk ke
+web nya video nya otomatis ke putar tapi gaada suara nya. bahkan jadi sekarang kita bisa ilangin
+attribute controls nya. Seperti ini :
+
+<figure>
+        <figcaption>
+            Inperfect The Series
+        </figcaption>
+        <video width="500px" poster="img/poto.jpg" loop autoplay muted>
+            <source src="video/1.webm" type="video/webm">
+            <source src="video/1.mp4" type="video/mp4">
+            Browser tidak mendukung tag <code>video</code>
+        </video>
+    </figure>
+--------------------------------------------------------------------------------------------
+
+Nah jadi ini cocok banget ketika teman" mau bikin background yg bentuk nya video, background 
+dari halaman web yg berbentuk video KERENN BANGET. marikicob mari kita coba ya.
+
+-------------------------------------------------------------------------------------------------------------------------------
+
+MEMBUAT BACKGROUND VIDEO
+
+kita buat tag div class nya hero, lalu di dalam nya kita kasih Tag h1 misal tulisan nya Welcome to 
+ZIPS. Nah baru dibawah nya kita pangiil video nya, kita langusng yg simpel aja ya. Seperti ini :
+
+<div class="hero">
+        <h1>Welcome to ZIPS</h1>
+        <video class="video-bg" src="video/1.mp4" muted autoplay loop></video>
+    </div>
+------------------------------------------------------------
+
+ini untuk HTML nya tinggal kita bikin CSS nya, tapi karena CSS nya hampir semua pake css3 
+kita ga jelasin dulu ya karena belum melajarin CSS3 langusung aja ke kodenya. Seperti ini :
+
+<style>
+        body,
+        h1 {
+            padding: 0;
+            margin: 0;
+            font-family: arial;
+        }
+
+        .hero {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            /* background-color: rgb(0, 0, 0, 0.3); */
+            background-image: linear-gradient(to right, rgba(0, 242, 96, 0.3), rgba(219, 75, 154, 0.3));
+            color: rgb(255, 255, 255, 0.5);
+            font-size: 3em;
+            position: relative;
+            min-height: 100vh;
+            overflow: hidden;
+        }
+
+        .video-bg {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            min-height: 100%;
+            min-width: 100%;
+            z-index: -1;
+        }
+    </style>
+
+HASIL NYA KERENN this realy front end developer uwawww
+
+-------------------------------------------------------------------------------------------------------------------------------
+
+<track>
+
+Nah berikut nya kita akan membahas satu Tag lagi sebagai pendukung untuk video yg dinamakan
+dengan <track>. Nah kita liat attribute apa aja yg bisa kita kasih ke attribute <track> itu.
+
+<track> attributes
+
+- src
+- kind ( subtitle, caption, capther, dan description )
+
+jadi track ini attribute nya ada src, sumber dari file untuk track nya, terus ada kind nah kind ini bisa
+berisi jenis track nya. nah ada apa aja jenis track nya, itu kalian bisa tulis subtitle kalian bisa tulis
+caption atau capther atau deksripsi.
+
+subtitle kalo kalian mau kasih subtitle, subtitle itu pernerjemahan dari dialog yg ada divideo ya, 
+sedangkan caption itu terjemahan dari apapun suara yg ada di video nya, jadi caption tuh lebih 
+lengkap ga cuman dialog. jadi misal ada dialog atau misal sound efect di tulisin, atau ada orang
+tepuk tangan nanti dia di caption nya ad suara tepuk tangan.
+
+kalo capther itu kalian bisa naro bagian" video yg mau dituju sama seperti capther yg ada di yt itu 
+ya, terus ada description buat ngejelesin video nya tentang apa. Ini berguna ketika mau dibaca
+oleh screen reader.
+
+Berikutnya ada title, ini buat ngasih tau judul dari caption atau subtitle di tulis dalam bahasa apa
+sebagai nanti bantuan kalau kita mau pilih bahasanya.
+
+Berikutnya ada srclang, na kalo ini adalah kode bahasanya. Kalo tadi title kan judul misal bahasa
+indonesia kalian tulis bahasa indonesia kalo bahasa inggris kalian tulis english misalnya itu untuk
+title. 
+
+Kalo srclang kalian tulis kodenya, misalnya indonesia itu (ind) bahasa inggris tuh ( een ) bahasa
+jepang itu ( jp ) misalnya ya. Oke ktia langsung cobain aja ya.
+
+-------------------------------------------------------------------------------------------------------------------------------
+
+Misalnya sekarang saya mau bikin si Tag video ini menggunakan bantuan <source>. Seperti ini :
+
+<video controls width="450px">
+        <source src="video/2.mp4" type="video/mp4">
+    </video>
+------------------------------------------------------
+
+cerita nya saya akan menambahkan subtitle, nanti subtitle nya akan muncul di titik 3 pojok kanan
+bawah. Nah cara biar ada subtitle nya kita butuh element <track> tadi ya. kita taro di dalam Tag
+video.
+
+kalo di vs code tulis track terus ( tab ) ga otomatis ke biasa inget ( Tag track ga pake tag penutup ),
+lalu di dalam tag nya tulis attribute src, Nah untuk caption atau subtitle ini harus memiliki extencein
+( titik vtt ). 
+
+Jadi misalnya kita bikin sebuah folder baru ya kita kasih nama aja captions gitu, terus di dalam nya
+kita bikin sebuah file misal caption.vtt ( nama file dan folder bebas tpi file nya harus berformat .vtt )
+
+nah setelah itu kita buka file yg sudah kita buat terus kita tulis di file itu ( WEBVTT ) harus huruf
+besar ya, nah baru di bawah teks WEBVTT nya kita tulis menit teks yg akan di ucapkan nya.
+
+Jadi cara nulisa nya gini :
+
+00:00:00.000 --> 00:00:02.000
+
+nah itu nulis nya dari 00 pertama itu untuk jam, 00 kedua itu untuk menit, 00 ketiga untuk detik, lalu
+milisecound nya yg titik 000 jadi 0 nya ada 3 untuk milisecound. terus kasih itu lah ya di tengah nya
+itu artinya sampai, misalnya kaya di atas dari detik ke 0 sampai detik ke 2.
+
+lalu misalnya saya mau dari detik ke 0 sampai detik ke 2 mau di munculkan tulisan di video nya
+"halo teman-teman semua" nah tinggal kita taro teks atau tulisan nya di bawah detik nya itu
+Seperti ini :
+-----------------------------------------
+WEBVTT
+
+00:00:00.000 --> 00:00:02.000
+halo teman-teman semua
+-----------------------------------------
+
+Nah setelah itu kita arahkan ke file kita di Tag <track> nya dengan menggunakan attribute src, 
+setelah itu kita kasih juga attribute kind lalu value nya captions, terus kita kasih attribute title misal
+title nya bahasa indonesia dan kasih juga attribute srclang nya bahasa apa kodenya.
+
+nanti kalilan cari aja kode dari bahasa" lain ya, yg sering digunakan itu een untuk english id untuk
+bahasa indonesi. Nah sekarang kalo kita cek di browser di bagian vid di titik 3 nya sekarang jadi
+ada bacaan captions nya.
+
+kalo di klik captions nya itu otomatis udah nyala captions nya dan ada bacaan id coba aja di liat,
+Nah kalo udah nyala terus kita play video nya maka nanti ada seperti subtitle gitu kek di yt.
+
+Seperti ini :
+
+<video controls width="450px">
+        <source src="video/1.mp4" type="video/mp4">
+        <track src="caption/caption.vtt" kind="captions" title="Bahasa indonesia" srclang="id">
+    </video>
+-------------------------------------------------------------------------------------------------------------------------------
+
+Nah tapi problemnya adalah kita harus nulis secara manual teks yg mau dijadiin subtitle nya,
+agak ribet juga nih, tapi kt pak dhika pasti ada cara gampangnya supaya kita bisa menjenerat
+subtitle kita atau captions kita secara otomatis, tapi cara yg pak dhika temukan itu seperti di atas
+teman".
+
+Jadi yg pertama teman" silahkan upload video ke yt atau misal vid nya udah ada di yt dan itu yg
+mau teman" ambil captions nya silahkan copykan url video yt nya. Anggaplah mau ngambil video
+HTML5 eps 1 nya di yt. 
+
+Nah berarti kita siap kan url vid nya dlu kita copy an tuh, setelah disiap kan kalian masuk ke web
+yg namanya downsub.com, ini untuk mendownload subtitle dari sebuah video, kalo kita masukan
+url nya lalu kita download nah nanti muncul download versi ( srt ) nya.
+
+nah kalo mau di download itu kita ganti aja nama file nya seterah dan ganti fromat file nya jadi 
+( .vtt ).
+
+jadi sekarang kita punya file namanya captions2 format nya vtt, kalo kita buka file nya isi dalam file
+tersebut udah mirip sama yg kita buat tadi, tapi ada 2 hal yg perlu kita edit dulu, lalu kita tambahin
+dulu di paling atas teks WEBVTT sama koma yg di milisecond nya kita ganti ( . ) titik. terus tinggal
+ganti aja src nya jadi caption2. Seperti ini :
+ 
+<video controls width="450px">
+        <source src="video/1.mp4" type="video/mp4">
+        <track src="caption/caption2.vtt" kind="captions" title="Bahasa indonesia" srclang="id">
+    </video>
+-------------------------------------------------------------------------------------------------------------------------------
+
+kalo kalian punya lebih dari satu captions atau punya lebih dari 1 bahasa bisa juga, misal nih ya
+pura" nya saya punya subtitle dalam bahasa inggris. Seperti ini :
+
+<video controls width="450px">
+        <source src="video/1.mp4" type="video/mp4">
+        <track src="caption/caption2.vtt" kind="captions" title="Bahasa indonesia" srclang="id">
+        <track src="caption/caption2.vtt" kind="captions" title="English" srclang="en">
+    </video>
+-----------------------------------------
+
+kalo kita cek browser nya terus klik titik 3 terus pilih caption nah nanti muncul tuh pilihan bahasanya
+karena kita ada 2 bahasa ya. Jadi begitu ya cara memberi subtitle nya.
+
+Nah sekarang gimana kalo misalnya kita mau ngambil video nya bukan dari milik kita tapi misalnya
+mau langsung dari yt nya. Nah caranya itu dengan menggunakan teknik embed kita bisa gunakan
+bantuan yg sudah dikasih oleh yt nya misalnya.
+
+Contohnya misal kalian ke yt terus tonton video apa aja, lalu di bawah video ada tulisan share atau
+bagikan nah kalo kita klik disitu ada menu embed atau semat kan ( liat contoh gambar di folder nya)
+kalo kita klik menu embed itu kita akan dapet script didalam Tag <iframe> untuk kita copykan ke
+websaite kita. Seperti ini :
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/Q2VqCG13ejA" 
+      title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; 
+        encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+----------------------------------------------------------------------------------
+
+Nah ini adalah cara untuk mengambil video dari yt menggunakan teknik Embed.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

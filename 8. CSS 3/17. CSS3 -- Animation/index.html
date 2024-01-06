@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>CSS Animation</title>
+    <style>
+        .kotak {
+            width: 200px;
+            height: 200px;
+            background-color: salmon;
+            animation: animasiKotak 3s ease infinite alternate forwards;
+        }
+
+        @keyframes animasiKotak {
+            0% {
+                width: 200px;
+            }
+
+            50% {
+                width: 500px;
+                height: 200px;
+            }
+
+            100% {
+                width: 500px;
+                height: 500px;
+            }
+        }
+
+        /* @keyframes variant2 {
+            0% {
+                background: var(--Linear-1, linear-gradient(94deg, #40C9FF 0%, #E81CFF 38.28%));
+                background-clip: text;
+                -webkit-background-clip: text;
+                -webkit-text-fill-color: transparent;
+
+            }
+
+            50% {
+                background: linear-gradient(45deg, #7F5AF0, #BAF935, #6290C3);
+                background-clip: text;
+                -webkit-background-clip: text;
+                -webkit-text-fill-color: transparent;
+
+            }
+
+            100% {
+                background: linear-gradient(45deg, #BF0FFF, #CBFF49);
+                background-clip: text;
+                -webkit-background-clip: text;
+                -webkit-text-fill-color: transparent;
+
+            }
+        }
+
+        #text{
+            background: var(--Linear-1, linear-gradient(94deg, #40C9FF 0%, #E81CFF 38.28%));
+            background-clip: text;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        #text:hover {
+            animation-name: variant2;
+           
+            background-clip: text;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            animation-duration: 1s;
+            animation-delay: 1ms;
+            animation-timing-function: linear;
+            animation-iteration-count: infinite;
+            animation-direction: alternate;
+            animation-fill-mode: forwards;
+            
+        } */
+
+        @keyframes colorChange {
+    0%, 100% {
+        color: red;
+    }
+    33%, 67% {
+        color: green;
+    }
+    50% {
+        color: blue;
+    }
+}
+
+#text {
+    font-size: 48px;
+    text-align: center;
+    animation: colorChange 9s linear infinite;
+}
+
+        /* @keyframes variant3 {
+    0% {
+        background: var(--Linear-1, linear-gradient(94deg, #40C9FF 0%, #E81CFF 38.28%));
+        background-clip: text;
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+    }
+    100% {
+        background: linear-gradient(45deg, #7F5AF0, #BAF935, #6290C3);
+        background-clip: text;
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+    }
+} */
+
+        /* #text {
+    animation-name: variant3; Memanggil keyframes "variant3"
+    animation-duration: 800ms;
+    animation-delay: 1ms;
+    animation-timing-function: ease-in-out;
+    animation-iteration-count: infinite;
+    background: var(--Linear-1, linear-gradient(94deg, #40C9FF 0%, #E81CFF 38.28%));
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+} */
+
+
+
+
+        /* #text {
+    background: var(--Linear-1, linear-gradient(94deg, #40C9FF 0%, #E81CFF 38.28%));
+background-clip: text;
+-webkit-background-clip: text;
+-webkit-text-fill-color: transparent;
+} */
+
+
+
+        h1 {
+            font-size: 200px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="kotak"></div>
+
+    <h1><span id="text">inspire</span></h1>
+
+</html>
+
+</body>
+
+</html>

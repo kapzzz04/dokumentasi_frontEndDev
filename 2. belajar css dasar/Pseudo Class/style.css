@@ -1,0 +1,55 @@
+.keuy:link {
+	color: green;
+}
+
+.keuy:hover {
+	color: pink;
+}
+
+.keuy:active {
+	color: black;
+	font-size: 40px
+}
+
+.keuy {
+	text-decoration: none;
+}
+
+.keuy:visited {
+	color: red;
+}
+
+
+
+
+
+
+li:first-child a {
+	color: red;
+}
+
+li:last-child a {
+	color: black;
+}
+
+li:nth-child(4) a {
+	color: green;
+}
+
+
+ol li:nth-child(3n) a {
+	color: green
+}
+
+
+ol li:nth-child(2n) a {
+	color: black;
+}
+
+p:first-of-type {
+	color: yellow;
+}
+
+p:last-of-type {
+	font-size: 40px;
+}

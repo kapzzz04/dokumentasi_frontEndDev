@@ -1,0 +1,413 @@
+EM vs REM
+
+Kita akan membahas penggunaan praktis nya kapan kita harus pake em dan kapan kita harus pake rem.
+
+em digunakan untuk mengatur ukuran ga hanya font bisa margin dan padding yg berada di sekitar element. rem ( root em ).
+
+pertama kita sudah buat file html nya yg didalam nya ada container didalam nya ada div yg membungkus div lagi lalu didalam nya ada paragraf dan judul h2 masing" nama nya em dan rem, dan kita ada CSS nya itu style dasar nya aja ya tidak ada sangkutan sama font em atau rem nya, gaada ukuran font satu pu di style nya, karena kita akan liat bagaimana perilaku nya ketika kita gunakan em.
+
+/* EM */
+untuk html nya kita punya div yg class nya col-em, kita pake dulu dan coba kita atur font untuk h2 dan paragraf, 22 nya blm kita set sama sekali kan coba klo saya tulis gini :
+
+.col-em h2 {
+    font-size: 2em;
+}
+
+.col-em p {
+    font-size: 1.5em;
+}
+-------------------
+
+Lihat ukuran nya font 22 nya berubah ya, kok bisa berubah ya dan berapa ukuran masing" font tersebut ?, buka dulu inspect element nya pilih yg css nya liat yg Computed (liat di ss no1), kalo saya klik Computed terus scroll kebawah liat disitu ada ukurun font nya.
+
+Nah font-size nya yg h2 itu 32px dan yg paragraf itu 24px, nah dapet dari mana ukuran itu nya, jadi kalo kalian nulis 2em itu artinya 2 kali ukuran font element parent atau pembungkusnya kalo 1.5em juga sama 1.5 itu dikali dengan font-size element parent nya.
+
+Nah element pembungkus nya p dan h2 itu div yg class nya col-em ya, apakah kita memberi font untuk pembungkus nya ternyata tidak ya, kalo misalkan kita ganemu fontnya maka dia akan ngecek element pembungkus nya setelah itu.
+
+pembungkus nya col-em itu div typography gaada juga disitu style nya, liat lagi ke pembungkus nya si div container ternyata gaada juga, dia akan terus nyari keatas sampai di style body dan di body juga gaada font-size nya, terus di atas body itu html dia juga gaada.
+
+Nah kalo gaada berarti ada nilai default yg dikasih, nilai default nya yaitu 16px, jadi begitu kita kasih (em) berarti berapa dikali ukuran font parent nya kalo gaada sampai di style html berarti itu ukuran default nay 16px, makannya ada font h2 jadi 32px dan p jadi 24px.
+
+Nah sekarang gimana kalo sayastyle nya gini :
+
+.col-em {
+    font-size: 10px;
+}
+
+.col-em h2 {
+    font-size: 2em;
+}
+
+.col-em p {
+    font-size: 1.5em;
+}
+------------------------
+
+Nah sekarang ukuran font nya mengecil khusus yg em, sekarang bukan lagi relative terhadap 16px tapi dia mengambil ukuran font pada parent nya pembungkusnya yaitu yg 10px, jadi 2em itu 2dikali 10 dan yg 1.5em nya juga, jadi harus nya ukuran font nya sekarang h2 20px dan p 15px. Jadi itu maksudnya dari em relatif terhadap element parent nya.
+
+sekarang gimana kalo kita hapus style yg diatas itu, awalnya kan begitu kita ga kasih font-size, nah kalo kita ga kasih font-size sama sekali akan ada nilai default yg diberikan oleh browsernya, liat di inspect element di styles nya, untuk h2 ukuran nya 1.5em itu default nya untuk h1 2em itu yg akan dikasih.
+
+Karena kita ga ngasih ukuran font di pembungkus atas atas nya maka 1.5em itu akan relatif terhadap nilai default 16px nya. makannya kalo kita ga kasih apa" ukuran h2 itu darisononya 24px itu tuh hasil dari 1.5em dikali 16px.
+
+---------------------------------------------------------------------------------------------------------------------------------
+
+Nah sekarang gimana kalo kita kasih font-size nya di typography :
+
+.typography {
+    font-size: 10px;
+}
+
+.col-em h2 {
+    font-size: 2em;
+}
+
+.col-em p {
+    font-size: 1.5em;
+}
+-------------------------
+
+tulisan yg kanan yg rem itu ikutan kecil karena kan typography itu ngebungkus tulisan yg kanan juga jadi ngaruh, kalo kita lakukan gitu pake typography dia sebelumnya liat dulu ke pembungkus nya yg ( col-em ) gaada ukuran font-size, lalu liat lagi di atas nya col-em ada typography nah ada font-size nya maka dia pake nilai itu.
+
+Nah sekarang ini bisa jadi problem, ketika kita kasih font-size pada div (col-em) dan typography Gini :
+
+.typography {
+    font-size: 10px;
+}
+
+.col-em {
+    font-size: 2em;
+}
+
+.col-em h2 {
+    font-size: 2em;
+}
+
+.col-em p {
+    font-size: 1.5em;
+}
+--------------------------
+
+jadi si col-em nya font-size nya itu 2em jadi relatif, ini hati" ya karena perilaku dari em itu casekading atau menumpuk, jadi hasil nya font nya itu akan besar, cara ngitung nya itu misal yg h2 2em kan, 2em itu 2kali font-size parent nya berarti 2 dikali 2em si col-em itu berarti 4, nah 4em dikali parent nya itu typography 10px berarti 4dikali 10px berarti 40px ya kan. nah ini berlaku untuk tag <p> nya juga gitu gayss.
+
+Nah tapi kalo semisalkan col-em font-size nya itu 20px bukan di isi (em) itu ga ngaruh ya si tag h2 dan <p> bakal ngambil ttp yg 20px jadi nya nanti 2dikali 20px dan si <p> nya juga 1.5em dikali 20px, gini misal nya :
+
+.typography {
+    font-size: 10px;
+}
+
+.col-em {
+    font-size: 10px;
+}
+
+.col-em h2 {
+    font-size: 2em;
+}
+
+.col-em p {
+    font-size: 1.5em;
+}
+--------------------------
+
+REM - root em
+
+jadi hati" ketika menggunakan (em) yg sebelumnya itu nanti bakal numpuk, nah cara ngatasin nya itu kita bisa pake (rem), kode yg sebelumnya kita apus dlu aja, lalu misalnya gini :
+
+.col-rem h2 {
+    font-size: 2rem;
+}
+
+.col-rem p {
+    font-size: 1.5rem;
+}
+--------------------------
+
+sekarang gaada font-size nya di style dasar CSS nya, jadi ukuran nya tag h2 dan <p> maka dia perilaku nya akan sama dengan (em) karena kita ga set ukuran nya lalu di selector html ga nemu font-size makannya akan di set 16px, jadi 2rem dikali 16px dan untuk <p> 1.5rem dikali 16px hasilnya itulah ukuran font nya.
+
+Nah tapi sekarang kalo kita setel dipembungkus nya col-rem itu font-size gini :
+
+.col-rem {
+    font-size: 10px;
+}
+
+.col-rem h2 {
+    font-size: 2rem;
+}
+
+.col-rem p {
+    font-size: 1.5rem;
+}
+--------------------------
+
+Nah dia gaakan terpengaruh oleh 10px di parent nya itu tidak seperti (em), supaya dia terpengaruh kita hanya bisa kasih di bagian tag html atau disebut root nya :
+
+html {
+    font-size: 10px;
+}
+
+.col-rem {
+    font-size: 10px;
+}
+
+.col-rem h2 {
+    font-size: 2rem;
+}
+
+.col-rem p {
+    font-size: 1.5rem;
+}
+--------------------------
+
+Baru dia akan menimpa nilai defaultnya yg 16px itu maka ukuran font nya jadi berubah. atau kalo kalian suka liat gini :
+
+:root {
+    font-size: 10px;
+}
+--------------------------
+
+nah itu sama aja denga kita menuliskan html ya, jadi si rem itu akan terpengaruh jika root nya yg diatur kalo ngga dia akan menggunakan nilai defaultnya 16px. Jadi menggunakan rem itu lebih konsisten dan biasanya gunakan rem untuk font, kalo (em) kita gunakan untuk yg lain.
+
+---------------------------------------------------------------------------------------------------------------------------------
+
+contohnya kita bisa liat seperti definisinya kita bisa gunakan em untuk sebuah leg element, leg itu bisa margin, padding atau bahkan width atau height nya itu bisa kita gunakan (em) tapi perlakunay sedikit berbeda.
+
+terus kita apus dulu yg html paragraf h2 nya ya, tapi div containernya ttp masih ada, misalnya saya punya sebuah div class nya length terus didalam nya ada h2 dan tag <a> yg tag <a> yg class nya btn gini :
+
+ <div class="length">
+            <h2>title</h2>
+            <a href="" class="btn">Click Me!</a>
+        </div>
+----------------------------
+
+Lalu kita kasih style gini aja :
+
+.btn {
+    display: inline-block;
+    background: #333;
+    font-weight: 700;
+    color: white;
+    text-decoration: none;
+    text-transform: uppercase;
+}
+----------------------------
+
+biasanya kn nih kalo kita bikin tombol supaya ga terlalu mepet begitu kita gunaka padding di sekelilingnya, misalkan atas bawahnya 10px kiri kanan nya 30px
+
+.btn {
+    display: inline-block;
+    background: #333;
+    font-weight: 700;
+    color: white;
+    text-decoration: none;
+    text-transform: uppercase;
+
+    padding: 10px 30px;
+}
+----------------------------
+
+jadi lah tuh, tapi supaya lebih flexibel biasakan kasih padding itu kasih satuan yg relative, biasanya kita pake nya (em), gini :
+
+.btn {
+    display: inline-block;
+    background: #333;
+    font-weight: 700;
+    color: white;
+    text-decoration: none;
+    text-transform: uppercase;
+
+    padding: 1em 2.5em;
+}
+----------------------------
+
+nah karena kita ga set sama sekali ukuran padding di style dasarnya, jadi 1em padding nya itu 16px dan sama juga 2.5em nya tinggal dikali 16px nilai defaultnya itu. Nah tapi yg harus kalian perhatikan itu kalo kalian ngasih em untuk padding (length) sekarang 1em itu ga lagi relatif terhadap ukuran font parent nya tapi relatif terhadap ukuran font element yg bersangkutan kalo gaada baru dia naik keatas. jadi maksud element bersangkutan itu misal div didalam nya ada tombol1 dan tombol2, tombol2 di bawah nah dia akan mencari ketombol1 jika tidak ada ukuran font di tombol2 nya gitu kaya ke anak nya dulu atau sodara gitu jadi bukan ke pembungkus nya.
+
+Jadi yg dicari element nya dulu, kalo kita simpan nya di font-size EM nya dia langsung otomatis nyari ke parent nya tapi kalo length ini margin, padding, width dan height itu pasti dia ngecek ke element sodaranya atau atasnya bukan langsung ke pembungkusnya.
+
+Nah jadi ini membuat kita bisa secara fleksibel membuat tombol yg lain yg ukuran nya beda yg relatif terhadap ukuran font nya. Misalnya saya punya tombol lagi tapi saya mau lebih kecil ukuran nya :
+
+  <div class="length">
+            <h2>title</h2>
+            <a href="" class="btn">Click Me!</a>
+            <a href="" class="btn btn-sm">Click Me!</a>
+        </div>
+--------------------------------------------
+
+biasanya kan kita bikin begini ya font-size nya kecilin dulu terus padding nya kita atur lagi tapi sekarang kalian hanya cukup kasih font-size nya aja, kalo misalnya yg btn yg ukurannya normal itu ukuran nya ga ita kasih berarti anggap aja 1em ya, lalu kalo ini btn yg kecil kita kasih aja 0.5 em :
+
+.btn-sm {
+    font-size: 0.5em;
+}
+----------------------
+
+tombol nya udah otomatis kecil lalu padding atas bawah nya sudah teratur sendiri, jadi ukuran padding nya sekarang atas bawah nya 8px kiri kanan nya 24px. Jadi bikin tombol berikutnya udah gampang relatif terhadap tombol utama nya.
+
+Begitu pula kalau kita bikin tombol lagi yg lebih besar terus kita kasih style gini :
+
+.btn-lg {
+    font-size: 1.5em;
+}
+----------------------
+
+jadi otomatis ukuran padding nya ngikutin, jadi em masih ttp kepake kalo kalian mau bikin sesuatu yg seperti itu, kalian bisa terapkan juga kalo mau bikin yg width nya. Nah sebenernya REM juga masih bisa kepake kalo kalian bikin margin, gini :
+
+.btn {
+    display: inline-block;
+    background: #333;
+    font-weight: 700;
+    color: white;
+    text-decoration: none;
+    text-transform: uppercase;
+
+    padding: 1em 2.5em;
+    margin: 0 1.5em;
+}
+----------------------
+
+nah kalo pake em gitu pasti beda" ukuran margin secara pixel nya karena kita ngasih ukuran font-size nya juga beda" kan ya, dia akan relatif jadinya 1.5em dikali kan font-size setiap tombol yg di set itu yg btn-sm dan btn-lg, jadi ukuran nya itu untuk yg  tombol smal dia setengah dari 1.5em jadi 0.75 dari 16px jadi itu harusnya 12px yg btn smal.
+
+Tapi kalo kalian pengen margin nya fix itu gmna, jangan pake EM kita pake REM, kalo itu gaakan relatif terhadap ukuran font :
+
+.btn {
+    display: inline-block;
+    background: #333;
+    font-weight: 700;
+    color: white;
+    text-decoration: none;
+    text-transform: uppercase;
+
+    padding: 1em 2.5em;
+    margin: 0 1.5rem;
+}
+----------------------
+
+Nah jadi ukuran margin nya semuanya sama dia akan relatif terhadap ukuran font root nya karena kita ga set berarti ukuran font root nya 16px dan juga ini sebenernya bisa pake pixel langsung itu juga buat ukuran margin nya sama semua.
+
+---------------------------------------------------------------------------------------------------------------------------------
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

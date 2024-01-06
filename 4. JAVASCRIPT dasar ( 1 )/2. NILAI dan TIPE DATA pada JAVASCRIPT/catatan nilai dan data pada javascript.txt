@@ -1,0 +1,212 @@
+NILAI DAN TIPE DATA pada JAVASCRIPT
+
+kalo kita liat ke dalam komputer kita hanya ada data 
+kita  bisa membaca memodifikaasi memuat data baru dan menghapusnya
+semua data ini tersimpan kedalam serangkain BIT
+
+"bit / binary digit adalah satuan terkecil dari data yang ada di dalam komputer kita."
+-------------------------
+nilainnya itu hanya
+
+bit
+0/1 atau 0 dan 1
+-------------------------
+kenapa 0 dan 1 saja karena secara elektronika atau hardrew di dalam komputer kita
+digit 1 itu terjadi ketika salah satu kommponen di dalam komputer kita yg namanya transtistor di aliri oleh listrik
+
+sebelum transistor di aliri oleh listrik terjadi digit 1
+dan 0 terjadi ketika transistor tersebut tidak di aliri oleh listrik
+
+biar gampang kita ambil contoh misal lampu kalian nyala berarti di aliri oleh listrik dan jika lampu kalian mati tidak di
+aliri oleh listrik. maka dari itu berarti  angka 0 untuk lampu yang mati dan  angka 1 untuk lampu yang nyala
+--------------------------------------------------------------------------------------
+contohnya:
+
+- misalkan kita membuat data yang angkanya 23 di komputer kita
+- bagaimana komputer kita merepresentasikan angka 23 ini
+- kalo misalkan kita menggunakakn bilangan desimal
+- 0123456789
+- maka angka 23 kita representasika seperti ini 
+----------------------------------------------------------------------------------------
+desimal
+
+- jadi ada di bilangan desimal ini ada yang nama nya satuan ada yang namamnya puluhan ada yg namanya ratusan ribuan dll
+- jadi kita mengitung angka 23, angka 2 itu berda di puluhan dan angka 3 itu satuan
+1000/100/10/1
+- nah angka 23 desimal ini misal kita presentasikan ke dalam bilangan biner / bynari digit jadi angka nya 10111
+
+bilangan desimal            bilangan biner
+          23                           10111
+
+kenapa bisa seperti ini itu karna representasinya
+jadi kalo tadi bilangan desimal ada satuan puluhan ratusan ribuan
+tapi kalo bilangan biner reprentasinya
+
+dan seterusnya /16/8/4/2/1
+
+jadi 1 x 16 = 16
+      0 x 8 = 0
+      1 x 4 = 4
+      1 x 2 = 2
+      1 x 1 = 1
+hasil dari perkalian itu kalo di jumblahin jadi 23 kan
+
+   1  0   1  1  1
+/16 /8 /4 /2 /1/
+ 16 0  4   2  1
+
+jadi semua data di repentasikan kedalam bilangan biner
+-----------------------------------------------------------------------------------
+
+karna bit itu banyak ya
+nah untuk bisa bekerja dengan bit-bit tersebut tanpa bingung 
+komputer kita sudah kita membagi bit-bit tersebut kedalam beberapa potongan
+potongan-potongan itu disebut dengan nila/values
+
+nanti meskipun nilai itu terbuat dari sekumpulan bit dan bisa aja
+nilai-nilai itu memiliki peran yang berbeda dan peran ini lah yang nanti nya
+kita sebut dengan tipe data
+
+di dalam javascript ada enam/6 tipe data yang bisa kita gunakan
+
+- number/angka
+- string
+- boolean
+- object
+- function
+- undefined
+
+jadi ini adalah peran dari bit-bit yang ada didalam komputer kita
+nah nanti untuk membuat atau menggunakan sebuah nilai yang memiliki peran tertentu
+yang perlu kita lakukan hanya memanggil namanya.
+
+maksudnya gimana ?
+
+contohnya:
+
+jika kita ingin membuat sebuah nilai yang tipe nya angka/number
+yang perlu kita lakukan hnya menuliskan angka seperti ini
+
+misalkan NUMBER
+                   10
+                -1500
+                   3,14
+nah maka nanti komputer akan secara otomatis membuatkan sebuah nilai
+yang tipe datanya number
+
+atau kita ingin membuat string
+maka cukup saja tuliskan di dalam sebuah kutip bisa kutip 1 atau kutip 2
+
+misalkan       STRING
+                  'hello world'
+                "keyla azahra"
+
+nah nanti javascript lah yang melakukan perubahan nilai-nilai ini menjadi
+bit-bit dalam komputer kalian. jadi kita gausah khwatir gimana cara merubahnya
+
+----------------------------------------------------------------------------------------------------------
+nanti setiap nilai yang kita buat itu akan tersimpan di sebuah tempat di komputer
+nah umum nya tersimpan di dalam memori atau ram.
+
+nah jika nanti kita membuat
+atau membutuhkan nilaiyang sangat besar dalam satu waktu tertentu mungkin aja 
+kita kehabisan bit karna memori ada kapasitaasnya. nah untungnya ini hnya terjadi
+ketika kita membutuhkan semua bit nya secara simultan atau satu waktu yang 
+bersamaan dan itu hampir ga mungkin setidaknya untuk khasus kita nanti
+jadi gausah khwatir kehabisan memori dan sekarang untuk komputer laptop-
+laptop sekrang itu memorinya sudah sangat besar. 
+
+lalu setelah itu jika kita
+sudah tidak membutuhkan nilai nya nilai tesebut akan menghilang kembali
+lagi menjadi bit kosong untuk digunakan laginanti ketika kita butuh lagi.
+-------------------------------------------------------------------------------------------------------
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

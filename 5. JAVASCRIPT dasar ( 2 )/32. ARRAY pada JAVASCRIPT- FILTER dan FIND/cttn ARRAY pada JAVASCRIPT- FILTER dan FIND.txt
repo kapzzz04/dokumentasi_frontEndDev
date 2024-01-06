@@ -1,0 +1,152 @@
+ARRAY pada JAVASCRIPT- FILTER dan FIND
+
+Array Method 
+- Length
+- Join
+- Push, pop, shift, unshift
+- slice, splice
+- Foreach, Map
+- Sort
+- Filter, find
+
+-------------------------------------------------------------------------------------------------------------------------------
+
+jadi kita akan mempelajari FILTER & FIND
+
+2 Method ini digunakan untuk mencari element pada array
+nah perbedaannya itu kalo Find itu mengembalikan satu nilai sedangkan
+Filter mengembalikan banyak nilai.
+
+kita liat contoh nya
+
+// 9. FILTER
+
+kita pake array yg sama var angka = [1,2,10,5,20,3,6,8,4];
+filter itu fungsinya untuk mencari nilai pada array dan mengembalikannya dalam bentuk array
+ya kalo misalnya saya tulis begini, saya punya variabel angka2 yg isi nya, saya mau memfilter
+angka untuk mencari apakah ada nilai 5 didalm nya, lalu didalam nya kita bisa tulis FUnction nya
+parameter nya kita bisa tulis ( x ), return x == 5;.
+
+ada ga x == 5, kalo ada nanti angka2 ini akan berisi nilai 5, tapi bentuk nya array, kita 
+conosle.log(angka2); maka ketemunya 5 bentuknya array ada kurung siku nya, kalo angka nya 
+gaada misalnya 7 ya maka muncul nya array kosong.
+
+---------------------------
+contoh codingan 1 :
+
+var angka = [1, 2, 10, 5, 20, 3, 6, 8, 4];
+var angka2 = angka.filter(function (x) {
+    return x == 5;
+})
+console.log(angka2);
+
+hasil di browser :
+
+[5]
+
+---------------------------
+contoh codingan 2 :
+
+var angka = [1, 2, 10, 5, 20, 3, 6, 8, 4];
+var angka2 = angka.filter(function (x) {
+    return x == 7;
+})
+console.log(angka2);
+
+hasil di browser :
+
+[ ]
+
+-------------------------------------------------------------------------------------------------------------------------------
+
+nah tapi dengan menggunakan filter kita bisa tulis gini cari nilai yg lebih besar dari 5
+( return x > 5; ) maka dengan menggunakan filter kita bisa nyari ada ga angka yg lebih besar
+dari 5, berarti kan 6,8,10, dan 20.
+
+---------------------------
+contoh codingan 3 :
+
+var angka = [1, 2, 10, 5, 20, 3, 6, 8, 4];
+var angka2 = angka.filter(function (x) {
+    return x > 5;
+})
+console.log(angka2.join(' - '));
+
+hasil di browser :
+
+10 - 20 - 6 - 8
+
+itu kalo menggunakan filter 
+
+-------------------------------------------------------------------------------------------------------------------------------
+
+// 10. FIND
+
+jika kalian menggunakan find, nah kalo find dia hanya menemukan 1 nilai saja, jadi kalo saya
+tanya kembalikan nilai yg lebih besar dari 5 maka jawabannya dia akan memunculkan nilai
+yg pertama dia temukan yaitu 10, jadi kalo saya jalankan itu eror kenepa karena FIND ini tidak
+menghasilkan array tapi dia menghasilkan 1 nilai makannnya dia gabisa pake join.
+
+---------------------------
+contoh codingan 4 :
+
+var angka = [1, 2, 10, 5, 20, 3, 6, 8, 4];
+var angka2 = angka.find(function (x) {
+    return x > 5;
+})
+console.log(angka2);
+
+hasil di browsernya :
+
+10
+
+ya jadi find itu untuk menemukan 1 nilai sedangkan filter itu kita bisa mencari banyak nilai.
+
+kalo kalian mau tau lebih banyak Method pada array bisa dicari di link berikut
+
+https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array
+
+saran saya pahami dulu arti dari tiap" method nya karena itu bisa mempermudah kalian
+untuk mengingat fungsi dari setiap method
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

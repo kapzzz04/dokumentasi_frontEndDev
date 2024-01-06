@@ -1,0 +1,421 @@
+CSS GRID #3 Columns dan Rows
+
+kita akan membahas Property yang bisa digunakan di CSS grid, dan property" nya itu akan kita bagi menjadi 2, jadi property yg pertama yg di kotak biru itu adalah property yg bisa kita berikan kepada Container atau pembungkus nya. Dan di sebelah kanan yg kotak merah itu adalah property yg bisa kita kasih untuk items atau element dari si pembungkus nya. (liat di ss an folder).
+
+Jadi di video kali ini kita akan bahas dulu mengenai property yg kita gunakan untuk mengatur kolom dan baris.
+
+- grid-template-columns
+- grid-template-rows
+- grid-auto-columns
+- grid-auto-rows
+- grid-auto-flow
+
+----------------------------------------------------------------------------------------------------------------------------------
+
+Nah property yg pertama yg akan kita bahas adalah 
+- grid-template-columns
+- grid-template-rows
+
+Jadi 2 itu bisa mendefinisikan kolom / baris, inget ya grid itu bisa ngatur kolom dan baris sekaligus dan 2 property itu yang kita gunakan, nanti cara nulisinnya kita tulisin nilai nya atau ukuran nya lalu kita pisahkan dengan spasi. Jadi kalo misalkan kita mau bikin 3 kolom kalian bisa tuliskan misal 30px untuk kolom 1 spasi lalu kolom ke 2 50% spasi gini ( 30px 50% ). atau begitu pula untuk baris nanti kalian tulis grid-template-rows terus tulis baris pertama mau berapa ke 2 mau berapa dan seterusnya.
+
+Nah nanti nilai yg ktia kasih itu merepresentasikan ukuran dari grid track nya ya mau horizontal atau vertikal nah nanti spasi itu ada artinya juga spasi itu untuk menentukan grid line nya, jadi kalo misalnya kita kasih 3 nilai di antara 3 nilai itu ada spasi, ya spasi sebelum dan sesudah nilai nya itu untuk menentukan grid line nya. untuk lebih jelas nya nanti kita liat dah.
+
+Cara nulis nya simpel aja, kita simpan didalam container atau pembungkus nya setelah kita ngasih tau bahwa element kita ini adalah grid kita tulis dibawah nya grid-template-columns mau berapa kita bisa tulis size, tanda ( | ) itu atau ya, atau kita bisa tulis nama line nya, jadi nanti kedepan nya nya line itu biasanya angka ya. Nah kita bisa ganti angka itu menjadi sebuah nama.
+
+jadi cara nulis nya kalian bisa pake yg sebelaj kiri si <track-size> aja atau yg sebelah kanan yg pake nama nya apa lalu track-size nya berapa gini :
+
+.container {
+      display: grid;
+      grid-template-columns: <track-size> ... | <line-name> <track-size> ...;
+      grid-template-rows: <track-size> ... | <line-name> <track-size> ... ;
+   }
+-------------------------------------------------------
+
+Gampang aja ya jadi kita bisa kasih ukuran nya aja atau nama dan ukuran gitu.
+
+----------------------------------------------------------------------------------------------------------------------------------
+
+Nah apa yg bisa kita kasih sebagai ukuran, Jadi untuk ngasih ukuran itu kita bisa kasih nilai fix ya, berupa pixel misalnya ya, atau kita bisa kasih nilai relative berupa persen, atau kita bisa kasih nilai auto, dan yg paling keren dari grid ini kita punya satu satuan yaitu fraction (fr) nah itu yg akan kita sering gunakan.
+
+Sedangkan untuk <line-name> atau nama line nya nah itu bisa kita kasih bebas aja, itu misalkan ktia kasih nama awa baris2,baris2 dan seterusnya, dan nanti line-name ini baru akan kepake setelah kita masuk kedalam property untuk items.
+
+- <track-size> : bisa berupa px, %, auto, atau fr (fraction)
+- <line-name> : nama yang bisa diberikan pada track
+
+----------------------------------------------------------------------------------------------------------------------------------
+
+Selanjutnya kalo misalkan kita punya contoh seperti ini ( liat di folder ss an), misalnya kita punya 1 buah container yg didalam nya terdapat 10 items, ya saya representasikan paek div aja, <div> yg nama class nya semuanya item lalu kita kasih angka 1-9, dan kalo misalkan saya tulis css nya seperti ini :
+
+ .container {
+            width: 600px;
+            margin: 50px auto;
+            display: grid;
+            grid-template-columns: 25% auto 50px;
+            grid-template-rows: 50px 100px auto;
+        }
+---------------------------------
+
+Nah ini yg akan terjadi adalah grid nya akan membuat kan 3 kolom atau 3 banjar dalam paskibra mah ya. Dan akan membuat 3 baris jadi 1 kolom terdapat 3 baris ya.
+
+Nah kita liat representasinya ya, kan kolom pertama itu 25% kolom ke 2 auto kolom ke 3 50px, Nah auto ini di ambil dari sisanya setelah nilai" yg sudah ada itu kita tulis, jadi di itungin sama browsernya, untuk baris juga sama baris ke1 50px baris ke-2 100px dan baris ke-3 sisanya yaitu auto. kalo kalian liat disitu yg bagian baris ke-3 yg auto disitu kecil banget itu karena tinggi nya sesuai dengan apa yg ada didalam konten nya, karena konten nya cuma 1 angka saja maka dia tinggi nya akan segitu.Gini tampilan nya (liat di ss an).
+
+----------------------------------------------------------------------------------------------------------------------------------
+
+Langsung kita coba aja ya, jadi disini saya udah ngasih style ke html awal nya gini :
+
+HTML :
+
+<body>
+    <div class="container">
+        <div class="item">1</div>
+        <div class="item">2</div>
+        <div class="item">3</div>
+        <div class="item">4</div>
+        <div class="item">5</div>
+        <div class="item">6</div>
+        <div class="item">7</div>
+        <div class="item">8</div>
+        <div class="item">9</div>
+    </div>
+</body>
+
+CSS :
+
+<style>
+        html,
+        body {
+            margin: 0;
+            padding: 0;
+            background-color: #ddd;
+        }
+
+        .container {
+            width: 600px;
+            margin: 50px auto;
+        }
+
+        .item {
+            background-color: rgb(138, 209, 254);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .item:nth-child(even) {
+            background-color: #e25858;
+        }
+    </style>
+----------------------------------
+
+Tentu aja pertama kita harus kasih display grid ke containernya ya, kalo udah kita kasih belum berubah apa" ya karena kita harus kasih property" yg bnyak itu. Oke kita kasih grid-template-columns nya untuk ngatur kolom nya, jadi mau berapa kolom kita punya, jadi kalo saya tulis misal nya 100px gini :
+
+.container {
+            width: 600px;
+            margin: 50px auto;
+            display: grid;
+            grid-template-columns: 100px;
+        }
+----------------------------------
+
+Maka kita akan bikin bikin grid nya hanya 1 kolom, maka sekarang kolom nya lebarnya 100px, nah kolom berikutnya karena kita ga tuliskan maka dia turun kebawah. Tapi kalo misalkan saya tuliskan lagi 100px 25% 200px, maka sekarang saya punya 3 kolom gini :
+
+ .container {
+            width: 600px;
+            margin: 50px auto;
+            display: grid;
+            grid-template-columns: 100px 25% 200px;
+        }
+----------------------------------
+
+Kalo mau lihat lebih jelas nya kalian bisa inspect pake firefox yg itu nya ya. Nah itu kalo bagian yang kolom. Sekarang gimana kalo yang rows atau baris, kita bisa tulis grid-tamplate-rows, sebenernya di vscode ada singkatannya biar ga ngetik panjang bisa ketik untuk kolom ( GTC ), untuk baris ( GTR ), lalu tekan tab deh. Nah untuk baris misalkan saya tulis 100px aja Gini :
+
+        .container {
+            width: 600px;
+            margin: 50px auto;
+            display: grid;
+            grid-template-columns: 100px 25% 200px;
+            grid-template-rows: 100px;
+        }
+----------------------------------
+
+gtr nya 100px gitu aja nah maka yang akan di atur hanya rows atau baris pertama nya aja, sisanya tidak di atur. Jadi ada yang namanya explicit dan Implicit grid dan itu kita bahas nanti belakangan.
+pokoknya bikin kolom dan baris gampang nya seperti itu.
+
+----------------------------------------------------------------------------------------------------------------------------------
+
+EXPLICIT & IMPLICIT GRID
+
+Explicit itu ketika kita secara jelas menuliskan ukuran dari grid nya ukuran kolom dan baris nya.
+Implicit adalah ketika grid nya menentukan secara otomatis sisanya dari kolom dan baris yg tidak kita tentukan secara Explicit. Jadi itu Implicit itu secara otomatis ditentukan si grid nya.
+
+ .container {
+            width: 600px;
+            margin: 50px auto;
+            display: grid;
+            grid-template-columns: 25% auto 50px;
+            grid-template-rows: 50px 100px auto;
+        }
+---------------------------------
+
+Contohnya kalo misalkan kita liat lagi kasus kita, yg ini (liat di folder), kita punya 3 kolom padahal items yg kita punya ada 9, nah apa yg terjadi dengan kolom ke 4, kolom ke-4 akan turun kebawah karena udah gaada lagi kita nentuin kolom karena kan kita tentuin nya cuma 3 kolom aja ya. Dan akan ngikutin perilaku nya dari kolom yg pertama, begitu pula dengan baris.
+
+Kita nentuin baris 50px 100px auto kan, baris pertama 50px, baris ke-2 100px baris ke-3 auto, gimana kalo saya punya ada item ke 10, nah maka dia akan turun kebawah. kita buat file html baru lagi untuk hal ini ya dibagian file namanya (latihan2.html).
+
+Sekarang kita masuk ke kolom nya yg rows atau baris nya kita apus dulu ya. Misalkan saya kasih kolom nya itu cuma 2, 100px an 50px :
+
+.container {
+            width: 600px;
+            margin: 50px auto;
+            display: grid;
+            grid-template-columns: 100px 50px;
+        }
+---------------------------------
+
+Kan jadi kita cuman punya 2 ya, kolom pertama yg lebar nya 100px dan kolom ke-2 yg lebarnya 50px,
+kolom ke-3 nya gimana? ga kita tentuin makannya item sisanya dia turun jadi bagian dari kolom tersebut.
+
+Dan ini untuk membedakan antara explicit & implicit Grid, kalian incspect di firefox lalu kalian nyalakan grid nya itu kan ada kan. Nantikan keliatan tuh garis nya, Nah disitu ada 3 jenis garis, garis yg pertama adalah garis yang solid atau yg ga putus" garis solid itu untuk menentukan "Explicit" grid nya, jadi grid itu berawal dan berakhir dimana semuanya pembungkus nya, nanti kita liat kalo ada yg bukan "Explicit" grid.
+
+Yang ke-2 itu ada garis putus" di antara blok ya, yg garis nya kebawah warna item mungkin yg bukan kesamping ya, itu kita sebut dengan "Explicit" item atau "Explicit" tracks, Jadi yg kita tulis didalam kolom atau rows itu dia menjadi "Explicit" item nya, sedangkan yg ke-3 garis titik-titik yg kesamping itu dia adalah "Implicit" items atau "Implicit" tracks. liat garis" nya (liat difolder ss an). 
+
+(Beda ya garis titik-titik dan garis putus-putus, kalo garis titik-titik itu bagian dari "Implicit" item nya, kalo garis putus-putus itu bagian dari "Explicit" item atua "Explicit" tracks.)
+
+Nah kan kita ngasih tulisan nya yg GTC itu 100px dan 50px, itu adalah "Explicit", secara "Explicit" kita tentukan 100px dan 50px yg sebelah kanan 100px yg sebelah kiri 50px. makannya ada garis putus-putus di tengah" itu yg kubilang garis ke-2. Nah sedangkan rows atau baris nya kita tentukan ga?, ngga kita tentukan ya itu, makannya setiap baris nya garis yang kubilang garis ke-3 itu garis horizontalnya itu titik-titik, karena dia "Implicit" item nya.
+
+Coba ketika kita tulis rows atau baris nya gini :
+
+ .container {
+            width: 600px;
+            margin: 50px auto;
+            display: grid;
+            grid-template-columns: 100px 50px;
+            grid-template-rows: 50px 100px 150px;
+        }
+---------------------------------
+
+Nah kan kita punya 5 baris ya berarti akan ada 2 baris yg "Implicit" oh iya kita bisa ganti warna garis nya bebas saya ganti item aja ya, nah liat tuh sekarang garis solid atu garis yg ga ada putus" nya itu adalah "Explicit" grid, liat garis yg solid nya itu berawal di kotak 1 dan 2 berakhir nya di kotak 5 dan 6 lohh. Nah jadi sebenernya GRID nya itu cuma sampe di kotak 5 dan 6 nya. Sisanya itu "Implicit" gitu karena garis nya titik-titik gitu. Nah tapi kalian liat disitu nya juga ada garis putus-putus nah itu adalah items nya karena kita tentukan 2 kolom dan 3 baris yg kita atur size nya, sisanay ga kita atur size nya gitu. Nah itu adalah "Explicit" dan "Implicit" Grid.
+
+---------------------------------------------------------------------------------------------------------------------------------
+
+Nah sekarang kenapa ada "Explicit" dan "Implicit" Grid, karena content itu nantinya akan dinamis, kita sebagai web desainer belum tentu tau hasil akhir dari web nya nanti akan ada berapa item, bisa saja item nya dimunculkan secara dinamis misalnya dari database atau lewat API. Jadi kalo misal kita tentukan saya mau bikin kolom 3 x 3, padahal gatau nih nanti content nya mungkin aja 50.
+
+Jadi bakalan ada diluar dari perkiraan gitu ya, nah itu bisa diatur oleh "Implicit" grid nya, Nah sekarang gimana cara nya kalo misalkan kita pengen ngatur ukuran dari items yg "Implicit", kan kalo pake grid-template-columns dan grid-template-rows seperti di atas gitu itu adalah "Explicit" ya.
+
+AUTO COLUMNS & AUTO ROWS
+
+Nah cara nya itu ktia bisa pake satu property lagi yg namanya grid auto columns atau grid auto rows, jadi dia yg akan menangani ketika ada item yg "Implicit". Jadi kalian tinggal tulis gini :
+
+.container {
+  grid-auto-columns: <track-size>;
+  grid-auto-rows: <track-size>;
+}
+------------------------------
+
+Yang tujuan nya adalah untuk mengatur ukuran grid track yg tidak ditulisakan pada grid-template (implicit track).
+
+Nah kita punya rows yg "implicit" jadi cara ngatur nya kita tinggal tulis grid-auto-rows misalkan kita kasih 200px :
+
+.container {
+            width: 600px;
+            margin: 50px auto;
+            display: grid;
+            grid-template-columns: 100px 50px;
+            grid-template-rows: 50px 100px 150px;
+            grid-auto-rows: 200px;
+        }
+------------------------------
+
+Maka akan mengatur 2 baris itu si kolom no 7,8, dan 9. Jadi 3 kolom yg tidak di atur atau 3 kolom yg implicit itu ukuran nya akan selalu 200px karena mungkin aja 3 kolom itu kita gatau awalnya bakalan ada atau ngga. Nah sekarang gimana supaya ngatur kolom nya, kan itu kita ngatur baris sisinya ya dan maksud 3 kolom itu kolom yg dimaksud kotak nya.
+
+Nah gimana kita dapetin kolom yg implicit, kalo misalkan saya apus saya tulis gini :
+
+ .container {
+            width: 600px;
+            margin: 50px auto;
+            display: grid;
+            grid-template-columns: 100px 50px;
+        }
+------------------------------
+
+itu kan saya bikin nya 2 kolom, saya pengen kolom ke-3 itu ga turun kebawah tapi ada disebelah kanan, nah kalo misalkan kita kasih grid-auto-columns, kan itu untuk menentukan kolom yg "Implicit" ya, begini :
+
+.container {
+            width: 600px;
+            margin: 50px auto;
+            display: grid;
+            grid-template-columns: 100px 50px;
+            grid-auto-columns: 200px;
+        }
+------------------------------
+
+Kalo kita liat di browser nya gaada kolom yg kesebelah kanan karena kita gapunya kolom yg "Implicit" karena default nya kalo kalian nulis seperti itu diatas gaakan mungkin ada kolom yg "Implicit" karena begitu ada ada lebih kolom dia turun jadi baris.
+
+---------------------------------------------------------------------------------------------------------------------------------
+
+AUTO FLOW ( grid-auto-flow )
+
+Nah Cara supaya ada kolom yang Implicit kita punya lagi sesuatu yg namanya auto flow, auto flow ini adalah untuk megatur penempatan item pada grid track nya dan ini termasuk juga yg ditulis secara Implicit. (liat di folder ss)
+
+Nah ini kalo misalkan kalian paham flexbox, flexbox itu punya direction ya bisa kiri kekanan atau bawah ke atas, nah kalo auto flow kita bisa pilih :
+
+ .container {
+            grid-auto-flow: row | column | row dense | column dense;
+        }
+----------------------------------------
+
+Jadi row / column atau row dense / column dense, default nya row jadi kalo ada yg babalas atau ada yg lebih dia akan jadi baris, kalo kalian pengen jadi kolom tulis nya column. Jadi kalo misalkan kita awal nya gini :
+
+ .container {
+            width: 600px;
+            margin: 50px auto;
+            display: grid;
+            grid-template-columns: 100px 50px;
+        }
+------------------------------
+
+kan pasti kotak sisanya bakal jadi baris ya jadi cuma ada 2 kolom doang, nah saya pengen yg sisanya ga kebawah ngikutin kolom 1 dan 2 nya tapi saya mau kotak sisanya masih ttp di samping kotak 2 dan seterusnya. Nah kita tinggal kasih aja GAF nya column :
+
+ .container {
+            width: 600px;
+            margin: 50px auto;
+            display: grid;
+            grid-template-columns: 100px 50px;
+            grid-auto-flow: column;
+        }
+------------------------------
+
+maka hasilnya kotak sisanya semua ke sebelah kanan, jadi dia ga turun jadi baris dia tetep kekanan, tapi yang ktia atur ukuran nya hanya kolom 1 dan 2, kolom ke 3-9 itu dia jadi "Implicit", nah baru kita bisa atur disitu grid-auto-columns, misalkan sisanya saya mau kasih 200px :
+
+ .container {
+            width: 600px;
+            margin: 50px auto;
+            display: grid;
+            grid-template-columns: 100px 50px;
+            grid-auto-flow: column;
+            grid-auto-columns: 200px;
+        }
+------------------------------
+ 
+oke jadi itu column nya mengalir kekanan dan gaakan turun menjadi baris, kecuali kita kasih grid-template-rows nya, misalkan kita kasih 50px 30px, gini :
+
+.container {
+            width: 600px;
+            margin: 50px auto;
+            display: grid;
+            grid-template-columns: 100px 50px;
+            grid-template-rows: 50px 30px;
+            grid-auto-flow: column;
+        }
+------------------------------
+
+maka setiap 1 turun dulu jadi kan kotak 1 setelah itu harusnya kotak 2 tapi ini kotak 2 nya turun jadi satu banjar sama kotak 1 nah jadinya di samping kotak 1 itu si 3 dan bawah nya 3 kotak 4 gitu. Nah ini kebalikan nya dari kolom, kalo kolom kan kolom dulu baru turun, kalo sekarang baris dulu baru naek. Tapi ttp aja karena kita "explicit"  nya dua, baris 2 kolom maka garis solid nya 2 x 2 sisinya garis putus-putus.
+
+---------------------------------------------------------------------------------------------------------------------------------
+
+GRID VALUES
+
+Sekarang nilai apa yg bisa kita berikan tadi kita udah coba %,px dan auto. nah yg belum kita coba (fr) dan <line-name>, untuk yg line-name itu adalah nama yg bisa diberikan pada grid track ya, cara nulisnya itu jadi kalo misalkan kita punya kasus yg sama sekarang kita bisa kasih di setiap spasi nya nama menggunakna kurung siku.
+
+ .container {
+            width: 600px;
+            margin: 50px auto;
+            display: grid;
+            grid-template-columns: [awal] 25% [kolom2] auto [kolom3] 50px [empat];
+            grid-template-rows: [baris-awal] 50px [b2] 100px [b3] auto [b-akhir];
+        }
+----------------------------------------------------
+
+Kalo kita liat hasilnya sama aja gaada bedanya tidak akan merubah angka itu (liat folder) nya menjadi nama, ini cuma buat nandain nomor garis yg tadinya nomor 1 2 dansterusnya, bisa juga kta panggil menjadi [awal], nah nanti itu maggilnya gampang kalo kita udh bicara mengenai grid-items nanti kita bilang items nomor1 itu mulai dari awal sampai kolom3 jadi gaperlu pakai angka lagi tapi udah kata" nya.
+
+FR (FRACTION)
+
+FR sangat kepake apalagi kita mau bikin web nya responsive, biasanya kita ngaturnya itu pake persen, persen mungkin ribet mtk nya gitu. Kalo pake fr semuanya ditiungin sama css grid, jadi caranya kita tinggal kasih 1fr, 2fr, atau bahkan bilangan pecahan seperti 3,5fr, nah ini akan ngitung sendiri hasil nya seperti ini :
+
+ .container {
+            width: 600px;
+            margin: 50px auto;
+            display: grid;
+            grid-template-columns: 1fr 2fr 3.5fr;
+            grid-template-rows: 2fr 1fr 5fr;
+        }
+------------------------------------------
+
+jadi kalo saya punya 1fr berarti 1 bagian 2fr itu 2x nya, 3.5fr itu 3setengahnya, jadi yg dilakukan adalah dijumlahin dulu itu semua jadi 1fr + 2fr + 3.5fr baru lebar total (lebar container) dibagi segitu nanti akan dapeti 1fr nya, nah baru sisanya di kalkulasi.
+
+Nah misalnya kita coba nih :
+
+  .container {
+            width: 60%;
+            margin: 50px auto;
+            display: grid;
+            grid-template-columns: 1fr 2fr 3fr;
+        }
+------------------------------------------
+
+maka hasilnya 1fr segitu yg 2fr 2x nya dari 1fr dan yg 3fr 3x nya gitu, dan ini lebih keren ketika kita kasih width nya (persen), kalo width nya persen dia udah ngatur sendiri. dan ini bisa kita kombinasikan jadi misalkan 1fr 2fr yg akhir 50px :
+
+ .container {
+            width: 60%;
+            margin: 50px auto;
+            display: grid;
+            grid-template-columns: 1fr 2fr 50px;
+        }
+------------------------------------------
+
+Jadi dia akan ngitung dulu semua nilai yg fix nya baru yg freaction nya dia itung belakangan, jadi yg (fr) itu akan responsive sendiri nya gaperlu ngitung lagi pake persen dan ini akan keren banget.
+
+---------------------------------------------------------------------------------------------------------------------------------
+
+Lalu untuk selanjutnya kalo misalkan kita punya 9 item terus kita pengen atur tiap-tiap items nya dalam satu baris, misalkan saya punya 9 items yg satu baris itu punya 9 kolom yang ukuran nya sama nah sebenrnya kita bisa tulis kek gini :
+
+ .container {
+            width: 60%;
+            margin: 50px auto;
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+        }
+------------------------------------------
+
+nah lumayan juga ya panjang ngatur nya, lalu ada ga cara nya supaya gamang kita gaperlu ngitung atau nulisin satu persatu, itu ada caranya dan akan dibahas di next video.
+----------------------------------------------------------------------------------------------------------------------------------
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

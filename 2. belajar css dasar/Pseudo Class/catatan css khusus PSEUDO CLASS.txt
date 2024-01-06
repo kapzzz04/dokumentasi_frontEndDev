@@ -1,0 +1,119 @@
+CSS VALIDATION Pseudo-class
+
+ :required
+ :valid
+ :invalid
+
+Pseudo-class yang berhubungan dengan link
+
+ :link
+ style default pada sebuah link (a yang memiliki href)
+
+ :hover
+ style ketika kursor mouse berada di atas sebuah link/elemen
+
+ :active
+ style ketika sebuah link di-klik (keadan aktif)
+
+ :visited
+ style ketika sebuah link sudah pernah di kunjungi sebelum nya
+  (menggunakan browser yang sama)
+------------------------------------------------------------------------------------------------------
+
+ Pseudo Class yang berhubungan dengan posisi elemen (1)
+
+ :first-child
+ memiliih elemen pertama dari sebuah parent (elemen pembungkusnya)
+ 
+ :last-child
+ memilih elemen terakhir dari sebuah parent (elemen pembungkusnya)
+
+ :nth-child(n)
+ memilih elemen ke-n dari sebuah parent (elemen pembungkusnya).
+ 
+ n bisa berarti urutan (1),(2), .... atau pola (2n),(3n+2),(4n-1) atau
+ ganjil dan genap (even)&(odd)
+
+---------------------------------------------------------------------------------------------
+ Pseudo Class yang berhubungan dengan posisi elemen (2)
+ 
+ :first-of-type
+  memilih elemen pertama dari sebuah jenis / tipe tag
+
+ :last-of-type
+  memilih elemen terakhir dari sebuah jenis / tipe tag
+--------------------------------------------------------------------------------------------------
+CONTOH/PENGERTIAN TIAP TIAP SYNTAK
+
+elemen ini / tag ini berguna untuk memuat table saat tiap baris beda warna
+
+ didalam pseudo class itu memakai tanda (:) 
+
+nah untuk tag
+ li:nth-child(4) a {
+	color: green;
+}
+
+itu banyak macam kodenya yaitu
+
+misal tulis 4 nah itu akn kepilih sendiri yang ke 4
+
+nah bisa juga kelipatan itu memakai kata N misal
+2n nah
+
+terus bisa juga jika mau di atas kelipatan 2n
+memakai 2n-1 nnti itu di kurang kelipatan 2n
+kan 2,4,6,8 dll nah kalo di kurang 1 jdi
+dia pindah ke atas nya/kebawah kali tu
+------------------------------ ------
+
+untuk di posisi elemen (1)
+
+itu hanya berguna bagi tag yang ada anak nya jika tag itu tidak bercabang
+belum tentu bisa oke contoh :
+
+
+li:first-child a {
+	color: red;
+}
+
+nah contoh diataas itu (li) termasuk yang punya anak (dalam kata lain 
+mempunyai tag didalam nya)
+ ------------------------------------
+
+untuk posisi elemen (2)
+ 
+itu berguna untuk di paragraf saja atau yang lain mungkin
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

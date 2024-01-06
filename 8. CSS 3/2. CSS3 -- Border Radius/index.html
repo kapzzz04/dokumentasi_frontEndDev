@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Border Radius</title>
+    <style>
+        /* Membuat setengah lingkaran */
+        div {
+            display: inline-block;
+            width: 200px;
+            height: 100px;
+            background-color: salmon;
+            border-radius: 100px 100px 0 0;
+            text-align: center;
+            line-height: 200px;
+            overflow: hidden;
+        }
+
+        div.dua {
+            display: inline-block;
+            width: 200px;
+            height: 100px;
+            background-color: salmon;
+            border-radius: 0 0 100px 100px;
+            text-align: center;
+            line-height: 200px;
+            overflow: hidden;
+        }
+    </style>
+</head>
+
+<body>
+    <div></div>
+    <div class="dua"></div>
+</body>
+
+</html>

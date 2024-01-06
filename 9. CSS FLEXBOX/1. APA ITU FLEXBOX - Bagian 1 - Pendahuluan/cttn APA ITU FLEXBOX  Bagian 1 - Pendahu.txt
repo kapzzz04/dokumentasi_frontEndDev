@@ -1,0 +1,659 @@
+APA ITU FLEXBOX  Bagian 1 - Pendahuluan
+
+Flex Box
+( Flexible Box Module )
+
+Flex Box ada mungkin sejak tahun 2016 atau 2017 yang digunakan untuk membantu kita dalam melayout atau mengatur posisi sebuah halaman websaite, kadang" kita cukup kesulitan ketika kita mau menempatkan element di halaman kita itu dengan spesifik.
+
+Contoh nya misalkan kita punya problem itu muncul ketika kita buat sebuah element yg ada didalam sebuah container tapi kita ingin nya memiliki jarak yang seragam. Contoh nya saya punya 5 buah element didalam container saya ingin element nya memiliki jarak di antaranya yg sama itu bisa seperti ini ( liat ss an nya di folder ), tapi kadang" disitu kita bisa liat kita memiliki akhir elemen yg memiliki jarak yg terlalu lebar. Nah itu solusinya kita tambahkan lagi margin, tambahkan lagi margin kalo kurang gitu" aja terus sampe posisi yg pas yg kita mau ya, ini cukup ngeselin ya agak ribet.
+
+Kalo element yg tadinya sudah bertambah kita sudah cukup rapih seperti ini ( liat ss an di folder ), misalkan kita udah menggunakan css float dan margin yg tepat untuk bisa membuat elemen seperti itu yg di ss an ya. Nah gimana kalo kita ingin element yg dibawah yg 2 itu kita ingin elemen nya berada di tengah". Misalkan seperti ini ( liat ss an di folder ).
+
+Kalo seperti itu dengan menggunakan teknik css biasa tanpa flex box itu agak sulit ya, apalagi kalo kita dihadapkan dengan kasus misalkan kita punya sebuah container dan kita ingin menyimpan elemen nya persis di tengah" atau kita mau centring elemennya seperti ini ( liat ss an di folder ), Nah itu juga cukup tricki, banyak yg harus kita lakukan.
+
+Dari beberapa kasus tadi merupakan beberapa hal atau sedikit yang dapat diatasi dengan menggunakan flex box.
+
+Sumber Belajar FlexBox :
+- https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Flexible_Box_Layout/Basic_Concepts_of_Flexbox
+- https://css-tricks.com/snippets/css/a-guide-to-flexbox/
+
+----------------------------------------------------------------------------------------------------------------------------------
+ 
+FlexBox-DEFINISI
+
+"Model layout 1 dimensi yang dapat mengatur jarak dan penjajaran antara item dalam sebuah container."
+
+penjajaran ini diterjamahkan dari kata aligmine ya, bagaimana kita mensejajarkan antara satu element dengan element yg lain, jadi kita ngatur jarak dan penjajaran nya dari item" yg nanti kita simpan di dalam container.
+
+1 Dimensi ?
+Jadi katanya model layout 1 dimensi, nah maksudnya 1 dimensi itu, dengan menggunakan flexBox itu kita hanya dapat mengatur 1 dimensi. Maksudnya adalah kita hanya dapat mengatur elemen" secara horizontal dalam 1 baris atau secara vertikal dalam satu colom, jadi gabisa 22 nya sekaligus.
+
+Jadi maksudnya misal kita 2 buah element itu mau kita ubah secara horizontal dan vertikal, misal secara horizontal dia mau ( float: left; ) nah otomatis dia sejajar kekanan kan ga kebawah dan kita mau ubah aja gamau sejajar kekanan mau nya dia ke bawah gitu baris nya terus dia berada di tengah". Nah itu kan ngatur nya secara vertikal dan horizontal, seperti itu tidak bisa dalam flexBox.
+
+2 Dimensi ?
+Kita bisa menggunakan 22 nya sekaligus dengan menggunakan CSS GRID, ini bisa di liat di catatan css grid ya.
+
+Jadi FlexBox hanya bisa mengatur 1 dimensi ya, nanti kita tinggal pilih mau mengatur elemen yg ada didalam satu baris atau ngatur elemen yg ada didalam satu colom.
+
+flexBox-Definisi ke-2
+"Sebuah modul yang menawarkan cara yang efektif untuk menyusun, mensejajarkan dan mendistribusikan jarak antara item di dalam sebuah container"
+
+dari situ definisi nya masih sama ya dengan yg sebelum nya, tapi ada yg beda nih
+
+"Sebuah modul yang menawarkan cara yang efektif untuk menyusun, mensejajarkan dan mendistribusikan jarak antara item di dalam sebuah container, meskipun ukurannya dinamis atau bahkan kita tidak tau."
+
+meskipun ukurannya dinamis atau bahkan kita tidak tau, kenapa kita tidak tau? ini mungkin aja konten dari websaite kita akan di generejt secara dinamis misalkan ngambil dari database atau ngambil dari API, kita gatau misalkan gambarnya apa kita gatau tulisan nya berapa banyak, dengan menggunakan flexBox kita gaperlu mikirin nanti di atur secara otomatis.
+
+----------------------------------------------------------------------------------------------------------------------------------
+
+ISTILAH pada FlexBox
+
+Nah sekarang kita harus pahami dulu istilah" yg nantinya muncul ketika kita belajar flex-box.
+
+Tadi seperti yg sudah kita bahas bahwa flexbox hanya bisa mengatur 1 dimensi aja baik it baris ataupun colom. Nah ada 2 hal yg harus kita perhatikan.
+
+1. kita harus pasti punya wadah nya atau pembungkus nya itu akan kita sebut dengan ( container ), jadi nanti container nya kita akan set sebagai flex baru, lalu element didalam nya bisa kita atur. Dan elemen" didalam nya itu kita sebut dengan ( items ). Jadi ada "container" pembungkus nya, container juga nanti bisa disebut dengan parent, lalu ada items, itu elemen" yg ada didalam nya itu juga bisa kita sebut dengan childs. Seperti ini contoh bentukan nya ( liat ss andi folder ).
+
+2. selanjutnya itu mengenai ( main axis ), jadi main axis itu ketika kita set element" nya sejajar secara horizontal seperti ini ( liat ss an di folder ). Nanti misalkan kita mau ubah itu ada yg di sebut dengan ( cross axis ) jadi kalo misalkan tadi nya horizontal mau kita ubah jadi vertikal berarti main axis nya horizontal, kalo mau kita pindahin itu namanya cross axis. Tapi kalo awalnya udah bentuknya colom ( colom itu ga sejajar kekanan tapi kebawah ) kita mau pindahkan jadi horizontal, berarti yg colom nya itu main axis begitu kita pindahkan yg horizontal nya itu jadi cross axis. tapi biasa nya yg kita jadikan ( main axis ) itu yang horizontal. seperti ini ( liat ss an di folder nya ).
+
+3. untuk ukuran dari Container nya Seperti ini ( liat ss an di folder nya ), Nah itu ukuran dari container nya kita sebut dengan ( main size ), dan ukuran dari colom nya itu kita sebut dengan ( cross size ). Seperti ini ( liat ss an di folder nya ).
+
+4. Selanjutnya ada di sebut dengan ( main start ) dan ( main end ), Seperti ini ( liat ss an di folder nya ). ini untuk menentukan awal dari elemen nya secaa horizontal itu ada main start dan main end, kalo mau secara vertikal itu ada (cross start) dan (cross end). Seperti ini ( liat ss an di folder nya ).
+
+Nah jadi itulah istilah-istilah yang kalian harus tau dulu, kalo bingung ini nanti akan ke jawab di pas bagian mencoba nya pasti nanti ada yg value dari sebuah property di flex ini belakang nya ada yg namanya start dan end liat aja. nah untuk mau liat seluruh istilah nya ini ( liat ss an di folder nya ).
+
+----------------------------------------------------------------------------------------------------------------------------------
+
+Istilah pada FlexBox
+
+Jadi kalo misalkan kita recape istilah nya, kita bahas yg main nya aja ya, sebenernya sama aja mungkin artinya bedanya main sama cross, kalo main itu secara horizontal nya kalo cross secara vertikal nya mungki gitu.
+
+- main axis -Sumbu utama dari sebuah container yang menentukan nantinya urutan dari penempatan
+  items secara horizontal.
+
+- main-start | main-end  -Mulai dan berakhirnya items yang disimpan di dalam container. atau istilah 
+  nya urutan nya mau dimulai dari mana, mau dari kiri dulu apa dari kanan dulu, kalo dari kiri pake
+  main-start kalo dari kanan pake main-end. Kalo cross dari atas kebawah atau dari bawah ke atas.
+
+- main size  -Ukuran (width / height) dari container yang akan membuat dimensi dari items nya relatif 
+  terhadap main size. Jadi nanti ukuran elemen yg ada didalam container nya itu bisa sesuai dengan 
+  ukuran container nya. Bahkan kita ga perlu mendefiniskan ukuran dari items" nya, nanti dia bisa 
+  ngatur sendiri.
+
+Untuk yang cross nya kalian bisa bayangkan saja itu ke colom atau vertikal jadi sama aja artinya bedanya main horiontal kalo cross yg vertikal nya.
+
+----------------------------------------------------------------------------------------------------------------------------------
+
+PROPERTY pada container / pembungkusnya
+
+Container adalah pembungkus dari elemen" nya, kita liat property yg bisa kita kasih pada container nya, jadi kalo mau flex nya berjalan dengan baik kita akan kasih property ke container nya dan juga ke elemen yg ada didalam nya.
+
+1. DISPLAY
+yang pertama yg bisa kita kasih pasti adalah display, jadi flex nya gaakan jalan kalo container nya ga kita kasih display flex atau inline-flex juga bisa, tapi nanti kita cobanya yg flex aja. Jadi kita tau ya display tuh ada 3 ya ada inline, block, dan inline-block. Nah sekarang ada tambah satu lagi yaitu "flex" walaupun ada none tapi none gaakan kita itung ya.
+
+ .container {
+            display: flex; /* atau inline-flex */
+        }
+--------------------------------
+
+Jadi tujuan dari flex ini adalah membuat sebuah elemen parent menjadi flex box, dan membuat elemen-elemen di dalamnya nanti bisa berprilaku flex juga. jadi kalo misalkan kita mau ngatur jarak antara elemen didalam sebuah container jangan hanya elemen nya aja yg kita atur bungkus nya juga harus kita kasih display flex.
+
+Sekarang kita coba contoh kasus ya, kita sudah punya html yg isinya gini :
+
+div class="container">
+        <div class="satu">1</div>
+        <div class="dua">2</div>
+        <div class="tiga">3</div>
+        <div class="empat">4</div>
+    </div>
+--------------------------------
+
+tinggal kita kasih style aja biar kotak ya.
+
+.container {
+    width: 600px;
+    height: 150px;
+    border: 5px solid #333;
+    margin: 50px auto;
+}
+
+.container div {
+    width: 100px;
+    height: 100px;
+    background-color: rgba(43, 43, 255, 0.911);
+}
+--------------------------------
+
+NAh kalo kita liat dengan style seperti itu nanti kotak nya akan kebawah dan jadi diluar si container nya, itu karena container nya fix. supaya ngejejer kekanan itukan biasanya kita kasih float ya. GINI :
+
+.container div {
+    width: 100px;
+    height: 100px;
+    background-color: rgba(43, 43, 255, 0.911);
+    float: left;
+}
+--------------------------------
+
+nah kita kasih padding juga ya, coba kalo container nya tingginya ga kita atur itu nanti akan colabs div sama container nya, terus kita harus akalin bisa pake clear atau cara apalah banyak cara akalin nya sih. Misal kita pake cara gini buat akalin nya :
+
+.container {
+    width: 600px;
+    border: 5px solid #333;
+    margin: 50px auto;
+    padding: 5px;
+    box-sizing: border-box;
+}
+
+.container::after {
+    content: '';
+    display: block;
+    clear: both;
+}
+
+.container div {
+    width: 100px;
+    height: 100px;
+    background-color: rgba(43, 43, 255, 0.911);
+    float: left;
+}
+----------------------------------------------------------------
+
+Nah itu kalo misal kita atur tinggi kotak si div nya yg tadinya 100 jadi 120 nanti sudah menyesuaikan si container nya gaakan ke lebihan atau keluar dari container nya ya. Nah untuk mendapatkan hasil seperti itu lumayan banyak ya yg harus kita buat.
+
+Nah nanti dengan menggunakan flex kita ga perlu melakukan banyak hal itu ya, yg pasti kita gaperlu pake clear karena kita gabutuh float, Yang perlu kita lakukan membuat containernya display nay menjadi flex. Seperti ini :
+
+.container {
+    width: 600px;
+    border: 5px solid #333;
+    margin: 50px auto;
+    padding: 5px;
+    box-sizing: border-box;
+    display: flex;
+}
+
+.container div {
+    width: 100px;
+    height: 100px;
+    background-color: rgb(26 104 247);
+}
+----------------------------------------------------
+
+Liat tuh hasilnya sama aja dengan kita menggunakan float dan clear nya tapi ini lebih mudah dan simpel praktis juga. itu kita baru bahas DISPLAY nya ya.
+
+Jadi pertama kita kasih harus display di containernya dulu, kita belum bahas yg bisa kita kasih di items atau elemen nya. Selanjutnya yg bisa kita kasih di container nya itu Flex-direction.
+
+----------------------------------------------------------------------------------------------------------------------------------
+
+FLEX-DIRECTION
+
+Flex-direction ini untuk mengatur arah dari urutan elemen" didalamnya, bisa secara horizontal kebalikan nya atau secara vertikal kebalikan nya. Seperti ini ( liat ss an di folder ).
+
+cara ngasih nya kalian cukup tulis seperti ini :
+
+.container {
+    flex-direction: row | row-reverse | column | column-reverse;
+}
+---------------------------
+
+Defaultnya adalah row, row itu dari kiri kenan, kalo mau dibalik kalian bisa kasih row-reverse.  atau kalo mau turun kebawah ada column dan column-reverse.
+
+kalian liat kan ada 4 kotak div nya itu, Kalo misalkan kita kasih di container nya flex-direction kita kasih row itu gaada perubahan ya, tapi kalo kita kasih row-reverse. 
+
+.container {
+    width: 600px;
+    border: 5px solid #333;
+    margin: 50px auto;
+    padding: 5px;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: row-reverse;
+}
+
+.container div {
+    width: 100px;
+    height: 100px;
+    background-color: rgb(26 104 247);
+    margin: 2px;
+}
+------------------------------------------------------
+
+Liat perubahan nya seperti kita memberikan float right, urutan nya akan berubah dari kanan kekiri, begitu pula kalo kita kasih column itu dia akan turun kebawah, kalo kebalikan nya column-reverse dia akan mulai dari yg terakhir dulu, silahkan coba sendiri aja ya. Sekali lagi kalo misalkan kita ga pake defaultnya adalah ROW.
+
+Jadi itu flex-direction untuk Mengatur arah atau urutan dari items di dalam sebuah container. kalian bisa liat detailnya ( di ss an folder ya )
+
+----------------------------------------------------------------------------------------------------------------------------------
+
+FLEX-WRAP
+
+flex-wrap untuk mengatur ketika elemen yang kita punya itu udah gamuat lagi ke container dalam baris nya, Nah nanti yg kita lakukan kalo pengen di turunin kebawah kita pake flex-wrap karena kalo gapake flex-wrap items nya akan memaksa selalu ada didalam container.
+
+cara ngasihnya itu, defalut nya itu nowrap :
+
+.container {
+    flex-wrap: nowrap | wrap | wrap-reverse;
+}
+-------------------------
+
+Jadi ini deskripsinya adalah Secara default, semua items di dalam container akan berada pada satu baris meskepun ukurannya sudah tidak cukup, Nah wrap memungkinkan untuk memindahkan items ke baris di bawahnya.
+
+Kita liat di codingan itu kita punya 4 buah div kotak yg ukurannya 100px x 100px ya, kan besar container nya itu 600px nah ini kalo kita tambah 2 lagi kotak nya jadi ada 6 harusnya gamuat sih kalo tambah 1 doang muat, kalo 2 itu ga cukup.
+
+Nah kalo misalkan si pembungkusnya display nya udah flex terus kita tambahin 2 lagi ternyata dia maksa si kotak nya tetap dibarisan itu, dia ga turun kebawah :
+
+ <div class="container">
+        <div class="satu">1</div>
+        <div class="dua">2</div>
+        <div class="tiga">3</div>
+        <div class="empat">4</div>
+        <div class="empat">4</div>
+        <div class="empat">4</div>
+    </div>
+-------------------------
+
+Jadi dia ngegeser yg lain nya terus nambahin 2 elemen terus ukuran div kotak nya udah ngga 100px lagi, kalo kalian tambahkan 4 sekaligus disitu jadi nanti kotak nya ada 10 pastinya dia bakal tetep maksa di barisan itu gamau turun kebawah, coba aja deh sendiri.
+
+Kalo kita tidak mau seperti itu maka kita kasih flex-wrap isinya wrap, gini :
+
+.container {
+    width: 600px;
+    border: 5px solid #333;
+    margin: 50px auto;
+    padding: 5px;
+    box-sizing: border-box;
+    display: flex;
+    /* flex-direction: column-reverse; */
+    flex-wrap: wrap;
+}
+--------------------------------------------------
+
+Nah maka dia akan turun, kalo gitu kan enak diliat nya ya coba aja kau coba sendiri ya. atau kita kasih wrap-reverse, kalo ini kebalikan nya jadi dia akan memulai dari bawah, kalo wrap kan mulai kotak nya dari atas kalo ini dari bawah coba sendiri aja ya.
+
+Jadi gitu kalo misalkan kalia tetep mau ngejejelin elemen nya dalam satu baris gausah pake wrap, tapi kalo mau turun pake wrap. kalian bisa liat detailnya ( di ss an folder ya ).
+
+----------------------------------------------------------------------------------------------------------------------------------
+
+JUSTIFY-CONTENT
+
+justify-content untuk mengatur rata dari elemen" didalam nya. kalian bisa liat detailnya ( di ss an folder ya ).
+
+kita bisa mengatur supaya dia rata kiri normal aja ya, jadi kalo kalian ngasih justify-content lalu nilai nya flex start nah itu default aja, atau flex-end, ingat ya tadi kita bahas di bagian istilah nya start itu mulai dari mana dan end itu berakhir dimana. 
+
+Center untuk mengatur posisi element di tengah", space-between mengatur elemen misal ada 3 elemen, elemen pertama akan mempet kiri elemen terakhir akan mepet kanan elemen sisanya akan dikasih jarak yg sama bisa coba sendiri ya. 
+
+space-around ini ngebagi rata jarak sisi kiri dan kanan nya, jadi sisi kiri tiap elemen itu segini kanan nya segini sama gitu antara kiri dan kanan. space-evenly itu bener" kiri dan kanan nya sama. kalo yg space-around kan elemen yg pertama pasti kiri nya setengah dari kanan nya, karena yg kanan nya itu setengah" sama elemen ke 2. tapi kalo evenly bener" semunya sama, kalian bisa coba sendiri ya.
+
+cara ngasih nya gampang :
+
+.container {
+    justify-content: flex-start | flex-end | center | space-between | space-around | space-evenly;
+}
+------------------------------------------
+
+justify-content ini artinya mengatur jarak antara items, kalo mau liat sisinya dimana bentukan nya kek apa liat di ( ss an folder ya cari aja ada ).
+
+oh iya coba kalian liat antara justify-content yang ( flex-end ) dengan flex-diretion yang ( row-reverse ) itu beda ya posisi nya kalo yg flex-end itu 4 nya dikanan kalo yg row-reverse itu 4 nya di awal, coba liat sendiri ya.
+
+----------------------------------------------------------------------------------------------------------------------------------
+
+ALIGN-ITEMS
+
+align-items ini untuk mengatur kesejajaran antara items tapi secara vertikal, kalo tadi kan justify-content itu secara horizontal nya kalo align-items ini secara vertikal nya ya. kalian bisa liat detailnya ( di ss an folder ya ).
+
+cara ngasih nya gampang :
+
+.container {
+    align-items: flex-start | flex-end | center | stretch | baseline;
+}
+------------------------------------------
+
+align-items ini artinya Mengatur perilaku penjajaran items terhadap cross axis nya atau terhadap vertikal nya.
+
+sekarang kita harus kasih height nya di pembungkus atau container nya ya, biar keliatan perubahan nya. gini :
+
+.container {
+    width: 600px;
+    height: 400px;
+    border: 5px solid #333;
+    margin: 50px auto;
+    padding: 5px;
+    box-sizing: border-box;
+    display: flex;
+    /* flex-direction: row-reverse; */
+    /* flex-wrap: wrap; */
+    /* justify-content: flex-end; */
+    align-items: flex-start;
+}
+------------------------------------------
+
+Nah kalo flex-start atas kotak nya itu mepet ke paling atas pembungkus nya, kalo flex-end nanti dia bakal turun kebawah jadi mentok ke paling bawah containernya bisa di coba sendiri ya. Lalu center untuk membuat kotak nya di tengah" halaman tapi ini beda sama centernya justify-content, bisa di coba sendiri ya.
+
+Stretch ini dia akan penuh atau mengatur tinggi kotak di nya mengikuti tinggi pembungkusnya atau container nya, jadi dia akan penuh kalo kita ga atur tinggi kotak div nya gini :
+
+.container {
+    width: 600px;
+    height: 400px;
+    border: 5px solid #333;
+    margin: 50px auto;
+    padding: 5px;
+    box-sizing: border-box;
+    display: flex;
+    /* flex-direction: row-reverse; */
+    /* flex-wrap: wrap; */
+    /* justify-content: center; */
+    align-items: stretch;
+}
+
+.container div {
+    width: 100px;
+    background-color: rgb(26 104 247);
+    margin: 2px;
+}
+------------------------------------------
+
+Dan yg terakhir ada yg namanya baseline, nah kalo baseline itu dia ngatur rata tengah nya itu berdasarkan tulisan yg ada di dalam div kotak nya, kan kalo kita kasih center dia di tengah ya, terus kalo kita kasih baseline dia keliatan nya sama aja kaya flex-start.
+
+Nah tapi akan berbeda ketika misal kita kasih div yg tulisan nya 3 saya mau kasih tulisan 3 itu font-size nya jadi gede banget. Gini :
+
+.container {
+    width: 600px;
+    height: 400px;
+    border: 5px solid #333;
+    margin: 50px auto;
+    padding: 5px;
+    box-sizing: border-box;
+    display: flex;
+    /* flex-direction: row-reverse; */
+    /* flex-wrap: wrap; */
+    /* justify-content: center; */
+    align-items: baseline;
+}
+
+.container div {
+    width: 100px;
+    height: 100px;
+    background-color: rgb(26 104 247);
+    margin: 2px;
+}
+
+.container div.tiga {
+    font-size: 50px;
+}
+------------------------------------------
+
+Nah kalian liat sekarang jadi begitu rantanya karena dia sejajaran bawah nya itu loh ya begitu lah susah di ungkap kan dengan kata ( liat di ss an folder ), sejajar nya tergantung baseline dari font nya.
+
+bisa juga kalian buat jadi kaya kurva gitu gini :
+
+.container {
+    width: 600px;
+    height: 400px;
+    border: 5px solid #333;
+    margin: 50px auto;
+    padding: 5px;
+    box-sizing: border-box;
+    display: flex;
+    /* flex-direction: row-reverse; */
+    /* flex-wrap: wrap; */
+    /* justify-content: center; */
+    align-items: baseline;
+}
+
+.container div {
+    width: 100px;
+    height: 100px;
+    background-color: rgb(26 104 247);
+    margin: 2px;
+}
+
+.container div.empat {
+    font-size: 40px;
+}
+.container div.tiga {
+    font-size: 60px;
+}
+div.dua {
+    font-size: 80px;
+}
+div.satu {
+    font-size: 100px;
+}
+
+----------------------------------------------------------------------------------------------------------------------------------
+
+ALIGN-CONTENT
+
+align-content ini sama seperti align-items tapi hanya berlaku ketika konten nya lebih dari satu baris seperti ini ( liat di ss an folder ). Jadi kalian bisa coba sendiri lah ya, kalo mau coba baca dulu definisinya ya.
+
+cara ngasih nya gampang :
+
+.container {
+    align-content: flex-start | flex-end | center | space-around | space-between;
+}
+----------------------------------------
+
+definisinya adalah untuk mengatur jarak antara items terhadap cross axiss, tapi syarat nya ( hanya berfungsi ketika items atau elemen nya lebih dari satu baris ). 
+
+Jadi kalo misalkan kalian bikin elemen nya kebanyakan, terus kalian kasih ( flex-wrap: wrap; ) kan elemen yg kelebihan tu pasti turun ya nah baru kita bisa kasih align-content. kalo mau liat gambaran nya liat di poto nya itu ada petunjuk kan kotak" itu banyak berarti harus ada banyak kotak atau lebih dari satu baris. coba liat di ( ss an folder ).
+
+----------------------------------------------------------------------------------------------------------------------------------
+
+PROPERTY PADA ITEMS
+
+Selanjutnya kita akan liat property yg ada pada items, kalo tadi kan property untuk pembungkus nya atau container nya sekarang pada items / elemen yg ada didalam container nya.
+
+1. Order 
+kita bisa kasih oreder untuk ngatur urutan dari element" nya. Seperti ini ( liat ss an di folder ). Nah ini bisa digunakan ketika kita sudah buat elemen nya misal seperti di gambar itu awal nya di html nya sudah berurutan dari 1 sampai 4, lalu kita ubah posisi nya 4 nya di depan tapi tanpakita ubah HTML nya itu bisa dengan mengggunakan order.
+
+Misalnya kita kasih di kotak satu nya order 3 gini :
+
+.container div.satu {
+    order: 3;
+}
+--------------------
+
+Nah liat sekarang si kotak 1 nya pidandah ke posisi yg seharus nya si kotak 4 itu. kenapa pindah nya ke 4 padahal saya mau nay si kotak 1 nya pindah ke 3 kan order 3 ya. ini karena semuanya tadinya order nya 0 gaada order nya. Jadi berapapun saya kasih order nya di kotak 1 dia pasti akan ke paling kan karena dia menang dari yg lain kan yg lain order nya 0 ya , misal kita ganti order nya di kotak 1 itu order 1 lalu yg lain nya ga di kasih order maka kotak 1 nya pindah ke posisi paling kanan ya.
+
+Seperti ini misal nya :
+
+.container div.satu {
+    order: 3;
+}
+
+.empat {
+    order: 2;
+}
+
+.dua {
+    order: 5;
+}
+----------------------------------------
+
+Jadi order yg paling besar angka nya itu akan di posisi kan di paling kanan lalu diikuti order angka setelah nya kaya itu misalkan kotak 2 order nya 5 dia di paling kanan lalu setelah kotak 2 ada kotak 1 yang order nya 3 dia posisi paling kanan setelah kotak 2 lalu di ikuti dengan kotak 4 yg order nya 2 jadi begitu ya.
+
+2. Flex-grow / flex
+kalian bisa kasih flex-grow property nya atau shorthand nya flex. ini untuk mengatur ukuran dari si item nya. Seperti ini ( liat di ss an folder ). tadi di bilang kan kita bisa aja mendapatkan hasil yang sama tanpa mendefinisikan ukuran nya. Nah ini kalo buat resposiver keren nih.
+
+Nah ini kalo misalnya yg kita punya ini si kotak nya kita atur width dan height nya kan, kalo width dan height nya kita apus bakal gada lebar dan tinggi nya ukuran nya akan sebesar konten didalam nya, karena konten nya hanya angka kecil aja maka ukuran nya akan segitu aja. 
+
+.container div {
+    background-color: rgb(26 104 247);
+    margin: 2px;
+}
+----------------------------------------
+
+Nah liat ketika semua kotak nya saya kasih flex-grow atau kalian bisa tulis flex aja, terus kalian kasih 1, itu artinya semua ukuran nya itu 1, semua nya ukuran nya sama dan akan memenuhi container nya. 
+
+.container div {
+    background-color: rgb(26 104 247);
+    margin: 2px;
+    flex: 1;
+}
+----------------------------------------
+
+Nah itu ukuran nya akan sama semua, lalu itu kenapa tinggi nya segitu doang karena kita ga kasih height di container nya, kita kasih dulu tinggi nya di containernya ya :
+
+.container {
+    width: 600px;
+    height: 150px;
+    border: 5px solid #333;
+    margin: 50px auto;
+    padding: 5px;
+    box-sizing: border-box;
+    display: flex;
+    /* flex-direction: row-reverse; */
+    /* flex-wrap: wrap; */
+    /* justify-content: center; */
+    /* align-items: baseline; */
+    /* align-content: space-between; */
+}
+
+.container div {
+    background-color: rgb(26 104 247);
+    margin: 2px;
+    flex: 1;
+}
+----------------------------------------
+
+Nah sekarang kalo saya pengen ukuran dari si kotak ke 2 itu ukuran nya lebih besar 2 kali lipat dari yg lain kalian cukup atur items si kotak 2 nya dengan mengatur style flex nya jadi 2. Seperti ini :
+
+.container div {
+    background-color: rgb(26 104 247);
+    margin: 2px;
+    flex: 1;
+}
+
+div.dua {
+    flex: 2;
+}
+----------------------------------------
+
+jadi ketika kita kasih flex 2 ukuran nya jadi 2 kali lipat kalo kita kasih flex 3 ukuran nya jadi 3 kali lipat dan items yg lain nya langsung menyesuaikan saja. Jadi itulah kita bisa mengatur sebuah items tanpa memerlukan width dan height nya.
+
+3. align-self
+align-self untuk mengatur hanya satu element aja yg didalam baris nya yg mau kalian posisikan dimana gitu. bisa di liat ( di ss an folder ).
+
+jadi kalo felx-start itu di atas kalo flex-end itu dibawah kalo stretch itu penuh sama aja value nya kaya align-content beberapa nya tapi ini bedanya align-self untuk items nya dan ini hanya mengatur 1 items aja bukan seluruh nya gitu. kalo align-content tadi satu baris berubah semua kalo ini hanya untuk 1 items aja yg berubah nya.
+
+cara ngasih nya gampang :
+
+.item {
+    align-self: auto | flex-start | flex-end | center | baseline | stretch;
+}
+----------------------------------------
+
+Definisinya Mengatur perilaku penjajaran sebuah item yang spesifik terhadap cross axis.
+
+Jadi kalo misal nya di container nya kita kasih align-items nya jadi flex-start lalu dia akan ke atas dan gak stretch lagi, terus kita kasih yg kotak 2 itu align-self terus kita kasih flex-end, maka dia akan kebawah sendiri. Seperti ini :
+
+.container {
+    width: 600px;
+    height: 150px;
+    border: 5px solid #333;
+    margin: 50px auto;
+    padding: 5px;
+    box-sizing: border-box;
+    display: flex;
+    /* flex-direction: row-reverse; */
+    /* flex-wrap: wrap; */
+    /* justify-content: center; */
+    align-items: flex-start;
+    /* align-content: flex-start; */
+}
+
+.container div {
+    background-color: rgb(26 104 247);
+    margin: 2px;
+    flex: 1;
+}
+
+div.dua {
+    flex: 2;
+    align-self: flex-end;
+}
+--------------------------------------------------------
+
+Nah tapi kalo yg aligns-items nya kita apus. Seperti ini :
+
+.container {
+    width: 600px;
+    height: 150px;
+    border: 5px solid #333;
+    margin: 50px auto;
+    padding: 5px;
+    box-sizing: border-box;
+    display: flex;
+    /* flex-direction: row-reverse; */
+    /* flex-wrap: wrap; */
+    /* justify-content: center; */
+    /* align-items: flex-start; */
+    /* align-content: flex-start; */
+}
+
+.container div {
+    background-color: rgb(26 104 247);
+    margin: 2px;
+    flex: 1;
+}
+
+div.dua {
+    flex: 2;
+    align-self: flex-end;
+}
+--------------------------------------------------------
+
+Nah semu kotak nya memenuhi container nya dan hanya si kotak 2 yg tidak bisa coba sendiri ya.
+
+
+----------------------------------------------------------------------------------------------------------------------------------
+
+FLEX BOX Support
+
+Flex-box ini kan baru juga ya jadi bisa aja property nya itu ga ngaruh atau gabisa dipake di beberapa browser dan kita harus menggunakan yg namanya Vendor Prefix ya. Udah gitu aja.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

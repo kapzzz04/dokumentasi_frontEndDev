@@ -1,0 +1,415 @@
+Javascript & DOM #3 - DOM Selection (Part 1)
+
+kali ini kita akan membahas mengenai DOM Selection, dimana disini kita akan memilih
+elemen" pada DOM menggunakan Javascirpt, nah DOM Selection ini merupakan tahap 
+awal ketika kalian ingin melakukan manipulasi atau penelusuran pada DOM.
+
+langsung aja kita liat bagaimana cara melakukan seleksi pada elemen di dalam DOM,
+jadi untuk melakukan pemilihan elemen ada beberapa Method atau Fungsi yg kalian 
+gunakan :
+
+DOM Selection Method
+
+- getElementById() 
+- getElementsByTagName()
+- getElementsByClassName()
+- querySelector()
+- querySelectorAll()
+
+
+ada fungsi yg dinamakan ( getElementById() ), nah ini teman" harus perhatikan cara penulisan
+huruf besar dan huruf kecil nya, nah jadi yg pertama getElementById(), Method yg paling simpel,
+yaitu kita memilih elemen yg ada didalam DOM kita berdasarkan id nya, ketika kita belajar 
+mengenai HTML bahwa dalam satu document itu hanya boleh ada 1 element yg memiliki id
+tertentu, jadi kalian hanya boleh memiliki id yg sepesifik untuk 1 element, jadi ketika kalian punya
+h1 misalnya, terus kalian attribute id yg misal nya judul, nah kalian gaboleh punya elemet lain
+apapun elemen nya yg id nya sama" judul, jadi boleh 1 id di 1 halaman, method ini adalah method
+yg paling simpel yg nanti nya akan kita sering gunakan.
+
+yg ke-2 ada (  getElementsByTagName() ) temen" perhatikan ada s di situ ya jadi nya elements,
+jadi itu artinya, Javascript tolong dong carikan saya elemen" karena jamak ya dia, yg memiliki
+nama tag tertentu, beda dengan id ya, kalo id hanya ada 1, kalo tag name mungkin saja banyak.
+
+selanjutnya ada ( getElementsByClassName() ) elements nya ada s nya juga ya, nah ini
+maksudnya carikan elemen yang memiliki nama class tertentu, beda hal nya dengan id,
+class itu boleh di miliki lebih dari 1 element, sehingga penulisan nya pun jamak.
+
+selanjut nya ada ( querySelector() ), nah ini termasuk Method yg cukup baru di banding dengan
+tag" yg sebelum nya, dan ada juga ( querySelectorAll() ), nah ke-2 method ini digunakan untuk
+mencari element berdasar kan selector nya, nah selector ini bisa kalian angga seperti kalian
+mencari elemen menggunakan CSS, karena kita bisa menuliskan selector baik yg sederhana
+maupun yg kompleks.
+
+nanti kita liat gimana cara pakai nya masing" method itu, tapi sebelumnya kita lihat dulu pada
+saat kita menggunakan method ini, apa yang di kembalikan oleh method ini, atau yg di hasilkan
+oleh method itu.
+
+------------------------------------------------------------------------------------------------------------------------------
+
+DOM Selection Method
+
+                      Method                            Hasil
+
+ getElementById()                               element
+
+ getElementsByTagName()              HTMLCollection
+           
+ getElementsByClassName()          HTMLCollection       
+        
+ querySelector()                                  element
+
+ querySelectorAll()                             NodeList
+
+---------------------------------------------------------------------------
+
+yg pertama jika kalian menggunakan Method getElementById() itu akan menghasilkan sebuah
+element ya jadi hanya satu element nya, sedang kan kalo kalian menggunakan method
+getElementsByTagName() atau getElementsByClassName() itu menghasil kan HTMLCollection,
+HTMLCollection definisinya ada di vidio sebelum ini, dan querySelector() itu menghasil kan 
+element, dan jika menggunakan querySelectorAll() itu menghasil kan nodeList itu aja yg harus
+kalian pahami.
+
+sekarang gimana kalo kita langsung aja mengimplementasikan DOM Selection kita pada
+halaman Web sederhana yg akan kita buat LETS GOOO!!.
+
+------------------------------------------------------------------------------------------------------------------------------
+ 
+jadi disini sudah ada file HTML beserta isi nya di dalam fille seperti ini isi nya :
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Dom selection</title>
+    <style>
+        * {
+            border: 2px solid #999;
+            padding: 15px;
+            margin: 15px;
+        }
+
+        html {
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            max-width: 600px;
+            margin: 30px auto;
+            font-family: sans-serif;
+            color: #333;
+        }
+    </style>
+</head>
+
+<body>
+
+    <h1 id="judul">Hello World</h1>
+    <div id="container">
+        <section id="a">
+            <p class="p1">paragraf 1</p>
+            <a href="http://instagram.com/kapzzz04">Instagram Keyla Azahra</a>
+            <p class="p2">paragraf 2</p>
+            <p class="p3">paragraf 3</p>
+        </section>
+        <section id="b">
+            <p>paragraf 4</p>
+            <ul>
+                <li>item 1</li>
+                <li>item 2</li>
+                <li>item 3</li>
+            </ul>
+        </section>
+    </div>
+
+
+    <script src="script.js"></script>
+</body>
+
+</html>
+
+ini html awal nya ya
+
+------------------------------------------------------------------------------------------------------------------------------
+
+di dalam file html nya itu simpel aja kita punya sebuah style dasar, supaya nanti kita bisa liat
+visual nya ya atau bentuk nya gitu, nah pak dhika buat agar sebuah element nya itu memiliki
+border, lalu padding dan margin yg sama untuk semua element nya, kalo kalian lihat semua
+element nya itu ada kotak nya, supaya nanti gampang melihat element mana gitu.
+
+lalu dasar saja itu pak dhika kasih untuk html margin padding nya, dan body nya juga di kaish
+khusus body nya saja, jadi iut style dasar.
+
+lalu di bawah nya kalian lihat itu ada beberapa element HTML, dan element HTML ini di kasih
+dengan attribute yg berbeda-beda, supaya nanti kalian bisa liat gimana cara kita menyeleksinya,
+pertama ada h1 yg di kasih id judul, lalu ada div dengan id container yg memungkus semua 
+element nya, di dalam nya kita bikin 2 buah section, yg di kasih id, ada id a dan id b.
+
+section ini merupakan tag baru yg ada di HTML5, jadi ada id a dan id b, lalu di dalam id a saya
+kasih beberapa pargraf dan 1 buah link, paragraf nya saya kasiih class dan link nya saya kasih
+href, dan di section id b itu saya punya paragraf yg polos saja gaada class nya, dan ada list
+tidak terurut, yg di dalam nya punya 3 buah item, simpel aja.
+
+dan di akhir kita hubungkan ke file javascript nya, jadi kita punya file script yg masih kosong,
+nah sekarang kita buka file script nya, dan nanti di jelaskan knp kita simpan file script nya
+dipaling bawah knp ga di atas, nanti akan masuk akal ketika kita menyeleksi DOM nya.
+
+------------------------------------------------------------------------------------------------------------------------------
+
+// DOM Selection
+//  document.getElementById()   
+
+ada beberapa Method ya tadi, yg pertama adalah getElementById(), inget" nulis nya ini pake
+teknik camel cassing, jadi huruf pertama nya huruf kecil, lalu huruf pertama di kata berikutnya
+itu huruf besar, nah sebetulnya untuk kita menuliskan syntax DOM selection ini di depan nya 
+harus kita kasih dulu node root nya,  jadi harus ada node root nya, jadi node root itu default nya
+adalah document, jadi sebetulnya nulis nya begini ( document.getElementById()  ).
+
+nah itu yg pertama, nah ini kalo kita baca, jadi kita minta tolong ke Javascript nya, jadi Javascript
+tolong dong carikan saya element yg id nya apa gitu yg ada di dalam document, jadi kita nanti
+masukan id nya apa gitu di situ, misal tadi ya kita punya sebuah element yg id nya judul yg h1 itu.
+
+kita coba ambil yg itu ya, cara nya kalian harus bikin sebuah variabel untuk menampung element
+yg akan kita seleksi, jadi misal kan saya gunakan const ya misal nama variabel nya judul, gini 
+( const judul = ), saya punya variabel yg namanya judul yang di isi dengan
+document.getElementById(), jadi javascript tolong carikan saya yg id nya apa gitu, id nya judul
+gini ( const judul = document.getElementById('judul'); ) yg ada di dalam document.
+
+contoh jelas nya:
+
+const judul = document.getElementById('judul');
+----------------------------------------------------------------
+
+jadi melakukan itu berarti kita sudah menyeleksi  element yg id nya judul, lalu kita tampung
+kedalam variabel judul, nama variabel dan id itu gaperlu sama, nah sekarang apa maksudnya
+kita melakukan itu tujuan nya buat apa?, nah tujuan nya nanti kita bisa melakukan apapun 
+terhadap judul ini, misalkan yg paling gampang kita mau ubah style nya, kita mau ubah tulisanya
+kita mau telusuri element lain berdasar kan element ini, nah itu bisa, kita bisa melakukan apapun
+asalkan kita sudah menyeleksi element ini.
+
+------------------------------------------------------------------------------------------------------------------------------
+
+coba kita browser dulu kita buka console.log nya karena kita tadi sudah menambah kan script
+kan, saya coba ketik judul, nah otomatis ada sebuah element yg di kembalikan, jadi sekarang
+javascirptnya tau judul itu isi nya 1 element itu dan beserta semua node di dalam nya, jadi ada
+id nya ad tulisan Hello World nya, jadi itu cara kita menyeleksi sebuah element.
+
+kalian inget getElementById() mengembalikan apa, dia mengembalikan element, jadi cuma 1 gitu
+element nya sehingga langsung bia kita liat element nya.
+
+------------------------------------------------------------------------------------------------------------------------------
+
+KENAPA script harus di bawah ???
+
+sebelum kita coba yg lain kita kembali ke file HTML dlu ya, kalo saya kembali ke HTML nya,
+ini cerita nya script nya kita coba pindahin ke atas, misal kab script nya kita pindah kan ke 
+dalam head aja, tadi nya script nya di dalam body kan terus kita pindah kan ke head, nah ini
+akan membuat script.js kita ga jalan, kan kalo HTML itu dibaca nya dari atas kebawah dan dari
+kiri ke kanan ya, dia akan di baca dari atas kebawah sesuai urutan nya, begitu nyampe ke 
+script nya, nah dia akan menjalan kan script nya.
+
+nah karena urutan di file HTML element judul itu belum ada di memori di karena kan script nya
+dulu baru element judul di bawah nya makannya ga ke baca id judul itu, sehingga kalo saya
+cek di console.log kita ketik judul maka ga puncul hasil nya.
+ 
+nah itu lah kenapa script itu biasanya kita simpan di paling bawah sebelum penutup body, ya
+walaupun ada sih cara nya, cara ngakalin supaya script nya bisa tetap jalan ketika di head,
+ya terutama misal nya kalian pake jeqwery misal nya, intinya simpan aja script di akhir.
+
+------------------------------------------------------------------------------------------------------------------------------
+
+sekarang kembali ke script nya, sekarang element sudah kita tangkap menggunakan 
+getElemenById() dan sudah masuk kedalam variabel judul, nah sekarang apa yg bisa kita
+lakukan, coba sekarang kita manipulasi sedikit aja, misal nya gini saya ma ubah warna
+tulisan yg di h1 menjadi warna merah misal.
+
+kalo menggunakan CSS simpel ya tinggal tambah di style nya, nah kalo menggunakan 
+Javascript kalian panggil ( judul ) nya, judul itu sekarang sudah object yg sudah siap
+kita manipulasi, ambil judul nya lalu kasih method titik ubah style nya titik lagi, lalu sekarang
+kalian tuliskan property css apa yg mau kalian ubah.
+
+kalo ubah warna tinggal tulis aja color lalu sama dengan lalu string nah simpan warna yg 
+kalian mau ke dalam string misal nya tadi kan mau warna merah tulis aja red nah contoh
+nya seperti ini :
+
+judul.style.color = 'red';
+--------------------------------------
+
+nah berubah lah warna nya menjadi warna merah sama hal nya dengan CSS, tapi ada bedanya
+kita ke bagian console.log nah samping console.log ada Elements kita cek di situ, kalo di cek
+disitu tiba" HTML h1 nya punya attribute baru yaitu style, jadi dengan menggunakan javascript
+kalo kita kasih style ke sebuah element, itu otomatis menambahkan inline CSS, nah tapi nanti
+itu ada cara nya supaya kalian ga menggunakan inline CSS seperti itu.
+
+------------------------------------------------------------------------------------------------------------------------------
+
+selanjutnya gimana kalo mau ubah warna background nya, ya sama aja ya kalian tinggal tambah
+kan saja di situ, tinggal judul titik style lalu tambah kan syntax CSS yg untuk ubah background
+color, kalian bisa isi dengan hexa desimal jadi gini codingan nya :
+
+judul.style.backgroundColor = '#ccc';
+------------------------------------------------
+
+jadi berubah deh background nya menjadi abu".
+
+kita juga bisa mengubah tulisan nya yg tadi nya Hello World jadi ubah apa gitu, tanpa menyentuh
+HTML nya , gini saya tulis judul titik lalu innerHTML sama dengan, lalu di isi dengan apa pun
+menggunakan string ya seperti ini jadi nya :
+
+judul.innerHTML = 'Keyno store';
+-------------------------------------------
+
+silahkan di cek maka akan berubah sesuai yg kita tulis, tapi sekarang itu berubah bukan karena
+di ganti di HTML nya tapi karena di setting lewat javascript nya, jadi begitu teman" untuk
+menyeleksi menggunakan getElementById()  nya, inget dia mengembalikan element.
+
+------------------------------------------------------------------------------------------------------------------------------
+
+// DOM Selection
+// document. getElementsByTagName() 
+
+getElementsByTagName()  ini artinya javascript tolong carikan saya element" yg nama tag nya
+apa misal, coba misal tag <p>, p nya itu ada 4 ya ada yg di dalam section a ada yg di dalam
+section b, misalnya kita mau menyeleksi semua p, cara nya bikin variabel terlebih dahulu, lalu
+kasih nama misalkan p gitu, karena saya mau mengambil seluruh paragraf, lalu nanti kau tulis
+seperti ini :
+
+const p = document.getElementsByTagName('p');
+
+hasil di browser :
+
+HTMLCollection(4) [p.p1, p.p2, p.p3, p]
+
+jadi menurutku maksud HTMLCollection itu dia ngambil tag yg namanya p beserta dia
+tunjukin id atau class yg ada pada tag p itu juga.
+----------------------------------------------------------------- 
+
+ini sama aja kaya id ya, tapi dia bedanya mengembalikan HTMLCollection, nanti kalo kita liat
+bentuk kan nya mirip dengan array, nah lihat maksud disitu ada HTMLCollection(4) ini artinya
+ada 4 yg berhasil di seleksi oleh getElementsByTagName() karena ada 4 tag p, nah isi nya
+kalian bisa liat di situ, dan kalo kalian liat itu di bungkus menggunakan kurung siku.
+
+artinya dia mirip dengan array, kalo di liat di situ juga tertara index dan length udah dari browser
+nya langsung, dan dia juga di mulai dari 0, jadi ini bentuk nya array anggap aja array lah ya, 
+sehingga kalo dia array, misal kita mau ubah semua paragraf itu background nya jadi biru muda.
+
+saya gabisa melakukan nya seperti ini ( p.style.backgroundColor = 'lightblue'; ) gabisa ini, karena
+p ini adalah array, yg bisa saya warnai hanya element nya aja, jadi bakal eror kalo pake cara itu,
+dia gabisa ngesave property background color dari array.
+
+supaya bisa kita harus memberi index nya, mau yg mana nih, misal saya mau ngasih paragraf
+ke 3 nya warna biru muda, berarti kalian harus tau tuh paragraf 3 tuh index ke brp, berarti kalian
+itung aja dari 0, berarti paragraf 3 itu index nya 2, nah jadi kalian bisa tambah kan index nya 
+seperti ini :
+
+p[2].style.backgroundColor = 'lightblue';
+---------------------------------------------------------
+
+baru dia berubah, jadi kita bisa ngasih 1 1 untuk element karena yg bisa kita kasih style adalah
+element, p itu HTMLCollection itu gabisa, kalo mau semua di ubah warnanya gimana ??, ya
+kalian tinggal copyy aja kebawah dengan angka nya diganti sesuai index yg di ingin kan.
+
+atau mau gampang kalian tinggal pake Looping gini nih :
+
+for (let i = 0; i < 4; i++) {
+    p[i].style.backgroundColor = 'lightblue';
+}
+-------------------------------------------------------
+atau angka 4 itu kalian bisa pake ( p.length ) sesuai dengan jumlah p nya juga lebih simpel,
+jadi itu cara kita untuk melakukan pengulagan dengan menggunakan getElementsByTagName().
+
+------------------------------------------------------------------------------------------------------------------------------
+
+// DOM Selection
+// document. getElementsByTagName() 
+
+nah sekarang jika kita mengambil sebuah element menggunakan getElementsByTagName() 
+meski pun element nya hanya ada satu, misal nya gini ( const h1 ) gitu, kan kita tau h1 di file
+HTML kita hanya ada 1 tag nya ya, seperti ini :
+
+const h1 = document.getElementsByTagName('h1');
+---------------------------------------------------------------------
+
+tapi meskin pun begitu h1 bentuk nya tetap HTMLCollection, nah kalo kita mau membuat dia
+menjadi element, cara nya kalian tulis ( h1[0] ) terus kalian kasih index disitu nya, atau kalo
+mau lebih gampang,kalian cukup tulis index nya disini  :
+
+const h1 = document.getElementsByTagName('h1')[0];
+---------------------------------------------------------------------
+
+jadi sama aja, jadi ambil semua element lalu ambil yg hanya index nya ke 0 saja, atau element
+pertama, nah baru bisa kita tulis atau mau atur style nya bisa.
+
+------------------------------------------------------------------------------------------------------------------------------
+
+// DOM Selection
+//  getElementsByClassName()
+
+ getElementsByClassName() nah ini saama aja cari element" yg nama class nya apa,
+nah ini sama juga mengemblikan HTMLCollection, jadi misalnya nih saya punya class p1,
+saya mau ngambil p1, berarti saya tulis nya gini saya punya const namanya p1, saya isi
+dengan getElementsByClassName() lalu nama class nya apa p1 kan, seperti ini :
+
+const p1 = document.getElementsByClassName('p1');
+-----------------------------------------------------------------------
+
+nah ini akan mengembalikan HTMLCollection, jadi kalo p1 ini mau saya ganti warna atau
+tulisan, atau kita ganti tulisannya deh, jadi kita gabisa langsung gini ( p1.innerHTML = 'JALAN_JALAN'; ),
+gabisa gitu, harus di kasih index dulu seperti tadi ya, seperti ini :
+
+p1[0].innerHTML = 'JALAN_JALAN';
+----------------------------------------------
+atau saya bisa pindah kan index 0 nya kesini :
+
+const p1 = document.getElementsByClassName('p1')[0];
+p1.innerHTML = 'JALAN_JALAN';
+---------------------------------------------------------------------------
+
+gitu ya jadi getElementsByClassName itu sama seperti getElementsByTagName 2 2 nya 
+menghasilkan HTMLCollection
+
+------------------------------------------------------------------------------------------------------------------------------
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

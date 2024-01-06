@@ -1,0 +1,290 @@
+MEMBUAT PROGRAM PENGELOLAAN PENUMPANG ANGKOT dengan JAVASCRIPT
+
+sekarang kita akan coba Latihan menggunakan Function & Array
+
+latihan nya itu membuat program sederhana mengenai Juragan angkot, kali ini kita akan membuat 
+program untuk mengelola penumpang angkot nya, jadi program kita ini akan mengelola penumpang
+yang naik, penumpang yg turun, dimana dia duduk dan sebagainya.
+
+sebelum kita buat program nya kita liat dulu representasi tempat duduk didalam angkot nya ya
+DENAH nya ada di file poto ini penjelasannya aja ya.
+
+jadi ini denah tempat duduk yang ada dibandung, jadi kalo kita liat tempat duduk nya itu ada
+beberapa, ada tempat penumpang ditempat duduk yg panjang, ada ditempat duduk yg pendek
+jua, lalu didepan juga ada tempat dudk penumpang juga, lalu sebelah kanan nya ada supir.
+
+nah biasa nya tempat duduk ini dibagi untuk beberapa penumpang, misalnya yg panjang itu
+biasanya 7 orang dan yg pendek itu 5 orang, dan didepan biasanya 2 orang, terus biasanya
+ada tempat duduk tambahan yg suka ada di dekat pintu ya.
+
+nah ini kalo kita repersentasikan jadi angka itu ada nomor tempat duduk nya, ceritanya ya
+yg ini nantinya bisa kita ubah sebagai array didalam program kita, ya jadi nanti kalo kita bikin
+program itu kita anggap sebagai array.
+
+-------------------------------------------------------------------------------------------------------------------------------
+
+misalnya saya punya variabel namanya penumpang isi nya array kosong ( var penumpang = [ ]; )
+lalu dibawah nya kita isi angka tadi biar jadi array ya.
+
+var penumpang = [ ];
+1 2 3 .... 15
+--------------------------------------------------------
+
+PENGELOLAAN PENUMPANG
+- Penumpang naik
+   - tambahPenumpang
+- Penumpang turun
+   - hapusPenumpang
+
+nah sekarang ke aturan program yg akan kita buat, progaram yg kita buat nanti itu terdiri dari
+2 fungsionalitas utama, pertama kita akan kelola ketika penumpang nya naik angkot nanti kita
+akan representasikan ke sebuah fungsi yg namanya ( tambahPenumpang() ), lalu kita juga
+akan kelola ketika penumpang nya turun, nah nanti kita buat function nya kita kasih nama aja
+( hapusPenumpang() ).
+
+-------------------------------------------------------------------------------------------------------------------------------
+
+tambahPenumpang()
+
+- 2 parameter:
+  - namaPenumpang
+  - Array penumpang
+
+- RULES
+  - jika angkot kosong, penumpang naik duduk dikursi pertama
+  - penumpang berikutnya duduk di kursi selanjutnya secara berurutan
+  - jika ada kursi kosong ( karena penumpang turun ), penumpang yang naik berikutnya
+     duduk di kursi kosong terlebih dahulu
+  - asumsi kursi tidak akan pernah penuh dan akan bertambah terus jika ada penumpang naik
+  - nama penumpang tidak boleh sama, untuk menghindari kebingungan ketika nanti penumpang
+     turun
+
+tapi kita sekarang fokus dulu ke tambahPenumpang ya, untuk tambahPenumpang jadi nanti
+function tambahPenumpang ini akan menerima 2 buah parameter, parameter pertama
+adalah namaPenumpang yg akan naik ke angkot nya, nanti kita kirim kan nama penumpangnya,
+lalu parameter ke2 adalah array penumpang nya tadi, nah jadi penumpang nya mau naik di angkot
+yg mana.
+
+-------------------------------------------------------------------------------------------------------------------------------
+
+lalu kita juga punya aturan, pertama jika angkot nya kosong penumpang naik duduk dikursi
+pertama, jadi kita tentukan nih penumpang nya mau duduk dimana jadi gasembarangan
+duduk nya, lalu penumpang berikut nya itu naik pasti di kursi berikutnya, jadi kalo penumpang
+pertama duduk dikursi pertama pasti penumpang ke2 duduk dikursi ke2 ya, penumpang berikutnya
+duduk dikursi ke 3 jadi gitu secara berurutan.
+
+nah jika ada kursi kosong, ya suatu saat nanti penumpang nya turun ya nah kalo ada penumpang
+yang turun berarti ada kursi yg ksong, nah ketika ada penumpang yg naik maka penumpang yg
+naik akan duduk dikursi yg kosong tadi, jadi jangan duduk dikursi terakhir tapi isi dulu kursi yg
+kosong, lalu selanjutnya kita asusmsi kan kalo kursi itu ga akan penuh agar kita bisa isi kan
+lebih dinamis.
+
+lalu terakhir nama penumpang yg naik itu tidak boleh sama, untuk menghindari kebingungan
+ketika nanti membuat fungsi sata ketika turun.
+
+agar kalian terbayang nanti seperti apa jadi nya kita kasih test case dulu
+
+-------------------------------------------------------------------------------------------------------------------------------
+
+tambahPenumpang() - Test Case 1
+
+var penumpang = [ ];
+jadi array nya gaada isi nya seperti ini
+
+nanti kalo kita coba menambahkan penumpang, kita menggunakan console seperti ini
+tambahPenumpang('Keyla', penumpang); ) kita panggil function nya tambahPenumpang()
+lalu ceritanya ada penumpang namanya Keyla mau naik ke array penumpang nah nanti kalo
+kita jalankan harusnya seperti ini :
+
+["Keyla"]
+
+jadi Keyla tadi masuk kedalam array nya, pasti dia aada didalam elemet pertama array nya
+duduk dikursi pertama, selanjutnya kalo ada penumpang lain, ada penumpang namanya dody
+saya panggil difunction, dia naik ke array penumpang nah itu pasti dody masuk ke kursi ke2,
+di sebelah keyla ada di index berikutnya.
+
+-------------------------------------------------------------------------------------------------------------------------------
+
+tambahPenumpang() - Test Case 2
+
+var penumpang = ['Keyla', undefined, 'Doddy'];
+
+jadi ceritanya di angkot nya udah ada penumpang nya, ada penumpang yang duduk di kursi
+pertama dan ada yg duduk di kursi ke 3, nah penumpang yg duduk di kursi ke2 itu ceritanya
+udah turun, kalo udah turun berarti ada kursi yg kosong, nah kursi yg kosong ini kita tandai
+dengan nilai undefined pada kursinya.
+
+sekarang kalo misalnya kita panggil lagi function tambahPenumpang kita panggil lagi, ada
+penumpang baru yg mau naik dengan nama "Galih" ke array penumpang, maka harusnya dia
+duduk dulu dikursi yg kosong nya ( ['Keyla', 'Galih' , 'Doddy']  ) lalu selanjutnya ketika ada lagi
+penumpang yg naik misalnya namanya 'Nofariza' baru dia duduk nya disebelah penumpang
+yg bernama 'Doddy' yg berarti di akhir ya atau selanjutnya.
+
+-------------------------------------------------------------------------------------------------------------------------------
+
+tambahPenumpang() - Test Case 3
+
+var penumpang =  ['Keyla', 'Galih' , 'Doddy'];
+
+jika ad penumpang yg naik dengan nama yg sama dengan nama yg sama yg sudah ada didalm
+angkot, ya misalnya didalm angkot sudha ada nama nya (  ['Keyla', 'Galih' , 'Doddy'] ) lalu ceritanya
+kita akan menambahkan satu penumpang lagi tapi nama nya "Keyla", nah ini harusnya tampilnya
+informasih bahwa "keyla" sudah ada di dalam angkot, lalu tampilkan isi penumpang nya.
+
+ya jadi itu 3 test case yg untuk mengerjakan program ini
+
+-------------------------------------------------------------------------------------------------------------------------------
+
+CONTOH CODINGAN :
+
+var penumpang = ['caca', undefined, 'kola'];
+var tambahPenumpang = function (namaPenumpang, penumpang) {
+
+    if (penumpang.length == 0) {
+        penumpang.push(namaPenumpang);
+        return penumpang; 
+    } else {
+        for (var i = 0; i < penumpang.length; i++) {
+            if (penumpang[i] == undefined) {
+                penumpang[i] = namaPenumpang;
+                return penumpang;
+            } else if (penumpang[i] == namaPenumpang) {
+                console.log(namaPenumpang + ' sudah ada di dalam angkot');
+                return penumpang;
+            } else if (i == penumpang.length - 1) {
+                penumpang.push(namaPenumpang);
+                return penumpang;
+            }
+        }
+    }
+}
+
+cara pangggil nya atau jalanin function nya tinggal diconsole nya langusng dengan menulis
+tambahPenumpang('namaseterah', penumpang); gitu
+
+-------------------------------------------------------------------------------------------------------------------------------
+
+jadi pertama kita udah puna array penumpang kosong, lalu kita bikin sebuah function expresion
+kita bikin tambahPenumpang, yg di isi dengan sebuah function yg nerima dua buah parameter,
+yg pertama namaPenumpang yg kedua array penumpang.
+
+jadi sebenernya namaPenumpang ini akan masuk array penumpang ini, yg pertama kita cek dulu
+jika angkot nya kosong kita akan masukin penumpang di awal array, nah kita buat if dengan di
+dalam nya kondisi ( penumpang.length == 0 ) jadi baca nya gini, jika penumpang dengan length
+nya sama dengan 0, pastikan penumpang nya kosong karena length nya juga 0.
+
+maka kalo kosong tambahkan penumpang di awal array, nah cara menyimpan sebuah nilai
+kedalam array paling gampang menggunakan push ya jadi gini,
+(  penumpang.push(namaPenumpang)  ) maka penumpang ini akan masuk kedalam array
+angkot itu, lalu kembalikan nilai nya berarti ( return penumpang;  ), ketika kita menggunakan
+return ini sekaligus kita keluar dari function, nah ini kalo penumpang nya kosong.
+
+-------------------------------------------------------------------------------------------------------------------------------
+
+selanjutnya ELSE, else itu artinya kalo penumpang nya ada kita akan telusuri seluruh kursi nya
+dari awal, nah ini paling gampang menggunakan FOR, kita akan menelusuri tiap" kursi yg ada di
+angkot, nah jadi nya gini (  for (var i = 0; i < penumpang.length; i++)  ).
+
+nah pertama" kita cek dulu kalo ada kursi yg kosong, jadi ketika ditelusuri ditemukan bahwa
+array penumpang ini index nya (  penumpang[i]  ), jadi array penumpang dengan index i, itu nomor
+kursi nya, sama dengan kalo kosong kita tandai nya dengan undefined (  if (penumpang[i] ==
+undefined  ), maka penumpang yg naik suruh duduk dikursi yg kosong itu.
+
+jadi kita tulis (  penumpang[i] = namaPenumpang;  ), jadi penumpang yg naik duduk dikursi
+yang kosong, kalo sudah kita kembalikan lagi array penumpang nya.
+
+-------------------------------------------------------------------------------------------------------------------------------
+
+// jika seluruh kursi terisi
+
+kita seting yg kalo semua kursi sudah terisi itu gimana kondisi nya, jadi saya mau nya kalo
+kursi nya udah terisi semuanya maka kita akan menambahkan satu penumpang diakhir array,
+kita bisa pake else if, nah else if ini akan ngecek ketika seluruh kursinya udah ditelusuri.
+
+caranya gini ketika ( i ) nya udah sampe ujung, biar kita tau gimana sudah sampe ujung
+kita tulis aja penumpang.length, hati" penumpang.length itu jumlah element pada array
+kalo misalnya (  ['caca', undefined, 'kola'];  ), seperti ini length nya 3 ya, kalo length nya 3
+nomor kursi paling akhir 2 ya, karena index atau nomor kursi itu selalu dimulai dari 0.
+
+jadi kalo kita udah berhasil menelusuri sampe akhir itu berarti length nya di kurang 1
+agar kan penumpang.length nya 3 tuh, terus index array nya itu sampe 2 doang
+jadinya di kurang -1 biar jadi penumpang.length nya 2, jadi nomor kusi akhir itu pasti
+jumlah penumpang dikurangi 1 (  else if (i == penumpang.length - 1)  ).
+
+udah berhasil tuh
+
+-------------------------------------------------------------------------------------------------------------------------------
+
+ // jika sudah ada nama yang sama
+
+kalo misalkan saya tambah penumpang baru tapi namanya "caca" juga, nah ini sebenernya gpp
+tapi ini akan membingungkan ketika kita ingin membikin function hapus penumpang, karena
+function hapus penumpang nanti kita akan nyuruh penumpang dengan nama tertentu untuk turun
+kalo ada nama yg sama nanti bingung siapa yg turun, makannya kita tanganin nih supaya gaada
+penumpang yg namanya sama.
+
+caranya kita tambahkan else if, kalo ada penumpang yg duduk dikursi ke [ i ],  jadii ini kita
+sedang telusuri kursinya satu persatu misalnya, isi nya sama dengan nama penumpang yg
+mau naik misalnya ( else if (penumpang[i] == namaPenumpang)  ).
+
+maka kita tampilkan pesan kesalahannya pake console.log aja, misalnya si nama penumpang ini
+sudah ada didalam angkot, (  console.log(namaPenumpang + ' sudah ada di dalam angkot');  ),
+lalu kita return array penumpang nya.
+
+-------------------------------------------------------------------------------------------------------------------------------
+
+kalo emang kurang ngerti bisa di pahami pelan pelan sambil bikin tabel penelusurannya aja.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

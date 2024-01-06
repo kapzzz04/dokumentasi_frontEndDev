@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Web Accessibility</title>
+</head>
+
+<body>
+    <h1>Hello WPU!</h1>
+
+    <form action="#">
+        <label for="nama">Nama :</label>
+        <input type="text" name="nama" id="nama">
+
+        <label for="jurusan">Jurusan :</label>
+        <select name="jurusan" id="jurusan">
+            <option value="if">Teknik Infromatika</option>
+            <option value="ti">Teknik Industri</option>
+        </select>
+
+        <button style="margin-bottom: 30px;">Kirim!</button>
+
+        <div tabindex="0" onclick="alert('halo');" role="button" id="button">tombol 1</div>
+        <div tabindex="0">tombol 2</div>
+        <div tabindex="0">tombol 3</div>
+    </form>
+
+
+    <script>
+        const button1 = document.querySelector('#button');
+        button1.addEventListener('keyup', function (e) {
+            if (e.keyCode == 32 || e.keyCode == 13) {
+                alert('hello');
+            }
+        });
+    </script>
+</body>
+
+</html>

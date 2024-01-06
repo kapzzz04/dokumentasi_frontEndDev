@@ -1,0 +1,840 @@
+Form Validation -- Belajar HTML5
+
+Nah jadi apa itu Form Validation, jadi ini lah sebuah cara kita untuk melakukan validasi pada inputan
+yang akan kita kirimkan melalui Form, ya form nya bisa macem" ya. Bisa form seperti form login
+atau misalnya form regirstrasi, atau form data diri kita atau form kontak, atau yg lebih kompleks
+untuk form pembayaran kita checkout di ecomers misalnya dan masih bnyak lagi. 
+
+Dan dimana disetiap form nya itu pasti kita punya kolom inputan yg datanya akan kita validasi, Nah
+untuk memvalidasinya itu sebetulnya ada 2 cara ya. yg pertama itu bisa dari sisi client atau kita
+sebut dengan client side dan ada dari sisi server atau server side.
+
+Nah yg akan kita bahas di video kali ini adalah yg Client side, jadi data sebelum dikirimkan ke server
+kita proses dulu validasinya baru dikirim, sedangkan kalo yg server side itu data dikirim dulu baru
+divalidasi disisi server.
+
+-------------------------------------------------------------------------------------------------------------------------------
+
+Client-side Form Validation
+
+- HTML5 built-in validation
+- Javascript
+
+Dan untuk validasi di client side ini ada 2 cara juga, kita bisa validasi menggunakan element" di
+dalam HTML5 atau nanti kita juga bisa menggunakan bantuan Javascript untuk melakukan validasi
+ini di sisi client, nah tapi kita lagi bahas HTML5 kita coba  liat gimana html5 bisa menangani 
+validasi ini.
+
+BUILT-IN VALIDATION
+
+- INPUT TYPES
+- Attributes
+
+Nah kita liat apa saja Built-in Validation nya, yg pertama itu kita bisa menggunakan type input 
+validasinya ya, karena sebelumnya di html4 itu type input nya sangat terbatas mungkin hanya ada
+input yg tipe nya text atau input yg type nya pw.
+
+Nah didalam html5 ini type inputnya jadi sangat beragam sesuai dengan kebutuhan kita, kita mau
+isiin apa, misalnya email,angka dan seterusnya.
+
+Selain dengan menggunakan type input, kita juga bisa melakukan validasi menggunakan attribute
+yg bisa kita sisipkan didalam input atau element html5 nya, nanti itu juga akan kita liat satu per satu
+ya.
+
+-------------------------------------------------------------------------------------------------------------------------------
+
+HTML5 INPUT TYPES
+
+- email
+- tel
+- url
+- number
+- range
+- datetime picker
+- color picker
+
+Yang pertama ada email untuk melakukan validasi terhadap email, yg ke-2 ada tel ini untuk 
+melakukan validasi terhadap nomor telfon ya, ke-3 ada url ini kalo misal kalian mau nyimpen 
+alamat web dengan benar, ke-4 ada number untuk nyimpen angka, ke-5 ada range untuk membuat
+semacam slider yg bisa kita geser" tergantung dari nilai yg akan kita kasih nanti, ke-6 ada datetime
+picker untuk memilih dan menentukan tanggal, ke-7 color picker untuk memilih warna.
+
+jadi itulah beberapa tipe input yg baru yg bisa kita gunakan yg masing-masing memiliki Ui atau
+tampilan yg sesuai dengan fungsinya, jadi ga hanya input kosong polos seperti kita kasih input type
+text saja.
+
+nah tapi kalo nanti kedepannya browser yg kita pake belum suport atau tidak suport dari type" itu
+maka yg akan tampil nantinya itu sama dengan input text biasa, tapi dirasa browser nya udah pada
+suport ya. Dan nanti kita akan coba juga beberapa dari type input itu akan menghasilkan tampilan
+yang berbeda ketika kita buka di device mobile.
+
+-------------------------------------------------------------------------------------------------------------------------------
+
+Langsung aja kita coba cara pake dari type masing-maisng input itu ya, nah kita udah ada di file
+html nya lalu kita persiapkan dulu didalam body nya kita Tag form nya ya, attribute action nya kita
+kosongin aja ya, lalu kita kasih method nya ya. Kalian boleh kasih method nya  Get atau post ini
+sekarang ga akan terlalu berpengaruh karena kita belum akan proses datanya, kita hanya lakukan
+validasi aja, kita kasih method nya post aja.
+
+Terus didalamnya kita akan bikin dulu element input sederhana ya, kita bikin div kosong kita kasih
+label tarus for nya kita kasih nama karena kita mau bikin inputan untuk nama, terus dibawahnya 
+kita kasih input yg type nya text lalu kasih attribute name isi nya nama dan lalu id nya kita kasih 
+nama. kalo udah belajar html dasar pasti ngerti attribute itu untuk apa aja ya. Seperti ini :
+
+<form action="" method="post">
+        <div>
+            <label for="nama">Masukan nama: </label>
+            <input type="text" name="nama" id="nama">
+        </div>
+    </form>
+--------------------------------------------------
+
+Lalu berikutnya kita bikin tombol jangan lupa, kita kasih div yg di dalamnya kita kasih button, yang
+tulisan nya 'kirim', lalu kita kasih type nya sumbit. Seperti ini :
+
+<form action="" method="post">
+        <div>
+            <label for="nama">Masukan nama: </label>
+            <input type="text" name="nama" id="nama">
+        </div>
+
+        <div>
+            <button type="submit">KIRIM!</button>
+        </div>
+    </form>
+--------------------------------------------------
+
+kita kasih style sedikit supaya nanti inputnya ada di bawah label nya. Seperti ini :
+
+ <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        form {
+            width: 600px;
+            padding: 20px;
+        }
+
+        label {
+            display: block;
+        }
+
+        form div {
+            margin: 10px;
+        }
+    </style>
+--------------------------------------------------
+
+NAh gitu dulu aja, sebelum kita masuk ke dalam element inputnya, tadi saya mau ngasih tau dulu
+kenapa kita pake 'for' di label dan 'id' di input  ya, ini supaya kalo misalkan kita mau ngisi element
+inputnya, kan yg kita lakukan kita klik inputnya terus kita isi.
+
+Nah tapi ketika kita bikin label dan inputnya memiliki pasangan antara isi for dan id yg sama, kita 
+bisa klik judul label nya untuk mengaktifkan input nya, jadi ga perlu di klik langsung jadi di klik aja
+label nya.
+
+-------------------------------------------------------------------------------------------------------------------------------
+
+EMAIL
+
+Jadi yg pertama kita membuat input yang type nya text, dengan membuat input yang type nya text
+ini kita bisa masukin apapun, mau huruf atau angka dan mau berapapun panjang daru tulisan nya
+bisa, mau kosong pun bisa. Ya jadi gaada validasinya saam sekali bisa kita isi kan apapun.
+
+Nah sekarang gimana kalo kita bikin satu lagi, terus attribute name nya kita ganti jadi email, jadi 
+ceritanya saya punya nama dan email. Seperti ini :
+
+ <form action="" method="post">
+        <div>
+            <label for="nama">Masukan nama: </label>
+            <input type="text" name="nama" id="nama">
+        </div>
+
+        <div>
+            <label for="1">Masukan email: </label>
+            <input type="text" name="email" id="1">
+        </div>
+
+        <div>
+            <button type="submit">KIRIM!</button>
+        </div>
+    </form>
+--------------------------------------------------
+
+( oh iya untuk for dan id itu harus sama isi nya tapi kita bebas mau isi apa aja )
+
+Nah email itu sekarang bentuk nya text, jadi kalo masukan nama saya di nama, terus saya
+masukan email saya sembarang, begitu saya klik kirim data nya hilang, itu artinya datanya sudah
+terkirim ke url ( action=" " ) di bagian Tag form.
+
+Karena kosong maka data dikirim ke halaman yang sama, karena kita pake method 'post' datanya
+gaada di url, tapi kalo kita pake method 'get'. Begitu saya masukan nama saya terus email nya tadi
+sembarang ketika di klik kirim datanya ada di url halaman HTML kita liat aja deh.
+
+Seperti ini :
+
+HTML nya : 
+
+<form action="" method="get">
+        <div>
+            <label for="nama">Masukan nama: </label>
+            <input type="text" name="nama" id="nama">
+        </div>
+
+        <div>
+            <label for="1">Masukan email: </label>
+            <input type="text" name="email" id="1">
+        </div>
+
+        <div>
+            <button type="submit">KIRIM!</button>
+        </div>
+    </form>
+
+URL nya : ( http://127.0.0.1:5500/index.html?nama=keyla&email=lala )
+
+biar ga ribet kita ganti aja method nya jadi post lagi.
+
+-------------------------------------------------------------------------------------------------------------------------------
+
+Nah jadi itu ya nama sama email 22 nya type nya text, bisa kita isi macem", padahal email itu 
+harusnya ada format nya ya, Nah dengan kita mengganti typenya jadi 'email' nah ini otomatis ada
+validasi yg dilakukan oleh HTML nya. Seperti ini :
+
+   <div>
+            <label for="1">Masukan email: </label>
+            <input type="email" name="email" id="1">
+        </div>
+---------------------------------------------
+
+Jadi kalo misalnya kita masukin namanya bener terus email nya salah, tanpa format dari email
+misalnya, lalu begitu kita klik kirim. Nah dia ada pesan kesalahan bahwa kita nulis email nya ga 
+lengkap dengan format dan data nya ga kekirim. 
+
+Jadi kita harus tambahin format misal nya @gmail.com gitu walaupun email kita ga valid pake 
+format itu ttp bisa kekirim seolah" datanya kekirim ya. Jadi dari situ teman" bisa liat baru dari sisi
+client aja kita udah bisa validasi. Jadi minimal begitu data masuk ke server udah kita bersihin 
+sedikit lah.
+
+Walaupun untuk email ini masih ada sedikit kekurangan, pasa saya masukin nama terus saya
+masukin email. Seperti ini : (sandhika@gmail ), ini di anggap valid jadi itu bisa saya kirim padahal
+belum ada ( .com ) nya.
+
+Nah itu karena HTML nya itu memasukan validasi untuk email lokal, nah email lokal itu gaperlu 
+kita masukin nama domain di belakangnya jadi cukup menggunakan @gmail itu udah bisa. 
+Makannya itu keliatanya agak aneh kalo kita masukin Seperti ini : (asd@asd) ini masih lolos ya.
+Tapi setidaknya email sudah bisa kita jagain kalo gapake @ gabisa dia.
+
+NAh dengan menggunakan input type 'email' itu ada satu kelebihan lagi, ketika halaman nya kita
+buka di mobile device kalo kita masukan nama kyboard nya muncul buat ngetik yakan, kalo kita
+pake input type 'text' semua huruf muncul, tapi ketika saya pilih yang 'email'  udah otomatis ada @
+jadi sekarang di mobile device udah tau kalo input itu adalah email.
+
+-------------------------------------------------------------------------------------------------------------------------------
+
+TEL
+
+type yg kita akan coba yaitu TEL untuk memasukan nomor tlpn. Seperti ini :
+
+<div>
+            <label for="nohp">Masukan No HP: </label>
+            <input type="tel" name="nohp" id="nohp">
+        </div>
+--------------------------------------
+
+Nah kalo kalian liat sekarang tampilnya sama dengan input biasa dan bahkan kalo kita isi itu kita
+bisa isi pake huruf dan bisa isi pake angka, padahal kan harusnya no hp itu gaada hurufnya ya.
+Nah untuk ngasih format hanya nomor yg bisa kita masukan ke situ,  itu kita gabisa begitu aja 
+langsung bisa melakukan validasi terhadap nomor Hp kita nanti butuh sebuah attribute yg namanya
+'patren'.
+
+Nah bedanya input tel sama yg biasa itu bedanya adalah ketika kita buka di mobile device, kalo
+di situ ketika kita klik input type 'tel' nya maka nanti muncul kyboard yg nomor semua gaada huruf,
+kan kita mau ngetik di hp kita butuh kyboard lah ya, nah itu yg muncul full nomor aja. 
+
+-------------------------------------------------------------------------------------------------------------------------------
+
+URL
+
+Berikutnya kita akan coba untuk url, kita ganti tipe input nya jadi 'url'. Seperti ini : 
+
+ <div>
+            <label for="websaite">Masukan URL Websaite: </label>
+            <input type="url" name="websaite" id="websaite">
+        </div>
+--------------------------------------
+
+Nah kalo kalian liat secara visual bentukan ny masih sama aja, tapi ketika kita masukan apa aja
+tanpa format url lalu kirim, nah itu terjadi eror karena url yg dimasukan ga valid. Nah yg valid itu
+kita harus menulisakan di depannya itu 'protokol' nya ( https atau http ) nah itu baru url yg valid, kalo
+saya klik kirim terkirim lah dia.
+
+-------------------------------------------------------------------------------------------------------------------------------
+
+NUMBER
+
+sekarang kita coba yg number terus kita ganti type input nya jadi number. Seperti ini :
+
+ <div>
+            <label for="angka">Masukan angka: </label>
+            <input type="number" name="angka" id="angka">
+        </div>
+--------------------------------------
+
+nah untuk number secara visual sama aja, kecuali pada saat kita 'hover', pada saat kita hover liat
+disitu ada panah atas panah bawah, nah itu untuk menambah dan mengurangi angka nya 
+walaupun tetep bisa kita tulis juga ya.
+
+Dan sekarang saya gabisa masukin huruf, saya pencet tombol huruf di kyboard dia gamau muncul
+jadi itu hanya boleh angka, kita bisa tambah atau kurangin samapi mines, bahkan nanti kita bisa 
+manipulasi minimal berapa angka nya maximal berapa angkanya, terus pada saat kita pencet atas
+atau bawah itu naik nya per berapa.
+
+misalnya loncat kelipatan 5, setiap kita pencet nya atau misalnya 5,10,15,20 gitu.
+
+-------------------------------------------------------------------------------------------------------------------------------
+
+RANGE
+
+Nah kalo ini agak beda ya. Begitu type nya kita ganti jadi range itu bentuknya seperti slider. Seperti 
+ini :
+
+ <div>
+           <label for="slider">Masukan angka: </label>
+           <input type="range" name="slider" id="slider">
+     </div>
+--------------------------------------
+
+untuk sekarang ini angka nya blm tau berapa karena kita belum definisikan, nanti di topik berikutnya 
+kita akan bahas caranya untuk bisa ngasih angka berapa dan menurut pak dhika kekurangan dari
+Range adalah tidak ada panduan visual kita lagi milih angka berapa, nanti kita akan coba supaya 
+nambahin tulisan angka nya di kanan dan di kiri, misalnya 0 sampai 100, adi begitu kita geser 
+kekanan entar angka nya nambah.
+
+-------------------------------------------------------------------------------------------------------------------------------
+
+DATETIME PICKER
+
+KITA coba ya, type nya kita ganti jadi 'date'. Seperti ini:
+
+ <div>
+            <label for="tanggal">Masukan tanggal: </label>
+            <input type="date" name="tanggal" id="tanggal">
+        </div>
+--------------------------------------
+
+Nah keren ya langsung jadi ada kotak gitu, yang kalo kita klik langsung keluar pilihan tanggal nya dan
+secara default tanggal yang dipilih adalah tanggal hari ini, ya kalo butuh tanggal pake date. Nah ini
+sebenernya kita bisa ganti juga kalo hnya mau ngambil satu komponen nya aja.
+
+misalnya mau bulan aja kalian bisa ganti type nya jadi month, atau mau pilihan minggu atau week,
+ada lagi 'time', nah kalo time itu jam ya, jadi misal mau pemesanan tiket bioskop bisa pake time gitu 
+ya, dan kalo browsernya ga suport nanti dia akan balik lagi ke setelan input biasanya.
+
+-------------------------------------------------------------------------------------------------------------------------------
+
+COLOR PICKER
+
+untuk ni bisa ganti type inputnya ganti jadi 'color'. Seperti in :
+
+     <div>
+            <label for="warna">Masukan warna: </label>
+            <input type="color" name="warna" id="warna">
+        </div>
+--------------------------------------
+
+kalo color begitu di klik dia ada pilihan warna seperti itu, kita juga bisa pilih mau rgb,hsl atau hexa
+juga bisa, walaupun secara default nilai dari warna yang kita pilih itu yg didapatkan adalah selalu
+hexa desimalnya 
+
+-------------------------------------------------------------------------------------------------------------------------------
+
+HTML5 INPUT ATtributes
+
+- autocomplete ( input / from )
+- autofocus
+- required
+- minlength & maxlength
+- min dan max 
+- step
+- pattern
+
+Attribute yg bisa kita gunakan untuk melakukan validasi, yg pertama ada autocomplete nah attribute
+ini bisa kita gunakan untuk memunculkan atau menghilangkan fitur autocomplete pada input nya. 
+Nah ini kalo kalian ngeklik sebuah input kan biasa nya ada history dari nilai yg pernah di inputkan di 
+kolom itu.
+
+Nah kalo kita mau menghilangkan itu nanti kita bisa matikan menggunakan autocomplete bisa
+disimpan di setiap inputannya atau kalo mau semuanya langsung ga aktif kita bisa simpan di dalam
+Tag form nya.
+
+ke-2 ada autofocus yang akan membuat cursornya otomatis tersimpan disitu ketika halamannya
+kita refresh atau kita baru mengunjungi halaman itu.
+
+ke-3 required ini untuk membuat sebuah inputan itu wajib disi, kalo ga disi nanti akan ada eror,
+ke-4 minlength & maxlength ini untuk menentukan panjang dari kharakter yang boleh kita inputkan.
+ke-5 min dan max kalo ini untuk menentukan nilai, contohnya kalo misalnya kita mau menentukan
+angka, kalo kita kasih min 10 max nya 100, berarti nilai yang bisa kita masukan  antara 10-100, 0 
+gabisa 101 gabisa jadi udah kita batasi, misal kalian mau masukin nilai matakuliah nah itu antara
+0-100.
+
+ke-6 step ini untuk penambahan setiap kita klik tanda panah tadi misalnya kita bikin input typenya
+number minimal 10 maximal 100, step nya kita kasih 10, berarti yang bisa di isikan hanya angka
+yg kelipatan 10, jadi awalnya 10,20,30 dan seterusnya, jadi kita mau masukin 25 gabisa.
+
+ke-7 pattern ini untuk menentukan pola dari inputan yg bisa kita isi menggunakan regex atau regular
+expresion.
+
+-------------------------------------------------------------------------------------------------------------------------------
+
+MENCOBA ATTRIBUTES 
+
+kita akan coba dulu dari mulai nama ya, yang pertama kita akan coba fitur 'autocomplete', nah kalo
+di nama itu suka ada history apa yg uda kita masukan yakan, nah untuk hilangin nya kita tinggal
+tambahkn, karena kita mau matikan kita isi value nya dengan 'off'. seperti ini :
+ 
+  <div>
+            <label for="nama">Masukan nama: </label>
+            <input type="text" name="nama" id="nama" autocomplete="off">
+        </div>
+--------------------------------------------
+
+Nah uda gamuncul tuh, jadi orang lain gabisa liat apa yang udah pernah kita inputkan, unuk email
+muncul juga itu juga bisa kita matikan saja ya. atau kalo kalian gmau satu" dimasukin, kalian bisa
+taro aja autocomplate nya di dalam Tag form. jadi cukup sekali aja itu artinya semua inputan 
+autocomplatenya off. Seperti ini :
+
+   <form action="" method="get" autocomplete="off">
+        <div>
+            <label for="nama">Masukan nama: </label>
+            <input type="text" name="nama" id="nama">
+        </div>
+
+        <div>
+            <label for="1">Masukan email: </label>
+            <input type="email" name="email" id="1">
+        </div>
+  </form>
+--------------------------------------------
+
+AUTOFOCUS
+
+nah autofocus itu kalo saya tambahkan didalam nama, cukup tulis autofocus aja. Seperti ini :
+
+ <div>
+            <label for="nama">Masukan nama: </label>
+            <input type="text" name="nama" id="nama" autofocus>
+        </div>
+--------------------------------------------
+
+kalo kita ke browsernya terus refresh otomatis iputan yang nama aktif padahal kita belem klik input
+nya tapi dengan sendirinya aktif itu karena autofocus ya. jadi kita gaperlu klik lagi ini untuk 
+mempermudah agar user nya gaperlu klik dulu baru isi, tapi dia udah bisa langusung isi tab isi dan
+ya gitu ya. 
+
+Nah ini hanya boleh satu di satu form ya, karena kalo kita msukin autofocus di tempat lain nah nanti
+kan bingung ya focusnya dimana kok ada 2 gitu, nah kalo kita tulis nya 2 fokus nya ttp yg di pertama
+aja. Tapi kalo yg pertama kita apus terus autofocus nya ada di input yg ke-2 kalo kita refresh yg aktif
+pertama kali otomatis input yg ke-2. Seperti ini :
+
+ <form action="" method="get" autocomplete="off">
+        <div>
+            <label for="nama">Masukan nama: </label>
+            <input type="text" name="nama" id="nama">
+        </div>
+
+        <div>
+            <label for="1">Masukan email: </label>
+            <input type="email" name="email" id="1" autofocus>
+        </div>
+  </form>
+
+-------------------------------------------------------------------------------------------------------------------------------
+
+REQUIRED
+
+required itu agar inputan ini harus diisi, kalo dikosongkan form nya gabisa sumbit, kalo kita gaisi
+form nya kosongkan terus klik kirim nah ga valid terjadi eror. Seperti ini :
+
+ <div>
+            <label for="nama">Masukan nama: </label>
+            <input type="text" name="nama" id="nama" autofocus required>
+        </div>
+--------------------------------------------
+
+Jadi inputan nya harus di isi dulu baru dia mau, jadi itu silahkan kalo ada inputan yang wajib disi
+tambahkan required disitu nya.
+
+MINLENGTH & MAXLENGTH
+
+kita ambil contoh dari inputan nama ya, saya mau kasih minlength nya itu 2, nama gaboleh satu
+huruf kalo 2 huruf boleh. Seperti ini :
+
+  <div>
+            <label for="nama">Masukan nama: </label>
+            <input type="text" name="nama" id="nama" autofocus required minlength="2">
+        </div>
+--------------------------------------------
+
+Jadi kalo saya kosongin eror karena harus di isi, kalo saya masukan satu huruf nah ada eror juga 
+tuh karena minimal 2 khareakter atau lebih. Nah kalo kita kasih maxlength, ya walaupun nama itu
+jangan pendek" ya, kita coba kasih maxlength nya 5 aja. Seperti ini :
+
+    <div>
+            <label for="nama">Masukan nama: </label>
+            <input type="text" name="nama" id="nama"
+            autofocus required minlength="2" maxlength="5">
+        </div>
+--------------------------------------------
+
+Nah kalo kita kasih nya maksa sampai lebih dari 5 huruf, misa 6 huruf lah ya, nah disitu terjadi 
+kharakter ke-6 itu gabisa di tulis cuma mentok di 5 hufuf aja, jadi silahkan digunakan kalo kalian mau
+membatasi kharakter yang bisa di tulis.
+
+-------------------------------------------------------------------------------------------------------------------------------
+
+MIN & MAX
+
+ini biasa dipake untuk angka, jadi kita akan coba di inputan type number ya. kita kasih min nya 10 
+max nya misalnya 100. Seperti ini :
+
+  <div>
+            <label for="angka">Masukan angka: </label>
+            <input type="number" name="angka" id="angka" min="10" max="100">
+        </div>
+--------------------------------------------
+
+nah kotak nya otomatis mengecil karena kaya nya kalo di atas 100 khareakter nya gakan sekecil itu
+Nah coba kalo kita pencet ke bawah dia mentok di angka 10, kalo saya pencet atas dia akan 
+nambah satu persatu samapi angka nya 100, kalo saya ketik 101 masih bisa tapi kalo saya kirim itu
+gabisa.
+
+STEP
+
+Sekarang kita juga bisa tambahin step, untuk menentukan tahapannya atau setiap langkah nya mau
+nambah berapa, misalnya 5. Seperti ini:
+
+    <div>
+            <label for="angka">Masukan angka: </label>
+            <input type="number" name="angka" id="angka" min="10" max="100" step="5">
+        </div>
+--------------------------------------------
+
+Jadi kalo kita pencet atas dia akan nambah nya per 5 kelipatan 5, jadi kalo saya tulis angka 12 terus
+klik kirim itu gaakan bisa.
+
+-------------------------------------------------------------------------------------------------------------------------------
+
+PATTREN
+
+Nah untuk ini kalian harus paham dulu mengenai regex atau regular expresion dan ini bisa kita
+gunakan untuk input yang type nya 'text', kita coba ya kita salin input text yg di atas teru kita tulis
+di paling bawah dekte button ya. Sepert ini :
+
+<form action="" method="get" autocomplete="off">
+        <div>
+            <label for="nama">Masukan nama: </label>
+            <input type="text" name="nama" id="nama" autofocus required minlength="2" maxlength="5">
+        </div>
+
+        <div>
+            <label for="1">Masukan email: </label>
+            <input type="email" name="email" id="1">
+        </div>
+
+        <div>
+            <label for="nohp">Masukan No HP: </label>
+            <input type="tel" name="nohp" id="nohp">
+        </div>
+
+        <div>
+            <label for="websaite">Masukan URL Websaite: </label>
+            <input type="url" name="websaite" id="websaite">
+        </div>
+
+        <div>
+            <label for="angka">Masukan angka: </label>
+            <input type="number" name="angka" id="angka" min="10" max="100" step="5">
+        </div>
+
+        <div>
+            <label for="slider">Masukan angka: </label>
+            <input type="range" name="slider" id="slider">
+        </div>
+
+        <div>
+            <label for="tanggal">Masukan tanggal: </label>
+            <input type="time" name="tanggal" id="tanggal">
+        </div>
+
+        <div>
+            <label for="warna">Masukan warna: </label>
+            <input type="color" name="warna" id="warna">
+        </div>
+
+        <div>
+            <label for="kodepos">Masukan kodepos: </label>
+            <input type="text" name="kodepos" id="kodepos" pattern="">
+        </div>
+
+        <div>
+            <button type="submit">KIRIM!</button>
+        </div>
+    </form>
+
+----------------------------------------------------------------------------------------
+
+kalian harus paham dulu mengenai regex atau regular expresion ini langsung id copy kan saja
+pattern nya biar cepet, ini yang sederhana ya. Seperti ini :
+
+  <div>
+            <label for="kodepos">Masukan kodepos: </label>
+            <input type="text" name="kodepos" id="kodepos" 
+             pattern="^([1-9])[0-9]{4}$">
+        </div>
+--------------------------------------------
+
+nah ini kalian baca nya mulai dari awal baca angka nya ( ^ ) terus ketemu satu angka pertama itu
+harus antara 1-9, karena kode pos indonesia itu harus 5 digit dan tidak boleh di awali dengan 0,
+dan kharakter berikut nya itu boleh 0-9 dan di ulang sebanyak 4 kali sampai akhir. ini pola nya kalo
+kita inputkan yg tidak sesuai , misalnya saya masukin 3 digit terus klik kirim nantinya eror. kalo kita
+tulis 4 digit angka itu eror kalo 5 digit baru bener tapi gaboleh di awali angka 0.
+
+kalian boleh silahkan mempelajari mengenai reguler expresion supaya bisa masukin format yang
+sesuai. misalnya kita mau masukin nomor tlpn indonesia ya. Seperti ini : 
+
+  <div>
+            <label for="kodepos">Masukan kodepos: </label>
+            <input type="text" name="kodepos" id="kodepos" 
+            pattern="^(\+62|62|0)8[1-9][0-9]{6,9}$">
+        </div>
+--------------------------------------------
+
+Jadi bisa di awali dengan +62 atau 62 atau 0 lalu angka setelahnya harus angka 8, baru berikutnya
+antara 1-9, dan berikutnya antara 0-9, minimal 6 maximal 9 digit. supaya lebih keren itu juga bisa
+kita ganti type nya jadi 'tel'.
+ 
+-------------------------------------------------------------------------------------------------------------------------------
+
+Nah berikutnya untuk slider itu kita akan coba untuk nambahin angka ya, tapi ini kita harus lakukan
+dengan bantuan menggunakan javascript.
+
+Jadi yang pertama kita bisa tangkap dulu element nya, nah gimana kalo kita tambahin 2 buah 
+element ya, element di sebelumnya dan element di setelahnya, kita bikin 2 span yg satu nama clas
+nya awal yg satu nama clas nya akhir. Sperti ini : 
+
+<div>
+            <label for="slider">Masukan angka: </label>
+            <span class="awal"></span>
+            <input type="range" name="slider" id="slider">
+            <span class="akhir"></span>
+        </div>
+--------------------------------------------
+
+langsung aja kita kasih event slider nya ya ketika slider nya digeser, nah kita mau si nilai awal nya
+itu kita ambil dari nilai min si slider nya ya dan nilai akhir nya kita ambil dari nilai value, value itu nilai
+saat itu nya, slider nya kan default awalnya di tengah nah itu 50 yekan, kalo kita geser slider nya
+belum berpengaruh ya. Seperti ini :
+
+const slider = document.querySelector('#slider');
+
+slider.previousElementSibling.innerHTML = slider.min;
+slider.nextElementSibling.innerHTML = slider.value;
+
+slider.addEventListener('change', function () {
+
+});
+--------------------------------------------
+
+lalu kita isi di dalam function nya slider.nextElementSibling.innerHTML = slider.value;, juga jadi
+ketika saya geser slider nya terus saya lepas saya pengen nilai nya berubah. Seperti ini :
+
+const slider = document.querySelector('#slider');
+
+slider.previousElementSibling.innerHTML = slider.min;
+slider.nextElementSibling.innerHTML = slider.value;
+
+slider.addEventListener('change', function () {
+    slider.nextElementSibling.innerHTML = slider.value;
+});
+--------------------------------------------
+
+liat nih ketika saya geser saya lepas berubah angka nya tuh berhasil ya, cuman ini ada kekurangan
+saya harus lepas dulu pas ngegesernya baru berhasil keliatan angka nya setelah di lepas, Nah kalo
+teman" mau saat di geser langsung instan berubah, event nya bukan change tapi input, nah tapi
+hati-hati input ini gajalan di semua browser ya. Seperti ini :
+
+const slider = document.querySelector('#slider');
+
+slider.previousElementSibling.innerHTML = slider.min;
+slider.nextElementSibling.innerHTML = slider.value;
+
+slider.addEventListener('input', function () {
+    slider.nextElementSibling.innerHTML = slider.value;
+});
+--------------------------------------------
+
+Dan hal ini juga bisa kita terapkan di warna ya, jadi saya saat pilih warna misalnya di sebelahnya
+saya mau kasih hexa nya apa, caranya sama kita panggil lagi si warnanya, terus kita tambah
+element setelahnya span kita kasih class nya hexa. Seperti ini :
+
+HTML :
+ <div>
+            <label for="warna">Masukan warna: </label>
+            <input type="color" name="warna" id="warna">
+            <span class="hexa"></span>
+        </div>
+
+const warna = document.querySelector('#warna');
+
+warna.nextElementSibling.innerHTML = warna.value;
+warna.addEventListener('input', function () {
+    warna.nextElementSibling.innerHTML = warna.value;
+});
+--------------------------------------------
+
+udah jadi gitu aja.
+Biar lebih keren kita ubah warna dari hexanya juga ya
+
+const warna = document.querySelector('#warna');
+
+warna.nextElementSibling.innerHTML = warna.value;
+warna.addEventListener('input', function () {
+    warna.nextElementSibling.innerHTML = warna.value;
+    warna.nextElementSibling.style.color = warna.value;
+});
+--------------------------------------------
+
+Nah misalnya kalian mau bikin aplikasi uat jualan baju atau jualan sepatu terus suruh milih warna
+nah bisa pake itu.
+
+-------------------------------------------------------------------------------------------------------------------------------
+
+CSS VALIDATION Pseudo-class
+
+ :required
+ :valid
+ :invalid
+
+berikutnya kita juga bisa menambahkan style untuk validasi kita menggunakan css pseudo-class,
+jadi di css juga ada pseudo-class baru, yg namanya ( :required, :valid, :invalid ). Ini bisa kita pake
+kalo misalnya kita mau kasih style yang berbeda ketika salah mengisi kan input.
+
+kan secara default kalo kita isi kan inputnya salah eror nya hanya tulisan dari sono nya kan, nah
+saya mau bikin misal border nya jadi warna merah ketika invalid ya. tulisa aja gini, ketika inputnya
+itu invalid, nah saya mau kasih misal border nya none terus outline ya karena kalo mau bikin form
+itu pakenya outline misalnya 2px solid red.
+
+Nah tapi kalo valid kita balikin ke normal seperti ini :
+
+ input:invalid {
+            border: none;
+            outline: 2px solid red;
+            border-radius: 2px;
+        }
+
+        input:valid {
+            border: 1px solid black;
+            outline: inherit;
+            border-radius: inherit;
+        }
+--------------------------------------------
+
+ini juga style nya berlaku misalnya email ya sama dia juga akan merah ketika invalid, begitu pula
+dengan required, seperti ini :
+
+  input:invalid,
+        input:required:invalid {
+            border: none;
+            outline: 2px solid red;
+            border-radius: 2px;
+        }
+
+        input:valid,
+        input:required {
+            border: 1px solid black;
+            outline: inherit;
+            border-radius: inherit;
+        }
+--------------------------------------------
+
+nah yg pertama itu kalo si input requered nya invalid makajalankan itu, kalo input nya valid dan 
+required nya valid juga aritinya keisi juga maka jalankan itu. nah jadi bisa di tumpuk kaya gitu juga
+ya ya begitulah.
+
+-------------------------------------------------------------------------------------------------------------------------------
+
+JAVASCRIPT CUSTOM VALIDATION
+
+dan yg terakhir mungkin kalian liat pesan kesalahannya defaultnya pake b inggris , mungkin ada yg
+pengen ganti pesan nya sesuai dengan keinginan kita. kita bisa ganti bahasa nya dengan bantuan
+menggunakan js untuk custom validation.
+
+- oninvalid
+- setCustomValidity()
+
+ada 2 yg harus kita tau, yg pertama itu eventd nya atau oninvalid ya, jadi saat invalid apa yang kita
+lakukan, yg ke-2 method untuk menggantinya namanya (setCustomValidity()). Kita coba dibagian
+nama aja ya.
+
+kalo misalnya saya mau pesan nya itu bukan please fill out this field, nah kita kasih di HTML nya 
+event nya oninvalid terus value nya kita kasih method yg tadi, kalian tulis aja ( this. ) jadi artinya
+element ini kita akan setCustomValidity(), terus pesan nya mau apa. Seperti ini :
+
+<div>
+            <label for="nama">Masukan nama: </label>
+            <input type="text" name="nama" id="nama" autofocus required minlength="2" maxlength="5"
+                oninvalid="this.setCustomValidity('ini harus di isi')">
+        </div>
+--------------------------------------------
+
+cuman sekarang kekurangan nya adalah begitu kita isi dia tetep muncul tulisannya, supaya ilang 
+tulisan nya kita harus tambahin satu lagi event nya yaitu 'oninput' jadi ketika ada input kita hilangkan
+pesan nya jadi kita timpa method nya dengan string kosong. Sepert ini :
+
+
+ <div>
+            <label for="nama">Masukan nama: </label>
+            <input type="text" name="nama" id="nama" autofocus required minlength="2" maxlength="5"
+                oninvalid="this.setCustomValidity('ini harus di isi')" oninput="this.setCustomValidity('')">
+        </div>
+
+--------------------------------------------
+
+Jadi nya kalo kosong terus di klik kirim nanti nongol ada pesan nya, tapi ketika diisi aman ya.
+Sebelum di akhiri kalo kalian mau menghilangkan semua valadasi yg sudah dilakukan, misalnya
+pengen nyobain dulu kalo tanpa validasi itu gimana tapi gamau menghapus semua attribute, kalian
+bisa kasih aja di dalam form nya sebuah attribute namanya ( 'novalidate' ) nah ini akan menghilang
+kan semua validasi nya. seperti ini :
+
+   <form action="" method="get" autocomplete="off" novalidate>
+
+...............................
+...............................
+
+</form>
+--------------------------------------------
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

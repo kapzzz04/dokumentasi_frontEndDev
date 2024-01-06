@@ -1,0 +1,301 @@
+CSS3 -- Transition (2)
+
+transition: [property] <durasi> [fungsi] [delay];
+
+[FUNGSI]
+Selanjutnya yg akan kita bahas adalah mengenai [fungsi] transisi NAH parameter ini cukup menarik ya dimana kita bisa melihat nanti perbedaan fungsi transisi apa yg bisa kita gunakan.
+
+fungsi transisi / timing function
+Fungsi transisi ini disebut juga timing function, jadi intinya pergerakan apa yang akan kalian lakukan pada saat menggunakan transisi. ada beberapa nilai yg bisa kalian berikan :
+
+timing function
+- ease
+- ease-in
+- ease-out
+- ease-in-out
+- linear
+- cubic-bezier(w,x,y,z)
+
+Kalo kalian ga berikan apa" itu nilai default nya yg ease, contohnya kita kembali ke kasus kita atau codingan kita di video sebelumnya ya. Kita akan liat perbedaan dari masing" fungsi transisi atau timing function.
+
+Jadi yg pertama misalkan ini yg kotak kalo saya tambahkan didalam transisinya nilai ease :
+
+ .kotak {
+            width: 100px;
+            height: 100px;
+            background-color: aqua;
+            transition: all 1s ease;
+        }
+
+        .container:hover .kotak {
+            transform: rotate(180deg);
+            margin-left: 800px;
+            background-color: salmon;
+        }
+-------------------------------
+
+Kalo kita lihat hasilnya maka sama kaya tadi ya hasilnya gaada perubahaan, Nah beda ketika saya ganti jadi ease-in :
+
+.kotak {
+            width: 100px;
+            height: 100px;
+            background-color: aqua;
+            transition: all 1s ease-in;
+        }
+
+        .container:hover .kotak {
+            transform: rotate(180deg);
+            margin-left: 800px;
+            background-color: salmon;
+        }
+-------------------------------
+
+Jadi kalo ease-in itu awalnya pelan makin lama makin ngebut, Ya atau kalo kalian bisa liat perbedaan nya secara langsung kita bikin 2 deh kotak nya ya, Jadi si div yg class nya kotak saya tambahkan class baru kotak1 misalnya gitu, terus transition nya kita bedain antara kotak1 dan 2, misal kotak1 untuk ease, kotak2 untuk ease-in dan seterusnya. Seperti ini :
+
+.kotak {
+            width: 100px;
+            height: 100px;
+            background-color: aqua;
+            text-align: center;
+            line-height: 100px;
+            margin: 5px 0;
+        }
+
+        .kotak1 {
+            transition: all 1s ease;
+        }
+
+        .kotak2 {
+            transition: all 1s ease-in;
+        }
+
+        .container:hover .kotak {
+            transform: rotate(720deg);
+            margin-left: 800px;
+            background-color: salmon;
+        }
+
+HTML :
+
+<body>
+    <div class="container">
+        <div class="kotak kotak1">ease</div>
+        <div class="kotak kotak2">ease-in</div>
+    </div>
+</body>
+--------------------------------------------------------------
+
+Jadi ada tulisan nya kan yg atas ease yg bawah ease-in, lalu saya arahkan mouse nya ke kontainer nya maka dia akan bergerak ke kanan, strat nya sama dan dia akan berakhir di detik yg sama yaitu detik ke 3, tapi yg membedakan adalah kecepatan awak dan kecepatan akhir bisa liat kan begitu ya.
+Jadi itu untu ease dan ease-in sekarang saya akan simpan untuk semua value nya supaya kalian bisa liat perbedaan secara jelas, jadi nanti ada ease, ease-in, ease-out, ease-in-out, dan linear. Seperti ini :
+
+
+ .kotak {
+            width: 100px;
+            height: 100px;
+            background-color: aqua;
+            text-align: center;
+            line-height: 100px;
+            margin: 5px 0;
+        }
+        .kotak1 {
+            transition: all 1s ease;
+        }
+        .kotak2 {
+            transition: all 1s ease-in;
+        }
+        .kotak3 {
+            transition: all 1s ease-out;
+        }
+        .kotak4 {
+            transition: all 1s ease-in-out;
+        }
+        .kotak5 {
+            transition: all 1s linear;
+        }
+        .container:hover .kotak {
+            transform: rotate(720deg);
+            margin-left: 800px;
+            background-color: salmon;
+        }
+
+HTML :
+
+<body>
+    <div class="container">
+        <div class="kotak kotak1">ease</div>
+        <div class="kotak kotak2">ease-in</div>
+        <div class="kotak kotak3">ease-out</div>
+        <div class="kotak kotak4">ease-in-out</div>
+        <div class="kotak kotak5">linear</div>
+    </div>
+</body>
+--------------------------------------------------------------
+
+OKE jadi ini saya udah punya 5 kotak yg tiap" kotak nya punya fungsi transisi yg berbeda ya, coba kita ganti waktu nya jangan 1s kita ganti 3s aja ya, Kalian liat transisi semua itu nyampe nya barengan tapi yg membedakan adalah kecepatan nya, itu jadi fungsi transisi atau timing function.
+
+ada satu lagi sebetulnya yg paling keren yaitu cubic bezier ya, ini agak beda cara pakenya, disitu kita harus menambahkan parameter, ya ada 4 angka yg bisa kita berikan disitu, saya juga ga hafal angka berapa yg harus diberikan, nah supaya gampang kita bisa gunakan bantuan inspect element di browser ya, jadi kaya di video sebelum nya kita make ini, nanti lebih mudah untuk mengetahui angka nya seperti ini ( liat di folder ).
+
+Entar kalian liat disitu ada cubic-bezier ya, nah nanti disitu nya disebelah kirinya kalian bisa liat ada editornya nih ( liat di folder ), ada logo seperti kurva di klik aja, nah itu keren nya kalian bisa ubah kurva nya, untuk mengahasilkan sebuah persamaan linear yg menentukan pergerakan dari transisi nya mau seperti apa, misalkan kita ikutin yg pak dhika suru aja ya.
+
+Misalkan kita kasih seperti ini di editor nya ( liat di folder ), nah nanti awal nya cepet nanti keujung dia akan semakin lambat seperti ease-out, atau kita bisa gunakan pilihan nya di editor si cubic-bezier nya, jadi hendle nya ada 2 ya, jadi nanti kalo kalian sudah menemui yg cocok kalian copy an angka nya itu ke code editor nya, karena kalo di browser gitu ga permanen ya. Seperti ini :
+
+  .kotak {
+            width: 100px;
+            height: 100px;
+            background-color: aqua;
+            text-align: center;
+            line-height: 100px;
+            margin: 5px 0;
+        }
+ .kotak6 {
+            transition: all 3s cubic-bezier(1, 0.02, 0, 0.96);
+        }
+ .container:hover .kotak {
+            transform: rotate(720deg);
+            margin-left: 800px;
+            background-color: salmon;
+        }
+--------------------------------------------------------------
+
+mantep banget gayss, sekali lagi ini adalah timing function atau fungsi transisi yg bisa kita pakai seperti itu ya.
+
+----------------------------------------------------------------------------------------------------------------------------------
+
+[DELAY]
+
+yg terakhir yg akan kita bahas adalah delay, itu gunanya adalah untuk memberikan delay atau memberikan waktu tunggu sebelum kita menjalankan transisi, nah jadi nilai nya sama seperti durasi, kita bisa second atau milisecond, jadi nanti di property nya akan ada 2 nilai, nilai yg pertama itu pasti durasi dan nilai yg ke dua itu pasti delay.
+
+Kita kembalikan ke contoh awalnya ya dimana kotaknya cuma ada 1, lalu transisi nya 3s aja. Seperti ini :
+
+.kotak {
+            width: 100px;
+            height: 100px;
+            background-color: aqua;
+            text-align: center;
+            line-height: 100px;
+            margin: 5px 0;
+            transition: 3s;
+        }
+
+        .container:hover .kotak {
+            transform: rotate(720deg);
+            margin-left: 800px;
+            background-color: salmon;
+        }
+-------------------------------
+
+transisi itu nah artinya [property] nya adalah all timing function default nya adalah ease, itu kalo saya gatulis kan, Nah sekarang kita akan menambahkan delay, delay itu tinggal menambahkan angka setelah durasi, atau kalo ada [fungsi] nya ditulis berarti setelah si fungsi baru tulis delay nya.
+
+Misalkan saya tulis 2s. Seperti ini :
+
+.kotak {
+            width: 100px;
+            height: 100px;
+            background-color: aqua;
+            text-align: center;
+            line-height: 100px;
+            margin: 5px 0;
+            transition: 3s 2s;
+        }
+
+        .container:hover .kotak {
+            transform: rotate(720deg);
+            margin-left: 800px;
+            background-color: salmon;
+        }
+-------------------------------
+
+jadi ini artinya tunggu dulu 2 detik sebelum saya melakukan transisi selama 3 detik, jadi pada saat saya hover transisi nya baru akan dimulai setelah 2 detik, silahkan coba aja. Nah delay juga bisa digunakan untuk multiple transition sama seperti css 3 lain nya kita bisa tumpuk nih transisinya.
+
+Kalo saya tulis transform 3s. Seperti ini :
+
+ .kotak {
+            width: 100px;
+            height: 100px;
+            background-color: aqua;
+            text-align: center;
+            line-height: 100px;
+            margin: 5px 0;
+            transition: transform 3s;
+        }
+
+        .container:hover .kotak {
+            transform: rotate(720deg);
+            margin-left: 800px;
+            background-color: salmon;
+        }
+-------------------------------
+
+itu artinya yg saya transisikan hanya transform saja, jadi yg halus hanya perputaran nya, sisanya instan, bisa liat sendiri ya. Nah saya ingin berputarnya itu setelah saya bergeser dulu 2 detik, saya bisa tuliskan di awalnya margin-left selama 3 detik lalu saya tambahkan koma terus tranfrom nya selama 3 detik tapi delay dulu selama 2 detik baru perputar tuh dia seperti ini :
+
+  .kotak {
+            width: 100px;
+            height: 100px;
+            background-color: aqua;
+            text-align: center;
+            line-height: 100px;
+            margin: 5px 0;
+            transition: margin-left 3s, transform 3s 2s;
+        }
+
+        .container:hover .kotak {
+            transform: rotate(720deg);
+            margin-left: 800px;
+            background-color: salmon;
+        }
+-------------------------------
+
+Jadi kotak nya akan baru berputar setelah saya nunggu 2 detik, jadi kotak nya geser dulu setelah 2 detik baru dia berputar.
+
+atau kita coba untuk yg warna deh, kita tambah background-color durasinya 2 detik kita nuggu selama 3 detik. Seperti ini :
+
+  .kotak {
+            width: 100px;
+            height: 100px;
+            background-color: aqua;
+            text-align: center;
+            line-height: 100px;
+            margin: 5px 0;
+            transition: margin-left 3s, transform 3s 2s, background-color 2s 3s;
+        }
+
+        .container:hover .kotak {
+            transform: rotate(720deg);
+            margin-left: 800px;
+            background-color: salmon;
+        }
+--------------------------------------------------------------
+
+Jadi warna baru akan berubah setalah dia nunggu 3 detik perubahan nya akan terjadi cepet aja misalkan saya ganti jadi 500ms atau milisecond atau setengah detik, jadi bergeser dulu terus berputar baru berubah warna.
+
+jadi itulah paramteer transisi yg bisa kita implmentasikan coba-coba aja ya dan berkreasi sebanyak-banyak nya.
+----------------------------------------------------------------------------------------------------------------------------------
+
+
+
+
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

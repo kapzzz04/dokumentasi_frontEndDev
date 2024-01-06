@@ -1,0 +1,168 @@
+TIPE DATA PADA JAVASCRIPT STRING
+
+Tipe data string dalam javascript itu digunakan untuk merepresentasikan
+data tekstual.
+
+atau data tekstual itu sering disebut dengan plain tesxt
+
+nah untuk melakukan string pda javascript yg perlu kita lakukan hanya
+membungkus data atau nilai kita menggunakan nilai kutip ('' atau ' ).
+
+kalian bisa menggunakan kutip ( '') atau ( ' ) fungsi nya sama aja
+
+contoh nya : "keyla" ini kutip 2
+                     'azahra' ini kutp 1 artinya sama aja tulisan itu juga
+
+cara menuliskan spasi jika string + string maka memakai ( 'spasiin baru' ) gitu 
+--------------------------------------------------------------------------------------------------------------------
+kalian bisa pake kutip mana aja tapi kalian harus mengganti nya disaat di teks
+tersebut harus memakai kutip lagi di string kita.
+
+contohnya: "hari ini adalah hari jum'at" agar tidak eror string nya jika ada kutip di
+                     dalam string maka ganti saja apa yg di butuh kan, kan itu di teks nya
+                    ada kutip 1 di bagian jum'at nah string nya ganti jadi kutip 2, nah sebaliknya.
+
+nah jika teks ini : ""marilah kembali ke jalan yang benar" dan hari ini hari jum'at"
+
+ada dimana keaadaan dimana kalian membutuhkan kutip 1 dan kutip 2 di dalam teks
+nah kalo 22 nya dipake di teks, TERUS STRINGNYA make kutip apa?gini caranya.
+
+itu kan di apit oleh string kutip 2 tapi di teks tersebut ada teks yg butuh kutip 2
+mau di ganti jadi kutip 1 string nya tpi di situ ada juga kutip 1 gimana caranya
+biar bisa berfungsi walaupun mau memakai kutip 2 dan 1 di dalam string.
+
+------------------------------------------------------------------------------------------------------------------------
+cara mengatasi masalah tersebut dengan
+
+ESCAPE character
+
+Escape character ini berfunsi untuk menampilkan sebuah character yg merepresentasikan
+berbeda dalam sebuah bahasa pemograman
+
+contohnya kutiptadi, kutip tadi di mepretasikan sebagai buka dan penutup string nah untuk
+menuliskan kutip sebagai string kutip yg kita lakukan adalah menambahkan \' atau \" 
+sebelum tanda kutipnya nah itu di sebut escape character dan nantinya kutipnya sebagai
+string kutip.
+
+conohnya : cara menulisnya seperti ini
+ 
+  ' "gerakan pungut sampah" dialkukan di hari jum\'at '
+hasil teks nya: "gerakan pungut sampah" dilakukan di hari jum'at
+TIDAK ADA EROR PADA STRING NYA
+
+------------------------------------------------------------------------------------------------------------------------
+escape character ada banyak jenis nya, di bawah ini lah......
+
+escape character                    hasil
+         \0                              karakter NULL
+         \'                                      ( ' )
+         \"                                     ( " )
+         \ \                                     ( \ ) 
+         \n                         new line / baris baru
+         \t                                      tab
+         \b                              backspace
+         \nXXXX                        unicode
+
+( ada kesalahan untun escape selain kutip tidak bisa di coba di console entah kenapa
+  jadi harus pake misl, alert('kemana \n jika') nah gitu baru ngaruh harus pake ALERT 
+ untuk sementara ya tapi untuk UNICODE NYA di coba di console masih bisa
+cum ini nya nih ga ngaruh knp pula ).
+
+
+adalagi untuk menampilkan UNICODE, inibuat simbol gitu
+
+  unicode                      hasil
+  \u00a9                          ©
+  \u00AE                          ®
+  \u00B1                          ±
+  \u00B5                          µ
+  \u2122                          ™
+ 
+lebih lengkap link: https://en.wikipedia.org/wiki/List_of_Unicode_characters
+
+------------------------------------------------------------------------------------------------------------------------
+lalu di dalam string itu ada 
+
+CONCATENATION atau konkatenasi
+simbol nya +
+
+lalu kita juga bisa membandingkan 2 string dengan menggunakan operator ( == )
+
+contohnya : 'keyla zhr' == 'Keyla Zhr'
+                           FALSE
+
+knp gitu krena disini huruf kecil dan huruf besar berbeda walaupun kata nya sama.
+
+------------------------------------------------------------------------------------------------------------------------
+lalu di dalam string itu juga ada
+
+.length (menghitung panjang string)
+
+contohnya gini: "keyla azahra p" .length ( maka dia akan menghasilkan 14, karena angka ini
+                         adalah jumblah khrakter yg terdapat di dalam stringnya nah 14 itu juga menghitung
+                        SPASI yg ada di situ jadi begitu gayss).
+
+udahhhh
+             
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

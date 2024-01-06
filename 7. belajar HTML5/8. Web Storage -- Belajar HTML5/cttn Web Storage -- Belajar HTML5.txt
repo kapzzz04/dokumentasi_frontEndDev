@@ -1,0 +1,555 @@
+Web Storage -- Belajar HTML5
+
+Definisi Web storage atau WEbn storage API, "sebuah Web API yang menyediakan mekanisme 
+untuk menyimpan nilai di dalam browser atau istilahnya dari sisi client ya, yang bentuk nya 
+merupakan ( key / value pain ) yang  cara pakai nya lebih intuitif daripada cookie".
+
+cookie itu juga mekanisme penyimpanan nilai juga yang biasa kita gunakan sejak lama mulai dari
+HTML4 nah sekarang di HTML5 udh ada mekanisme yang baru yang di sebut dengan Web Storage.
+
+dan untuk Web Storage ini ada 2 tioe yang pertama Local Storage yang ke 2 ada Session Storage.
+Nah ke-2 Storage ini hampir sama nanti yang membedakan adalah kpan nilai nya itu kaldaluarsa 
+atua kapan nilai nya itu hilang.
+
+--------------------------------------------------------------------------------------------------------------------------------
+Nah tapi kita bahas dulu mengenai perbedaan antar ke-3 tipe Storage itu.
+
+Local Storage vs Session Storage vs Cookies 
+
+contoh nya : ( ada di folder gambar nya ya )
+link nya : https://codepen.io/beaucarnes/pen/KmeRMx
+
+ini kita liat dulu dari sisi kapasitas, seberapa besar nilai yang bisa kita simpan di dalam Storage,
+berikutnya dukungan browser, jadi localStorage dan sessionStorage ini adalah vitur baru didalam
+HTMl5 nah sedangkan Cookies itu bisa di pake HTML4/5 tapi gausha khawatir rasanya sekarang
+semua browser sudah mendukung 2 tipe Storage ini.
+
+Terus juga kita liat dari sisi pengaksesan nya, nilai yang sudah kita buat ini bisa di akses dari mana
+nah kalo localStorage itu bisa kita akses dari Window manapun didalam browser yang sama ya, 
+jadi kalo kita bikin Storage nya di chrome maka dia akan selalu ada didalam chrome window 
+manapun.
+
+Untuk sessionStorage hanya bisa di akses di tab yang sama, ketika tab nya kita close maka datany
+hilang, ya beda sama local Storage, klo localStorage walapun browser nya kita tutup tab nya kita 
+close masih ttp bisa kita akses.
+
+Ya begitu pula dengan Cookies, ini juga sama disebut nya persisten nilai nya akan ttp ada meskipun
+kita tutup browserny. 
+
+--------------------------------------------------------------------------------------------------------------------------------
+
+Nah ini masuk kedalam perbedaan dari sisi Kaldaluarsa LocalStorage ini tidak akan pernah 
+kaldaluarsa jadi selalu ada sampai kita hapus, baik itu hpus secara program dengan menggunakan
+codingan atau kita hapus lewat browser, kita klik tombol clear maka hilang semua localStorage nya.
+
+Sedangkan untuk yang session Storage itu otomatis ketika tab nya di tutup nilai nya hilang tapi bisa
+juga kita hapus secara manual dengan mengklik tombol clear juga sama.
+
+Sedangkan untuk cookies ini explayersien nya selain bisa kita hapus secara manual kita juga bisa
+set kapan dia explayert nya atau kadaluarsa nya, misalnya mau satu menit satu hari satu tahun itu
+bisa kita yang atur.
+
+TErus untuk tempat penyimpanan nya, untuk Storage ini hanya ada di browser ya, jadi setiap 
+broser punya local Storage dan sessionStorage nya sendiri. Sedangkan cookies ini disimpan di
+browser dan di server.
+
+Sehingga di perbedaan yang terakhir adalah apakah saat kita mengirimkan request datanya ikut 
+dikirim nah untuk Storage itu tidak sedangkan cookies ikut dikirim juga. makannya jadi bisa di akses 
+di browser dan juga di server.
+
+jadi itu perbedaan Local Storage vs Session Storage vs Cookies 
+
+--------------------------------------------------------------------------------------------------------------------------------
+
+DIGUNAKAN UNTUK
+
+- Preferensi user
+- Setting & configuration
+- Score & leaderboards pada game
+- Posisi video / audio terakhir
+- ...
+
+nah kapan sih kita pake si Storage ini, banyak sekali usecase atau contoh kasus yang bisa kita
+manfaat kan dalam penggunaan Storage ini. 
+
+Yang pertama adalah ketika kita mau mengesave Preferensi dari user misalnya sesimpel dark 
+mode atau light mode, sehingga ketika user membuka kembali web nya dia sudah merekam dark
+mode atau light mode nya.
+
+Bisa juga digunkana untuk Setting dan configuration dari websaite, contohnya ketika klian ingin 
+melakukan translet, ketika kita masuk ke google translet, websaitenya udah tau bahwa kita mau 
+translet ke bahasa indonesia misalnya, jadi otomatis udah ngecek lewat Storage nya, tinggal kita
+ganti mau dari bahasa apa. atau kita bisa ngeset supaya dia bisa merekam terakhir kita ngetranslet
+apa sehingga di pertahankan tuh, kecuali kita mau ganti tinggal ganti.
+
+atau misalnya mau merubah mata uang, jadi ketika user kembali membuka websaite tersebut dia
+udah tau terakhir kita konversi mata uang mana ke mana.
+
+Kalo misalkan kalian mau bikin game, kalian bisa bikin Score atau leaderboards tapi ini hanya ada 
+disisi local client  nya saja, jadi kita bisa tau score trakhir kita berapa meskipun game nya sudah
+berakhir atau sudah di close. nah kalo misalnya sebelum mulai gamenya kita msukin nama kita dulu
+nah kita bisa bikin papan score nya, siapa yang nilainya paling besar di game tersebut contohnya 
+misalnya begitu.
+
+Nah atau kalian buka youtobe seperti ini, nah yt nya bisa tau pada saat kita belum menyelesaikan 
+sebuah video begitu kita buka lagi video tersebut yt nya udah tau terakhir kita nonton nya sampe
+mana jadi kita ga perlu ngulang lagi dari awal, begitu pula dengan web" pemutar audio atau lagu ya
+jadi kita bisa tau terakhir kita sudah mendengarkan atau menonton sampe mana, itu bisa disimpan
+juga didalam Storage. Dan masih banyak lagi contoh-contoh kasus yang bisa kita manfaatkan web
+storage ini.
+
+JANGAN digunakan untuk 
+
+- Data sensitif
+- Otentikasi
+
+Nah yang penting local Storage ini di sarankan untuk tidak digunakan atau jangan digunakan untuk
+menyimpan data yang sensitif, misalnya data pribadi data kartu kredit dan juga otentikasi ya jadi
+jangan digunakan untuk menyimpan user name dan password misal nya.
+
+--------------------------------------------------------------------------------------------------------------------------------
+
+localStorage & sessionStorage Properties
+
+- setItem(key, value) - menyimpan pasangan key/value.
+- getItem(key) - mengambil value berdasarkan key.
+- removeItem(key) - menghapus nilai pasangan key/value.
+- clear() - menghapus semua isi Storage.
+- key(index) - mengambil nilai key berdasarkan index.
+- length - mengetahui jumlah nilai didalam Storage.
+
+Berikutnya adalah kita akan lihat properti" apa aja yang bisa kita pake untuk localStorage dan 
+sessionStorage ini sebenernya 22 nya sama persiss, ada setItem paling nanti kita bedain nya object
+nya. localStorage titi setItem atau sessionStorage titik setItem.
+
+ya terus kita masukan didalam parameternya  key dan juga value, Nah ini untuk menyimpan data
+nya, kita mau nyimpan data apa yang key nya apa terus value nya apa. Misalnya key nya (nama) 
+value nya (sandhika).
+
+Terus untuk mengambil datanya kita pake getItem terus key nya apa, misalnya mau ngambil
+sandhika tadi, kita tinggal tulis kalo kita nyimpan nya di session tulis aja, sessionStorage titi getItem
+key nya (nama) misalnya. Ya kita ambil value nya berdasarkan key.
+
+Lalu ada removeItem kalo mau menghapus  salah satu datanya kita tinggal masukan nama key nya
+apa terus nanti data tersebut ilang.
+
+Berikutnya adalah clear() kalo ini kalo kita mau menghapus semua isi dari Storage yang ada.
+
+berikutnya kalo kita mau ngambil key berdasarkan index, ya misalkan nanti kalian pakai looping mau
+ngambil semua key yg ada di Storage pake titik key terus kita tulis index nya keberapa.
+
+Nah kalo kita mau mengetahui jumlah dari data yang ada didalam Storage kita tinggal tulis length,
+jadi tulis aja localStorage.length nanti dikasih tau ada berapa data yang ada didalam Storage nya.
+
+--------------------------------------------------------------------------------------------------------------------------------
+
+CONTOH PENGGUNAAN
+
+kalo kita mau coba bikin itu simpel aja menggunakan js, kita bisa bikin localStorage atau 
+sessionStorage titik property atau method nya apa. Seperti ini :
+
+localStorage.setItem("name", "Sandhika");
+
+localStorage.getItem("name");
+-------------------------------------
+
+LANGSUNG AJA KE STUDI KASUSNYA
+
+simpel aja kita mau bikin studi kasus nya gimana cara ngeset dan ngeget dari web Storage nya. 
+Misalnya didalam halamannya sya mau bikin heading 1, yang tulisan nya halo keyla. Coba kalo kita
+jalanin liat di web browser nya dan kalo kita mau lihat storage kita itu secara default, kalian bisa
+ke inspect lalu kalo kita liat di bagain atasnya ada yang namanya (application).
+
+Nah storage kita tersimpan disitu, kalo kalian klik nanti ada menu strorage, kita bisa liat localstrorage
+kita sessionstrorage kita bahkan ada indexedDB Web SQL,COOKIES, dll. jadi ada 2 localstrorage
+dan sessionstrorage, yang kalo kita liat isi nya itu masih kosong.
+
+Sekarang kita kembali dulu ke codingan nya, yg kita lakukan pertama gini saya pengen bikin supaya
+tulisan (keyla) nya, itu menerima inputan dari prompt nya js, misal kita bikin variabel let nama, knp
+saya pake let ngga const aja karena nanti let nya mau di timpa karena kalo pake const itu gabisa ya.
+
+nah let nya di isi oleh prompt, nah annti data nama itu akan saya pake untuk ngeganti tulisan (keyla)
+sebenrnya caranya gampang ya, kita tinggal panggil dlu aja (h1) nya, Nah terus saya ganti tuh judul
+nya innerHTML, isi nya kita pake string literal aja kek gini ( `` ), halo koma lalu kita ambil dolar nama 
+kasih tanda seru, nanti dia akan ngeganti halo terus nama nya ngambil dari apa yang kita masukan.
+Seperti ini :
+ 
+let nama = prompt('masukan nama anda: ');
+const judul = document.querySelector('h1');
+judul.innerHTML = `Halo, ${nama}!`;
+
+--------------------------------------------------------------------------------------------------------------------------------
+
+Nah ketika saya masukan nama random di prompt nya ya aman ya terinput, tapi kalo saya refresh
+halamannya maka dia kembali ke nama yang awal. Nah saya mau bikin kalo misalnya user pertama
+kali masuk ditanya nama dia siapa terus isi nya pake prompt nya itu. Tapi kalo udah pernah ngisi
+kita akan pake nama dia terus" an sampe dia mengganti namanya.
+
+Nah caranya sebelum kita tampilkan ke layar kita simpan dulu kedalam localStorage kita, kita tinggal
+tulis locallocalStorage.setItem, kita mau asih key nya (nama) yg value nya di isi dengan variabel let
+(nama). Seperti ini :
+
+let nama = prompt('masukan nama anda: ');
+const judul = document.querySelector('h1');
+localStorage.setItem('nama', nama);
+judul.innerHTML = `Halo, ${nama}!`;
+------------------------------------------------
+
+Kalo ini kita jalankan ini masih belum bener juga sih, kita masih minta nama kalo masih gitu kita
+harus isi prompt nya dulu nah tampil yg kita isi kan misal (keyla), nah tapi kalo kita refresh ttp masih
+sama aja. Tapi sekarang kalo kita inspect di dalam application nya ada tuh key nya nama dan value
+nya (keyla).
+
+Nah kalo udah gitu tinggal kita manfaatin karena udah punya, ohh iya kalo mau ngehapus klik aja 
+data yg mau di apus terus liat tanda silang di kanan atas nya ya itu deh. Nah sekarang gimana kalo
+kita ga ditanya lagi sama prompt nya.
+
+Pertama kita akan cek dulu didalam localStorage kita ada ga nama, jadi gimana kalo kita tuker let
+nama disitu kita ambil dulu dari localStorage nya, bisa tulis localStorage.getItem('nama') nah ada
+ga nama, berarti ga perlu pake let lagi tuh.
+
+Lalu kita cek disitu, kalo gaada namanya di localStorage berarti usernya belum pernah dateng ke
+websaite itu, berarti kita minta dia isikan dulu, Nah tapi kalo udah ada si nama nya di localStorage
+yaudah pake aja nama yg di localStorage jdi gausah isi nama lagi, setelah itu baru tampilkan ke h1.
+
+Seperti ini :
+
+const judul = document.querySelector('h1');
+
+let nama = localStorage.getItem('nama');
+if (!nama) {
+    nama = prompt('masukan nama anda: ');
+    localStorage.setItem('nama', nama);
+}
+
+judul.innerHTML = `Halo, ${nama}!`;
+------------------------------------------------
+
+Jadi menurut saya mah misal pertama ada ga itu key (nama) di localStorage kalo ada yaudah ktny
+juga pake aja yg ada berarti langsung masukin ke innerHTML terus kita masukin variabel nama yg
+let itu ya, kita ambil value nya itu tuh.
+
+Nah pas kita ke browser lagi ga muncul lagi tuh prompt nya karena udah ada ya di local storage nya
+key (nama) itu beserta value yg di isi kan user, kalo gitu coba kita apus data nya lalu kita coba refresh
+browsernya. Nah dia prompt nya muncul lagi suruh isi nama kita berarti berfungsi ya.
+
+NAh ini meskipun kita close browsernya terus kita buka lagi datanya masih ttp ada karena ini kita
+pake local storage, kecuali data nya kita hapus manual nah ngerefresh lagi. Nah kita coba pake
+sessionStorage. Seperti ini :
+ 
+const judul = document.querySelector('h1');
+
+let nama = sessionStorage.getItem('nama');
+if (!nama) {
+    nama = prompt('masukan nama anda: ');
+    sessionStorage.setItem('nama', nama);
+}
+
+judul.innerHTML = `Halo, ${nama}!`;
+------------------------------------------------
+
+Sama aja ya tinggal ganti jadi sessionStorage nya aja, Nah si session awalnya sama dia akan minta
+nama yg baru seperti localStorage tadi, nah namanya masuk, ini kan namanya udah masuk ke
+sessionStorage terus kita refresh nama nya gaakan hilang, tapi kalo kita apus tab nya terus kita 
+buka lagi yg sessionnStorage dia akan minta nama lagi.
+
+Nah itu bedanya antara localStorage dan sessionStorage. oke itu cara pake yg pertama lalu kita
+posisikan lagi ke localStorage nya supaya datanya tetep ada ya.
+
+--------------------------------------------------------------------------------------------------------------------------------
+
+Sekarang gimana kalo misalnya saya mau ganti nama ya, misalnya saya puya sebuah link yg ada
+tulisan nya ganti nama misalnya, biar gampang kita kasih event nya juga onclick, jadi nanti ketika
+di klik kita panggil sebuah function namanya gantiNama.
+
+Tinggal kita bikin fungsi nya dibawah, gimana caranya untuk ganti nama, misalnya saya mau bikin
+function nya dulu ya, kita bikin pake const gantiNama, kita bikin pake erofunction aja ya, jadi kurung
+panah kurawal, nah begitu nanti di klik saya mau panggil prompt lagi, jadi saya akan timpa namanya
+ganti dengan (prompt), Nah kita copy aja localStorage nya aja.
+
+Nah tapi jangan lupa kalo kalian pake link dan kalian pengen link nya itu ga ngarah kemana-mana
+kita tambahin (e) di function nya dan kita matiin dulu link nya pake preventDefault, tambahkan
+parameter (e.preventDefault ), supaya linknya tidak mengarah ke href nya. Seperti ini :
+
+HTML NYA :
+
+ <a href="" onclick="gantiNama()">Ganti Nama</a>
+
+JAVASCRIPT NYA :
+
+const judul = document.querySelector('h1');
+
+let nama = localStorage.getItem('nama');
+if (!nama) {
+    nama = prompt('masukan nama anda: ');
+    localStorage.setItem('nama', nama);
+}
+
+judul.innerHTML = `Halo, ${nama}!`;
+
+// Ganti Nama
+const gantiNama = (e) => {
+    nama = prompt('Masukan nama baru anda: ');
+    localStorage.setItem('nama', nama);
+    e.preventDefault();
+}
+--------------------------------------------------
+
+Nah ini udah bisa, kalo ngga paham bisa ditelusuri pelan-pelan nantinya pasti paham ya.
+
+--------------------------------------------------------------------------------------------------------------------------------
+
+Ya jadi kita udah bisa bikin Storage nya kita udah bisa timpa nilai nya, sekarang gimana kalo kita
+hapus. Ya kita bikin link satu lagi untuk menghapus nama nya ya.
+
+HTML NYA :
+
+<a href="" onclick="hapusNama()">Hapus Nama</a>
+
+JAVASCRIPT NYA :
+
+const judul = document.querySelector('h1');
+
+let nama = localStorage.getItem('nama');
+if (!nama) {
+    nama = prompt('masukan nama anda: ');
+    localStorage.setItem('nama', nama);
+}
+
+judul.innerHTML = `Halo, ${nama}!`;
+
+// Ganti Nama
+const gantiNama = (e) => {
+    nama = prompt('Masukan nama baru anda: ');
+    localStorage.setItem('nama', nama);
+    e.preventDefault();
+}
+
+// Hapus Nama 
+const hapusNama = (e) => {
+    localStorage.removeItem('nama');
+    e.preventDefault();
+}
+
+--------------------------------------------------
+
+Nah jadi untuk menghapus nama kita bikin function baru untuk menghapus nama nya lalu local
+Storage nya jadi removeItem lalu masukan (key) nya, jadi begitu di klik data yg ada di Storagenya
+ilang, begitu datanya ilang harus nya muncul lagi prompt karena ada ( if ) nya itu, jadi kembali
+diminta nama barunya karena datanya kosongkan.
+
+--------------------------------------------------------------------------------------------------------------------------------
+
+Sekarang gimana kalo kita kasih contoh berikutnya misalnya saya mau nambahin dark mode tapi
+manual ya menggunakan javascript ya. Misalnya kita bikin sebauh baru tapi nanti saya gamau kasih
+onclick di tag html nya langsung saya mau tulis aja dark mode di tag (a) nya.
+
+nah tombol itu akan saya jadikan toggle, toggle itu untuk mindahin antara light mode dan dark mode,
+jadi saya kasih class di tag a nya, misal saya kasih nama toggle gitu. Terus saya mau kasih css
+dasar nya dulu.
+
+Jadi yang pertama kita bikin dark mode nya ini untuk membuat si backgound color nya jadi gelap,
+terus warna tulisan nya jadi putih, jadi nanti saya pengen dark mode nya nempel di body, jadi kalo
+misalkan saya klik dark modenya, seolah" itu class yg dark mode nya terinput ke si body gitu.
+
+Jadi nanti ketika di klik class dark-mode itu ada di body nama class nya yg tadinya si body gapunya
+class jadi ada deh gitu, ohh iya pa di klik kan jadi gelap tapi link nya ngga ikutan warna tulisan nya
+jadi putih makannya kita kasih inherit aja. Seperti ini :
+
+    <style>
+        a {
+            color: inherit;
+        }
+
+        .dark-mode {
+            background-color: #222;
+            color: #fff;
+        }
+    </style>
+---------------------------------------
+
+Nah nanti jadi ketika kita klik background body nya jadi gelap dan seluruh tulisan nya jadi putih dan
+tulisan yg di link atau tag a itu berubah yg tadinya dark mode jadi light mode gitu, begitu di klik lagi
+background nya jadi cerah lagi begitu.
+
+--------------------------------------------------------------------------------------------------------------------------------
+
+MEMBUAT DARK MODE
+
+kita ambil dulu si tag a yg buat dark mode, terus kita cek didalm storage udah ada tema belum tema
+nya sekarang apa, kalo belum ada kita kasih tema default, jadi sama kaya cara tadi di atas, Nah
+ada ga si tema nya itu di localStorage nya.
+
+Nah kalo temanya gaada kita kasih tema default, localStorage setItem key nya tema value nya light
+Lalu nanti kalo tombolnya di klik, pertama kita cek dulu tema nya apa sekarang, ambil dari 
+localStorage jangan ambil dari tema yg itu ya, kita ambil ulang.
+
+kita tulis ulang localStoragegetItem('tema'), karena kalo ngga nanti nilai dari tema itu null karena dia
+didalam function scope nya, nah kalo misalnya temanya sekarang lagi light nah maka panggil
+function misal namanya dark mode, nah terus kita ubah lagi ke light mode, tinggal selain itu kita 
+panggil lagi aja misal function lightmode.
+
+SEPERTI INI :
+
+// Dark mode & light mode
+const toggle = document.querySelector('.toggle');
+let tema = localStorage.getItem('tema');
+
+if (!tema) {
+    localStorage.setItem('tema', 'light');
+}
+
+toggle.addEventListener('click', function (e) {
+    tema = localStorage.getItem('tema');
+    if (tema === 'light') {
+        darkMode();
+    } else {
+        lightMode();
+    }
+    e.preventDefault();
+});
+------------------------------------------------
+
+dan jangan lupa karena tombol itu adalah link kita kasih event preventdefault ya, tinggal kita bikin
+fungsi darkmode() dan lightMode() nya ya.
+
+untuk membuat fungsi darkMode pertama saya mau bikin body nya dibikin class dark-mode, jadi
+kalian bisa document.body.classList.add('dark-mode'), terus ubah tulisan nya yg tadi awalnya
+dark mode jadi light mode, terakhir timpa localStorage nya kita timpa tema nya jadi dark. Seperti ini :
+
+const darkMode = function () {
+    body.classList.add('dark-mode');
+    toggle.innerHTML = 'Light Mode';
+    localStorage.setItem('tema', 'Dark');
+}
+------------------------------------------------
+
+Kita liat ya di browsernya berubah ga, nah kita liat di aplication nya kan disitu dicek dulu tema nya
+ada atau ga kan gaada tema nah di set tema nya jadi value nya 'light', lalu ketika di klik jalanin
+fungsi darkMode() tuh tema nya berubah value nya jadi 'dark'.
+
+Nah tampilan nya berubah lah ya jadi warna hitam lalu tinggal kita blikin jadi light mode, tapi sebelum
+nya itu ada yg ngaco tuh, kalo misalnya saya refresh halamannya malah berubah background body
+nya jadi putih lagi padahal localStorage nya masih ada tema value nya 'dark' kan harusnya ttp dark
+ya.
+
+Nah ini karena fungsi darkMode() blm di panggil saat keadaan awal, jadi di awal body nya gaada 
+class dark-mode nya, makannya kita harus cek sebelum event klik nya dijalankan kita harus cek nih
+(if) jika tema nya dark nah kita jalankan fungsi darkMode() nya, jadi diawal sebelum dijalankan event
+klik nya cek dulu kalo tema nya 'dark' jalanin fungsi darkMode(), jadinya ketempel tuh class 
+dark-mode nya di body, jadi pas di refresh warna body nya sesuai in sama nama tema atau value
+dari si tema nya itu. Seperti ini :
+
+// Dark mode & light mode
+const toggle = document.querySelector('.toggle');
+let tema = localStorage.getItem('tema');
+const body = document.body;
+
+if (!tema) {
+    localStorage.setItem('tema', 'light');
+}
+
+const darkMode = function () {
+    body.classList.add('dark-mode');
+    toggle.innerHTML = 'Light Mode';
+    localStorage.setItem('tema', 'dark');
+}
+
+if (tema === 'dark') {
+    darkMode();
+}
+
+toggle.addEventListener('click', function (e) {
+    tema = localStorage.getItem('tema');
+    if (tema === 'light') {
+        darkMode();
+    } else {
+        lightMode();
+    }
+    e.preventDefault();
+});
+------------------------------------------------
+
+Nah tinggal bikin fungsi yg lightMode() kita copy yg darkmode aja terus ganti jadi remove class nya
+sama tulisan innerhtml nya jadi dark mode dan temanyajuga ganti jadi light. Seperti ini :
+
+const lightMode = function () {
+    body.classList.remove('dark-mode');
+    toggle.innerHTML = 'Dark Mode';
+    localStorage.setItem('tema', 'light');
+}
+------------------------------------------------
+
+Okee udah ya kalo kurang ngerti bisa dipahamin pelan-pelan aja ya. Jadi itu membuat dark mode
+veris manual atau versi bar-bar ya.
+
+--------------------------------------------------------------------------------------------------------------------------------
+
+Nah terakhir mungkin saya mau ngasih tau gimana kalo kita mau ngilangin semua Storage, misal
+nya kita kasih satu link lagi ya. Saya pengen menghapus semua data yg ada di Storage, supaya
+ilang semua datanya ga cuma nama tapi tema nya juga ilang.
+
+Nah caranya gampang aja ya, kita copy fungsi hapus nama yg sebelum nya, caranya bukan
+removeItem tapi clear dan gaperlu pake (key) nya, itu udah menghapus semua data. Seperti ini :
+
+// Hapus Storage 
+const hapusStorage = (e) => {
+    localStorage.clear();
+    e.preventDefault();
+}
+------------------------------------------------
+
+Nah kalo kita coba klik link nya untuk hapus semua data Storage nya, nanti tema nya jadi tema 
+default nya yaitu light, dan namanya jadi ilang lalu di suruh isi ulang buat ngisi nama yg baru.
+
+itu lah cara menggunakan sessionStorage dan localStorage perbedaanya hanya sedikit ya, bedanya
+di kaldaluarsanya kalo session ketika tab nya kita close otomatis semuanya ilang.
+
+--------------------------------------------------------------------------------------------------------------------------------
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      .kotak {
+        width: 120px;
+        height: 200px;
+        border: 1px solid #333;
+        border-radius: 14px;
+        padding: 13px 0px;
+        text-align: center;
+        list-style: none;
+        align-items: center;
+        justify-content: center;
+        position: relative; /* Diperlukan untuk position ::after */
+      }
+
+      .kotak::after {
+        content: ""; /* Menghilangkan teks pada elemen pseudo */
+        display: block;
+        position: absolute;
+        top: 0px; /* Mengatur posisi vertikal di atas elemen utama */
+        left: 50%; /* Mengatur posisi horizontal ke tengah */
+        transform: translateX(-50%); /* Menggeser posisi ke tengah */
+        width: 120px;
+        height: 200px;
+        /* border: 1px solid #333; */
+        border-radius: 14px;
+        background-color: rgba(0, 0, 0, 0.3);
+        padding: 13px 0px;
+        z-index: 2;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="kotak">
+      hahahha
+      <br />hahaha
+    </div>
+  </body>
+</html>

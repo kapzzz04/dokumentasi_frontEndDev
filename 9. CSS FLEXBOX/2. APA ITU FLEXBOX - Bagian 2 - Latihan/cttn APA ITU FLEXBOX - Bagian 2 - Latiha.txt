@@ -1,0 +1,669 @@
+APA ITU FLEXBOX - Bagian 2 - Latihan
+
+Disini kita akan coba 5 latihan untuk FlexBox 
+
+LATIHAN 1 -- Kolom 
+untuk latihan 1 ini kita akan membuat sebuah layouting halaman menggunakan kolom, kalian inget kan membuat kolom menggunakan teknik yg tidak menggunakan flex box itu kan kita bisa pake float ya tapi agak repot kita harus mengatur width dari tiap" kolom nya, nanti dengan menggunakan flex box akan sangat di mudahkan ya.
+
+Pertama kita akan bikin sebuah container pembungkus dari kolom nya, kita tandain untuk latihan 1 ini class container-satu karena nanti tiap latihan kita akan mempunyai container yg berbeda. Jadi ceritanya saya pengen bikin sebuah layout yg terdiri dari 3 kolom ada kolom sebelah kiri, tengah dan kanan. anggap aja seperti fb di sebelah kanan ada kolom link sebelah kiri kontak nya di tengah ada beranda nya. 
+
+Misalkan kita tulis 3 buah div, misalkan untuk yg tengah nya kita sebut dengan kolom-utama, terus untuk sebelah kanan dan kiri kita sebut dengan sidebar nya, kita kasih class sidebar-satu dan sidebar-dua. Kalo misalkan kalian menggunakn float bikin struktur html nya harus teratur kan ya biar permudah kita ngatur nya. Kalo menggunakan flex sebetulnya bebas kalian mau nyimpan nya dimana aja. karena nanti kita akan atur urutan nya.
+
+Nah untuk kolom utama misalnya kita mau kasih h2 lalu kita bikin beberapa paragarf, Kita kasih style sedehana dulu biar keliatan ya. kita kasih line-height biar ada jarak antara baris nya ya, Dan supaya nanti saya bisa scroll kebawah misalnya saya kasih padding-bottom disitu nya 500px ya. :
+
+body {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background-color: #ddd;
+    line-height: 1.5;
+    padding-bottom: 500px;
+}
+-------------------------------------
+
+Selanjutnya kita bikin sidebar-satu, ceritanya sidebar-satu ini mau berisi link ya jadi didalam nya ada h3 lalu ada <ul> didalamnya ada <li> yg didalam li ada tag <a> lalu tulisan a nya saya mau kasih link 1, link 2 dan seterusnya. Biar gampang kita tulis format nya gini : ul>(li>a{Link $})*5
+
+Jadi itu ul didalan nya li didalam li <a> pake kurung kurawal untuk mengisi tulisan di tag <a> lalu pake dolar ( $ ) ini untuk mengisi urutan keberapa jadi gaperlu tulis link 1 link 2 nanti dia akan sendiri jadi angka yg berurutan. Nah lalu di akhir nya di kali 5 dengan simbol kali gini ( * ), Lalu kalo saya mencet tab langsung jadi dengan mudah nya.
+
+Nah untuk Sidebar dua kita berikan h3 dan paragraf yg isi nya 15 kata aja ya, udh jadi urutan nya itu di atas kolom utama, kedua nya sidebar-satu ke 3 nya sidebar-dua. Nah nantinya saya mau Sidebar-satu akan ada di sebelah kiri dan Kolom-utma ada di tengah" dan Sidebar-dua ada di sebelah kanan, tanpa mengubah struktur html nya jadi kita harus ubah menggunakan CSS.
+
+----------------------------------------------------------------------------------------------------------------------------------
+
+Pertama kita atur dulu CSS nya ya bagian container-satu. Seperti ini :
+
+.container-satu {
+    box-sizing: border-box;
+    width: 660px;
+    padding: 20px;
+    background-color: #fff;
+    margin: 50px auto;
+}
+-----------------------------------
+
+Sekarang gimana cara nya supaya kita bisa ngatur element didalam nya, kan biasa nya elemen nya kita kasih ( float: left; ) itu sebelumnya. Kalo sekarang kita tinggal kasih display flex di container-satu nya atau di pembungkusnya. Seperti ini :
+
+.container-satu {
+    box-sizing: border-box;
+    width: 660px;
+    padding: 20px;
+    background-color: #fff;
+    margin: 50px auto;
+    display: flex;
+}
+-----------------------------------
+
+Kalian liat kalo kita kasih flex otomatis elemen nya jadi sejajar atau menjadi satu baris ga kebawah lagi. Nah itu udah bener tinggal ada 2 hal yg kita atur, pertama ukuran dari tiap" elemen nya ke-2 urutan elemen nya.
+
+Nah kita punya 3 elemen kan ada kolom-utama, sidebar-satu, dan sidebar-dua. Nah untuk mengatur sebuah ukuran kita sebelumnya udah belajar yg namanya flex-grow untuk ngasih ukuran atau shorhand nya "flex", Jadi "flex" aja itu cara kira nulisin 3 property sekaligus, salah satunya adalah flex-grow. tapi kalo misalkan saya kasih 1 nilai aja gini :
+
+.kolom-utama {
+    flex: 1;
+}
+-----------------------------------
+
+itu artinya yg saya set adalah flex-grow nya jadi sama aja ya. nih kalo saya kasih flex (1)  disitunya, maka ukuran dari items kolom-utama akan 1, lalu ukuran sidebar-satu dan sidebar-dua itu belum kita kasih grow nya  mau berapa. Kalo mau sama ukuran nya kita kasih semua items nya flex 1. 
+
+Maka ke-3 items itu akan memiliki ukuran yang seragam, tapi kita gamau itu, kita mau ukuran dari konten utama nya atau kolom-utama nya lebih besar dari yg lain itu. Misalnya 3 kali lipat nya kalian cukup tulis flex 3. Gini :
+
+.kolom-utama {
+    flex: 3;
+}
+
+.sidebar-dua {
+    flex: 1;
+}
+
+.sidebar-satu {
+    flex: 1;
+}
+-----------------------------------
+
+Nah maka otomatis ukuran nya akan lebih besar sendiri, Nah itu yg kita ingin kan. Tapi sekarang urutan nya salah, Tapi di flex box kita udah tau ada yang namanya order, order yg paling besar angka nya dia akan di posisikan di paling kanan tinggal kita urutin aja seperti ini :
+
+.kolom-utama {
+    order: 2;
+    flex: 3;
+}
+
+.sidebar-dua {
+    order: 3;
+    flex: 1;
+}
+
+.sidebar-satu {
+    order: 1;
+    flex: 1;
+}
+-----------------------------------
+
+Jadinya kolom-utama berada di tengah" antara sidebar-satu dan sidebar-dua.
+
+AKHIR LATIHAN 1
+
+----------------------------------------------------------------------------------------------------------------------------------
+
+LATIHAN 2 -- Service / Features
+
+Latihan ke-2 ini kita mau bikin, biasanya kalo kalian bikin sebuah websaite atau landing page itu ada kolom untuk nyimpen misalnya servis atau fitur dariperusahan kalian atau dari portofolio kalian.
+
+Jadi nanti ceritanya saya mau buat 3 buah kolom yg ngejejer satu baris kekanan buat nyimpen nama" layanan saya. Jadi ceritanya saya mau bikin gini ada sebuah container lagi kita namain container-dua, yang didalam nya terbagi 3 div dengan ada dua nama class di masing" div nya, kita namain di masing" div nya class layanan, lalu di urutkan dengan nama class yg ke 2 nya masing" div satu,dua, dan tiga, class itu untuk meberikan warna biar bisa membedakan nya. Seperti ini :
+
+HTML :
+
+<div class="container-dua">
+        <div class="layanan satu">
+            <h3>Layanan 1</h3>
+            <h4>RENTAL MOBIL</h4>
+        </div>
+        <div class="layanan dua">
+            <h3>Layanan 2</h3>
+            <h4>RENTAL MOTOR</h4>
+        </div>
+        <div class="layanan tiga">
+            <h3>Layanan 3</h3>
+            <h4>DEKOR MOBIL</h4>
+        </div>
+    </div>
+--------------------------------------------------
+
+Nah pertama kita kasih style dasar nya untuk si container-dua nya, kita kasih width nya 800px margin atas bawah 50px dan tengah auto:
+
+.container-dua {
+    width: 800px;
+    margin: 50px auto;
+}
+-------------------------
+
+Terus kita kasih ukuran dari tiap" layanan nya, saya pengen ukuran dari tiap" layanan nya supaya kita ga pusing mikirin ukuran nya kan kita au ngejejer kekanan, atau kita kasih warna dulu tiap layanan nya. Seperti ini :
+
+.layanan.satu {
+    background-color: rgb(56, 241, 241);
+}
+
+.layanan.dua {
+    background-color: rgb(255, 119, 119);
+}
+
+.layanan.tiga {
+    background-color: rgb(155, 119, 255);
+}
+--------------------------------------------------
+
+class disitu jangan pake spasi ya karena itu artinya CSS tolong carikan saya elemen yang nama class nya ada 2 layanan dan satu misal.
+
+Kan saya pengen ngejejer kekanan, Nah kalo si container-dua nya kita kasih display flex maka otomatis akan ngejejer kan, tapi itukan ukuran nya di tentukan otomatis sama flex nya ya. Saya pengen ukuran nya tiap" layanan nya sama. Kita gaperlu ngatur masing" layanan itu ukuran nya berapa.
+
+Kita cukup tulis width si layanan nya berapa, misalnya gini kalo total 100%, lalu disitu kan ada 3 layanan berarti kalo mau kita bagi 3 setiap layanan nya ukuran nya itu 33,3% ya, jadi sama semua ukuran nya. Nah tapi saya pengen di tiap" layanan ada jarak nya. Jadi saya bisa kasih aja width nya 30%.
+
+Kalo kalian kasih 30% masing" layanan nya maka di sebelah kanan nya ada ruang kosong tersissa 10%, Nah agar supaya di tengah" nya ada jarak kalian inget kita punya justify-content kita pake aja. Seperti ini :
+
+.container-dua {
+    width: 800px;
+    margin: 50px auto;
+    display: flex;
+    justify-content: space-between;
+}
+
+.layanan {
+    width: 30%;
+}
+-------------------------------------
+
+Nah udah ya, Tapi saya sendiri mau ngatur agar tulisan nya di tengah dan ukuran nya menjadi besar, dan saya mau kasih padding di layanan nya agar terlihat rapih dan jangan lupa kasih box-sizzing ya. Seperti ini :
+
+/* Latihan 2 */
+.container-dua {
+    width: 800px;
+    margin: 50px auto;
+    display: flex;
+    justify-content: space-between;
+}
+
+.layanan {
+    width: 30%;
+    padding: 20px;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.layanan.satu {
+    background-color: rgb(56, 241, 241);
+}
+
+.layanan h4 {
+    font-size: 50px;
+}
+
+.layanan.dua {
+    background-color: rgb(255, 119, 119);
+}
+
+.layanan.tiga {
+    background-color: rgb(155, 119, 255);
+}
+--------------------------------------------------------------------------------
+
+Jadi itu cara bikin ukuran tiap" items nya sama dan jarak antara items nya sama dan kita ga perlu mikirin ukuran tiap" element berapa jarak di tengah nya, itu udah otomatis di itungin flex nya.
+
+Sekarang dengan cara seperti itu problem nya kalo kita perkecil ukuran browser nya jadi ukuran mobile itu dia jadi ada scroll nya ga bagus, Nah karena itu kita buat responsive nya dulu dengan menggunakan media query. 
+
+Nah caranya jangan beri ukuran width container nya yg fix seperti tadi. kita kasih nya max-width. Seperti ini :
+
+.container-dua {
+    max-width: 800px;
+    margin: 50px auto;
+    display: flex;
+    justify-content: space-between;
+}
+----------------------------------
+
+Jadi maximal width nya 800px, itu kalo saya perbesar lagi dia ga akan berubah, tapi kalo dikecilin itu dia jadi nya responsive tapi sekarang problem baru, kalo di kecilin nya dibuka di hp itu dia mepet ya gabagus.
+
+Kita mau disaat di buka di hp di ukuran lebar tertentu dia turun kebawah, kaya make bootsrap lah ya,kalo bootstrapkan otomatis ya. Kalo kita mau bikin manual gini, misalnya di css nya kita membutuh kan media query, jadi media ini menentukan kalo lebar layar nya berapa pake css yg mana, misalnya kalo min-width nya 700px maka pake css yg ini gitu baca nya ya. 
+
+@media(min-width: 700px) {
+
+}
+----------------------------------
+
+Jadi kalo lebih kecil dari 700px pake css nya yg diluar media query itu, Tapi kalo di atas 700px jadi minimal 700px keatasa baru pake css yg ada didalam media query nya. Nah kita pengen nya flex box nya jalan ketika minimal 700px. Jadi kita pindahin beberapa ke dalam media query nya. Seperti ini :
+
+.container-dua {
+    /* width: 800px; */
+    max-width: 800px;
+    margin: 50px auto;
+}
+
+.layanan {
+    padding: 20px;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 5px;
+}
+
+@media(min-width: 700px) {
+    .container-dua {
+        display: flex;
+        justify-content: space-between;
+    }
+
+    .layanan {
+        width: 33%;
+    }
+}
+----------------------------------
+
+Nah udah berubah tuh, kalo belum paham baca codingan nya ya pelan".
+
+AKHIR LATIHAN 2
+
+----------------------------------------------------------------------------------------------------------------------------------
+
+LATIHAN 3 - Gallery
+
+Latihan 3 ini ceritanya kita mau bikin sebuah slide gambar gitu. Jadi kita beberapa gambar yg ukuran nya sama ya. Kita bikin container-tiga, nah ini misalnya kita mau buat gambarnya dalam bentuk tumnell, sebenernya kalian bisa aja tulis langsung <img>, tapi saya mau saya bungkus lagi dengan tumniel. Seperti ini :
+
+ <!-- Latihan 3 - Gallery-->
+    <div class="container-tiga">
+        <div class="tumnail">
+            <img src="img/1.jpg">
+        </div>
+        <div class="tumnail">
+            <img src="img/2.jpg">
+        </div>
+        <div class="tumnail">
+            <img src="img/3.jpg">
+        </div>
+        <div class="tumnail">
+            <img src="img/4.jpg">
+        </div>
+        <div class="tumnail">
+            <img src="img/5.jpg">
+        </div>
+        <div class="tumnail">
+            <img src="img/6.jpg">
+        </div>
+    </div>
+-----------------------------------------
+
+Nah pertama kita buat dulu style untuk container-tiga nya yg dasar aja ya seperti yg lain :
+
+.container-tiga {
+    width: 800px;
+    margin: 50px auto;
+}
+-----------------------------------------
+
+Nah sekarang gimana biar gambar nya ngejejer biar rapih, kalo saya tulis langsung di container-tiga atau pembungkusnya display flex :
+
+.container-tiga {
+    width: 800px;
+    margin: 50px auto;
+    display: flex;
+}
+-----------------------------------------
+
+Nah maka gambarnya pindah ke samping kanan ngebaris nya, kita pengen nya tetep ada di kotak 800px nya. Nah ini caranya kalian bikin gambarnya 100% dari pembungkus nya, kan sebenernya yg kita kasih flex itu <div> tumnail nya bukan si tag <img> nya ya.
+
+Misalnya sekarang gini si img nya kita kasih width nya 100% maka nanti dia akan mengikuti ukuran dari besar nya si <div> itu. Nah otomatis si gambar itu mengecil mengikuti ukuran div nya berapa.
+
+.container-tiga {
+    width: 800px;
+    margin: 50px auto;
+    display: flex;
+}
+
+.container-tiga .tumnail img {
+    width: 100%;
+}
+-----------------------------------------
+
+Nah kita gamau ke 6 poto itu ngejejer kesamping kanan, ini mending kita bagi jadi beberapa baris ya.
+Lalu supaya turun menjadi beberapa baris kita kasih di pembungkus nya flex-wrap (wrap) ya.
+
+.container-tiga {
+    width: 800px;
+    margin: 50px auto;
+    display: flex;
+    flex-wrap: wrap;
+}
+-----------------------------------------
+
+Nah tapi turun nya ini balik lagi ke awal, solusinya kita atur ukuran width nya si <div> itu, biar muat nya 4 poto satu baris ngejejer kekanan nya berarti kita kasih width nya 25%. Seperti ini :
+
+/* Latihan 3 */
+.container-tiga {
+    width: 800px;
+    margin: 50px auto;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.tumnail {
+    width: 25%;
+}
+
+.container-tiga .tumnail img {
+    width: 100%;
+}
+-----------------------------------------
+
+Jadi sekarang ada 4 poto dalam satu baris lalu kalo gamuat turun kebawah nya, jadi 2 poto nya turun kebawah. Tapi 2 gambar itu sisanya saya mau dia ada di tengah gitu pake justify-content center.
+
+.container-tiga {
+    width: 800px;
+    margin: 50px auto;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+-----------------------------------------
+
+Nah itu udah ya. Tapi sekarang kita mau buat responsive seperti sebelum nya. pertama kita ubah dulu width nya jadi maximal. Seperti ini :
+
+.container-tiga {
+    max-width: 800px;
+    margin: 50px auto;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+-----------------------------
+
+Nah kita bikin supaya kalo di buka di headphone poto nya sebaris nya cuma 2 gambar, tapi kalo di laptop sebaris nya 4 gambar. Gampang kalian tinggal ganti aja width <div> tumnail nya jadi 50%.
+
+.tumnail {
+    width: 50%;
+}
+-----------------------------
+
+sekarang jadinya kalo kita buka di hp pasti sebaris ada 2 poto tapi kalo buka di layar yglebih besar lagi ttp sebaris nya ada 2 poto. Nah ini tinggal aja kita atur css nya di taro ke media query.
+
+@media(min-width: 700px) {
+    .container-dua {
+        display: flex;
+        justify-content: space-between;
+    }
+
+    .layanan {
+        width: 33%;
+    }
+
+    .tumnail {
+        width: 25%;
+    }
+}
+-----------------------------
+
+Tuh jadinya ketika layar nya 700px atau lebih maka width tumnail nya berubah jadi 25%, dan css diluar itu nya besaran tumnailnya ttp 50% liat aja geh ya.
+
+AKHIR LATIHAN 3
+
+----------------------------------------------------------------------------------------------------------------------------------
+
+LATIHAN 4 - CARD
+
+di latihan 4 misalnya kita mau bikin card kalian pasti pernah masuk ke sebuah web yg jual produk atau layanan, kadang" harga nya dalam bentuk card, ada yg paling murah yg paling mahal dll. Kita akan buat seperti itu.
+
+Nah kita buat dulu div container-empat nya lalu didalam nya ada div class nya card. Nah card itu biasanya terbagi atas dua ada bagian header untuk nyimpen gambar misalnya, dan ada bagian body nya atau kita sebutnya content lah. Seperti ini :
+
+   <div class="container-empat">
+       <div class="card">
+        <div class="header"></div>
+        <div class="content"></div>
+       </div>
+    </div>
+------------------------------
+
+Misalnya di bagian content saya bikin paragraf 10 kata dan ada button yg tulisan nya buy now :
+
+ <div class="content">
+
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, placeat!</p>
+
+                <button type="submit">Buy Now!</button>
+
+            </div>
+------------------------------------------------------------
+
+lalu kita coba style dulu si card nya
+
+/* Latihan 4 */
+.container-empat {
+    width: 800px;
+    margin: 50px auto;
+}
+
+.card {
+    border: 1px solid #aaa;
+    border-radius: 10px;
+    background-color: #eee;
+    overflow: hidden;
+}
+
+.card .header {
+    height: 150px;
+    background-color: #666;
+}
+
+.card .content {
+    text-align: center;
+    padding-bottom: 20px;
+}
+------------------------------------------------------------
+
+Ceritanya card nya gini dulu aja deh.
+
+Lalu kita kan pengen nya mereka ngejejer kekanan ya. berarti kita kasih dulu container-empat nya display flex, biar ga terlalu mepet kita kasih margin di card nya, lalu supaya yakin ukuran nya sama kalian bisa kasih flex 1. 
+
+/* Latihan 4 */
+.container-empat {
+    width: 800px;
+    margin: 50px auto;
+    display: flex;
+}
+
+.card {
+    border: 1px solid #aaa;
+    border-radius: 10px;
+    background-color: #eee;
+    overflow: hidden;
+    margin: 10px;
+    flex: 1;
+}
+---------------------------------------
+
+Kalo kalian pengen yg tengah nya ukuran nya lebih besar gitu kita tambah kan satu nama class di card yg tengah nama class nya besar gini :
+
+.card.besar {
+    transform: scale(1.12);
+}
+------------------------
+
+Jadi ceritanya itu card nya lebih besar dan lebih besar misalnya diskon nya gitu. Lalu kalo mau di responsive in tinggal atur aja style penempatan nya seharusnya kalian udah ngerti ya.
+
+AKHIR LATIHAN 4
+
+----------------------------------------------------------------------------------------------------------------------------------
+
+LATIHAN 5 - CENTERING
+
+latihan 5 ini kita ngebahas centering untuk bikin sebuah item di tengah" persis dari element pembungkus nya, kedengeran nya mungkin sederhana ya tapi cara mencapai nya agak ribet.
+
+Misalnya saya punya lagi div container-lima yg didalam nya div kotak, yg didalam kotak itu ada tulisan hello world!, Jadi saya mau bikin ada kotak yg besar yaitu container-lima didalam nya ada lagi kotak kecil si div kotak itu didalamnya ada tulisan. lalu saya mau buat tulisan nya di tengah kotak kecil dan kotak kecil nya di tengah kotak besar.
+
+.container-lima {
+    width: 500px;
+    height: 500px;
+    margin: 50px auto;
+    border: 1px solid black;
+}
+
+.kotak {
+    width: 100px;
+    height: 100px;
+    background-color: brown;
+    color: white;
+}
+--------------------------
+
+Nah sekarang coba tulisan nya biar ada di tengah" kotak kalo gapake flexbox, cara nya gini kalo tulisan nya cuma sebaris gampang, untuk mensejajarkan secara horizontal pake text-align center, untuk vertikal nya pake line-height yg ukuran nya sama dengan height nya.
+
+.kotak {
+    width: 100px;
+    height: 100px;
+    background-color: brown;
+    color: white;
+    text-align: center;
+    line-height: 100px;
+}
+--------------------------
+
+ini berhasil cuma ini akan jadi problem klo misalnya tulisan itu ada banyak, kalo tulisan nya banyak tulisan nya keluar dari kotak nya dan bablas. Kalo cuma 2 kata 1 kata 1 huruf itu ga masalah masih di tengah ya, nah kalo udah 3 kata 4 kata itu udah keluar dari si kotak nya. Nanti kita cari tau biar bisa beberapa baris.
+
+
+Sekarang gimana caranya biar si kotak nya ada di tengah, kalo misalnya secara horizontal kan gampang tinggal pake margin 0 auto, jadi diakalin nya biasa nya gini, kasih margin atas nya setengah dari ukuran width nya.
+
+.kotak {
+    width: 100px;
+    height: 100px;
+    background-color: brown;
+    color: white;
+    text-align: center;
+    line-height: 100px;
+    margin: 250px auto;
+}
+--------------------------
+
+ini tapi bablas ngga di tengah" nya jadi kita harus atur sendiri sampe menurut kita kotak nya ada di tengah" nya ya. Misalnya kita bisa pake transform translateY. GIni :
+
+.kotak {
+    width: 100px;
+    height: 100px;
+    background-color: brown;
+    color: white;
+    text-align: center;
+    line-height: 100px;
+    margin: 250px auto;
+    transform: translateY(-50px);
+}
+--------------------------
+
+Nah kaya gitu dulu baru ada ditengah kotak nya, tap ribet ya banyak matematik nya harus itung" an dulu. Kalo pake display flex kalian cukup seperti ini aja :
+
+.container-lima {
+    width: 500px;
+    height: 500px;
+    margin: 50px auto;
+    border: 1px solid black;
+    display: flex;
+}
+
+.kotak {
+    width: 100px;
+    height: 100px;
+    background-color: brown;
+    color: white;
+    text-align: center;
+    line-height: 100px;
+    margin: auto;
+}
+--------------------------
+
+Seperti itu aja udah jadi si kotak nya ad ditengah, cukup kasih pembungkus nya display flex dan kotak nya kasih margin auto.
+
+Dan ini bisa kita pake untuk tulisan hello world tapi tulisan nya harus kita bungkus dulu kedalam element, misalnya kita simpan ke span aja.
+
+Jadi kalian cukup bikin si kotak nya display nya flex dan span nya kasih margin auto. Seperti ini :
+
+.kotak {
+    width: 100px;
+    height: 100px;
+    background-color: brown;
+    color: white;
+    margin: auto;
+    display: flex;
+    text-align: center;
+}
+
+.kotak span {
+    margin: auto;
+}
+----------------------------------------------------------------------------------------------------------------------------------
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

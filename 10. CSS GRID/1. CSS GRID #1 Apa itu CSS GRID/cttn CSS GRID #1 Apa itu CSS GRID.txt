@@ -1,0 +1,301 @@
+CSS GRID #1 Apa itu CSS GRID
+
+CSS Grid definisi
+"Modul CSS *baru* untuk mendefinisikan sistem layout berbentuk grid dalam 2 dimensi (baris & kolom)."
+
+Nah ini bedanya grid dan felxbox, kalo flexbox itu 1 dimensi, dia hanya bisa mengatur baris saja atau kolom saja, sedangkan css grid 2 dimensi dia bisa mengatur baris sekaligus kolom dalam waktu bersamaan.
+Grid ini juga merupakan bagian dari display, jadi sama berlakunya denga flexbox.
+
+----------------------------------------------------------------------------------------------------------------------------------
+
+Alasan & Kenapa css Grid ?
+
+Jadi Css grid ini bukan merupakan pengganti dari flexbox, bahkan nanti kedepannya kita bisa menggunakan nya secara berbarengan. Karena tujuan nya berbeda ya, css grid untuk membuat layout yang kebih kompleks, Jadi pada saat nya nanti kita bisa menggabungkan ke 2 itu.
+
+Sekarang nih misalnya saya punya studi kasus seperti ini ( liat di folder ). Sebelum masuk ke Css grid nya kita disuruh buat seperti itu dengan tidak menggunakan Flexbox berarti memakai Float ya.
+
+Kita pake yang pak dhika aja ya, Ini kalian baca sendiri aja code nya gini :
+
+<body>
+    <div class="container">
+        <header>header</header>
+        <div class="content">
+            <div class="sidebar">
+                <aside>aside</aside>
+                <nav>nav</nav>
+            </div>
+            <main>main</main>
+        </div>
+        <footer>footer</footer>
+    </div>
+</body>
+---------------------------------------
+
+Jadi kita harus mengelompakan nya menggunakan div agar bisa saat memakai float nya ya. tinggal kita atur aja nih Aside nya di sebelah kiri main nya di sebalah kanan.
+
+Berarti yg sidebar nya kita kasih Float left terus lebar nya itu kan lebih kecil dari pada main, kita anggap sidebar nya 40% dan main nya 60%, Lalu main nya kita kasih juga float right dan box-sizing agar tidak meperdulikan ukuran pembungkusnya biar ga nambah ukuran nya gitu. :
+
+.sidebar {
+            float: left;
+            width: 40%;
+        }
+
+    main {
+            background-color: #e78c57;
+            padding: 171.5px 0;
+            width: 60%;
+            box-sizing: border-box;
+            float: right;
+        }
+---------------------------------------
+
+Ini udah jadi sudah sama, tapi inget sebenernya pembungkus nya itu colabs dia, kalo kalian kasih si div content nya border misal nah itu keliatan si border nya colabs ke situ, Nah ini karena ketika kita pake float harus menggunakan clear, jadi di akalin.
+
+Biasanya cara ngakalin nya kita tambahin di akhir content nya ada div kosong yg nama classnya clear, tapi itu aneh ya nah ada cara lain kita bisa akalin pake psudeo element ( ::after ), ikutin aja templet nya gini ;
+
+        .content::after {
+            content: '';
+            display: block;
+            clear: both;
+        }
+---------------------------------------
+
+Jadi itu yg harus kita lakukan ketika kita pake float, banyak hal yg kita sebut ngakalin gitu ya, kalo kita liat element html nya si div content dan sidebar itu adalah items pembungkus yg gunanya hanya untuk ngakalin, Jadi sebenernya pake float bisa tampil seperti yg kita ingin kan tapi gabagus.
+
+AKHIR MENGGUNAKAN *FLOAT*
+
+----------------------------------------------------------------------------------------------------------------------------------
+
+Sekarang gimana kalo kita perbaiki menggunakan Flexbox. Caranya lebih gampang tapi kita masih sama menggunakan struktur HTML yg ini :
+
+<body>
+    <div class="container">
+        <header>header</header>
+        <div class="content">
+            <div class="sidebar">
+                <aside>aside</aside>
+                <nav>nav</nav>
+            </div>
+            <main>main</main>
+        </div>
+        <footer>footer</footer>
+    </div>
+</body>
+---------------------------------------
+
+Lalu kita tinggal mengubah si content nya itu display nya flex, lalu beri div sidebar nya berapa persen width nya dan main nya juga :
+
+  .content {
+            display: flex;
+        }
+
+        .sidebar {
+            width: 40%;
+        }
+  main {
+            background-color: #e78c57;
+            padding: 171.5px 0;
+            width: 60%;
+        }
+---------------------------------------
+
+Nah hanya seperti itu sudah menghasil kan hasil yg sama seperti memakai float lebih simpel bukan. dan kita juga ga butuh clear, clear kan property css tambahan yg sebenernya ga ada hubungan nya sama konten web nya ya.
+
+Nah lalu mines nya kita tetep aja mempunyai struktur HTML yg kurang bagus, kita punya div yg sebenernya gaada hubungan nya sama si konten dar web nya. Jadi sebenernya gaperlu kita menggunakan div tambahan jika menggunakna CSS grid. Jadi nya kita menggunakan struktur nya jadi seperti ini :
+
+<body>
+    <div class="container">
+        <header>header</header>
+        <aside>aside</aside>
+        <nav>nav</nav>
+        <main>main</main>
+        <footer>footer</footer>
+    </div>
+</body>
+---------------------------------------
+
+AKHIR MENGGUNAKAN *FLEXBOX*
+
+----------------------------------------------------------------------------------------------------------------------------------
+
+Jadi kita coba dengan Struktur HTML yg seperti itu kita buat tampilan yg sama seperti menggunakan float dan flexbox tapi struktur HTML nya lebih rapih. Kita akan menggunakan CSS Grid.
+
+Jadi dengan CSS grid nanti kita akan bisa lebih mudah memindahkan element" yg ada gitu, Jadi kita bisa anggap element" itu menjadi sebuah GRID ( liat di folder yg ada garis" nya ). Jadi kita bisa bikin Grid nya. 
+
+Lalu kita tentukan Grid mana yg mau kita gabungkan Grid mana yg mau kita kasih nama apa ukuran nya berapa posisi nya berapa nah itu akan kita lakukan dengan sangat mudah. Disini kita akan memulai dengan cara bikin grid nya dulu ya.
+
+yang pertama kita akan bikin si container nya jadi pembungkus si grid nya, jadi sekarang kita kasih display Grid di <div> container nya. Nah sekarang kita bisa dengan mudah ngasih tau bagian mana sebagai apa namanya.
+
+Misalnya nih ( liat poto yg ada garis nya ) kita punya dua kolom dibagian paling atas yang menjadi header, jadi itu header sebelah kanan nya juga header, lalu dibawanya header ada aside nav dan main, jadi aside nya satu baris dengan sebagian main lalu nav nya juga sama, dan dibawah ada footer yg punya 2 kolom dia juga kolom 22 nya footer.
+
+Jadi kita bisa bikin seolah" templet grid nya begini, di css grid ada yg namanya grid-template-areas, disitu kita bisa tulis dengan menggunakan nama sesuai dengan nama yg kita ingin kan. Misalnya nih dibaris pertama tadi kita punya 2 kolom yg isi nya header.
+
+Jadi saya bisa tulis gini "header header" :
+
+ .container {
+            width: 600px;
+            margin: 50px auto;
+            border: 5px solid #333;
+            box-sizing: border-box;
+            padding: 5px;
+            display: grid;
+            grid-template-areas: "header header";
+        }
+--------------------------------
+
+Karena kalo kita hitung di situ (liat poto yg ada garis nya titik) itu kita punya 4 baris yg tiap" baris nya 2 kolom nanti kita petakan dengan nama nya, jadi "header header", "aside main", "nav main", dan "footer footer". Gini :
+
+  .container {
+            width: 600px;
+            margin: 50px auto;
+            border: 5px solid #333;
+            box-sizing: border-box;
+            padding: 5px;
+            display: grid;
+            grid-template-areas: "header header"
+                "aside main"
+                "nav main"
+                "footer footer";
+        }
+--------------------------------
+
+Ini kita baru kasih nama area nya saja, Selanjutnya kita kasih ukuran nya ada yg namanya grid-template-colums, untuk ngatur ukuran dari kolom nya. Ukuran kolom dari tiap" baris nya kalo kita liat di (gambar) yg sebelah kiri lebih kecil dari sebelah kanan.
+
+jadi yg sebelah kiri nya 1fr yg seblah kanan nya 1.5fr, (liat yg garis titik nya jangan ukuran si nav atau main nya ya). (fr) itu singkatan dari freaksien atau pecahan nya.
+
+ .container {
+            width: 600px;
+            margin: 50px auto;
+            border: 5px solid #333;
+            box-sizing: border-box;
+            padding: 5px;
+            display: grid;
+            grid-template-areas: "header header"
+                "aside main"
+                "nav main"
+                "footer footer";
+            grid-template-columns: 1fr 1.5fr;
+        }
+--------------------------------
+
+Liat tuh langsung berubah bentuk nya ya, tapi itu masih ngaco urutan nya karena kita belum kasih tau elemen mana namanya apa. Selanjutnya kita atur dari ukuran baris nya (grid-template-rows), ini untuk ngatur ukuran dari tiap" baris, kita punya 3 baris, baris pertama kita anggap ukuran nya 1fr, baris ke 2 1fr, baris ke3 1.3fr, baris ke-4 itu bisa kita abaikan saja atau kalo mau diatur juga bisa ya, cuma kita abaikan dulu aja. Gini :
+
+     .container {
+            width: 600px;
+            margin: 50px auto;
+            border: 5px solid #333;
+            box-sizing: border-box;
+            padding: 5px;
+            display: grid;
+            grid-template-areas: "header header"
+                "aside main"
+                "nav main"
+                "footer footer";
+            grid-template-columns: 1fr 1.5fr;
+            grid-template-rows: 1fr 1fr 1.3fr;
+        }
+--------------------------------
+
+Nah hasilnya sama aja masih belum pas, karena kita belum kasih tau yg header tuh yg mana yg aside tuh yg mana, sekarang kita kasih tau nih di tiap" items nya yg ada didalam container nya, untuk yg header kita kasih nama gunakan (grid-area), jadi dia area nya yg header maka nanti dia akan ngambil 2 kolom, cukup tulis saja (header). Gini :
+
+
+        header {
+            grid-area: header;
+            background-color: #d41fd4;
+            padding: 40px 0;
+        }
+--------------------------------
+
+Nah lalu atur lah sesuai nama items yg sudah kita atur sebelum nya. Gini :
+
+ header {
+            grid-area: header;
+            background-color: #d41fd4;
+            padding: 40px 0;
+        }
+
+        aside {
+            grid-area: aside;
+            background-color: #5757e7;
+            padding: 60px 0;
+        }
+
+        nav {
+            grid-area: nav;
+            background-color: #e75757;
+            padding: 100px 0;
+        }
+
+        main {
+            grid-area: main;
+            background-color: #e78c57;
+            padding: 171.5px 0;
+        }
+
+        footer {
+            grid-area: footer;
+            background-color: #666;
+            padding: 15px 0;
+        }
+----------------------------------------------------------------
+
+jadi kasih nama di masig" penempatan nya misal nama aside bakal sebaris sama main nah kan kita kasih nya di aside grid-area aside lalu si aside nya itu akan otomatis menempatkan posisinya ada dimana gitu. Jadi ini bener" gaperlu ada div tambahan gitu.
+
+Selain dengan pengaturan yg mudah ini, kita juga dipermudah ketika mengatur responsive nya itu menggunakan grid lebih mudah dibanding flexbox, dengan menggunakan css grid kita bisa lebih mudah mengatur atau memindahkan dengan nama area yg udah kita setel ya.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

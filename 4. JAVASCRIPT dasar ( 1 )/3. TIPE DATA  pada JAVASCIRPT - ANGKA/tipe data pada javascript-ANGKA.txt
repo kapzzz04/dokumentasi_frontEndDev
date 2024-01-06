@@ -1,0 +1,249 @@
+tipe data pada javascript ANGKA/NUMBER
+
+pada javascript angka itu di repentasikan sebagai
+ " numbers in javascript are double-precision floating point
+   64-bit format IEEE 754 values" 
+
+jadi intinya gini di dalam javascript itu tidak ada yg namanya
+INTEGER atau bilangan bulat dan yang ada hnya lah floating point
+atau BILANGAN PECAHAN
+
+ukuran angka yang dapat di tampung adalah 64-bit ini artinya
+kita bisa menyimpan angka yg artinya sebesar 2 pangkat 64-bit
+atau sama aja 18 x 10 pangkat 18 atau sebesar 18 x 1 miliar
+miliar, jadi sangat besar sekali, tapi angka ini tidak kita bisa pakai
+semua karena di dalam 64-bit tadi ada beberapa penanda yang harus
+nanti kita gunakan untuk menampung angka-angka tertentu.
+
+pada dasarnya ada beberapa jenis angka yg kita bisa simpan pada javascript
+
+kita bisa menyimpan
+
+------------------------------------------------------------------------------------------------------------------
+ANGKA/NUMBER
+
+kita bisa menyimpan 
+- angka tanpa desimal atau disebut integer
+ - 10, 1500, 123456
+ - akurat 15 digit
+
+( kenapa kok ada integer, memang ya jika kita melihat bilangan bulat atau integer
+  pada javascript sebetulnya di belakang layar yg di proses bilangan pecahan
+  tetapi tingkat akurasinya hanya sampai 15 digit ).
+
+( silahkan ke console ada di bagian inspesct di browser kalian, nah disini
+  kita mengetikan sebuah angka nanti javascript akan mengembalikan angka tersebut
+  yang sama, misal kita ketik di console angka 10 maka akan muncul angka 10,
+  nah jika kita masukan angka nya lebih dari 15 digit, jika kita ketik angka 9
+  15 digit maka akan muncul angka yg sama seperti yg di ketikan,kalo kita ketik angka
+  9 lebih dari 15 digit maka angka yg muncul akan berbeda seperti yg kita ketik sebelumnya ).
+
+tpi sebetulnya kalian tidak perlu khwatir akan hal ini apalagi jika kalian membuat aplikasi
+tidak membutuhkan angka dan tingkat akurasi yg tinggi ini dan di seri ini kita akan mempelajari
+prilaku dari angka nya saja
+------------------------------------------------------------------------------------------------------------------------------------
+
+kita bisa menyimpan 
+- angka dengan desimal atau bilangan pecahan
+ - 3.14, 0.5, 100,00
+
+tapi hati-hati koma di javascript di ganti titik, jadi jika kita tuliskan
+3,14 di javascript jadi 3.14 gitu.
+
+maksimal kita bisa menympan 17 digit di belakang koma, lalu hati-hati ketika kalian
+menjumblahkan bilangan pecahan karena kadang-kadang hasilnya tidak sesuai yg kalian
+harapkan.
+
+contohnya :  
+
+0.3 + 0.7
+1
+bener hasilnya 1
+
+0.2 + 0.1
+0.30000000000000004
+nah ini sebenernya kan 0.3 tpi javascript munculinnya itu, sebetulnya ada bilangan pecahan yg
+cukup kecil sehingga hasilnya ga bulet 0.3 tapi yg seperti di atas itu, jadi sekali lagi hati-hati
+dalam menghitung bilangan pecahan karena hasilnya tidak terlalu akurat.
+------------------------------------------------------------------------------------------------------------------------------------
+
+yang ketiga kita juga bisa menyimpan bilangan yg sangat besar atau yg sangat kecil menggunakan
+EKSPONEN
+
+- eksponen
+ - 123e5 // 12300000
+
+jika kita menuliskan 123e5 maka hasilnya 12300000
+sebaliknya jika menuliskan 123e-5 maka hasilnya 0.00123
+------------------------------------------------------------------------------------------------------------------------------------
+
+selanjutnya kita juga bisa menyimpan bilangan negatif
+
+-Bilangan negatif
+
+jadi sebetulnya 64-bit tadi itu ngga bisa kita pakai untuk menuliskan bilangan bulat positif saja
+banyak hal yg bisa kita gunakan dan urutan bit penggunaannya bisa dimaksud 1 bit digunakan
+untuk penanda jika bilangannya negatif 11 bit digunakan untuk eksponen dan sisanya 52 bit baru
+digunakan untuk angka sebenernya termasuk untuk menyimpan titik untuk pecahan.
+------------------------------------------------------------------------------------------------------------------------------------
+
+lalu kalian jangan perna mengawali angka javascript dengan 0 knp?
+karena ini hasilnya tidak sesuai dengan harapan kita, misal kita memasukan angka 022 di 
+console kalian maka itu hasilnya adalah 18, kok bisa, karena dengan kita menuliskan angka
+0 di awal angka kita bilangan kita akan di anggap sebagai bilangal OKTAL bukan bilangan desimal,
+bilangan desimal itu basis 10 dari 0 sampai 9.
+
+lalu bilangan oktal itu basis delapan dari 0 sampai 7.
+
+------------------------------------------------------------------------------------------------------------------------------------
+
+sama juga dengan kita mengawali angka dengan 0x nah ini akan di anggap sebagai bilangan
+hexadesimal, nah bilangan hexadesimal ini basis 16 jadi di mulai dari 0 sampai huruf F
+jadi 0 sampai 9 terus A sampai F.
+
+lalu kita menuliskan 0xFF lalu javascript akan memunculkan 255
+
+------------------------------------------------------------------------------------------------------------------------------------
+ANGKA SPESIAL
+
+di dalam javascript itu ada yg namanya angka spesial berikut nama-namanya
+
+- angka spesial
+ - Infinity
+ - -Infnity
+ - NaN ( not a number )
+
+kalo kita membagi bilangan positif dengan angka 0 maka yg muncul adalah Infinity
+
+contoh : 2 / 0
+              Infinity
+
+kalo kita membagi bilangan negatif dengan angka 0 maka yg muncul adalah -Infinity
+
+contoh :  -2 / 0
+              Infinity
+
+sedangkan jika kita membagi 0 dengan 0 maka yg muncul NaN
+
+contoh :  0 / 0
+              NaN
+
+terus kita punya angka 100 di bagi dengan string apel yg muncul adalah NaN
+
+contoh :  100 / "apel"
+              NaN
+
+hati-hati juga ketika kalian membagi bilangan dengan string tapi di dalam string
+tersebut terdapat angka nah disini javascript akan menyebut ssebagai angka
+nah itu akan di bagi sebagaimana pembagian pada umum nya
+hasil nya akan seperti di bagi walaupun ada string, karena di anggap nya angka.
+
+misal angka 100 dibagi string 10 adalah 10
+
+contoh :  100 / "10"
+              10
+
+masukkan ke logika 100 di bagi 10 hasilnya 10 itung aja coba
+
+
+
+   
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

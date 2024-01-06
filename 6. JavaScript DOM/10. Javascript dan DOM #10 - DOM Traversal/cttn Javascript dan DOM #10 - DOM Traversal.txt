@@ -1,0 +1,434 @@
+Javascript dan DOM #10 - DOM Traversal
+
+jadi kita akan mempelajari DOM Traversal atau penelusuran DOM, dan istilah Traversal atau
+Penelusuran DOM disini kalian bisa bayangkan istilahnya tuh seperti ini :
+
+( seperti gambar sawah liat di folder )
+
+menelusuri jalan kecil yang ada di persawahan, ya jadi penelusuran yg kita maksud itu
+mirip seperti itu.
+
+------------------------------------------------------------------------------------------------------------------------------
+
+( ada poto nya di folder ya )
+
+atau kita liat di sini menggunakan DOM Tree, kita liat konsep dari DOM selection dulu, dimana
+kita bisa memilih sebuah element atau sebuah node yang ada pada DOM Tree itu, kita udah
+tau cara nya ya kita bisa gunakan GetElementById dll.
+
+ya dimana itu kita bisa memilih 1 atau lebih dari node atau element yg ada pada DOM, nah
+contoh nya itu, misalkan dengan menggunakan DOM Selection, saya mau memlih sebuah
+element, misalnya element nya (h1) itu ( yg ada di gambar folder ya ).
+
+kita dapat dengan mudah dengan menggunakan getElementById kalau h1 itu punya id atau kalau
+gaada id nya kita bisa gunakan querySelector atau getElementsByTagName, atau kita mau
+memilih paragaraf ( liat di gambar di folder nya ya ), sama aja kita bisa pilih salah satu dari method
+untuk menyeleksi DOM, ya begitu pula dengan element yg lain.
+
+------------------------------------------------------------------------------------------------------------------------------
+
+nah sekarang gimana bedanya ketika kita menggunakan DOM Traversal atau penelusuran DOM,
+nah jadi dengan menggunakan DOM Traversal ini, sebetulnya yg pertama kali kita lakukan 
+menyeleksi sebuah element dulu untuk menggunakan DOM Selection.
+
+baru setelah element tertentu itu ketemu atau terseleksi, nah kita akan memilih element yg lain
+berdasarkan element yg kita pilih tadi, atau istilah nya menelusuri element nya berdasarkan
+element yg kita seleksi di awal.
+
+contohnya gini deh kalo misalkan kita mau memilih sebuah paragraf, ini kan gampang aja kita
+tinggal seleksi menggunakan getElementById misalkan, lalu setelah itu misalnya kita, mau
+memilih tag ( a ), yg tag (a) itu masih 1 parent sama tag ( p). ( liat nih gambar nya di folder ).
+
+kan setelah menyeleksi tag (p) kita mau memilih tag a ya, nah tapi berdasarkan element ( p )
+yg kita pilih itu, jadi kita akan menelusuri, selama ada hubungannya, yakan pasti ada hubungannya
+ya, setiap node pada DOM itu pasti dia punya hubungan pasti kita bisa telusuri.
+
+( lihat gambar nya ada di folder ini ya ).
+
+jadi cara menelusuri nya gini misal, misal dari ( p ) kita ke atas ke ( div ) lalu ke sebelah kanan
+ke tag ( a ) yg di mau, nah itu contoh penelusuran nya seperti itu, ketemulah element ( a ) itu,
+ya nanti cara penelusuran nya bisa macem", bisa kita ke atas dulu sampe body lalu pilih ( a )
+bisa jadi begitu.
+
+nah untuk memahami penelusuran ini kalian juga harus paham konsep dari silsilah keluarga,
+jadi kalian harus tau dlu mana anak nya siapa, mana orang tua nya siapa,  lalu mana sodara
+kandung nya, nanti di sebut sibling misalnya gitu kalian harus paham dulu konsep itu ya.
+
+jadi gitu cara nya, kita bisa menggunakan penelusuran DOM untuk mendapatkan sebuah element,
+berdasarkan element yang sudah kita seleksi sebelumnya.
+
+------------------------------------------------------------------------------------------------------------------------------
+
+Kenapa harus ditelusuri?
+
+kenapa kita harus menelusuri DOM itu, kenapa sih sebuah element itu harus ditelusuri, knp ga
+di seleksi aja, nah misal nya kita kembali ke khasus sebelumnya.
+
+( ada di folder ya gambar nya )
+
+misalkan kalo kita mau ngambil yg ( a ) tadi itu, udah aja kita seleksi element yg ( a ) nya, ngapain
+kita susah" menelusuri nya dari ( p), nah ini akan masuk akal ketika kita sudah masuk ke dalam
+contoh.
+
+nah langsung kita coba aja coding contoh sederhana untuk menelusuri DOM nya, jadi sekarang
+kita udah punya file html,css, dan js nya ya.
+
+jadi cerita nya saya mau membuat kartu nama, yg di sebelah kanan nya ada tombol ( x ) nya,
+nah itu ceritanya untuk kita menghapus kontak nya.
+
+------------------------------------------------------------------------------------------------------------------------------
+
+kita liat dulu HTML nya ya, jadi disini kita punya sebuah ( div ) untuk membungkus element nya ya
+nama class nya container, lalu di dalam nya saya punya ( div ) nama class nya card yg 
+membungkus semua itu ya, yg di dalam nya saya punya beberapa element, ada ( img ), lalu ada
+3 ( span )  yg tiap" span punya nama class, pertama class namanya nama, span ke-2 nama
+classnya telp, ke-3 nama class nya close.
+
+jadi nanti ceritanya ketika saya pencet tombol x itu ( yg nama class nya close ) saa pengen ( card )
+nya ilang, jadi saya pengen pas pencet tombol x satu element div ( card ) itu ilang.
+
+Codingan :
+
+const span = document.querySelector('.close');
+const card = document.querySelector('div .card');
+
+span.addEventListener('click', function () {
+    card.style.display = 'none';
+})
+---------------------------------------------------------
+
+jadi yg pertama kita ambil dulu element" yg kita butuhin ya, jadi disitu di saat close di klik maka
+card nya ilang ya, harusnya ilang ya, nah sampe sini gaada masalah ya.
+
+nah sekarang kapan dong kita butuh DOM Traversal nya ?
+
+nah kita liat gimana kalo misalnya kalo si ( card ) nya ada banyak, lebih dari 1 jadi nya nanti,
+jadi sekarang saya ada 3 buah (card ) nih, ada 3 buah kontak gitu misal, sekarang saya mau
+ketika di tekan tombol ( x ) nya yg manapun dia hilang kan ya.
+
+nah dengan script sebelumnya kita coba klik yg ( jakarta ) ya coba kita klik yg itu, kan disitu ada
+3 ya, kita hapus yg jakarta, nah ketika di klik dia gamau ilang tuh, tapi kalo yg di klik yg susanti,
+nah dia hilang.
+
+nah ini karena di script nya, itu yg pertama karena kita gunakan querySelector, querySelector itu
+hanya menangkap satu element, element yg pertama kali dia temui, makannya close dan card
+itu hanya berlaku untuk element yg pertama aja, hanya berlaku untuk kartu yg pertama aja.
+
+nah cara untuk kita bisa mengambil semua nya itu kita gabisa pake querySelector, kita harus
+pake querySelectorAll supaya dapet semuanya.
+
+------------------------------------------------------------------------------------------------------------------------------
+
+yg pertama kita lakukan yaitu kita akan ambil semua tombol Close nya, sebenernya caranya 
+banyak ya ini hanya salah satu nya aja ya, kita ambil semua tombol close nya ya, karena ini
+semua element nya sama, element  dengan nama class close, baru nanti kita cek tombol close
+mana yg kita klik, hilangkan yg itu.
+
+nah disini kita butuh const yg namanya close, terus kita ambil tombol close nya, tapi kita ambil nya
+semuanya pake querySelectorAll, nah sekarang kalo ku console.log close nya seperti ini :
+
+const close = document.querySelectorAll('.close');
+console.log(close);
+---------------------------------------------------------------
+
+maka kalo kita cek di inspect harusnya ada 3 element yg bentuk nya seperti array, nah sekarang
+kita tinggal looping satu" close nya untuk mengetahui tombol mana yg kita pencet. ya kalian boleh
+Looping nya pake FOR.
+
+misalkan FOR let i isi nya 0, lalu i < dari close.length, pake length supaya kalo nambah card nya
+kalian ga perlu ganti" lagi, lalu i++, nah ini cara ngelooping tiap" element pada close nya.
+
+lalu tinggal kita ambil satu", close[i], close dengan index ke i, kalo close dengan index ke i itu kita
+kasih event, event nya click terus kita jalankan Function, jadi ketika sebuah tombol di klik kita akan
+jalankan sebuah Function. seperti ini contoh nya :
+
+const close = document.querySelectorAll('.close');
+
+for (let i = 0; i < close.length; i++) {
+    close[i].addEventListener('click', function () {
+        alert('tombol ke-' + i);
+    });
+}
+---------------------------------------------------------------
+
+jadi kita contohin pake alert dulu biar kita tau tombol keberapa yg kita pencet, nah kita udah bisa
+ambil tiap" tombol nya tinggal kita tentukan, ketika kita ngeclick tanda x, kita akan apus card nya ya.
+nah sebenernya cara nya bisa yg tadi ya, walaupun ini cara yg salah.
+
+kita bisa bikin const namanya card, lalu document.querySelectorAll('.card'), tinggal kita hilangkan
+card dengan index ke-i juga, card dengan index ke-i style.display lalu di isi dengan 'none'. nah ini
+di taro di function nya untuk ketika function nya dijalankan, card nya hilang. seperti ini :
+
+const close = document.querySelectorAll('.close');
+const card = document.querySelectorAll('.card');
+
+for (let i = 0; i < close.length; i++) {
+    close[i].addEventListener('click', function () {
+        card[i].style.display = 'none';
+    });
+}
+---------------------------------------------------------------
+
+nah kalo pake ini sebenernya bisa aja tapi ini cara yg salah dan tidak menggunakan cara DOM 
+Traversal.
+
+------------------------------------------------------------------------------------------------------------------------------
+
+nah gimana cara yg bener nya ?
+
+coba ya card nya kita apus dulu, sekarang kita kembali ke HTML nya dulu, kita liat yg card pertama
+yg susanti itu ya, yg sudah kita ambil atau kita tangkap itu bagain tag span yg class nya close ya.
+nah si card susanti itu adalah tombol close dengan index ke 0 kalo pake cara FOR.
+
+kita pengen nya gini, begitu tombol close nya di klik, kita akan telusuri dan kita liat siapa parent dari
+tombol close, kan kita mau ngambil si card ya, nah dari tombol close ke tag div berisi class card
+itu, berarti dia persis adalah parent nya, jadi dari tombol close kita telusuri parent nya lalu setelah 
+itu apus parent nya.
+
+( parent itu ibu nya dan tombol close itu anak nya jadi yg di cakup atau tag" yg berada di dalam div 
+itu, itu adalah anak nya div dan tag itu punya ibu yaitu div).
+
+nah coba ya gini, ambil si ( close ) yg ke ( i ) tadi, lalu sebelum kita style display none kita ambil
+parent nya, caranya kalian tulis ( parentElement ), jadi gini ( close[i].parentElement ), nah jadinya
+ambil element close yg sedang kita klik ini lalu telusuri siapa orang tuanya, kalo udah ketemu baru
+kita style.display none. seperti ini :
+
+const close = document.querySelectorAll('.close');
+
+for (let i = 0; i < close.length; i++) {
+    close[i].addEventListener('click', function () {
+        close[i].parentElement.style.display = 'none';
+    });
+}
+---------------------------------------------------------------
+
+nahh ilang juga kan pas di klik tombol ( x ) nya, jadi itu bisa menggunakan parent element, jadi
+menelusurinya atau DOM Traversal nya itu yg ini ( parentElement ), nah tapi itu pun masih kita
+akan lakukan beberapa perbaikan ya.
+
+yg pertama itu kita bisa ganti ( close[i] ) nya dengan menggunakan Event nya, gini maksdunya,
+kalo misalkan kalian baca yg baris setelah FOR, nah itu kan artinya sebuah tombl lagi di klik ya,
+kalo kalian tulis ( close[i] ) lagi di function nya berarti kan sama tuh sma yg atas nya.
+
+itu kalian bisa ganti, kalo kalian kaish sebuah parameter di dalam function nya, biasa nya 
+parameternya kalo ga ( e ya event ) gitu lah ya. nah maka ( e ) disitu akan berisi event yg sedang
+terjadi ( si click itu ), jadi ( e ) itu akan menjadi sebuah object  yg berisi macem" yg pastinya itu
+berisi informasi dari event yg terjadi.
+
+( event yg terjadi itu pada saat di klik kan event nya itu method click, tapi kalo event nya bukan
+method clik berarti bukan pada saat di klik, jadi tergantu even yg kita pake di situ nya ya. )
+
+kalo bingung coba kita liat isi nya aja di si ( e ) itu ;
+
+for (let i = 0; i < close.length; i++) {
+    close[i].addEventListener('click', function (e) {
+        console.log(e);
+    });
+}
+---------------------------------------------------------------
+
+jadi kalo kamu cek console.log terus clik dulu yg tombol nya nah nanti muncul sebuah object
+namanya PointerEvent.
+
+PointerEvent {isTrusted: true, pointerId: 1, width: 1, height: 1, pressure: 0, …}
+
+nah kan kek gitu bentukan nya, terus itu ada tanda panah nya untuk liat informasi lebih lanjutnya
+jadi ada banyak sekali informasi nya di bawah nya itu mengenai apa yg baru aja terjadi
+( masa harus saya salin sih ), kalo saya klik di tombol itu bahkan javascript bisa tau cordinat
+tombol ( x dan y ) nya terus posisi dia terhadap layar dan lain sebagai nya.
+
+dan ada satu informasi mengenai target nya kek gini ( target : span.close ) nah ini akan kita pake,
+target itu artinya siapa yg kita target siapa yg di klik, nah katanya ( span.close ) span dengan class
+close, jadi kalo misalkan kita ( console.log(e.target); ) nah dia akan mengambil element yg di klik 
+nya.
+
+nah kalo sudah begitu jadi kita bisa aja lakukan hal yg sama, jadi si e.target itu parent element nya
+style.display 'none'. kek gini :
+
+const close = document.querySelectorAll('.close');
+
+for (let i = 0; i < close.length; i++) {
+    close[i].addEventListener('click', function (e) {
+        e.target.parentElement.style.display = 'none';
+    });
+}
+---------------------------------------------------------------
+
+nah dengan menggunakan e.target ini lebih bermanfaat kita jadi bisa mengetahui informasi
+macem" dari sebuah Event nya. ya nanti kepake lah di video" berikut nya.
+
+------------------------------------------------------------------------------------------------------------------------------
+
+atau kalo kalian mau lebih praktis lagi, tadi ya karena si close ini kita udah tau bentuk nya adalah
+nodelist dan nodelist bisa di perlakukan sebagai array. maka kita bisa gini, (close) nodelist nya
+atau array nya kita forEach, jadi gaperlu pake let i blablabla.
+
+lalu kita loping satu", kita kasih sebuah Function, ya jadi tiap element pada nodelist ( close ) itu
+kita akan jalankan sebuah Function, nah untuk mengambil setiap element nya yg klo tadi itu
+( close[i] ) itu kita masukin ke dalam parameter nya, kalian bisa tulis nama parameter apapun 
+di function nya untuk ngambil 1 elelment nya.
+
+jadi kla saya tulis (el) untuk paramater di dalam function nya nah itu sama aja kaya ( close[i] ) itu,
+tinggal sama ky tadi baru addEventListener udahh. seperti ini :
+
+close.forEach(function (el) {
+    el.addEventListener('click', function (e) {
+        e.target.parentElement.style.display = 'none';
+    })
+});
+-------------------------------------------------------------
+
+jadii ni cara lain nya bisa pake forEach bisa pake for biasa. jadi disitu lah kita menelusuri atau
+mentransfer atau DOM Traversal sebuah element dari element yg lain.
+
+------------------------------------------------------------------------------------------------------------------------------
+
+DOM Traversak Method
+
+- parentNode
+- parentElement
+- nextSibling
+- nextElementSibling
+- previosSibling
+- previousElementSibling
+
+nah sekarang kalian harus tau ada Method apa saja untuk menelusuri element itu, Method nya ada
+banyak, jadi kita bisa ambil parent nya, parent nya itu ada 2 tipe kita bisa ambil node nya atau
+elemet nya ( parentNode dan parentElement ) kalo element pasti element HTML kalo node belum
+tentu.
+
+terus ada lagi ( nextSibling ) kalo nextSibling itu dia harus, istilahnya itu sodara kandung ya,
+sodara kandung dari element yg kita pilih, dan next adalah element setelah nya,  nah ada lagi
+( nextElementSibling ), ( previosSibling ), dan ada juga ( previousElementSibing ) dan masing"
+method itu mengembalikan hasil yang beda.
+
+DOM Traversak Method
+         
+               {   Method      }                            {    hasil   }
+ 
+              parentNode                                       Node      
+                 
+             parentElement                                element                    
+
+               nextSibling                                       Node                   
+
+          nextElementSibling                            element                             
+
+            previosSibling                                     Node                     
+
+       previousElementSibling                          element                              
+
+
+jadi itu menentukan apa yg akan kalian dapat kan, sekarang kita coba cara mengaplikasikan nya
+ya.
+
+sekarang kita kembali ke HTML nya, kita akan fokus ke element div yg pertama aja dulu ya, kita
+akan ambil salah satu element, anggap aja kita akan ambil yg bagian ( <span class="nama">
+Susanti Gans</span> ).
+
+nah kalo mau manggil atau seleksi gampang aja yakan, pake querySelector aja kek gini 
+( const nama = document.querySelector('.nama'); ), maka dia akan nagmbil element nama yang
+pertama kali dia temukan.
+
+coba kita console yg muncul tag span class nama pasti nya :
+
+const nama = document.querySelector('.nama');
+console.log(nama);
+
+hasilnya :
+
+<span class="nama">Susanti Gans</span>
+-------------------------------------------------------------
+
+sekarang kalo saya tulis console.log(nama.parentElement); maka yg tampil itu parent nya dari
+si ( nama ) itu, parentnya itu div yg punya class card kekgini hasil nya :
+
+<div class="card"></div>
+-----------------------------------
+
+nah kan di dalam div nya itu ada isi termasuk ( nama ) ini bagian dari isi div begitu ygy.
+
+kalo saya ganti jadi parentNode gini :
+
+const nama = document.querySelector('.nama');
+console.log(nama.parentNode);
+----------------------------------------------------------------
+
+jadi sama aja ya, nanti kita liat bedanya ketika kita pake method yg lain.
+
+------------------------------------------------------------------------------------------------------------------------------
+
+sekarang kalo saya mau ngambil tag ( <div class="container"></div> ), jadi dari ( nama ) ambil
+ke container, istilah nya container itu kakek dari si nama ya, nah kalo mau ngambil kake nya kita 
+tinggal tambahkan lagi aja parentElemet nya, begini :
+
+const nama = document.querySelector('.nama');
+console.log(nama.parentNode.parentElement);
+----------------------------------------------------------------
+
+jdi ke ambil lah yg tag div class nya container, jadi menurut saya DOM Traversal ini jadi kita lebih
+mudah untuk menyeleksi sebuah element, kalo sebelum make ini kan kita harus ambil satu"
+element nya dengan membuat variabel const dengan nama yg berbeda" untuk menyeleksi sebuah
+element. Nah kalo pake DOM Treversal kita tinggal pake Method yg ada kaya contoh di atas kita 
+mau menyeleksi tag div yg ngebungkus si ( nama ) kita ga harus buat variabel baru seperti dulu.
+
+jadi kita tinggal buat variabel untuk menyeleksi nama, lalu untuk menyeleksi div dengan class card,
+kita ga usah buat variabel baru lagi, tinggal pake method DOM Traversal aja langsung ke seleksi
+si div dengan class card itu mempermudah jadi nya.
+
+nah sekarang kalo saya tulis nextSibling, nextsibling itu sodara kandung, artinya tag yg parent nya
+sama jadi di dalam div card itu ga cuma berisi ( nama ) kan, ada tag lain nya naj itu yg di sebut
+sodara kandung.
+
+const nama = document.querySelector('.nama');
+console.log(nama.nextSibling);
+
+hasil : #text
+----------------------------------------------------------------
+
+lohh kok hasil nya text ya, kalo kita liat isi nya di console.log, ternyata text nya itu enter di codingan
+kita, kan kita coding tuh terus setelah ( nama ) lalu mau buat tag baru pasti kena enter ya begitu
+hasil nya #text, nah ini juga karena waktu kita tulis nextSibling itu yg di ambil adalah node.
+
+makannya kalo kalian mau pasti ambil element, pake nya nextElementSibling, jadi dia nanti akan
+mengabaikan si enter tadi. seperti ini :
+
+const nama = document.querySelector('.nama');
+console.log(nama.nextElementSibling);
+
+hasil : <span class="telp">08963728291</span>
+----------------------------------------------------------------
+
+nah itu ya dapet nya pasti element, begitu pula dengan previous nya
+
+const nama = document.querySelector('.nama');
+console.log(nama.previousElementSibling);
+
+hasil : <img src="img/pyp.jpg">
+----------------------------------------------------------------
+
+nah kalo kita ganti nextElementSibling 2 x jadinya gini :
+
+const nama = document.querySelector('.nama');
+console.log(nama.nextElementSibling.nextElementSibling);
+
+hasil: <span class="close">x</span>.
+
+------------------------------------------------------------------------------------------------------------------------------
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

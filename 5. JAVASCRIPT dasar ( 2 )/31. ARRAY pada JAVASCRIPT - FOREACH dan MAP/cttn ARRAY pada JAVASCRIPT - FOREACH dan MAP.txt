@@ -1,0 +1,312 @@
+ARRAY pada JAVASCRIPT - FOREACH dan MAP
+
+Array Method 
+- Length
+- Join
+- Push, pop, shift, unshift
+- slice, splice
+- Foreach, Map
+- Sort
+
+ya method yg akan kita coba Foreach dan Map ya 2 method ini digunakan untuk melakukan
+Looping pada array, nah tpi ini lebih keren dari FOR biasa ya, dengan menggunakan ke 2
+method ini kita bisa melakukan sesuatu pada element" yg ada didalam array nya secara 
+otomatis.
+
+---------------------------------------------------------------------------------------------------------------------------------
+ya secara umum fungsinya sama dengan for
+
+// 6. foreach
+
+anggap lah gini ya kita punya array baru kita kasih nama angka, kita kasih angaka 1-8,
+(  var angka = [1, 2, 3, 4, 5, 6, 7, 8];  ) kan kalo menggunakan for kita nulisnya begini ya :
+
+for (var i = 0; i < angka.length; i++) {
+    console.log(angka[i]);
+}
+
+nah ini gaada yg aneh ya, nah sekarang FOR ini kita bisa ganti menggunakan foreach
+
+cara nulis nya gini kita panggil dulu array nya lalu kita kasih foreach ( angka.forEach )
+nah didalam nya kita bisa kasih sebuah Function, bisa kalian kasih function expresion 
+aja biar gampang ya.
+
+kalian tulis aja function() nya begitu itu artinya kita akan menjalankan sebuah Function ya
+untuk TIAP-TIAP ELEMENT NYA ya misal kan saya tulis element nya (e) disitu, terus saya
+tulis console.log(e); begitu.
+
+nah ini maksudnya gini sama persis dengan yg kita lakukan di FOR ini, kan forEach itu untuk
+setiap ya, nah untuk setiap element yg ada pada array angka lakukan function berikut ini, nah
+ini keren nya kita ga perlu bikin index, kita gaperlu nentuin akan looping berapa kali dan kita 
+gaperlu increment, nah eror knp tuh karena foreach, E nya harus huruf kapital ya.
+
+jadi gini aja ya kan function nya cuma satu di foreach tpi bisa mengulang bnyk angka dengan
+angka yg berbeda dan dia membuat baris baru juga ya, jdi menurut saya itu tuh dia kan ga pake
+increment jdi menurut ku increment nya itu tergantung isi array nya, ada berapa jdi dia akan
+mengulang dan membuat baris baru sesuai isi array ya gasih, bisa jdi juga itu seakan" memanggil
+function sesuai elemen yg array itu punya yakan.
+
+------------------------------
+contoh codingan FOR :
+
+var angka = [1, 2, 3, 4, 5, 6, 7, 8];
+for (var i = 0; i < angka.length; i++) {
+    console.log(angka[i]);
+}
+
+contoh codingan forEach :
+
+var angka = [1, 2, 3, 4, 5, 6, 7, 8];
+angka.forEach(function (e) {
+    console.log(e);
+})
+
+hasil yg akan ditampilkan di browser :
+
+1
+2
+3
+4
+5
+6
+7
+8
+---------------------------------------------------------------------------------------------------------------------------------
+
+nah pertanyaan nya sekarang kalo make forEach berarti kita gabisa pake index nya dong
+kan kita hanya bisa pake element nya, kan kalo FOR kita punya ( i ) sebagai index, nah pake
+forEach juga bisa contoh nya misal kita punya array seperti ini (  var nama = ['Keyla', 'Galih', 'Nofa',
+'Azahra'];  ) kalo saya mau mencetak misalnya mahasiswa pertama adalah siapa, mahasiswa kedua
+adalah siapa dan seterusnya.
+
+kita bisa tulis begini, nama titik foreach (  nama.forEach()  ) lalu function (e) untuk elemet nya, untuk
+namanya, lalu kita bisa tambahkan ( i ) index di situ, jadi sekarang parameter nya 2, saya bisa tulis
+console.log misalnya mahasiswa ke- misalya gabung dengan ( i ),  gabung lagi dengan adalah,
+gabung lagi dengan (e), jadi nya gini  :
+
+nama.forEach(function (e, i) {
+    console.log('Mahasiswa ke-' + (i + 1) + ' adalah : ' + e)
+})
+
+jadi ( i ) akan mengacuh ke index nya dan ( e ) akn mengacuh ke elment nya jadi hasil nya akan
+begini : 
+
+Mahasiswa ke-1 adalah : Keyla
+Mahasiswa ke-2 adalah : Galih
+Mahasiswa ke-3 adalah : Nofa
+Mahasiswa ke-4 adalah : Azahra
+
+
+------------------------------
+contoh codingan FOR :
+
+var nama = ['Keyla', 'Galih', 'Nofa', 'Azahra'];
+for (var i = 0; i < nama.length; i++) {
+    console.log('Mahasiswa ke-' + (i + 1) + ' adalah : ' + nama[i]);
+}
+contoh codingan forEach :
+
+var nama = ['Keyla', 'Galih', 'Nofa', 'Azahra'];
+nama.forEach(function (e, i) {
+    console.log('Mahasiswa ke-' + (i + 1) + ' adalah : ' + e)
+})
+
+hasil yg akan ditampilkan di browser :
+
+Mahasiswa ke-1 adalah : Keyla
+Mahasiswa ke-2 adalah : Galih
+Mahasiswa ke-3 adalah : Nofa
+Mahasiswa ke-4 adalah : Azahra
+
+---------------------------------------------------------------------------------------------------------------------------------
+
+// 7. Map 
+
+nah sekarang untuk MAP sama seperti forEach tpi lebih baik, karena map ini mengembalikan 
+array sedangkan forEach ngga, contoh nya gini kalo misal kan saya punya array lagi ya, namanya
+angka, yg saya isi dengan angka acak seperti ini [1,2,5,3,6,8,4], misalnya kita gunakan dulu 
+forEach ya kaya gini nih :
+
+angka.forEach(function (e) {
+    console.log(e);
+})
+
+nah kalo gini kan dia akan mencetak nilai ke layar sesuai urutannya pada array nya, sekarang
+kalo foreach ini kita ganti MAP, hasilnya sama juga, nah tapi kalo misalkan console.log ini saya
+ganti jadi ( return e; ) lalu seluruh fungsi ini saya simpan ke dalam variabel baru, gini misalnya :
+
+var angka = [1, 2, 5, 3, 6, 8, 4];
+var angka2 = angka.map(function (e) {
+    return e;
+})
+
+saya punya variabel angka2 yg isi nya array, kalo sekarang isi nya sama persis dengan angka
+yg pertama tapi saya bisa lakukan gini ( return e * 2; ) e nya di kali kan 2, nah ini artinya seluruh
+element akan saya kali kan 2, lalu simpan ke variabel angka2 sebagai array, jadi kalo saya 
+console.log(angka2.join(' - '); ), nah maka hasilnya harusnya 2,4,10,6 dan seterusnya.
+
+contoh codingan :
+
+var angka = [1, 2, 5, 3, 6, 8, 4];
+var angka2 = angka.map(function (e) {
+    return e * 2;
+})
+
+console.log(angka2.join(' - '));
+
+hasil yg akan ditampilkan di browser :
+
+2 - 4 - 10 - 6 - 12 - 16 - 8
+
+nah gitu ya jadi nya, nah jadi map itu mengembalikan nilai array, kalo kita ganti dia jadi
+forEach nah dia gamau, karena forEach ini ga mengembalikan array, begitu ya jadi
+hati-hati dalam penggunaan forEach dan map ini.
+
+---------------------------------------------------------------------------------------------------------------------------------
+
+// 8. Sort
+
+nah ini dari nama nya aja kalian bisa nembak, ini untuk mengurutkan isi array nya,
+nah kalo tadi contoh nya kita punya array yg tidak tersusun seperti itu, menggunakan
+sort nanti dia jadi tersusun.
+
+jadi disini kita punya ( var angka = [1, 2, 5, 3, 6, 8, 4]; ) nah lalu angka titik sort
+lalu kita cconsole.log(angka.join(' - ')) maka hasilnya mengurut, nah 1,2,3,4,5,6,8
+memang 7 nya gaada makannya langsung 8, nah kalo saya tulis console.log nya 
+sebelum sort : 
+
+var angka = [1, 2, 5, 3, 6, 8, 4];
+console.log(angka.join(' - '));
+angka.sort();
+console.log(angka.join(' - '));
+
+yg atas blm di urut kan dan yg bawah sudah di urut kan, paham ya simpel aja,
+nah tapi hati" kalo misalkan kalian punya disini angka 10 misakan [1, 2, 10, 5, 20, 3, 6, 8, 4];
+nah kan harusnya tampilnya 1,2,3,4,5,6,8,10,20 ya, nah ini ternyata tampilnya begini 
+1 - 10 - 2 - 20 - 3 - 4 - 5 - 6 - 8, dia mengurutkan kharakter pertamanya dulu gitu.
+
+kalo kalian ingin mengurtkan nya dengan benar itu kalian harus menambahkan di sort nya
+sebuah function perbandingan angka nya, jadi kalian tulis (a,b) terus didalamnya kalian
+tulis ( return a-b; ) ini untuk membuat array itu urutannya bener.
+
+contoh codingannya :
+
+var angka = [1, 2, 10, 5, 20, 3, 6, 8, 4];
+angka.sort(function (a, b) {
+    return a - b;
+});
+console.log(angka.join(' - '));
+
+hasil di browser nya :
+1 - 2 - 3 - 4 - 5 - 6 - 8 - 10 - 20
+
+jadi itu menggunakan SORT, nah karena ini belum jelas di bagina function perbandingan angka
+mari kita lihat lebih dalam lagi.
+
+-------------------------------------------------------------------------------------------------------------------------------
+
+PENJELASAN
+
+Parameter compareFunction ada pada method sort di javascript
+
+Parameter compareFUnction memiliki cara kerja seperti ini
+
+1. jika hasil penjumlahan negatif maka posisi a ditempatkan sebelum b
+2. Jika hasil penjumlahan nya positif maka posisi b ditempatkan sebelum a
+3. Jika hasil penjumlahan nya 0 makan tidak ada yang berubah
+
+jadi misal nya kan nagka awal nya gini var angka = [1, 2, 10, 5, 20, 3, 6, 8, 4];
+
+nah disitu tuh cara kerja si SORT jadi 1 di masukan ke a dan 2 dimasukan ke b
+jadi 1-2 = -1 hasil ya negatif, jadi a ditempatkan sebelum b gitu, terus 2-10 = -8
+nah negatif lagi berarti di tempat kan a sebelum b, jadi gitu" aja dan sambil di urutin
+gitu. ngerti ya
+
+1-2 = 1 , 2
+2-10 = 2 , 10
+10-5 = 5 , 10
+5-20 = 5 , 20
+20-3 = 3 , 20
+3-6 = 3 , 20
+6-8 = 6 , 8
+8-4 = 4 , 8
+
+nah kan contoh di atas itu baru ke input di functionnya baru deh method Sort akan
+mengurutkan dari yg terkecil
+
+1,2,3,4,5,6,8,10,20
+
+-------------------------------------------------------------------------------------------------------------------------------
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
