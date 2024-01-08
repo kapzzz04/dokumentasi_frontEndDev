@@ -1,0 +1,137 @@
+QuickTip #2  FAVICON
+
+Favicon ini adalah sebuah icon kecil yg biasanya muncul di atas tab kalian, merupakan sebuah logo dari website kalian kek gini (liat ssan di no1).
+
+Nah ini fungsi utama nya adalah untuk menandai tab kalian mungkin aja kalian buka banyak tab di browser kalian sampai judul web nya ketutup gitu nah itu kalo ada logo nya kan jadi memudahkan kita.
+
+Jadi favicon ini dia adalah sebuah file yg extence nya adalah ( ico ) gini format nya gambar1.ico, memang dia di perutukan untuk membuat sebuah icon, nah biasanya file ico ini berukuran 16 x 16 dan 32 x 32, kenapa dan bukan nya atau kan bisa aja 16 x 16 atau 32 x 32.
+
+Jadi file ico ini adalah sebuah file yg dapat menyimpan lebih dari satu gambar jadi misalnya saya punya file favicon.ico yg didalam nya menyimpan beberapa gambar extancie nya ( .png ), kek gini ( liat di ssan no2 ), Jadi satu file bisa berisi banyak gambar.
+
+Nah agar websaite kita bisa memiliki favicon ini sebetulnya caranya gampang, cara nya kita tinggal menyimpan file ico kita atau favicon kita didalam 'root' dari web server kita, jadi misalkan kalo kalian udah punya sebuah websaite yg disimpan didalam web server caranya tinggal copykan saja file favicon ini kedalam web servernya.
+
+Misalnya saya punya sebuah websaite yg udah jadi yg ada bagian backend nya bagian servernya dan di tab nya belum ada favicon nya, websaite nya udah ada di internet jadi kalo saya mau lihat sisi dari foldernya saya harus terhubung dulu ke web servernya.
+
+Kita bisa gunakan software untuk menghubungkan terhadap file" nya menggunakan ftvklien disitu pak dhika menggunakan Transmit, kalian juga bisa menggunakan aplikasi lain seperti quikftv fireftv atau yg lainnya, nah itu akan di hubungkan ke dalam web servernya.
+
+ketika sudah terhubung itu file yg ada di web servernya (liat di ss no-3), nah untuk cara menghubungkan nya bisaliat di tutorial nya di video yg lain ya. Nah folder root nya dimana nanti kita menyimpan file" root nya itu nama file nya ( public_html ).
+
+nah itu adalah folder root nya (liat di ssan no4 ) jadi kalo saya ingin menyimpan sebuah favicon saya cukup menyimpan aja didalam folder root itu, kalo udah ada file nya yg ico tinggal kita upload ke folder root nya aja dengan begitu otomatis muncul logo di tab browser nya(liat di ssan no-5).
+
+Jadi sesimpel itu cukup menyimpan file icon nya atau favicon.ico nya kedalam root nya kalian ga perlu menambahkan satu baris apapun didalam kode html kalian, nah ini juga berlaku misalkan kalian punya web server di local mesin kalian seperti apache menggunakan xampp misalnya.
+
+---------------------------------------------------------------------------------------------------------------------------------
+
+Nah tapi ini tidak berlaku untuk websaite yg disimpan di 'local' atau dalam 'sub-domain', maksdunya itu misalkan kalian punya websaite statis yg kalian simpan di tempat sembarang contohnya di desktoplah. Kalian punya websaite index.html terus kalian punya favicon disitu nah itu ga akan jalan semudah itu seperti kalian punya web server tadi.
+
+Kalo di web statis yg gaada sambungan ke backend nya terus pake cara yg menari file nya di folder nya aja tanpa menambahkan baris kode itu gabisa ya, begitu pula kalo kalian udah ada backend nya tapi kalian taro file nya di dalam sebuah folder websaite nya, kan di localhost itu banyak folder yg isi nya websaite" ya nah kalo favicon yg kalian simpan didalam folder itu, itu juga ga akan bisa.
+
+Nah sekarang gimana caranya supaya bisa tampil walaupun ada di local atau pun didalam sub-domain jadi bukan di folder root nya, nah cara nya kita harus menambahkan sesuatu didalam html nya, kita cukup menambahkan tag baru gini :
+
+<head>
+  <link rel="shortcut icon" href="favicon.ico">
+</head>
+---------------------------------------------
+
+kalian bisa simpan di bagian tag head dimana aja di paling bawah juga bisa, dan kalian bisa juga menggunakan logo gambar nya yg berformat jpg, png dll.
+
+---------------------------------------------------------------------------------------------------------------------------------
+
+MEMBUAT FAVICON
+
+Kita udah tau cara make nya sekarang gimana cara membuat favicon nya, membuat favicon itu sebetulnya cukup gampang kalian bisa gunakan potoshop tapi di potoshop itu gabisa langsung save gambarnya sebagai icon dengan extencie ico itu gabisa, makannya kita butuh layanan yg lain.
+
+Untuk mengubah extencie png atau jpg dll kita butuh sebuah layanan, misal nya ini :
+
+- favicomatic.com
+- realfavicongenerator.net
+
+untuk web yg pertama kalian cukup upload file gambar nya lalu ada pilihan, pilihan yg pertama akan di kontverkan gambar ke ico aja, yg ke2 itu kontverkan ke semua yg mendukung sistem operasi, kalo pilih yg ke2 nanti dikasih nya ile zip didalamya udah banyak file, terus kita juga dikasih baris kode buat kalian simpan di document html nya. (lia ssan no6)
+
+Jadi baris kode nya banyak banget, itu digunakan supaya nanti faviconnya kompatible untuk semua
+browser sistem operasi. Biar gampang klian copy kan saja satu folder yg udah tdi kontver kan yg file zip itu ke dalam folder websaite kita, kalo sudah kalian tinggal copy kan baris kode nya terus tempel ke HTML web kalian dibagian tag head nya, tinggal tambahkan nama folder ico nya di bagian href.
+
+kan kalo href itu menghubungkan ya kalo sebuah file ada didalam folder kita mau ambil folder itu sambungin aja menurut yg udah kita atur gitu loh, jadi baris kode nya itu tag link ya, kalo sudah tersambung dengan benar dengan begitu kalo web kalian dibuka di mobile sistem operasi nya apapun iphone android dll, dia akan teroptimasi dengan file yg sesuai.
+
+Nah kita kan bisa pake extencie png atau jpg tapi itu efek yg otomatis ada di root servernya itu gaberlaku yg ada di root server itu harus ico, lalu kenapa kita bisa pake yg selain ico, itu karena kompatible ya untuk beberapa browser. (liat dissan no7)
+
+---------------------------------------------------------------------------------------------------------------------------------
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

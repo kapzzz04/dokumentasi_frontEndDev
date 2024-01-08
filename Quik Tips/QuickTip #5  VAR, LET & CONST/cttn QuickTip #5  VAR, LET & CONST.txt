@@ -1,0 +1,464 @@
+QuickTip #5  VAR, LET & CONST
+
+kalian tau kan apa itu var, var adalah sebuah kyword di javascript untuk membuat variabel, Nah sekarang kalian jangan pernah lagi menggunakan var, ubah semua var yang kalian buat dengan menggunakan LET :
+
+let x = 10;
+let nama = "Keyla";
+---------------------
+
+kita akan bahas var, let, dan const. sebenernya kita udah bisa selesai karena dikasih tau jangan pernah gunakan var lagi, tapi kan kita gatau alesan nya apa.
+
+Sebelum ini kita coba var dulu kita liat bagaimana cara penggunaannya, gini misalnya :
+
+var i = 10;
+------------
+
+harusnya kalian udah tau didalam javascript kita bikin variabel yg namanya i lalu di aside atau di isi dengan angka 10. dan kalo saya tambahkan console.log(i) gitu, maka harusnya didalam console browsernya itu tampil dari isi variabel ( i ), nah itu ga ada yg aneh ya.
+
+Nah di console browsernya ada angka 10, angka 10 dari isi variabel nya, sekarang gimana kalo kita hilangkan kywerd var nya :
+
+i = 10 ;
+console.log(i);
+---------------------
+
+Nah ternyata masih bisa ya, jadi yg terjadi adalah javascript nya seolah" menambahkan kywerd var gitu. kalo misalkan console nya kita simpan di atas gini :
+
+console.log(i);
+var i = 10;
+---------------------
+
+ternyata yg tampil nilai undefined, kan di javascript ada yg namanya nilai undefined ya, lalu kenapa ada nilai undefined padahal kita ga mengisikan nilai tersebut kedalam variabel ( i ), Nah ini karena didalam javascript ada sebuah istilah yg namana Hoisting.
+
+Hoisting mungkin bisa diterjamahkan mengangkat atau di istilahnya seperti bendera lah ya, atau seperti kalian liat alat ini (liat di ssan no 1). jadi ada alat yg gunanya mengangkat barang keatas itu alat nya disebut dengan hoisting, atau ketika seseorang mengibarkan bendera lalu dia mengerek bendera nya ke atas nah itu benderanya hoisting dinaikan dulu ke atas.
+
+nah sama seperti javascript pun kalo kita melakukan hal yg tadi si console.log dulu baru variabel nya, sebenernya yg terjadi itu ke seakan-akan sebelum console.log itu, itu dibuat dulu var ( i ), lalu setelah console.log var i nya baru di isi nilai nya yaitu angka 10. Gini :
+
+var i;
+console.log(i);
+i = 10;
+---------------------
+
+Jadi variabel nya dinaikan dulu ke atas dan dia di isi oleh nilai undifined, makannya kalo kita nulis nya begini :
+
+console.log(i);
+var i = 10;
+---------------------
+
+pasti nilai nya undefined, karena ya tadi itu dia didefinisikan dulu dengan nilai undefined, itu dinamakan dengan hoisting variabel. Nah konsep Hoisting juga berlaku pada function dan yg lain nya. intinya untuk variabel itu perilakunya seperti itu.
+
+dan kita juga bisa menuliskan gini untuk variabel :
+
+i = 10, j = 'key';
+console.log(i + ' ' + j);
+---------------------------
+
+Nah yg terjadi sebetulnya ya kek tadi jadi otomatis dari javascript nya itu menambahkan var padahal di script ya kita ga tulis jadi akan seakan" gini :
+
+var i;
+var j;
+i = 10, j = 'key';
+console.log(i + ' ' + j);
+---------------------------
+
+Nah balik lagi tadi kenapa nilai nya undefined padahalkan harusnya eror, kalo dibahasa pemrograman seperti C++, JAVA dan lainnya bakal eror. karena kita tidak mungkin memanggil variabel sebelum mendefinisikan nya, kalo di javascript masih boleh tapi tadi perilaku nya agak aneh.
+
+---------------------------------------------------------------------------------------------------------------------------------
+
+             LET
+
+nah gimana cara ngatasin nya biar muncul nya eror bukan nilai undefined, tinggal kita ganti aja jadi Let :
+
+console.log(i);
+let i = 10;
+---------------------------
+
+Jadinya sama seperti bahasa pemrograman lain, jadi itu alasan kenapa kita tidak usah menggunakan var lagi kita gunakan nya let dan const saja. Karena memang seharusnya kita sebelum memanggil sesuatu pastikan variabel nya dibuat dulu, jadi kalo saya simpan di atas gini :
+
+let i = 10;
+console.log(i);
+---------------------------
+
+Nah baru lah berjalan dengan semestinya tidak eror lagi.
+
+---------------------------------------------------------------------------------------------------------------------------------
+
+Sekarang kita kembali lagi menggunakan Var tapi dengan looping, gini :
+
+for (var i = 0; i < 10; i++) {
+    console.log(i);
+}
+--------------------------------
+
+kalo gini pengulangan nya akan di ulang sebanyak 10 kali, tapi begitu (i)  nya 10 dia keluar dari looping nya, jadi harusnya tampil angka 0 sampai 9. Nah lalu saya tambahkan console di bawah nya juga pake (i) :
+
+for (var i = 0; i < 10; i++) {
+    console.log(i);
+}
+
+console.log(i);
+--------------------------------
+
+Jadi di looping nya udah sampe 10 kali di looping nya jadi nilai terakhir (i) nya itu angka 10, lalu keluar dan ke si console.log di luar looping itu, ternyata yg muncul itu angka 10, karena (i) itu untuk terakhir kali nya di increment hasil nilai akhirnya itu angka 10 gitu.
+
+Nah sekarang kalian liat kan di javascript itu memungkin kan kita untuk mengakses variabel yg ada didalam looping, kalo di bahasa pemrograman lain itu gabisa yg ada terjadi eror, karena bahasa pemrograman lain menganut yg namanya block scope lingkup pada block perogram.
+
+Block program itu tanda ini { } kurung kurawal itu disebutnya block, ketemu IF ketemu swtich itu ada block nya, kalo di bahasa pemrograman lain itu eror karena gabisa mengakses (i) yg ada didalam block gitu.
+
+Javascript tidak menganut block scope itu karena javascript itu menganut dengan sesuatu yg disebut dengan Function Scope, ya sekali lagi javascript itu Function scope bukan block scope.
+
+---------------------------------------------------------------------------------------------------------------------------------
+
+Nah karena seharusnya kode nya itu Eror, karena tadi javascript tu function scope, supaya variabel (i) itu gabisa di akses kita harus ubah scope nya, jadi function scope karena kalo di uabh jadi block scope ya gabisa javascript hanya menganut Function scope.
+
+Contohnya misalkan Looping nya kita taro di sebuah Function :
+
+function tes() {
+    for (var i = 0; i < 10; i++) {
+        console.log(i);
+    }
+}
+tes();
+-----------------------------
+
+Nah jadi sekarang For nya ada di dalam function, sebelum kita kasih console.log kita panggil dulu function nya ya. tapi sekarang kalo saya tulis console gini :
+
+function tes() {
+    for (var i = 0; i < 10; i++) {
+        console.log(i);
+    }
+}
+tes();
+console.log(i);
+-----------------------------
+
+Nah itu terjadi lah eror harusnya memang eror, nah itulah yg disebut dengan function scope, makannya para programer javascript ngakalin gimana caranya supaya variabel nya berperilaku sama seperti bahasa pemrograman lain tapi menggunakan Function scope.
+
+---------------------------------------------------------------------------------------------------------------------------------
+
+IIFE atau SIAF
+
+Jadi baisanya kita menggunakan sesuatu yg disebut dengan IIFE atau SIAF itu sama aja ya, singkatan dari IIFE itu ( Immediately Invoked Function Expression ) jadi sebuah Function Expression yg dipanggil langsung ketika dibuat, sama seperti SIAF ( Self Invoking Anonymous Function ), ini kita buat supaya kita menjaga agar variabel yg ada didalam functionnya itu gabisa di akses dari luar.
+
+SIAF itu kan tadi Self Invoking Anonymous Function, Anonymous Function itu adalah fungsi yg tidak bernama, kita bisa bikin fungsi tidak bernama di javascript menggunakan Function Expression.
+
+Function Expression itu gini, kalo saya punya variabel x yg di isi dengan function :
+
+var x = function() {
+    
+}
+---------------------------
+
+Nah itu namanya function expression, tapi kita juga bisa bikin si function itu ga perlu kita simpan ke dalam variabel itu kita langsung jalanin, caranya kita bikin kurung dulu (), kurung itu untuk menjalankan function yakan, lalu didalam nya kita bikin function seperti ini :
+
+(function () {
+
+}());
+----------------
+
+nah nanti didalam nya di isi apa gitu didalam function nya, nanti function itu otomatis kita jalankan, itu adalah SIAF atau IIFE, sekarang kalo saya tulis kaya tadi :
+
+(function () {
+    for (var i = 0; i < 10; i++) {
+        console.log(i);
+    }
+}());
+--------------------------------
+
+itu gaada yg salahya, tapi ketika saya tulis console.log di luar function nya gini :
+
+(function () {
+    for (var i = 0; i < 10; i++) {
+        console.log(i);
+    }
+}());
+console.log(i);
+--------------------------------
+
+Maka console.log(i) yg diluar function itu gabisa ngeakses (i) yg ada didalam function, karena adanya function scope gitu, terjadi lah eror.
+
+Itulah yang kita harapkan, karena nanti kebayang ya kalo kalian udah bikin javascript nya yg besar, file nya yg besar apalagi yg udah kolaborasi, nah itu memungkinkan dalam satu file mempunyai nama variabel yg sama tapi fungsi nya beda.
+
+atau kalian gunakan script punya orang lain yg kalian copas, lalu ternyata nama variabel nya sama tapi function nya beda nah itu bisa menyebabkan bentrok karena perilakunya beda. makannya gunakan penulisan kode SIAF atau IIFE buat menjaga satu file javascript itu kedalam ebuah function Expression.
+
+jadi nanti kalian bisa tulis semuanya didalam si function itu, kita gaperlu manggil function nya karena udah otomatis jalan gitu. gini misal :
+
+(function () {
+    for (var i = 0; i < 10; i++) {
+        console.log(i);
+    }
+
+    console.log('juga' + ' ' + 98);
+    var s = '';
+    for (var j = 0; j < 10; j++) {
+        for (var k = 0; k < j; k++) {
+            s += '*';
+        }
+        s += '\n';
+    }
+
+    console.log(s);
+}());
+--------------------------------
+
+Jadi kita melakukan sesuatu hal didalam kode function itu biar nanti nya variabel nya aman gitu, Nah yg itu tuh cara lamanya, sekarang dengan ada nya javascript yg baru ES6, itu cukup kita gunakan Let saja dan itu sudah bisa melakukan perilaku seperti kode di atas, jadi kita gaperlu ribet lagi bikin Function SIAF itu.
+
+Cukup ganti saja var nya jadi Let :
+
+for (let i = 0; i < 10; i++) {
+    console.log(i);
+}
+
+console.log(i);
+--------------------------------
+
+jadinya sama persis si console.log(i) diluar looping itu tidak bisa mengakses (i) didalam looping, karena sekarang ketika kalian pake Let dia menganut block scope bukan lagi function scope.
+
+Nah sekarang pertanyaan nya gini, kenapa sih javascript itu menganut Function Scope padahal bahasa pemrograman lain itu menganut block scope padahal pada saat itu itu yg benar, kenapa pada saat itu pas pertama bikin bahasa javascript itu langsung aja dibikin block scope kan bisa ya.
+
+kata si pembuat nya 10 hari itu waktu yg ga cukup untuk membuat si javascript nya jadi waktu dia ga cukup untuk membuat block scope, itulah mengapa agak aneh perilakunya.
+
+---------------------------------------------------------------------------------------------------------------------------------
+
+  CONST
+
+Jadi sekarang kita tau ya kalo Let dan const itu menganut block scope dan itu lah yg bener maka sekarang jangan gunakan lagi var, kita udah tau let tadi apa sekarang bedanya dengan const itu apa ?.
+
+kalo tadi kita punya let i = 10; itu caranya udah bener tapi kalo misalnya kita yakin nanti didalam program kita, kita tidak akan pernah mengubah isi dari (i) nya, jadi (i) nya akan tetap 10 aja itu jangan pake let, kalo kita yakin bahwa nilai dari variabel itu tidak akan berubah itu gunakan const.
+
+Jadi sama dia untuk membuat variabel tapi variabel nya yg isinya ga akan kita ubah lagi, jadi kalo misal saya ubah (i) nya gini :
+
+const i = 10;
+i = 15;
+--------------
+
+maka yg terjadi itu eror dia akan eror, jadi constant gabisa di isi ulang, kalo pake let bisa. jadi kalo kalian bisa pastikan kalo variabel itu isinya gaakan pernah di ganti isi nya gunakan aja const. Bahkan ada yg bilang gunakan let hanya ketika kalian bikin looping aja.
+
+Kenapa ada const kenapa ga let aja ?
+
+Nah karena kita menggunakan const itu supaya meminimalisir perubahan state, jadi sebisa mungkin nilai dari variabel itu ga berubah walaupun kalo kalian menggunakan const. gini :
+
+const i = 10;
+i = 15;
+--------------
+
+dia gabisa kan pasti eror, karena kita mengisi ulang atau kita ngeganti isi dari variabel (i), tapi sebetulnya constant ini sepenuhnya gabisa di ubah atau istilahnya imitible, jadi dia ttp bisa berubah tapi caranya lain.
+
+misalnya saya punya const namanya mhs tapi isi nya itu object bukan nilai biasa gini :
+
+const mhs = {
+    nama: 'Keyla',
+    umur: 31
+}
+
+console.log(mhs);
+------------------
+
+Kita masih bisa ubah, misal kita mau ubah umur nya gini :
+
+const mhs = {
+    nama: 'Keyla',
+    umur: 31
+}
+
+mhs.umur = 35;
+
+console.log(mhs);
+------------------------------------
+
+Nah kalo kaya gitu masih bisa, asalkan kita ga ganti object nya, gini misal :
+
+const mhs = {
+    nama: 'Keyla',
+    umur: 31
+}
+
+mhs = {
+    jurusan: 'Teknik Informatika'
+}
+
+console.log(mhs);
+------------------------------------
+
+itu kita ganti object nya dengan object baru hasilnya akan eror, jadi kita tidak bisa mengisikan dengan sesuatu yang baru, begitu pula dengan array, kita punya array lalu isi nya diganti dengan array yg baru :
+
+const i = [1, 2, 3, 4];
+
+i = [1, 2, 3, 4];
+console.log(i);
+------------------------------------
+
+Nah itu hasilnya eror jadi kita gabisa ngisi dengan array baru tapi kita bisa mengubah salah satu isi array nya bukan mengganti nya dengan yg baru, misalnya gini kita mau ubah jadi string :
+
+const i = [1, 2, 3, 4];
+
+i[1] = [1, 2, 3, 4];
+console.log(i);
+------------------------------------
+
+jadi array kan ada index nya nah itu saya mau ubah array yg index nya 1, jadi index ke-1 itu angka 2, angka 2 nya diganti jadi array lagi yg isinya 1,2,3,4. atau pun kita mau menambah array setelah angka 4 juga bisa gini :
+
+const i = [1, 2, 3, 4];
+
+i.push(5);
+
+console.log(i);
+------------------------------------
+
+Jadi kita bisa mengubah isi dari constant asal kita ga mengubah benar" keseluruhannya gitu. Jadi sekali lagi itulah kenapa kita menggunakan const itu untuk meminimalisir perubahan state, karena kalo kita nimpa" isi variabel itu makin lama program nya makin besar itu akan semakin merepotkan.
+
+Merepotkan nya itu gimana?
+
+Contoh sederhananya gini dirumah kalian pake WIFI terus suatu saat internet kalian jadi lambat
+atau misalkan jadi ga jalan internet nya, yg pertama kepikirian sama kalian pasti telepon cs nya ya, kok ini internet saya lambar kok internet nya mati, kenapa apa penyebabnya terus di respon cs nya suruh kita restart modem nya, terus kalian coba restart dan ternyata jadi jalan lancar lagi internet nya.
+
+Nah kenapa jadi jalan, karena saat kita melakukan restart pada modem nya atau komputer kita, itu komputer kita akan membersihkan seluruh keadaan sebelum state nya jadi mulai lagi dari awal semua isi variabel semua isi pengulangan semuanya balik lagi ke keadaan awal. Nah itu maksudnya dengan meminimalisir perubahan state tadi contoh simpel nya seperti itu.
+
+---------------------------------------------------------------------------------------------------------------------------------
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

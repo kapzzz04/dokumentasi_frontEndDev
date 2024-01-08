@@ -1,0 +1,168 @@
+QuickTip #1 : CSS Pseudo-Class :target
+
+:target itu adalah pseudo-class, pseudo-class itu adalah class semu dari sebuah element html yg bisa kita kasih lewat css.
+
+Definisi nya sebuah pseudo-class yang merepresentasikan sebuah elemen unik dengan id yang sama dengan penggalan identifier pada URI ( Uniform Resource Idetifier ).
+
+Sekarang kita liat dulu kalo misalkan kita buka sebuah websaite klo kalian liat di addres bar link halaman web itu (liat di ss no1) nah itu disebut dengan URI, jadi Uniform Resource Idetifier itu adalah ketikan yg kalian tulis di adresbar itu.
+
+Nah kalo misalkan kalian menuliskan alamat misalnya contohnya gini ( sandhikagalih.net/index.html#about ) nah kalian pasti pernah atau pernah melihat tulisan seperti itu yg #about, nah itu di sebut dengan ( #about ) penggalan identifier, biasanya kalian pake untuk link tag <a> yg href nya misalkalian mau arahkan kebagian lain nah itu diisi nya kan pake  (#) atau penggalan identifier atau di arahkan ke si id nya. Nah nanti pseudoc-class target nanti memanfaatkan penggalan identifier itu.
+
+---------------------------------------------------------------------------------------------------------------------------------
+
+LETS CODE!!!
+
+misalnya kita punya halaman html sederhana 1buah h1 dan 3 buah paragraf, nah sekarang misalnya si h1 itu saya kasih sebuah id, nama id nya judul lalu saya punya style si target itu :
+
+  <style>
+        :target {
+            background-color: salmon;
+        }
+    </style>
+------------------------------
+
+itu kode nya tidak akan mempengaruhi apa" karena blm ada yg di sambungin, tapi liat lah ketika saya tambahkan penggalan identifier di akhir URL nya kan mau ubah si h1 nya lalu H1 nya itu udah ada id, kita tambahkan nya gini ( #judul ) :
+
+http://127.0.0.1:5500/index.html#judul
+--------------------------------------------
+
+Maka berubah lah warna background H1 jadi warna salmon, karena dibacanya jadi element yg memiliki ID judul maka ubah background nya jadi warna salmon sesuai perintah. Jadi maksud nya target itu elemen apapun yg ID nya di target melalui url maka CSS nya akan aktif.
+
+atau contoh lain nih ya :
+
+    <p id="p1">paragraf 1</p>
+    <p id="p2">paragraf 2</p>
+    <p id="p3">paragraf 3</p>
+--------------------------------
+
+kita kasih id di tiap paragraf nya yg berbeda. masih ttp yg background nya salmon masih ttp h1 karena disitunya masih ditulis yg id nya judul coba kalo kita ganti jadi #p2 gini :
+
+http://127.0.0.1:5500/index.html#p2
+------------------------------------
+
+Nah maka sekarang yg aktif adalah paragraf 2, jadi tinggal kalian ganti" aja sesuai id yg kalian mau gitu.
+
+---------------------------------------------------------------------------------------------------------------------------------
+
+Tapi nanti implementasinya jarang sekali kita tulis target gitu aja, gimana kalo paragraf 1, 2, 3 saya ingin warna nya beda", nanti kita tempelkan si di nya di style itu. Gini :
+
+  #p1:target {
+            background-color: salmon;
+        }
+-------------------------------------
+
+Jadi bacanya ketika ada element yg id nya p1 lalu dia di target di uri nya di adresbar nya, maka ubah warna background nya jadi salmon, jadi kalo mau kita ubah di URI nya jadi p3 misal nya gini :
+
+http://127.0.0.1:5500/index.html#p3
+------------------------------------
+
+Nah itu tidak akan terjadi apa" karena yg kita aktifkan itu hanay #p1, kalo kita ubah p1 maka akan aktif gitu. Nah kalo ingin aktif di semua paragraf kita harus bikin yang baru gini :
+
+  #p1:target {
+            background-color: salmon;
+        }
+
+        #p2:target {
+            background-color: lightgreen;
+        }
+
+        #p3:target {
+            background-color: royalblue;
+        }
+------------------------------------
+
+Jadi sekarang kalo saya ganti" di URI nya maka respon perubahan warna nya juga berbeda". Kita nanti jarang banget ngerubah URI nya secra langsung biasanya kita aktifkan menggunakan link.
+
+Oh iya yg p itu misalkan kita mau hanya tag <p> yg bisa ditarget jadi nantinya kalo si h1 nya di target gabisa hanya tag p saja yg bisa tag selain p gabisa itu gini caranya :
+
+  p:target {
+            background-color: salmon;
+        }
+------------------------------------
+
+Nah lanjut lagi yg menggunakan link, misalkan sebelum h1 kita tambahkan ul li :
+
+   <ul>
+        <li><a href="#p1">aktifkan p1</a></li>
+    </ul>
+------------------------------------
+
+nah href nya itu ditulis ( #p1 ) itu agar href itu terhubung dengan p1, jadi ketika di klik link itu isi href nya akan muncul di URI makannya di isi ( #p1 ) karena emng begitu. sekarang saya ganti gini :
+
+    <ul>
+        <li><a href="#p1">aktifkan p1</a></li>
+        <li><a href="#p2">aktifkan p1</a></li>
+        <li><a href="#p3">aktifkan p1</a></li>
+    </ul>
+------------------------------------
+
+nah yg terakhir kalo kalian tulis css nya menggunakan id itu penggunaan css nya sedikit lebih berat, nah ada baik nya kalo misalkan itu diganti dengan class atau tag seperti yg sudah dijelaskan yg ini :
+
+  p:target {
+            background-color: salmon;
+        }
+------------------------------------
+
+atau kasih aja class di setiap element nya begini :
+
+  .p1:target {
+            background-color: salmon;
+        }
+
+        .p2:target {
+            background-color: lightgreen;
+        }
+
+        .p3:target {
+            background-color: royalblue;
+        }
+------------------------------------
+
+asal saat kalian bikin linknya, href nya harus ngarah ke si id nya bukan ke class nya ke id nya ya.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

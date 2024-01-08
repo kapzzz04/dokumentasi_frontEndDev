@@ -1,0 +1,514 @@
+QuickTip #7  before dan after pada CSS (Pseudo-Element)
+
+Definisinya sebuah pseudo-element yang memungkinkan kita untuk menambahkan konten (sebelum / sesudah elemen) pada halama HTML hanya melalu CSS saja (tanpa harus menambahkannya pada kode HTML). jadi kalian cukup tambahkan di css saja tapi dengan style css gitu, intinya dia itu pseudo-element bukan pseudo-class ya.
+
+Pseudo-element itu dia adalah bagian dari sebuh elemen, elemen html ya mau h1,p,br, dll apapun yg dapat kita kasih style secara terpisah dari elemen itu, tolong beda kan dengan pseudo-class, kalo pseudo-class kita sebutnya class semu class yg sebetulnya ada cuma ga keliatan.
+
+kalo pseudo-element artinya element yg semu sebetulnya element itu ada tapi ga keliatan mau kalian pake mau ngga dia itu ada. Dan selain before dan after itu juga masih banyak selain itu nya, misal kalian bisa akses huruf pertama dari sebuah tulisan baris pertama dari sebuah tulisan itu juga masuk nya ke pseudo-element.
+
+---------------------------------------------------------------------------------------------------------------------------------
+
+Contoh before & after
+
+Misalnya saya punya div yg tulisan nya hello, lalu tulisan nya saya kasih style gini :
+
+  div {
+            width: 100px;
+            height: 100px;
+            background-color: lightblue;
+            font-size: 12px;
+        }
+--------------------------------
+
+Nah hasilnya ya kek gitu kan, lalu kalo kita tambahkan after di div nya terus didalam nya ada property content, jadi content itu peroperty yg harus ada kalo kalian pake  before dan after, kalian tulisa content lalu kutip atau string spasi world, gini :
+
+  div {
+            width: 100px;
+            height: 100px;
+            background-color: lightblue;
+            font-size: 12px;
+        }
+
+        div::after {
+            content: " World!";
+        }
+--------------------------------
+
+jadi nanti hasilnya di browser itu yg tadinya tulisan nya hello doang jadi di tambahkan World di akhir div nya bisa liat sendiri. Nah kalo kita tambahkan div::before nya begini :
+
+  div::after {
+            content: " World";
+        }
+
+        div::before {
+            content: "Hi, ";
+        }
+--------------------------------
+
+Nah kalo before itu akan menambahkan di awal text div nya jadi sebelum tulisan hello nya ditambahkan tulisan ( Hi ) itu. Sederhananya seperti itu kita bisa menambahkan sesuatu setelah dan sebelum sebuah elemen, masih didalam div nya tapi di akhir dan di awal.
+
+Nah contoh itu kita bisa menambahkan tulisan, yg bisa kita tambahkan nanti macem" itu baru dasarnya dulu biar ada gambarannya.
+
+---------------------------------------------------------------------------------------------------------------------------------
+
+Sekarang kalo kita punya div kosong gaada isi nya, lalu diberi style gini :
+
+  div {
+            width: 100px;
+            height: 100px;
+            background-color: lightblue;
+            position: relative;
+            margin: 20px auto;
+        }
+---------------------------------
+
+udah tau lah ya bentuk nya gimana, lalu kalo misalnya kita kasih before dan after nay gini :
+
+  div::after,
+        div::before {
+            content: "";
+            width: 30px;
+            height: 30px;
+            position: absolute;
+        }
+---------------------------------
+
+kita tambahin nya gitu jadi masing" punya lebar dan tinggi jadinya kotak. terus kita tambahin lagi gini :
+
+  div::after {
+            right: -15px;
+            bottom: -15px;
+            background-color: orange;
+        }
+
+        div::before {
+            top: -15px;
+            left: -15px;
+            background-color: salmon;
+        }
+---------------------------------
+
+untuk yg after saya posiskan di bawah kanan, dan untuk yg before saya posisikan di atas kiri, hasilnya jadi gitu seperti ada 2 element baru padahal masih punya si tag div, di HTML nya ga keliatan ada 2 element itu karena kita bikin nya pake CSS itu.
+
+Jadi selain kita bisa simpan tulisan kita juga bisa bikin element yg bisa kita manipulasi sesuai kehendak kita, jadi intinya ada di konten itu kalian ga bakal bisa jalanin before dan after kalo ga ada konten nya.
+
+---------------------------------------------------------------------------------------------------------------------------------
+
+Apa aja yang bisa kita isi didalam konten nya? 
+bisa liat di (ssan no-1)
+
+Yang pertama string kalian boleh tulis text apapun dan text nya boleh kalian kasih style tapi selain kalian boleh tulis text, kalian juga bisa simpan entitas unicode, nah ini yg sering dipake ketika sebuah framwork mau bikin icon, icon itu adalah font atau di sebut dengan glyph icon. Nah nanti content nya di isi dengan kode unicode dari icon tertentu.
+
+Ke-2 kita bisa simpen gambar juga, jadi didalam content nya kalian bisa simpen url menuju ke gambar yg kalian punya jadi kalo kalian punya gambar mau dibikin jadi icon bisa juga, tapi sayang nya untuk img itu gabisa kalian resize. Jadi kalo kalian punya img ukuran nya 100px x 100px yaudah segitu aja kalo mau dikecilin berarti kalian harus kecilinnya manual misalnya img nya diubah size nya baru sambungin lagi ke gambar kita nya gitu.
+
+ke-3 bisa string kosong tadi kita udah coba, ini penting kalo misal kalian mau bikin element baru, atau ini juga sering digunakan kalo kalian mau melakukan clear fix, float itu butuh clear dan float bisa di clear menggunakan before dan after menggunakan content string kosong.
+
+ke-4 kalian juga bisa menyimpan COUNTER, counter ini untuk menghitung jumlah element yg ada di HTML, misalnya kalian simpen counternya pada tag li.
+
+---------------------------------------------------------------------------------------------------------------------------------
+
+Contoh-contoh penggunaan dari before dan after
+
+KE-2 IMAGE ICON
+
+jadi kalo kalian punya tulisan terus didepan nya ada icon itu bisa pake before dan after, Misalnya kalian punya tulisan h1 isi nya home terus didalam CSS nya kalian tulisa before h1 nya lalu didalam nya kalian tulis gini :
+
+ h1::before {
+            content: url(laptop.jpg) " ";
+        } 
+ ----------------------------------
+
+Jadi nanti di sebelum tulisan home ada gambar lalu spasi tulisan home nya. kalo gambar nya ke gedean hasilnya ya begitu, jadi gambar itu bukan elemen baru masih punya nya h1 tapi sebelumnya itu ya. Tapi sayang nya gambarnya gabisa kita resize nah kalo mau bisa kita resize gimana?
+
+Berarti kita ga perlu pake img di konten nya, konten nya kita kosongkan saja jadinya gini :
+
+  h1::before {
+            content: "";
+            display: block;
+            background: url(laptop.jpg) no-repeat;
+            background-size: 20px;
+            width: 20px;
+            height: 20px;
+            float: left;
+            margin: 8px 5px 0 0;
+        }
+ ----------------------------------
+
+content nya dikosongin lalu display nya kita bikin block biar kita bisa atur lebar dan tinggi nya lalu gambar nya kita jadikan background, nah kalo gambarnya dijadiin background kan jadi gampang di atur lebar dan tingginya.
+
+tampilan nya mirip tapi sekarang gambarnya seakan-akan bisa di resize padahal dia kita ubah jadi background. sekali lagi gambar tersebut masih punya nya si h1.
+
+---------------------------------------------------------------------------------------------------------------------------------
+
+KE-3 Glyph icon
+
+Glyph icon itu icon yg di ambil dari font jadi ada font yg isi nya itu bukan huruf tapi icon" gitu, nah ini saya akan kasih liat gimana before dan after melakukan itu tapi sebetulnya kalo kalian menggunakan framwork seperti bootstrap dll, itu kita gaperlu melakukan manual seperti itu biasanya kita cukup manggil class aja nah ini mau dikasih liat sebetulnya framwork itu dibelakang layar melakukan apa.
+
+Pertama kita harus punya font nya, pake @font-face kalo sudah kita bisa panggil font nya, misalkan saya punya tag ( i ) lalu saya atur sedemikian rupa memposisikan ( i ) nya, Gini :
+
+ i {
+            position: relative;
+            top: 1px;
+            display: inline-block;
+            font: normal normal 16px/1 'Arial';
+            -moz-osx-font-smoothing: grayscale;
+            -webkit-font-smoothing: antialiased;
+            margin-right: 4px;
+        }
+------------------------------------
+
+lalu yang penting nya kita buat pseudo element before yg content nya tulisan nya itu ( \e104 ) nah itu adalah kode dari sebuah icon didalam font itu, jadi didalam font itu ada banyak banget icon" nya, Nah tiap" icon itu punya unicode nya, karena saya pake font Arial jadi kode nya gini :
+
+  i::before {
+            content: '\e53' " ";
+        }
+------------------------------
+
+Nanti hasilnya kaya tulisan thailand gitu terus kalo mau hasil nya berbeda kode nya harus kalian ganti. Tapi biasanya kalo kita sebagai user kita gaperlu mikirin kode nya biasanya kita panggilnya udah langsung nama icon nya, misalkan fire, computer, mobile dan sebagainya.
+
+---------------------------------------------------------------------------------------------------------------------------------
+
+KE-4 BREADCRUMBS
+(navigasi)
+
+Breadcrumbs yg biasa digunakan untuk navigasi didadalam sebuah halaman, buat ngasih tau kalian 
+sekarang lagi ada dimana didalam halamannya, misalkan saya punya satu buah paragraf yg isinya ada 3 buah link gini :
+
+    <p>
+        <a href="#">Home</a>
+        <a href="#">Tim</a>
+        <a href="#">Programer</a>
+    </p>
+------------------------------
+
+Sekarang saya lagi ada dihalaman programer yg di atas nya itu halaman tim yg di atas nya halaman home jadi ada sub nya gitu, dengan menggunakan CSS seperti ini :
+
+   a {
+            text-decoration: none;
+            font-family: arial;
+            font-weight: bold;
+            color: #000;
+        }
+
+        a::after {
+            content: " /";
+        }
+
+        a:first-child::before {
+            content: " :: ";
+        }
+
+        a:last-child::after {
+            content: "";
+        }
+------------------------------
+
+jadi saya bikin after buat nambahin slise lalu saya bikin before buat titik 2 di awal nya, dan untuk elemen terakhirnya saya hilangkan slise nya. Itu saya menggabungkan 2 buah pseudo element ada first-child dan last-child tapi dia bisa nya pake 1 titik aja gini ( : ) gabisa gini ( :: )
+
+---------------------------------------------------------------------------------------------------------------------------------
+
+KE-5 QUOTING
+
+Selanjutnya kita bisa gunakan untuk quoting atau kalian mau bikin block quotes, kalo orang ngomong apa biasanya ada kutipnya gitu kan, nah kita bisa buat kutip nya menggunakan before dan after. Misalnya saya punya HTML nya gini :
+
+    <blockquote>
+        Orang bakal deket <br> Kalo tau bakal jauh
+    </blockquote>
+    <p>- lewat fyp</p>
+------------------------------
+
+Lalu kalo kita style seperti ini :
+
+blockquote {
+            font-family: Georgia;
+            font-size: 20px;
+            font-style: italic;
+            margin-top: 50px;
+            line-height: 1.4em;
+            position: relative;
+        }
+
+        blockquote::before,
+        blockquote::after {
+            content: open-quote;
+            font-size: 60px;
+            color: #999;
+            line-height: 0;
+            position: relative;
+            top: 20px;
+        }
+
+        blockquote::after {
+            content: close-quote;
+        }
+------------------------------
+ 
+yg blokqoute itu buat ngatur tulisan nya dan before afternya buat ngasih style qutip nya, biasanya kan agak susah buat ngepasih tanda kutip kalo ga pake before after.
+
+---------------------------------------------------------------------------------------------------------------------------------
+
+KE-6 BUBLE TEXT
+
+Kalian juga bisa buat bubble text, ini kalo kalian mau membuat balon tulisan yg ada panah nya, misalnya saya mau bikin pertannyaan lalu disebelah nya dijawab menggunakan buble text, gini :
+
+  <h2>Apa itu CSS?</h2>
+    <div>
+        CSS (Cascading Style Sheet) adalah bahasa yang digunakan untuk merepsentasikan
+         presentasi dari sebuah dokumen yang ditulis dalam bahasa markup.
+    </div>
+---------------------------------------------
+
+Lalu kita style seperti ini :
+
+ h2 {
+            float: left;
+            width: 170px;
+        }
+
+        div {
+            float: left;
+            width: 200px;
+            background: #727272;
+            padding: 10px;
+            border-radius: 6px;
+            color: #fff;
+            position: relative;
+            font-size: 12px;
+            line-height: 20px;
+        }
+---------------------------------------------
+
+itu belum ada before dan afternya, saya mau ada panah di kotak nya yg ngarah ke pertannyaan nya gitu. itu kalian cukup bikin nya begini :
+
+   div::before {
+            content: "";
+            display: block;
+            width: 0;
+            height: 0;
+            border-top: 12px solid transparent;
+            border-bottom: 12px solid transparent;
+            border-right: 12px solid #727272;
+            position: absolute;
+            top: 16px;
+            left: -12px;
+        }
+---------------------------------------------
+
+itu jadi beberapa yg bisa kalian lakukan menggunakan pseudo-elemen before dan after, selain itu sebetulnya masih banyak lagi kalo kalian udah tau konsep nya bisa kreasikan sebagus mungkin.
+
+---------------------------------------------------------------------------------------------------------------------------------
+
+Mengenai titik 2 ( :: ) vs titik 1 ( : )
+
+Kalo kalian liat tutorial di internet kalian pasti nemuin ada yg make titik 2 nya satu kali dan 2 kali, nah sebenernya yg bener yg mana, jawaban nya adalah 22 nya bener mau 2 kali atau 1 kali itu bener.
+
+Titik 2 nya 2 kali itu adalah verisi yg lebih baru yg di suport hampir disemua browser kecuali IE* ( ke bawah ), sebelum nya itu titik 2 cuma 1 kali, nah kenapa jadi ada 2 nah itu untuk membedakan mana yg elemen mana yg selector.
+
+Kalo misalkan Before dan after dia kan pseudo-element nah untuk membedakannya titik 2 nya 2 kali
+nah itu untuk mempermudah si web designer nya aja. Kalo kalian pake titik 2 nya satu sama aja cuma nanti seperti nya jadi sama dengan hover gitu, untuk membedakan mana yg pseudo element dan pseudo-class.
+
+---------------------------------------------------------------------------------------------------------------------------------
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

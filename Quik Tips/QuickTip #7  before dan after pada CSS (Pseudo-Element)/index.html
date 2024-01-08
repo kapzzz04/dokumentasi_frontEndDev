@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Before & After</title>
+    <style>
+        /* div {
+            width: 100px;
+            height: 100px;
+            background-color: lightblue;
+            font-size: 12px;
+        }
+
+        div::after {
+            content: " World!";
+        }
+
+        div::before {
+            content: "Hi, ";
+        } */
+
+        /* contoh 1 */
+        /* div {
+            width: 100px;
+            height: 100px;
+            background-color: lightblue;
+            position: relative;
+            margin: 20px auto;
+        }
+
+        div::after,
+        div::before {
+            content: "";
+            width: 30px;
+            height: 30px;
+            position: absolute;
+        }
+
+        div::after {
+            right: -15px;
+            bottom: -15px;
+            background-color: orange;
+        }
+
+        div::before {
+            top: -15px;
+            left: -15px;
+            background-color: salmon;
+        } */
+
+
+
+
+
+
+        /* Contoh 2 */
+        /* h1::before {
+            content: url(laptop.jpg) " ";
+        } */
+
+        /* Agar bisa di resize */
+        h1::before {
+            content: "";
+            display: block;
+            background: url(laptop.jpg) no-repeat;
+            background-size: 20px;
+            width: 20px;
+            height: 20px;
+            float: left;
+            margin: 8px 5px 0 0;
+        }
+
+        /* Akhir contoh 2 */
+
+
+
+        /* Contoh 3 */
+        i {
+            position: relative;
+            top: 1px;
+            display: inline-block;
+            font: normal normal 16px/1 'Arial';
+            -moz-osx-font-smoothing: grayscale;
+            -webkit-font-smoothing: antialiased;
+            margin-right: 4px;
+        }
+
+        i::before {
+            content: '\e53' " ";
+
+        }
+
+        /* Akhir contoh 3 */
+
+
+
+        /* Contoh 4 */
+        a {
+            text-decoration: none;
+            font-family: arial;
+            font-weight: bold;
+            color: #000;
+        }
+
+        a::after {
+            content: " /";
+        }
+
+        a:first-child::before {
+            content: " :: ";
+        }
+
+        a:last-child::after {
+            content: "";
+        }
+
+        /* Akhir contoh 4 */
+
+
+
+        /* Contoh 5 */
+        blockquote {
+            font-family: Georgia;
+            font-size: 20px;
+            font-style: italic;
+            margin-top: 50px;
+            line-height: 1.4em;
+            position: relative;
+        }
+
+        blockquote::before,
+        blockquote::after {
+            content: open-quote;
+            font-size: 60px;
+            color: #999;
+            line-height: 0;
+            position: relative;
+            top: 20px;
+        }
+
+        blockquote::after {
+            content: close-quote;
+        }
+
+        /* Akhir contoh 5 */
+
+
+
+
+        /* Contoh 6 */
+        body {
+            font-family: arial;
+        }
+
+        h2 {
+            float: left;
+            width: 170px;
+        }
+
+        div {
+            float: left;
+            width: 200px;
+            background: #727272;
+            padding: 10px;
+            border-radius: 6px;
+            color: #fff;
+            position: relative;
+            font-size: 12px;
+            line-height: 20px;
+        }
+
+        div::before {
+            content: "";
+            display: block;
+            width: 0;
+            height: 0;
+            border-top: 12px solid transparent;
+            border-bottom: 12px solid transparent;
+            border-right: 12px solid #727272;
+            position: absolute;
+            top: 16px;
+            left: -12px;
+        }
+
+        /* Akhir contoh 6 */
+    </style>
+</head>
+
+<body>
+
+    <!-- <div>Hello</div> -->
+
+    <!-- contoh 1 -->
+    <!-- <div></div> -->
+
+
+
+    <!-- contoh 2 -->
+    <h1>Home</h1>
+
+    <!-- Contoh 3 -->
+    <i>Home</i>
+
+    <!-- Contoh 4 -->
+    <p>
+        <a href="#">Home</a>
+        <a href="#">Tim</a>
+        <a href="#">Programer</a>
+    </p>
+
+    <!-- Contoh 5 -->
+    <blockquote>
+        Orang bakal deket <br> Kalo tau bakal jauh
+    </blockquote>
+    <p>- lewat fyp</p>
+
+    <!-- contoh 6 -->
+    <h2>Apa itu CSS?</h2>
+    <div>
+        CSS (Cascading Style Sheet) adalah bahasa yang digunakan untuk merepsentasikan presentasi dari sebuah dokumen
+        yang ditulis dalam bahasa markup.
+    </div>
+
+</body>
+
+</html>

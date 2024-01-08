@@ -1,0 +1,480 @@
+QuickTip #6  TIMING EVENTS pada JAVASCRIPT
+
+Timing events ini adalah even yg ada pada javascript yg kita gunakan untuk mengatur kapan kita akan menjalankan kode pada program kita, jadi istilahnya dengan ini kita bisa memanipulasi waktu eksekusi pada program kita.
+
+ada 2 fungsi atau event yg bisa kita gunakan yg pertama ada yg disebut dengan setTimeout() dan yg kedua ada yg disebut dengan setInterval(), setTimeout() digunakan ketika kita ingin menjalankan kode kita setelah kita menunggu sejumlah waktu tertentu sedangkan setInterval() itu kita gunakan ketika kita ingin menjalankan sebuah blog program atau kode kita secara berulang-ulang, bisa kita lakukan terus menerus atau sampai waktu tertentu juga.
+
+Jadi 2 event itu penting untuk kita ketahui ketika kita ingin membuat sebuah websaite yg lebih interactif lagi misalkan kalian ingin membuat silde show otomatis yg dimana gambarnya itu berganti dengan interval waktu tertentu atau kalian mau membuat timer misalkan menghitung mundur waktu tertentu dll.
+
+---------------------------------------------------------------------------------------------------------------------------------
+
+LETS CODE!!	
+
+Jadi kedua nya itu sebetulnya merupakan bagian dari object window, harusnya nulis nya begini :
+
+// window.setTimeout()
+// window.setInterval()
+
+Jadi dia merupakan event dari object window, tapi karena window itu global kalian boleh menghapus window nya, seperti alert() dia juga bagain dari object window.
+
+setTimeout() 
+
+setTimeout ini akan menjalankan program kita setelah kita menunggu beberapa waktu tergantu dari waktu yg kalian tentukan di parameter setTimeout itu. Contohnya misal saya punya sebuah function ceritanya fungsi itu hanya melakukan console.log('Hello World!'), jadi itu akan menampilkan hello wolrd kedalam console.
+
+function tampilkanPesan() {
+    console.log('Hello World!');
+}
+---------------------------------
+
+biar tampil kan harus dipanggil dulu fungsinya itu, kalo saya tulis buat panggil fungsi itu pasti langsung muncul tulisan hello world nya, Nah sekarang kita bisa menuliskan pesan nya dengan menunggu dulu beberapa saat itu dengan cara kita memasukan kedalam setTimeout().
+
+dia memiliki 2 parameter yg pertama adalah fungsi yg akan dijalankan, tapi ingat nulis fungsinya jangan langsung dijalan kan gini :
+
+setTimeout(tampilkanPesan());
+---------------------------------
+
+kalo kalian tulis begitu artinya fungsinya akan langsung dijalankan jadi apus aja tutup kurung nya, lalu parameter ke-2 adalah kita akan menunggu berapa detik, yg kalian masukan disitu adalah milisecond jadi 1 per 1000 detik ya, jadi kalo saya tulis 1000 itu artinya nunggu selama 1 detik, gini :
+
+setTimeout(tampilkanPesan, 3000);
+---------------------------------
+
+biar keliatan waktu nya saya ganti 3 detik aja, jadi kalo saya tulis seperti itu, itu artinya saya akan menjalankan fungsi tampilkanPesan setelah nunggu 3detik.
+
+Nah kalian juga bisa mengganti fungsi itu dengan menggunakan anonymous function, jadi kalian ga harus buat fungction terpisah kalian bisa langsung aja memasukan nya di setTimeout nya, seperti ini :
+
+setTimeout(function () {
+    console.log('ok');
+}, 3000);
+---------------------------------
+
+Jadi sama aja tapi bedanya digabungkan dengan setTimeout() nya. Selanjutnya fungsi setTimeout juga bisa kita berhentiin di tengah", Misalnya harusnya user nunggu selama 5detik tapi kita bisa lakukan sesuatu sehingga fungsi nya itu tidak jadi dijalankan.
+
+Jadi syarat nya itu kita harus simpan dulu kedalam variabel, gini :
+
+const tes = setTimeout(function () {
+    console.log('ok');
+}, 5000);
+---------------------------------
+
+Jadi variabel tes itu isi nya setTimeout(), jadi ok nya tampil setelah menunggu 5detik kan. Nah misalnya saya tambahkan sebauh tombol di HTML nya. ( <button id="tombol">Berhenti</button>).
+
+Nah disitu saya bisa panggil dulu tombol nya buat hubungin, jadi ketika tombol nya diklik setTimeout() nya berhenti,caranya pake clearTimeout, gini :
+
+const tes = setTimeout(function () {
+    console.log('ok');
+}, 5000);
+
+const tombol = document.getElementById('tombol');
+tombol.addEventListener('click', function () {
+    clearTimeout(tes);
+    console.log('selesai');
+});
+---------------------------------
+
+Jadi nanti ketika saya pencet tombol nya, ok nya gaakan tampil tapi tampil selesai, tapi lakukan klik tombol sebelum ok nya muncul gitu di pertengahan 5 detik sebelum 5detik gitu dan 'ok' nya tidak akan pernah ditampilkan.
+
+Nah ini berguna ketika misalnya kalian bikin sebuah aplikasi untuk quis atau ujian, dimana si peserta ujiannya ketika ingin mengerjakan soal ada waktunya, misalkan waktu satu soal itu 1menit, kalo sudah lewat dari waktu nya maka soalnya tidak bisa dikerjakan lagi, tapi ketika belum lewat waktunya peserta nya sudah mengerjakan maka arahkan langsung ke soal berikutnya, nah itu bisa dilakukan dengan setTimeout.
+
+Begitu dengan setTimeout kita menjalankan sesuatu apapun setelah menunggu dulu berapa milisecond dan inget ya 5000 itu 5detik.
+
+---------------------------------------------------------------------------------------------------------------------------------
+
+setInterval()
+
+Nah kalo setInterval() ini kita melakukan sesuatu berulang-ulang dengan interval waktu terntentu, kalo tadi kan setTimeout() cuma sekali kan tapi dia nunggu dulu berapa detik terus jalan sekali, kalo ini sesuatu dijalankan lalu nunggu berapa detik lalu dijalankan lagi, nunggu lagi sesuai waktu yg ditetukan terus dijalankan lagi gitu" aja.
+
+setInterval() kita bikin sama kaya tadi parameternya function, parameter ke-2 nya detik nya atau interval waktunya. Gini :
+
+setInterval(function () {
+    console.log('ok');
+}, 2000);
+--------------------------
+
+Maka sekarang tulisan "ok" nya akan ditulis ke console setiap 2 detik sekali gitu, dan itu akan dilakukan terus menerus sampai suatu saat mungkin usernya memberhentikan dengan mengklik tombol Berhenti itu misalnya ya. Atau memang kalian ingin melakukan nya terus menerus ya gpp.
+
+Kita coba hentikan, cara menghentikan nya sama seperti setTimeout(), kalian bikin dulu variabel terus masukan setIntervalnya() ke variabel gitu. :
+
+const tes = setInterval(function () {
+    console.log('ok');
+}, 2000);
+
+const tombol = document.getElementById('tombol');
+tombol.addEventListener('click', function () {
+    clearInterval(tes);
+    console.log('selesai');
+});
+--------------------------
+
+jadi sama aja dengan setTimeout() tapi dia make clearInterval itu untuk ngeberhentiin setInterval(). 
+
+Jadi di console nya 'ok' nya akan di munculkan selama 2detik sekali tetapi ketika kita klik Tombolnya dia akan berhenti tidak memunculkan 'ok' nya lagi dan muncul tulisan 'selesai'. 
+
+Jadi sebetulnya itu aja pengenalan setTimeout() dan setInterval() sebenernya simpel, tapi mungkin akan menjadi kompleks ketika kalian terapkan kepada kasus yg kalian punya atau program yg kalian punya.
+
+Penerapannya bisa macem" dan yg paling sederhana yg udah sering kita lihat adalah pembuatan program untuk menghitung mundur waktu, misalnya kalian bikin aplikasi buat menampilkan diskon dan diskon nya ada waktunya misalnya waktunya tinggal 2 hari lagi gitu inggal 5jam lagi.
+
+---------------------------------------------------------------------------------------------------------------------------------
+
+PEMBUATAN PROGRAM HITUNG MUNDUR
+
+Pertama kita tambahkan id di H1 nya, jadi idenya kita akan melakukan hitung mundur terhadap sebuah waktu, jadi yg pertama yg harus kita tentukan itu kita harus tau dulu kapan waktu tersebut, misalnya sekarang tgl 20 mei 2023 jam 16:43. Nah misalnya saya punya waktu tujuan itu besok jam 4 atau jam 16:00.
+
+Nah itu kita harus tau dulu bagaimana cara mendapatkan waktu itu, kalo misalakn saya buat sebuah varaibel namanya sekarang, kita cari dulu waktu sekarang itu apa caranya kalian panggil dengan ( new Date() ), terus saya console. Gini :
+
+const sekarang = new Date();
+console.log(sekarang);
+
+diBrowsernya :
+Sat May 20 2023 16:46:27 GMT+0700 (Western Indonesia Time)
+----------------------------------------------------
+
+Nah kalo saya kasih titik lalu getTime maka nanti hasil dibrowsernya atau diconsolenya yg hari ini tanggal ini akan berubah menjadi angka, itu adalah angka detik itu sama kaya Time di PHP tapi bedanya javascript itu milisecond kalo PHP detik, kalo browsernya di refresh dia ganti" karena kan detik nambah terus.  :
+
+const sekarang = new Date().getTime();
+console.log(sekarang);
+
+DIBROWSERNYA :
+1684576436994
+----------------------------------------------------
+
+TUGANYA HAFALKAN ATAU PELAJARI TENTANG get get itu kan getTime nah ada banyak macam seperti getHours, getDays, getMonth dll. terus ada juga setTime nih.
+
+Nah kita udah tau detik sekarang, lalu misalnya saya mau tau tanggal tujuan yg akan kita tuju tanggal berapa nih. misalnya besok tgl 21 mei jam 4 saya tinggal tulis gini :
+
+const tanggalTujuan = new Date('May 21, 2023 16:00:00').getTime();
+console.log(tanggalTujuan);
+
+DIBROWSERNYA :
+1684659600000
+----------------------------------------------------
+
+di didalam new date nya kasih string lalu isi format nya seperti itu di akhirnya itu jam menit detik ya. Tambahkan getTime() supaya dapet detik nya ya bukan dapet string nya.
+
+Nah udah dapet waktu saat ini dan waktu tujuan nya yg detik itu, tinggal kita cari selisihnya antara waktu saat ini dan waktu tujuan nya supaya kita tau berapa jam lagi berapa menit lagi gitu. Caranya kita bikin variabel baru namanya Selisih isinya tanggalTujuan dikurangin sekarang. :
+
+const selisih = tanggalTujuan - sekarang;
+console.log(selisih);
+----------------------------------------------------
+
+Sudah nih selisih nya intinya itu ada di selisih, tinggal detik selisih itu kita ubah menjadi format yg kita ingin kan misalnya hari jam menit gitu dan seterusnya. Pertama kita cari hari dulu oh iya itu selisih milidetik bukan detik ya biar jadi detik kita harus kalikan seribu.
+
+Jadi sekarang misalnya kita punya selisih ini untuk dapetin hari nya ya, kalo kita bagi dengan 1000 atau 1detik kita pake 1000 biar milidetik nya jadi detik harus dikali 1000 gitu, lalu 1000 dikali 60detik dikali 60menit dikali 24jam nah itu berarti 1hari kan, gini :
+
+const hari = selisih / (1000 * 60 * 60 * 24);
+console.log(hari);
+
+DIBROWSERNYA :
+0.9267511226851852
+----------------------------------------------------
+
+Jadi kalo selisih dibagi 1hari nanti akan keluar angka nah kan si selisih itu milidetik ya inget. jadi kaya 1hari itu berapa milidetik sih waktunya coba berapa milidetik dalam 1hari, nah hasilnya itu si perkalian 1000 x 60 x 60 x 24 ini hasilnya 86.400.000 itu waktu MILIDETIK dalam satu hari, kan suka ditanya berapa jam dalam 1hari, 24jam kan terus berapa menit dalam 1hari berarti 24 dikali 60 gitu karena 1jam sama dengan 60menit gitukan ya.
+
+Nah karena hasilnya si hari itu 0 koma tapi dia masih diatas 5 komanya bukan misalnya 0.40000 gitu misal nah biar dia jadi angka bukan desimal, biar dia bilangan bulet karena disini 0 koma ( 0,4000 ) bukan 1 koma ( 1,10000 ) gitu misalnya jadi kita pake Math.Round buat membulatkan bilangan desimal dia bisa membulatkan ke bawah kalo angka dibelakangnya 5 atau di bawah 5 dan juga bisa membulatkan ke atas kalo angka di belakang koma nya 5 atau di atas 5 seperti hasil variabel hari itu.
+
+Biar dia menjadi angka 1 jadinya 1 hari bukan 0 koma maka kita pake Math.Round nanti dia membulatkan nya keatas jadi nya angka 1 begitu. Jadi dari hari ini ke besok hari selisih nya satu hari gitu. coba ganti tanggal nya untuk ngetes bener ga sesuai hari nya gitu. Kalo saya ganti dari 20 mei ke 23 mei selisihnya harusnya 3 hari kan. nih :
+
+const tanggalTujuan = new Date('May 23, 2023 19:00:00').getTime();
+const sekarang = new Date().getTime();
+const selisih = tanggalTujuan - sekarang;
+
+const hari = Math.round(selisih / (1000 * 60 * 60 * 24));
+console.log(hari);
+----------------------------------------------------
+
+hari nya udah dapet sekarang kita cari jam nya, ini agak tricki ngitungnya nih, sekarang kalo saya tulis selisih itu dibagi 1000 x 60 x 60, berarti itu sampe besok jarak jam nya 24jam. gini :
+
+const jam = selisih / (1000 * 60 * 60);
+console.log(jam);
+-----------------------------------
+
+Nah kan kita ga butuh 24 nya karena 24 nya sudah kita representasikan pake hari kita cuma butuh sisanya, kalo saya kasih 24 gini :
+
+const jam = selisih / (1000 * 60 * 60 * 24);
+console.log(jam);
+-----------------------------------
+
+Berartikan balik lagi kaya tadi ya, sekarang yg saya butuh adalah sisanya dari hasil selisih dibagi 1hari itu, jadi saya bisa ganti bagi nya jadi modulous, gini :
+
+const jam = selisih % (1000 * 60 * 60 * 24);
+console.log(jam);
+
+DIBROWSERNYA :
+85570768
+-----------------------------------
+
+Nah itu hasilnya itu sisa dari selisih dibagi milidetik 1hari itu sisa baginya segitu nah tinggal sisa bagi nya itu tinggal kita bagi dengan jam jadinya ini :
+
+const jam = selisih % (1000 * 60 * 60 * 24) / (1000 * 60 * 60);
+console.log(jam);
+
+DIBROWSERNYA :
+23.425472222222222
+-----------------------------------
+
+masuk akal kan, kita ambil sisa dari pembagian selisih dibagi 1hari atau 24jam otomatis sisanya itu menit dong kan 24jam kaya misal kalo 23jam 16 menit nah sisa menit nya itu ga kebaca kalo kita pake alat kusus pengecek jam karena yg tampil akan jam otomatis dia mengeluarkan koma misal 23,494949 gitu, sama kaya selisih dibagi 1hari atau 24jam itu hasilnya belum tentu kaya ( 1 : 1 ) sama dengan 1, karena isi "selisih" nya gabisa kita tebak berapa apa dia lebih dari 24jam atau kurang dari 24jam.
+
+Makannya hasil dari variabel hari itu bisa 1 koma atau 0 koma atau hasilnya itu yg pasti bilangan desimal bukan bilangan bulat karena itu tadi bukan kaya ngebagi angka ( 1 : 1 ) yg hasil nya bilangan bulat gitu loh point nya.
+
+Nah bahas lagi kode nya yg jam itu hasil si jam nya udah pasti bilangan desimal tapi hasilnya bisa 1 koma atau 23 koma berapa atau bisa juga 0 koma berapa tergantung waktunya yg kita kasih. nah karena hasilnya koma biar bisa bilangan bulat kita kasih fungsi Math.floor . nih ;
+
+const jam = Math.floor(selisih % (1000 * 60 * 60 * 24) / (1000 * 60 * 60));
+console.log(jam);
+-----------------------------------
+
+udah dapet ya jam nya, Selanjutnya kita cari menit nya tinggal copy kode nya terus ganti kalo jam dibagi sama jam sisa baginya, nah kalo menit kita ga perlu 24 nya jadi bukan hari, jadinya yg diambil selisih dibagi jam kalo tadi kan hari ini dibagi nya jam lalu kita ambil sisa baginya dari selisih dibagi jam, sisa baginya di bagi menit gitu :
+
+const menit = Math.floor(selisih % (1000 * 60 * 60) / (1000 * 60));
+console.log(menit);
+-----------------------------------
+
+Terakhir adalah detik, gampang aja ini sama kaya sebelum nya bedanya dia selisih dibagi menit, sisa baginya di bagi 1000 atau milisecond nya aja gitu :
+
+const detik = Math.floor(selisih % (1000 * 60) / 1000);
+console.log(detik);
+-----------------------------------
+
+Sudah nih kita udah punya hari, jam, menit, detik nya tinggal implementasinya aja biar tampil ke layar ya.
+
+---------------------------------------------------------------------------------------------------------------------------------
+
+Kita sambungkan denan Javascript DOM ya, gini :
+
+const time = document.getElementById('teks');
+
+if (hari == 0) {
+    time.innerHTML = 'Waktu anda tersisa ' + jam + ':' + menit + ':' + detik;
+} else {
+    time.innerHTML = 'Waktu anda tersisa ' + hari + 'hari ' + jam + ':' + menit + ':' + detik;
+}
+------------------------------------------
+
+udah nih sampai sini sebenernya udah selesai tapi kita kan pengennya detiknya berkurang atau detik nya itu berjalan terus tanpa kita melakukan refresh pada browsernya kan. Nah jadi kita butuh setInterval() supaya program ini dijalankan setiap 1detik sekali.
+
+Caranya yg tanggalTujuan itu biarkan saja lalu sisa nya itu kita masukan ke setInterval() nya, kita masukan kedalam variabel nya ya. gini :
+
+const hitungMundur = setInterval(function () {
+    const sekarang = new Date().getTime();
+    const selisih = tanggalTujuan - sekarang;
+
+    const hari = Math.floor(selisih / (1000 * 60 * 60 * 24));
+    const jam = Math.floor(selisih % (1000 * 60 * 60 * 24) / (1000 * 60 * 60));
+    const menit = Math.floor(selisih % (1000 * 60 * 60) / (1000 * 60));
+    const detik = Math.floor(selisih % (1000 * 60) / 1000);
+
+
+    const time = document.getElementById('teks');
+
+    if (hari == 0) {
+        time.innerHTML = 'Waktu anda tersisa ' + jam + ':' + menit + ':' + detik;
+    } else {
+        time.innerHTML = 'Waktu anda tersisa ' + hari + 'hari ' + jam + ':' + menit + ':' + detik;
+    }
+
+}, 1000);
+---------------------------------------------------------
+
+jadi kita kasih intervalnya 1detik jadi function nya dijalankan setiap satu detik sekali begitu. Keliatan nya udah bener tapi ini masih ada kesalahan, waktunya akan berjalan terus meskipun waktu nya udah lewat karena kita ga kasih kondisi berhenti disitu ini bahaya, nantinya kalo udah tinggal 0hari 0jam 0menit lalu 0detik selanjutnya akan berubah jadi mines, makannya kita harus kasih kondisi.
+
+Caranya kalo tanggalTujuan dikurangin sekarang itu udah lebih kecil dari 0 berarti udah pas waktunya, karena ternyata gabisa pas angka 0 ya. Gini :
+
+const time = document.getElementById('teks');
+
+    if (selisih < 0) {
+        clearInterval(hitungMundur);
+        time.innerHTML = 'waktu sudah habis';
+    } else if (hari == 0) {
+        time.innerHTML = 'Waktu anda tersisa ' + jam + ':' + menit + ':' + detik;
+    } else {
+        time.innerHTML = 'Waktu anda tersisa ' + hari + 'hari ' + jam + ':' + menit + ':' + detik;
+    }
+---------------------------------------------------------
+
+
+Jadi begitu lah programnya sudah selesai.
+
+---------------------------------------------------------------------------------------------------------------------------------
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
