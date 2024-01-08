@@ -1,0 +1,364 @@
+JAVASCRIPT LANJUTAN | 1.3 Prototype
+
+Kali ini kita akan liat apa itu prototype dan bagaimana implementasinya didalam javascript, kita buka codingan yg udah kita buat divideo sebelumnya, kita sudah membuat sebuah function declaration ya disitu saya punya function mahasiswa yg didalamnya kita sudah mencoba Object.create().
+
+Tapi kita membuat Object.create() itu karena kita ingin menghubungkan object itu dengan object yg lain yg berisi method" yg dibutuh kan. Kita udah tau dengan menggunakan cara itu kita udah hemat penggunaan memori tapi problem nya adalah kita jadi ngelola 2 buah object padahal yg mau kita fokuskan itu hanya object Mahasiswa saja.
+
+Nah sekarang dengan menggunakan prototype kita bisa bikin codingan nya menjadi lebih efektif lagi, yg saya lakukan adalah mengubah function declaration Mahasiswa itu menjadi Constractor Function jadi nanti kita gapunya let dan return kita cukup punya property nya aja.
+
+Kalo mau ubah constractor function kita bisa hilangkan let dan return nya ya, tapi karena inisialisasi variabel nya kita hilangkan maka kita gapunya lagi akses ke variabel mahasiswa maka itu kita ganti menjadi this, gini :
+
+function Mahasiswa(nama, energi) {
+    this.nama = nama;
+    this.energi = energi;
+}
+-------------------------
+
+dan di belakang layar yg sebetulnya terjadi adalah javascriptnya membuatkan variabel namanya this yg bentuknya object walaupun itu ga usah kalian lakukan, dan return si this jadi sebetulnya dibelakang layar kalo kita tulis gitu ini yg terjadi :
+
+function Mahasiswa(nama, energi) {
+    let this = {};
+    this.nama = nama;
+    this.energi = energi;
+
+    return this;
+}
+-------------------------
+
+kaya seakan" ada variabel namanya this lalu di return juga bedanya ga keliatan sama kita dan ga kita tulis dicodingan nya. Tapi sebenernya tidak hanya this itu membuat object kosong saja sebenernya yg terjadi adalah javascriptnya membuat Object.create() tapi didalam nya itu sebetulnya javascript memanggil object Mahasiswa si nama function nya Mahasiswa.prototype, Object.create() tuh seperti manggil class yg lain ya untuk dijadikan sebagai class parent nya disini tuh class didalam javascript ya bukan CSS.
+
+function Mahasiswa(nama, energi) {
+    let this = Object.create(Mahasiswa.prototype);
+    this.nama = nama;
+    this.energi = energi;
+
+    return this;
+}
+-------------------------
+
+Jadi sebetulnya ada sebuah property yg default sebagai parent oleh javascript nya, jadi itu ada dibelakang layar walaupun kalian gaperlu tulis, cukup gini :
+
+function Mahasiswa(nama, energi) {
+    this.nama = nama;
+    this.energi = energi;
+}
+-------------------------
+
+Jadi secara Default sebetulnya constractor function itu sudah punya parent namanya prototype sehingga dari sini sudah terlihat kita gaperlu bikin object baru atau object lain yg dijadikan sebagai parent, kalo saya tulis gini :
+
+function Mahasiswa(nama, energi) {
+    this.nama = nama;
+    this.energi = energi;
+}
+
+let sandhika = new Mahasiswa('Sandhika', 10);
+--------------------------------------------------
+
+Udah aman nih bisa dipanggil sandhika nya, tapi gimana kita mengelola methodnya kan kalo sebelum nya kita bikin object lain sekarang kita cukup memanfaatkan prototype itu tadi, misalkan kita mau bikin method makan, cukup tulis gini :
+
+Mahasiswa.prototype.makan = function (porsi) {
+    this.energi += porsi;
+    return `Halo ${this.nama}, selamat makan!`;
+}
+--------------------------------------------------
+
+Nah gitu aja, itu bukan object yg kita bikin lagi baru itu udah ada nempel kedalam object yg baru saja kita bikin template nya. Kalo kita tulis sandhika di console muncul tuh object nya disitu keliatan nya hanya ada porperty nama dan energi lalu method makan nya kemana, method makan nya kalo kita klik biar kode nya keliatan semua dia ada didalam _proto_ gitu.
+
+Jadi otomatis dimasukin kedalam prototype nya udah nempel di object mahasiswa nya, sehingga klao kita panggil sandhika.makan(3) seharusnya energi dia bertambah 3 ya. Nah kalo saya mau bikin method yg lain tinggal bikin baru, gini :
+
+function Mahasiswa(nama, energi) {
+    this.nama = nama;
+    this.energi = energi;
+}
+
+Mahasiswa.prototype.makan = function (porsi) {
+    this.energi += porsi;
+    return `Halo ${this.nama}, selamat makan!`;
+}
+
+Mahasiswa.prototype.main = function (jam) {
+    this.energi -= jam;
+    return `Halo ${this.nama}, selamat main!`;
+}
+
+Mahasiswa.prototype.tidur = function (jam) {
+    this.energi += jam * 2;
+    return `Halo ${this.nama}, selamat tidur!`;
+}
+
+
+let sandhika = new Mahasiswa('Sandhika', 10);
+--------------------------------------------------
+
+Sehingga kalo ini saya jalanin di console saya paggil sandhika lagi ada object nya, didalamnya kita punya _proto_  3 fungsi itu main, makan, dan tidur, ini kita membuat prototype untuk sebuha object.
+
+---------------------------------------------------------------------------------------------------------------------------------
+
+CLASS ( Object Oriented programming ) atau OOP 
+
+Ini konsep Prototype di javascript konsep nya mirip CLASS dalam programming misalnya bahasa PHP gitu atau javascript juga ada class, konsep ini mirip denga konsep class yg memiliki inheritens atau pewarisan karena itu didalam javascript disebetnya prototype inheriten jadi pewarisan nya menggunakan protoype.
+
+Nah kenapa dijavascript itu gapake CLASS kenapa pake nya prototype agak aneh apalagi kalian pindah dari bahasa JAVA, ya karena memang javascript ini bahasa yg dibuat nya dalam seminggu, jadi awalnya JAVASCRIPT itu gapunya konsep class, saat ini memang sudah ada walaupun belum lama ( 2019) konsep class itu dimasukan ke pemrogramman javascript.
+
+jadi bahasa pemrogramman nya ini tumbuh seiring berjalannya waktu diperbaiki sampai saat ini, jadi kalo misalkan kita mau mengubah yg udah kita buat diatas tadi yg fungsi nya pake prototype itu kedalam CLASS bisa juga.
+
+FUNGSI NYA SAMA TAPI VERSI CLASS
+
+Caranya kalian tulis class lalu nama class nya apa, yg didalam nya kalo kalian mau bikin property itu kita bikin constructor, constructor yg menerima parameternya nama dan energi kalo di php namanya konstrak, yg isi nya this.nama di isi dengan nama, this.energi di isi dengan energi.
+
+class Mahasiswa {
+    constructor(nama, energi) {
+        this.nama = nama;
+        this.energi = energi;
+    }
+}
+-----------------------------
+
+Lalu kalo mau bikin method nya kita langsung tulis di dalam class nya, misal namanya makan kita ga perlu pak function lagi, gini :
+
+class Mahasiswa {
+    constructor(nama, energi) {
+        this.nama = nama;
+        this.energi = energi;
+    }
+
+    makan(porsi) {
+        this.energi += porsi;
+        return `Halo ${this.nama}, selamat makan!`;
+    }
+
+    main(jam) {
+        this.energi -= jam;
+        return `Halo ${this.nama}, selamat main!`;
+    }
+
+    tidur(jam) {
+        this.energi += jam * 2;
+        return `Halo ${this.nama}, selamat tidur!`;
+    }
+}
+
+----------------------------------------------------------
+
+Jadi sekarang ini kita bentuk dalam versi class nya, fungsi dan hasilnya sama saja. kalo misalkan mau kita jalanin bikin saja variabel nya, gini aja :
+
+let sandhika = new Mahasiswa('Sandhika', 10);
+--------------------------
+
+Sama aja kalo kalian coba panggil nama sadhika di console nya bahkan hasilnya juga ada  (_proto_) yg isi nya fungsi kita main,tidur, dan makan. Nah itu dengan menggunakan CLASS, mungkin kalo pake class kalo diliat itu lebih masuk akal dibanding menggunakan prototype, keliatan lebih rapih mudah dibaca dan kalo kalian sebelum nya belajar bahasa yg pake OOP itu pasti lebih mudah dipahami.
+
+Kenapa kita ga belajar class aja ya langsung knp harus prototype dulu, ya karena sebetulnya versi class itu dibelakang layar nya  itu menjalankan prototype yg tadi, jadi class itu hanya untuk membungkus saja supaya lebih masuk akal, jadi sebetulnya dibelakang layar yg dijalanin juga menggunakan protoype itu karena udah dari javascript nya langsung si prototype itu. makannya menggunakan class ttp ada hasil ( _proto_ ) nya juga.
+
+Jadi kalian harus paham dulu dibelakang layar seperti apa konsep nya apa yg terjadi sebenernya, kalo mau pindah pake class juga ga masalah asal tau aja dibelakang layar prototype yg terjadi.
+
+---------------------------------------------------------------------------------------------------------------------------------
+
+TIPE DATA
+
+Nah dengan memahami prototype kalian juga bisa paham, kalo misalnya kalian menggunakan tipe data apapun pada javascript, karena javascript kan sebetulnya apapun didalamnya sebenernya object ya, karena dia object pasti dia punya protoype tadi.
+
+Sama hal nya ketika kalian punya sebuah array, gini :
+
+let angka = [];
+------------------
+
+Nah itu yg kita tulis di kode editor kita, tapi sebetulnya yg terjadi dibelakang layar itu gini :
+
+let angka = new Array();
+-----------------------------
+
+itu yg terjadi di belakang layar, sehingga kalo kita pake new Array() berarti udah tau ni itu object Constractor Function yg namanya Array, Array itu sebuha object yg pasti didalam nya sudah membawa prototype.
+
+Jadi kalian anggap aja didalam javascript nya ada ini, object Constractor function jadi kita ada function yg namanya array yg didalam nya itu beroperasi sebagai object, jadi array tu ada prototype begitu sama dibelakang layarnya, tapi array ini udah dibuatin sama javascript sendiri biar kita ga ribet bikin object yg isi nya fungsi-fungsi buat kita, seperti array kan ada fungsi nya misal untuk mengurutkan angka yg acak itu sebenernya didalam nya ada object yg kita bikin fungsi buat menjalankan method seperti itu, mungkin itu gambarannya.
+
+---------------------------------------------------------------------------------------------------------------------------------
+
+
+jadi kalo ada ( let angka = new Array(); ) pasti dibelakang layar ada ini :
+
+function Array() {
+
+}
+--------------------
+
+dan karena dia pake constractor function pasti didalam nya ada ini, seperti yg udah kita pelajari di atas ya, :
+
+function Array() {
+   let this = Object.create(Array.prototype);
+}
+----------------------------------------
+
+pasti dia terhubung atau nyambung ke parent class nya yaitu prototype, makannya kalo kalian pake array, misalkan ada angka nya gini :
+
+let angka = [1, 2, 3];
+--------------------
+
+ini kan kita cuma bikin variabel angka yg isi nya array, nah tapi tiba" kita bisa menggunakan reverse untuk membalikan isi array nya, gini :
+
+let angka = [1, 2, 3];
+console.log(angka.reverse());
+--------------------
+
+kalo kita jalanin isi array nya berubah jadi [3, 2 1] kan pake reverse, nah method" array itu dari mana sih seperti reverse(), sort(), Push() dll. Nah dia merupakan prototype dari object Array, makannya kalo saya console log angka saja, gini :
+
+let angka = [1, 2, 3];
+console.log(angka);
+--------------------
+
+kalo liat di console didalam nya itu pasti dia punya (_proto_), prototype nya isi nya ad banyak dan ternyata isi nya method" array itu seperti join(), slice() dll. dari mana itu semua itu dari object array nya, Jadi array itu mewarisi semua method dari object array gitu.
+
+Jadi kalo kalian mau ngecek kalian tulis aja di console langsung, misal ( Array.prototype ) nanti muncul ada apa aja, atau object juga bisa bahkan kita bisa cek prototype semua tipe data misal nya Number ( Number.prototype ).
+
+---------------------------------------------------------------------------------------------------------------------------------
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

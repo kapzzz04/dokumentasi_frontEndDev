@@ -1,0 +1,233 @@
+JAVASCRIPT LANJUTAN | 1.2 Object.create()
+
+Disini kita masih membahas mengenai prototype kita masuk kedalam Object.create() ini merupakan salah satu cara untuk membuat object, tapi sebelum kita masuk ke situ kita coba riview dulu apa yg udah kita buat di video sebelumnya ya.
+
+Sekarang kita liat dulu menggunakan cara" tersebut apa perbedaanya cara" tersebut sebaiknya kita pake cara yg mana sebelum masuk ke Object.create() ini.
+
+Kita buka lagi codingan divideo sebelumnya yg menggunakan object literal, dengan menggunakan object literal itu adalah pembuatan yg paling simpel, kalo kalian bikin object nya cuma satu terus ga terlalu besar object nya kalian bisa gunakan literal ini, tapi ketika object nya banyak, itu saya coba nya 2 gimana kalo 10objet atau sampe 100object itu akan memakan banyak risoeze ya karena kalian melakukan hal yg sama berulang-ulang walaupun dengan nilai yg berbeda, jadi itu kelemahan atau problem object literal tidak efektif untuk object yang banyak.
+
+---------------------------------------------------------------------------------------------------------------------------------
+
+Nah sekarang coba kita liat dengan menggunakan Function declaration, sepertinya denan function declaration kita bisa mengeleminasi problem yg tadi karena kalian itu cuma bikin template nya sekali lalu manggil nya cukup satu baris aja, jadi template nya cuma dibikin sekali tinggal nilai nya aja yg di isi berulang-ulang.
+
+
+Tapi dengan menggunakan cara itu pun kalo kita melakukan instansiasi pada object nya itu ternyata dibelakang layar 2 method ini tetap dibuat ulang ketika function nya dipanggil, :
+
+mahasiswa.makan = function (porsi) {
+        this.energi += porsi;
+        console.log(`Halo ${this.nama}, selamat makan!`);
+    }
+
+    mahasiswa.main = function (jam) {
+        this.energi -= jam;
+        console.log(`Halo ${this.nama}, selamat main!`);
+    }
+----------------------------------
+
+Mau dipake atau ngga ttp dibuat dan disimpen kedalam memori, nah jadi ternyata sama aja ya dengan menggunakan object literal si method nya ttp disimpan duplikatnya pada masing" object, jadi dengan menggunakan function declaration pun ttp melakukan duplikasi, ada solusi nya kalo mau lebih efektif.
+
+Nah caranya adalah dengan membuat object terpisah, object nya berisi 2 method itu nah nanti object tadi kita acu atau kita panggil aja kedalam function, kita buat variabel yg isi nya object lalu object itu di isi dengan 2 method tadi :
+
+const methodMahasiswa = {
+    makan: function (porsi) {
+        this.energi += porsi;
+        console.log(`Halo ${this.nama}, selamat makan!`);
+    },
+
+    main: function (jam) {
+        this.energi -= jam;
+        console.log(`Halo ${this.nama}, selamat main!`);
+    }
+}
+----------------------------------
+
+Jadi saya bikin 1 buah object yg isi nya 2 buah method, sekarang cara menghubungkan dengan object mahasiswa kita, nah gampang aja kita tinggal buat property baru yg isinya methodMahasiswa itu menyesuaikan, gini :
+
+function Mahasiswa(nama, energi) {
+    let mahasiswa = {};
+    mahasiswa.nama = nama;
+    mahasiswa.energi = energi;
+    mahasiswa.makan = methodMahasiswa.makan;
+    mahasiswa.main = methodMahasiswa.main;
+ 
+    return mahasiswa;
+}
+
+let sandhika = Mahasiswa('Sandhika', 10);
+let doddy = Mahasiswa('Doddy', 20);
+----------------------------------
+
+Jadi kalo property nama dan energi ngambil dari parameter function nya sedangkan makan dan main ngambil dari object nya itu.
+
+Nah sekarang bedanya gini tiap saya menjalankan program ini object methodMahasiswa akan disimpan 1kali didalam memori lalu ketika saya memanggil function Mahasiswa dan mengisi property nya dengan method yg udah kita buat si methodMahasiswa maka dia hanya mengacu ke object yg sudah ada di memori tadi, tidak dibuat ulang.
+
+Kalo sebelumnya setipa instansiasi dibuat ulang method nya jadi ini lebih efektif lagi walaupun masih ada problem, problem nya misal kalo saya bikin sebuah method baru di object methodMahasiswa misal kita buat method tidur kan mahasiswa butuh tidur ya, gini :
+
+const methodMahasiswa = {
+    makan: function (porsi) {
+        this.energi += porsi;
+        console.log(`Halo ${this.nama}, selamat makan!`);
+    },
+
+    main: function (jam) {
+        this.energi -= jam;
+        console.log(`Halo ${this.nama}, selamat main!`);
+    },
+
+    tidur: function (jam) {
+        this.energi += jam * 2;
+        console.log(`Halo ${this.nama}, selamat tidur!`);
+    }
+}
+----------------------------------
+
+Ceritanya ada method baru didalam object nya si tidur itu, nah begitu ada method baru mau gamau kalian harus daftarin di function nya itu, gini :
+
+function Mahasiswa(nama, energi) {
+    let mahasiswa = {};
+    mahasiswa.nama = nama;
+    mahasiswa.energi = energi;
+    mahasiswa.makan = methodMahasiswa.makan;
+    mahasiswa.main = methodMahasiswa.main;
+    mahasiswa.tidur = methodMahasiswa.tidur;
+
+    return mahasiswa;
+}
+----------------------------------
+
+Nah artinya kalian ngelola 2 object sekarang, object yg dibikin pake function declaration sama object literal yg berisi function" yg terhubung dengan object Mahasiswa itu, secara manejemen memori efektif tapi kalian harus inget gitu, ada method baru daftarin ke object Mahasiswa nya terus ada method yg diapus kalian juga harus apus di object Mahasiswa nay supaya ttp nyambung.
+
+---------------------------------------------------------------------------------------------------------------------------------
+
+Nah alangkah lebih baik nya kalo ada cara otomatis nya, yg otomatis ngeapus kalo method nya ada yg diapus jadi 2 object itu berhubungan gitu. Jadi kalian gaperlu pangiil obejct methodMahasiswa nya itu, bisa diapus aja ya, gini :
+
+function Mahasiswa(nama, energi) {
+    let mahasiswa = {};
+    mahasiswa.nama = nama;
+    mahasiswa.energi = energi;
+
+    return mahasiswa;
+}
+-----------------------------
+
+Nah sekarang gimana function declaration tau bahwa 3 method yg ada di object methodMahasiswa itu bersangkutan sama function declaration, cara nya menggunakan object.create() tadi, jadi sekarang gini waktu tadi kita bikin variabel mahasiswa yg isi nya object kosong, itu kita ganti jadi Object.create() jadi sama aja object.create() itu membuat object sama seperti kurung kurawal {}, bedanya kita bisa nyimpen parameter didalam nya, parameternya itu mengacu ke parent object nya jadi kalian bisa ngasih tau bikin object baru sambil juga ikut membawa property dan method dari object lain Dalam hal ini object nya adalah methodMahasiswa. gini :
+
+function Mahasiswa(nama, energi) {
+    let mahasiswa = Object.create(methodMahasiswa);
+    mahasiswa.nama = nama;
+    mahasiswa.energi = energi;
+
+    return mahasiswa;
+}
+-----------------------------
+
+Jadi mahasiswa dibikin sambil juga membawa method itu, kalo misalkan dalam object oriented kalian mengenal istilah pewarisan ini mirip lah, jadi sekarang saya tidak perlu lagi mendefinisikan method"  makan, main, dan tidur karena udah ada di Object.create().
+
+Kalo kita coba tulis sandhika di console hasil nya muncul dan kalo kita coba tulis sandhika.tidur(5) itu artinya energinya nambah 10 karena 5 dikali 2, berarti energi nya sekarang 20. Jadi dengan menggunakan object.create() ini kita bisa langsung ngasih tau parent object nya, object mana yg terhubung dengan object Mahasiswa.
+
+---------------------------------------------------------------------------------------------------------------------------------
+
+Kembali lagi program nya keliatannya udah oke manejemen memori nya udah terus kita gaperlu ngeapus atau nambahin method nya secara manual lagi karena udah terhubung ya. Tapi ttp aja kalian itu butuh nya Mahasiswa kalian itu butuh nay cuma si Mahasiswa aja ga butuh object methodMahasiswa object baru yg kalian bikin sendiri, meski pun kita hubungkan di function nya ttp aja kalian kerja nya 2kali gitu, Bikin object satu untuk mendukung object yg intinya.
+
+Nah sebetulnya ada caranya supaya kalian gaperlu bikin object baru untuk nampung function atau method" itu, yaitu dengan menggunaka prototype dan itu akan kita bahas diselanjutnya.............
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

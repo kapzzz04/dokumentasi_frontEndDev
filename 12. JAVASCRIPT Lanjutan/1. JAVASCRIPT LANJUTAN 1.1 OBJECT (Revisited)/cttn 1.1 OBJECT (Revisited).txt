@@ -1,0 +1,286 @@
+JAVASCRIPT LANJUTAN | 1.1 OBJECT (Revisited)
+
+Video ini akan melanjutkan materi OBJECT di video terakhir javascript dasar, di javascript lanjutan ini kita akan belajar mengenai konsep" javascript yg lebih baru karena javascript yg kita pelajari itu masih javascript versi lama.
+
+1. Prototype
+
+Di video pertama ini kita akan mulai ngebahas mengenai prototype konsep dari object yg betul" harus kalian pahami, sekarang kita mau mengingat kembali konsep javascript yg sudah pernah kita pelajari.
+
+MEMBUAT OBJECT PADA JAVASCRIPT	
+Kalo kalian inget didalam javascript kita bisa membuat object dengan berbagai cara ada 4 cara :
+
+- Object Literal
+- Function Declaration
+- Constructor Function (keyword new)
+- Object.create()
+
+Di topik mengenai prototype ini kita akan bahas mengenai 4 cara membuat object itu, kita bagi menjadi 3 video ya.
+
+---------------------------------------------------------------------------------------------------------------------------------
+
+LETS CODE!!
+
+1. Object Literal
+
+Misalnya kita buat sebuah object mahasiswa, kita gunakan let dan const kita tidak akan lagi pake var, pertama kita buat let mahasiswa lalu untuk object literal kita cukup gunakan kurung kurawal seperti ini {}, artinya kita akan membuat object nya langsung didalam situ.
+
+Inget kan object itu isi nya ada property ada method, misalnya untuk property mahasiswa itu ada nama yg isinya string nama kamu, lalu mislnya saya mau bikin game sederhana misalnya saya punya mahasiswa namanya siapa gitu lalu mahasiswa tersebut punya variabel atau property energi, gini  :
+
+let mahasiswa = {
+    nama: 'Keyla',
+    energi: 10
+}
+------------------------
+
+Disitu mahasiswa punya 2 property atau variabel yg dipisahkan dengan koma ( , ) untuk variabel berikutnya. Nah kalo kita tulis mahasiswa di console nanti muncul hasilnya si object yg berisi 2 property.
+
+Dan kita juga bisa membuat method, method itu adalah function yg ada didalam object, misalnya gini kita tambahkan lagi koma untuk variabel berikutnya atau property berikutnya, misalnya namanya makan nah kalo property itu variabel yg isinya nilai dan kalo method itu variabel yg isi nya function.
+
+Nah nanti misalkan function itu menerima parameter porsi misalkan dia makan berapa porsi gitu, yg nanti kalo kita jalankan mahasiswa makan berapa porsi maka akan menambah energi, Jadi untuk menambah energi kita tinggal acu aja property energi nya. Gini :
+
+let mahasiswa = {
+    nama: 'Keyla',
+    energi: 10,
+    makan: function (porsi) {
+        this.energi = this.energi + porsi;
+    }
+}
+------------------------
+
+Setelah itu kita bisa return atau console.log aja misalnya gini :
+
+let mahasiswa = {
+    nama: 'Keyla',
+    energi: 10,
+    makan: function (porsi) {
+        this.energi = this.energi + porsi;
+        console.log(`Halo ${this.nama}, selamat makan!`);
+    }
+}
+------------------------
+
+Di javascript string itu bisa pake kutip 1 ( ' ' ) atau kutip 2 ( " " ) atau ada yg baru kalian bisa pake baktik, kalo dikyboard kutip yg disebelah kiri angka 1, itu disebut dengan string literal nah dengan menggunakan stiring literal kalian jadi bisa nulis seperti contoh di atas kalian bisa langsung ambil nama variabel nya atau property nya, dengan cara menggunakan dolar $ lalu kurung kurawal nama variabel nya atau anam property nya, jadi bisa langsung ga perlu lagi stirng ditambah variabel lalu tambah string gitu lagi.
+
+Nah kalo saya tulis gini di console nya ( mahasiswa.makan(3) ) artinya itu menjalankan function nya atau method nya jadi kalo tulis gitu harusnya energi nya nambah 3. Nah sekarang kalo kalian mau bikin instansiasi object berikutnya atau mau bikin mahasiswa yg ke2, kalo pake object literal mau gamau kalian harus bikin satu lagi object nya.
+
+Tapi problem nya nama object nya gaboleh sama kan harus beda, jadi ada mahasiswa1 ada mahasiswa2, gini :
+
+let mahasiswa1 = {
+    nama: 'Keyla',
+    energi: 10,
+    makan: function (porsi) {
+        this.energi = this.energi + porsi;
+        console.log(`Halo ${this.nama}, selamat makan!`);
+    }
+}
+
+let mahasiswa2 = {
+    nama: 'Doddy',
+    energi: 20,
+    makan: function (porsi) {
+        this.energi = this.energi + porsi;
+        console.log(`Halo ${this.nama}, selamat makan!`);
+    }
+}
+---------------------------------------
+
+Jadi sekarang ada 2 object atau ada 2 mahasiswa gitu.
+
+---------------------------------------------------------------------------------------------------------------------------------
+
+2. Function Declaration
+
+Keuntungan nya menggunakan Function declaration kalian gaperlu membuat duplikat dari obect nya, kalian cukup bikin template nya 1 nanti kalo mau bikin object nya 2 atau 3 tinggal manggil nya atau isitilahnya instansiasinya aja yg berulang kali.
+
+Cara bikin nya kalian pake function lah ya jelas, kasih nama misal Mahasiswa m nya gede buat nandain dia object gitu, nah sekarang mahasiswa ini akan menerima 2 argument atau parameter yg namanya 'nama' dan 'energi'.
+
+Jadi kita bikin template nya dulu ga langsung object nya, lalu didalam functionnya kita deklarasikan dulu bahwa kita mau buat sebuah object, kita pake let kasih nama mahasiswa lalu isi nya object kosong jadi didalam function nya ada variabel mahasiswa yg bentuk nya object kaya tadi di atas tapi object nya kosong ga langsung kita isi.
+
+Nah baru kita isi satu", begini :
+
+function Mahasiswa(nama, energi) {
+    let mahasiswa = {};
+    mahasiswa.nama = nama;
+    mahasiswa.energi = energi;
+
+    mahasiswa.makan = function (porsi) {
+        this.energi += porsi;
+        console.log(`Halo ${this.nama}, selamat makan!`);
+    }
+}
+---------------------------------------
+
+Jadi itu bikin property nya dulu lalu di isi dengan yg dikirim oleh parameter si nama dan energi, kalo kalian udah biasa menggunakan object oriented ini pasti kalian liat mirip class, itu untuk property nya terus kalo mau bikin method ya begitu sama aja isinya kaya object literal.
+
+Nah kalo saya jalanin di console saya tulis Mahasiswa nanti yg tampil function nya bukan object nya, kalo kita mau bikin object nya itu kan kita baru bikin blue print nya atau template nya kita harus instansiasi, bedanya dengan object literal gitu. 
+
+Jadi cara nya kalian misalnya punya variabel namanya sandhika misal, yg di isi dengan panggil function nya isi parameter atau argument nya. Gini :
+
+function Mahasiswa(nama, energi) {
+    let mahasiswa = {};
+    mahasiswa.nama = nama;
+    mahasiswa.energi = energi;
+
+    mahasiswa.makan = function (porsi) {
+        this.energi += porsi;
+        console.log(`Halo ${this.nama}, selamat makan!`);
+    }
+}
+
+let sandhika = Mahasiswa('Sandhika', 10);
+---------------------------------------
+
+gitu kalo pake function declaration, coba kita panggil variabel sadhika di console ternyata hasilnya undefined, itu karena kalo pake function declaration ada yg kelewat kita harus return object nya gitu. nih : 
+
+function Mahasiswa(nama, energi) {
+    let mahasiswa = {};
+    mahasiswa.nama = nama;
+    mahasiswa.energi = energi;
+
+    mahasiswa.makan = function (porsi) {
+        this.energi += porsi;
+        console.log(`Halo ${this.nama}, selamat makan!`);
+    }
+    return mahasiswa;
+}
+
+let sandhika = Mahasiswa('Sandhika', 10);
+---------------------------------------
+
+Nah baru kalo kita panggil variabel sandhika nya muncul isi object mahasiswa nya. Jadi caranay gini kalo kalian tulis ( sandhika.makan(5) ) di console terus saya panggil variabel sandhika nya si property energi nya udah nambah jadi 15 gitu.
+
+Nah sekarang gimana kalo mau bikin mahasiwa berikutnya, gampang aja kita buat variabel namanya doddy misal lalu kita panggil aja function nya gini :
+
+let doddy = Mahasiswa('Doddy', 20);
+---------------------------------------
+
+tinggal kita instansiasi dan gaperlu bikin object baru tinggal pake template nya gitu. Nah ini misalkan kita tambahkan satu method lagi di function nya, misalnya main kalo main mengurangi energi nya kasih parameternya jam, Gini :
+
+function Mahasiswa(nama, energi) {
+    let mahasiswa = {};
+    mahasiswa.nama = nama;
+    mahasiswa.energi = energi;
+
+    mahasiswa.makan = function (porsi) {
+        this.energi += porsi;
+        console.log(`Halo ${this.nama}, selamat makan!`);
+    }
+
+    mahasiswa.main = function (jam) {
+        this.energi -= jam;
+        console.log(`Halo ${this.nama}, selamat main!`);
+    }
+
+    return mahasiswa;
+}
+---------------------------------------
+
+coba sendiri ya implementasinya mudah kok. tinggal tulis misal doddy.main(5) artinya doddy itu main 5jam harusnya energi dia berkurang 5 begitu.
+
+---------------------------------------------------------------------------------------------------------------------------------
+
+3. Constructor Function (keyword new)
+
+Constractor function ini sebetulnya mirip banget dengan function declaration malah menggunakan constractor ini adalah yg paling sering digunakan, sebenernya sama bahkan kita copy saja template si function declaration, sekarang bedanya dengan dia itu kita tidak perlu menuliskan declarasi variabel ( let mahasiswa = {} ) dan return nya, itu sudah secara otomatis dilakukan javascriptnya.
+
+Jadi variabel nya kalian apus return nya juga gini :
+
+function Mahasiswa(nama, energi) {
+    mahasiswa.nama = nama;
+    mahasiswa.energi = energi;
+
+    mahasiswa.makan = function (porsi) {
+        this.energi += porsi;
+        console.log(`Halo ${this.nama}, selamat makan!`);
+    }
+
+    mahasiswa.main = function (jam) {
+        this.energi -= jam;
+        console.log(`Halo ${this.nama}, selamat main!`);
+    }
+}
+---------------------------------------
+
+dengan menghapus itu javscriptnya menganggap kita mau bikin constractor function, tapi sekarang kan udah gatau apa itu mahasiswa, nah mahasiswa.nama dan lainnya itu bisa kalian ganti dengan ( this ) udah gaada lagi keyword mahasiswa nya. nih :
+
+function Mahasiswa(nama, energi) {
+    this.nama = nama;
+    this.energi = energi;
+
+    this.makan = function (porsi) {
+        this.energi += porsi;
+        console.log(`Halo ${this.nama}, selamat makan!`);
+    }
+
+    this.main = function (jam) {
+        this.energi -= jam;
+        console.log(`Halo ${this.nama}, selamat main!`);
+    }
+}
+---------------------------------------
+
+
+Nah sekarang gimana manggilnya kalo gitu. misal saya punya variabel namanya sandhika, kalo tadikan langsung aja manggil function nya terus isi argument nya ya, kalo sekarang sama aja tapi bedanya ini wajib di tambahin 'new' di depan nya. gini :
+
+let sandhika = new Mahasiswa('Sandhika', 10);
+---------------------------------------
+
+Wajib pake 'new' karena kalo gapake new nyangka nya kalian mau instansiasi function declaration, kalo mau instasiasi function declaration ada ga lalu dia akan mencari declarasi variabel nya juga karena gaada ya hasilnya undefined makannya wajib pake 'new'.
+
+Jadi itu bedanya dengan menggunakan Constractor function dengan Function declaration, yg akan kita gunakan untuk kedepannya itu Constractor function, karena menggunakan Constractor function akan memudahkan kalo kita mau membuat PROTOYPE dan juga akan lebih jelas ketika kita mau menggunakan ( Object.create ).
+
+---------------------------------------------------------------------------------------------------------------------------------
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
